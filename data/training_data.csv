@@ -1,0 +1,3 @@
+question,context,answer
+"What is Elasticsearch?", "Elasticsearch is a distributed, RESTful search and analytics engine.", "Elasticsearch is a distributed search and analytics engine."
+"How does BM25 work?", "BM25 is a ranking function used by search engines to estimate the relevance of documents.", "BM25 ranks documents based on their relevance to the search query."

@@ -1,0 +1,1448 @@
+<improved_flowchart>
+
+**1. Overall Program Flowchart**
+
+The improved flowchart enhances efficiency, clarity, and optimization by restructuring steps, consolidating decision points, and introducing parallel processing where applicable. Here's the refined high-level flow:
+
+```
+[Start]
+   |
+   v
+[Load Data]
+   |
+   v
+[Initialize Systems]
+   |-- [Initialize Contextual Vector DB]
+   |-- [Initialize Elasticsearch BM25]
+   |
+   v
+[Load and Validate Queries]
+   |
+   v
+[Process Queries in Batches]
+   |
+   v
+[Retrieve Documents]
+   |-- [Hybrid Retrieval (FAISS + BM25)]
+   |-- [Re-Ranking (Sentence Transformers / Cohere)]
+   |
+   v
+[Generate Answers]
+   |
+   v
+[Evaluate Answers]
+   |
+   v
+[Save and Log Results]
+   |
+   v
+[End]
+```
+
+**2. File Breakdown**
+
+**2.1. `metrics.py`**
+
+- **Purpose:**  
+  Provides classes and functions to assess various quality metrics of generated answers, including factual correctness, relevance, coherence, conciseness, and fluency. It also defines a comprehensive metric to evaluate answers across these dimensions.
+
+- **Functions and Classes:**
+  - `Assess` (Class)
+  - `AssessRelevance` (Class)
+  - `AssessCoherence` (Class)
+  - `AssessConciseness` (Class)
+  - `AssessFluency` (Class)
+  - `ComprehensiveAssessment` (Class)
+  - `comprehensive_metric` (Function)
+  - `is_answer_fully_correct` (Function)
+  - `factuality_metric` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[metrics.py]
+   |
+   |-- [Assess Class]
+   |-- [AssessRelevance Class]
+   |-- [AssessCoherence Class]
+   |-- [AssessConciseness Class]
+   |-- [AssessFluency Class]
+   |-- [ComprehensiveAssessment Class]
+   |-- [comprehensive_metric Function]
+   |-- [is_answer_fully_correct Function]
+   |-- [factuality_metric Function]
+```
+
+---
+
+**2.2. `reranker.py`**
+
+- **Purpose:**  
+  Implements a re-ranking mechanism using Sentence Transformers to enhance the relevance of retrieved documents based on semantic similarity to the query.
+
+- **Functions and Classes:**
+  - `SentenceTransformerReRanker` (Class)
+  - `rerank_documents_sentence_transformer` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[reranker.py]
+   |
+   |-- [SentenceTransformerReRanker Class]
+   |-- [rerank_documents_sentence_transformer Function]
+```
+
+---
+
+**2.3. `elasticsearch_bm25.py`**
+
+- **Purpose:**  
+  Manages interactions with Elasticsearch using the BM25 algorithm for indexing and searching documents. It handles the creation of indices, bulk indexing of documents, and executing search queries.
+
+- **Functions and Classes:**
+  - `ElasticsearchBM25` (Class)
+
+**File-Level Sub-Flowchart:**
+
+```
+[elasticsearch_bm25.py]
+   |
+   |-- [ElasticsearchBM25 Class]
+```
+
+---
+
+**2.4. `query_generator.py`**
+
+- **Purpose:**  
+  Generates refined search queries based on the original question and accumulated context to facilitate multi-hop retrieval processes.
+
+- **Functions and Classes:**
+  - `QueryGeneratorSignature` (Class)
+
+**File-Level Sub-Flowchart:**
+
+```
+[query_generator.py]
+   |
+   |-- [QueryGeneratorSignature Class]
+```
+
+---
+
+**2.5. `evaluation.py`**
+
+- **Purpose:**  
+  Contains functions to evaluate the retrieval pipeline by comparing retrieved documents against golden (ground truth) chunks. It calculates metrics such as Pass@k and average scores.
+
+- **Functions and Classes:**
+  - `evaluate_pipeline` (Function)
+  - `evaluate_complete_pipeline` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[evaluation.py]
+   |
+   |-- [evaluate_pipeline Function]
+   |-- [evaluate_complete_pipeline Function]
+```
+
+---
+
+**2.6. `data_loader.py`**
+
+- **Purpose:**  
+  Provides utility functions to load JSON and JSONL files containing codebase chunks and queries for processing.
+
+- **Functions and Classes:**
+  - `load_json` (Function)
+  - `load_codebase_chunks` (Function)
+  - `load_queries` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[data_loader.py]
+   |
+   |-- [load_json Function]
+   |-- [load_codebase_chunks Function]
+   |-- [load_queries Function]
+```
+
+---
+
+**2.7. `__init__.py`**
+
+- **Purpose:**  
+  Serves as the initializer for the `src` package. It is currently empty and used to mark the directory as a Python package.
+
+**File-Level Sub-Flowchart:**
+
+```
+[__init__.py]
+   |
+   |-- [Package Initializer]
+```
+
+---
+
+**2.8. `reranking.py`**
+
+- **Purpose:**  
+  Implements the retrieval process with re-ranking using Cohere's reranking API. It performs initial retrieval, communicates with Cohere for re-ranking, and returns the final ranked documents.
+
+- **Functions and Classes:**
+  - `retrieve_with_reranking` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[reranking.py]
+   |
+   |-- [retrieve_with_reranking Function]
+```
+
+---
+
+**2.9. `answer_generator.py`**
+
+- **Purpose:**  
+  Generates answers to user queries by consolidating retrieved chunks and utilizing DSPy with language models. It also assesses the factual correctness of generated answers.
+
+- **Functions and Classes:**
+  - `QuestionAnswerSignature` (Class)
+  - `generate_answer_dspy` (Function)
+  - `is_answer_factually_correct` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[answer_generator.py]
+   |
+   |-- [QuestionAnswerSignature Class]
+   |-- [generate_answer_dspy Function]
+   |-- [is_answer_factually_correct Function]
+```
+
+---
+
+**2.10. `retrieval.py`**
+
+- **Purpose:**  
+  Handles the retrieval of relevant documents using a hybrid approach that combines semantic search via FAISS and BM25 scores from Elasticsearch. It employs Reciprocal Rank Fusion and integrates re-ranking mechanisms.
+
+- **Functions and Classes:**
+  - `retrieve_hybrid` (Function)
+  - `multi_stage_retrieval` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[retrieval.py]
+   |
+   |-- [retrieve_hybrid Function]
+   |-- [multi_stage_retrieval Function]
+```
+
+---
+
+**2.11. `query_processor.py`**
+
+- **Purpose:**  
+  Processes and validates user queries, retrieves relevant documents, generates answers, and saves the results. It ensures that queries are well-formed and manages the overall query handling workflow.
+
+- **Functions and Classes:**
+  - `validate_queries` (Function)
+  - `retrieve_documents` (Function)
+  - `process_queries` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[query_processor.py]
+   |
+   |-- [validate_queries Function]
+   |-- [retrieve_documents Function]
+   |-- [process_queries Function]
+```
+
+---
+
+**2.12. `copycode.py`**
+
+- **Purpose:**  
+  Asynchronously copies code files from the project directory into a consolidated output file. It supports filtering by file extensions and ensures directories are handled correctly.
+
+- **Functions and Classes:**
+  - `get_code_files` (Function)
+  - `copy_code_to_file` (Function)
+  - `main_async` (Function)
+  - `main` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[copycode.py]
+   |
+   |-- [get_code_files Function]
+   |-- [copy_code_to_file Function]
+   |-- [main_async Function]
+   |-- [main Function]
+```
+
+---
+
+**2.13. `contextual_vector_db.py`**
+
+- **Purpose:**  
+  Manages the contextual vector database, including embedding generation using OpenAI's API, storage of embeddings and metadata, and integration with FAISS for efficient similarity searches.
+
+- **Functions and Classes:**
+  - `SituateContext` (Class)
+  - `SituateContextSignature` (Class)
+  - `ContextualVectorDB` (Class)
+
+**File-Level Sub-Flowchart:**
+
+```
+[contextual_vector_db.py]
+   |
+   |-- [SituateContext Class]
+   |-- [SituateContextSignature Class]
+   |-- [ContextualVectorDB Class]
+```
+
+---
+
+**2.14. `openai_client.py`**
+
+- **Purpose:**  
+  Provides a wrapper around OpenAI's API for generating chat completions and embeddings. It handles API interactions and error management.
+
+- **Functions and Classes:**
+  - `OpenAIClient` (Class)
+
+**File-Level Sub-Flowchart:**
+
+```
+[openai_client.py]
+   |
+   |-- [OpenAIClient Class]
+```
+
+---
+
+**2.15. `main.py`**
+
+- **Purpose:**  
+  Serves as the entry point of the application. It orchestrates the initialization of components, data loading, indexing, query processing, and evaluation. It also integrates DSPy's optimizer for program compilation.
+
+- **Functions and Classes:**
+  - `create_elasticsearch_bm25_index` (Function)
+  - `main` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[main.py]
+   |
+   |-- [create_elasticsearch_bm25_index Function]
+   |-- [main Function]
+```
+
+---
+
+**2.16. `evaluator.py`**
+
+- **Purpose:**  
+  Contains evaluation functions to assess the performance of the retrieval pipeline by comparing retrieved documents against golden (ground truth) data. It calculates metrics such as Pass@k and average scores.
+
+- **Functions and Classes:**
+  - `evaluate_pipeline` (Function)
+  - `evaluate_complete_pipeline` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[evaluator.py]
+   |
+   |-- [evaluate_pipeline Function]
+   |-- [evaluate_complete_pipeline Function]
+```
+
+---
+
+**2.17. `decorators.py`**
+
+- **Purpose:**  
+  Defines decorators to handle exceptions in functions gracefully by logging errors and providing default error messages.
+
+- **Functions and Classes:**
+  - `handle_exceptions` (Decorator Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[decorators.py]
+   |
+   |-- [handle_exceptions Decorator Function]
+```
+
+---
+
+**2.18. `utils/__init__.py`**
+
+- **Purpose:**  
+  Serves as the initializer for the `utils` subpackage. It is currently empty and used to mark the directory as a Python package.
+
+**File-Level Sub-Flowchart:**
+
+```
+[utils/__init__.py]
+   |
+   |-- [Package Initializer]
+```
+
+---
+
+**2.19. `utils/logger.py`**
+
+- **Purpose:**  
+  Configures and initializes the logging system based on a YAML configuration file. It ensures that necessary log directories exist and applies the logging settings.
+
+- **Functions and Classes:**
+  - `setup_logging` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[utils/logger.py]
+   |
+   |-- [setup_logging Function]
+```
+
+---
+
+**2.20. `utils/utils.py`**
+
+- **Purpose:**  
+  Provides utility functions used across the application, such as checking the length of generated answers to ensure they meet specified constraints.
+
+- **Functions and Classes:**
+  - `check_answer_length` (Function)
+
+**File-Level Sub-Flowchart:**
+
+```
+[utils/utils.py]
+   |
+   |-- [check_answer_length Function]
+```
+
+**3. Function Details**
+
+**3.1. `Assess.forward` (metrics.py)**
+
+- **Purpose:**  
+  Evaluates the factual correctness of a generated answer based on the provided context and question.
+
+- **Input:**
+  - `context` (str): The contextual information used to generate the answer.
+  - `question` (str): The original question posed.
+  - `answer` (str): The generated answer to be evaluated.
+
+- **Output:**
+  - `Dict[str, str]`: A dictionary indicating whether the answer is factually correct (`{"factually_correct": "Yes"}` or `{"factually_correct": "No"}`).
+
+- **Steps:**
+  1. **Log Assessment Start:**  
+     Logs the initiation of the factual correctness assessment for the given question.
+
+  2. **Construct Prompt:**  
+     Creates a prompt combining the context, question, and answer to evaluate factuality using the language model.
+
+  3. **Generate Response from Language Model:**  
+     Sends the prompt to the language model to receive a 'Yes' or 'No' response regarding factual correctness.
+
+  4. **Parse Response:**  
+     Analyzes the model's response, ensuring it is either 'Yes' or 'No'. Defaults to 'No' if the response is unexpected.
+
+  5. **Log Assessment Result:**  
+     Logs the outcome of the factuality assessment.
+
+  6. **Return Result:**  
+     Returns the factual correctness result in a dictionary.
+
+  7. **Exception Handling:**  
+     Catches and logs any exceptions, defaulting the factual correctness to 'No' in case of errors.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[Assess.forward]
+   |
+   |-- [Log Assessment Start]
+   |-- [Construct Prompt]
+   |-- [Generate Response from Language Model]
+   |-- [Parse Response]
+   |-- [Log Assessment Result]
+   |-- [Return Result]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.2. `SentenceTransformerReRanker.rerank` (reranker.py)**
+
+- **Purpose:**  
+  Re-ranks a list of documents based on their semantic similarity to a given query using a Sentence Transformer model.
+
+- **Input:**
+  - `query` (str): The search query.
+  - `documents` (List[str]): List of document contents to re-rank.
+  - `top_k` (int, optional): Number of top documents to return after re-ranking.
+
+- **Output:**
+  - `List[Dict[str, Any]]`: List of re-ranked documents with their similarity scores.
+
+- **Steps:**
+  1. **Initialize Model:**  
+     Initializes the Sentence Transformer model, selecting the appropriate device (CPU, GPU, etc.).
+
+  2. **Encode Query and Documents:**  
+     Converts the query and documents into their respective embeddings.
+
+  3. **Compute Cosine Similarities:**  
+     Calculates the cosine similarity scores between the query embedding and each document embedding.
+
+  4. **Select Top_k Documents:**  
+     Identifies the top_k documents with the highest similarity scores.
+
+  5. **Attach Scores to Documents:**  
+     Associates each selected document with its corresponding similarity score.
+
+  6. **Log Re-Ranking Results:**  
+     Logs the details of the re-ranking process and the final selected documents.
+
+  7. **Exception Handling:**  
+     Catches and logs any exceptions, returning an empty list if errors occur.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[SentenceTransformerReRanker.rerank]
+   |
+   |-- [Initialize Model]
+   |-- [Encode Query and Documents]
+   |-- [Compute Cosine Similarities]
+   |-- [Select Top_k Documents]
+   |-- [Attach Scores to Documents]
+   |-- [Log Re-Ranking Results]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.3. `ElasticsearchBM25.create_index` (elasticsearch_bm25.py)**
+
+- **Purpose:**  
+  Creates an Elasticsearch index with predefined settings and mappings if it does not already exist.
+
+- **Input:**  
+  None directly; uses instance attributes.
+
+- **Output:**  
+  None. Side-effect: Creates an Elasticsearch index.
+
+- **Steps:**
+  1. **Define Index Settings and Mappings:**  
+     Specifies the configuration for the Elasticsearch index, including analyzers and mappings for document fields.
+
+  2. **Check if Index Exists:**  
+     Verifies whether the specified index already exists in Elasticsearch.
+
+  3. **Create Index if Not Exists:**  
+     If the index does not exist, it is created using the defined settings and mappings.
+
+  4. **Log Creation Status:**  
+     Logs whether the index was created or already existed.
+
+  5. **Exception Handling:**  
+     Catches and logs any errors during index creation or verification.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[ElasticsearchBM25.create_index]
+   |
+   |-- [Define Index Settings and Mappings]
+   |-- [Check if Index Exists]
+   |-- [Create Index if Not Exists]
+   |-- [Log Creation Status]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.4. `QueryGeneratorSignature.forward` (query_generator.py)**
+
+- **Purpose:**  
+  Generates a new search query based on the original question and the accumulated context to facilitate multi-hop retrieval.
+
+- **Input:**
+  - `question` (str): The original user question.
+  - `context` (str): The accumulated context from previous retrievals.
+
+- **Output:**
+  - `Dict[str, str]`: A dictionary containing the generated new query (`{"new_query": "..."}`).
+
+- **Steps:**
+  1. **Construct Prompt:**  
+     Creates a prompt that includes the original question and the accumulated context to guide the language model in generating a refined query.
+
+  2. **Generate New Query:**  
+     Sends the prompt to the language model to produce a new search query aimed at uncovering additional relevant information.
+
+  3. **Log Generated Query:**  
+     Logs the newly generated query for transparency and debugging purposes.
+
+  4. **Return New Query:**  
+     Returns the new query encapsulated in a dictionary.
+
+  5. **Exception Handling:**  
+     Catches and logs any exceptions, defaulting the new query to the original question if errors occur.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[QueryGeneratorSignature.forward]
+   |
+   |-- [Construct Prompt]
+   |-- [Generate New Query]
+   |-- [Log Generated Query]
+   |-- [Return New Query]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.5. `evaluate_pipeline` (evaluation.py & evaluator.py)**
+
+- **Purpose:**  
+  Evaluates the retrieval pipeline by comparing retrieved documents against golden (ground truth) chunks, calculating metrics like Pass@k and average scores.
+
+- **Input:**
+  - `queries` (List[Dict[str, Any]]): List of query items.
+  - `retrieval_function` (Callable): Function to retrieve documents.
+  - `db` (ContextualVectorDB): Contextual vector database instance.
+  - `es_bm25` (ElasticsearchBM25): Elasticsearch BM25 instance.
+  - `k` (int, optional): Number of top documents to retrieve.
+
+- **Output:**
+  - `Dict[str, float]`: Dictionary containing evaluation metrics (`pass_at_n`, `average_score`, etc.).
+
+- **Steps:**
+  1. **Initialize Metrics:**  
+     Sets up counters for total scores, number of queries, and categorizes queries based on the presence of golden data.
+
+  2. **Iterate Over Queries:**  
+     Processes each query, checking for golden data to determine evaluation applicability.
+
+     - **Check for Golden Data:**  
+       Verifies whether the query contains golden documents and chunks for accurate evaluation.
+
+     - **Retrieve Documents:**  
+       Uses the provided retrieval function to obtain relevant documents based on the query.
+
+     - **Compare with Golden Chunks:**  
+       Checks if the retrieved documents match the golden chunks to assess retrieval accuracy.
+
+     - **Calculate Scores:**  
+       Computes individual query scores based on the number of golden chunks found in the retrieved documents.
+
+     - **Aggregate Scores:**  
+       Accumulates scores across all applicable queries for overall metric calculation.
+
+  3. **Calculate Average and Pass@k:**  
+     Determines the average retrieval score and calculates Pass@k as a percentage.
+
+  4. **Log Evaluation Results:**  
+     Records the evaluation outcomes, including total queries, those with and without golden data, and the calculated metrics.
+
+  5. **Return Metrics:**  
+     Provides the evaluation results in a structured dictionary.
+
+  6. **Exception Handling:**  
+     Catches and logs any errors during the evaluation process.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[evaluate_pipeline]
+   |
+   |-- [Initialize Metrics]
+   |-- [Iterate Over Queries]
+         |
+         |-- [Check for Golden Data]
+         |-- [Retrieve Documents]
+         |-- [Compare with Golden Chunks]
+         |-- [Calculate Scores]
+         |-- [Aggregate Scores]
+   |-- [Calculate Average and Pass@k]
+   |-- [Log Evaluation Results]
+   |-- [Return Metrics]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.6. `load_json` (data_loader.py)**
+
+- **Purpose:**  
+  Loads JSON or JSONL files and parses their content into a list of dictionaries.
+
+- **Input:**
+  - `file_path` (str): Path to the JSON or JSONL file.
+
+- **Output:**
+  - `List[Dict[str, Any]]`: List of parsed JSON objects.
+
+- **Steps:**
+  1. **Initialize Data List:**  
+     Creates an empty list to store parsed JSON objects.
+
+  2. **Check File Extension:**  
+     Determines whether the file is JSON or JSONL based on its extension.
+
+  3. **Parse JSONL or JSON Content:**  
+     - **For JSONL:**  
+       Reads the file line by line, parsing each line as a separate JSON object.
+     - **For JSON:**  
+       Loads the entire file content at once as a single JSON object.
+
+  4. **Log Loading Status:**  
+     Records the number of entries loaded successfully.
+
+  5. **Handle Exceptions:**  
+     Catches and logs any errors during file reading or JSON parsing, returning an empty list if failures occur.
+
+  6. **Return Data:**  
+     Provides the list of parsed JSON objects.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[load_json]
+   |
+   |-- [Initialize Data List]
+   |-- [Check File Extension]
+   |-- [Parse JSONL or JSON Content]
+   |-- [Log Loading Status]
+   |-- [Handle Exceptions]
+   |-- [Return Data]
+```
+
+---
+
+**3.7. `copycode.py.get_code_files`**
+
+- **Purpose:**  
+  Asynchronously retrieves all code files with specified extensions from a root directory, excluding virtual environment directories.
+
+- **Input:**
+  - `root_dir` (str): Root directory to search for code files.
+  - `extensions` (List[str], optional): List of file extensions to include.
+
+- **Output:**
+  - `List[str]`: List of file paths.
+
+- **Steps:**
+  1. **Initialize Code Files List:**  
+     Creates an empty list to store paths of discovered code files.
+
+  2. **Walk Through Directory Tree:**  
+     Traverses the directory structure starting from `root_dir`.
+
+     - **Exclude Virtual Environment Directories:**  
+       Filters out directories like `.venv`, `venv`, `env`, etc., to avoid processing virtual environment files.
+
+     - **Filter Files by Extension:**  
+       Selects files that match the specified extensions (e.g., `.py`, `.yaml`).
+
+     - **Log Found Files:**  
+       Records each discovered code file for transparency.
+
+  3. **Handle Exceptions:**  
+     Catches and logs any errors encountered during directory traversal.
+
+  4. **Return Code Files:**  
+     Provides the list of discovered code file paths.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[get_code_files]
+   |
+   |-- [Initialize Code Files List]
+   |-- [Walk Through Directory Tree]
+         |
+         |-- [Exclude Virtual Environment Directories]
+         |-- [Filter Files by Extension]
+         |-- [Log Found Files]
+   |-- [Handle Exceptions]
+   |-- [Return Code Files]
+```
+
+---
+
+**3.8. `copycode.py.copy_code_to_file`**
+
+- **Purpose:**  
+  Asynchronously copies the content of specified code files into a consolidated output file, handling read errors gracefully.
+
+- **Input:**
+  - `code_files` (List[str]): List of code file paths to copy.
+  - `output_file` (str): Path to the output file.
+
+- **Output:**
+  - None. Side-effect: Creates/overwrites the consolidated output file.
+
+- **Steps:**
+  1. **Open Output File Asynchronously:**  
+     Opens the designated output file for writing in an asynchronous context.
+
+  2. **Iterate Over Code Files:**  
+     Processes each code file individually.
+
+     - **Write File Header:**  
+       Inserts a header indicating the source file path for clarity.
+
+     - **Read File Content Asynchronously:**  
+       Reads the content of the current code file.
+
+     - **Write Content to Output:**  
+       Writes the retrieved content into the consolidated output file.
+
+     - **Handle Read Errors:**  
+       If reading fails, logs the error and writes an error message in the output file.
+
+  3. **Log Completion:**  
+     Confirms the successful copying of all code files.
+
+  4. **Handle Exceptions:**  
+     Catches and logs any unforeseen errors during the copying process.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[copy_code_to_file]
+   |
+   |-- [Open Output File Asynchronously]
+   |-- [Iterate Over Code Files]
+         |
+         |-- [Write File Header]
+         |-- [Read File Content Asynchronously]
+         |-- [Write Content to Output]
+         |-- [Handle Read Errors]
+   |-- [Log Completion]
+   |-- [Handle Exceptions]
+```
+
+---
+
+**3.9. `ContextualVectorDB.load_data` (contextual_vector_db.py)**
+
+- **Purpose:**  
+  Loads and processes data into the contextual vector database by generating contextualized content, creating embeddings, and indexing them using FAISS.
+
+- **Input:**
+  - `dataset` (List[Dict[str, Any]]): List of documents to process.
+  - `parallel_threads` (int, optional): Number of threads to use for processing.
+
+- **Output:**
+  - None. Side-effects: Updates embeddings and metadata, saves the database and FAISS index.
+
+- **Steps:**
+  1. **Check if Database is Already Loaded:**  
+     Verifies whether embeddings and metadata are already present and skips loading if they are.
+
+  2. **Load Existing Database if Available:**  
+     If previous data exists, loads the vector database and FAISS index from disk.
+
+  3. **Iterate Over Documents and Chunks:**  
+     Processes each document and its respective chunks to generate contextualized content.
+
+     - **Generate Contextualized Content:**  
+       Utilizes DSPy to contextualize each chunk within its full document.
+
+     - **Collect Texts to Embed and Metadata:**  
+       Gathers the concatenated text for embedding and associated metadata.
+
+  4. **Generate Embeddings:**  
+     Converts the collected texts into vector embeddings using OpenAI's API, handling batching for efficiency.
+
+  5. **Store Embeddings and Metadata:**  
+     Saves the generated embeddings and corresponding metadata for future retrieval.
+
+  6. **Save Database and Create FAISS Index:**  
+     Persists the vector database and initializes the FAISS index for similarity searches.
+
+  7. **Log Processing Status:**  
+     Records the number of processed chunks and successful embedding generations.
+
+  8. **Handle Exceptions:**  
+     Catches and logs any errors encountered during data loading and processing.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[ContextualVectorDB.load_data]
+   |
+   |-- [Check if Database is Already Loaded]
+   |-- [Load Existing Database if Available]
+   |-- [Iterate Over Documents and Chunks]
+         |
+         |-- [Generate Contextualized Content]
+         |-- [Collect Texts to Embed and Metadata]
+   |-- [Generate Embeddings]
+   |-- [Store Embeddings and Metadata]
+   |-- [Save Database and Create FAISS Index]
+   |-- [Log Processing Status]
+   |-- [Handle Exceptions]
+```
+
+---
+
+**3.10. `OpenAIClient.create_embeddings` (openai_client.py)**
+
+- **Purpose:**  
+  Creates embeddings for given input texts using OpenAI's API.
+
+- **Input:**
+  - `model` (str): Embedding model to use.
+  - `input` (List[str]): List of input texts.
+
+- **Output:**
+  - `Dict[str, Any]`: API response containing embeddings.
+
+- **Steps:**
+  1. **Call OpenAI Embeddings API:**  
+     Sends the input texts to OpenAI's embeddings endpoint using the specified model.
+
+  2. **Log Success:**  
+     Confirms the successful creation of embeddings.
+
+  3. **Return API Response:**  
+     Provides the embeddings data received from the API.
+
+  4. **Exception Handling:**  
+     Catches and logs any errors during the API call, raising exceptions as needed.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[OpenAIClient.create_embeddings]
+   |
+   |-- [Call OpenAI Embeddings API]
+   |-- [Log Success]
+   |-- [Return API Response]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.11. `main.main` (main.py)**
+
+- **Purpose:**  
+  Coordinates the entire workflow of the application, including configuring language models, loading data, initializing databases, processing queries, and performing evaluations. It also integrates DSPy's optimizer for program compilation.
+
+- **Input:**  
+  None directly; interacts with file paths and environment variables.
+
+- **Output:**  
+  None directly; side-effects include processing queries and saving results.
+
+- **Steps:**
+  1. **Configure DSPy's Language Model:**  
+     Sets up the language model using DSPy's configuration with LiteLLM.
+
+  2. **Define File Paths:**  
+     Specifies paths for data files, queries, evaluation sets, and output files.
+
+  3. **Load Training Data:**  
+     Loads training data from a CSV file using DSPy's `DataLoader`.
+
+  4. **Load Codebase Chunks:**  
+     Retrieves codebase chunks from a JSON file.
+
+  5. **Initialize ContextualVectorDB:**  
+     Sets up the contextual vector database with the provided name and API key.
+
+  6. **Load Data into Vector DB:**  
+     Processes and loads the codebase chunks into the vector database using parallel threads.
+
+  7. **Create Elasticsearch BM25 Index:**  
+     Initializes and indexes documents in Elasticsearch using the BM25 algorithm.
+
+  8. **Load and Validate Queries:**  
+     Loads user queries from a JSON file and validates their structure.
+
+  9. **Load Optimized DSPy Program:**  
+     Attempts to load an optimized DSPy program; falls back to an unoptimized module if necessary.
+
+  10. **Initialize DSPy's Optimizer:**  
+      Sets up the optimizer with the comprehensive metric and configuration parameters.
+
+  11. **Compile and Optimize Program:**  
+      Uses the optimizer to compile and enhance the DSPy program based on the training dataset.
+
+  12. **Save Optimized Program:**  
+      Persists the optimized program to a JSON file for future use.
+
+  13. **Assign Optimized Program to Answer Generator:**  
+      Links the optimized program with the answer generation module.
+
+  14. **Process Queries to Generate Answers:**  
+      Executes the query processing workflow to retrieve documents and generate answers.
+
+  15. **Define k-values for Evaluation:**  
+      Sets the values of `k` (number of top documents) for evaluation metrics.
+
+  16. **Perform Pipeline Evaluation:**  
+      Assesses the retrieval and answer generation pipeline against the evaluation set.
+
+  17. **Log Completion Status:**  
+      Confirms the successful completion of all operations.
+
+  18. **Handle Exceptions:**  
+      Catches and logs any unexpected errors during the entire process.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[main.main]
+   |
+   |-- [Configure DSPy Language Model]
+   |-- [Define File Paths]
+   |-- [Load Training Data]
+   |-- [Load Codebase Chunks]
+   |-- [Initialize ContextualVectorDB]
+   |-- [Load Data into Vector DB]
+   |-- [Create Elasticsearch BM25 Index]
+   |-- [Load and Validate Queries]
+   |-- [Load Optimized DSPy Program]
+   |-- [Initialize DSPy Optimizer]
+   |-- [Compile and Optimize Program]
+   |-- [Save Optimized Program]
+   |-- [Assign Optimized Program to Answer Generator]
+   |-- [Process Queries to Generate Answers]
+   |-- [Define k-values for Evaluation]
+   |-- [Perform Pipeline Evaluation]
+   |-- [Log Completion Status]
+   |-- [Handle Exceptions]
+```
+
+---
+
+**3.12. `copycode.py.main_async`**
+
+- **Purpose:**  
+  Orchestrates the asynchronous copying of code files into a consolidated output file.
+
+- **Input:**  
+  None directly; uses predefined directories and file extensions.
+
+- **Output:**  
+  None directly; side-effect: creates a `consolidated_code.txt` file containing all code snippets.
+
+- **Steps:**
+  1. **Determine Source Directory:**  
+     Identifies the directory where the script is located as the source for code files.
+
+  2. **Define Output File Path:**  
+     Sets the path for the consolidated output file (`consolidated_code.txt`).
+
+  3. **Specify File Extensions:**  
+     Lists the file extensions to include in the copying process (e.g., `.py`, `.yaml`).
+
+  4. **Retrieve Code Files Asynchronously:**  
+     Uses `get_code_files` to gather all relevant code files based on the specified extensions.
+
+  5. **Copy Code Files to Output Asynchronously:**  
+     Utilizes `copy_code_to_file` to read and write the contents of each code file into the consolidated output.
+
+  6. **Log Copying Process:**  
+     Records the progress and any issues encountered during the copying process.
+
+  7. **Handle Exceptions:**  
+     Catches and logs any unexpected errors during the asynchronous operations.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[copycode.py.main_async]
+   |
+   |-- [Determine Source Directory]
+   |-- [Define Output File Path]
+   |-- [Specify File Extensions]
+   |-- [Retrieve Code Files Asynchronously]
+   |-- [Copy Code Files to Output Asynchronously]
+   |-- [Log Copying Process]
+   |-- [Handle Exceptions]
+```
+
+---
+
+**3.13. `ContextualVectorDB.load_faiss_index` (contextual_vector_db.py)**
+
+- **Purpose:**  
+  Loads the FAISS index from disk to enable efficient similarity searches within the vector database.
+
+- **Input:**  
+  None directly; uses instance attributes for file paths.
+
+- **Output:**  
+  None. Side-effect: Loads the FAISS index into memory.
+
+- **Steps:**
+  1. **Check FAISS Index File Existence:**  
+     Verifies whether the FAISS index file exists at the specified path.
+
+  2. **Read FAISS Index:**  
+     Loads the FAISS index from the binary file using FAISS's `read_index` method.
+
+  3. **Log Loading Status:**  
+     Confirms the successful loading of the FAISS index and logs the number of vectors indexed.
+
+  4. **Handle Exceptions:**  
+     Catches and logs any errors during the loading process, raising exceptions if necessary.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[ContextualVectorDB.load_faiss_index]
+   |
+   |-- [Check FAISS Index File Existence]
+   |-- [Read FAISS Index]
+   |-- [Log Loading Status]
+   |-- [Handle Exceptions]
+```
+
+---
+
+**3.14. `OpenAIClient.create_chat_completion` (openai_client.py)**
+
+- **Purpose:**  
+  Creates a chat completion using OpenAI's API based on provided messages.
+
+- **Input:**
+  - `model` (str): Model name to use.
+  - `messages` (List[Dict[str, str]]): List of message dictionaries.
+  - `max_tokens` (int): Maximum number of tokens in the response.
+  - `temperature` (float): Sampling temperature.
+
+- **Output:**
+  - `Dict[str, Any]`: API response as a dictionary.
+
+- **Steps:**
+  1. **Call OpenAI Chat Completions API:**  
+     Sends the provided messages to OpenAI's chat completions endpoint using the specified model.
+
+  2. **Log Success:**  
+     Confirms the successful creation of the chat completion.
+
+  3. **Return API Response:**  
+     Provides the response data received from the API.
+
+  4. **Exception Handling:**  
+     Catches and logs any errors during the API call, raising exceptions as needed.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[OpenAIClient.create_chat_completion]
+   |
+   |-- [Call OpenAI Chat Completions API]
+   |-- [Log Success]
+   |-- [Return API Response]
+   |-- [Exception Handling]
+```
+
+---
+
+**3.15. `generate_answer_dspy` (answer_generator.py)**
+
+- **Purpose:**  
+  Generates answers to user queries by consolidating retrieved chunks and utilizing DSPy with language models. It also assesses the factual correctness of generated answers.
+
+- **Input:**
+  - `query` (str): The user query.
+  - `retrieved_chunks` (List[Dict[str, Any]]): List of retrieved document chunks.
+
+- **Output:**
+  - `Dict[str, Any]`: Dictionary containing the generated answer, information about used chunks, and counts.
+
+- **Steps:**
+  1. **Consolidate Contextualized Content:**  
+     Combines the contextualized content from all retrieved chunks into a single context string.
+
+  2. **Log Chunks Used:**  
+     Records details of the chunks utilized in generating the answer for transparency.
+
+  3. **Generate Answer Using DSPy:**  
+     Invokes the DSPy module to produce an answer based on the consolidated context and query.
+
+  4. **Check for Empty Answer:**  
+     Validates whether an answer was successfully generated; provides a fallback message if not.
+
+  5. **Construct Example for Assessment:**  
+     Creates an example object containing the context and question for evaluating answer quality.
+
+  6. **Apply Comprehensive Metrics:**  
+     Utilizes metrics to assess the generated answer's quality and correctness.
+
+  7. **Return Generated Answer:**  
+     Provides the final answer along with metadata about the used chunks.
+
+  8. **Exception Handling:**  
+     Catches and logs any errors during the answer generation process, returning a fallback answer if necessary.
+
+**Function-Level Sub-Flowchart:**
+
+```
+[generate_answer_dspy]
+   |
+   |-- [Consolidate Contextualized Content]
+   |-- [Log Chunks Used]
+   |-- [Generate Answer Using DSPy]
+   |-- [Check for Empty Answer]
+   |-- [Construct Example for Assessment]
+   |-- [Apply Comprehensive Metrics]
+   |-- [Return Generated Answer]
+   |-- [Exception Handling]
+```
+
+---
+
+**4. Inter-file and Inter-function Relationships**
+
+- **Function Calls Between Files:**
+  - `main.py` imports and utilizes functions and classes from:
+    - `contextual_vector_db.py`
+    - `elasticsearch_bm25.py`
+    - `data_loader.py`
+    - `query_processor.py`
+    - `evaluator.py`
+    - `metrics.py`
+    - `openai_client.py`
+  - `query_processor.py` relies on `retrieve_hybrid` from `retrieval.py`, which in turn uses `rerank_documents_sentence_transformer` from `reranker.py`.
+  - `answer_generator.py` calls functions from `metrics.py` to evaluate answer quality.
+  - `copycode.py` uses utilities from `utils/logger.py` and `utils/utils.py`.
+  - `evaluation.py` and `evaluator.py` contain similar evaluation functions, indicating potential consolidation.
+  
+- **Data Flow Between Functions:**
+  - Data loaded by `data_loader.py` is passed to `ContextualVectorDB` in `contextual_vector_db.py` for embedding generation and indexing.
+  - `ContextualVectorDB` interacts with `elasticsearch_bm25.py` to index documents in Elasticsearch.
+  - User queries loaded by `main.py` are validated and processed by `query_processor.py`, which retrieves documents using `retrieval.py`.
+  - Retrieved documents are re-ranked by `reranker.py` and then used by `answer_generator.py` to formulate answers.
+  - Generated answers are assessed using functions in `metrics.py` before being saved.
+  - Evaluation functions in `evaluator.py` assess the retrieval and answer generation pipeline against golden data.
+
+- **Dependencies and Shared Resources:**
+  - All modules utilize shared logging configurations from `utils/logger.py`.
+  - `ContextualVectorDB` and `ElasticsearchBM25` serve as central components for data retrieval accessed by multiple modules.
+  - Language models configured via DSPy are employed across `metrics.py`, `query_generator.py`, and `answer_generator.py`.
+  - OpenAI's API interactions are encapsulated within `openai_client.py` and utilized by `ContextualVectorDB` for embedding generation.
+  - Cohere's reranking API is integrated within `reranking.py` to enhance document relevance post-retrieval.
+
+**5. Notable Programming Patterns and Techniques**
+
+- **Modular Architecture:**  
+  The program is divided into distinct modules, each handling specific functionalities such as data loading, retrieval, answer generation, evaluation, and utilities. This separation of concerns enhances maintainability, scalability, and readability.
+
+- **Asynchronous Programming:**  
+  Implements asynchronous functions using `asyncio` and `aiofiles` in `copycode.py` to efficiently handle I/O-bound operations like reading and writing multiple files concurrently, improving performance.
+
+- **Concurrent Processing:**  
+  Utilizes `ThreadPoolExecutor` in `contextual_vector_db.py` to process multiple document chunks in parallel, accelerating embedding generation and contextualization tasks.
+
+- **Decorator Usage:**  
+  Implements the `handle_exceptions` decorator in `decorators.py` to uniformly handle exceptions across various functions, ensuring consistent error logging and fallback behaviors without repetitive code.
+
+- **Third-Party Libraries and Integrations:**
+  - **DSPy:**  
+    Employed extensively for defining signatures, chains of thought, and optimizing language model interactions.
+  
+  - **FAISS:**  
+    Utilized in `contextual_vector_db.py` for efficient similarity searches within the vector database.
+  
+  - **Elasticsearch:**  
+    Managed via `elasticsearch_bm25.py` for indexing and searching documents using the BM25 algorithm.
+  
+  - **Sentence Transformers:**  
+    Applied in `reranker.py` for semantic similarity-based re-ranking of retrieved documents.
+  
+  - **OpenAI API:**  
+    Accessed through `openai_client.py` for generating embeddings and language model completions.
+  
+  - **Cohere API:**  
+    Integrated in `reranking.py` for advanced document re-ranking based on relevance scores.
+  
+  - **Logging and Configuration:**  
+    Uses `logging`, `logging.config`, and `yaml` in `utils/logger.py` for flexible and configurable logging setups.
+
+- **Error Handling:**  
+  Comprehensive error handling across modules ensures that failures in one component do not cascade, and meaningful error messages are logged for debugging and maintenance.
+
+- **Embeddings and Similarity Search:**  
+  Combines FAISS for vector similarity and Elasticsearch BM25 for keyword-based search, providing a robust hybrid retrieval mechanism that leverages both semantic and lexical matching.
+
+- **Asserts and Validations:**  
+  Implements checks such as `check_answer_length` in `utils/utils.py` to ensure generated answers meet specified constraints, enhancing reliability.
+
+**6. Program Overview**
+
+The program is a sophisticated question-answering system designed to process user queries by retrieving and synthesizing relevant information from a codebase or document corpus. Its primary functionalities include:
+
+1. **Data Loading and Indexing:**  
+   - **Loading Data:**  
+     - Utilizes `data_loader.py` to load codebase chunks and queries from JSON and JSONL files.
+   - **Contextualization:**  
+     - Processes documents to generate contextualized content using DSPy's language models via `ContextualVectorDB` in `contextual_vector_db.py`.
+   - **Embedding Generation:**  
+     - Creates vector embeddings for documents using OpenAI's API, managed by `OpenAIClient` in `openai_client.py`.
+   - **Indexing:**  
+     - Indexes embeddings using FAISS for efficient similarity searches and Elasticsearch BM25 for keyword-based retrieval via `elasticsearch_bm25.py`.
+
+2. **Query Processing:**  
+   - **Validation:**  
+     - Validates the structure and completeness of user queries using `validate_queries` in `query_processor.py`.
+   - **Retrieval:**  
+     - Employs a hybrid retrieval approach combining semantic search (FAISS) and BM25 scoring from Elasticsearch to fetch relevant documents.
+   - **Re-Ranking:**  
+     - Enhances retrieval relevance using Sentence Transformers in `reranker.py` and Cohere's reranking API in `reranking.py`.
+   - **Answer Generation:**  
+     - Consolidates retrieved documents and generates detailed answers using DSPy via `answer_generator.py`.
+
+3. **Answer Evaluation:**  
+   - **Quality Assessment:**  
+     - Evaluates generated answers across multiple dimensions, including factual correctness, relevance, coherence, conciseness, and fluency using `metrics.py`.
+   - **Comprehensive Metrics:**  
+     - Combines individual metrics into a comprehensive score to assess overall answer quality.
+
+4. **Evaluation and Optimization:**  
+   - **Pipeline Evaluation:**  
+     - Assesses the effectiveness of the retrieval and answer generation pipeline against golden (ground truth) data using `evaluation.py` and `evaluator.py`.
+   - **Optimization:**  
+     - Utilizes DSPy's optimizer to refine language model interactions and improve answer generation quality.
+
+5. **Utilities and Maintenance:**  
+   - **Code Consolidation:**  
+     - Provides asynchronous utilities in `copycode.py` to consolidate code files for easier management and review.
+   - **Logging:**  
+     - Implements a robust logging system across all modules via `utils/logger.py` to facilitate monitoring and debugging.
+   - **Error Handling:**  
+     - Ensures consistent and graceful error handling through decorators in `decorators.py` and comprehensive try-except blocks.
+
+6. **Automation and Scalability:**  
+   - **Parallel Processing:**  
+     - Leverages multi-threading and asynchronous programming to handle large datasets and multiple queries efficiently.
+   - **Extensibility:**  
+     - Designed with modularity, allowing easy integration of additional features, models, or retrieval mechanisms as needed.
+
+**Summary:**
+
+Overall, the program leverages advanced natural language processing techniques, efficient data retrieval mechanisms, and comprehensive evaluation strategies to deliver accurate and relevant answers to user queries. Its modular and optimized architecture ensures scalability, maintainability, and high performance, making it well-suited for applications requiring precise and contextually grounded information retrieval and synthesis.
+
+</improved_flowchart>
+
+<reasoning>
+
+**1. Analysis of Current Structure:**
+
+- **Redundant Steps:**  
+  The initial flowchart included a single [Process Each Query] step that branched into multiple subprocesses. This can lead to complexity and potential confusion.
+
+- **Decision Points:**  
+  The original flow lacked explicit decision points, making it harder to handle various scenarios (e.g., handling failed retrievals or empty responses).
+
+- **Logical Gaps:**  
+  There was no clear separation between initialization steps, processing, and evaluation, which can complicate understanding and maintenance.
+
+**2. Optimization of Flow:**
+
+- **Consolidated Initialization:**  
+  Merged the initialization of the Contextual Vector DB and Elasticsearch BM25 into a single [Initialize Systems] step, reducing fragmentation.
+
+- **Batch Processing of Queries:**  
+  Introduced [Process Queries in Batches] to handle multiple queries simultaneously, enhancing efficiency especially for large datasets.
+
+- **Separated Retrieval and Re-Ranking:**  
+  Clearly separated [Hybrid Retrieval] and [Re-Ranking] into distinct subprocesses under [Retrieve Documents], allowing for easier maintenance and potential parallelization.
+
+- **Streamlined Pathways:**  
+  Ensured that the most common path—loading data, initializing systems, processing queries, generating answers, and saving results—is linear and straightforward.
+
+**3. Enhanced Decision Points:**
+
+- **Error Handling:**  
+  While not explicitly shown, by structuring subprocesses clearly, it becomes easier to insert decision points for handling errors or alternative flows (e.g., if retrieval fails).
+
+- **Conditional Steps:**  
+  The improved flow allows for adding conditional steps such as [Check for Retrieved Documents] before generating answers, ensuring robustness.
+
+**4. Improved Clarity and Usability:**
+
+- **Clear Labeling:**  
+  Steps are clearly labeled with concise descriptions, making the flowchart easy to follow.
+
+- **Grouped Related Steps:**  
+  Initialization and retrieval processes are grouped logically, enhancing readability.
+
+- **Annotations:**  
+  While not visual, the textual description includes explanations for each step, aiding comprehension.
+
+**5. Automation and Technological Enhancements:**
+
+- **Parallel Processing:**  
+  By introducing batch processing and separating subprocesses, the flowchart accommodates parallel operations, which can be automated to improve speed.
+
+- **Integration Points:**  
+  The flowchart identifies clear points where third-party integrations (e.g., DSPy, OpenAI API, Cohere API) interact with the system, facilitating easier updates or replacements.
+
+**6. Addressed Potential Bottlenecks:**
+
+- **Retrieval Efficiency:**  
+  By separating retrieval and re-ranking, the system can handle large volumes of data more efficiently, mitigating potential slowdowns.
+
+- **Error Management:**  
+  Clear subprocesses allow for targeted error handling, preventing a single failure from impacting the entire workflow.
+
+- **Scalability:**  
+  The optimized flow supports scalability by enabling parallel processing and efficient resource utilization.
+
+**Summary of Enhancements:**
+
+- **Structured Initialization:**  
+  Combined related initialization steps to reduce complexity.
+
+- **Batch and Parallel Processing:**  
+  Enabled handling multiple queries and retrievals simultaneously for improved performance.
+
+- **Clear Separation of Concerns:**  
+  Distinct subprocesses for retrieval, re-ranking, answer generation, and evaluation enhance maintainability.
+
+- **Enhanced Decision Points:**  
+  Facilitated the addition of conditional logic for better error handling and process robustness.
+
+- **Improved Clarity:**  
+  Organized steps logically with clear labeling and grouping, making the flowchart user-friendly.
+
+- **Technological Integration:**  
+  Highlighted integration points with external APIs and libraries, ensuring seamless automation and scalability.
+
+By implementing these improvements, the flowchart becomes more efficient, easier to understand, and better equipped to handle various scenarios, ultimately enhancing the program's logic, reasoning, and overall optimization.
+
+</reasoning>

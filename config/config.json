@@ -1,0 +1,14 @@
+{
+    "tokenizer_type": "tiktoken",  
+    "tokenizer_name": "cl100k_base",  
+    "hf_tokenizer_name": "gpt2",  
+    "spacy_model": "en_core_web_sm",
+    "chunk_sizes": [1024, 512, 256, 128],
+    "overlap_tokens": 100,
+    "min_chunk_size": 128,
+    "embedding_model_name": "bert-base-uncased",  
+    "input_dir": "./documents/",
+    "output_file": "chunked_documents.json",
+    "embedding_output": "embeddings.json"
+  }
+  

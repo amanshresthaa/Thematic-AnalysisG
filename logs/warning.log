@@ -1,0 +1,14 @@
+2024-11-07 22:03:03,549 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-07 22:03:07,552 [WARNING] __main__: Failed to load optimized program. Using unoptimized module.
+2024-11-07 22:03:43,030 [WARNING] evaluation: No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-07 22:03:43,030 [WARNING] evaluation: No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-07 22:03:43,030 [WARNING] evaluation: No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-07 22:03:43,031 [WARNING] evaluation: No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-07 22:03:43,031 [WARNING] evaluation: No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-07 22:03:43,031 [WARNING] evaluation: No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-07 22:03:43,031 [WARNING] evaluation: No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-07 22:03:43,031 [WARNING] evaluation: No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-07 22:03:43,031 [WARNING] evaluation: No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.

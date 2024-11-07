@@ -1,0 +1,29 @@
+{
+  "predictor": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Given the fields `question`, `context`, produce the fields `answer`.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "The user's query or question. This should be a clear and specific question that requires an informative and accurate answer based on the provided context."
+        },
+        {
+          "prefix": "Context:",
+          "description": "Relevant context to base the answer on. This includes all necessary information, documents, or data chunks that provide the foundation for generating a factual and comprehensive answer to the question."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${produce the answer}. We ..."
+        },
+        {
+          "prefix": "Answer:",
+          "description": "The generated answer to the question. The answer should be concise, directly address the question, and be grounded in the provided context to ensure factual accuracy."
+        }
+      ]
+    }
+  }
+}

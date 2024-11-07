@@ -1,0 +1,139 @@
+[
+  {
+    "doc_id": "Document",
+    "original_uuid": "69892a103a35425d9f05fba2a313b796",
+    "content": "Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023\n\nModerator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers:\n\nKristalina Georgieva (KG): Managing Director of the International Monetary Fund\nDr. Fatih Birol (FB): Executive Director of the International Energy Agency\nDr. Ngozi Okonjo-Iweala (NO): Director-General of the WTO\nTranscript:\nMM: For the discussion this morning, if I can start with you, Kristalina. One of the things that comes across is that green innovation has slowed down a little bit, and we're not getting the economic and climate benefits that we should be. From your position, what are the policy levers we can use to reinvigorate innovation?\n\nKG: Thank you. It’s vital to address both climate and growth as global growth has been quite anemic, projected at only 3% for the next five years compared to 3.8% in the decade before COVID. What can be done? Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition. Our research shows fuel subsidies reached $1.3 trillion last year, and indirect subsidies like the health costs of pollution push this to $7.1 trillion. Step one: remove these harmful subsidies. Step two: introduce incentives like carbon pricing. While politically challenging, carbon pricing can be achieved through trade or raising standards. Step three: promote investment in R&D. After 2010, green patents have slightly decreased, so we need to push R&D aggressively, both in advanced economies and by supporting researchers in emerging markets.\n\nMM: Dr. Birol, China’s economy plays a major role in green innovation. Do you worry about the impact a slowing Chinese economy may have on global green innovation?\n\nFB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors: rapid progress in clean energy and a slowing Chinese economy. China has been a massive driver of fossil fuel growth, accounting for over two-thirds of global oil consumption growth and a large share of coal and natural gas growth over the last decade. With a shift toward a less energy-intensive economy, we expect China’s growth to slow to around 3%-4%. Meanwhile, renewable energy is expanding globally—80% of new power plants this year are renewables, and by 2030, electric cars could account for every second car sold. This dual trend leads us to foresee fossil fuel consumption peaking by 2030.\n\nMM: Dr. Ngozi, what role does trade play in driving green innovation globally?\n\nNO: Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains. We need to address tariffs that create a disincentive for adopting green technologies. Research shows that developed countries have lower tariffs on environmental goods, but there is room for developing countries to lower theirs as well. High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology. We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030.\n\nMM: Kristalina, you mentioned the scale of fossil fuel subsidies and how these are increasing. Are you seeing any signs of hope for reducing these subsidies?\n\nKG: Yes, there is hope. Many countries are realizing the need for fiscal discipline, especially after the economic pressures of COVID and the Ukraine war. We are advocating for phasing out non-essential subsidies and supporting only those targeted at the most vulnerable. COP is highlighting climate action as both existential and an economic necessity. By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth and green jobs.\n\nMM: Can you highlight any countries making significant progress in this area?\n\nKG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board. These efforts demonstrate policy transformation towards climate goals.\n\nMM: Dr. Birol, you noted that we need technologies beyond those currently available to meet climate targets. Which technologies should we focus on, and how can policymakers support them?\n\nFB: We need to focus on expanding current technologies like solar, wind, electric vehicles, and heat pumps. However, to meet climate targets, we must also develop new technologies, especially for sectors like iron, steel, and cement, which renewables alone cannot address. Hydrogen is crucial for transportation, particularly for long-haul transport. There’s much talk about hydrogen, but actual investment decisions for hydrogen projects are limited, at only 3%. Carbon capture is also necessary but primarily for hard-to-abate sectors. Government incentives and policies will be key to accelerating innovation.\n\nNO: I agree. In developing countries, even rural areas like my village, people are noticing the effects of climate change, such as floods becoming more frequent. Technology needs to be accessible to developing nations. During the pandemic, poorer countries were last in line for vaccines. We must ensure we don’t repeat this mistake with climate technology.\n\nFB: Developed countries should support clean energy access in developing countries, not just for ethical reasons but because emissions from any region affect everyone globally. Emissions have no borders.\n\nNO: Precisely. Many developing nations, including those in Africa, have the potential for a comparative advantage in green technology, like green hydrogen. We need to build value chains locally rather than just exporting raw materials. This creates jobs and supports sustainable development.\n\nKG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordably. The Montreal Protocol succeeded because people in developed countries experienced the direct effects of ozone-depleting emissions. We are in a similar position with climate change.\n\nMM: On the topic of subsidies, the Inflation Reduction Act has sparked significant climate investment in the U.S., but it has some protectionist aspects. How do you view this?\n\nKG: Protectionist measures risk retaliation from other countries, potentially leading to a downwards spiral that would make us all poorer and less secure. We need \"good\" subsidies that support R&D and infrastructure, like charging stations, and that help remove barriers for developing countries to attract investment. This is a beneficial use of public money.\n\nNO: Exactly. Countries have different paths to decarbonization; the U.S., for example, will likely use subsidies instead of carbon pricing. However, issues like local content requirements can create an uneven playing field. Our committees at the WTO provide a forum for addressing these concerns and working toward fair agreements.\n\nFB: Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to strike a balance.\n\nMM: Thank you to our panel for this insightful discussion.",
+    "chunks": [
+      {
+        "chunk_id": "Document_chunk_0",
+        "original_index": 0,
+        "content": "Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023"
+      },
+      {
+        "chunk_id": "Document_chunk_1",
+        "original_index": 1,
+        "content": "Moderator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers: Kristalina Georgieva (KG): Managing Director of the International Monetary Fund\nDr. Fatih Birol (FB): Executive Director of the International Energy Agency\nDr. Ngozi Okonjo-Iweala (NO): Director-General of the WTO\nTranscript:\nMM: For the discussion this morning, if I can start with you, Kristalina."
+      },
+      {
+        "chunk_id": "Document_chunk_2",
+        "original_index": 2,
+        "content": "One of the things that comes across is that green innovation has slowed down a little bit, and we're not getting the economic and climate benefits that we should be. From your position, what are the policy levers we can use to reinvigorate innovation?"
+      },
+      {
+        "chunk_id": "Document_chunk_3",
+        "original_index": 3,
+        "content": "KG: Thank you."
+      },
+      {
+        "chunk_id": "Document_chunk_4",
+        "original_index": 4,
+        "content": "It’s vital to address both climate and growth as global growth has been quite anemic, projected at only 3% for the next five years compared to 3.8% in the decade before COVID."
+      },
+      {
+        "chunk_id": "Document_chunk_5",
+        "original_index": 5,
+        "content": "What can be done?"
+      },
+      {
+        "chunk_id": "Document_chunk_6",
+        "original_index": 6,
+        "content": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition. Our research shows fuel subsidies reached $1.3 trillion last year, and indirect subsidies like the health costs of pollution push this to $7.1 trillion. Step one: remove these harmful subsidies. Step two: introduce incentives like carbon pricing. While politically challenging, carbon pricing can be achieved through trade or raising standards. Step three: promote investment in R&D. After 2010, green patents have slightly decreased, so we need to push R&D aggressively, both in advanced economies and by supporting researchers in emerging markets. MM: Dr. Birol, China’s economy plays a major role in green innovation. Do you worry about the impact a slowing Chinese economy may have on global green innovation?"
+      },
+      {
+        "chunk_id": "Document_chunk_7",
+        "original_index": 7,
+        "content": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors: rapid progress in clean energy and a slowing Chinese economy. China has been a massive driver of fossil fuel growth, accounting for over two-thirds of global oil consumption growth and a large share of coal and natural gas growth over the last decade. With a shift toward a less energy-intensive economy, we expect China’s growth to slow to around 3%-4%. Meanwhile, renewable energy is expanding globally—80% of new power plants this year are renewables, and by 2030, electric cars could account for every second car sold. This dual trend leads us to foresee fossil fuel consumption peaking by 2030. MM: Dr. Ngozi, what role does trade play in driving green innovation globally? NO: Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains. We need to address tariffs that create a disincentive for adopting green technologies. Research shows that developed countries have lower tariffs on environmental goods, but there is room for developing countries to lower theirs as well. High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology. We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030. MM: Kristalina, you mentioned the scale of fossil fuel subsidies and how these are increasing. Are you seeing any signs of hope for reducing these subsidies?"
+      },
+      {
+        "chunk_id": "Document_chunk_8",
+        "original_index": 8,
+        "content": "KG:"
+      },
+      {
+        "chunk_id": "Document_chunk_9",
+        "original_index": 9,
+        "content": "Yes, there is hope."
+      },
+      {
+        "chunk_id": "Document_chunk_10",
+        "original_index": 10,
+        "content": "Many countries are realizing the need for fiscal discipline, especially after the economic pressures of COVID and the Ukraine war."
+      },
+      {
+        "chunk_id": "Document_chunk_11",
+        "original_index": 11,
+        "content": "We are advocating for phasing out non-essential subsidies and supporting only those targeted at the most vulnerable. COP is highlighting climate action as both existential and an economic necessity."
+      },
+      {
+        "chunk_id": "Document_chunk_12",
+        "original_index": 12,
+        "content": "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth and green jobs."
+      },
+      {
+        "chunk_id": "Document_chunk_13",
+        "original_index": 13,
+        "content": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board. These efforts demonstrate policy transformation towards climate goals. MM: Dr. Birol, you noted that we need technologies beyond those currently available to meet climate targets. Which technologies should we focus on, and how can policymakers support them?"
+      },
+      {
+        "chunk_id": "Document_chunk_14",
+        "original_index": 14,
+        "content": "FB:"
+      },
+      {
+        "chunk_id": "Document_chunk_15",
+        "original_index": 15,
+        "content": "We need to focus on expanding current technologies like solar, wind, electric vehicles, and heat pumps. However, to meet climate targets, we must also develop new technologies, especially for sectors like iron, steel, and cement, which renewables alone cannot address. Hydrogen is crucial for transportation, particularly for long-haul transport. There’s much talk about hydrogen, but actual investment decisions for hydrogen projects are limited, at only 3%. Carbon capture is also necessary but primarily for hard-to-abate sectors. Government incentives and policies will be key to accelerating innovation."
+      },
+      {
+        "chunk_id": "Document_chunk_16",
+        "original_index": 16,
+        "content": "NO: I agree."
+      },
+      {
+        "chunk_id": "Document_chunk_17",
+        "original_index": 17,
+        "content": "In developing countries, even rural areas like my village, people are noticing the effects of climate change, such as floods becoming more frequent. Technology needs to be accessible to developing nations. During the pandemic, poorer countries were last in line for vaccines."
+      },
+      {
+        "chunk_id": "Document_chunk_18",
+        "original_index": 18,
+        "content": "We must ensure we don’t repeat this mistake with climate technology."
+      },
+      {
+        "chunk_id": "Document_chunk_19",
+        "original_index": 19,
+        "content": "FB:"
+      },
+      {
+        "chunk_id": "Document_chunk_20",
+        "original_index": 20,
+        "content": "Developed countries should support clean energy access in developing countries, not just for ethical reasons but because emissions from any region affect everyone globally. Emissions have no borders."
+      },
+      {
+        "chunk_id": "Document_chunk_21",
+        "original_index": 21,
+        "content": "NO: Precisely."
+      },
+      {
+        "chunk_id": "Document_chunk_22",
+        "original_index": 22,
+        "content": "Many developing nations, including those in Africa, have the potential for a comparative advantage in green technology, like green hydrogen. We need to build value chains locally rather than just exporting raw materials. This creates jobs and supports sustainable development."
+      },
+      {
+        "chunk_id": "Document_chunk_23",
+        "original_index": 23,
+        "content": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordably. The Montreal Protocol succeeded because people in developed countries experienced the direct effects of ozone-depleting emissions. We are in a similar position with climate change. MM: On the topic of subsidies, the Inflation Reduction Act has sparked significant climate investment in the U.S., but it has some protectionist aspects."
+      },
+      {
+        "chunk_id": "Document_chunk_24",
+        "original_index": 24,
+        "content": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially leading to a downwards spiral that would make us all poorer and less secure. We need \"good\" subsidies that support R&D and infrastructure, like charging stations, and that help remove barriers for developing countries to attract investment. This is a beneficial use of public money. NO: Exactly. Countries have different paths to decarbonization; the U.S., for example, will likely use subsidies instead of carbon pricing. However, issues like local content requirements can create an uneven playing field. Our committees at the WTO provide a forum for addressing these concerns and working toward fair agreements. FB:"
+      },
+      {
+        "chunk_id": "Document_chunk_25",
+        "original_index": 25,
+        "content": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to strike a balance. MM: Thank you to our panel for this insightful discussion."
+      }
+    ]
+  }
+]

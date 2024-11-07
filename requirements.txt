@@ -1,0 +1,14 @@
+elasticsearch
+tqdm
+cohere
+spacy
+sentence-transformers
+numpy
+scikit-learn
+tiktoken
+python-dotenv
+aiofiles
+openai
+PyYAML
+dspy
+faiss-cpu==1.9.0
