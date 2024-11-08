@@ -1,6 +1,6 @@
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/metrics.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/metrics.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/metrics.py
 # metrics.py
 import logging
@@ -416,7 +416,7 @@ except Exception as e:
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/reranker.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/reranker.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/reranker.py
 
 import logging
@@ -546,7 +546,7 @@ def rerank_documents_sentence_transformer(query: str, retrieved_docs: List[Dict[
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/elasticsearch_bm25.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/elasticsearch_bm25.py
 import logging
 import time
 from typing import List, Dict, Any, Optional, Tuple
@@ -788,7 +788,7 @@ class ElasticsearchBM25:
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/query_generator.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/query_generator.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/query_generator.py
 # query_generator.py
 
@@ -827,7 +827,7 @@ class QueryGeneratorSignature(dspy.Signature):
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/evaluation.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/evaluation.py
 import logging
 import time
 from typing import List, Dict, Any, Callable
@@ -956,7 +956,7 @@ def evaluate_complete_pipeline(db: ContextualVectorDB, es_bm25: ElasticsearchBM2
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/data_loader.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/data_loader.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/data_loader.py
 import json
 import logging
@@ -1006,12 +1006,12 @@ def load_queries(file_path: str) -> List[Dict[str, Any]]:
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/__init__.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/__init__.py
 
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/reranking.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/reranking.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/reranking.py
 
 import logging
@@ -1177,7 +1177,7 @@ def retrieve_with_reranking(query: str, db: ContextualVectorDB, es_bm25: Elastic
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/answer_generator.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/answer_generator.py
 import logging
 from typing import List, Dict, Any
 import dspy
@@ -1211,12 +1211,30 @@ class QuestionAnswerSignature(dspy.Signature):
         try:
             logger.debug(f"Generating answer for question: '{question}' with context length: {len(context)} characters.")
             answer = self.language_model.generate(
-                prompt=(
-    f"Question: {question}\n"
-    f"Context:\n{context}\n\n"
-    "Answer the question based only on the information provided in the context above. "
-    "If the answer is not present in the context, respond with 'I don't know.'"
+                
+                prompt = (
+    f"You are an expert in qualitative research and thematic analysis.\n\n"
+    f"**Guidelines**:\n"
+    f"- **Relevance:** Extract quotations that are closely related to the key themes.\n"
+    f"- **Diversity:** Ensure a range of perspectives and viewpoints.\n"
+    f"- **Clarity:** Choose clear and understandable quotations.\n"
+    f"- **Impact:** Select impactful quotations that highlight significant aspects of the data.\n"
+    f"- **Authenticity:** Maintain original expressions from participants.\n\n"
+    f"**Transcript Chunk**:\n{question}\n\n"
+    f"**Context:**\n{context}\n\n"
+    f"**Task:** Extract relevant quotations from the transcript chunk based on the context provided. "
+    f"Provide each quotation in the following JSON format within a list:\n\n"
+    f"```json\n"
+    f"[\n"
+    f"    {{\"QUOTE\": \"Actual quotation text.\"}},\n"
+    f"    {{\"QUOTE\": \"Another quotation text.\"}},\n"
+    f"    ...\n"
+    f"]\n"
+    f"```"
+    f"Ensure that the response is a valid JSON array containing all relevant quotations. "
+    f"If no quotations are available, respond with an empty array `[]`."
 )
+
 ,
                 max_tokens=max_tokens,
                 temperature=0.7,
@@ -1337,7 +1355,7 @@ def is_answer_factually_correct(example: Dict[str, Any], pred: Dict[str, Any]) -
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/retrieval.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/retrieval.py
 # File: retrieval.py
 
 import logging
@@ -1551,7 +1569,7 @@ def multi_stage_retrieval(
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/query_processor.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/query_processor.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/query_processor.py
 import logging
 from typing import List, Dict, Any, Callable
@@ -1708,7 +1726,7 @@ async def process_queries(
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/copycode.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/copycode.py
 import logging
 import os
 import asyncio
@@ -1809,7 +1827,7 @@ if __name__ == "__main__":
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/contextual_vector_db.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/contextual_vector_db.py
 import os
 import pickle
 import numpy as np
@@ -2123,7 +2141,7 @@ class ContextualVectorDB:
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/openai_client.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/openai_client.py
 import logging
 import os
 from typing import List, Dict, Any
@@ -2200,7 +2218,7 @@ class OpenAIClient:
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/main.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/main.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/main.py
 
 import gc
@@ -2440,7 +2458,7 @@ if __name__ == "__main__":
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/evaluator.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/evaluator.py
 import logging
 from typing import List, Dict, Any, Callable
 from tqdm import tqdm
@@ -2535,7 +2553,7 @@ def evaluate_complete_pipeline(db: ContextualVectorDB, es_bm25: ElasticsearchBM2
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/decorators.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/decorators.py
 import logging
 import functools
 
@@ -2554,12 +2572,12 @@ def handle_exceptions(func):
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/utils/__init__.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/utils/__init__.py
 
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/utils/logger.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/utils/logger.py
 import logging
 import logging.config
 import os
@@ -2600,7 +2618,7 @@ setup_logging()
 ################################################################################
 
 
-# File: /Users/amankumarshrestha/Downloads/Example/src/utils/utils.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-Analysis/src/utils/utils.py
 def check_answer_length(answer: str, max_length: int = 500) -> bool:
     """
     Checks if the answer length is within the specified limit.

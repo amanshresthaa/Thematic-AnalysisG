@@ -31,12 +31,31 @@ class QuestionAnswerSignature(dspy.Signature):
         try:
             logger.debug(f"Generating answer for question: '{question}' with context length: {len(context)} characters.")
             answer = self.language_model.generate(
-                prompt=(
-    f"Question: {question}\n"
-    f"Context:\n{context}\n\n"
-    "Answer the question based only on the information provided in the context above. "
-    "If the answer is not present in the context, respond with 'I don't know.'"
+                
+                prompt = (
+    f"You are an expert in qualitative research and thematic analysis.\n\n"
+    f"**Guidelines**:\n"
+    f"- **Relevance:** Extract quotations that are closely related to the key themes.\n"
+    f"- **Diversity:** Ensure a range of perspectives and viewpoints.\n"
+    f"- **Clarity:** Choose clear and understandable quotations.\n"
+    f"- **Impact:** Select impactful quotations that highlight significant aspects of the data.\n"
+    f"- **Authenticity:** Maintain original expressions from participants.\n\n"
+    f"**Transcript Chunk**:\n{question}\n\n"
+    f"**Context:**\n{context}\n\n"
+    f"**Task:** Extract **3-5** relevant quotations from the transcript chunk based on the context provided. "
+    f"Provide each quotation in the following JSON format within a list:\n\n"
+    f"```json\n"
+    f"[\n"
+    f"    {{\"QUOTE\": \"This is the first quotation.\"}},\n"
+    f"    {{\"QUOTE\": \"This is the second quotation.\"}},\n"
+    f"    {{\"QUOTE\": \"This is the third quotation.\"}}\n"
+    f"]\n"
+    f"```"
+    f"Ensure that the response is a valid JSON array containing all relevant quotations. "
+    f"If no quotations are available, respond with an empty array `[]`."
 )
+
+
 ,
                 max_tokens=max_tokens,
                 temperature=0.7,
