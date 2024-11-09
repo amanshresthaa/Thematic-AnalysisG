@@ -416,6 +416,106 @@ except Exception as e:
 ################################################################################
 
 
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation.py
+import logging
+from typing import List, Dict, Any
+import dspy
+
+logger = logging.getLogger(__name__)
+
+class SelectQuotationSignature(dspy.Signature):
+    """
+    Select relevant quotations from transcript chunks based on research objectives.
+    """
+    research_objectives: str = dspy.InputField(
+        desc="The research objectives guiding the selection of quotations."
+    )
+    transcript_chunks: List[str] = dspy.InputField(
+        desc="Chunks of transcript from which quotations are to be selected."
+    )
+    quotations: List[str] = dspy.OutputField(
+        desc="List of selected quotations relevant to the research objectives."
+    )
+    
+    # Remove StateField usage since it's not available
+    # Instead, we'll handle state within the class instance
+    def __init__(self):
+        super().__init__()
+        self._context = ""
+        self._selected_quotations = []
+
+    def forward(self, research_objectives: str, transcript_chunks: List[str]) -> Dict[str, List[str]]:
+        try:
+            logger.debug("Starting quotation selection process.")
+            prompt = (
+                f"You are an expert in qualitative research and thematic analysis.\n\n"
+                f"**Research Objectives**:\n{research_objectives}\n\n"
+                f"**Transcript Chunks**:\n" +
+                "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)]) +
+                "\n\n"
+                f"**Task:** Extract **3-5** relevant quotations from the transcript chunks that align with the research objectives provided. "
+                f"Provide each quotation in the following JSON format within a list:\n\n"
+                f"```json\n"
+                f"[\n"
+                f"    {{\"QUOTE\": \"This is the first quotation.\"}},\n"
+                f"    {{\"QUOTE\": \"This is the second quotation.\"}},\n"
+                f"    {{\"QUOTE\": \"This is the third quotation.\"}}\n"
+                f"]\n"
+                f"```\n"
+                f"Ensure that the response is a valid JSON array containing all relevant quotations. "
+                f"If no quotations are available, respond with an empty array `[]`."
+            )
+
+            answer = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=500,
+                temperature=0.7,
+                top_p=0.9,
+                n=1,
+                stop=None
+            ).strip()
+
+            logger.info("Quotations selected successfully.")
+            selected_quotations = self._parse_json_quotes(answer)
+            logger.debug(f"Selected Quotations: {selected_quotations}")
+
+            # Update internal state
+            self._selected_quotations = selected_quotations
+            self._context = "\n".join(selected_quotations)
+
+            return {"quotations": selected_quotations}
+        except Exception as e:
+            logger.error(f"Error in SelectQuotationSignature.forward: {e}", exc_info=True)
+            return {"quotations": []}
+
+    def _parse_json_quotes(self, answer: str) -> List[str]:
+        """
+        Parses the JSON response to extract quotations.
+        """
+        import json
+        try:
+            quotes = json.loads(answer)
+            if isinstance(quotes, list):
+                return [quote.get("QUOTE", "") for quote in quotes if "QUOTE" in quote]
+            else:
+                logger.warning("Response is not a list. Returning empty list.")
+                return []
+        except json.JSONDecodeError:
+            logger.warning("Failed to parse JSON. Returning empty list.")
+            return []
+
+    @property
+    def context(self) -> str:
+        """Get the accumulated context."""
+        return self._context
+
+    @property
+    def selected_quotations(self) -> List[str]:
+        """Get the list of selected quotations."""
+        return self._selected_quotations.copy()
+################################################################################
+
+
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranker.py
 # File: /Users/amankumarshrestha/Downloads/Example/src/reranker.py
 
@@ -1356,6 +1456,94 @@ def is_answer_factually_correct(example: Dict[str, Any], pred: Dict[str, Any]) -
 ################################################################################
 
 
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py
+
+import logging
+from typing import Dict, Any, List
+import dspy
+from select_quotation import SelectQuotationSignature
+from utils.validation_functions import (
+    validate_relevance_to_theme,
+    validate_conciseness,
+    validate_representativeness,
+    validate_non_repetition,
+    validate_contextual_appropriateness
+)
+
+logger = logging.getLogger(__name__)
+
+class SelectQuotationModule(dspy.Module):
+    """
+    DSPy module to select quotations based on research objectives and transcript chunks,
+    enforcing constraints using DSPy Assertions.
+    """
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.TypedChainOfThought(SelectQuotationSignature)
+
+    def forward(self, research_objectives: str, transcript_chunks: List[str]) -> Dict[str, List[str]]:
+        try:
+            logger.debug("Running SelectQuotationModule.")
+            response = self.chain(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+            quotations = response.get("quotations", [])
+            logger.info(f"Selected {len(quotations)} quotations.")
+
+            # Initialize state fields
+            context = ""
+            selected_quotations = []
+
+            for quotation in quotations:
+                # Relevance Assertion
+                dspy.Assert(
+                    validate_relevance_to_theme(research_objectives, quotation),
+                    msg="Quotation is not relevant to the research objectives.",
+                    backtrack=self.chain
+                )
+
+                # Conciseness Assertion
+                dspy.Suggest(
+                    validate_conciseness(quotation),
+                    msg="Quotation is not concise.",
+                    backtrack=self.chain
+                )
+
+                # Representativeness Assertion
+                dspy.Suggest(
+                    validate_representativeness(selected_quotations, quotation),
+                    msg="Quotation does not represent diverse perspectives.",
+                    backtrack=self.chain
+                )
+
+                # Non-Repetition Assertion
+                dspy.Assert(
+                    validate_non_repetition(selected_quotations, quotation),
+                    msg="Quotation is a duplicate or too similar to a previously selected one.",
+                    backtrack=self.chain
+                )
+
+                # Contextual Appropriateness Assertion
+                dspy.Suggest(
+                    validate_contextual_appropriateness(context, quotation),
+                    msg="Quotation is not contextually appropriate.",
+                    backtrack=self.chain
+                )
+
+                # If all assertions pass, add the quotation to the selected list
+                selected_quotations.append(quotation)
+                context += " " + quotation  # Update context for next assertion
+
+            return {"quotations": selected_quotations}
+        except dspy.AssertionError as ae:
+            logger.error(f"Assertion failed: {ae}")
+            return {"quotations": selected_quotations}  # Return quotations up to the point of failure
+        except Exception as e:
+            logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
+            return {"quotations": []}
+
+################################################################################
+
+
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/retrieval.py
 # File: retrieval.py
 
@@ -1571,16 +1759,15 @@ def multi_stage_retrieval(
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
-# File: /Users/amankumarshrestha/Downloads/Example/src/query_processor.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
+
 import logging
 from typing import List, Dict, Any, Callable
 from contextual_vector_db import ContextualVectorDB
-from elasticsearch_bm25 import ElasticsearchBM25  # Import ElasticsearchBM25 class
-
-# Ensure that multi_stage_retrieval is correctly defined in retrieval.py
-from retrieval import multi_stage_retrieval  # Use multi_stage_retrieval as default
-from reranking import retrieve_with_reranking  # Ensure this function is correctly defined and imported
-
+from elasticsearch_bm25 import ElasticsearchBM25
+from retrieval import multi_stage_retrieval
+from reranking import retrieve_with_reranking
+from select_quotation_module import SelectQuotationModule
 from answer_generator import generate_answer_dspy
 from utils.logger import setup_logging
 import json
@@ -1590,7 +1777,6 @@ from src.decorators import handle_exceptions
 # Initialize logger
 setup_logging()
 logger = logging.getLogger(__name__)
-
 
 def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
@@ -1622,7 +1808,6 @@ def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     logger.info(f"Validated {len(valid_queries)} queries out of {len(queries)} provided.")
     return valid_queries
 
-
 def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
     """
     Retrieves documents using multi-stage retrieval with contextual BM25.
@@ -1642,7 +1827,7 @@ def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: Elasticsearc
     return final_results
 
 @handle_exceptions
-async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> Dict[str, Any]:
+async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
     query_text = query_item.get('query', '').strip()
     if not query_text:
         logger.warning(f"Query is empty. Skipping.")
@@ -1655,7 +1840,17 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
     logger.info(f"Retrieved chunk IDs: {[chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]}")
 
-    # Generate answer using DSPy with assertions
+    # Extract transcript chunks from retrieved documents
+    transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
+
+    # Define research objectives (this could be part of the query_item or defined elsewhere)
+    research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
+
+    # Select quotations using the new DSPy module
+    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+    quotations = quotations_response.get("quotations", [])
+
+    # Generate answer using DSPy with assertions (optional, depending on your use-case)
     qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
     answer = qa_response.get("answer", "")
     used_chunks_info = qa_response.get("used_chunks", [])
@@ -1663,9 +1858,11 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
 
     result = {
         "query": query_text,
+        "research_objectives": research_objectives,
         "retrieved_chunks": used_chunks_info,
         "retrieved_chunks_count": retrieved_chunks_count,
         "used_chunk_ids": [chunk['chunk_id'] for chunk in used_chunks_info],
+        "quotations": quotations,
         "answer": {
             "answer": answer
         }
@@ -1673,9 +1870,9 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
 
     # Log the chunks used for this query
     logger.info(f"Query '{query_text}' used {retrieved_chunks_count} chunks in answer generation.")
+    logger.info(f"Selected {len(quotations)} quotations for query '{query_text}'.")
 
     return result
-
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
@@ -1703,11 +1900,12 @@ async def process_queries(
     logger.info("Starting to process queries.")
 
     all_results = []
+    quotation_module = SelectQuotationModule()  # Initialize the quotation selection module
 
     try:
         for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
             try:
-                result = await process_single_query(query_item, db, es_bm25, k)
+                result = await process_single_query(query_item, db, es_bm25, k, quotation_module)
                 if result:
                     all_results.append(result)
             except Exception as e:
@@ -2220,7 +2418,7 @@ class OpenAIClient:
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
-# File: /Users/amankumarshrestha/Downloads/Example/src/main.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
 
 import gc
 
@@ -2243,14 +2441,14 @@ import dspy
 from dspy.datasets import DataLoader
 from answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from reranking import retrieve_with_reranking
-import answer_generator
+from select_quotation_module import SelectQuotationModule
 import asyncio
 from src.decorators import handle_exceptions
+import answer_generator
 
 # Initialize logging
 setup_logging()
 logger = logging.getLogger(__name__)
-
 
 def create_elasticsearch_bm25_index(db: ContextualVectorDB) -> ElasticsearchBM25:
     """
@@ -2266,8 +2464,10 @@ def create_elasticsearch_bm25_index(db: ContextualVectorDB) -> ElasticsearchBM25
     try:
         es_bm25 = ElasticsearchBM25()
         logger.info("ElasticsearchBM25 instance created.")
-        indexed_count = es_bm25.index_documents(db.metadata)
-        logger.info(f"Elasticsearch BM25 index created successfully with {indexed_count} documents.")
+        success_count, failed_docs = es_bm25.index_documents(db.metadata)
+        logger.info(f"Elasticsearch BM25 index created successfully with {success_count} documents indexed.")
+        if failed_docs:
+            logger.warning(f"{len(failed_docs)} documents failed to index.")
     except Exception as e:
         logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
         raise
@@ -2418,8 +2618,17 @@ async def main():
             logger.error(f"Error assigning optimized program to answer_generator.qa_module: {e}", exc_info=True)
             return
 
-        # Proceed with processing queries using the optimized program
-        logger.info("Starting to process queries with the optimized program")
+        # Initialize SelectQuotationModule
+        logger.info("Initializing SelectQuotationModule")
+        try:
+            quotation_module = SelectQuotationModule()
+            logger.info("SelectQuotationModule initialized successfully.")
+        except Exception as e:
+            logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
+            return
+
+        # Proceed with processing queries using the optimized program and quotation selection
+        logger.info("Starting to process queries with the optimized program and quotation selection")
         try:
             await process_queries(
                 validated_queries,
@@ -2569,6 +2778,85 @@ def handle_exceptions(func):
             logger.error(f"Error in {func.__name__}: {e}", exc_info=True)
             return {"error": "An error occurred. Please try again later."}
     return wrapper
+
+################################################################################
+
+
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/validation_functions.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/validation_functions.py
+
+import logging
+from typing import List, Dict, Any
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+logger = logging.getLogger(__name__)
+
+def validate_relevance_to_theme(research_objectives: str, quotation: str) -> bool:
+    """
+    Validates if the quotation is relevant to the research objectives.
+    """
+    try:
+        vectorizer = TfidfVectorizer().fit([research_objectives, quotation])
+        vectors = vectorizer.transform([research_objectives, quotation])
+        similarity = cosine_similarity(vectors[0], vectors[1])[0][0]
+        return similarity >= 0.5  # Threshold can be adjusted
+    except Exception as e:
+        logger.error(f"Error in validate_relevance_to_theme: {e}", exc_info=True)
+        return False
+
+def validate_conciseness(quotation: str, max_length: int = 150) -> bool:
+    """
+    Validates if the quotation is concise.
+    """
+    return len(quotation.split()) <= max_length
+
+def validate_representativeness(selected_quotations: List[str], new_quotation: str, diversity_threshold: float = 0.2) -> bool:
+    """
+    Ensures that the new quotation represents a diverse perspective.
+    """
+    try:
+        if not selected_quotations:
+            return True
+        vectorizer = TfidfVectorizer().fit(selected_quotations + [new_quotation])
+        vectors = vectorizer.transform(selected_quotations + [new_quotation])
+        new_vec = vectors[-1]
+        similarities = cosine_similarity(new_vec, vectors[:-1])[0]
+        return all(similarity < diversity_threshold for similarity in similarities)
+    except Exception as e:
+        logger.error(f"Error in validate_representativeness: {e}", exc_info=True)
+        return False
+
+def validate_non_repetition(selected_quotations: List[str], new_quotation: str, similarity_threshold: float = 0.8) -> bool:
+    """
+    Prevents selecting duplicate or very similar quotations.
+    """
+    try:
+        if not selected_quotations:
+            return True
+        vectorizer = TfidfVectorizer().fit(selected_quotations + [new_quotation])
+        vectors = vectorizer.transform(selected_quotations + [new_quotation])
+        new_vec = vectors[-1]
+        similarities = cosine_similarity(new_vec, vectors[:-1])[0]
+        return all(similarity < similarity_threshold for similarity in similarities)
+    except Exception as e:
+        logger.error(f"Error in validate_non_repetition: {e}", exc_info=True)
+        return False
+
+def validate_contextual_appropriateness(context: str, quotation: str) -> bool:
+    """
+    Checks if the quotation makes sense within the given context.
+    """
+    try:
+        combined = context + " " + quotation
+        # Simple heuristic: check if both context and quotation share key terms
+        vectorizer = TfidfVectorizer().fit([context, quotation])
+        vectors = vectorizer.transform([context, quotation])
+        similarity = cosine_similarity(vectors[0], vectors[1])[0][0]
+        return similarity >= 0.3  # Threshold can be adjusted
+    except Exception as e:
+        logger.error(f"Error in validate_contextual_appropriateness: {e}", exc_info=True)
+        return False
 
 ################################################################################
 
