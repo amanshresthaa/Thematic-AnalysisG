@@ -1,4 +1,4 @@
-# File: /Users/amankumarshrestha/Downloads/Example/src/main.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
 
 import gc
 
@@ -29,7 +29,6 @@ from src.decorators import handle_exceptions
 setup_logging()
 logger = logging.getLogger(__name__)
 
-
 def create_elasticsearch_bm25_index(db: ContextualVectorDB) -> ElasticsearchBM25:
     """
     Create and index documents in Elasticsearch BM25.
@@ -44,8 +43,10 @@ def create_elasticsearch_bm25_index(db: ContextualVectorDB) -> ElasticsearchBM25
     try:
         es_bm25 = ElasticsearchBM25()
         logger.info("ElasticsearchBM25 instance created.")
-        indexed_count = es_bm25.index_documents(db.metadata)
-        logger.info(f"Elasticsearch BM25 index created successfully with {indexed_count} documents.")
+        success_count, failed_docs = es_bm25.index_documents(db.metadata)
+        logger.info(f"Elasticsearch BM25 index created successfully with {success_count} documents indexed.")
+        if failed_docs:
+            logger.warning(f"{len(failed_docs)} documents failed to index.")
     except Exception as e:
         logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
         raise
@@ -196,8 +197,18 @@ async def main():
             logger.error(f"Error assigning optimized program to answer_generator.qa_module: {e}", exc_info=True)
             return
 
-        # Proceed with processing queries using the optimized program
-        logger.info("Starting to process queries with the optimized program")
+        # Initialize SelectQuotationModule
+        logger.info("Initializing SelectQuotationModule")
+        try:
+            from select_quotation_module import SelectQuotationModule
+            quotation_module = SelectQuotationModule()
+            logger.info("SelectQuotationModule initialized successfully.")
+        except Exception as e:
+            logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
+            return
+
+        # Proceed with processing queries using the optimized program and quotation selection
+        logger.info("Starting to process queries with the optimized program and quotation selection")
         try:
             await process_queries(
                 validated_queries,

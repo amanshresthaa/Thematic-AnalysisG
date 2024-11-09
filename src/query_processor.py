@@ -1,23 +1,22 @@
-# File: /Users/amankumarshrestha/Downloads/Example/src/query_processor.py
+# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
+
 import logging
 from typing import List, Dict, Any, Callable
 from contextual_vector_db import ContextualVectorDB
-from elasticsearch_bm25 import ElasticsearchBM25  # Import ElasticsearchBM25 class
-
-# Ensure that multi_stage_retrieval is correctly defined in retrieval.py
-from retrieval import multi_stage_retrieval  # Use multi_stage_retrieval as default
-from reranking import retrieve_with_reranking  # Ensure this function is correctly defined and imported
-
+from elasticsearch_bm25 import ElasticsearchBM25
+from retrieval import multi_stage_retrieval
+from reranking import retrieve_with_reranking
+from select_quotation_module import SelectQuotationModule  # Import the new module
 from answer_generator import generate_answer_dspy
 from utils.logger import setup_logging
 import json
 from tqdm import tqdm
 from src.decorators import handle_exceptions
+from utils.validation_functions import validate_relevance, validate_quality, validate_context_clarity
 
 # Initialize logger
 setup_logging()
 logger = logging.getLogger(__name__)
-
 
 def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
@@ -49,7 +48,6 @@ def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     logger.info(f"Validated {len(valid_queries)} queries out of {len(queries)} provided.")
     return valid_queries
 
-
 def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
     """
     Retrieves documents using multi-stage retrieval with contextual BM25.
@@ -69,7 +67,7 @@ def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: Elasticsearc
     return final_results
 
 @handle_exceptions
-async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> Dict[str, Any]:
+async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
     query_text = query_item.get('query', '').strip()
     if not query_text:
         logger.warning(f"Query is empty. Skipping.")
@@ -82,7 +80,19 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
     logger.info(f"Retrieved chunk IDs: {[chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]}")
 
-    # Generate answer using DSPy with assertions
+    # Extract transcript chunks from retrieved documents
+    transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
+
+    # Define research objectives (this could be part of the query_item or defined elsewhere)
+    research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
+
+    # Select quotations using the new DSPy module
+    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+    quotations = quotations_response.get("quotations", [])
+    types_and_functions = quotations_response.get("types_and_functions", [])
+    purpose = quotations_response.get("purpose", "")
+
+    # Generate answer using DSPy with assertions (optional, depending on your use-case)
     qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
     answer = qa_response.get("answer", "")
     used_chunks_info = qa_response.get("used_chunks", [])
@@ -90,9 +100,13 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
 
     result = {
         "query": query_text,
+        "research_objectives": research_objectives,
         "retrieved_chunks": used_chunks_info,
         "retrieved_chunks_count": retrieved_chunks_count,
         "used_chunk_ids": [chunk['chunk_id'] for chunk in used_chunks_info],
+        "quotations": quotations,
+        "types_and_functions": types_and_functions,
+        "purpose": purpose,
         "answer": {
             "answer": answer
         }
@@ -100,9 +114,9 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
 
     # Log the chunks used for this query
     logger.info(f"Query '{query_text}' used {retrieved_chunks_count} chunks in answer generation.")
+    logger.info(f"Selected {len(quotations)} quotations for query '{query_text}'.")
 
     return result
-
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
@@ -130,11 +144,12 @@ async def process_queries(
     logger.info("Starting to process queries.")
 
     all_results = []
+    quotation_module = SelectQuotationModule()  # Initialize the quotation selection module
 
     try:
         for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
             try:
-                result = await process_single_query(query_item, db, es_bm25, k)
+                result = await process_single_query(query_item, db, es_bm25, k, quotation_module)
                 if result:
                     all_results.append(result)
             except Exception as e:
