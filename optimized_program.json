@@ -5,15 +5,11 @@
     "train": [],
     "demos": [],
     "signature": {
-      "instructions": "Given the fields `question`, `context`, produce the fields `answer`.",
+      "instructions": "Given the fields `input`, produce the fields `answer`.",
       "fields": [
         {
-          "prefix": "Question:",
-          "description": "The user's query or question. This should be a clear and specific question that requires an informative and accurate answer based on the provided context."
-        },
-        {
-          "prefix": "Context:",
-          "description": "Relevant context to base the answer on. This includes all necessary information, documents, or data chunks that provide the foundation for generating a factual and comprehensive answer to the question."
+          "prefix": "Input:",
+          "description": "The combined input containing both the question and context. The format should be 'question: <question_text> context: <context_text>'."
         },
         {
           "prefix": "Reasoning: Let's think step by step in order to",

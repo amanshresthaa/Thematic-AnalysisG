@@ -4,20 +4,14 @@ import dspy
 import asyncio
 from metrics import comprehensive_metric, is_answer_fully_correct, factuality_metric
 from utils.utils import check_answer_length
+
 logger = logging.getLogger(__name__)
 
 class QuestionAnswerSignature(dspy.Signature):
-    question: str = dspy.InputField(
+    input: str = dspy.InputField(
         desc=(
-            "The user's query or question. This should be a clear and specific question that "
-            "requires an informative and accurate answer based on the provided context."
-        )
-    )
-    context: str = dspy.InputField(
-        desc=(
-            "Relevant context to base the answer on. This includes all necessary information, "
-            "documents, or data chunks that provide the foundation for generating a factual "
-            "and comprehensive answer to the question."
+            "The combined input containing both the question and context. "
+            "The format should be 'question: <question_text> context: <context_text>'."
         )
     )
     answer: str = dspy.OutputField(
@@ -27,36 +21,37 @@ class QuestionAnswerSignature(dspy.Signature):
         )
     )
 
-    def forward(self, question: str, context: str, max_tokens: int = 8192) -> Dict[str, str]:
+    def forward(self, input: str, max_tokens: int = 8192) -> Dict[str, str]:
         try:
+            # Parse the input to extract question and context
+            parts = input.split(' context: ', 1)
+            question = parts[0].replace('question: ', '').strip()
+            context = parts[1].strip() if len(parts) > 1 else ""
+
             logger.debug(f"Generating answer for question: '{question}' with context length: {len(context)} characters.")
             answer = self.language_model.generate(
-                
-                prompt = (
-    f"You are an expert in qualitative research and thematic analysis.\n\n"
-    f"**Guidelines**:\n"
-    f"- **Relevance:** Extract quotations that are closely related to the key themes.\n"
-    f"- **Diversity:** Ensure a range of perspectives and viewpoints.\n"
-    f"- **Clarity:** Choose clear and understandable quotations.\n"
-    f"- **Impact:** Select impactful quotations that highlight significant aspects of the data.\n"
-    f"- **Authenticity:** Maintain original expressions from participants.\n\n"
-    f"**Transcript Chunk**:\n{question}\n\n"
-    f"**Context:**\n{context}\n\n"
-    f"**Task:** Extract **3-5** relevant quotations from the transcript chunk based on the context provided. "
-    f"Provide each quotation in the following JSON format within a list:\n\n"
-    f"```json\n"
-    f"[\n"
-    f"    {{\"QUOTE\": \"This is the first quotation.\"}},\n"
-    f"    {{\"QUOTE\": \"This is the second quotation.\"}},\n"
-    f"    {{\"QUOTE\": \"This is the third quotation.\"}}\n"
-    f"]\n"
-    f"```"
-    f"Ensure that the response is a valid JSON array containing all relevant quotations. "
-    f"If no quotations are available, respond with an empty array `[]`."
-)
-
-
-,
+                prompt=(
+                    f"You are an expert in qualitative research and thematic analysis.\n\n"
+                    f"**Guidelines**:\n"
+                    f"- **Relevance:** Extract quotations that are closely related to the key themes.\n"
+                    f"- **Diversity:** Ensure a range of perspectives and viewpoints.\n"
+                    f"- **Clarity:** Choose clear and understandable quotations.\n"
+                    f"- **Impact:** Select impactful quotations that highlight significant aspects of the data.\n"
+                    f"- **Authenticity:** Maintain original expressions from participants.\n\n"
+                    f"**Transcript Chunk**:\n{question}\n\n"
+                    f"**Context:**\n{context}\n\n"
+                    f"**Task:** Extract **3-5** relevant quotations from the transcript chunk based on the context provided. "
+                    f"Provide each quotation in the following JSON format within a list:\n\n"
+                    f"```json\n"
+                    f"[\n"
+                    f"    {{\"QUOTE\": \"This is the first quotation.\"}},\n"
+                    f"    {{\"QUOTE\": \"This is the second quotation.\"}},\n"
+                    f"    {{\"QUOTE\": \"This is the third quotation.\"}}\n"
+                    f"]\n"
+                    f"```"
+                    f"Ensure that the response is a valid JSON array containing all relevant quotations. "
+                    f"If no quotations are available, respond with an empty array `[]`."
+                ),
                 max_tokens=max_tokens,
                 temperature=0.7,
                 top_p=0.9,
@@ -81,10 +76,10 @@ except Exception as e:
         logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
         raise
 
-async def generate_answer(question: str, context: str, max_tokens: int = 8192) -> str:
+async def generate_answer(input: str, max_tokens: int = 8192) -> str:
     try:
-        logger.debug(f"Generating answer for question: '{question}' with context length: {len(context)} characters.")
-        answer = await asyncio.to_thread(qa_module, question=question, context=context, max_tokens=max_tokens)
+        logger.debug(f"Generating answer for input with length: {len(input)} characters.")
+        answer = await asyncio.to_thread(qa_module, input=input, max_tokens=max_tokens)
         return answer.get("answer", "I'm sorry, I couldn't generate an answer at this time.")
     except Exception as e:
         logger.error(f"Error in generate_answer: {e}", exc_info=True)
@@ -92,7 +87,7 @@ async def generate_answer(question: str, context: str, max_tokens: int = 8192) -
 
 async def evaluate_answer(example: Dict[str, Any], pred: Dict[str, Any]) -> bool:
     try:
-        logger.debug(f"Evaluating answer for question: '{example.get('question', '')}'")
+        logger.debug(f"Evaluating answer for input: '{example.get('input', '')}'")
         return await asyncio.to_thread(is_answer_fully_correct, example, pred)
     except Exception as e:
         logger.error(f"Error in evaluate_answer: {e}", exc_info=True)
@@ -128,7 +123,8 @@ async def generate_answer_dspy(query: str, retrieved_chunks: List[Dict[str, Any]
         ]
         logger.info(f"Total number of chunks used for context in query '{query}': {len(used_chunks_info)}")
         logger.info(f"Chunks used for context: {used_chunks_info}")
-        answer = await generate_answer(query, context)
+        input_data = f"question: {query} context: {context}"
+        answer = await generate_answer(input_data)
 
         if not answer:
             logger.warning(f"No answer generated for query '{query}'.")
