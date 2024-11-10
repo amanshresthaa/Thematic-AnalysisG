@@ -62,7 +62,7 @@ async def main():
         # Configure DSPy Language Model using LiteLLM
         logger.info("Configuring DSPy Language Model with LiteLLM")
 
-        lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
+        lm = dspy.LM('openai/gpt-4o-mini', max_dtokens=8192)
         dspy.configure(lm=lm)
 
         # Define file paths
@@ -74,14 +74,14 @@ async def main():
         dl = DataLoader()
         # Initialize the DataLoader
 
-        # Load the training data from CSV
-        logger.info(f"Loading training data from 'training_data.csv'")
+        # Load the training data from the new CSV format
+        # Load the training data from the new CSV format
+        logger.info(f"Loading training data from 'new_training_data.csv'")
         train_dataset = dl.from_csv(
-            "data/training_data.csv",
-            fields=("question", "context", "answer"),
-            input_keys=("question", "context")
+            "data/new_training_data.csv",
+            fields=("input", "output"),
+            input_keys=("input",)
         )
-
         # Load the codebase chunks
         logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'")
         codebase_chunks = load_codebase_chunks(codebase_chunks_file)

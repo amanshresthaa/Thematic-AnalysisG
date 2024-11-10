@@ -1,1208 +1,458 @@
 [
     {
-        "query": "Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023",
-        "research_objectives": "To understand the overarching goals and context of discussions surrounding green innovation and technology diffusion for achieving net-zero emissions.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_0",
-                "doc_id": "Document",
-                "content_snippet": "Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_25",
-                "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
-            },
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
-            },
-            {
-                "chunk_id": "Document_chunk_22",
-                "doc_id": "Document",
-                "content_snippet": "Many developing nations, including those in Africa, have the potential for a comparative advantage i..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_0",
-            "Document_chunk_7",
-            "Document_chunk_25",
-            "Document_chunk_6",
-            "Document_chunk_22"
-        ],
-        "quotations": [
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology.",
-            "Excessive protectionism can stifle innovation and slow the reduction of technology costs.",
-            "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition.",
-            "Many developing nations, including those in Africa, have the potential for a comparative advantage in green technology, like green hydrogen."
-        ],
-        "types_and_functions": [
-            "Policy recommendation",
-            "Economic analysis",
-            "Warning against protectionism",
-            "Call to action for innovation",
-            "Highlighting potential in developing nations"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the interconnectedness of trade, policy, and innovation in the context of green technology diffusion and to emphasize the necessary steps for achieving net-zero emissions.",
-        "answer": {
-            "answer": "The document titled \"Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023\" addresses the urgent need for innovation in green technology to combat climate change, emphasizing policy interventions to stimulate technological advancements and achieve net-zero emissions by 2050."
-        }
-    },
-    {
-        "query": "Moderator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers: Kristalina Georgieva (KG): Managing Director of the International Monetary Fund\nDr. Fatih Birol (FB): Executive Director of the International Energy Agency\nDr. Ngozi Okonjo-Iweala (NO): Director-General of the WTO\nTranscript:\nMM: For the discussion this morning, if I can start with you, Kristalina.",
-        "research_objectives": "To analyze the perspectives and expertise brought by prominent leaders on green innovation and international climate action.",
+        "query": "Could you say a little bit about your organisation\u2019s activities?\nWhen you say that, do you mean the farm side or the [org name]?\nI think the [org name].\n[org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.\nSo, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation.\nSo, it\u2019s like an interface between the farmers and the customers?\nYes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers. And the idea is by taking the middle man out, we are the middle man.\nSo, you\u2019re taking the middle man out from between the farmers and the market?\nYes. We are the traders in the middle.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
             {
                 "chunk_id": "Document_chunk_1",
                 "doc_id": "Document",
-                "content_snippet": "Moderator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers: Kristalina Georgiev..."
+                "content_snippet": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ..."
             },
             {
-                "chunk_id": "Document_chunk_0",
+                "chunk_id": "Document_chunk_17",
                 "doc_id": "Document",
-                "content_snippet": "Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023..."
+                "content_snippet": "Initially we had to go through somewhere else other than [org name] and there is a lot of money in t..."
             },
             {
-                "chunk_id": "Document_chunk_7",
+                "chunk_id": "Document_chunk_68",
                 "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
+                "content_snippet": "Yes, you\u2019re just not quite sure how. That\u2019s all rather worrying. And then of course, there is the CO..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_34",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            },
-            {
-                "chunk_id": "Document_chunk_19",
-                "doc_id": "Document",
-                "content_snippet": "FB:..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_1",
-            "Document_chunk_0",
-            "Document_chunk_7",
-            "Document_chunk_13",
-            "Document_chunk_19"
-        ],
-        "quotations": [
-            "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors: rapid progress in clean energy and a slowing Chinese economy.",
-            "NO: Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains.",
-            "KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development."
-        ],
-        "types_and_functions": [
-            "Projection of future trends in fossil fuel consumption",
-            "Explanation of the role of trade in green technology adoption",
-            "Highlighting successful examples of green industrialization in smaller economies"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the insights and expertise of leaders regarding the mechanisms and strategies necessary for advancing green innovation and addressing climate change on an international scale.",
-        "answer": {
-            "answer": "The discussion features Kristalina Georgieva, Dr. Fatih Birol, and Dr. Ngozi Okonjo-Iweala, who address the critical need for green innovation and technology diffusion to combat climate change, emphasizing the importance of policy interventions and international cooperation."
-        }
-    },
-    {
-        "query": "One of the things that comes across is that green innovation has slowed down a little bit, and we're not getting the economic and climate benefits that we should be. From your position, what are the policy levers we can use to reinvigorate innovation?",
-        "research_objectives": "To identify the policy measures necessary to revive green innovation and maximize economic and climate benefits.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_3",
-                "doc_id": "Document",
-                "content_snippet": "KG: Thank you...."
-            },
-            {
-                "chunk_id": "Document_chunk_2",
-                "doc_id": "Document",
-                "content_snippet": "One of the things that comes across is that green innovation has slowed down a little bit, and we're..."
+                "content_snippet": "So, I think, looking a little bit towards the future, if you consider the next few years, and for th..."
             },
             {
                 "chunk_id": "Document_chunk_24",
                 "doc_id": "Document",
-                "content_snippet": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially ..."
-            },
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            },
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
+                "content_snippet": "So, in terms of collaborators \u2013 well you\u2019ve touched on competition, but considering who you\u2019re colla..."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_3",
-            "Document_chunk_2",
-            "Document_chunk_24",
-            "Document_chunk_13",
-            "Document_chunk_6"
-        ],
-        "quotations": [
-            "One of the things that comes across is that green innovation has slowed down a little bit, and we're not getting the economic and climate benefits that we should be. From your position, what are the policy levers we can use to reinvigorate innovation?",
-            "We need 'good' subsidies that support R&D and infrastructure, like charging stations, and that help remove barriers for developing countries to attract investment. This is a beneficial use of public money.",
-            "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition.",
-            "Step one: remove these harmful subsidies. Step two: introduce incentives like carbon pricing. While politically challenging, carbon pricing can be achieved through trade or raising standards.",
-            "Step three: promote investment in R&D. After 2010, green patents have slightly decreased, so we need to push R&D aggressively, both in advanced economies and by supporting researchers in emerging markets."
-        ],
-        "types_and_functions": [
-            "Identifying barriers to green innovation",
-            "Proposing policy measures for R&D support",
-            "Highlighting the need for subsidy reform",
-            "Emphasizing the importance of carbon pricing",
-            "Encouraging investment in research and development"
-        ],
-        "purpose": "The purpose of selecting these quotations is to provide concrete examples of policy measures that can be implemented to enhance green innovation and achieve economic and climate benefits, thereby supporting the research objectives.",
-        "answer": {
-            "answer": "To reinvigorate green innovation, we can focus on three main policy levers: removing harmful subsidies that hinder the green transition, introducing carbon pricing to incentivize innovation, and promoting increased investment in research and development (R&D). These steps are essential for fostering an environment that supports technological advancements necessary for achieving climate goals."
-        }
-    },
-    {
-        "query": "KG: Thank you.",
-        "research_objectives": "To gain insights into Kristalina Georgieva's opening remarks on climate innovation.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_3",
-                "doc_id": "Document",
-                "content_snippet": "KG: Thank you...."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            },
-            {
-                "chunk_id": "Document_chunk_25",
-                "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
-            },
-            {
-                "chunk_id": "Document_chunk_1",
-                "doc_id": "Document",
-                "content_snippet": "Moderator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers: Kristalina Georgiev..."
-            },
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_3",
-            "Document_chunk_8",
-            "Document_chunk_25",
             "Document_chunk_1",
-            "Document_chunk_13"
+            "Document_chunk_17",
+            "Document_chunk_68",
+            "Document_chunk_34",
+            "Document_chunk_24"
         ],
         "quotations": [
-            "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to strike a balance.",
-            "Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board. These efforts demonstrate policy transformation towards climate goals."
+            "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+            "The idea was that we cut out the middle man and all that money comes back to the farm.",
+            "We had contracts \u2013 our customers basically tore up in front of us.",
+            "If we don\u2019t have sustainability, we\u2019ve got problems.",
+            "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+            "We supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people."
         ],
         "types_and_functions": [
-            "Statement on the impact of protectionism on innovation",
-            "Observation on global progress in climate innovation and policy transformation"
+            "Operational strategy",
+            "Economic model",
+            "Impact of external factors",
+            "Sustainability vision",
+            "Market dynamics",
+            "Collaborative supply chain"
         ],
-        "purpose": "The purpose of selecting these quotations is to highlight Kristalina Georgieva's views on the challenges and advancements in climate innovation, emphasizing the need for balanced policies and the role of various economies in driving green initiatives.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the farming organization's operational strategies, the challenges they face, their commitment to sustainability, and their approach to navigating market dynamics, which are essential for understanding their future outlook.",
         "answer": {
-            "answer": "KG: Thank you for the opportunity to contribute to this important discussion on green innovation and policy measures."
+            "answer": "[org name] is an organization formed by three farmers who grow potatoes. They aim to centralize the buying and marketing of their produce, eliminating the middleman to ensure that profits go directly back to the farmers. The organization also faced challenges during the COVID-19 pandemic, which disrupted their contracts and sales. Their future vision includes expanding their membership and creating direct supply chains to enhance sustainability and profitability for farmers."
         }
     },
     {
-        "query": "It\u2019s vital to address both climate and growth as global growth has been quite anemic, projected at only 3% for the next five years compared to 3.8% in the decade before COVID.",
-        "research_objectives": "To explore the relationship between green innovation, climate goals, and global economic growth trends.",
+        "query": "That\u2019s great. What\u2019s your personal involvement in this? What role do you play?\nWhen the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there\u2019s about ten-fifteen farms, supplying in. And we manage that supply so that there\u2019s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.\nSo, you believe you operate on a local level?\nThe main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.\nIs this nationally, or do you do anything with factories or suppliers in other countries?\nWe do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it\u2019s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there\u2019s surplus, things like that.\nSo, you operate locally, regionally and nationally. But internationally when you have to, when there\u2019s a gap?\nYeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            },
-            {
-                "chunk_id": "Document_chunk_4",
-                "doc_id": "Document",
-                "content_snippet": "It\u2019s vital to address both climate and growth as global growth has been quite anemic, projected at o..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_14",
-                "doc_id": "Document",
-                "content_snippet": "FB:..."
-            },
-            {
-                "chunk_id": "Document_chunk_19",
-                "doc_id": "Document",
-                "content_snippet": "FB:..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_8",
-            "Document_chunk_4",
-            "Document_chunk_7",
-            "Document_chunk_14",
-            "Document_chunk_19"
-        ],
-        "quotations": [
-            "It\u2019s vital to address both climate and growth as global growth has been quite anemic, projected at only 3% for the next five years compared to 3.8% in the decade before COVID.",
-            "We recently projected fossil fuel consumption will peak before 2030, driven by two main factors: rapid progress in clean energy and a slowing Chinese economy.",
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology."
-        ],
-        "types_and_functions": [
-            "Statistical projection",
-            "Trend analysis",
-            "Policy implication",
-            "Economic analysis"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the critical connections between green innovation, climate goals, and economic growth, emphasizing the importance of trade and policy in facilitating a transition to sustainable energy sources.",
-        "answer": {
-            "answer": "To address the projected anemic global growth of 3% over the next five years, it is vital to remove harmful subsidies, introduce carbon pricing, and promote investment in research and development to stimulate both climate action and economic recovery."
-        }
-    },
-    {
-        "query": "What can be done?",
-        "research_objectives": "To investigate actionable solutions suggested for enhancing green innovation.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_5",
-                "doc_id": "Document",
-                "content_snippet": "What can be done?..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_12",
-                "doc_id": "Document",
-                "content_snippet": "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth..."
-            },
-            {
-                "chunk_id": "Document_chunk_25",
-                "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_5",
-            "Document_chunk_8",
-            "Document_chunk_7",
-            "Document_chunk_12",
-            "Document_chunk_25"
-        ],
-        "quotations": [
-            "Trade is essential for achieving net-zero emissions by 2050.",
-            "We need to address tariffs that create a disincentive for adopting green technologies.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology.",
-            "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth and green jobs.",
-            "Excessive protectionism can stifle innovation and slow the reduction of technology costs."
-        ],
-        "types_and_functions": [
-            "Policy recommendation",
-            "Economic analysis",
-            "Strategic insight",
-            "Actionable solution",
-            "Cautionary advice"
-        ],
-        "purpose": "The purpose of selecting these quotations is to identify and highlight specific actionable solutions and strategies that can be implemented to enhance green innovation and facilitate the transition to a more sustainable economy.",
-        "answer": {
-            "answer": "Several actions can be taken to promote green innovation: remove harmful subsidies, introduce carbon pricing, and increase investment in research and development. Additionally, shifting subsidies to support decarbonization can create green jobs and stimulate economic recovery."
-        }
-    },
-    {
-        "query": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition. Our research shows fuel subsidies reached $1.3 trillion last year, and indirect subsidies like the health costs of pollution push this to $7.1 trillion. Step one: remove these harmful subsidies. Step two: introduce incentives like carbon pricing. While politically challenging, carbon pricing can be achieved through trade or raising standards. Step three: promote investment in R&D. After 2010, green patents have slightly decreased, so we need to push R&D aggressively, both in advanced economies and by supporting researchers in emerging markets. MM: Dr. Birol, China\u2019s economy plays a major role in green innovation. Do you worry about the impact a slowing Chinese economy may have on global green innovation?",
-        "research_objectives": "To evaluate key steps suggested to encourage technological innovation, including subsidy removal, carbon pricing, and increased R&D investment, in the context of global green transition.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            },
-            {
-                "chunk_id": "Document_chunk_5",
-                "doc_id": "Document",
-                "content_snippet": "What can be done?..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_3",
-                "doc_id": "Document",
-                "content_snippet": "KG: Thank you...."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_6",
-            "Document_chunk_8",
-            "Document_chunk_5",
-            "Document_chunk_7",
-            "Document_chunk_3"
-        ],
-        "quotations": [
-            "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition. Our research shows fuel subsidies reached $1.3 trillion last year, and indirect subsidies like the health costs of pollution push this to $7.1 trillion. Step one: remove these harmful subsidies. Step two: introduce incentives like carbon pricing. While politically challenging, carbon pricing can be achieved through trade or raising standards. Step three: promote investment in R&D. After 2010, green patents have slightly decreased, so we need to push R&D aggressively, both in advanced economies and by supporting researchers in emerging markets.",
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains. We need to address tariffs that create a disincentive for adopting green technologies. Research shows that developed countries have lower tariffs on environmental goods, but there is room for developing countries to lower theirs as well. High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology. We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030."
-        ],
-        "types_and_functions": [
-            "Policy recommendation",
-            "Economic analysis",
-            "Call to action",
-            "Impact assessment"
-        ],
-        "purpose": "The purpose of selecting these quotations is to provide evidence and insights into the necessary steps for fostering technological innovation in the context of the global green transition, emphasizing the removal of subsidies, the introduction of carbon pricing, and the importance of trade and R&D investment.",
-        "answer": {
-            "answer": "Yes, a slowing Chinese economy could negatively impact global green innovation. China has been a major driver of fossil fuel growth and its transition to a less energy-intensive economy may slow down the momentum for renewable energy advancements. This could hinder global efforts to innovate and implement green technologies, especially if investment in R&D is not sufficiently promoted in both advanced and emerging markets."
-        }
-    },
-    {
-        "query": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors: rapid progress in clean energy and a slowing Chinese economy. China has been a massive driver of fossil fuel growth, accounting for over two-thirds of global oil consumption growth and a large share of coal and natural gas growth over the last decade. With a shift toward a less energy-intensive economy, we expect China\u2019s growth to slow to around 3%-4%. Meanwhile, renewable energy is expanding globally\u201480% of new power plants this year are renewables, and by 2030, electric cars could account for every second car sold. This dual trend leads us to foresee fossil fuel consumption peaking by 2030.",
-        "research_objectives": "To examine the projected peak of fossil fuel consumption by 2030 and the influence of China\u2019s economic trends and global renewable energy expansion on this projection.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_19",
-                "doc_id": "Document",
-                "content_snippet": "FB:..."
-            },
-            {
-                "chunk_id": "Document_chunk_14",
-                "doc_id": "Document",
-                "content_snippet": "FB:..."
-            },
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_7",
-            "Document_chunk_19",
-            "Document_chunk_14",
-            "Document_chunk_6",
-            "Document_chunk_8"
-        ],
-        "quotations": [
-            "We recently projected fossil fuel consumption will peak before 2030, driven by two main factors: rapid progress in clean energy and a slowing Chinese economy.",
-            "China has been a massive driver of fossil fuel growth, accounting for over two-thirds of global oil consumption growth and a large share of coal and natural gas growth over the last decade.",
-            "Meanwhile, renewable energy is expanding globally\u201480% of new power plants this year are renewables, and by 2030, electric cars could account for every second car sold."
-        ],
-        "types_and_functions": [
-            "Projection of fossil fuel consumption trends",
-            "Analysis of China's role in fossil fuel growth",
-            "Overview of renewable energy expansion and its impact on fossil fuel consumption"
-        ],
-        "purpose": "The purpose of selecting these quotations is to provide a comprehensive understanding of the factors influencing the projected peak of fossil fuel consumption by 2030, particularly focusing on China's economic trends and the global shift towards renewable energy.",
-        "answer": {
-            "answer": "Fossil fuel consumption is projected to peak before 2030, primarily due to rapid advancements in clean energy and a slowing Chinese economy, which has historically driven fossil fuel growth."
-        }
-    },
-    {
-        "query": "MM: Dr. Ngozi, what role does trade play in driving green innovation globally? NO: Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains. We need to address tariffs that create a disincentive for adopting green technologies. Research shows that developed countries have lower tariffs on environmental goods, but there is room for developing countries to lower theirs as well. High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology. We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030.",
-        "research_objectives": "To assess the role of international trade and tariff policies in reducing emissions and promoting the adoption of green technology on a global scale.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_22",
-                "doc_id": "Document",
-                "content_snippet": "Many developing nations, including those in Africa, have the potential for a comparative advantage i..."
-            },
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
-            },
-            {
-                "chunk_id": "Document_chunk_0",
-                "doc_id": "Document",
-                "content_snippet": "Green Innovation and Technology Diffusion for Net Zero | COP28 - by IMF, December 2023..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_7",
-            "Document_chunk_22",
-            "Document_chunk_6",
-            "Document_chunk_0",
-            "Document_chunk_8"
-        ],
-        "quotations": [
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains.",
-            "We need to address tariffs that create a disincentive for adopting green technologies.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology.",
-            "We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030.",
-            "Many developing nations, including those in Africa, have the potential for a comparative advantage in green technology, like green hydrogen.",
-            "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that discourage green transition.",
-            "Step two: introduce incentives like carbon pricing. While politically challenging, carbon pricing can be achieved through trade or raising standards."
-        ],
-        "types_and_functions": [
-            "Descriptive: Explains the role of trade in reducing emissions.",
-            "Prescriptive: Suggests addressing tariffs to promote green technology.",
-            "Analytical: Discusses the impact of trade barriers on environmental goods.",
-            "Predictive: Estimates the potential reduction in emissions from lowering trade barriers.",
-            "Comparative: Highlights the advantages of developing nations in green technology.",
-            "Policy recommendation: Advocates for the removal of harmful subsidies.",
-            "Strategic: Proposes carbon pricing as a means to encourage green innovation."
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate how international trade and tariff policies can influence the adoption of green technologies and contribute to emissions reduction, thereby supporting the research objectives.",
-        "answer": {
-            "answer": "Trade is essential for driving green innovation globally as it reduces costs for renewable technologies and facilitates their adoption. Addressing tariffs and trade barriers can enhance the diffusion of green technologies, particularly in developing countries, potentially increasing exports of environmental goods and reducing emissions significantly."
-        }
-    },
-    {
-        "query": "MM: Kristalina, you mentioned the scale of fossil fuel subsidies and how these are increasing. Are you seeing any signs of hope for reducing these subsidies?",
-        "research_objectives": "To investigate current discussions and efforts aimed at reducing fossil fuel subsidies to promote a greener global economy.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            },
-            {
-                "chunk_id": "Document_chunk_9",
-                "doc_id": "Document",
-                "content_snippet": "Yes, there is hope...."
-            },
-            {
-                "chunk_id": "Document_chunk_1",
-                "doc_id": "Document",
-                "content_snippet": "Moderator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers: Kristalina Georgiev..."
-            },
-            {
-                "chunk_id": "Document_chunk_3",
-                "doc_id": "Document",
-                "content_snippet": "KG: Thank you...."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_7",
-            "Document_chunk_13",
-            "Document_chunk_9",
-            "Document_chunk_1",
-            "Document_chunk_3"
-        ],
-        "quotations": [
-            "MM: Kristalina, you mentioned the scale of fossil fuel subsidies and how these are increasing. Are you seeing any signs of hope for reducing these subsidies?",
-            "KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board. These efforts demonstrate policy transformation towards climate goals."
-        ],
-        "types_and_functions": [
-            "Discussion of fossil fuel subsidies",
-            "Examples of countries making progress",
-            "Highlighting policy transformation",
-            "Mention of carbon pricing as a tool for change"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the current discussions on fossil fuel subsidies, showcase examples of countries making progress towards greener policies, and emphasize the importance of policy transformation and carbon pricing in achieving climate goals.",
-        "answer": {
-            "answer": "There are signs of hope for reducing fossil fuel subsidies, as many countries are recognizing the need for fiscal discipline and are beginning to phase out non-essential subsidies in favor of initiatives that promote decarbonization and green growth."
-        }
-    },
-    {
-        "query": "KG: Yes, there is hope. Many countries are realizing the need for fiscal discipline, especially after the economic pressures of COVID and the Ukraine war. We are advocating for phasing out non-essential subsidies and supporting only those targeted at the most vulnerable. COP is highlighting climate action as both existential and an economic necessity. By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth and green jobs.",
-        "research_objectives": "To understand the fiscal and social factors influencing countries\u2019 decisions to phase out fossil fuel subsidies and shift towards decarbonization.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_11",
-                "doc_id": "Document",
-                "content_snippet": "We are advocating for phasing out non-essential subsidies and supporting only those targeted at the ..."
-            },
-            {
-                "chunk_id": "Document_chunk_9",
-                "doc_id": "Document",
-                "content_snippet": "Yes, there is hope...."
-            },
-            {
-                "chunk_id": "Document_chunk_12",
-                "doc_id": "Document",
-                "content_snippet": "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth..."
-            },
             {
                 "chunk_id": "Document_chunk_10",
                 "doc_id": "Document",
-                "content_snippet": "Many countries are realizing the need for fiscal discipline, especially after the economic pressures..."
+                "content_snippet": "So, we buy from other farms as well, which supply at different times of year, it varies. Is this nat..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_15",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_11",
-            "Document_chunk_9",
-            "Document_chunk_12",
-            "Document_chunk_10",
-            "Document_chunk_13"
-        ],
-        "quotations": [
-            "We are advocating for phasing out non-essential subsidies and supporting only those targeted at the most vulnerable.",
-            "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth and green jobs.",
-            "Many countries are realizing the need for fiscal discipline, especially after the economic pressures of COVID and the Ukraine war.",
-            "Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development.",
-            "In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies."
-        ],
-        "types_and_functions": [
-            "Advocacy for policy change",
-            "Economic opportunity identification",
-            "Recognition of fiscal responsibility",
-            "Examples of successful implementation",
-            "Highlighting leadership in policy transformation"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the various fiscal and social factors that are driving countries to reconsider their fossil fuel subsidy policies and to emphasize the potential benefits of transitioning towards decarbonization.",
-        "answer": {
-            "answer": "Yes, there is hope for a sustainable future as many countries are recognizing the need for fiscal discipline and are beginning to phase out non-essential subsidies. This shift towards supporting rapid decarbonization can unlock opportunities for green growth and job creation."
-        }
-    },
-    {
-        "query": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board. These efforts demonstrate policy transformation towards climate goals.",
-        "research_objectives": "To identify leading examples of green industrialization and policy transformation towards climate goals across various countries.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
+                "content_snippet": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity w..."
             },
             {
-                "chunk_id": "Document_chunk_12",
+                "chunk_id": "Document_chunk_1",
                 "doc_id": "Document",
-                "content_snippet": "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_5",
-                "doc_id": "Document",
-                "content_snippet": "What can be done?..."
+                "content_snippet": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ..."
             },
             {
                 "chunk_id": "Document_chunk_9",
                 "doc_id": "Document",
-                "content_snippet": "Yes, there is hope...."
+                "content_snippet": "But then we do supply factories all over the country. And we buy potatoes from all over the country ..."
+            },
+            {
+                "chunk_id": "Document_chunk_11",
+                "doc_id": "Document",
+                "content_snippet": "We do a little bit. We have exported in the past...."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_13",
-            "Document_chunk_12",
-            "Document_chunk_7",
-            "Document_chunk_5",
-            "Document_chunk_9"
+            "Document_chunk_10",
+            "Document_chunk_15",
+            "Document_chunk_1",
+            "Document_chunk_9",
+            "Document_chunk_11"
         ],
         "quotations": [
-            "KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development.",
-            "KG: In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies.",
-            "NO: Trade is essential for achieving net-zero emissions by 2050.",
-            "NO: We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030."
+            "So, we buy from other farms as well, which supply at different times of year, it varies.",
+            "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
+            "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+            "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation.",
+            "We do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round."
         ],
         "types_and_functions": [
-            "Examples of countries leading in green industrialization",
-            "Policy advocacy by the European Union",
-            "Importance of trade in achieving climate goals",
-            "Impact of reducing trade barriers on emissions"
+            "Operational strategy",
+            "Market responsiveness",
+            "Collaborative marketing",
+            "Supply chain management",
+            "Customer engagement"
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate specific examples of countries and policies that are making strides towards green industrialization and to emphasize the role of trade in supporting climate goals.",
+        "purpose": "The purpose of selecting these quotations is to provide insights into the operational strategies, market dynamics, and collaborative efforts of the farming organization, which are essential for understanding their challenges and future outlook in the context of sustainability and economic factors.",
         "answer": {
-            "answer": "Countries like Barbados, Jamaica, Costa Rica, and Kenya are making significant progress in green industrialization and development, while the European Union is a key policy champion in larger economies."
+            "answer": "The individual is involved in managing the supply of potatoes from multiple farms to factories, ensuring a steady supply throughout the year. They help centralize the buying and marketing of potatoes, acting as an interface between farmers and customers, while also adapting to international markets when needed."
         }
     },
     {
-        "query": "FB: We need to focus on expanding current technologies like solar, wind, electric vehicles, and heat pumps. However, to meet climate targets, we must also develop new technologies, especially for sectors like iron, steel, and cement, which renewables alone cannot address. Hydrogen is crucial for transportation, particularly for long-haul transport. There\u2019s much talk about hydrogen, but actual investment decisions for hydrogen projects are limited, at only 3%. Carbon capture is also necessary but primarily for hard-to-abate sectors. Government incentives and policies will be key to accelerating innovation.",
-        "research_objectives": "To analyze the need for and challenges in expanding both current and new green technologies to meet specific sectoral climate targets.",
+        "query": "How would you consider yourself to be innovative? What do you feel you are doing differently?\nInitially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.\nSo, we\u2019re not there to make money, we\u2019re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.\nThe money going back to farmers \u2013 that\u2019s what\u2019s not been happening?\nIt\u2019s not been going back to the farmer.\nAnd that\u2019s what you aim to address?\nThat\u2019s what we\u2019re trying to deal with. And since we\u2019ve become in the area, doing what we\u2019re doing, these other mergers in the middle are taking the mass market out because they have to compete.\nSo, are you saying there\u2019s now competition?\nThere\u2019s more competition in the area.\nSo, people have seen that it\u2019s a good idea and they want in on it?\nYes, as it were. I\u2019ve just obeyed the company really. We\u2019ve got a lot to do, to get to where we want to get to. It\u2019s certainly helping. Obviously, after Covid it\u2019s been a challenging year.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_15",
-                "doc_id": "Document",
-                "content_snippet": "We need to focus on expanding current technologies like solar, wind, electric vehicles, and heat pum..."
-            },
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
             {
                 "chunk_id": "Document_chunk_19",
                 "doc_id": "Document",
-                "content_snippet": "FB:..."
+                "content_snippet": "So, people have seen that it\u2019s a good idea and they want in on it?..."
             },
             {
-                "chunk_id": "Document_chunk_14",
+                "chunk_id": "Document_chunk_1",
                 "doc_id": "Document",
-                "content_snippet": "FB:..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_15",
-            "Document_chunk_13",
-            "Document_chunk_7",
-            "Document_chunk_19",
-            "Document_chunk_14"
-        ],
-        "quotations": [
-            "We need to focus on expanding current technologies like solar, wind, electric vehicles, and heat pumps. However, to meet climate targets, we must also develop new technologies, especially for sectors like iron, steel, and cement, which renewables alone cannot address.",
-            "Hydrogen is crucial for transportation, particularly for long-haul transport. There\u2019s much talk about hydrogen, but actual investment decisions for hydrogen projects are limited, at only 3%.",
-            "Carbon capture is also necessary but primarily for hard-to-abate sectors.",
-            "Government incentives and policies will be key to accelerating innovation.",
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology."
-        ],
-        "types_and_functions": [
-            "Identifying current and new technologies needed for climate targets",
-            "Highlighting investment challenges in hydrogen technology",
-            "Emphasizing the role of carbon capture in hard-to-abate sectors",
-            "Discussing the importance of government policies in innovation",
-            "Explaining the role of trade in reducing costs of green technologies",
-            "Addressing trade barriers that hinder green technology adoption"
-        ],
-        "purpose": "The purpose of selecting these quotations is to provide insights into the specific technologies required to meet climate targets, the challenges in investment and policy, and the role of trade in facilitating the expansion of green technologies.",
-        "answer": {
-            "answer": "To meet climate targets, we must expand current technologies like solar and wind while also developing new ones, particularly for hard-to-abate sectors. Hydrogen is vital for long-haul transport, but investment in hydrogen projects is currently low at only 3%. Carbon capture is also necessary for certain sectors. Government incentives and policies will be crucial in accelerating innovation in these areas."
-        }
-    },
-    {
-        "query": "NO: I agree. In developing countries, even rural areas like my village, people are noticing the effects of climate change, such as floods becoming more frequent. Technology needs to be accessible to developing nations. During the pandemic, poorer countries were last in line for vaccines. We must ensure we don\u2019t repeat this mistake with climate technology.",
-        "research_objectives": "To explore equitable access to climate technology in developing countries and the potential barriers to widespread adoption.",
-        "retrieved_chunks": [
+                "content_snippet": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ..."
+            },
             {
                 "chunk_id": "Document_chunk_17",
                 "doc_id": "Document",
-                "content_snippet": "In developing countries, even rural areas like my village, people are noticing the effects of climat..."
-            },
-            {
-                "chunk_id": "Document_chunk_16",
-                "doc_id": "Document",
-                "content_snippet": "NO: I agree...."
-            },
-            {
-                "chunk_id": "Document_chunk_23",
-                "doc_id": "Document",
-                "content_snippet": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordab..."
+                "content_snippet": "Initially we had to go through somewhere else other than [org name] and there is a lot of money in t..."
             },
             {
                 "chunk_id": "Document_chunk_18",
                 "doc_id": "Document",
-                "content_snippet": "We must ensure we don\u2019t repeat this mistake with climate technology...."
+                "content_snippet": "And that\u2019s what you aim to address? That\u2019s what we\u2019re trying to deal with. And since we\u2019ve become in..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_52",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
+                "content_snippet": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing..."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
+            "Document_chunk_19",
+            "Document_chunk_1",
             "Document_chunk_17",
-            "Document_chunk_16",
-            "Document_chunk_23",
             "Document_chunk_18",
-            "Document_chunk_13"
+            "Document_chunk_52"
         ],
         "quotations": [
-            "In developing countries, even rural areas like my village, people are noticing the effects of climate change, such as floods becoming more frequent. Technology needs to be accessible to developing nations.",
-            "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordably.",
-            "We must ensure we don\u2019t repeat this mistake with climate technology.",
-            "KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development."
+            "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+            "the idea was that we cut out the middle man and all that money comes back to the farm.",
+            "That\u2019s what we\u2019re trying to deal with.",
+            "there\u2019s now competition? There\u2019s more competition in the area.",
+            "the trouble with all these ideas is that they cost a lot of money.",
+            "the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic."
         ],
         "types_and_functions": [
-            "Descriptive: Highlights the current effects of climate change in developing countries.",
-            "Analytical: Discusses the relationship between technology costs and climate goals.",
-            "Cautionary: Warns against repeating past mistakes in technology access.",
-            "Exemplary: Provides examples of countries making progress in climate technology adoption."
+            "Operational strategy",
+            "Economic challenge",
+            "Organizational goal",
+            "Market competition",
+            "Financial constraint",
+            "Industry outlook"
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the current state of climate technology access in developing countries, identify barriers to adoption, and showcase examples of progress, thereby informing strategies for equitable access.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the farming organization's operational strategies, the challenges they face in the market, and their outlook on sustainability and economic viability.",
         "answer": {
-            "answer": "The statement underscores the critical need for equitable access to climate technology in developing countries, emphasizing that these nations are already experiencing the effects of climate change. It warns against repeating the inequities seen during the pandemic, where poorer countries were last in line for vaccines, and advocates for ensuring that developing nations have the necessary resources to address climate challenges effectively."
+            "answer": "I consider myself innovative because I have created a model that cuts out the middleman, ensuring that more money goes directly back to the farmers. This approach addresses the critical issue of farmers not receiving fair financial returns and fosters competition in the market, benefiting both farmers and customers."
         }
     },
     {
-        "query": "FB: Developed countries should support clean energy access in developing countries, not just for ethical reasons but because emissions from any region affect everyone globally. Emissions have no borders.",
-        "research_objectives": "To understand the rationale for developed countries supporting clean energy access in developing nations to reduce global emissions.",
+        "query": "Indeed. So, in terms of collaborators \u2013 well you\u2019ve touched on competition, but considering who you\u2019re collaborating with at the moment, there\u2019s the three farms and other suppliers?\nThere\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison\u2019s and different people. [unclear 0:08:51.0]\nAnd you\u2019ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?\nYes, basically.\nWho amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name]?\nNo, not the day-to-day running of it. I\u2019m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?\nYes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that?\nYes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.\nSo, they\u2019re the important ones?\nYes.\nPlus, of course, the people who like yourself, are actually running the organisation, running the outfit?\nWho\u2019s crucial within who runs it?\nI think you just mentioned the people who are managing it?\nYeah, that\u2019s me, we\u2019re the crucial ones. Well, if we don\u2019t do what we do then someone else will do it. But yeah, we are the ones making it work.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
             {
-                "chunk_id": "Document_chunk_20",
+                "chunk_id": "Document_chunk_29",
                 "doc_id": "Document",
-                "content_snippet": "Developed countries should support clean energy access in developing countries, not just for ethical..."
+                "content_snippet": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, a..."
             },
             {
-                "chunk_id": "Document_chunk_16",
+                "chunk_id": "Document_chunk_28",
                 "doc_id": "Document",
-                "content_snippet": "NO: I agree...."
+                "content_snippet": "Is that what you mean?..."
             },
             {
-                "chunk_id": "Document_chunk_7",
+                "chunk_id": "Document_chunk_24",
                 "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
+                "content_snippet": "So, in terms of collaborators \u2013 well you\u2019ve touched on competition, but considering who you\u2019re colla..."
             },
             {
-                "chunk_id": "Document_chunk_23",
+                "chunk_id": "Document_chunk_54",
                 "doc_id": "Document",
-                "content_snippet": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordab..."
+                "content_snippet": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nEx..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_86",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
+                "content_snippet": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses t..."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_20",
-            "Document_chunk_16",
-            "Document_chunk_7",
-            "Document_chunk_23",
-            "Document_chunk_13"
+            "Document_chunk_29",
+            "Document_chunk_28",
+            "Document_chunk_24",
+            "Document_chunk_54",
+            "Document_chunk_86"
         ],
         "quotations": [
-            "Developed countries should support clean energy access in developing countries, not just for ethical reasons but because emissions from any region affect everyone globally. Emissions have no borders.",
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains.",
-            "Lower costs in developing countries also mean we can achieve climate goals more affordably.",
-            "These efforts demonstrate policy transformation towards climate goals."
+            "If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
+            "There\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group.",
+            "I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
+            "The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable."
         ],
         "types_and_functions": [
-            "Rationale for support",
-            "Importance of trade",
-            "Economic benefits",
-            "Policy transformation"
+            "Operational Insight",
+            "Collaboration and Supply Chain Dynamics",
+            "Challenges and Investment Needs",
+            "Market Stability and Economic Factors"
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the various reasons and mechanisms through which developed countries can support clean energy access in developing nations, thereby contributing to the reduction of global emissions.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the operational challenges, collaborative strategies, and economic factors affecting the farming organization, thereby providing a comprehensive understanding of its context within market dynamics and sustainability.",
         "answer": {
-            "answer": "Developed countries should indeed support clean energy access in developing countries, as emissions affect everyone globally and have no borders. This support is essential for sustainable development and mitigating climate change impacts universally."
+            "answer": "The crucial collaborators for the organization are the suppliers and farmers, as they are essential for meeting demand and ensuring stability. The management team also plays a vital role in the day-to-day operations."
         }
     },
     {
-        "query": "NO: Precisely. Many developing nations, including those in Africa, have the potential for a comparative advantage in green technology, like green hydrogen. We need to build value chains locally rather than just exporting raw materials. This creates jobs and supports sustainable development.",
-        "research_objectives": "To examine the potential of developing countries to gain competitive advantages in green technology and the importance of local value chain development for sustainability.",
+        "query": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019?\nMy vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm.\nSo, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?\nThat is the ultimate. I think rather than just selling the potato, we\u2019ll slice it, and things like that. Or we\u2019ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.\nSo, you\u2019re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that\u2019s the direction you want to take in the future?\nI think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.\nAnd how do you feel this will contribute to sustainability?\nBecause you\u2019ve got [unclear] contracts in front of you. The factories, the customers \u2013 to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices \u2013 these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we\u2019ve seen the base price collapse to \u00a330-\u00a340 per tonne. And to give you an idea, we need \u00a3100-\u00a3110 per tonne to cover costs, to break even.\nAnd so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?\nYes.\nRight, good.\nSo, we need to get close to then cut those rogues out the industry, really.\nOkay, so it\u2019s cutting the rogues out. So, it sounds like you\u2019ve already taken the next step towards doing that by starting a direct-to-customer service?\nYeah, that was done \u2013 we launched about four months\u2019 ago.\nAnd this is basically the direction you\u2019re going in, to expand that part of the business?\nIt\u2019s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
             {
-                "chunk_id": "Document_chunk_21",
+                "chunk_id": "Document_chunk_1",
                 "doc_id": "Document",
-                "content_snippet": "NO: Precisely...."
+                "content_snippet": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ..."
             },
             {
                 "chunk_id": "Document_chunk_22",
                 "doc_id": "Document",
-                "content_snippet": "Many developing nations, including those in Africa, have the potential for a comparative advantage i..."
+                "content_snippet": "..."
             },
             {
-                "chunk_id": "Document_chunk_24",
+                "chunk_id": "Document_chunk_42",
                 "doc_id": "Document",
-                "content_snippet": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially ..."
+                "content_snippet": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what w..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_31",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
+                "content_snippet": "..."
             },
             {
-                "chunk_id": "Document_chunk_16",
+                "chunk_id": "Document_chunk_34",
                 "doc_id": "Document",
-                "content_snippet": "NO: I agree...."
+                "content_snippet": "So, I think, looking a little bit towards the future, if you consider the next few years, and for th..."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_21",
+            "Document_chunk_1",
             "Document_chunk_22",
-            "Document_chunk_24",
-            "Document_chunk_13",
-            "Document_chunk_16"
+            "Document_chunk_42",
+            "Document_chunk_31",
+            "Document_chunk_34"
         ],
         "quotations": [
-            "Many developing nations, including those in Africa, have the potential for a comparative advantage in green technology, like green hydrogen. We need to build value chains locally rather than just exporting raw materials. This creates jobs and supports sustainable development.",
-            "Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies."
+            "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+            "So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers.",
+            "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing.",
+            "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+            "The closer to the customer we get, the more we\u2019ll get back to the farm."
         ],
         "types_and_functions": [
-            "Comparative advantage statement",
-            "Examples of successful countries in green technology"
+            "Operational strategy",
+            "Market dynamics",
+            "Sustainability emphasis",
+            "Future outlook",
+            "Customer engagement"
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the potential of developing countries in green technology and the critical role of local value chain development in achieving sustainability.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the farming organization's approach to centralizing operations, addressing market challenges, emphasizing sustainability, and outlining their vision for future growth and customer relationships.",
         "answer": {
-            "answer": "Developing nations, especially in Africa, can gain a comparative advantage in green technology like green hydrogen by building local value chains. This strategy fosters job creation and supports sustainable development, enabling these countries to participate actively in the global green transition."
+            "answer": "The vision for 'Future Food Systems' focuses on sustainability, increasing farmer participation, and creating a direct supply chain that delivers produce from farms to consumers, thereby enhancing profitability for farmers and fostering a more sustainable food system."
         }
     },
     {
-        "query": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordably. The Montreal Protocol succeeded because people in developed countries experienced the direct effects of ozone-depleting emissions. We are in a similar position with climate change.",
-        "research_objectives": "To assess how the economic advantages of developing countries can contribute to achieving global climate goals.",
+        "query": "And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?\nObviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it\u2019s come from. And I think there is an element of people wanting that, but it\u2019s how you get the price and the customers to stop undermining everything we\u2019re doing in the UK, in the food industry. Because customers are willing to pay for it. They\u2019re willing to pay for quality. But, there\u2019s people within the system that will say, \u2018This is this,\u2019 but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.\nI\u2019m wondering if Brexit is a factor? If it\u2019s harder to import things, would that be in your favour?\nWell, it\u2019s harder to import things, definitely. But as a country we haven\u2019t got enough manufacturers to process the potatoes we have in the country anyway. So, we\u2019ve let it all go abroad, potatoes go to Belgium and then come back ready-made.\nBut that might be more difficult. So, it\u2019s about developing manufacturing capacity to actually use what we already have?\nWe use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.\nSo, it sounds like the bottle-neck is actually going to be processing capacity in the UK?\nYes. The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.\nDo you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?\nWe could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key. Just like a chicken and egg scenario, isn\u2019t it?\nYes. So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
             {
-                "chunk_id": "Document_chunk_23",
+                "chunk_id": "Document_chunk_51",
                 "doc_id": "Document",
-                "content_snippet": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordab..."
+                "content_snippet": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what..."
             },
             {
-                "chunk_id": "Document_chunk_20",
+                "chunk_id": "Document_chunk_49",
                 "doc_id": "Document",
-                "content_snippet": "Developed countries should support clean energy access in developing countries, not just for ethical..."
+                "content_snippet": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?..."
             },
             {
-                "chunk_id": "Document_chunk_17",
+                "chunk_id": "Document_chunk_48",
                 "doc_id": "Document",
-                "content_snippet": "In developing countries, even rural areas like my village, people are noticing the effects of climat..."
+                "content_snippet": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what h..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_47",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
+                "content_snippet": "But that might be more difficult...."
             },
             {
-                "chunk_id": "Document_chunk_12",
+                "chunk_id": "Document_chunk_45",
                 "doc_id": "Document",
-                "content_snippet": "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth..."
+                "content_snippet": "And that, as an industry, as a country, for food manufacturing areas we need to clamp down on...."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_23",
-            "Document_chunk_20",
-            "Document_chunk_17",
-            "Document_chunk_13",
-            "Document_chunk_12"
+            "Document_chunk_51",
+            "Document_chunk_49",
+            "Document_chunk_48",
+            "Document_chunk_47",
+            "Document_chunk_45"
         ],
         "quotations": [
-            "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordably.",
-            "Developed countries should support clean energy access in developing countries, not just for ethical reasons but because emissions from any region affect everyone globally.",
-            "KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development.",
-            "By shifting subsidies to support rapid decarbonization, we can unlock opportunities for green growth and green jobs."
+            "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
+            "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
+            "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
+            "But that might be more difficult.",
+            "And that, as an industry, as a country, for food manufacturing areas we need to clamp down on."
         ],
         "types_and_functions": [
-            "Economic advantage",
-            "Policy recommendation",
-            "Examples of progress",
-            "Call to action for subsidies"
+            "Operational challenges",
+            "Market dynamics",
+            "Sustainability concerns",
+            "Economic factors",
+            "Strategic development"
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate how the economic advantages of developing countries can facilitate the achievement of global climate goals, highlighting both the potential for affordable solutions and the need for supportive policies.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the key challenges and strategies related to processing capacity and market dynamics, which are essential for understanding the farming organization's operations and future outlook in the context of sustainability and economic factors.",
         "answer": {
-            "answer": "The statement suggests that lower costs in developing countries can facilitate more affordable climate goals, similar to how the Montreal Protocol succeeded due to the direct experiences of developed countries with ozone depletion. It underscores the need for collective action and support for clean energy access globally, as emissions affect everyone regardless of borders."
+            "answer": "Yes, trends such as increased consumer demand for local produce and the challenges posed by Brexit could accelerate the vision for improving the UK food industry. However, the key bottleneck remains the lack of processing capacity, which needs to be addressed through investment to fully utilize local resources."
         }
     },
     {
-        "query": "MM: On the topic of subsidies, the Inflation Reduction Act has sparked significant climate investment in the U.S., but it has some protectionist aspects. How do you view this?",
-        "research_objectives": "To analyze the potential impacts of protectionist policies within climate investment legislation on global climate cooperation.",
+        "query": "So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?\nThe stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop. In this country I\u2019m hoping Brexit will change it but we don\u2019t know whether we\u2019ve got a good deal or a bad deal yet, do we?\nIt\u2019s still evolving, yeah.\nIt\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything. It\u2019s very, very difficult. I\u2019m looking at things from two sides of the fence.\nAnd so, which two sides?\nThe side of the farmer, I\u2019ve a \u00a32 million turnover business farming. And it\u2019s not paying. And I\u2019m on the [org name], the middle part of that is paying, but without farmers, you haven\u2019t got a business.\nSo, this is basically the main risk, the whole farming industry in the UK after Brexit?\nWe don\u2019t know which way it\u2019s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.\nThat is worrying indeed.\nAnd the banks are \u2013 it\u2019s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there\u2019ll be a lot of businesses after COVID with the same scenario now.\nWe\u2019ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?\nThe contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing. Reducing the farm size. Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on.\nYeah, building things up, developing them, yeah.\nDeveloping, and actually, we doing quite the opposite. I\u2019m doing the less. From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.\nSo, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?\nWhich is downscale to a point at which it\u2019s manageable and we can guarantee sales through all of our products we produce. What else can you do? I\u2019m going to be here in the future.\nYes, you\u2019re just not quite sure how. That\u2019s all rather worrying.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
         "retrieved_chunks": [
             {
-                "chunk_id": "Document_chunk_23",
+                "chunk_id": "Document_chunk_65",
                 "doc_id": "Document",
-                "content_snippet": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordab..."
+                "content_snippet": "Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on. Yeah, building things up..."
             },
             {
-                "chunk_id": "Document_chunk_13",
+                "chunk_id": "Document_chunk_64",
                 "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
+                "content_snippet": "And the banks are \u2013 it\u2019s very difficult for them to lend, if the business has a negative cash flow, ..."
             },
             {
-                "chunk_id": "Document_chunk_25",
+                "chunk_id": "Document_chunk_66",
                 "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
+                "content_snippet": "So, can reduce risk on the [org name]  side by diversifying, bringing in more growers, and on the fa..."
             },
             {
-                "chunk_id": "Document_chunk_7",
+                "chunk_id": "Document_chunk_54",
                 "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_24",
-                "doc_id": "Document",
-                "content_snippet": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially ..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_23",
-            "Document_chunk_13",
-            "Document_chunk_25",
-            "Document_chunk_7",
-            "Document_chunk_24"
-        ],
-        "quotations": [
-            "MM: On the topic of subsidies, the Inflation Reduction Act has sparked significant climate investment in the U.S., but it has some protectionist aspects.",
-            "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to strike a balance.",
-            "NO: Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains. We need to address tariffs that create a disincentive for adopting green technologies.",
-            "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially leading to a downwards spiral that would make us all poorer and less secure."
-        ],
-        "types_and_functions": [
-            "Analysis of protectionist policies",
-            "Impact on innovation and technology costs",
-            "Role of trade in green technology adoption",
-            "Risks associated with protectionist measures"
-        ],
-        "purpose": "The purpose of selecting these quotations is to analyze how protectionist policies within climate investment legislation can influence global climate cooperation and the potential consequences of such policies on innovation and trade.",
-        "answer": {
-            "answer": "The Inflation Reduction Act has led to substantial climate investment in the U.S., but its protectionist aspects could hinder global collaboration and innovation. A balanced approach is essential to ensure that subsidies support domestic growth while facilitating the global diffusion of green technologies."
-        }
-    },
-    {
-        "query": "KG: Protectionist measures risk retaliation from other countries, potentially leading to a downwards spiral that would make us all poorer and less secure. We need \"good\" subsidies that support R&D and infrastructure, like charging stations, and that help remove barriers for developing countries to attract investment. This is a beneficial use of public money.",
-        "research_objectives": "To understand the argument for 'good' subsidies that promote green infrastructure and attract global investment without protectionist drawbacks.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_24",
-                "doc_id": "Document",
-                "content_snippet": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially ..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            },
-            {
-                "chunk_id": "Document_chunk_5",
-                "doc_id": "Document",
-                "content_snippet": "What can be done?..."
-            },
-            {
-                "chunk_id": "Document_chunk_25",
-                "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_24",
-            "Document_chunk_7",
-            "Document_chunk_8",
-            "Document_chunk_5",
-            "Document_chunk_25"
-        ],
-        "quotations": [
-            "We need \"good\" subsidies that support R&D and infrastructure, like charging stations, and that help remove barriers for developing countries to attract investment. This is a beneficial use of public money.",
-            "Trade is essential for achieving net-zero emissions by 2050. The cost reductions in solar and wind technology have largely been due to trade and supply chains. We need to address tariffs that create a disincentive for adopting green technologies.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology. We estimate that reducing trade barriers could increase exports of environmental goods by 5%, reducing emissions by 0.6% per year by 2030."
-        ],
-        "types_and_functions": [
-            "Argument for the necessity of good subsidies",
-            "Highlighting the role of trade in green technology adoption",
-            "Emphasizing the need to reduce trade barriers for environmental goods"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the argument for effective subsidies that promote green infrastructure and to discuss the importance of trade in facilitating the transition to sustainable technologies without falling into protectionist measures.",
-        "answer": {
-            "answer": "KG believes that protectionist measures can harm global prosperity and security, advocating instead for \"good\" subsidies that support R&D and infrastructure, particularly in developing countries, as a beneficial use of public money."
-        }
-    },
-    {
-        "query": "NO: Exactly. Countries have different paths to decarbonization; the U.S., for example, will likely use subsidies instead of carbon pricing. However, issues like local query requirements can create an uneven playing field. Our committees at the WTO provide a forum for addressing these concerns and working toward fair agreements.",
-        "research_objectives": "To explore the diverse approaches to decarbonization and the role of international forums in addressing fairness in climate policy.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_24",
-                "doc_id": "Document",
-                "content_snippet": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially ..."
-            },
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
-            },
-            {
-                "chunk_id": "Document_chunk_23",
-                "doc_id": "Document",
-                "content_snippet": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordab..."
-            },
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_24",
-            "Document_chunk_6",
-            "Document_chunk_8",
-            "Document_chunk_23",
-            "Document_chunk_13"
-        ],
-        "quotations": [
-            "Countries have different paths to decarbonization; the U.S., for example, will likely use subsidies instead of carbon pricing. However, issues like local content requirements can create an uneven playing field. Our committees at the WTO provide a forum for addressing these concerns and working toward fair agreements.",
-            "Lower costs in developing countries also mean we can achieve climate goals more affordably. The Montreal Protocol succeeded because people in developed countries experienced the direct effects of ozone-depleting emissions. We are in a similar position with climate change.",
-            "Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board."
-        ],
-        "types_and_functions": [
-            "Descriptive: Outlines different national strategies for decarbonization.",
-            "Comparative: Compares the success of the Montreal Protocol to current climate efforts.",
-            "Informative: Provides examples of countries making progress in green industrialization."
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the varied approaches to decarbonization across different countries and to emphasize the role of international forums in fostering fair climate policies.",
-        "answer": {
-            "answer": "Countries have different paths to decarbonization, with the U.S. likely favoring subsidies over carbon pricing. Local content requirements can create an uneven playing field, which the WTO addresses to promote fair agreements among nations."
-        }
-    },
-    {
-        "query": "FB: Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to strike a balance.",
-        "research_objectives": "To assess the risks of protectionism in hindering green innovation and reducing technology costs.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_24",
-                "doc_id": "Document",
-                "content_snippet": "How do you view this? KG: Protectionist measures risk retaliation from other countries, potentially ..."
-            },
-            {
-                "chunk_id": "Document_chunk_25",
-                "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
-            },
-            {
-                "chunk_id": "Document_chunk_7",
-                "doc_id": "Document",
-                "content_snippet": "FB: We recently projected fossil fuel consumption will peak before 2030, driven by two main factors:..."
-            },
-            {
-                "chunk_id": "Document_chunk_6",
-                "doc_id": "Document",
-                "content_snippet": "Firstly, create a stronger incentive for technological innovation by removing harmful subsidies that..."
-            },
-            {
-                "chunk_id": "Document_chunk_23",
-                "doc_id": "Document",
-                "content_snippet": "KG: Agreed. Lower costs in developing countries also mean we can achieve climate goals more affordab..."
-            }
-        ],
-        "retrieved_chunks_count": 5,
-        "used_chunk_ids": [
-            "Document_chunk_24",
-            "Document_chunk_25",
-            "Document_chunk_7",
-            "Document_chunk_6",
-            "Document_chunk_23"
-        ],
-        "quotations": [
-            "Excessive protectionism can stifle innovation and slow the reduction of technology costs.",
-            "Protectionist measures risk retaliation from other countries, potentially leading to a downwards spiral that would make us all poorer and less secure.",
-            "High tariffs and technical barriers to trade need to be addressed to facilitate the diffusion of green technology.",
-            "We need to address tariffs that create a disincentive for adopting green technologies.",
-            "Our research shows fuel subsidies reached $1.3 trillion last year, and indirect subsidies like the health costs of pollution push this to $7.1 trillion."
-        ],
-        "types_and_functions": [
-            "Warning about the negative impact of protectionism on innovation",
-            "Highlighting the economic consequences of protectionist measures",
-            "Identifying barriers to green technology diffusion",
-            "Emphasizing the role of tariffs in green technology adoption",
-            "Providing data on subsidies that hinder green transition"
-        ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the potential risks and consequences of protectionism on green innovation and technology costs, thereby supporting the research objectives.",
-        "answer": {
-            "answer": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. A balanced approach is necessary to support domestic industries while fostering international collaboration and innovation in clean technologies."
-        }
-    },
-    {
-        "query": "MM: Thank you to our panel for this insightful discussion.",
-        "research_objectives": "To summarize the key insights from the discussion on policy, innovation, and international collaboration for green transition.",
-        "retrieved_chunks": [
-            {
-                "chunk_id": "Document_chunk_25",
-                "doc_id": "Document",
-                "content_snippet": "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to..."
-            },
-            {
-                "chunk_id": "Document_chunk_3",
-                "doc_id": "Document",
-                "content_snippet": "KG: Thank you...."
+                "content_snippet": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nEx..."
             },
             {
                 "chunk_id": "Document_chunk_1",
                 "doc_id": "Document",
-                "content_snippet": "Moderator: Will Kennedy, Executive Editor for Energy at Bloomberg News\nSpeakers: Kristalina Georgiev..."
-            },
-            {
-                "chunk_id": "Document_chunk_13",
-                "doc_id": "Document",
-                "content_snippet": "MM: Can you highlight any countries making significant progress in this area? KG: Many smaller econo..."
-            },
-            {
-                "chunk_id": "Document_chunk_8",
-                "doc_id": "Document",
-                "content_snippet": "KG:..."
+                "content_snippet": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ..."
             }
         ],
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_25",
-            "Document_chunk_3",
-            "Document_chunk_1",
-            "Document_chunk_13",
-            "Document_chunk_8"
+            "Document_chunk_65",
+            "Document_chunk_64",
+            "Document_chunk_66",
+            "Document_chunk_54",
+            "Document_chunk_1"
         ],
         "quotations": [
-            "Excessive protectionism can stifle innovation and slow the reduction of technology costs. We need to strike a balance.",
-            "KG: Many smaller economies, like Barbados, Jamaica, Costa Rica, and Kenya, are embracing green industrialization and development. In larger economies, the European Union has been a policy champion despite recent hiccups with fossil fuel subsidies. Carbon pricing is gaining traction globally, with around 50 countries on board. These efforts demonstrate policy transformation towards climate goals."
+            "From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.",
+            "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing. Reducing the farm size.",
+            "So, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?",
+            "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
+            "What we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."
         ],
         "types_and_functions": [
-            "Insight on the impact of protectionism on innovation",
-            "Example of international collaboration and policy transformation in green industrialization"
+            "Operational strategy",
+            "Risk management",
+            "Contingency planning",
+            "Market dynamics",
+            "Collaboration among farmers"
         ],
-        "purpose": "The purpose of selecting these quotations is to encapsulate the key insights from the discussion regarding the interplay of policy, innovation, and international collaboration necessary for achieving a successful green transition.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the operational strategies, challenges, and collaborative efforts of the farming organization in navigating market dynamics and ensuring sustainability in the agricultural sector.",
         "answer": {
-            "answer": "MM expressed gratitude to the panel for their insightful discussion, which focused on the balance needed in policy-making to foster innovation while addressing protectionism in the context of green technologies."
+            "answer": "The organization feels stable, but the agricultural sector is in a disastrous state, particularly due to challenges like Brexit and negative cash flow issues. The speaker is downscaling their farming operations while increasing the number of growers in the organization to spread risk. Thus, the resilience of the organization is closely tied to the recovery of the farming industry."
+        }
+    },
+    {
+        "query": "And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?\n[org name], as an organisation, we had contracts \u2013 our customers basically tore up in front of us. For supply, we\u2019ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure. Plant them \u2013 I\u2019ll let you know later in the year whether we\u2019re going to take them or not.\u2019\nAre you fearing you might end up with a pile of potatoes you can\u2019t sell to anybody?\nAbsolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They\u2019ll just get wasted.\nI wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?\nThere is an element of that, but there are a lot of people who don\u2019t use potatoes \u2013 the cooking at home is rice, it\u2019s pasta. Certainly, don\u2019t want to be importing stuff, which is what\u2019s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.\nAnd start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, \u2018Look, we\u2019ve got all this stuff, you don\u2019t need to go abroad\u2019?\nWell, it is, but we\u2019re probably not a big enough player. When you\u2019re talking to the likes of McCain\u2019s, and Walkers, and those sorts of people, they\u2019re a multinational company anyway, they have suppliers from all over the place. It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers. But it\u2019s not the public, it is the supermarkets. And the government has got to say, \u2018No, enough is enough.\u2019\nApart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?\nThe small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it. So, that\u2019s something, that\u2019s good. But it\u2019s not to the same scale as what we\u2019ve lost on the other side.\nAnd I think you\u2019ll be likely to continue building that up, even as COVID passes?\nThat will continue and hopefully will go from strength to strength.\nSo, you\u2019re not going to go quite back to the way you were before? It\u2019s going to be different?\nIt\u2019ll certainly be different.\nYeah, the combination of COVID and Brexit, indeed.\nYeah, it\u2019s killing agriculture big style. If all the manufacturers stop, it\u2019ll kill it.\nAnd that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?\nWhat\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying?\nWe\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.\nYeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses \u2013 that\u2019s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.\nWithout food there isn\u2019t much else, is there really?\nNot really! We\u2019ve got the retail side but that\u2019s upside down. But I\u2019m not saying free money, far from it, I don\u2019t want any subsidies, we\u2019ve got to stand for ourselves. We need to be able survive and we need to be competitive.\nSo, what you\u2019re looking for is appropriate investment?\nYes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.\nThat seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.\nAbsolutely.\nSo, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?\nWell, the less people in the chain, there are less people to pay. So, there\u2019s more money coming back to the farm.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "retrieved_chunks": [
+            {
+                "chunk_id": "Document_chunk_86",
+                "doc_id": "Document",
+                "content_snippet": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses t..."
+            },
+            {
+                "chunk_id": "Document_chunk_80",
+                "doc_id": "Document",
+                "content_snippet": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying. Well, I hope things get ..."
+            },
+            {
+                "chunk_id": "Document_chunk_61",
+                "doc_id": "Document",
+                "content_snippet": "We don\u2019t know which way it\u2019s going to go...."
+            },
+            {
+                "chunk_id": "Document_chunk_51",
+                "doc_id": "Document",
+                "content_snippet": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what..."
+            },
+            {
+                "chunk_id": "Document_chunk_45",
+                "doc_id": "Document",
+                "content_snippet": "And that, as an industry, as a country, for food manufacturing areas we need to clamp down on...."
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "used_chunk_ids": [
+            "Document_chunk_86",
+            "Document_chunk_80",
+            "Document_chunk_61",
+            "Document_chunk_51",
+            "Document_chunk_45"
+        ],
+        "quotations": [
+            "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
+            "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
+            "And that, as an industry, as a country, for food manufacturing areas we need to clamp down on."
+        ],
+        "types_and_functions": [
+            "Operational challenges",
+            "Market dynamics",
+            "Investment needs",
+            "Industry collaboration",
+            "Future outlook"
+        ],
+        "purpose": "The purpose of selecting these quotations is to illustrate the key operational challenges and market dynamics that the farming organization faces, as well as to emphasize the need for investment and collaboration within the industry to ensure sustainability and economic viability.",
+        "answer": {
+            "answer": "COVID impacted the organization by causing customers to cancel contracts and halting supply to the food sector, leading to a surplus of unsold potatoes. This has created financial uncertainty for farmers, who are now struggling to secure future contracts. While direct-to-consumer sales have seen some growth, the overall situation remains challenging, highlighting the urgent need for investment in local processing and support for the agricultural sector."
         }
     }
 ]
