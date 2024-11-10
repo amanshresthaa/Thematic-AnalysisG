@@ -1,554 +1,68 @@
-2024-11-10 12:24:33,283 [INFO] datasets: PyTorch version 2.5.1 available.
-2024-11-10 12:24:33,565 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:24:33,565 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:24:33,570 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:24:33,571 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:24:33,575 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:24:33,576 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:24:33,580 [DEBUG] httpcore.connection: connect_tcp.started host='raw.githubusercontent.com' port=443 local_address=None timeout=5 socket_options=None
-2024-11-10 12:24:33,591 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1199ffe30>
-2024-11-10 12:24:33,591 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x119b1a2d0> server_hostname='raw.githubusercontent.com' timeout=5
-2024-11-10 12:24:33,602 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1199ffd40>
-2024-11-10 12:24:33,602 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
-2024-11-10 12:24:33,603 [DEBUG] httpcore.http11: send_request_headers.complete
-2024-11-10 12:24:33,603 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
-2024-11-10 12:24:33,603 [DEBUG] httpcore.http11: send_request_body.complete
-2024-11-10 12:24:33,603 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
-2024-11-10 12:24:33,610 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Length', b'12730'), (b'Cache-Control', b'max-age=300'), (b'Content-Security-Policy', b"default-src 'none'; style-src 'unsafe-inline'; sandbox"), (b'Content-Type', b'text/plain; charset=utf-8'), (b'ETag', b'W/"328a3fe0a6eedac1b10b251515cad6e40d0063927a724cd9d77e9fb174f9e4af"'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'deny'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-GitHub-Request-Id', b'5800:DB9EC:342986:3FF0CB:672EDE10'), (b'Content-Encoding', b'gzip'), (b'Accept-Ranges', b'bytes'), (b'Date', b'Sun, 10 Nov 2024 12:24:33 GMT'), (b'Via', b'1.1 varnish'), (b'X-Served-By', b'cache-lcy-eglc8600034-LCY'), (b'X-Cache', b'HIT'), (b'X-Cache-Hits', b'3'), (b'X-Timer', b'S1731241474.617871,VS0,VE0'), (b'Vary', b'Authorization,Accept-Encoding,Origin'), (b'Access-Control-Allow-Origin', b'*'), (b'Cross-Origin-Resource-Policy', b'cross-origin'), (b'X-Fastly-Request-ID', b'1c9613665ec2a449c6366a9e3fbb2ef19452e735'), (b'Expires', b'Sun, 10 Nov 2024 12:29:33 GMT'), (b'Source-Age', b'222')])
-2024-11-10 12:24:33,610 [INFO] httpx: HTTP Request: GET https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json "HTTP/1.1 200 OK"
-2024-11-10 12:24:33,610 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
-2024-11-10 12:24:33,610 [DEBUG] httpcore.http11: receive_response_body.complete
-2024-11-10 12:24:33,611 [DEBUG] httpcore.http11: response_closed.started
-2024-11-10 12:24:33,611 [DEBUG] httpcore.http11: response_closed.complete
-2024-11-10 12:24:33,611 [DEBUG] httpcore.connection: close.started
-2024-11-10 12:24:33,611 [DEBUG] httpcore.connection: close.complete
-2024-11-10 12:24:33,752 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:24:33,754 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:24:33,759 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:24:33,759 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:24:33,779 [DEBUG] LiteLLM: [Non-Blocking] Unable to import GenericAPILogger - LiteLLM Enterprise Feature - No module named 'litellm.proxy.enterprise'
-2024-11-10 12:24:33,931 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:24:33,932 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:24:34,033 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-10 12:24:34,034 [INFO] faiss.loader: Loading faiss.
-2024-11-10 12:24:34,079 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-10 12:24:35,881 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-10 13:23:24,406 [INFO] datasets: PyTorch version 2.5.1 available.
+2024-11-10 13:23:24,692 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-10 13:23:24,692 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
+2024-11-10 13:23:24,697 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-10 13:23:24,697 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
+2024-11-10 13:23:24,702 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-10 13:23:24,702 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
+2024-11-10 13:23:24,707 [DEBUG] httpcore.connection: connect_tcp.started host='raw.githubusercontent.com' port=443 local_address=None timeout=5 socket_options=None
+2024-11-10 13:23:24,722 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x128fffe30>
+2024-11-10 13:23:24,722 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x12911a3d0> server_hostname='raw.githubusercontent.com' timeout=5
+2024-11-10 13:23:24,733 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x128fffd40>
+2024-11-10 13:23:24,733 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2024-11-10 13:23:24,734 [DEBUG] httpcore.http11: send_request_headers.complete
+2024-11-10 13:23:24,734 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2024-11-10 13:23:24,734 [DEBUG] httpcore.http11: send_request_body.complete
+2024-11-10 13:23:24,734 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2024-11-10 13:23:24,740 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Length', b'12730'), (b'Cache-Control', b'max-age=300'), (b'Content-Security-Policy', b"default-src 'none'; style-src 'unsafe-inline'; sandbox"), (b'Content-Type', b'text/plain; charset=utf-8'), (b'ETag', b'W/"328a3fe0a6eedac1b10b251515cad6e40d0063927a724cd9d77e9fb174f9e4af"'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'deny'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-GitHub-Request-Id', b'5800:DB9EC:342986:3FF0CB:672EDE10'), (b'Content-Encoding', b'gzip'), (b'Accept-Ranges', b'bytes'), (b'Date', b'Sun, 10 Nov 2024 13:23:24 GMT'), (b'Via', b'1.1 varnish'), (b'X-Served-By', b'cache-lcy-eglc8600085-LCY'), (b'X-Cache', b'HIT'), (b'X-Cache-Hits', b'2'), (b'X-Timer', b'S1731245005.744792,VS0,VE0'), (b'Vary', b'Authorization,Accept-Encoding,Origin'), (b'Access-Control-Allow-Origin', b'*'), (b'Cross-Origin-Resource-Policy', b'cross-origin'), (b'X-Fastly-Request-ID', b'6f2cd440226eab6be08bfa689ba5252f33c2b02e'), (b'Expires', b'Sun, 10 Nov 2024 13:28:24 GMT'), (b'Source-Age', b'121')])
+2024-11-10 13:23:24,740 [INFO] httpx: HTTP Request: GET https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json "HTTP/1.1 200 OK"
+2024-11-10 13:23:24,741 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2024-11-10 13:23:24,741 [DEBUG] httpcore.http11: receive_response_body.complete
+2024-11-10 13:23:24,741 [DEBUG] httpcore.http11: response_closed.started
+2024-11-10 13:23:24,741 [DEBUG] httpcore.http11: response_closed.complete
+2024-11-10 13:23:24,741 [DEBUG] httpcore.connection: close.started
+2024-11-10 13:23:24,741 [DEBUG] httpcore.connection: close.complete
+2024-11-10 13:23:24,858 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-10 13:23:24,858 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
+2024-11-10 13:23:24,863 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-10 13:23:24,863 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
+2024-11-10 13:23:24,879 [DEBUG] LiteLLM: [Non-Blocking] Unable to import GenericAPILogger - LiteLLM Enterprise Feature - No module named 'litellm.proxy.enterprise'
+2024-11-10 13:23:24,990 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-11-10 13:23:24,990 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
+2024-11-10 13:23:25,067 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-10 13:23:25,068 [INFO] faiss.loader: Loading faiss.
+2024-11-10 13:23:25,090 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-10 13:23:26,908 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-10 12:24:35,881 [INFO] metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-10 12:24:35,882 [INFO] answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:24:35,888 [DEBUG] __main__: Entering main function.
-2024-11-10 12:24:35,888 [INFO] __main__: Configuring DSPy Language Model with LiteLLM
-2024-11-10 12:24:35,888 [INFO] __main__: Loading training data from 'training_data.csv'
-2024-11-10 12:24:36,240 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-10 12:24:36,241 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-10 12:24:36,248 [INFO] __main__: Loading data into ContextualVectorDB with parallel threads
-2024-11-10 12:24:37,699 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-10 12:24:37,699 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-10 12:24:37,827 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-10 12:24:37,874 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-10 12:24:37,874 [INFO] __main__: Loading queries from 'data/queries.json'
-2024-11-10 12:24:37,875 [INFO] __main__: Validating input queries
-2024-11-10 12:24:37,875 [INFO] __main__: Loading evaluation set from 'data/evaluation_set.jsonl'
-2024-11-10 12:24:37,875 [INFO] __main__: Attempting to load optimized DSPy program
-2024-11-10 12:24:37,875 [WARNING] __main__: Failed to load optimized program. Using unoptimized module.
-2024-11-10 12:24:37,876 [INFO] __main__: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:24:37,876 [INFO] __main__: Initializing DSPy Optimizer with Comprehensive Metric
-2024-11-10 12:24:37,876 [INFO] __main__: DSPy Optimizer initialized successfully with Comprehensive Metric.
-2024-11-10 12:24:37,877 [INFO] __main__: Compiling the program using the optimizer
-2024-11-10 12:24:37,915 [ERROR] __main__: Error during program compilation: Expected dict_keys(['question', 'context']) but got dict_keys(['input'])
-Traceback (most recent call last):
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py", line 175, in main
-    optimized_program = teleprompter.compile(
-                        ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/teleprompt/random_search.py", line 119, in compile
-    score, subscores = evaluate(program, return_all_scores=True)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 218, in __call__
-    reordered_devset, ncorrect, ntotal = self._execute_multi_thread(
-                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 127, in _execute_multi_thread
-    example_idx, example, prediction, score = future.result()
-                                              ^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 449, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 120, in cancellable_wrapped_program
-    return wrapped_program(idx, arg)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 196, in wrapped_program
-    raise e
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 178, in wrapped_program
-    prediction = program(**example.inputs())
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 23, in __call__
-    return self.forward(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 322, in forward
-    result = self.predictor(**modified_kwargs, new_signature=signature)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 154, in __call__
-    return self.forward(**kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 188, in forward
-    completions = v2_5_generate(lm, config, signature, demos, kwargs, _parse_values=self._parse_values)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 295, in v2_5_generate
-    return adapter(
-           ^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/base.py", line 17, in __call__
-    inputs_ = self.format(signature, demos, inputs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/chat_adapter.py", line 59, in format
-    messages.append(format_turn(signature, inputs, role="user"))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/chat_adapter.py", line 276, in format_turn
-    raise ValueError(f"Expected {field_names} but got {values.keys()}")
-ValueError: Expected dict_keys(['question', 'context']) but got dict_keys(['input'])
-2024-11-10 12:25:52,497 [INFO] datasets: PyTorch version 2.5.1 available.
-2024-11-10 12:25:52,770 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:25:52,771 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:25:52,775 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:25:52,775 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:25:52,780 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:25:52,780 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:25:52,785 [DEBUG] httpcore.connection: connect_tcp.started host='raw.githubusercontent.com' port=443 local_address=None timeout=5 socket_options=None
-2024-11-10 12:25:52,795 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x121bfbd40>
-2024-11-10 12:25:52,795 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x121d1a2d0> server_hostname='raw.githubusercontent.com' timeout=5
-2024-11-10 12:25:52,804 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x121bfbc50>
-2024-11-10 12:25:52,804 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
-2024-11-10 12:25:52,804 [DEBUG] httpcore.http11: send_request_headers.complete
-2024-11-10 12:25:52,804 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
-2024-11-10 12:25:52,804 [DEBUG] httpcore.http11: send_request_body.complete
-2024-11-10 12:25:52,804 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
-2024-11-10 12:25:52,889 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Length', b'12730'), (b'Cache-Control', b'max-age=300'), (b'Content-Security-Policy', b"default-src 'none'; style-src 'unsafe-inline'; sandbox"), (b'Content-Type', b'text/plain; charset=utf-8'), (b'ETag', b'W/"328a3fe0a6eedac1b10b251515cad6e40d0063927a724cd9d77e9fb174f9e4af"'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'deny'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-GitHub-Request-Id', b'5800:DB9EC:342986:3FF0CB:672EDE10'), (b'Content-Encoding', b'gzip'), (b'Accept-Ranges', b'bytes'), (b'Date', b'Sun, 10 Nov 2024 12:25:52 GMT'), (b'Via', b'1.1 varnish'), (b'X-Served-By', b'cache-lcy-eglc8600021-LCY'), (b'X-Cache', b'HIT'), (b'X-Cache-Hits', b'1'), (b'X-Timer', b'S1731241553.819985,VS0,VE77'), (b'Vary', b'Authorization,Accept-Encoding,Origin'), (b'Access-Control-Allow-Origin', b'*'), (b'Cross-Origin-Resource-Policy', b'cross-origin'), (b'X-Fastly-Request-ID', b'08f0ec892d50ff86aaae2343bb3b8d4ba8a7e895'), (b'Expires', b'Sun, 10 Nov 2024 12:30:52 GMT'), (b'Source-Age', b'0')])
-2024-11-10 12:25:52,889 [INFO] httpx: HTTP Request: GET https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json "HTTP/1.1 200 OK"
-2024-11-10 12:25:52,889 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
-2024-11-10 12:25:52,890 [DEBUG] httpcore.http11: receive_response_body.complete
-2024-11-10 12:25:52,890 [DEBUG] httpcore.http11: response_closed.started
-2024-11-10 12:25:52,890 [DEBUG] httpcore.http11: response_closed.complete
-2024-11-10 12:25:52,890 [DEBUG] httpcore.connection: close.started
-2024-11-10 12:25:52,890 [DEBUG] httpcore.connection: close.complete
-2024-11-10 12:25:53,007 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:25:53,007 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:25:53,011 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:25:53,012 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:25:53,024 [DEBUG] LiteLLM: [Non-Blocking] Unable to import GenericAPILogger - LiteLLM Enterprise Feature - No module named 'litellm.proxy.enterprise'
-2024-11-10 12:25:53,113 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:25:53,114 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:25:53,175 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-10 12:25:53,176 [INFO] faiss.loader: Loading faiss.
-2024-11-10 12:25:53,194 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-10 12:25:54,722 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
-Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
-They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
-Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-10 12:25:54,722 [INFO] metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-10 12:25:54,722 [INFO] answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:25:54,726 [DEBUG] __main__: Entering main function.
-2024-11-10 12:25:54,726 [INFO] __main__: Configuring DSPy Language Model with LiteLLM
-2024-11-10 12:25:54,726 [INFO] __main__: Loading training data from 'new_training_data.csv'
-2024-11-10 12:25:55,080 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-10 12:25:55,081 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-10 12:25:55,088 [INFO] __main__: Loading data into ContextualVectorDB with parallel threads
-2024-11-10 12:25:55,089 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-10 12:25:55,089 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-10 12:25:55,157 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-10 12:25:55,185 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-10 12:25:55,185 [INFO] __main__: Loading queries from 'data/queries.json'
-2024-11-10 12:25:55,185 [INFO] __main__: Validating input queries
-2024-11-10 12:25:55,185 [INFO] __main__: Loading evaluation set from 'data/evaluation_set.jsonl'
-2024-11-10 12:25:55,186 [INFO] __main__: Attempting to load optimized DSPy program
-2024-11-10 12:25:55,186 [WARNING] __main__: Failed to load optimized program. Using unoptimized module.
-2024-11-10 12:25:55,186 [INFO] __main__: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:25:55,186 [INFO] __main__: Initializing DSPy Optimizer with Comprehensive Metric
-2024-11-10 12:25:55,186 [INFO] __main__: DSPy Optimizer initialized successfully with Comprehensive Metric.
-2024-11-10 12:25:55,186 [INFO] __main__: Compiling the program using the optimizer
-2024-11-10 12:25:55,244 [ERROR] __main__: Error during program compilation: Expected dict_keys(['question', 'context']) but got dict_keys(['input'])
-Traceback (most recent call last):
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py", line 175, in main
-    optimized_program = teleprompter.compile(
-                        ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/teleprompt/random_search.py", line 119, in compile
-    score, subscores = evaluate(program, return_all_scores=True)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 218, in __call__
-    reordered_devset, ncorrect, ntotal = self._execute_multi_thread(
-                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 127, in _execute_multi_thread
-    example_idx, example, prediction, score = future.result()
-                                              ^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 449, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 120, in cancellable_wrapped_program
-    return wrapped_program(idx, arg)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 196, in wrapped_program
-    raise e
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 178, in wrapped_program
-    prediction = program(**example.inputs())
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 23, in __call__
-    return self.forward(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 322, in forward
-    result = self.predictor(**modified_kwargs, new_signature=signature)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 154, in __call__
-    return self.forward(**kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 188, in forward
-    completions = v2_5_generate(lm, config, signature, demos, kwargs, _parse_values=self._parse_values)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 295, in v2_5_generate
-    return adapter(
-           ^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/base.py", line 17, in __call__
-    inputs_ = self.format(signature, demos, inputs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/chat_adapter.py", line 59, in format
-    messages.append(format_turn(signature, inputs, role="user"))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/chat_adapter.py", line 276, in format_turn
-    raise ValueError(f"Expected {field_names} but got {values.keys()}")
-ValueError: Expected dict_keys(['question', 'context']) but got dict_keys(['input'])
-2024-11-10 12:26:12,760 [DEBUG] __main__: Entering main function.
-2024-11-10 12:26:12,760 [DEBUG] __main__: Entering main_async function.
-2024-11-10 12:26:12,760 [DEBUG] __main__: Script directory: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src
-2024-11-10 12:26:12,760 [DEBUG] __main__: File extensions to include: ['.py', '.yaml']
-2024-11-10 12:26:12,760 [DEBUG] __main__: Entering get_code_files with root_dir='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src' and extensions=['.py', '.yaml'].
-2024-11-10 12:26:12,760 [DEBUG] __main__: Walking through directory: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/metrics.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranker.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/elasticsearch_bm25.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_generator.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluation.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/data_loader.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/__init__.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranking.py
-2024-11-10 12:26:12,760 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/answer_generator.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/retrieval.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/copycode.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/contextual_vector_db.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/openai_client.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluator.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/decorators.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/validation_functions.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/__init__.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/logger.py
-2024-11-10 12:26:12,761 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/utils.py
-2024-11-10 12:26:12,761 [INFO] __main__: Total code files found: 23
-2024-11-10 12:26:12,761 [DEBUG] __main__: Exiting get_code_files method. Time taken: 0.00 seconds.
-2024-11-10 12:26:12,761 [DEBUG] __main__: Entering copy_code_to_file with output_file='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/consolidated_code.txt'.
-2024-11-10 12:26:12,761 [INFO] __main__: Writing consolidated code to '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/consolidated_code.txt'
-2024-11-10 12:26:12,762 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/metrics.py'
-2024-11-10 12:26:12,762 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation.py'
-2024-11-10 12:26:12,762 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranker.py'
-2024-11-10 12:26:12,763 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/elasticsearch_bm25.py'
-2024-11-10 12:26:12,763 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_generator.py'
-2024-11-10 12:26:12,763 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluation.py'
-2024-11-10 12:26:12,764 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/data_loader.py'
-2024-11-10 12:26:12,764 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/__init__.py'
-2024-11-10 12:26:12,764 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranking.py'
-2024-11-10 12:26:12,764 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/answer_generator.py'
-2024-11-10 12:26:12,765 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py'
-2024-11-10 12:26:12,765 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/retrieval.py'
-2024-11-10 12:26:12,765 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py'
-2024-11-10 12:26:12,766 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/copycode.py'
-2024-11-10 12:26:12,766 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/contextual_vector_db.py'
-2024-11-10 12:26:12,766 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/openai_client.py'
-2024-11-10 12:26:12,766 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py'
-2024-11-10 12:26:12,767 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluator.py'
-2024-11-10 12:26:12,767 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/decorators.py'
-2024-11-10 12:26:12,767 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/validation_functions.py'
-2024-11-10 12:26:12,767 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/__init__.py'
-2024-11-10 12:26:12,768 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/logger.py'
-2024-11-10 12:26:12,768 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/utils.py'
-2024-11-10 12:26:12,768 [INFO] __main__: All code has been copied to '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/consolidated_code.txt'
-2024-11-10 12:26:12,768 [DEBUG] __main__: Exiting copy_code_to_file method. Time taken: 0.01 seconds.
-2024-11-10 12:26:12,768 [DEBUG] __main__: Exiting main_async function. Total time taken: 0.01 seconds.
-2024-11-10 12:26:12,768 [DEBUG] __main__: Exiting main function. Total time taken: 0.01 seconds.
-2024-11-10 12:26:34,429 [INFO] datasets: PyTorch version 2.5.1 available.
-2024-11-10 12:26:34,710 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:26:34,710 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:26:34,714 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:26:34,715 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:26:34,720 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:26:34,720 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:26:34,725 [DEBUG] httpcore.connection: connect_tcp.started host='raw.githubusercontent.com' port=443 local_address=None timeout=5 socket_options=None
-2024-11-10 12:26:34,731 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f5fbd40>
-2024-11-10 12:26:34,732 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x10f71a2d0> server_hostname='raw.githubusercontent.com' timeout=5
-2024-11-10 12:26:34,743 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10f5fbc50>
-2024-11-10 12:26:34,743 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
-2024-11-10 12:26:34,743 [DEBUG] httpcore.http11: send_request_headers.complete
-2024-11-10 12:26:34,743 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
-2024-11-10 12:26:34,743 [DEBUG] httpcore.http11: send_request_body.complete
-2024-11-10 12:26:34,743 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
-2024-11-10 12:26:34,752 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Length', b'12730'), (b'Cache-Control', b'max-age=300'), (b'Content-Security-Policy', b"default-src 'none'; style-src 'unsafe-inline'; sandbox"), (b'Content-Type', b'text/plain; charset=utf-8'), (b'ETag', b'W/"328a3fe0a6eedac1b10b251515cad6e40d0063927a724cd9d77e9fb174f9e4af"'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'deny'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-GitHub-Request-Id', b'5800:DB9EC:342986:3FF0CB:672EDE10'), (b'Content-Encoding', b'gzip'), (b'Accept-Ranges', b'bytes'), (b'Date', b'Sun, 10 Nov 2024 12:26:34 GMT'), (b'Via', b'1.1 varnish'), (b'X-Served-By', b'cache-lcy-eglc8600096-LCY'), (b'X-Cache', b'HIT'), (b'X-Cache-Hits', b'1'), (b'X-Timer', b'S1731241595.757784,VS0,VE2'), (b'Vary', b'Authorization,Accept-Encoding,Origin'), (b'Access-Control-Allow-Origin', b'*'), (b'Cross-Origin-Resource-Policy', b'cross-origin'), (b'X-Fastly-Request-ID', b'903e7ba370701e2636a0b5d243f11c8c72b4738a'), (b'Expires', b'Sun, 10 Nov 2024 12:31:34 GMT'), (b'Source-Age', b'42')])
-2024-11-10 12:26:34,752 [INFO] httpx: HTTP Request: GET https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json "HTTP/1.1 200 OK"
-2024-11-10 12:26:34,752 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
-2024-11-10 12:26:34,752 [DEBUG] httpcore.http11: receive_response_body.complete
-2024-11-10 12:26:34,752 [DEBUG] httpcore.http11: response_closed.started
-2024-11-10 12:26:34,752 [DEBUG] httpcore.http11: response_closed.complete
-2024-11-10 12:26:34,752 [DEBUG] httpcore.connection: close.started
-2024-11-10 12:26:34,753 [DEBUG] httpcore.connection: close.complete
-2024-11-10 12:26:34,871 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:26:34,871 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:26:34,875 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:26:34,876 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:26:34,890 [DEBUG] LiteLLM: [Non-Blocking] Unable to import GenericAPILogger - LiteLLM Enterprise Feature - No module named 'litellm.proxy.enterprise'
-2024-11-10 12:26:34,988 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:26:34,988 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:26:35,056 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-10 12:26:35,057 [INFO] faiss.loader: Loading faiss.
-2024-11-10 12:26:35,075 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-10 12:26:36,664 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
-Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
-They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
-Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-10 12:26:36,665 [INFO] metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-10 12:26:36,665 [INFO] answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:26:36,669 [DEBUG] __main__: Entering main function.
-2024-11-10 12:26:36,669 [INFO] __main__: Configuring DSPy Language Model with LiteLLM
-2024-11-10 12:26:36,669 [INFO] __main__: Loading training data from 'new_training_data.csv'
-2024-11-10 12:26:37,011 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-10 12:26:37,011 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-10 12:26:37,021 [INFO] __main__: Loading data into ContextualVectorDB with parallel threads
-2024-11-10 12:26:37,025 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-10 12:26:37,025 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-10 12:26:37,086 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-10 12:26:37,113 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-10 12:26:37,113 [INFO] __main__: Loading queries from 'data/queries.json'
-2024-11-10 12:26:37,113 [INFO] __main__: Validating input queries
-2024-11-10 12:26:37,113 [INFO] __main__: Loading evaluation set from 'data/evaluation_set.jsonl'
-2024-11-10 12:26:37,113 [INFO] __main__: Attempting to load optimized DSPy program
-2024-11-10 12:26:37,113 [WARNING] __main__: Failed to load optimized program. Using unoptimized module.
-2024-11-10 12:26:37,114 [INFO] __main__: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:26:37,114 [INFO] __main__: Initializing DSPy Optimizer with Comprehensive Metric
-2024-11-10 12:26:37,114 [INFO] __main__: DSPy Optimizer initialized successfully with Comprehensive Metric.
-2024-11-10 12:26:37,114 [INFO] __main__: Compiling the program using the optimizer
-2024-11-10 12:26:37,154 [ERROR] __main__: Error during program compilation: Expected dict_keys(['question', 'context']) but got dict_keys(['input'])
-Traceback (most recent call last):
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py", line 175, in main
-    optimized_program = teleprompter.compile(
-                        ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/teleprompt/random_search.py", line 119, in compile
-    score, subscores = evaluate(program, return_all_scores=True)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 218, in __call__
-    reordered_devset, ncorrect, ntotal = self._execute_multi_thread(
-                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 127, in _execute_multi_thread
-    example_idx, example, prediction, score = future.result()
-                                              ^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 449, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/homebrew/Cellar/python@3.12/3.12.7_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 120, in cancellable_wrapped_program
-    return wrapped_program(idx, arg)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 196, in wrapped_program
-    raise e
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/evaluate/evaluate.py", line 178, in wrapped_program
-    prediction = program(**example.inputs())
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 23, in __call__
-    return self.forward(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 322, in forward
-    result = self.predictor(**modified_kwargs, new_signature=signature)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 154, in __call__
-    return self.forward(**kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 188, in forward
-    completions = v2_5_generate(lm, config, signature, demos, kwargs, _parse_values=self._parse_values)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/predict/predict.py", line 295, in v2_5_generate
-    return adapter(
-           ^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/base.py", line 17, in __call__
-    inputs_ = self.format(signature, demos, inputs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
-    return fn(instance, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/chat_adapter.py", line 59, in format
-    messages.append(format_turn(signature, inputs, role="user"))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/dspy/adapters/chat_adapter.py", line 276, in format_turn
-    raise ValueError(f"Expected {field_names} but got {values.keys()}")
-ValueError: Expected dict_keys(['question', 'context']) but got dict_keys(['input'])
-2024-11-10 12:31:07,624 [INFO] datasets: PyTorch version 2.5.1 available.
-2024-11-10 12:31:07,901 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:31:07,901 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:31:07,906 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:31:07,906 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:31:07,911 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:31:07,911 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:31:07,916 [DEBUG] httpcore.connection: connect_tcp.started host='raw.githubusercontent.com' port=443 local_address=None timeout=5 socket_options=None
-2024-11-10 12:31:07,924 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11bcfbd10>
-2024-11-10 12:31:07,924 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x11be1a2d0> server_hostname='raw.githubusercontent.com' timeout=5
-2024-11-10 12:31:07,934 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11bcfbc20>
-2024-11-10 12:31:07,934 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
-2024-11-10 12:31:07,934 [DEBUG] httpcore.http11: send_request_headers.complete
-2024-11-10 12:31:07,934 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
-2024-11-10 12:31:07,934 [DEBUG] httpcore.http11: send_request_body.complete
-2024-11-10 12:31:07,934 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
-2024-11-10 12:31:07,941 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Length', b'12730'), (b'Cache-Control', b'max-age=300'), (b'Content-Security-Policy', b"default-src 'none'; style-src 'unsafe-inline'; sandbox"), (b'Content-Type', b'text/plain; charset=utf-8'), (b'ETag', b'W/"328a3fe0a6eedac1b10b251515cad6e40d0063927a724cd9d77e9fb174f9e4af"'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'deny'), (b'X-XSS-Protection', b'1; mode=block'), (b'X-GitHub-Request-Id', b'5800:DB9EC:342986:3FF0CB:672EDE10'), (b'Content-Encoding', b'gzip'), (b'Accept-Ranges', b'bytes'), (b'Date', b'Sun, 10 Nov 2024 12:31:07 GMT'), (b'Via', b'1.1 varnish'), (b'X-Served-By', b'cache-lcy-eglc8600025-LCY'), (b'X-Cache', b'HIT'), (b'X-Cache-Hits', b'1'), (b'X-Timer', b'S1731241868.947828,VS0,VE1'), (b'Vary', b'Authorization,Accept-Encoding,Origin'), (b'Access-Control-Allow-Origin', b'*'), (b'Cross-Origin-Resource-Policy', b'cross-origin'), (b'X-Fastly-Request-ID', b'0dcd21f2920058f4212a13b198fc0d386c53c71f'), (b'Expires', b'Sun, 10 Nov 2024 12:36:07 GMT'), (b'Source-Age', b'13')])
-2024-11-10 12:31:07,941 [INFO] httpx: HTTP Request: GET https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json "HTTP/1.1 200 OK"
-2024-11-10 12:31:07,942 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
-2024-11-10 12:31:07,942 [DEBUG] httpcore.http11: receive_response_body.complete
-2024-11-10 12:31:07,942 [DEBUG] httpcore.http11: response_closed.started
-2024-11-10 12:31:07,942 [DEBUG] httpcore.http11: response_closed.complete
-2024-11-10 12:31:07,942 [DEBUG] httpcore.connection: close.started
-2024-11-10 12:31:07,942 [DEBUG] httpcore.connection: close.complete
-2024-11-10 12:31:08,054 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:31:08,055 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:31:08,059 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:31:08,060 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:31:08,073 [DEBUG] LiteLLM: [Non-Blocking] Unable to import GenericAPILogger - LiteLLM Enterprise Feature - No module named 'litellm.proxy.enterprise'
-2024-11-10 12:31:08,167 [DEBUG] httpx: load_ssl_context verify=True cert=None trust_env=True http2=False
-2024-11-10 12:31:08,167 [DEBUG] httpx: load_verify_locations cafile='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/.venv/lib/python3.12/site-packages/certifi/cacert.pem'
-2024-11-10 12:31:08,234 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-10 12:31:08,235 [INFO] faiss.loader: Loading faiss.
-2024-11-10 12:31:08,256 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-10 12:31:09,918 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
-Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
-They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
-Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-10 12:31:09,918 [INFO] metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-10 12:31:09,918 [INFO] answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:31:09,922 [DEBUG] __main__: Entering main function.
-2024-11-10 12:31:09,922 [INFO] __main__: Configuring DSPy Language Model with LiteLLM
-2024-11-10 12:31:09,923 [INFO] __main__: Loading training data from 'new_training_data.csv'
-2024-11-10 12:31:10,276 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-10 12:31:10,277 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-10 12:31:10,284 [INFO] __main__: Loading data into ContextualVectorDB with parallel threads
-2024-11-10 12:31:10,285 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-10 12:31:10,286 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-10 12:31:10,366 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-10 12:31:10,392 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-10 12:31:10,392 [INFO] __main__: Loading queries from 'data/queries.json'
-2024-11-10 12:31:10,392 [INFO] __main__: Validating input queries
-2024-11-10 12:31:10,392 [INFO] __main__: Loading evaluation set from 'data/evaluation_set.jsonl'
-2024-11-10 12:31:10,392 [INFO] __main__: Attempting to load optimized DSPy program
-2024-11-10 12:31:10,393 [WARNING] __main__: Failed to load optimized program. Using unoptimized module.
-2024-11-10 12:31:10,393 [INFO] __main__: Unoptimized DSPy module initialized successfully.
-2024-11-10 12:31:10,393 [INFO] __main__: Initializing DSPy Optimizer with Comprehensive Metric
-2024-11-10 12:31:10,393 [INFO] __main__: DSPy Optimizer initialized successfully with Comprehensive Metric.
-2024-11-10 12:31:10,393 [INFO] __main__: Compiling the program using the optimizer
-2024-11-10 12:38:01,000 [INFO] __main__: Program compiled and optimized successfully.
-2024-11-10 12:38:01,003 [INFO] __main__: Optimized program saved to 'optimized_program.json'
-2024-11-10 12:38:01,003 [INFO] __main__: Assigned optimized_program to answer_generator.qa_module successfully.
-2024-11-10 12:38:01,003 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-10 12:38:01,006 [INFO] __main__: SelectQuotationModule initialized successfully.
-2024-11-10 12:38:01,006 [INFO] __main__: Starting to process queries with the optimized program and quotation selection
-2024-11-10 12:39:38,364 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-10 12:39:38,366 [INFO] __main__: Evaluation completed successfully.
-2024-11-10 12:39:38,366 [INFO] __main__: All operations completed successfully.
-2024-11-10 12:41:20,849 [DEBUG] __main__: Entering main function.
-2024-11-10 12:41:20,849 [DEBUG] __main__: Entering main_async function.
-2024-11-10 12:41:20,849 [DEBUG] __main__: Script directory: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src
-2024-11-10 12:41:20,849 [DEBUG] __main__: File extensions to include: ['.py', '.yaml']
-2024-11-10 12:41:20,849 [DEBUG] __main__: Entering get_code_files with root_dir='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src' and extensions=['.py', '.yaml'].
-2024-11-10 12:41:20,849 [DEBUG] __main__: Walking through directory: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/metrics.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranker.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/elasticsearch_bm25.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_generator.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluation.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/data_loader.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/__init__.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranking.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/answer_generator.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/retrieval.py
-2024-11-10 12:41:20,849 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/copycode.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/contextual_vector_db.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/openai_client.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluator.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/decorators.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/validation_functions.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/__init__.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/logger.py
-2024-11-10 12:41:20,850 [DEBUG] __main__: Found code file: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/utils.py
-2024-11-10 12:41:20,850 [INFO] __main__: Total code files found: 23
-2024-11-10 12:41:20,850 [DEBUG] __main__: Exiting get_code_files method. Time taken: 0.00 seconds.
-2024-11-10 12:41:20,850 [DEBUG] __main__: Entering copy_code_to_file with output_file='/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/consolidated_code.txt'.
-2024-11-10 12:41:20,850 [INFO] __main__: Writing consolidated code to '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/consolidated_code.txt'
-2024-11-10 12:41:20,851 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/metrics.py'
-2024-11-10 12:41:20,851 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation.py'
-2024-11-10 12:41:20,852 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranker.py'
-2024-11-10 12:41:20,852 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/elasticsearch_bm25.py'
-2024-11-10 12:41:20,852 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_generator.py'
-2024-11-10 12:41:20,852 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluation.py'
-2024-11-10 12:41:20,853 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/data_loader.py'
-2024-11-10 12:41:20,853 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/__init__.py'
-2024-11-10 12:41:20,853 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranking.py'
-2024-11-10 12:41:20,854 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/answer_generator.py'
-2024-11-10 12:41:20,854 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py'
-2024-11-10 12:41:20,854 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/retrieval.py'
-2024-11-10 12:41:20,854 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py'
-2024-11-10 12:41:20,855 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/copycode.py'
-2024-11-10 12:41:20,855 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/contextual_vector_db.py'
-2024-11-10 12:41:20,855 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/openai_client.py'
-2024-11-10 12:41:20,855 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py'
-2024-11-10 12:41:20,856 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/evaluator.py'
-2024-11-10 12:41:20,856 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/decorators.py'
-2024-11-10 12:41:20,856 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/validation_functions.py'
-2024-11-10 12:41:20,856 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/__init__.py'
-2024-11-10 12:41:20,857 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/logger.py'
-2024-11-10 12:41:20,857 [DEBUG] __main__: Copied content from '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/utils.py'
-2024-11-10 12:41:20,857 [INFO] __main__: All code has been copied to '/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/consolidated_code.txt'
-2024-11-10 12:41:20,857 [DEBUG] __main__: Exiting copy_code_to_file method. Time taken: 0.01 seconds.
-2024-11-10 12:41:20,857 [DEBUG] __main__: Exiting main_async function. Total time taken: 0.01 seconds.
-2024-11-10 12:41:20,857 [DEBUG] __main__: Exiting main function. Total time taken: 0.01 seconds.
+2024-11-10 13:23:26,908 [INFO] metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-10 13:23:26,908 [INFO] answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-10 13:23:26,914 [DEBUG] __main__: Entering main function.
+2024-11-10 13:23:26,914 [INFO] __main__: Configuring DSPy Language Model with LiteLLM
+2024-11-10 13:23:26,914 [INFO] __main__: Loading training data from 'new_training_data.csv'
+2024-11-10 13:23:27,314 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-10 13:23:27,314 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-10 13:23:27,322 [INFO] __main__: Loading data into ContextualVectorDB with parallel threads
+2024-11-10 13:23:28,788 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-10 13:23:28,788 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-10 13:23:28,917 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-10 13:23:28,960 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-10 13:23:28,961 [INFO] __main__: Loading queries from 'data/queries.json'
+2024-11-10 13:23:28,961 [INFO] __main__: Validating input queries
+2024-11-10 13:23:28,961 [INFO] __main__: Loading evaluation set from 'data/evaluation_set.jsonl'
+2024-11-10 13:23:28,961 [INFO] __main__: Attempting to load optimized DSPy program
+2024-11-10 13:23:28,961 [WARNING] __main__: Failed to load optimized program. Using unoptimized module.
+2024-11-10 13:23:28,962 [INFO] __main__: Unoptimized DSPy module initialized successfully.
+2024-11-10 13:23:28,962 [INFO] __main__: Initializing DSPy Optimizer with Comprehensive Metric
+2024-11-10 13:23:28,962 [INFO] __main__: DSPy Optimizer initialized successfully with Comprehensive Metric.
+2024-11-10 13:23:28,962 [INFO] __main__: Compiling the program using the optimizer
+2024-11-10 13:23:31,198 [INFO] __main__: Program compiled and optimized successfully.
+2024-11-10 13:23:31,199 [INFO] __main__: Optimized program saved to 'optimized_program.json'
+2024-11-10 13:23:31,199 [INFO] __main__: Assigned optimized_program to answer_generator.qa_module successfully.
+2024-11-10 13:23:31,199 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-10 13:23:31,199 [INFO] __main__: SelectQuotationModule initialized successfully.
+2024-11-10 13:23:31,199 [INFO] __main__: Starting to process queries with the optimized program and quotation selection
+2024-11-10 13:25:08,860 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-10 13:25:08,863 [INFO] __main__: Evaluation completed successfully.
+2024-11-10 13:25:08,863 [INFO] __main__: All operations completed successfully.
