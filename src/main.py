@@ -62,7 +62,7 @@ async def main():
         # Configure DSPy Language Model using LiteLLM
         logger.info("Configuring DSPy Language Model with LiteLLM")
 
-        lm = dspy.LM('openai/gpt-4o-mini', max_dtokens=8192)
+        lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
         dspy.configure(lm=lm)
 
         # Define file paths

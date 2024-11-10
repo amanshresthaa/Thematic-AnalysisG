@@ -20,14 +20,14 @@ def validate_relevance(quotations: List[str], research_objectives: str) -> bool:
         logger.error(f"Error in validate_relevance: {e}", exc_info=True)
         return False
 
-def validate_quality(quotations: List[str]) -> bool:
+def validate_quality(quotations: List[Dict[str, Any]]) -> bool:
     """
     Validates the quality and representation of each quotation.
     """
     try:
         for quote in quotations:
-            if len(quote.strip()) < 10:  # Example quality check
-                logger.debug(f"Quotation '{quote}' is too short to be considered high quality.")
+            if len(quote["QUOTE"].strip()) < 10:  # Example quality check
+                logger.debug(f"Quotation '{quote['QUOTE']}' is too short to be considered high quality.")
                 return False
             # Additional quality checks can be added here
         return True

@@ -93,6 +93,12 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     purpose = quotations_response.get("purpose", "")
 
     # Generate answer using DSPy with assertions (optional, depending on your use-case)
+        # Select quotations using the new DSPy module
+    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+    quotations = quotations_response.get("quotations", [])
+    purpose = quotations_response.get("purpose", "")
+
+    # Generate answer using DSPy with assertions
     qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
     answer = qa_response.get("answer", "")
     used_chunks_info = qa_response.get("used_chunks", [])
@@ -101,11 +107,10 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     result = {
         "query": query_text,
         "research_objectives": research_objectives,
-        "retrieved_chunks": used_chunks_info,
-        "retrieved_chunks_count": retrieved_chunks_count,
-        "used_chunk_ids": [chunk['chunk_id'] for chunk in used_chunks_info],
-        "quotations": quotations,
-        "types_and_functions": types_and_functions,
+        "retrieved_chunks": retrieved_chunks,  # Use the original retrieved_chunks
+        "retrieved_chunks_count": len(retrieved_chunks),  # Use the length of retrieved_chunks
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],  # Fixed nested dictionary access
+        "quotations": quotations,  # Now contains all type/function information
         "purpose": purpose,
         "answer": {
             "answer": answer
