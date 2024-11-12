@@ -1,8 +1,6 @@
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/metrics.py
-# File: /Users/amankumarshrestha/Downloads/Example/src/metrics.py
-# metrics.py
 import logging
 from typing import List, Dict, Any, Callable
 import dspy
@@ -540,8 +538,6 @@ class SelectQuotationSignature(dspy.Signature):
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/reranker.py
-# File: /Users/amankumarshrestha/Downloads/Example/src/reranker.py
-
 import logging
 from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer, util
@@ -592,10 +588,10 @@ class SentenceTransformerReRanker:
         Returns:
             List[Dict[str, Any]]: List of re-ranked documents with similarity scores.
         """
-        if not documents:
-            logger.warning("No documents provided for re-ranking.")
+        if not query or not documents:
+            logger.warning("Query and documents must be provided for re-ranking.")
             return []
-        
+
         try:
             logger.debug("Encoding query and documents.")
             query_embedding = self.model.encode(query, convert_to_tensor=True)
@@ -639,8 +635,8 @@ def rerank_documents_sentence_transformer(query: str, retrieved_docs: List[Dict[
         List[Dict[str, Any]]: List of re-ranked documents.
     """
     logger.info(f"Starting re-ranking of {len(retrieved_docs)} documents for query: '{query}' using Sentence Transformers.")
-    if not retrieved_docs:
-        logger.warning(f"No documents to re-rank for query: '{query}'")
+    if not query or not retrieved_docs:
+        logger.warning(f"Query and retrieved documents must be provided for re-ranking.")
         return []
     try:
         # Initialize the re-ranker
@@ -928,6 +924,9 @@ class QueryGeneratorSignature(dspy.Signature):
 
     def forward(self, question: str, context: str) -> Dict[str, str]:
         try:
+            if not question or not context:
+                raise ValueError("Both 'question' and 'context' must be provided and non-empty.")
+            
             prompt = (
                 f"Given the question: '{question}'\n"
                 f"and the context retrieved so far:\n{context}\n"
@@ -943,6 +942,9 @@ class QueryGeneratorSignature(dspy.Signature):
             ).strip()
             logger.info(f"Generated new query: '{new_query}'")
             return {"new_query": new_query}
+        except ValueError as ve:
+            logger.error(f"ValueError in QueryGeneratorSignature.forward: {ve}", exc_info=True)
+            return {"new_query": question}  # Fallback to the original question
         except Exception as e:
             logger.error(f"Error in QueryGeneratorSignature.forward: {e}", exc_info=True)
             return {"new_query": question}  # Fallback to the original question
@@ -964,167 +966,173 @@ from metrics import comprehensive_metric, is_answer_fully_correct
 setup_logging()
 logger = logging.getLogger(__name__)
 
+class PipelineEvaluator:
+    def __init__(self, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, retrieval_function: Callable):
+        self.db = db
+        self.es_bm25 = es_bm25
+        self.retrieval_function = retrieval_function
 
-def evaluate_pipeline(queries: List[Dict[str, Any]], retrieval_function: Callable, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int = 20) -> Dict[str, float]:
-    total_score = 0
-    total_queries = len(queries)
-    queries_with_golden = 0
-    queries_without_golden = 0
+    def evaluate_pipeline(self, queries: List[Dict[str, Any]], k: int = 20) -> Dict[str, float]:
+        total_score = 0
+        total_queries = len(queries)
+        queries_with_golden = 0
+        queries_without_golden = 0
 
-    semantic_success = 0
-    bm25_contextual_success = 0
-    total_semantic_hits = 0
-    total_bm25_contextual_hits = 0
+        semantic_success = 0
+        bm25_contextual_success = 0
+        total_semantic_hits = 0
+        total_bm25_contextual_hits = 0
 
-    logger.info(f"Starting evaluation of {total_queries} queries.")
+        logger.info(f"Starting evaluation of {total_queries} queries.")
 
-    for query_item in tqdm(queries, desc="Evaluating retrieval"):
-        query = query_item.get('query', '').strip()
+        for query_item in tqdm(queries, desc="Evaluating retrieval"):
+            query = query_item.get('query', '').strip()
 
-        has_golden_data = all([
-            'golden_doc_uuids' in query_item,
-            'golden_chunk_uuids' in query_item,
-            'golden_documents' in query_item
-        ])
+            has_golden_data = all([
+                'golden_doc_uuids' in query_item,
+                'golden_chunk_uuids' in query_item,
+                'golden_documents' in query_item
+            ])
 
-        if has_golden_data:
-            queries_with_golden += 1
-            golden_chunk_uuids = query_item.get('golden_chunk_uuids', [])
-            golden_contents = []
+            if has_golden_data:
+                queries_with_golden += 1
+                golden_chunk_uuids = query_item.get('golden_chunk_uuids', [])
+                golden_contents = []
 
-            for doc_uuid, chunk_index in golden_chunk_uuids:
-                golden_doc = next((doc for doc in query_item.get('golden_documents', []) if doc.get('uuid') == doc_uuid), None)
-                if not golden_doc:
-                    logger.debug(f"No document found with UUID '{doc_uuid}' for query '{query}'.")
+                for doc_uuid, chunk_index in golden_chunk_uuids:
+                    golden_doc = next((doc for doc in query_item.get('golden_documents', []) if doc.get('uuid') == doc_uuid), None)
+                    if not golden_doc:
+                        logger.debug(f"No document found with UUID '{doc_uuid}' for query '{query}'.")
+                        continue
+                    golden_chunk = next((chunk for chunk in golden_doc.get('chunks', []) if chunk.get('index') == chunk_index), None)
+                    if not golden_chunk:
+                        logger.debug(f"No chunk found with index '{chunk_index}' in document '{doc_uuid}' for query '{query}'.")
+                        continue
+                    golden_contents.append(golden_chunk.get('content', '').strip())
+
+                if not golden_contents:
+                    logger.warning(f"No golden contents found for query '{query}'. Skipping evaluation for this query.")
                     continue
-                golden_chunk = next((chunk for chunk in golden_doc.get('chunks', []) if chunk.get('index') == chunk_index), None)
-                if not golden_chunk:
-                    logger.debug(f"No chunk found with index '{chunk_index}' in document '{doc_uuid}' for query '{query}'.")
-                    continue
-                golden_contents.append(golden_chunk.get('content', '').strip())
 
-            if not golden_contents:
-                logger.warning(f"No golden contents found for query '{query}'. Skipping evaluation for this query.")
+                retrieved_docs = self.retrieval_function(query, self.db, self.es_bm25, k)
+
+                chunks_found = 0
+                semantic_hits = 0
+                bm25_contextual_hits = 0
+
+                for golden_content in golden_contents:
+                    for doc in retrieved_docs[:k]:
+                        retrieved_content = doc.get('chunk', {}).get('original_content', '').strip()
+                        contextualized_content = doc.get('chunk', {}).get('contextualized_content', '').strip()
+                        if retrieved_content == golden_content:
+                            chunks_found += 1
+                            semantic_hits += 1
+                            break
+                        elif contextualized_content == golden_content:
+                            chunks_found += 1
+                            bm25_contextual_hits += 1
+                            break
+
+                query_score = chunks_found / len(golden_contents)
+                total_score += query_score
+                logger.debug(f"Query '{query}' score: {query_score}")
+
+                semantic_success += semantic_hits
+                bm25_contextual_success += bm25_contextual_hits
+                total_semantic_hits += semantic_hits
+                total_bm25_contextual_hits += bm25_contextual_hits
+            else:
+                queries_without_golden += 1
+                logger.debug(f"Query '{query}' does not contain golden data. Skipping evaluation metrics for this query.")
                 continue
 
-            retrieved_docs = retrieval_function(query, db, es_bm25, k)
+        average_score = (total_score / queries_with_golden) if queries_with_golden > 0 else 0
+        pass_at_n = average_score * 100
 
-            chunks_found = 0
-            semantic_hits = 0
-            bm25_contextual_hits = 0
+        semantic_percentage = (semantic_success / total_semantic_hits) * 100 if total_semantic_hits > 0 else 0
+        bm25_contextual_percentage = (bm25_contextual_success / total_bm25_contextual_hits) * 100 if total_bm25_contextual_hits > 0 else 0
 
-            for golden_content in golden_contents:
-                for doc in retrieved_docs[:k]:
-                    retrieved_content = doc.get('chunk', {}).get('original_content', '').strip()
-                    contextualized_content = doc.get('chunk', {}).get('contextualized_content', '').strip()
-                    if retrieved_content == golden_content:
-                        chunks_found += 1
-                        semantic_hits += 1
-                        break
-                    elif contextualized_content == golden_content:
-                        chunks_found += 1
-                        bm25_contextual_hits += 1
-                        break
+        logger.info(f"Evaluation completed.")
+        logger.info(f"Total Queries: {total_queries}")
+        logger.info(f"Queries with Golden Data: {queries_with_golden}")
+        logger.info(f"Queries without Golden Data: {queries_without_golden}")
+        logger.info(f"Pass@{k}: {pass_at_n:.2f}%, Average Score: {average_score:.4f}")
+        logger.info(f"Semantic Hits: {semantic_percentage:.2f}%")
+        logger.info(f"BM25 Contextual Hits: {bm25_contextual_percentage:.2f}%")
 
-            query_score = chunks_found / len(golden_contents)
-            total_score += query_score
-            logger.debug(f"Query '{query}' score: {query_score}")
+        return {
+            "pass_at_n": pass_at_n,
+            "average_score": average_score,
+            "semantic_hit_percentage": semantic_percentage,
+            "bm25_contextual_hit_percentage": bm25_contextual_percentage,
+            "total_queries": total_queries,
+            "queries_with_golden": queries_with_golden,
+            "queries_without_golden": queries_without_golden
+        }
 
-            semantic_success += semantic_hits
-            bm25_contextual_success += bm25_contextual_hits
-            total_semantic_hits += semantic_hits
-            total_bm25_contextual_hits += bm25_contextual_hits
-        else:
-            queries_without_golden += 1
-            logger.debug(f"Query '{query}' does not contain golden data. Skipping evaluation metrics for this query.")
-            continue
-
-    average_score = (total_score / queries_with_golden) if queries_with_golden > 0 else 0
-    pass_at_n = average_score * 100
-
-    semantic_percentage = (semantic_success / total_semantic_hits) * 100 if total_semantic_hits > 0 else 0
-    bm25_contextual_percentage = (bm25_contextual_success / total_bm25_contextual_hits) * 100 if total_bm25_contextual_hits > 0 else 0
-
-    logger.info(f"Evaluation completed.")
-    logger.info(f"Total Queries: {total_queries}")
-    logger.info(f"Queries with Golden Data: {queries_with_golden}")
-    logger.info(f"Queries without Golden Data: {queries_without_golden}")
-    logger.info(f"Pass@{k}: {pass_at_n:.2f}%, Average Score: {average_score:.4f}")
-    logger.info(f"Semantic Hits: {semantic_percentage:.2f}%")
-    logger.info(f"BM25 Contextual Hits: {bm25_contextual_percentage:.2f}%")
-
-    return {
-        "pass_at_n": pass_at_n,
-        "average_score": average_score,
-        "semantic_hit_percentage": semantic_percentage,
-        "bm25_contextual_hit_percentage": bm25_contextual_percentage,
-        "total_queries": total_queries,
-        "queries_with_golden": queries_with_golden,
-        "queries_without_golden": queries_without_golden
-    }
-
-
-def evaluate_complete_pipeline(db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k_values: List[int], evaluation_set: List[Dict[str, Any]], retrieval_function: Callable):
-    for k in k_values:
-        logger.info(f"Starting evaluation for Pass@{k}")
-        results = evaluate_pipeline(evaluation_set, retrieval_function, db, es_bm25, k)
-        logger.info(f"Pass@{k}: {results['pass_at_n']:.2f}%")
-        logger.info(f"Average Score: {results['average_score']:.4f}")
-        logger.info(f"Semantic Hit Percentage: {results['semantic_hit_percentage']:.2f}%")
-        logger.info(f"BM25 Contextual Hit Percentage: {results['bm25_contextual_hit_percentage']:.2f}%")
-        logger.info(f"Total Queries: {results['total_queries']}")
-        logger.info(f"Queries with Golden Data: {results.get('queries_with_golden', 0)}")
-        logger.info(f"Queries without Golden Data: {results.get('queries_without_golden', 0)}\n")
+    def evaluate_complete_pipeline(self, k_values: List[int], evaluation_set: List[Dict[str, Any]]):
+        for k in k_values:
+            logger.info(f"Starting evaluation for Pass@{k}")
+            results = self.evaluate_pipeline(evaluation_set, k)
+            logger.info(f"Pass@{k}: {results['pass_at_n']:.2f}%")
+            logger.info(f"Average Score: {results['average_score']:.4f}")
+            logger.info(f"Semantic Hit Percentage: {results['semantic_hit_percentage']:.2f}%")
+            logger.info(f"BM25 Contextual Hit Percentage: {results['bm25_contextual_hit_percentage']:.2f}%")
+            logger.info(f"Total Queries: {results['total_queries']}")
+            logger.info(f"Queries with Golden Data: {results.get('queries_with_golden', 0)}")
+            logger.info(f"Queries without Golden Data: {results.get('queries_without_golden', 0)}\n")
 
 ################################################################################
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/data_loader.py
-# File: /Users/amankumarshrestha/Downloads/Example/src/data_loader.py
 import json
 import logging
 from typing import List, Dict, Any
 
 logger = logging.getLogger(__name__)
 
-def load_json(file_path: str) -> List[Dict[str, Any]]:
-    data = []
-    try:
-        if file_path.endswith('.jsonl'):
-            with open(file_path, 'r', encoding='utf-8') as f:
-                for line_number, line in enumerate(f, start=1):
-                    if line.strip():
-                        try:
-                            obj = json.loads(line)
-                            data.append(obj)
-                        except json.JSONDecodeError as e:
-                            logger.error(f"JSON parsing error in file '{file_path}' at line {line_number}: {e}")
-            logger.info(f"Loaded JSONL file '{file_path}' with {len(data)} entries successfully.")
-        else:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            logger.info(f"Loaded JSON file '{file_path}' successfully with {len(data)} entries.")
-        return data
-    except FileNotFoundError:
-        logger.error(f"Error loading JSON file '{file_path}': File does not exist.")
-        return []
-    except json.JSONDecodeError as e:
-        logger.error(f"Error loading JSON file '{file_path}': {e}")
-        return []
-    except Exception as e:
-        logger.error(f"Unexpected error loading JSON file '{file_path}': {e}")
-        return []
+class JSONLoader:
+    def __init__(self, file_path: str):
+        self.file_path = file_path
+
+    def load(self) -> List[Dict[str, Any]]:
+        data = []
+        try:
+            if self.file_path.endswith('.jsonl'):
+                with open(self.file_path, 'r', encoding='utf-8') as f:
+                    for line_number, line in enumerate(f, start=1):
+                        if line.strip():
+                            try:
+                                obj = json.loads(line)
+                                data.append(obj)
+                            except json.JSONDecodeError as e:
+                                logger.error(f"JSON parsing error in file '{self.file_path}' at line {line_number}: {e}")
+                logger.info(f"Loaded JSONL file '{self.file_path}' with {len(data)} entries successfully.")
+            else:
+                with open(self.file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                logger.info(f"Loaded JSON file '{self.file_path}' successfully with {len(data)} entries.")
+            return data
+        except FileNotFoundError:
+            logger.error(f"Error loading JSON file '{self.file_path}': File does not exist.")
+            return []
+        except json.JSONDecodeError as e:
+            logger.error(f"Error loading JSON file '{self.file_path}': {e}")
+            return []
+        except Exception as e:
+            logger.error(f"Unexpected error loading JSON file '{self.file_path}': {e}")
+            return []
 
 def load_codebase_chunks(file_path: str) -> List[Dict[str, Any]]:
     logger.debug(f"Loading codebase chunks from '{file_path}'.")
-    return load_json(file_path)
+    loader = JSONLoader(file_path)
+    return loader.load()
 
 def load_queries(file_path: str) -> List[Dict[str, Any]]:
     logger.debug(f"Loading queries from '{file_path}'.")
-    return load_json(file_path)
-
-################################################################################
-
+    loader = JSONLoader(file_path)
+    return loader.load()
 
 ################################################################################
 
@@ -1195,10 +1203,10 @@ class SentenceTransformerReRanker:
         Returns:
             List[Dict[str, Any]]: List of re-ranked documents with similarity scores.
         """
-        if not documents:
-            logger.warning("No documents provided for re-ranking.")
+        if not query or not documents:
+            logger.warning("Query and documents must be provided for re-ranking.")
             return []
-        
+
         try:
             logger.debug("Encoding query and documents.")
             query_embedding = self.model.encode(query, convert_to_tensor=True)
@@ -1242,8 +1250,8 @@ def rerank_results(query: str, retrieved_docs: List[Dict[str, Any]], k: int = 20
         List[Dict[str, Any]]: List of re-ranked documents.
     """
     logger.info(f"Starting re-ranking of {len(retrieved_docs)} documents for query: '{query}' using Sentence Transformers.")
-    if not retrieved_docs:
-        logger.warning(f"No documents to re-rank for query: '{query}'")
+    if not query or not retrieved_docs:
+        logger.warning(f"Query and retrieved documents must be provided for re-ranking.")
         return []
     try:
         # Initialize the re-ranker
@@ -1270,6 +1278,18 @@ def rerank_results(query: str, retrieved_docs: List[Dict[str, Any]], k: int = 20
         return retrieved_docs[:k]  # Fallback to original ranking if re-ranking fails
 
 def retrieve_with_reranking(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
+    """
+    Retrieves documents using hybrid retrieval and re-ranks them using Sentence Transformers.
+    
+    Args:
+        query (str): The search query.
+        db (ContextualVectorDB): Contextual vector database instance.
+        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        k (int): Number of top documents to retrieve.
+    
+    Returns:
+        List[Dict[str, Any]]: List of re-ranked documents.
+    """
     logger.debug(f"Entering retrieve_with_reranking method with query='{query}' and k={k}.")
     start_time = time.time()
 
@@ -1471,6 +1491,7 @@ def is_answer_factually_correct(example: Dict[str, Any], pred: Dict[str, Any]) -
     score = factuality_metric(example, pred)
     logger.debug(f"Factuality score: {score}")
     return score == 1
+
 ################################################################################
 
 
@@ -1727,8 +1748,6 @@ def multi_stage_retrieval(
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
-# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
-
 import logging
 from typing import List, Dict, Any, Callable
 from contextual_vector_db import ContextualVectorDB
@@ -1797,6 +1816,19 @@ def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: Elasticsearc
 
 @handle_exceptions
 async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
+    """
+    Processes a single query to retrieve documents, select quotations, and generate an answer.
+
+    Args:
+        query_item (Dict[str, Any]): The query item containing the query text and other relevant information.
+        db (ContextualVectorDB): Contextual vector database instance.
+        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        k (int): Number of top documents to retrieve.
+        quotation_module (SelectQuotationModule): Module to select quotations.
+
+    Returns:
+        Dict[str, Any]: The result of processing the query, including retrieved chunks, quotations, and generated answer.
+    """
     query_text = query_item.get('query', '').strip()
     if not query_text:
         logger.warning(f"Query is empty. Skipping.")
@@ -1875,6 +1907,16 @@ async def process_queries(
     k: int,
     output_file: str
 ):
+    """
+    Processes a list of queries to retrieve documents, select quotations, and generate answers.
+
+    Args:
+        queries (List[Dict[str, Any]]): List of query items.
+        db (ContextualVectorDB): Contextual vector database instance.
+        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        k (int): Number of top documents to retrieve.
+        output_file (str): Path to the output file to save results.
+    """
     logger.info("Starting to process queries.")
 
     all_results = []
@@ -1914,55 +1956,60 @@ import time
 
 logger = logging.getLogger(__name__)
 
-async def get_code_files(root_dir: str, extensions: List[str] = None) -> List[str]:
-    logger.debug(f"Entering get_code_files with root_dir='{root_dir}' and extensions={extensions}.")
-    start_time = time.time()
-    code_files = []
-    try:
-        logger.debug(f"Walking through directory: {root_dir}")
-        for root, dirs, files in os.walk(root_dir):
-            ignored_dirs = {'.venv', 'venv', 'env', '.env', 'myenv'}
-            dirs[:] = [d for d in dirs if d not in ignored_dirs]
-            for ignored in ignored_dirs:
-                if ignored in dirs:
-                    dirs.remove(ignored)
-                    logger.debug(f"Skipping directory: {os.path.join(root, ignored)}")
-            
-            for file in files:
-                if extensions is None or file.endswith(tuple(extensions)):
-                    file_path = os.path.join(root, file)
-                    code_files.append(file_path)
-                    logger.debug(f"Found code file: {file_path}")
-    except Exception as e:
-        logger.error(f"Error while retrieving code files: {e}", exc_info=True)
-    
-    logger.info(f"Total code files found: {len(code_files)}")
-    end_time = time.time()
-    logger.debug(f"Exiting get_code_files method. Time taken: {end_time - start_time:.2f} seconds.")
-    return code_files
+class CodeFileHandler:
+    def __init__(self, root_dir: str, extensions: List[str] = None):
+        self.root_dir = root_dir
+        self.extensions = extensions
 
-async def copy_code_to_file(code_files: List[str], output_file: str):
-    logger.debug(f"Entering copy_code_to_file with output_file='{output_file}'.")
-    start_time = time.time()
-    try:
-        logger.info(f"Writing consolidated code to '{output_file}'")
-        async with aiofiles.open(output_file, 'w', encoding='utf-8') as outfile:
-            for filepath in code_files:
-                await outfile.write(f"\n\n# File: {filepath}\n")
-                try:
-                    async with aiofiles.open(filepath, 'r', encoding='utf-8', errors='ignore') as infile:
-                        content = await infile.read()
-                        await outfile.write(content)
-                    logger.debug(f"Copied content from '{filepath}'")
-                except Exception as e:
-                    await outfile.write(f"# Error reading file {filepath}: {e}\n")
-                    logger.error(f"Error reading file '{filepath}': {e}", exc_info=True)
-                await outfile.write("\n" + "#" * 80 + "\n")
-        logger.info(f"All code has been copied to '{output_file}'")
-    except Exception as e:
-        logger.error(f"Error during copying code to file '{output_file}': {e}", exc_info=True)
-    end_time = time.time()
-    logger.debug(f"Exiting copy_code_to_file method. Time taken: {end_time - start_time:.2f} seconds.")
+    async def get_code_files(self) -> List[str]:
+        logger.debug(f"Entering get_code_files with root_dir='{self.root_dir}' and extensions={self.extensions}.")
+        start_time = time.time()
+        code_files = []
+        try:
+            logger.debug(f"Walking through directory: {self.root_dir}")
+            for root, dirs, files in os.walk(self.root_dir):
+                ignored_dirs = {'.venv', 'venv', 'env', '.env', 'myenv'}
+                dirs[:] = [d for d in dirs if d not in ignored_dirs]
+                for ignored in ignored_dirs:
+                    if ignored in dirs:
+                        dirs.remove(ignored)
+                        logger.debug(f"Skipping directory: {os.path.join(root, ignored)}")
+
+                for file in files:
+                    if self.extensions is None or file.endswith(tuple(self.extensions)):
+                        file_path = os.path.join(root, file)
+                        code_files.append(file_path)
+                        logger.debug(f"Found code file: {file_path}")
+        except Exception as e:
+            logger.error(f"Error while retrieving code files: {e}", exc_info=True)
+
+        logger.info(f"Total code files found: {len(code_files)}")
+        end_time = time.time()
+        logger.debug(f"Exiting get_code_files method. Time taken: {end_time - start_time:.2f} seconds.")
+        return code_files
+
+    async def copy_code_to_file(self, code_files: List[str], output_file: str):
+        logger.debug(f"Entering copy_code_to_file with output_file='{output_file}'.")
+        start_time = time.time()
+        try:
+            logger.info(f"Writing consolidated code to '{output_file}'")
+            async with aiofiles.open(output_file, 'w', encoding='utf-8') as outfile:
+                for filepath in code_files:
+                    await outfile.write(f"\n\n# File: {filepath}\n")
+                    try:
+                        async with aiofiles.open(filepath, 'r', encoding='utf-8', errors='ignore') as infile:
+                            content = await infile.read()
+                            await outfile.write(content)
+                        logger.debug(f"Copied content from '{filepath}'")
+                    except Exception as e:
+                        await outfile.write(f"# Error reading file {filepath}: {e}\n")
+                        logger.error(f"Error reading file '{filepath}': {e}", exc_info=True)
+                    await outfile.write("\n" + "#" * 80 + "\n")
+            logger.info(f"All code has been copied to '{output_file}'")
+        except Exception as e:
+            logger.error(f"Error during copying code to file '{output_file}': {e}", exc_info=True)
+        end_time = time.time()
+        logger.debug(f"Exiting copy_code_to_file method. Time taken: {end_time - start_time:.2f} seconds.")
 
 async def main_async():
     logger.debug("Entering main_async function.")
@@ -1978,9 +2025,10 @@ async def main_async():
         file_extensions = ['.py', '.yaml']
         logger.debug(f"File extensions to include: {file_extensions}")
 
-        code_files = await get_code_files(source_directory, file_extensions)
+        code_handler = CodeFileHandler(source_directory, file_extensions)
+        code_files = await code_handler.get_code_files()
 
-        await copy_code_to_file(code_files, output_file)
+        await code_handler.copy_code_to_file(code_files, output_file)
     except Exception as e:
         logger.error(f"Unexpected error in main_async: {e}", exc_info=True)
     end_time = time.time()
@@ -2357,11 +2405,15 @@ class OpenAIClient:
         Returns:
             Dict[str, Any]: API response as a dictionary.
         """
+        if not model or not messages:
+            logger.error("Model and messages must be provided for chat completion.")
+            raise ValueError("Model and messages must be provided for chat completion.")
+        
         try:
             response = self.client.chat.completions.create(
-                model='gpt-4o-mini',
+                model=model,
                 messages=messages,
-                max_tokens='8192',
+                max_tokens=max_tokens,
                 temperature=temperature,
             )
             logger.debug(f"Chat completion created successfully for model '{model}'.")
@@ -2381,6 +2433,10 @@ class OpenAIClient:
         Returns:
             Dict[str, Any]: API response containing embeddings.
         """
+        if not model or not input:
+            logger.error("Model and input must be provided for creating embeddings.")
+            raise ValueError("Model and input must be provided for creating embeddings.")
+        
         try:
             response = self.client.embeddings.create(
                 model=model,
@@ -2396,8 +2452,6 @@ class OpenAIClient:
 
 
 # File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
-# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/main.py
-
 import gc
 
 # Clear any existing caches
@@ -2412,7 +2466,7 @@ from elasticsearch_bm25 import ElasticsearchBM25  # Import ElasticsearchBM25 cla
 
 from data_loader import load_codebase_chunks, load_queries
 from query_processor import validate_queries, process_queries
-from evaluation import evaluate_complete_pipeline
+from evaluation import PipelineEvaluator
 from metrics import comprehensive_metric
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
 import dspy
@@ -2427,221 +2481,237 @@ from src.decorators import handle_exceptions
 setup_logging()
 logger = logging.getLogger(__name__)
 
-def create_elasticsearch_bm25_index(db: ContextualVectorDB) -> ElasticsearchBM25:
-    """
-    Create and index documents in Elasticsearch BM25.
+class ThematicAnalysisPipeline:
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.contextual_db = None
+        self.es_bm25 = None
+        self.qa_module = None
+        self.teleprompter = None
+        self.optimized_program = None
+        self.quotation_module = None
 
-    Args:
-        db (ContextualVectorDB): Contextual vector database instance.
+    def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
+        """
+        Create and index documents in Elasticsearch BM25.
 
-    Returns:
-        ElasticsearchBM25: Initialized ElasticsearchBM25 instance.
-    """
-    logger.debug("Entering create_elasticsearch_bm25_index method.")
-    try:
-        es_bm25 = ElasticsearchBM25()
-        logger.info("ElasticsearchBM25 instance created.")
-        success_count, failed_docs = es_bm25.index_documents(db.metadata)
-        logger.info(f"Elasticsearch BM25 index created successfully with {success_count} documents indexed.")
-        if failed_docs:
-            logger.warning(f"{len(failed_docs)} documents failed to index.")
-    except Exception as e:
-        logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
-        raise
-    return es_bm25
+        Args:
+            db (ContextualVectorDB): Contextual vector database instance.
 
-@handle_exceptions
-async def main():
-    """
-    Main function to load data, process queries, and generate outputs.
-    """
-    logger.debug("Entering main function.")
-    try:
-        # Configure DSPy Language Model using LiteLLM
-        logger.info("Configuring DSPy Language Model with LiteLLM")
-
-        lm = dspy.LM('openai/gpt-4o-mini', max_dtokens=8192)
-        dspy.configure(lm=lm)
-
-        # Define file paths
-        codebase_chunks_file = 'data/codebase_chunks.json'  # Ensure this file exists
-        queries_file = 'data/queries.json'                  # Ensure this file exists
-        evaluation_set_file = 'data/evaluation_set.jsonl'   # Ensure this file exists
-        output_filename = 'query_results.json'              # Modified to use a single output file
-
-        dl = DataLoader()
-        # Initialize the DataLoader
-
-        # Load the training data from the new CSV format
-        # Load the training data from the new CSV format
-        logger.info(f"Loading training data from 'new_training_data.csv'")
-        train_dataset = dl.from_csv(
-            "data/new_training_data.csv",
-            fields=("input", "output"),
-            input_keys=("input",)
-        )
-        # Load the codebase chunks
-        logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'")
-        codebase_chunks = load_codebase_chunks(codebase_chunks_file)
-
-        # Initialize the ContextualVectorDB
-        logger.info("Initializing ContextualVectorDB")
-        contextual_db = ContextualVectorDB("contextual_db")
-
-        # Load and process the data with parallel threads
+        Returns:
+            ElasticsearchBM25: Initialized ElasticsearchBM25 instance.
+        """
+        logger.debug("Entering create_elasticsearch_bm25_index method.")
         try:
-            logger.info("Loading data into ContextualVectorDB with parallel threads")
-            contextual_db.load_data(codebase_chunks, parallel_threads=5)
-        except Exception as e:
-            logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
-            return
-
-        # Create the Elasticsearch BM25 index
-        try:
-            logger.info("Creating Elasticsearch BM25 index")
-            es_bm25 = create_elasticsearch_bm25_index(contextual_db)
+            es_bm25 = ElasticsearchBM25()
+            logger.info("ElasticsearchBM25 instance created.")
+            success_count, failed_docs = es_bm25.index_documents(self.contextual_db.metadata)
+            logger.info(f"Elasticsearch BM25 index created successfully with {success_count} documents indexed.")
+            if failed_docs:
+                logger.warning(f"{len(failed_docs)} documents failed to index.")
         except Exception as e:
             logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
-            return
+            raise
+        return es_bm25
 
-        # Load the queries
-        logger.info(f"Loading queries from '{queries_file}'")
-        queries = load_queries(queries_file)
-
-        if not queries:
-            logger.error("No queries found to process.")
-            return
-
-        # Validate queries
-        logger.info("Validating input queries")
-        validated_queries = validate_queries(queries)
-
-        if not validated_queries:
-            logger.error("No valid queries to process after validation. Exiting.")
-            return
-
-        # Load the evaluation set
-        logger.info(f"Loading evaluation set from '{evaluation_set_file}'")
-        evaluation_set = load_queries(evaluation_set_file)
-
-        if not evaluation_set:
-            logger.error("No evaluation queries found. Ensure the evaluation set file is correctly formatted and exists.")
-            return
-
-        # Define k value (number of top documents/chunks to retrieve)
-        k = 20  # Ensure k is set correctly and not overridden elsewhere
-
-        # Initialize 'qa_module' to None before the try-except block
-        qa_module = None
-
-        # Attempt to load the optimized program
-        logger.info("Attempting to load optimized DSPy program")
+    @handle_exceptions
+    async def run_pipeline(self):
+        """
+        Main function to load data, process queries, and generate outputs.
+        """
+        logger.debug("Entering main function.")
         try:
-            qa_module = dspy.Program.load("optimized_program.json")
-            logger.info("Optimized DSPy program loaded successfully.")
-        except Exception as e:
-            # If loading fails, use the unoptimized module
-            logger.warning("Failed to load optimized program. Using unoptimized module.")
+            # Configure DSPy Language Model using LiteLLM
+            logger.info("Configuring DSPy Language Model with LiteLLM")
+
+            lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
+            dspy.configure(lm=lm)
+
+            # Define file paths
+            codebase_chunks_file = self.config['codebase_chunks_file']
+            queries_file = self.config['queries_file']
+            evaluation_set_file = self.config['evaluation_set_file']
+            output_filename = self.config['output_filename']
+
+            dl = DataLoader()
+            # Initialize the DataLoader
+
+            # Load the training data from the new CSV format
+            logger.info(f"Loading training data from 'new_training_data.csv'")
+            train_dataset = dl.from_csv(
+                "data/new_training_data.csv",
+                fields=("input", "output"),
+                input_keys=("input",)
+            )
+            # Load the codebase chunks
+            logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'")
+            codebase_chunks = load_codebase_chunks(codebase_chunks_file)
+
+            # Initialize the ContextualVectorDB
+            logger.info("Initializing ContextualVectorDB")
+            self.contextual_db = ContextualVectorDB("contextual_db")
+
+            # Load and process the data with parallel threads
             try:
-                qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
-                logger.info("Unoptimized DSPy module initialized successfully.")
-            except Exception as inner_e:
-                logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
-                raise
+                logger.info("Loading data into ContextualVectorDB with parallel threads")
+                self.contextual_db.load_data(codebase_chunks, parallel_threads=5)
+            except Exception as e:
+                logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
+                return
 
-        # Initialize DSPy Optimizer with Comprehensive Metric
-        logger.info("Initializing DSPy Optimizer with Comprehensive Metric")
-        try:
-            optimizer_config = {
-                'max_bootstrapped_demos': 4,       # Number of generated demonstrations
-                'max_labeled_demos': 4,            # Number of labeled demonstrations from trainset
-                'num_candidate_programs': 10,      # Number of candidate programs to evaluate
-                'num_threads': 4                    # Number of parallel threads
-            }
-            teleprompter = BootstrapFewShotWithRandomSearch(
-                metric=comprehensive_metric,  # Use the comprehensive metric
-                **optimizer_config
-            )
-            logger.info("DSPy Optimizer initialized successfully with Comprehensive Metric.")
+            # Create the Elasticsearch BM25 index
+            try:
+                logger.info("Creating Elasticsearch BM25 index")
+                self.es_bm25 = self.create_elasticsearch_bm25_index()
+            except Exception as e:
+                logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
+                return
+
+            # Load the queries
+            logger.info(f"Loading queries from '{queries_file}'")
+            queries = load_queries(queries_file)
+
+            if not queries:
+                logger.error("No queries found to process.")
+                return
+
+            # Validate queries
+            logger.info("Validating input queries")
+            validated_queries = validate_queries(queries)
+
+            if not validated_queries:
+                logger.error("No valid queries to process after validation. Exiting.")
+                return
+
+            # Load the evaluation set
+            logger.info(f"Loading evaluation set from '{evaluation_set_file}'")
+            evaluation_set = load_queries(evaluation_set_file)
+
+            if not evaluation_set:
+                logger.error("No evaluation queries found. Ensure the evaluation set file is correctly formatted and exists.")
+                return
+
+            # Define k value (number of top documents/chunks to retrieve)
+            k = 20  # Ensure k is set correctly and not overridden elsewhere
+
+            # Initialize 'qa_module' to None before the try-except block
+            self.qa_module = None
+
+            # Attempt to load the optimized program
+            logger.info("Attempting to load optimized DSPy program")
+            try:
+                self.qa_module = dspy.Program.load("optimized_program.json")
+                logger.info("Optimized DSPy program loaded successfully.")
+            except Exception as e:
+                # If loading fails, use the unoptimized module
+                logger.warning("Failed to load optimized program. Using unoptimized module.")
+                try:
+                    self.qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+                    logger.info("Unoptimized DSPy module initialized successfully.")
+                except Exception as inner_e:
+                    logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
+                    raise
+
+            # Initialize DSPy Optimizer with Comprehensive Metric
+            logger.info("Initializing DSPy Optimizer with Comprehensive Metric")
+            try:
+                optimizer_config = {
+                    'max_bootstrapped_demos': 4,       # Number of generated demonstrations
+                    'max_labeled_demos': 4,            # Number of labeled demonstrations from trainset
+                    'num_candidate_programs': 10,      # Number of candidate programs to evaluate
+                    'num_threads': 4                    # Number of parallel threads
+                }
+                self.teleprompter = BootstrapFewShotWithRandomSearch(
+                    metric=comprehensive_metric,  # Use the comprehensive metric
+                    **optimizer_config
+                )
+                logger.info("DSPy Optimizer initialized successfully with Comprehensive Metric.")
+            except Exception as e:
+                logger.error(f"Error initializing DSPy Optimizer: {e}", exc_info=True)
+                return
+
+            # Compile the program using the optimizer
+            logger.info("Compiling the program using the optimizer")
+            try:
+                self.optimized_program = self.teleprompter.compile(
+                    student=self.qa_module,
+                    teacher=self.qa_module,  # Assuming teacher is the same as student; adjust as needed
+                    trainset=train_dataset
+                )
+                logger.info("Program compiled and optimized successfully.")
+            except Exception as e:
+                logger.error(f"Error during program compilation: {e}", exc_info=True)
+                return
+
+            # Save the optimized program
+            try:
+                self.optimized_program.save("optimized_program.json")
+                logger.info("Optimized program saved to 'optimized_program.json'")
+            except Exception as e:
+                logger.error(f"Error saving optimized program: {e}", exc_info=True)
+
+            # Assign the optimized program to answer_generator.qa_module
+            try:
+                answer_generator.qa_module = self.optimized_program
+                logger.info("Assigned optimized_program to answer_generator.qa_module successfully.")
+            except Exception as e:
+                logger.error(f"Error assigning optimized program to answer_generator.qa_module: {e}", exc_info=True)
+                return
+
+            # Initialize SelectQuotationModule
+            logger.info("Initializing SelectQuotationModule")
+            try:
+                from select_quotation_module import SelectQuotationModule
+                self.quotation_module = SelectQuotationModule()
+                logger.info("SelectQuotationModule initialized successfully.")
+            except Exception as e:
+                logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
+                return
+
+            # Proceed with processing queries using the optimized program and quotation selection
+            logger.info("Starting to process queries with the optimized program and quotation selection")
+            try:
+                await process_queries(
+                    validated_queries,
+                    self.contextual_db,
+                    self.es_bm25,
+                    k,
+                    output_filename  # Modified to pass only one output file
+                )
+            except Exception as e:
+                logger.error(f"Error processing queries: {e}", exc_info=True)
+                return
+
+            # Define k values for evaluation
+            k_values = [5, 10, 20]
+
+            # Perform evaluation
+            logger.info("Starting evaluation of the retrieval pipeline")
+            try:
+                PipelineEvaluator.evaluate_complete_pipeline(
+                    self.contextual_db,
+                    self.es_bm25,
+                    k_values,
+                    evaluation_set,
+                    retrieve_with_reranking  # Pass the correct retrieval function
+                )
+                logger.info("Evaluation completed successfully.")
+            except Exception as e:
+                logger.error(f"Error during evaluation: {e}", exc_info=True)
+
+            logger.info("All operations completed successfully.")
         except Exception as e:
-            logger.error(f"Error initializing DSPy Optimizer: {e}", exc_info=True)
-            return
-
-        # Compile the program using the optimizer
-        logger.info("Compiling the program using the optimizer")
-        try:
-            optimized_program = teleprompter.compile(
-                student=qa_module,
-                teacher=qa_module,  # Assuming teacher is the same as student; adjust as needed
-                trainset=train_dataset
-            )
-            logger.info("Program compiled and optimized successfully.")
-        except Exception as e:
-            logger.error(f"Error during program compilation: {e}", exc_info=True)
-            return
-
-        # Save the optimized program
-        try:
-            optimized_program.save("optimized_program.json")
-            logger.info("Optimized program saved to 'optimized_program.json'")
-        except Exception as e:
-            logger.error(f"Error saving optimized program: {e}", exc_info=True)
-
-        # Assign the optimized program to answer_generator.qa_module
-        try:
-            answer_generator.qa_module = optimized_program
-            logger.info("Assigned optimized_program to answer_generator.qa_module successfully.")
-        except Exception as e:
-            logger.error(f"Error assigning optimized program to answer_generator.qa_module: {e}", exc_info=True)
-            return
-
-        # Initialize SelectQuotationModule
-        logger.info("Initializing SelectQuotationModule")
-        try:
-            from select_quotation_module import SelectQuotationModule
-            quotation_module = SelectQuotationModule()
-            logger.info("SelectQuotationModule initialized successfully.")
-        except Exception as e:
-            logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
-            return
-
-        # Proceed with processing queries using the optimized program and quotation selection
-        logger.info("Starting to process queries with the optimized program and quotation selection")
-        try:
-            await process_queries(
-                validated_queries,
-                contextual_db,
-                es_bm25,
-                k,
-                output_filename  # Modified to pass only one output file
-            )
-        except Exception as e:
-            logger.error(f"Error processing queries: {e}", exc_info=True)
-            return
-
-        # Define k values for evaluation
-        k_values = [5, 10, 20]
-
-        # Perform evaluation
-        logger.info("Starting evaluation of the retrieval pipeline")
-        try:
-            evaluate_complete_pipeline(
-                contextual_db,
-                es_bm25,
-                k_values,
-                evaluation_set,
-                retrieve_with_reranking  # Pass the correct retrieval function
-            )
-            logger.info("Evaluation completed successfully.")
-        except Exception as e:
-            logger.error(f"Error during evaluation: {e}", exc_info=True)
-
-        logger.info("All operations completed successfully.")
-    except Exception as e:
-        logger.error(f"Unexpected error in main function: {e}", exc_info=True)
+            logger.error(f"Unexpected error in main function: {e}", exc_info=True)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    config = {
+        'codebase_chunks_file': 'data/codebase_chunks.json',
+        'queries_file': 'data/queries.json',
+        'evaluation_set_file': 'data/evaluation_set.jsonl',
+        'output_filename': 'query_results.json'
+    }
+    pipeline = ThematicAnalysisPipeline(config)
+    asyncio.run(pipeline.run_pipeline())
 
 ################################################################################
 
@@ -2656,87 +2726,93 @@ from elasticsearch_bm25 import ElasticsearchBM25
 
 logger = logging.getLogger(__name__)
 
-def evaluate_pipeline(queries: List[Dict[str, Any]], retrieval_function: Callable, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int = 20) -> Dict[str, float]:
-    total_score = 0
-    total_queries = len(queries)
-    queries_with_golden = 0
-    queries_without_golden = 0
+class PipelineEvaluator:
+    def __init__(self, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, retrieval_function: Callable):
+        self.db = db
+        self.es_bm25 = es_bm25
+        self.retrieval_function = retrieval_function
 
-    logger.info(f"Starting evaluation of {total_queries} queries.")
+    def evaluate_pipeline(self, queries: List[Dict[str, Any]], k: int = 20) -> Dict[str, float]:
+        total_score = 0
+        total_queries = len(queries)
+        queries_with_golden = 0
+        queries_without_golden = 0
 
-    for query_item in tqdm(queries, desc="Evaluating retrieval"):
-        query = query_item.get('query', '').strip()
+        logger.info(f"Starting evaluation of {total_queries} queries.")
 
-        has_golden_data = all([
-            'golden_doc_uuids' in query_item,
-            'golden_chunk_uuids' in query_item,
-            'golden_documents' in query_item
-        ])
+        for query_item in tqdm(queries, desc="Evaluating retrieval"):
+            query = query_item.get('query', '').strip()
 
-        if has_golden_data:
-            queries_with_golden += 1
-            golden_chunk_uuids = query_item.get('golden_chunk_uuids', [])
-            golden_contents = []
+            has_golden_data = all([
+                'golden_doc_uuids' in query_item,
+                'golden_chunk_uuids' in query_item,
+                'golden_documents' in query_item
+            ])
 
-            for doc_uuid, chunk_index in golden_chunk_uuids:
-                golden_doc = next((doc for doc in query_item.get('golden_documents', []) if doc.get('uuid') == doc_uuid), None)
-                if not golden_doc:
-                    logger.debug(f"No document found with UUID '{doc_uuid}' for query '{query}'.")
+            if has_golden_data:
+                queries_with_golden += 1
+                golden_chunk_uuids = query_item.get('golden_chunk_uuids', [])
+                golden_contents = []
+
+                for doc_uuid, chunk_index in golden_chunk_uuids:
+                    golden_doc = next((doc for doc in query_item.get('golden_documents', []) if doc.get('uuid') == doc_uuid), None)
+                    if not golden_doc:
+                        logger.debug(f"No document found with UUID '{doc_uuid}' for query '{query}'.")
+                        continue
+                    golden_chunk = next((chunk for chunk in golden_doc.get('chunks', []) if chunk.get('index') == chunk_index), None)
+                    if not golden_chunk:
+                        logger.debug(f"No chunk found with index '{chunk_index}' in document '{doc_uuid}' for query '{query}'.")
+                        continue
+                    golden_contents.append(golden_chunk.get('content', '').strip())
+
+                if not golden_contents:
+                    logger.warning(f"No golden contents found for query '{query}'. Skipping evaluation for this query.")
                     continue
-                golden_chunk = next((chunk for chunk in golden_doc.get('chunks', []) if chunk.get('index') == chunk_index), None)
-                if not golden_chunk:
-                    logger.debug(f"No chunk found with index '{chunk_index}' in document '{doc_uuid}' for query '{query}'.")
-                    continue
-                golden_contents.append(golden_chunk.get('content', '').strip())
 
-            if not golden_contents:
-                logger.warning(f"No golden contents found for query '{query}'. Skipping evaluation for this query.")
+                retrieved_docs = self.retrieval_function(query, self.db, self.es_bm25, k)
+
+                chunks_found = 0
+                for golden_content in golden_contents:
+                    for doc in retrieved_docs[:k]:
+                        retrieved_content = doc.get('chunk', {}).get('original_content', '').strip()
+                        if retrieved_content == golden_content:
+                            chunks_found += 1
+                            break
+
+                query_score = chunks_found / len(golden_contents)
+                total_score += query_score
+                logger.debug(f"Query '{query}' score: {query_score}")
+            else:
+                queries_without_golden += 1
+                logger.debug(f"Query '{query}' does not contain golden data. Skipping evaluation metrics for this query.")
                 continue
 
-            retrieved_docs = retrieval_function(query, db, es_bm25, k)
+        average_score = (total_score / queries_with_golden) if queries_with_golden > 0 else 0
+        pass_at_n = average_score * 100
 
-            chunks_found = 0
-            for golden_content in golden_contents:
-                for doc in retrieved_docs[:k]:
-                    retrieved_content = doc.get('chunk', {}).get('original_content', '').strip()
-                    if retrieved_content == golden_content:
-                        chunks_found += 1
-                        break
+        logger.info(f"Evaluation completed.")
+        logger.info(f"Total Queries: {total_queries}")
+        logger.info(f"Queries with Golden Data: {queries_with_golden}")
+        logger.info(f"Queries without Golden Data: {queries_without_golden}")
+        logger.info(f"Pass@{k}: {pass_at_n:.2f}%, Average Score: {average_score:.4f}")
 
-            query_score = chunks_found / len(golden_contents)
-            total_score += query_score
-            logger.debug(f"Query '{query}' score: {query_score}")
-        else:
-            queries_without_golden += 1
-            logger.debug(f"Query '{query}' does not contain golden data. Skipping evaluation metrics for this query.")
-            continue
+        return {
+            "pass_at_n": pass_at_n,
+            "average_score": average_score,
+            "total_queries": total_queries,
+            "queries_with_golden": queries_with_golden,
+            "queries_without_golden": queries_without_golden
+        }
 
-    average_score = (total_score / queries_with_golden) if queries_with_golden > 0 else 0
-    pass_at_n = average_score * 100
-
-    logger.info(f"Evaluation completed.")
-    logger.info(f"Total Queries: {total_queries}")
-    logger.info(f"Queries with Golden Data: {queries_with_golden}")
-    logger.info(f"Queries without Golden Data: {queries_without_golden}")
-    logger.info(f"Pass@{k}: {pass_at_n:.2f}%, Average Score: {average_score:.4f}")
-
-    return {
-        "pass_at_n": pass_at_n,
-        "average_score": average_score,
-        "total_queries": total_queries,
-        "queries_with_golden": queries_with_golden,
-        "queries_without_golden": queries_without_golden
-    }
-
-def evaluate_complete_pipeline(db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k_values: List[int], evaluation_set: List[Dict[str, Any]], retrieval_function: Callable):
-    for k in k_values:
-        logger.info(f"Starting evaluation for Pass@{k}")
-        results = evaluate_pipeline(evaluation_set, retrieval_function, db, es_bm25, k)
-        logger.info(f"Pass@{k}: {results['pass_at_n']:.2f}%")
-        logger.info(f"Average Score: {results['average_score']:.4f}")
-        logger.info(f"Total Queries: {results['total_queries']}")
-        logger.info(f"Queries with Golden Data: {results.get('queries_with_golden', 0)}")
-        logger.info(f"Queries without Golden Data: {results.get('queries_without_golden', 0)}\n")
+    def evaluate_complete_pipeline(self, k_values: List[int], evaluation_set: List[Dict[str, Any]]):
+        for k in k_values:
+            logger.info(f"Starting evaluation for Pass@{k}")
+            results = self.evaluate_pipeline(evaluation_set, k)
+            logger.info(f"Pass@{k}: {results['pass_at_n']:.2f}%")
+            logger.info(f"Average Score: {results['average_score']:.4f}")
+            logger.info(f"Total Queries: {results['total_queries']}")
+            logger.info(f"Queries with Golden Data: {results.get('queries_with_golden', 0)}")
+            logger.info(f"Queries without Golden Data: {results.get('queries_without_golden', 0)}\n")
 
 ################################################################################
 
@@ -2748,6 +2824,15 @@ import functools
 logger = logging.getLogger(__name__)
 
 def handle_exceptions(func):
+    """
+    Decorator to handle exceptions in functions.
+    
+    Args:
+        func (callable): The function to wrap with exception handling.
+    
+    Returns:
+        callable: The wrapped function with exception handling.
+    """
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         try:
