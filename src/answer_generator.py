@@ -65,6 +65,24 @@ class QuestionAnswerSignature(dspy.Signature):
             logger.error(f"Error in QuestionAnswerSignature.forward: {e}", exc_info=True)
             return {"answer": "I'm sorry, I couldn't generate an answer at this time."}
 
+class AnswerGenerator:
+    def __init__(self, qa_module):
+        self.qa_module = qa_module
+
+    async def generate_answer(self, input: str, max_tokens: int = 8192) -> str:
+        try:
+            if not input:
+                raise ValueError("Input cannot be empty.")
+            logger.debug(f"Generating answer for input with length: {len(input)} characters.")
+            answer = await asyncio.to_thread(self.qa_module, input=input, max_tokens=max_tokens)
+            return answer.get("answer", "I'm sorry, I couldn't generate an answer at this time.")
+        except ValueError as ve:
+            logger.error(f"ValueError in generate_answer: {ve}", exc_info=True)
+            return "Input cannot be empty."
+        except Exception as e:
+            logger.error(f"Error in generate_answer: {e}", exc_info=True)
+            return "I'm sorry, I couldn't generate an answer at this time."
+
 try:
     qa_module = dspy.Program.load("optimized_program.json")
     logger.info("Optimized DSPy program loaded successfully.")
@@ -76,22 +94,7 @@ except Exception as e:
         logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
         raise
 
-async def generate_answer(input: str, max_tokens: int = 8192) -> str:
-    try:
-        logger.debug(f"Generating answer for input with length: {len(input)} characters.")
-        answer = await asyncio.to_thread(qa_module, input=input, max_tokens=max_tokens)
-        return answer.get("answer", "I'm sorry, I couldn't generate an answer at this time.")
-    except Exception as e:
-        logger.error(f"Error in generate_answer: {e}", exc_info=True)
-        return "I'm sorry, I couldn't generate an answer at this time."
-
-async def evaluate_answer(example: Dict[str, Any], pred: Dict[str, Any]) -> bool:
-    try:
-        logger.debug(f"Evaluating answer for input: '{example.get('input', '')}'")
-        return await asyncio.to_thread(is_answer_fully_correct, example, pred)
-    except Exception as e:
-        logger.error(f"Error in evaluate_answer: {e}", exc_info=True)
-        return False
+answer_generator_instance = AnswerGenerator(qa_module)
 
 async def generate_answer_dspy(query: str, retrieved_chunks: List[Dict[str, Any]]) -> Dict[str, Any]:
     logger.debug(f"Entering generate_answer_dspy with query='{query}' and {len(retrieved_chunks)} retrieved_chunks.")
@@ -124,7 +127,7 @@ async def generate_answer_dspy(query: str, retrieved_chunks: List[Dict[str, Any]
         logger.info(f"Total number of chunks used for context in query '{query}': {len(used_chunks_info)}")
         logger.info(f"Chunks used for context: {used_chunks_info}")
         input_data = f"question: {query} context: {context}"
-        answer = await generate_answer(input_data)
+        answer = await answer_generator_instance.generate_answer(input_data)
 
         if not answer:
             logger.warning(f"No answer generated for query '{query}'.")
