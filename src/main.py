@@ -1,27 +1,28 @@
 import gc
-
-# Clear any existing caches
-gc.collect()
-
 import logging
 import os
 from typing import List, Dict, Any
-from utils.logger import setup_logging
-from contextual_vector_db import ContextualVectorDB
-from elasticsearch_bm25 import ElasticsearchBM25  # Import ElasticsearchBM25 class
-
-from data_loader import load_codebase_chunks, load_queries
-from query_processor import validate_queries, process_queries
-from evaluation import PipelineEvaluator
-from metrics import comprehensive_metric
-from dspy.teleprompt import BootstrapFewShotWithRandomSearch
-import dspy
-from dspy.datasets import DataLoader
-from answer_generator import generate_answer_dspy, QuestionAnswerSignature
-from reranking import retrieve_with_reranking
-import answer_generator
 import asyncio
+import dspy
+from dspy.teleprompt import BootstrapFewShotWithRandomSearch
+from dspy.datasets import DataLoader
+
+from src.utils.logger import setup_logging
+from src.core.contextual_vector_db import ContextualVectorDB
+from src.core.elasticsearch_bm25 import ElasticsearchBM25
+from src.data.data_loader import load_codebase_chunks, load_queries
+from src.processing.query_processor import validate_queries, process_queries
+from src.evaluation.evaluation import PipelineEvaluator
+from src.analysis.metrics import comprehensive_metric
+from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
+from src.retrieval.reranking import retrieve_with_reranking
+from src.analysis.select_quotation_module import SelectQuotationModule
 from src.decorators import handle_exceptions
+from src.analysis.select_quotation import SelectQuotationSignature
+from src.analysis.select_quotation_module import SelectQuotationModule
+from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
+from src.processing.query_processor import validate_queries, process_queries
+
 
 # Initialize logging
 setup_logging()
@@ -198,16 +199,16 @@ class ThematicAnalysisPipeline:
 
             # Assign the optimized program to answer_generator.qa_module
             try:
-                answer_generator.qa_module = self.optimized_program
-                logger.info("Assigned optimized_program to answer_generator.qa_module successfully.")
+                # The optimized program will be used directly in process_queries
+                logger.info("Optimized program ready for query processing.")
             except Exception as e:
-                logger.error(f"Error assigning optimized program to answer_generator.qa_module: {e}", exc_info=True)
+                logger.error(f"Error preparing optimized program: {e}", exc_info=True)
                 return
 
             # Initialize SelectQuotationModule
             logger.info("Initializing SelectQuotationModule")
             try:
-                from select_quotation_module import SelectQuotationModule
+                from src.analysis.select_quotation_module import SelectQuotationModule
                 self.quotation_module = SelectQuotationModule()
                 logger.info("SelectQuotationModule initialized successfully.")
             except Exception as e:
