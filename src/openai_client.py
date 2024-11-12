@@ -78,3 +78,25 @@ class OpenAIClient:
         except Exception as e:
             logger.error(f"Error creating embeddings: {e}")
             raise
+
+class ChatCompletionCreator:
+    def __init__(self, client: OpenAIClient):
+        self.client = client
+
+    def create_chat_completion(self, model: str, messages: List[Dict[str, str]], max_tokens: int, temperature: float) -> Dict[str, Any]:
+        if not model or not messages:
+            logger.error("Model and messages must be provided for chat completion.")
+            raise ValueError("Model and messages must be provided for chat completion.")
+        
+        try:
+            response = self.client.create_chat_completion(
+                model=model,
+                messages=messages,
+                max_tokens=max_tokens,
+                temperature=temperature,
+            )
+            logger.debug(f"Chat completion created successfully for model '{model}'.")
+            return response
+        except Exception as e:
+            logger.error(f"Error creating chat completion: {e}")
+            raise

@@ -30,7 +30,11 @@ class BaseAssessment(dspy.Signature):
         )
     )
 
-    def generate_prompt(self, context: str, question: str, answer: str, task: str) -> str:
+class PromptGenerator:
+    @staticmethod
+    def generate_prompt(context: str, question: str, answer: str, task: str) -> str:
+        if not context or not question or not answer or not task:
+            raise ValueError("All input parameters must be provided and non-empty.")
         return (
             f"Context: {context}\n"
             f"Question: {question}\n"
@@ -57,7 +61,7 @@ class Assess(BaseAssessment):
     def forward(self, context: str, question: str, answer: str) -> Dict[str, str]:
         try:
             logger.debug(f"Assessing factual correctness for question: '{question}'")
-            prompt = self.generate_prompt(
+            prompt = PromptGenerator.generate_prompt(
                 context, question, answer,
                 "Based on the context provided, evaluate whether the answer is factually correct.\n"
                 "Respond with 'Yes' if the answer accurately reflects the information in the context.\n"
@@ -80,10 +84,12 @@ class Assess(BaseAssessment):
                 result = 'No'
             logger.info(f"Factuality assessment result: {result} for question: '{question}'")
             return {"factually_correct": result}
+        except ValueError as ve:
+            logger.error(f"ValueError in Assess.forward: {ve}", exc_info=True)
+            return {"factually_correct": "No"}
         except Exception as e:
             logger.error(f"Error in Assess.forward: {e}", exc_info=True)
             return {"factually_correct": "No"}
-
 
 class AssessRelevance(BaseAssessment):
     """
@@ -97,7 +103,7 @@ class AssessRelevance(BaseAssessment):
     def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
         try:
             logger.debug(f"Assessing relevance for question: '{question}'")
-            prompt = self.generate_prompt(
+            prompt = PromptGenerator.generate_prompt(
                 context, question, answer,
                 "Evaluate the relevance of the answer to the question based on the context.\n"
                 "Provide a relevance score between 1 (not relevant) and 5 (highly relevant)."
@@ -123,10 +129,12 @@ class AssessRelevance(BaseAssessment):
                 result = 1
             logger.info(f"Relevance assessment result: {result} for question: '{question}'")
             return {"relevance_score": result}
+        except ValueError as ve:
+            logger.error(f"ValueError in AssessRelevance.forward: {ve}", exc_info=True)
+            return {"relevance_score": 1}
         except Exception as e:
             logger.error(f"Error in AssessRelevance.forward: {e}", exc_info=True)
             return {"relevance_score": 1}
-
 
 class AssessCoherence(BaseAssessment):
     """
@@ -139,7 +147,7 @@ class AssessCoherence(BaseAssessment):
     def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
         try:
             logger.debug("Assessing coherence of the answer.")
-            prompt = self.generate_prompt(
+            prompt = PromptGenerator.generate_prompt(
                 context, question, answer,
                 "Evaluate the coherence of the above answer.\n"
                 "Provide a coherence score between 1 (not coherent) and 5 (highly coherent)."
@@ -165,10 +173,12 @@ class AssessCoherence(BaseAssessment):
                 result = 1
             logger.info(f"Coherence assessment result: {result}")
             return {"coherence_score": result}
+        except ValueError as ve:
+            logger.error(f"ValueError in AssessCoherence.forward: {ve}", exc_info=True)
+            return {"coherence_score": 1}
         except Exception as e:
             logger.error(f"Error in AssessCoherence.forward: {e}", exc_info=True)
             return {"coherence_score": 1}
-
 
 class AssessConciseness(BaseAssessment):
     """
@@ -181,7 +191,7 @@ class AssessConciseness(BaseAssessment):
     def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
         try:
             logger.debug("Assessing conciseness of the answer.")
-            prompt = self.generate_prompt(
+            prompt = PromptGenerator.generate_prompt(
                 context, question, answer,
                 "Evaluate the conciseness of the above answer.\n"
                 "Provide a conciseness score between 1 (not concise) and 5 (highly concise)."
@@ -207,10 +217,12 @@ class AssessConciseness(BaseAssessment):
                 result = 1
             logger.info(f"Conciseness assessment result: {result}")
             return {"conciseness_score": result}
+        except ValueError as ve:
+            logger.error(f"ValueError in AssessConciseness.forward: {ve}", exc_info=True)
+            return {"conciseness_score": 1}
         except Exception as e:
             logger.error(f"Error in AssessConciseness.forward: {e}", exc_info=True)
             return {"conciseness_score": 1}
-
 
 class AssessFluency(BaseAssessment):
     """
@@ -223,7 +235,7 @@ class AssessFluency(BaseAssessment):
     def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
         try:
             logger.debug("Assessing fluency of the answer.")
-            prompt = self.generate_prompt(
+            prompt = PromptGenerator.generate_prompt(
                 context, question, answer,
                 "Evaluate the fluency of the above answer.\n"
                 "Provide a fluency score between 1 (not fluent) and 5 (highly fluent)."
@@ -249,10 +261,12 @@ class AssessFluency(BaseAssessment):
                 result = 1
             logger.info(f"Fluency assessment result: {result}")
             return {"fluency_score": result}
+        except ValueError as ve:
+            logger.error(f"ValueError in AssessFluency.forward: {ve}", exc_info=True)
+            return {"fluency_score": 1}
         except Exception as e:
             logger.error(f"Error in AssessFluency.forward: {e}", exc_info=True)
             return {"fluency_score": 1}
-
 
 class ComprehensiveAssessment(BaseAssessment):
     """
@@ -302,7 +316,6 @@ class ComprehensiveAssessment(BaseAssessment):
                 "conciseness_score": 1,
                 "fluency_score": 1
             }
-
 
 def comprehensive_metric(example: Dict[str, Any], pred: Dict[str, Any], trace: Any = None) -> float:
     """
@@ -358,7 +371,6 @@ def comprehensive_metric(example: Dict[str, Any], pred: Dict[str, Any], trace: A
         logger.error(f"Error in comprehensive_metric: {e}", exc_info=True)
         return 0.0
 
-
 def is_answer_fully_correct(example: Dict[str, Any], pred: Dict[str, Any]) -> bool:
     """
     Determines if the answer meets all quality metrics.
@@ -375,7 +387,6 @@ def is_answer_fully_correct(example: Dict[str, Any], pred: Dict[str, Any]) -> bo
     is_factual = scores >= 0.8
     logger.debug(f"Is answer fully correct (scores >= 0.8): {is_factual}")
     return is_factual
-
 
 def factuality_metric(example: Dict[str, Any], pred: Dict[str, Any]) -> int:
     """
@@ -397,7 +408,6 @@ def factuality_metric(example: Dict[str, Any], pred: Dict[str, Any]) -> int:
     except Exception as e:
         logger.error(f"Error in factuality_metric: {e}", exc_info=True)
         return 0 
-
 
 # Initialize the assessment modules
 try:
