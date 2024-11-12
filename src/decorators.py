@@ -4,6 +4,15 @@ import functools
 logger = logging.getLogger(__name__)
 
 def handle_exceptions(func):
+    """
+    Decorator to handle exceptions in functions.
+    
+    Args:
+        func (callable): The function to wrap with exception handling.
+    
+    Returns:
+        callable: The wrapped function with exception handling.
+    """
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         try:
