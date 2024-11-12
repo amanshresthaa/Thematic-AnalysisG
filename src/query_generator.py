@@ -14,6 +14,9 @@ class QueryGeneratorSignature(dspy.Signature):
 
     def forward(self, question: str, context: str) -> Dict[str, str]:
         try:
+            if not question or not context:
+                raise ValueError("Both 'question' and 'context' must be provided and non-empty.")
+            
             prompt = (
                 f"Given the question: '{question}'\n"
                 f"and the context retrieved so far:\n{context}\n"
@@ -29,6 +32,9 @@ class QueryGeneratorSignature(dspy.Signature):
             ).strip()
             logger.info(f"Generated new query: '{new_query}'")
             return {"new_query": new_query}
+        except ValueError as ve:
+            logger.error(f"ValueError in QueryGeneratorSignature.forward: {ve}", exc_info=True)
+            return {"new_query": question}  # Fallback to the original question
         except Exception as e:
             logger.error(f"Error in QueryGeneratorSignature.forward: {e}", exc_info=True)
             return {"new_query": question}  # Fallback to the original question

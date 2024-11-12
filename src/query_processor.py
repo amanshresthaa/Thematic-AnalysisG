@@ -1,5 +1,3 @@
-# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/query_processor.py
-
 import logging
 from typing import List, Dict, Any, Callable
 from contextual_vector_db import ContextualVectorDB
@@ -68,6 +66,19 @@ def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: Elasticsearc
 
 @handle_exceptions
 async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
+    """
+    Processes a single query to retrieve documents, select quotations, and generate an answer.
+
+    Args:
+        query_item (Dict[str, Any]): The query item containing the query text and other relevant information.
+        db (ContextualVectorDB): Contextual vector database instance.
+        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        k (int): Number of top documents to retrieve.
+        quotation_module (SelectQuotationModule): Module to select quotations.
+
+    Returns:
+        Dict[str, Any]: The result of processing the query, including retrieved chunks, quotations, and generated answer.
+    """
     query_text = query_item.get('query', '').strip()
     if not query_text:
         logger.warning(f"Query is empty. Skipping.")
@@ -146,6 +157,16 @@ async def process_queries(
     k: int,
     output_file: str
 ):
+    """
+    Processes a list of queries to retrieve documents, select quotations, and generate answers.
+
+    Args:
+        queries (List[Dict[str, Any]]): List of query items.
+        db (ContextualVectorDB): Contextual vector database instance.
+        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        k (int): Number of top documents to retrieve.
+        output_file (str): Path to the output file to save results.
+    """
     logger.info("Starting to process queries.")
 
     all_results = []

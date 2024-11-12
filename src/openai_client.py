@@ -36,11 +36,15 @@ class OpenAIClient:
         Returns:
             Dict[str, Any]: API response as a dictionary.
         """
+        if not model or not messages:
+            logger.error("Model and messages must be provided for chat completion.")
+            raise ValueError("Model and messages must be provided for chat completion.")
+        
         try:
             response = self.client.chat.completions.create(
-                model='gpt-4o-mini',
+                model=model,
                 messages=messages,
-                max_tokens='8192',
+                max_tokens=max_tokens,
                 temperature=temperature,
             )
             logger.debug(f"Chat completion created successfully for model '{model}'.")
@@ -60,6 +64,10 @@ class OpenAIClient:
         Returns:
             Dict[str, Any]: API response containing embeddings.
         """
+        if not model or not input:
+            logger.error("Model and input must be provided for creating embeddings.")
+            raise ValueError("Model and input must be provided for creating embeddings.")
+        
         try:
             response = self.client.embeddings.create(
                 model=model,
