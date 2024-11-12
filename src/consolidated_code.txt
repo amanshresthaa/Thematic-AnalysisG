@@ -2685,15 +2685,19 @@ class ThematicAnalysisPipeline:
             # Define k values for evaluation
             k_values = [5, 10, 20]
 
-            # Perform evaluation
+            # Initialize the evaluator
             logger.info("Starting evaluation of the retrieval pipeline")
             try:
-                PipelineEvaluator.evaluate_complete_pipeline(
-                    self.contextual_db,
-                    self.es_bm25,
-                    k_values,
-                    evaluation_set,
-                    retrieve_with_reranking  # Pass the correct retrieval function
+                evaluator = PipelineEvaluator(
+                    db=self.contextual_db,
+                    es_bm25=self.es_bm25,
+                    retrieval_function=retrieve_with_reranking
+                )
+                
+                # Perform evaluation
+                evaluator.evaluate_complete_pipeline(
+                    k_values=k_values,
+                    evaluation_set=evaluation_set
                 )
                 logger.info("Evaluation completed successfully.")
             except Exception as e:
@@ -2712,7 +2716,6 @@ if __name__ == "__main__":
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
-
 ################################################################################
 
 

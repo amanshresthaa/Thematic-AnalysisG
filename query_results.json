@@ -513,10 +513,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_52",
-                    "original_index": 52,
-                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
-                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
                 "score": 0.16666666666666669
             },
@@ -524,10 +524,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_54",
-                    "original_index": 54,
-                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
-                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
+                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
                 },
                 "score": 0.16666666666666669
             },
@@ -557,41 +557,41 @@
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
             "Document_chunk_48",
-            "Document_chunk_52",
             "Document_chunk_54",
+            "Document_chunk_52",
             "Document_chunk_34",
             "Document_chunk_49"
         ],
         "quotations": [
             {
                 "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
-                "type": "operations",
-                "function": "Discussing the need for local manufacturing capacity and utilization of domestic resources."
+                "type": "operational insight",
+                "function": "Discusses the need for local manufacturing capacity and the current inefficiencies in utilizing domestic resources."
             },
             {
-                "quote": "The trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things.",
-                "type": "challenges",
-                "function": "Highlighting financial constraints faced by the organization in implementing new ideas."
+                "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
+                "type": "challenge identification",
+                "function": "Highlights the instability in the agricultural sector and its impact on the organization."
             },
             {
-                "quote": "Without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
-                "type": "challenges",
-                "function": "Emphasizing the critical role of investment in addressing operational issues."
+                "quote": "Money is key.",
+                "type": "strategic insight",
+                "function": "Emphasizes the importance of financial investment for the development of processing capacity."
             },
             {
                 "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "type": "strategies",
-                "function": "Stating the importance of sustainability in future operations."
+                "type": "future outlook",
+                "function": "Underlines the significance of sustainability in future food systems."
             },
             {
-                "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-                "type": "future outlook",
-                "function": "Describing a vision for direct supply chains that benefit farmers."
+                "quote": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
+                "type": "operational challenge",
+                "function": "Identifies processing capacity as a critical bottleneck in the supply chain."
             }
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the key operational challenges, financial constraints, strategic focus on sustainability, and future outlook of the farming organization in the context of market dynamics and economic factors.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the operational challenges, strategic insights, and future outlook of the farming organization in relation to market dynamics, sustainability, and economic factors.",
         "answer": {
-            "answer": "Yes, trends such as increased consumer awareness of food origins and sustainability could accelerate the development of local processing capacity in the UK. However, financial investment is essential to overcome current limitations in the agricultural sector."
+            "answer": "The trends in society that could accelerate the vision for enhancing food processing capacity in the UK include a growing demand for local sourcing and sustainability, particularly in the wake of COVID-19. However, the key challenge remains the lack of investment in local processing facilities, which is necessary to utilize the domestic supply of potatoes effectively."
         }
     },
     {
