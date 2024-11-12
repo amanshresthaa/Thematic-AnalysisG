@@ -17,12 +17,12 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
+from src.analysis.extract_keywords_module import KeywordExtractionModule
 from src.decorators import handle_exceptions
 from src.analysis.select_quotation import SelectQuotationSignature
 from src.analysis.select_quotation_module import SelectQuotationModule
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.processing.query_processor import validate_queries, process_queries
-
 
 # Initialize logging
 setup_logging()
@@ -37,6 +37,7 @@ class ThematicAnalysisPipeline:
         self.teleprompter = None
         self.optimized_program = None
         self.quotation_module = None
+        self.keyword_module = None  # Added KeywordExtractionModule
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -64,7 +65,7 @@ class ThematicAnalysisPipeline:
     @handle_exceptions
     async def run_pipeline(self):
         """
-        Main function to load data, process queries, and generate outputs.
+        Main function to load data, process queries, extract keywords, and generate outputs.
         """
         logger.debug("Entering main function.")
         try:
@@ -79,6 +80,8 @@ class ThematicAnalysisPipeline:
             queries_file = self.config['queries_file']
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename = self.config['output_filename']
+            quotation_file = self.config['quotation_file']
+            keywords_output_file = self.config['keywords_output_file']
 
             dl = DataLoader()
             # Initialize the DataLoader
@@ -208,11 +211,22 @@ class ThematicAnalysisPipeline:
             # Initialize SelectQuotationModule
             logger.info("Initializing SelectQuotationModule")
             try:
-                from src.analysis.select_quotation_module import SelectQuotationModule
                 self.quotation_module = SelectQuotationModule()
                 logger.info("SelectQuotationModule initialized successfully.")
             except Exception as e:
                 logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
+                return
+
+            # Initialize KeywordExtractionModule
+            logger.info("Initializing KeywordExtractionModule")
+            try:
+                self.keyword_module = KeywordExtractionModule(
+                    input_file=quotation_file,
+                    output_file=keywords_output_file
+                )
+                logger.info("KeywordExtractionModule initialized successfully.")
+            except Exception as e:
+                logger.error(f"Error initializing KeywordExtractionModule: {e}", exc_info=True)
                 return
 
             # Proceed with processing queries using the optimized program and quotation selection
@@ -227,6 +241,21 @@ class ThematicAnalysisPipeline:
                 )
             except Exception as e:
                 logger.error(f"Error processing queries: {e}", exc_info=True)
+                return
+
+            # Extract Keywords from Quotations
+            logger.info("Starting keyword extraction from quotations")
+            try:
+                keywords_result = self.keyword_module.process_file(
+                    input_file=quotation_file,
+                    research_objectives="Analyze potato farming and supply chain"
+                )
+                if keywords_result.get("keywords"):
+                    logger.info(f"Keywords extracted successfully and saved to {keywords_result.get('output_file')}")
+                else:
+                    logger.warning("No keywords were extracted.")
+            except Exception as e:
+                logger.error(f"Error during keyword extraction: {e}", exc_info=True)
                 return
 
             # Define k values for evaluation
@@ -259,7 +288,9 @@ if __name__ == "__main__":
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file': 'data/queries.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename': 'query_results.json'
+        'output_filename': 'query_results.json',
+        'quotation_file': 'data/quotation.json',
+        'keywords_output_file': 'data/keywords.json'
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
