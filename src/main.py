@@ -12,7 +12,7 @@ from elasticsearch_bm25 import ElasticsearchBM25  # Import ElasticsearchBM25 cla
 
 from data_loader import load_codebase_chunks, load_queries
 from query_processor import validate_queries, process_queries
-from evaluation import evaluate_complete_pipeline
+from evaluation import PipelineEvaluator
 from metrics import comprehensive_metric
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
 import dspy
@@ -234,7 +234,7 @@ class ThematicAnalysisPipeline:
             # Perform evaluation
             logger.info("Starting evaluation of the retrieval pipeline")
             try:
-                evaluate_complete_pipeline(
+                PipelineEvaluator.evaluate_complete_pipeline(
                     self.contextual_db,
                     self.es_bm25,
                     k_values,
