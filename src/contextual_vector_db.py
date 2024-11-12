@@ -15,7 +15,6 @@ from utils.logger import setup_logging
 setup_logging()
 logger = logging.getLogger(__name__)
 
-
 class SituateContext(dspy.Module):
     def __init__(self):
         super().__init__()

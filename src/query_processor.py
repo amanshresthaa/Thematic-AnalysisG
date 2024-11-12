@@ -46,33 +46,35 @@ def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     logger.info(f"Validated {len(valid_queries)} queries out of {len(queries)} provided.")
     return valid_queries
 
-def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
-    """
-    Retrieves documents using multi-stage retrieval with contextual BM25.
+class DocumentRetriever:
+    def __init__(self, db: ContextualVectorDB, es_bm25: ElasticsearchBM25):
+        self.db = db
+        self.es_bm25 = es_bm25
 
-    Args:
-        query (str): The search query.
-        db (ContextualVectorDB): Contextual vector database instance.
-        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
-        k (int): Number of top documents to retrieve.
+    def retrieve_documents(self, query: str, k: int) -> List[Dict[str, Any]]:
+        """
+        Retrieves documents using multi-stage retrieval with contextual BM25.
 
-    Returns:
-        List[Dict[str, Any]]: List of retrieved documents.
-    """
-    logger.debug(f"Retrieving documents for query: '{query}' with top {k} results using multi-stage retrieval with contextual BM25.")
-    final_results = multi_stage_retrieval(query, db, es_bm25, k)
-    logger.debug(f"Multi-stage retrieval with contextual BM25 returned {len(final_results)} results.")
-    return final_results
+        Args:
+            query (str): The search query.
+            k (int): Number of top documents to retrieve.
+
+        Returns:
+            List[Dict[str, Any]]: List of retrieved documents.
+        """
+        logger.debug(f"Retrieving documents for query: '{query}' with top {k} results using multi-stage retrieval with contextual BM25.")
+        final_results = multi_stage_retrieval(query, self.db, self.es_bm25, k)
+        logger.debug(f"Multi-stage retrieval with contextual BM25 returned {len(final_results)} results.")
+        return final_results
 
 @handle_exceptions
-async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
+async def process_single_query(query_item: Dict[str, Any], document_retriever: DocumentRetriever, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
     """
     Processes a single query to retrieve documents, select quotations, and generate an answer.
 
     Args:
         query_item (Dict[str, Any]): The query item containing the query text and other relevant information.
-        db (ContextualVectorDB): Contextual vector database instance.
-        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        document_retriever (DocumentRetriever): Instance of DocumentRetriever to retrieve documents.
         k (int): Number of top documents to retrieve.
         quotation_module (SelectQuotationModule): Module to select quotations.
 
@@ -87,7 +89,7 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     logger.info(f"Processing query: {query_text}")
 
     # Retrieve relevant chunks/documents using multi-stage retrieval with contextual BM25
-    retrieved_chunks = retrieve_documents(query_text, db, es_bm25, k)
+    retrieved_chunks = document_retriever.retrieve_documents(query_text, k)
     logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
     logger.info(f"Retrieved chunk IDs: {[chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]}")
 
@@ -171,11 +173,12 @@ async def process_queries(
 
     all_results = []
     quotation_module = SelectQuotationModule()  # Initialize the quotation selection module
+    document_retriever = DocumentRetriever(db, es_bm25)  # Initialize the document retriever
 
     try:
         for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
             try:
-                result = await process_single_query(query_item, db, es_bm25, k, quotation_module)
+                result = await process_single_query(query_item, document_retriever, k, quotation_module)
                 if result:
                     all_results.append(result)
             except Exception as e:
