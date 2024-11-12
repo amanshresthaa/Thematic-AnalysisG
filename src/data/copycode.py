@@ -2,102 +2,165 @@ import logging
 import os
 import asyncio
 import aiofiles
-from typing import List
+from typing import List, Set
 import time
+from pathlib import Path
 
-from src.utils.logger import setup_logging
-
+# Initialize logger
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 class CodeFileHandler:
-    def __init__(self, root_dir: str, extensions: List[str] = None):
-        self.root_dir = root_dir
-        self.extensions = extensions
+    def __init__(self, project_root: str, extensions: Set[str] = None):
+        """
+        Initialize the CodeFileHandler.
+        
+        Args:
+            project_root (str): Root directory of the project
+            extensions (Set[str]): Set of file extensions to include
+        """
+        self.project_root = project_root
+        self.src_dir = os.path.join(project_root, '')
+        self.extensions = extensions or {'.py', '.yaml', '.yml'}
+        self.ignored_dirs = {'.venv', 'venv', 'env', '.env', 'myenv', '__pycache__', '.git', 'node_modules'}
+        self.output_dir = os.path.join(project_root, 'output')
 
     async def get_code_files(self) -> List[str]:
-        logger.debug(f"Entering get_code_files with root_dir='{self.root_dir}' and extensions={self.extensions}.")
+        """
+        Get all code files from the src directory.
+        
+        Returns:
+            List[str]: List of file paths
+        """
+        logger.info(f"Scanning for code files in: {self.src_dir}")
         start_time = time.time()
         code_files = []
+        
         try:
-            logger.debug(f"Walking through directory: {self.root_dir}")
-            for root, dirs, files in os.walk(self.root_dir):
-                ignored_dirs = {'.venv', 'venv', 'env', '.env', 'myenv'}
-                dirs[:] = [d for d in dirs if d not in ignored_dirs]
-                for ignored in ignored_dirs:
-                    if ignored in dirs:
-                        dirs.remove(ignored)
-                        logger.debug(f"Skipping directory: {os.path.join(root, ignored)}")
-
+            for root, dirs, files in os.walk(self.src_dir):
+                # Remove ignored directories
+                dirs[:] = [d for d in dirs if d not in self.ignored_dirs]
+                
+                # Process files
                 for file in files:
-                    if self.extensions is None or file.endswith(tuple(self.extensions)):
+                    if file.endswith(tuple(self.extensions)):
                         file_path = os.path.join(root, file)
-                        code_files.append(file_path)
-                        logger.debug(f"Found code file: {file_path}")
+                        relative_path = os.path.relpath(file_path, self.src_dir)
+                        code_files.append((file_path, relative_path))
+                        logger.debug(f"Found code file: {relative_path}")
+        
         except Exception as e:
-            logger.error(f"Error while retrieving code files: {e}", exc_info=True)
+            logger.error(f"Error scanning code files: {e}", exc_info=True)
+            return []
 
-        logger.info(f"Total code files found: {len(code_files)}")
         end_time = time.time()
-        logger.debug(f"Exiting get_code_files method. Time taken: {end_time - start_time:.2f} seconds.")
-        return code_files
+        logger.info(f"Found {len(code_files)} code files in {end_time - start_time:.2f} seconds")
+        return sorted(code_files, key=lambda x: x[1])  # Sort by relative path
 
-    async def copy_code_to_file(self, code_files: List[str], output_file: str):
-        logger.debug(f"Entering copy_code_to_file with output_file='{output_file}'.")
+    async def copy_code_to_file(self, code_files: List[tuple], output_file: str):
+        """
+        Copy code files to a single output file with proper organization.
+        
+        Args:
+            code_files (List[tuple]): List of (file_path, relative_path) tuples
+            output_file (str): Output file path
+        """
+        logger.info(f"Writing consolidated code to: {output_file}")
         start_time = time.time()
+        
+        # Ensure output directory exists
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
         try:
-            logger.info(f"Writing consolidated code to '{output_file}'")
             async with aiofiles.open(output_file, 'w', encoding='utf-8') as outfile:
-                for filepath in code_files:
-                    await outfile.write(f"\n\n# File: {filepath}\n")
+                # Write header
+                await outfile.write("# Consolidated Source Code\n")
+                await outfile.write("# " + "=" * 78 + "\n\n")
+
+                current_module = None
+                for file_path, relative_path in code_files:
+                    # Get module name (first directory in relative path)
+                    module = relative_path.split(os.sep)[0] if os.sep in relative_path else 'root'
+                    
+                    # Write module header if changed
+                    if module != current_module:
+                        await outfile.write(f"\n\n{'#' * 80}\n")
+                        await outfile.write(f"# Module: {module}\n")
+                        await outfile.write(f"{'#' * 80}\n\n")
+                        current_module = module
+
+                    # Write file header
+                    await outfile.write(f"\n# File: {relative_path}\n")
+                    await outfile.write("#" + "-" * 78 + "\n")
+
                     try:
-                        async with aiofiles.open(filepath, 'r', encoding='utf-8', errors='ignore') as infile:
+                        async with aiofiles.open(file_path, 'r', encoding='utf-8', errors='ignore') as infile:
                             content = await infile.read()
                             await outfile.write(content)
-                        logger.debug(f"Copied content from '{filepath}'")
+                            await outfile.write("\n")
                     except Exception as e:
-                        await outfile.write(f"# Error reading file {filepath}: {e}\n")
-                        logger.error(f"Error reading file '{filepath}': {e}", exc_info=True)
-                    await outfile.write("\n" + "#" * 80 + "\n")
-            logger.info(f"All code has been copied to '{output_file}'")
+                        error_msg = f"# Error reading file {relative_path}: {str(e)}\n"
+                        await outfile.write(error_msg)
+                        logger.error(error_msg)
+
         except Exception as e:
-            logger.error(f"Error during copying code to file '{output_file}': {e}", exc_info=True)
+            logger.error(f"Error writing to output file: {e}", exc_info=True)
+            return
+
         end_time = time.time()
-        logger.debug(f"Exiting copy_code_to_file method. Time taken: {end_time - start_time:.2f} seconds.")
+        logger.info(f"Code consolidation completed in {end_time - start_time:.2f} seconds")
 
 async def main_async():
-    logger.debug("Entering main_async function.")
-    start_time = time.time()
+    """
+    Main async function to handle code consolidation.
+    """
     try:
-        script_directory = os.path.dirname(os.path.abspath(__file__))
-        logger.debug(f"Script directory: {script_directory}")
+        # Get project root (parent of src directory)
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        logger.info(f"Project root: {project_root}")
 
-        source_directory = script_directory
+        # Initialize handler
+        handler = CodeFileHandler(
+            project_root=project_root,
+            extensions={'.py', '.yaml', '.yml'}
+        )
 
-        output_file = os.path.join(script_directory, 'consolidated_code.txt')
+        # Create output directory if it doesn't exist
+        output_dir = os.path.join(project_root, 'output')
+        os.makedirs(output_dir, exist_ok=True)
 
-        file_extensions = ['.py', '.yaml']
-        logger.debug(f"File extensions to include: {file_extensions}")
+        # Get code files
+        code_files = await handler.get_code_files()
+        
+        if not code_files:
+            logger.error("No code files found to process")
+            return
 
-        code_handler = CodeFileHandler(source_directory, file_extensions)
-        code_files = await code_handler.get_code_files()
+        # Generate output file path
+        timestamp = time.strftime("%Y%m%d_%H%M%S")
+        output_file = os.path.join(output_dir, f'consolidated_code_{timestamp}.txt')
 
-        await code_handler.copy_code_to_file(code_files, output_file)
+        # Copy code files
+        await handler.copy_code_to_file(code_files, output_file)
+        logger.info(f"Code consolidated successfully to: {output_file}")
+
     except Exception as e:
-        logger.error(f"Unexpected error in main_async: {e}", exc_info=True)
-    end_time = time.time()
-    logger.debug(f"Exiting main_async function. Total time taken: {end_time - start_time:.2f} seconds.")
+        logger.error(f"Error in main_async: {e}", exc_info=True)
 
 def main():
-    logger.debug("Entering main function.")
-    start_time = time.time()
+    """
+    Main entry point of the script.
+    """
     try:
         asyncio.run(main_async())
+        logger.info("Code consolidation completed successfully")
     except KeyboardInterrupt:
-        logger.warning("Code copying interrupted by user.")
+        logger.warning("Process interrupted by user")
     except Exception as e:
-        logger.error(f"Unexpected error during code copying: {e}", exc_info=True)
-    end_time = time.time()
-    logger.debug(f"Exiting main function. Total time taken: {end_time - start_time:.2f} seconds.")
+        logger.error(f"Unexpected error: {e}", exc_info=True)
 
 if __name__ == "__main__":
     main()

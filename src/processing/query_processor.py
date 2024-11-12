@@ -12,6 +12,7 @@ from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
 from src.utils.validation_functions import validate_relevance, validate_quality, validate_context_clarity
+
 setup_logging()
 logger = logging.getLogger(__name__)
 

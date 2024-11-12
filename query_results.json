@@ -151,10 +151,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_14",
-                    "original_index": 14,
-                    "original_content": "So, you operate locally, regionally and nationally. But internationally when you have to, when there\u2019s a gap? Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit.",
-                    "contextualized_content": "The organization operates on multiple levels: locally, regionally, and nationally, ensuring a robust supply chain for its potato products. However, it also has the capability to engage in international trade when necessary. For instance, during periods of surplus, the organization has successfully exported potatoes to countries like Poland, Ireland, and Belgium. This strategic approach not only helps manage excess inventory but also allows the organization to tap into broader markets, thereby enhancing its overall operational resilience."
+                    "chunk_id": "Document_chunk_7",
+                    "original_index": 7,
+                    "original_content": "When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there\u2019s about ten-fifteen farms, supplying in. And we manage that supply so that there\u2019s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name]  and [org name]  distributes the money out to the farmers.",
+                    "contextualized_content": "In the context of [org name], when the factory requires loads of potatoes, instead of sourcing them from individual farms, we take on the responsibility of managing the supply from about ten to fifteen farms. This approach allows us to ensure a steady and reliable supply of potatoes, avoiding the inconsistencies that can arise from individual farm contributions. Once the factory pays [org name], we then handle the distribution of funds back to the farmers, ensuring they receive their fair share of the profits."
                 },
                 "score": 0.16666666666666669
             }
@@ -165,38 +165,38 @@
             "Document_chunk_15",
             "Document_chunk_1",
             "Document_chunk_9",
-            "Document_chunk_14"
+            "Document_chunk_7"
         ],
         "quotations": [
             {
-                "quote": "So, we buy from other farms as well, which supply at different times of year, it varies.",
-                "type": "operational",
-                "function": "Describes sourcing strategy and variability in supply."
+                "quotation": "So, we buy from other farms as well, which supply at different times of year, it varies.",
+                "type": "operational insight",
+                "function": "Describes the sourcing strategy and variability in supply."
             },
             {
-                "quote": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
-                "type": "strategic",
-                "function": "Highlights the organization's responsiveness to market conditions."
+                "quotation": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
+                "type": "market strategy",
+                "function": "Highlights the organization's responsiveness to market demands."
             },
             {
-                "quote": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
-                "type": "operational",
-                "function": "Explains the organizational structure and its purpose in marketing."
+                "quotation": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+                "type": "collaboration strategy",
+                "function": "Explains the collaborative effort among farmers to enhance market presence."
             },
             {
-                "quote": "And obviously, we want to supply the factories all year round, and they want a supply all year round.",
-                "type": "operational",
-                "function": "Emphasizes the importance of consistent supply to meet customer demands."
+                "quotation": "But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round.",
+                "type": "supply chain management",
+                "function": "Details the approach to maintaining a consistent supply to factories."
             },
             {
-                "quote": "Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit.",
-                "type": "operational",
-                "function": "Illustrates international operations and market adaptability."
+                "quotation": "When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory.",
+                "type": "operational efficiency",
+                "function": "Describes the management of supply logistics to ensure steady delivery."
             }
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the farming organization's operational strategies, challenges, and market dynamics, providing a comprehensive understanding of their approach to sustainability and economic factors.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the operational strategies, market responsiveness, and collaborative efforts of the farming organization, which are essential for understanding their challenges and future outlook in the context of market dynamics and sustainability.",
         "answer": {
-            "answer": "The individual manages the supply of potatoes from multiple farms to factories, ensuring a steady year-round supply. They also coordinate exports to international markets when there is surplus, playing a key role in both local and national operations."
+            "answer": "The individual manages the supply of potatoes from about ten to fifteen farms to factories, ensuring a steady supply and handling payments to farmers. They operate locally but also engage nationally and internationally when needed."
         }
     },
     {
@@ -256,7 +256,7 @@
                     "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
                     "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
                 },
-                "score": 0.061111111111111116
+                "score": 0.061764705882352944
             }
         ],
         "retrieved_chunks_count": 5,
@@ -513,10 +513,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_54",
-                    "original_index": 54,
-                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
-                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
+                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
                 },
                 "score": 0.16666666666666669
             },
@@ -524,10 +524,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_52",
-                    "original_index": 52,
-                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
-                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
                 "score": 0.16666666666666669
             },
@@ -557,41 +557,41 @@
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
             "Document_chunk_48",
-            "Document_chunk_54",
             "Document_chunk_52",
+            "Document_chunk_54",
             "Document_chunk_34",
             "Document_chunk_49"
         ],
         "quotations": [
             {
                 "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
-                "type": "operational insight",
-                "function": "Discusses the need for local manufacturing capacity and the current inefficiencies in utilizing domestic resources."
+                "type": "operations",
+                "function": "Discussing the need for local manufacturing capacity and utilization of domestic resources."
             },
             {
-                "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
-                "type": "challenge identification",
-                "function": "Highlights the instability in the agricultural sector and its impact on the organization."
+                "quote": "The trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things.",
+                "type": "challenges",
+                "function": "Highlighting financial constraints faced by the organization in implementing new ideas."
             },
             {
-                "quote": "Money is key.",
-                "type": "strategic insight",
-                "function": "Emphasizes the importance of financial investment for the development of processing capacity."
+                "quote": "Without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
+                "type": "challenges",
+                "function": "Emphasizing the critical role of investment in addressing operational issues."
             },
             {
                 "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "type": "future outlook",
-                "function": "Underlines the significance of sustainability in future food systems."
+                "type": "strategies",
+                "function": "Stating the importance of sustainability in future operations."
             },
             {
-                "quote": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
-                "type": "operational challenge",
-                "function": "Identifies processing capacity as a critical bottleneck in the supply chain."
+                "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+                "type": "future outlook",
+                "function": "Describing a vision for direct supply chains that benefit farmers."
             }
         ],
-        "purpose": "The purpose of selecting these quotations is to illustrate the operational challenges, strategic insights, and future outlook of the farming organization in relation to market dynamics, sustainability, and economic factors.",
+        "purpose": "The purpose of selecting these quotations is to illustrate the key operational challenges, financial constraints, strategic focus on sustainability, and future outlook of the farming organization in the context of market dynamics and economic factors.",
         "answer": {
-            "answer": "The trends in society that could accelerate the vision for enhancing food processing capacity in the UK include a growing demand for local sourcing and sustainability, particularly in the wake of COVID-19. However, the key challenge remains the lack of investment in local processing facilities, which is necessary to utilize the domestic supply of potatoes effectively."
+            "answer": "Yes, trends such as increased consumer awareness of food origins and sustainability could accelerate the development of local processing capacity in the UK. However, financial investment is essential to overcome current limitations in the agricultural sector."
         }
     },
     {
