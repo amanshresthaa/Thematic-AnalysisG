@@ -9,6 +9,13 @@ class JSONLoader:
         self.file_path = file_path
 
     def load(self) -> List[Dict[str, Any]]:
+        return JSONLoaderHelper(self.file_path).load()
+
+class JSONLoaderHelper:
+    def __init__(self, file_path: str):
+        self.file_path = file_path
+
+    def load(self) -> List[Dict[str, Any]]:
         data = []
         try:
             if self.file_path.endswith('.jsonl'):

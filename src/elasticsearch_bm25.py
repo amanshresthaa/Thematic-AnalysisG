@@ -235,3 +235,54 @@ class ElasticsearchBM25:
             operator="or",
             minimum_should_match="30%"
         )
+
+class DocumentIndexer:
+    def __init__(self, es_client: Elasticsearch, index_name: str, logger: Optional[logging.Logger] = None):
+        self.es_client = es_client
+        self.index_name = index_name
+        self.logger = logger or logging.getLogger(__name__)
+
+    def index_documents(self, documents: List[Dict[str, Any]], batch_size: int = 500) -> Tuple[int, List[Dict[str, Any]]]:
+        if not documents:
+            self.logger.warning("No documents provided for indexing")
+            return 0, []
+
+        failed_docs = []
+        success_count = 0
+
+        for i in range(0, len(documents), batch_size):
+            batch = documents[i:i + batch_size]
+
+            actions = [{
+                "_index": self.index_name,
+                "_source": {
+                    "content": doc.get("original_content", ""),
+                    "contextualized_content": doc.get("contextualized_content", ""),
+                    "doc_id": doc.get("doc_id", ""),
+                    "chunk_id": doc.get("chunk_id", ""),
+                    "original_index": doc.get("original_index", 0),
+                    "metadata": doc.get("metadata", {})
+                }
+            } for doc in batch]
+
+            try:
+                success, failed = bulk(
+                    self.es_client,
+                    actions,
+                    raise_on_error=False,
+                    raise_on_exception=False
+                )
+                success_count += success
+                if failed:
+                    for fail in failed:
+                        failed_doc = batch[fail.get('index', 0)]
+                        failed_docs.append(failed_doc)
+                    self.logger.warning(f"Failed to index {len(failed)} documents in batch")
+
+            except Exception as e:
+                self.logger.error(f"Batch indexing error: {str(e)}")
+                failed_docs.extend(batch)
+
+        self.es_client.indices.refresh(index=self.index_name)
+        self.logger.info(f"Indexed {success_count}/{len(documents)} documents successfully")
+        return success_count, failed_docs
