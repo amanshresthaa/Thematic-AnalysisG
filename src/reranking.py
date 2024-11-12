@@ -58,10 +58,10 @@ class SentenceTransformerReRanker:
         Returns:
             List[Dict[str, Any]]: List of re-ranked documents with similarity scores.
         """
-        if not documents:
-            logger.warning("No documents provided for re-ranking.")
+        if not query or not documents:
+            logger.warning("Query and documents must be provided for re-ranking.")
             return []
-        
+
         try:
             logger.debug("Encoding query and documents.")
             query_embedding = self.model.encode(query, convert_to_tensor=True)
@@ -105,8 +105,8 @@ def rerank_results(query: str, retrieved_docs: List[Dict[str, Any]], k: int = 20
         List[Dict[str, Any]]: List of re-ranked documents.
     """
     logger.info(f"Starting re-ranking of {len(retrieved_docs)} documents for query: '{query}' using Sentence Transformers.")
-    if not retrieved_docs:
-        logger.warning(f"No documents to re-rank for query: '{query}'")
+    if not query or not retrieved_docs:
+        logger.warning(f"Query and retrieved documents must be provided for re-ranking.")
         return []
     try:
         # Initialize the re-ranker
@@ -133,6 +133,18 @@ def rerank_results(query: str, retrieved_docs: List[Dict[str, Any]], k: int = 20
         return retrieved_docs[:k]  # Fallback to original ranking if re-ranking fails
 
 def retrieve_with_reranking(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
+    """
+    Retrieves documents using hybrid retrieval and re-ranks them using Sentence Transformers.
+    
+    Args:
+        query (str): The search query.
+        db (ContextualVectorDB): Contextual vector database instance.
+        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
+        k (int): Number of top documents to retrieve.
+    
+    Returns:
+        List[Dict[str, Any]]: List of re-ranked documents.
+    """
     logger.debug(f"Entering retrieve_with_reranking method with query='{query}' and k={k}.")
     start_time = time.time()
 

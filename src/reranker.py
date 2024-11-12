@@ -1,5 +1,3 @@
-# File: /Users/amankumarshrestha/Downloads/Example/src/reranker.py
-
 import logging
 from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer, util
@@ -50,10 +48,10 @@ class SentenceTransformerReRanker:
         Returns:
             List[Dict[str, Any]]: List of re-ranked documents with similarity scores.
         """
-        if not documents:
-            logger.warning("No documents provided for re-ranking.")
+        if not query or not documents:
+            logger.warning("Query and documents must be provided for re-ranking.")
             return []
-        
+
         try:
             logger.debug("Encoding query and documents.")
             query_embedding = self.model.encode(query, convert_to_tensor=True)
@@ -97,8 +95,8 @@ def rerank_documents_sentence_transformer(query: str, retrieved_docs: List[Dict[
         List[Dict[str, Any]]: List of re-ranked documents.
     """
     logger.info(f"Starting re-ranking of {len(retrieved_docs)} documents for query: '{query}' using Sentence Transformers.")
-    if not retrieved_docs:
-        logger.warning(f"No documents to re-rank for query: '{query}'")
+    if not query or not retrieved_docs:
+        logger.warning(f"Query and retrieved documents must be provided for re-ranking.")
         return []
     try:
         # Initialize the re-ranker
