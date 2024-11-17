@@ -2,14 +2,13 @@ import logging
 import json
 from typing import List, Dict, Any
 import dspy
-from pathlib import Path
 import os
 
 logger = logging.getLogger(__name__)
 
 class KeywordExtractionSignature(dspy.Signature):
     """
-    Extract keywords from quotations with simplified input/output format.
+    Extract keywords from quotations by evaluating them against the 6Rs criteria.
     """
     research_objectives: str = dspy.InputField(
         desc="The research objectives guiding the extraction of keywords."
@@ -17,59 +16,67 @@ class KeywordExtractionSignature(dspy.Signature):
     quotations: List[Dict[str, str]] = dspy.InputField(
         desc="List containing a single quotation with 'quote' field."
     )
-    keywords: List[str] = dspy.OutputField(
-        desc="List of extracted keywords for the provided quote."
+    keywords_data: List[Dict[str, Any]] = dspy.OutputField(
+        desc="List of extracted keywords with 6Rs scores and justifications."
     )
     
-    def forward(self, research_objectives: str, quotations: List[Dict[str, str]]) -> Dict[str, List[str]]:
+    def forward(self, research_objectives: str, quotations: List[Dict[str, str]]) -> Dict[str, Any]:
         try:
             if not quotations:
                 logger.warning("No quotations provided for keyword extraction.")
-                return {"keywords": []}
+                return {"keywords_data": []}
             
             quote = quotations[0].get("quote", "")
             if not quote:
                 logger.warning("Empty quote provided for keyword extraction.")
-                return {"keywords": []}
+                return {"keywords_data": []}
 
-            logger.debug("Starting keyword extraction process.")
+            logger.debug("Starting keyword extraction process with 6Rs enhancement.")
             prompt = (
                 f"You are an expert in qualitative research and thematic analysis.\n\n"
-                f"Research Objectives: {research_objectives}\n\n"
-                f"Analyze the following quote about potato farming and supply chain:\n\"{quote}\"\n\n"
-                f"Extract key terms, concepts, and themes from this quotation. "
-                f"Return ONLY a list of single words or short phrases (2-3 words maximum) "
-                f"that represent the main concepts, without any additional metadata.\n"
-                f"Focus on business concepts, agricultural terms, supply chain terminology, "
-                f"and important themes mentioned in the quote."
+                f"**Research Objectives**: {research_objectives}\n\n"
+                f"**Quotation**:\n\"{quote}\"\n\n"
+                f"Based on the 6Rs criteria (Realness, Richness, Repetition, Rationale, Repartee, Regal), extract key terms, concepts, and themes from the quotation.\n"
+                f"For each keyword, provide scores from 1 to 5 for each of the 6Rs and a brief justification.\n"
+                f"Return the results in JSON format like this:\n"
+                f"[\n"
+                f"  {{\n"
+                f"    \"keyword\": \"...\",\n"
+                f"    \"realness\": 4,\n"
+                f"    \"richness\": 5,\n"
+                f"    \"repetition\": 3,\n"
+                f"    \"rationale\": 4,\n"
+                f"    \"repartee\": 2,\n"
+                f"    \"regal\": 5,\n"
+                f"    \"justification\": \"...\"\n"
+                f"  }},\n"
+                f"  ...\n"
+                f"]\n"
             )
 
             response = self.language_model.generate(
                 prompt=prompt,
-                max_tokens=150,
+                max_tokens=800,
                 temperature=0.5,
                 top_p=0.9,
                 n=1,
                 stop=None
             ).strip()
 
-            # Process the response to extract clean keywords
-            keywords = [
-                keyword.strip().lower()
-                for keyword in response.split('\n')
-                if keyword.strip() and not keyword.startswith(('-', '*', '•', '1.', '2.'))
-            ]
-            
-            # Remove duplicates while preserving order
-            seen = set()
-            unique_keywords = [x for x in keywords if not (x in seen or seen.add(x))]
+            # Parse the response to extract keywords data
+            keywords_data = json.loads(response)
 
-            logger.info(f"Extracted {len(unique_keywords)} unique keywords for the quote.")
-            return {"keywords": unique_keywords}
-            
+            # Validate the parsed data
+            if not isinstance(keywords_data, list):
+                logger.error("The response is not a list of keywords data.")
+                return {"keywords_data": []}
+
+            logger.info(f"Extracted {len(keywords_data)} keywords with 6Rs scores.")
+            return {"keywords_data": keywords_data}
+                
         except Exception as e:
             logger.error(f"Error in keyword extraction: {e}", exc_info=True)
-            return {"keywords": []}
+            return {"keywords_data": []}
 
 def load_quotations(input_file: str) -> List[Dict[str, str]]:
     """Load quotations from input JSON file."""
@@ -81,11 +88,11 @@ def load_quotations(input_file: str) -> List[Dict[str, str]]:
         return []
 
 def save_keywords(keywords_mapping: List[Dict[str, Any]], output_file: str):
-    """Save extracted keywords mapping to output JSON file."""
+    """Save extracted keywords data mapping to output JSON file."""
     try:
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(keywords_mapping, f, indent=4)
-        logger.info(f"Keywords mapping saved to {output_file}")
+        logger.info(f"Keywords data mapping saved to {output_file}")
     except Exception as e:
         logger.error(f"Error saving keywords to {output_file}: {e}")

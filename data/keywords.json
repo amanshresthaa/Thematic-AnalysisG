@@ -1,398 +1,1073 @@
 [
     {
         "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "selling",
-            "individually",
-            "come together",
-            "organisation",
-            "potatoes",
-            "bought centrally",
-            "marketed",
-            "collective effort"
+        "keywords_data": [
+            {
+                "keyword": "collaboration",
+                "6Rs_score": 5,
+                "justification": "The act of coming together to work towards a common goal is central to the quote, highlighting the importance of teamwork."
+            },
+            {
+                "keyword": "organization",
+                "6Rs_score": 4,
+                "justification": "The formation of an organization is a key theme, indicating structure and collective effort."
+            },
+            {
+                "keyword": "centralized purchasing",
+                "6Rs_score": 5,
+                "justification": "The focus on buying potatoes centrally emphasizes efficiency and collective bargaining power."
+            },
+            {
+                "keyword": "marketing",
+                "6Rs_score": 4,
+                "justification": "The mention of marketing together suggests a strategic approach to promoting their products."
+            },
+            {
+                "keyword": "individual selling",
+                "6Rs_score": 3,
+                "justification": "The contrast between individual efforts and collective action highlights the transition from solo to group dynamics."
+            }
         ]
     },
     {
         "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
-        "keywords": [
-            "cut out the middle man",
-            "money",
-            "farm",
-            "direct transactions",
-            "financial benefits"
+        "keywords_data": [
+            {
+                "keyword": "middle man",
+                "6Rs_score": 5,
+                "justification": "This term is relevant as it directly relates to the concept of intermediaries in trade, which is central to the quote."
+            },
+            {
+                "keyword": "farm",
+                "6Rs_score": 6,
+                "justification": "The farm is the primary subject of the quote, making it highly relevant and significant in the context of agricultural economics."
+            },
+            {
+                "keyword": "money",
+                "6Rs_score": 4,
+                "justification": "Money is a crucial element in the discussion of economic returns, though it is a more general term."
+            },
+            {
+                "keyword": "cut out",
+                "6Rs_score": 3,
+                "justification": "This phrase indicates the action of removing intermediaries, which is relevant but less specific than other keywords."
+            },
+            {
+                "keyword": "direct trade",
+                "6Rs_score": 5,
+                "justification": "This concept is implied in the quote and is relevant to the idea of returning profits directly to the farm."
+            }
         ]
     },
     {
         "quote": "we supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people.",
-        "keywords": [
-            "factories",
-            "Walkers",
-            "McCains",
-            "Seabrooks",
-            "crisps",
-            "supply"
+        "keywords_data": [
+            {
+                "keyword": "factories",
+                "6Rs_score": 5,
+                "justification": "Central to the supply chain in the context of food production."
+            },
+            {
+                "keyword": "Walkers",
+                "6Rs_score": 6,
+                "justification": "A major brand in the crisps market, representing a significant player."
+            },
+            {
+                "keyword": "McCains",
+                "6Rs_score": 6,
+                "justification": "Another key brand in the industry, known for its frozen and snack products."
+            },
+            {
+                "keyword": "Seabrooks",
+                "6Rs_score": 5,
+                "justification": "A notable brand in the crisps sector, contributing to market diversity."
+            },
+            {
+                "keyword": "crisps",
+                "6Rs_score": 6,
+                "justification": "The primary product category being discussed, essential for understanding the market."
+            }
         ]
     },
     {
         "quote": "our customers basically tore up in front of us. For supply, we\u2019ve basically not been able to move the tonnage required.",
-        "keywords": [
-            "customers",
-            "supply",
-            "tonnage",
-            "dissatisfaction",
-            "logistics"
+        "keywords_data": [
+            {
+                "keyword": "customer dissatisfaction",
+                "6Rs_score": 5,
+                "justification": "This term is highly relevant as it directly reflects the emotional response of customers as described in the quote."
+            },
+            {
+                "keyword": "supply chain challenges",
+                "6Rs_score": 4,
+                "justification": "This phrase relates to the broader context of the issues faced in managing supply, which is a central theme in the quote."
+            },
+            {
+                "keyword": "tonnage requirements",
+                "6Rs_score": 4,
+                "justification": "This term is crucial as it specifies the quantitative aspect of the supply issue mentioned in the quote."
+            }
         ]
     },
     {
         "quote": "we had a lot of potatoes sat there with no homes.",
-        "keywords": [
-            "potatoes",
-            "homes",
-            "abundance",
-            "neglect",
-            "utilization"
+        "keywords_data": [
+            {
+                "keyword": "potatoes",
+                "6Rs_score": 4,
+                "justification": "Directly mentioned in the quote, representing the subject of abundance."
+            },
+            {
+                "keyword": "abundance",
+                "6Rs_score": 3,
+                "justification": "Implied by 'a lot of' indicating a surplus of potatoes."
+            },
+            {
+                "keyword": "neglect",
+                "6Rs_score": 4,
+                "justification": "The phrase 'with no homes' suggests a lack of care or purpose."
+            }
         ]
     },
     {
         "quote": "So, we buy from other farms as well, which supply at different times of year, it varies.",
-        "keywords": [
-            "buy",
-            "farms",
-            "supply",
-            "different times",
-            "year",
-            "varies"
+        "keywords_data": [
+            {
+                "keyword": "sourcing",
+                "6Rs_score": 5,
+                "justification": "The term 'sourcing' is highly relevant as it directly relates to the act of buying from other farms, which is the main focus of the quote."
+            },
+            {
+                "keyword": "seasonal variability",
+                "6Rs_score": 4,
+                "justification": "This phrase captures the essence of the timing aspect mentioned in the quote, indicating how supply changes throughout the year."
+            },
+            {
+                "keyword": "agriculture",
+                "6Rs_score": 3,
+                "justification": "While not explicitly stated, the context of the quote implies a connection to agricultural practices, making it a relevant keyword."
+            },
+            {
+                "keyword": "supply chain",
+                "6Rs_score": 4,
+                "justification": "The concept of a supply chain is integral to understanding how products are sourced from different farms, aligning well with the quote's content."
+            },
+            {
+                "keyword": "farm diversity",
+                "6Rs_score": 3,
+                "justification": "The mention of buying from 'other farms' suggests a diversity in sourcing, which is an important aspect of agricultural supply."
+            }
         ]
     },
     {
         "quote": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
-        "keywords": [
-            "market",
-            "opportunity",
-            "requires",
-            "grab"
+        "keywords_data": [
+            {
+                "keyword": "market",
+                "6Rs_score": 5,
+                "justification": "The term 'market' is central to understanding the context of the quotation, indicating the environment in which opportunities arise."
+            },
+            {
+                "keyword": "opportunity",
+                "6Rs_score": 6,
+                "justification": "The word 'opportunity' is crucial as it highlights the need to act when favorable conditions present themselves, which is a key theme in the quote."
+            },
+            {
+                "keyword": "requires",
+                "6Rs_score": 4,
+                "justification": "The term 'requires' suggests a conditional aspect of market behavior, indicating that actions are taken based on specific needs."
+            },
+            {
+                "keyword": "grab",
+                "6Rs_score": 3,
+                "justification": "The verb 'grab' conveys urgency and the proactive nature of seizing opportunities, which is an important aspect of the quote."
+            },
+            {
+                "keyword": "regular",
+                "6Rs_score": 2,
+                "justification": "The term 'regular' contrasts with the notion of seizing opportunities, indicating that such actions are not commonplace."
+            }
         ]
     },
     {
         "quote": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
-        "keywords": [
-            "trader",
-            "burden",
-            "individual farms",
-            "customers",
-            "engagement"
+        "keywords_data": [
+            {
+                "keyword": "trader",
+                "6Rs_score": 5,
+                "justification": "The trader is central to the quotation, representing the solution to the burden faced by farms."
+            },
+            {
+                "keyword": "individual farms",
+                "6Rs_score": 4,
+                "justification": "Individual farms are the primary subjects affected by the trader's involvement, indicating their importance in the context."
+            },
+            {
+                "keyword": "customers",
+                "6Rs_score": 4,
+                "justification": "Customers are the target audience for the trader's efforts, emphasizing the relationship being developed."
+            }
         ]
     },
     {
         "quote": "And obviously, we want to supply the factories all year round, and they want a supply all year round.",
-        "keywords": [
-            "supply",
-            "factories",
-            "year round",
-            "continuous provision"
+        "keywords_data": [
+            {
+                "keyword": "supply",
+                "6Rs_score": 5,
+                "justification": "The term 'supply' is central to the quotation, indicating the primary focus of the discussion."
+            },
+            {
+                "keyword": "factories",
+                "6Rs_score": 4,
+                "justification": "The mention of 'factories' relates directly to the context of production and the need for a consistent supply."
+            },
+            {
+                "keyword": "year round",
+                "6Rs_score": 5,
+                "justification": "The phrase 'year round' highlights the necessity for continuous operation and supply, which is a key theme."
+            },
+            {
+                "keyword": "reliability",
+                "6Rs_score": 3,
+                "justification": "Implied in the need for a consistent supply, 'reliability' is a crucial aspect of supply chain management."
+            },
+            {
+                "keyword": "consistency",
+                "6Rs_score": 3,
+                "justification": "The need for a supply 'all year round' suggests a focus on consistency in operations."
+            }
         ]
     },
     {
         "quote": "Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit.",
-        "keywords": [
-            "potatoes",
-            "export",
-            "Poland",
-            "Ireland",
-            "Belgium",
-            "surplus",
-            "agriculture"
+        "keywords_data": [
+            {
+                "keyword": "potatoes",
+                "6Rs_score": 5,
+                "justification": "Central to the quote, representing the main subject of discussion."
+            },
+            {
+                "keyword": "export",
+                "6Rs_score": 4,
+                "justification": "Indicates the action being taken with the potatoes, crucial for understanding the economic aspect."
+            },
+            {
+                "keyword": "Poland",
+                "6Rs_score": 3,
+                "justification": "One of the countries mentioned, relevant for geographical context."
+            },
+            {
+                "keyword": "Ireland",
+                "6Rs_score": 3,
+                "justification": "Another country mentioned, adding to the geographical relevance."
+            },
+            {
+                "keyword": "Belgium",
+                "6Rs_score": 3,
+                "justification": "Completes the list of countries involved in the export, important for understanding market reach."
+            }
         ]
     },
     {
         "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "selling",
-            "individually",
-            "come together",
-            "organisation",
-            "potatoes",
-            "bought centrally",
-            "marketed",
-            "collective effort"
+        "keywords_data": [
+            {
+                "keyword": "collaboration",
+                "6Rs_score": 5,
+                "justification": "The act of coming together to work towards a common goal is central to the quote, highlighting the importance of teamwork."
+            },
+            {
+                "keyword": "organization",
+                "6Rs_score": 4,
+                "justification": "The formation of an organization is a key theme, indicating structure and collective effort."
+            },
+            {
+                "keyword": "centralized purchasing",
+                "6Rs_score": 5,
+                "justification": "The focus on buying potatoes centrally emphasizes efficiency and collective bargaining power."
+            },
+            {
+                "keyword": "marketing",
+                "6Rs_score": 4,
+                "justification": "The mention of marketing together suggests a strategic approach to promoting their products."
+            },
+            {
+                "keyword": "individual selling",
+                "6Rs_score": 3,
+                "justification": "The contrast between individual efforts and collective action highlights the transition from solo to group dynamics."
+            }
         ]
     },
     {
         "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
-        "keywords": [
-            "cut out the middle man",
-            "money",
-            "farm",
-            "direct transactions",
-            "financial benefits"
+        "keywords_data": [
+            {
+                "keyword": "middle man",
+                "6Rs_score": 5,
+                "justification": "This term is relevant as it directly relates to the concept of intermediaries in trade, which is central to the quote."
+            },
+            {
+                "keyword": "farm",
+                "6Rs_score": 6,
+                "justification": "The farm is the primary subject of the quote, making it highly relevant and significant in the context of agricultural economics."
+            },
+            {
+                "keyword": "money",
+                "6Rs_score": 4,
+                "justification": "Money is a crucial element in the discussion of economic returns, though it is a more general term."
+            },
+            {
+                "keyword": "cut out",
+                "6Rs_score": 3,
+                "justification": "This phrase indicates the action of removing intermediaries, which is relevant but less specific than other keywords."
+            },
+            {
+                "keyword": "direct trade",
+                "6Rs_score": 5,
+                "justification": "This concept is implied in the quote and is relevant to the idea of returning profits directly to the farm."
+            }
         ]
     },
     {
         "quote": "the money going back to farmers \u2013 that\u2019s what\u2019s not been happening?",
-        "keywords": [
-            "money",
-            "farmers",
-            "financial support",
-            "lack of action"
+        "keywords_data": [
+            {
+                "keyword": "money",
+                "6Rs_score": 5,
+                "justification": "Highly relevant as it directly pertains to the financial aspect of farming."
+            },
+            {
+                "keyword": "farmers",
+                "6Rs_score": 6,
+                "justification": "Central to the quote, representing the stakeholders affected by the financial issues."
+            },
+            {
+                "keyword": "financial support",
+                "6Rs_score": 4,
+                "justification": "Relevant to the context of the quote, indicating the need for better financial mechanisms."
+            },
+            {
+                "keyword": "disconnect",
+                "6Rs_score": 3,
+                "justification": "Highlights the issue of money not reaching farmers, indicating a gap in the system."
+            },
+            {
+                "keyword": "agriculture",
+                "6Rs_score": 4,
+                "justification": "Relevant as it encompasses the broader context of the farming industry."
+            },
+            {
+                "keyword": "economic flow",
+                "6Rs_score": 3,
+                "justification": "Pertains to the movement of money within the agricultural sector, relevant to the quote's theme."
+            }
         ]
     },
     {
         "quote": "there\u2019s more competition in the area.",
-        "keywords": [
-            "competition",
-            "area",
-            "market",
-            "dynamics"
+        "keywords_data": [
+            {
+                "keyword": "competition",
+                "6Rs_score": 5,
+                "justification": "Highly relevant as it directly addresses the competitive dynamics in the area."
+            },
+            {
+                "keyword": "area",
+                "6Rs_score": 4,
+                "justification": "Relevant in providing context to the competition, indicating a specific location or market."
+            }
         ]
     },
     {
         "quote": "the trouble with all these ideas is that they cost a lot of money.",
-        "keywords": [
-            "trouble",
-            "ideas",
-            "cost",
-            "money"
+        "keywords_data": [
+            {
+                "keyword": "cost",
+                "6Rs_score": 5,
+                "justification": "Directly relates to the financial implications mentioned in the quote."
+            },
+            {
+                "keyword": "money",
+                "6Rs_score": 5,
+                "justification": "Essential to understanding the financial burden associated with the ideas."
+            },
+            {
+                "keyword": "ideas",
+                "6Rs_score": 4,
+                "justification": "Represents the subject matter being discussed, though less specific than the financial terms."
+            }
         ]
     },
     {
         "quote": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
-        "keywords": [
-            "supplier",
-            "farmers",
-            "demand",
-            "supply chain",
-            "problems",
-            "important"
+        "keywords_data": [
+            {
+                "keyword": "suppliers",
+                "6Rs_score": 5,
+                "justification": "Suppliers are crucial for maintaining the supply chain and directly relate to the demand discussed in the quote."
+            },
+            {
+                "keyword": "farmers",
+                "6Rs_score": 5,
+                "justification": "Farmers are essential providers of goods, and their role is highlighted as critical in the context of supply."
+            },
+            {
+                "keyword": "demand",
+                "6Rs_score": 4,
+                "justification": "Demand is a central theme in the quote, indicating the need for sufficient supply to meet market needs."
+            },
+            {
+                "keyword": "problems",
+                "6Rs_score": 4,
+                "justification": "The mention of problems emphasizes the consequences of inadequate supply, making it a relevant keyword."
+            }
         ]
     },
     {
         "quote": "There\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group.",
-        "keywords": [
-            "farms",
-            "suppliers",
-            "contractual",
-            "spuds",
-            "agriculture",
-            "supply chain"
+        "keywords_data": [
+            {
+                "keyword": "direct suppliers",
+                "6Rs_score": 5,
+                "justification": "This term is highly relevant as it directly addresses the source of supply in the context of the quotation."
+            },
+            {
+                "keyword": "contractual farms",
+                "6Rs_score": 4,
+                "justification": "This keyword is relevant as it highlights the nature of the relationship between the supplier and the group, indicating a formal agreement."
+            },
+            {
+                "keyword": "guaranteeing supply",
+                "6Rs_score": 5,
+                "justification": "This phrase is crucial as it emphasizes the assurance aspect of the supply chain, which is a key point in the quotation."
+            },
+            {
+                "keyword": "spuds",
+                "6Rs_score": 3,
+                "justification": "While relevant, this term is more specific and less impactful than the broader concepts of supply and contracts."
+            },
+            {
+                "keyword": "group",
+                "6Rs_score": 3,
+                "justification": "This term is relevant as it refers to the collective entity involved in the supply chain, but lacks specificity."
+            }
         ]
     },
     {
         "quote": "What we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "organisation",
-            "potatoes",
-            "centralized buying",
-            "marketing",
-            "collaboration",
-            "collective action"
+        "keywords_data": [
+            {
+                "keyword": "organization",
+                "6Rs_score": 5,
+                "justification": "The concept of forming an organization is central to the quote, indicating a structured approach to collective action."
+            },
+            {
+                "keyword": "centralized buying",
+                "6Rs_score": 4,
+                "justification": "Centralized buying is a key strategy mentioned, highlighting efficiency and collective bargaining power."
+            },
+            {
+                "keyword": "marketing",
+                "6Rs_score": 4,
+                "justification": "Marketing is essential for the success of the organization, as it pertains to how the potatoes will be sold."
+            },
+            {
+                "keyword": "collaboration",
+                "6Rs_score": 5,
+                "justification": "The quote emphasizes coming together, which is a fundamental aspect of collaboration among stakeholders."
+            },
+            {
+                "keyword": "potatoes",
+                "6Rs_score": 3,
+                "justification": "Potatoes are the primary product discussed, making it relevant but less broad in application."
+            }
         ]
     },
     {
         "quote": "We brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation.",
-        "keywords": [
-            "trader",
-            "burden",
-            "individual farms",
-            "customers",
-            "organisation"
+        "keywords_data": [
+            {
+                "keyword": "trader",
+                "6Rs_score": 5,
+                "justification": "The trader is central to the process described, acting as a mediator between farms and customers."
+            },
+            {
+                "keyword": "customers",
+                "6Rs_score": 5,
+                "justification": "Customers are a key focus of the quotation, indicating their preferences and needs."
+            },
+            {
+                "keyword": "individual farms",
+                "6Rs_score": 4,
+                "justification": "The mention of individual farms highlights the source of the products and their relationship with the trader."
+            },
+            {
+                "keyword": "organization",
+                "6Rs_score": 4,
+                "justification": "The preference for dealing with an organization rather than individual farms is a significant theme."
+            },
+            {
+                "keyword": "burden",
+                "6Rs_score": 3,
+                "justification": "The term 'burden' reflects the challenges faced by individual farms in dealing directly with customers."
+            },
+            {
+                "keyword": "relationship",
+                "6Rs_score": 4,
+                "justification": "The relationship dynamics between farms, traders, and customers are crucial to understanding the context."
+            }
         ]
     },
     {
         "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "selling",
-            "individually",
-            "come together",
-            "organisation",
-            "potatoes",
-            "bought centrally",
-            "marketed",
-            "collective effort"
+        "keywords_data": [
+            {
+                "keyword": "collaboration",
+                "6Rs_score": 5,
+                "justification": "The act of coming together to work towards a common goal is central to the quote, highlighting the importance of teamwork."
+            },
+            {
+                "keyword": "organization",
+                "6Rs_score": 4,
+                "justification": "The formation of an organization is a key theme, indicating structure and collective effort."
+            },
+            {
+                "keyword": "centralized purchasing",
+                "6Rs_score": 5,
+                "justification": "The focus on buying potatoes centrally emphasizes efficiency and collective bargaining power."
+            },
+            {
+                "keyword": "marketing",
+                "6Rs_score": 4,
+                "justification": "The mention of marketing together suggests a strategic approach to promoting their products."
+            },
+            {
+                "keyword": "individual selling",
+                "6Rs_score": 3,
+                "justification": "The contrast between individual efforts and collective action highlights the transition from solo to group dynamics."
+            }
         ]
     },
     {
         "quote": "Sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems"
+        "keywords_data": [
+            {
+                "keyword": "Sustainability",
+                "6Rs_score": 10,
+                "justification": "Central theme of the quote; highly relevant to environmental and social issues."
+            },
+            {
+                "keyword": "Key",
+                "6Rs_score": 8,
+                "justification": "Indicates the importance and foundational nature of sustainability in various contexts."
+            },
+            {
+                "keyword": "Problems",
+                "6Rs_score": 7,
+                "justification": "Highlights the negative consequences of failing to prioritize sustainability."
+            }
         ]
     },
     {
         "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-        "keywords": [
-            "customer",
-            "farm",
-            "proximity",
-            "benefits"
+        "keywords_data": [
+            {
+                "keyword": "customer proximity",
+                "6Rs_score": 5,
+                "justification": "This concept is central to the quote, highlighting the importance of being close to customers to understand their needs."
+            },
+            {
+                "keyword": "farm",
+                "6Rs_score": 4,
+                "justification": "The mention of 'farm' indicates a return to agricultural roots, which is relevant to the context of production and sustainability."
+            },
+            {
+                "keyword": "engagement",
+                "6Rs_score": 4,
+                "justification": "Engagement with customers is implied, suggesting that closer relationships can lead to better outcomes."
+            },
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 3,
+                "justification": "The quote hints at sustainable practices by referencing a return to the farm, which can be linked to sustainable agriculture."
+            },
+            {
+                "keyword": "customer needs",
+                "6Rs_score": 5,
+                "justification": "Understanding customer needs is crucial for any business, and this quote suggests that proximity aids in this understanding."
+            }
         ]
     },
     {
         "quote": "We need to move closer to the end product where we can sustain a steady, average price for sustainability.",
-        "keywords": [
-            "end product",
-            "steady price",
-            "average price",
-            "sustainability"
+        "keywords_data": [
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 5,
+                "justification": "The term is central to the quote, indicating the focus on sustainable practices in product development."
+            },
+            {
+                "keyword": "steady price",
+                "6Rs_score": 4,
+                "justification": "This phrase highlights the importance of maintaining consistent pricing, which is crucial for market stability."
+            },
+            {
+                "keyword": "end product",
+                "6Rs_score": 4,
+                "justification": "Refers to the final outcome of the production process, emphasizing the goal of achieving sustainability."
+            },
+            {
+                "keyword": "average price",
+                "6Rs_score": 3,
+                "justification": "Indicates the need for pricing strategies that support sustainability while being competitive."
+            },
+            {
+                "keyword": "product development",
+                "6Rs_score": 3,
+                "justification": "Relates to the process of creating products that are sustainable and economically viable."
+            }
         ]
     },
     {
         "quote": "I think rather than just selling the potato, we\u2019ll slice it, and things like that.",
-        "keywords": [
-            "selling",
-            "potato",
-            "slice",
-            "transformation",
-            "value addition"
+        "keywords_data": [
+            {
+                "keyword": "potato",
+                "6Rs_score": 3,
+                "justification": "The potato is the primary product being discussed, making it relevant to the theme of food processing."
+            },
+            {
+                "keyword": "slicing",
+                "6Rs_score": 4,
+                "justification": "Slicing represents a method of value addition, indicating innovation in product handling."
+            },
+            {
+                "keyword": "value addition",
+                "6Rs_score": 5,
+                "justification": "This concept is central to the quote, highlighting the transformation of a basic product into something more appealing."
+            },
+            {
+                "keyword": "innovation",
+                "6Rs_score": 4,
+                "justification": "The approach of changing how the potato is sold reflects innovative thinking in the food industry."
+            }
         ]
     },
     {
         "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
-        "keywords": [
-            "manufacturing capacity",
-            "utilization",
-            "local resources",
-            "potatoes",
-            "importation",
-            "ready-made meals"
+        "keywords_data": [
+            {
+                "keyword": "manufacturing capacity",
+                "6Rs_score": 5,
+                "justification": "This term is highly relevant as it directly addresses the need for enhancing local production capabilities."
+            },
+            {
+                "keyword": "resource utilization",
+                "6Rs_score": 4,
+                "justification": "This concept is relevant and resonates with the idea of making better use of available resources, which is a central theme of the quote."
+            },
+            {
+                "keyword": "local production",
+                "6Rs_score": 4,
+                "justification": "This keyword is relevant as it emphasizes the importance of producing goods within the country rather than relying on imports."
+            },
+            {
+                "keyword": "potatoes",
+                "6Rs_score": 3,
+                "justification": "While specific, this keyword is relevant to the context of the quote, highlighting the product in question."
+            },
+            {
+                "keyword": "import dependency",
+                "6Rs_score": 3,
+                "justification": "This term reflects the issue of relying on imported goods, which is a concern raised in the quote."
+            },
+            {
+                "keyword": "ready-made meals",
+                "6Rs_score": 2,
+                "justification": "This keyword is less central but still relevant as it relates to the end use of the imported potatoes."
+            }
         ]
     },
     {
         "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
-        "keywords": [
-            "stability",
-            "agriculture",
-            "farming",
-            "farmers",
-            "potatoes"
+        "keywords_data": [
+            {
+                "keyword": "stability",
+                "6Rs_score": 5,
+                "justification": "The term 'stability' is central to the quote, representing the contrast between organizational and agricultural stability."
+            },
+            {
+                "keyword": "agriculture",
+                "6Rs_score": 5,
+                "justification": "Agriculture is a key theme in the quote, highlighting the disastrous state of farming."
+            },
+            {
+                "keyword": "farmers",
+                "6Rs_score": 5,
+                "justification": "Farmers are essential to the agricultural system and are mentioned as crucial for stability."
+            },
+            {
+                "keyword": "potatoes",
+                "6Rs_score": 4,
+                "justification": "Potatoes are specifically mentioned as a vital agricultural product, representing the importance of crops."
+            },
+            {
+                "keyword": "supply",
+                "6Rs_score": 4,
+                "justification": "The concept of supply is critical in understanding the relationship between agriculture and stability."
+            },
+            {
+                "keyword": "disastrous",
+                "6Rs_score": 3,
+                "justification": "The term 'disastrous' describes the current state of agriculture, emphasizing the urgency of the issue."
+            }
         ]
     },
     {
         "quote": "Money is key.",
-        "keywords": [
-            "money",
-            "key",
-            "importance",
-            "financial significance"
+        "keywords_data": [
+            {
+                "keyword": "money",
+                "6Rs_score": 5,
+                "justification": "Highly relevant and robust concept in economics and social discussions."
+            },
+            {
+                "keyword": "key",
+                "6Rs_score": 4,
+                "justification": "Represents importance and necessity, adding a unique perspective to the common concept of money."
+            }
         ]
     },
     {
         "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems",
-            "importance",
-            "solution"
+        "keywords_data": [
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 10,
+                "justification": "Sustainability is the central theme of the quote, indicating its critical role in addressing future challenges."
+            },
+            {
+                "keyword": "key",
+                "6Rs_score": 8,
+                "justification": "The term 'key' signifies the importance of sustainability as a foundational element in problem-solving."
+            },
+            {
+                "keyword": "problems",
+                "6Rs_score": 7,
+                "justification": "The mention of 'problems' highlights the consequences of neglecting sustainability, making it a relevant keyword."
+            }
         ]
     },
     {
         "quote": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
-        "keywords": [
-            "bottle-neck",
-            "processing capacity",
-            "UK"
+        "keywords_data": [
+            {
+                "keyword": "processing capacity",
+                "6Rs_score": 5,
+                "justification": "This term is highly relevant as it directly addresses the main concern in the quote regarding operational limitations."
+            },
+            {
+                "keyword": "bottle-neck",
+                "6Rs_score": 4,
+                "justification": "This term is relevant and indicates a critical point of constraint in the process, which is essential for understanding operational challenges."
+            },
+            {
+                "keyword": "UK",
+                "6Rs_score": 3,
+                "justification": "The geographical context is important for the analysis, making it relevant to the discussion of processing capacity."
+            }
         ]
     },
     {
         "quote": "From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.",
-        "keywords": [
-            "growers",
-            "risk",
-            "collaboration",
-            "organization",
-            "perspective",
-            "distribution"
+        "keywords_data": [
+            {
+                "keyword": "Growers",
+                "6Rs_scores": {
+                    "Relevance": 5,
+                    "Reliability": 5,
+                    "Reach": 5,
+                    "Rigor": 4,
+                    "Replicability": 5,
+                    "Resilience": 4
+                },
+                "justification": "Central to the quote, emphasizing the importance of involving more growers to mitigate risk."
+            },
+            {
+                "keyword": "Risk",
+                "6Rs_scores": {
+                    "Relevance": 5,
+                    "Reliability": 5,
+                    "Reach": 5,
+                    "Rigor": 4,
+                    "Replicability": 5,
+                    "Resilience": 4
+                },
+                "justification": "A key concern in agriculture, highlighting the need for effective risk management strategies."
+            },
+            {
+                "keyword": "Collaboration",
+                "6Rs_scores": {
+                    "Relevance": 5,
+                    "Reliability": 5,
+                    "Reach": 5,
+                    "Rigor": 4,
+                    "Replicability": 5,
+                    "Resilience": 4
+                },
+                "justification": "Highlights the cooperative approach necessary for spreading risk among growers."
+            }
         ]
     },
     {
         "quote": "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing.",
-        "keywords": [
-            "contingency plan",
-            "farm",
-            "reduce",
-            "risk",
-            "losses",
-            "downscaling"
+        "keywords_data": [
+            {
+                "keyword": "contingency plan",
+                "6Rs_score": 5,
+                "justification": "This term is highly relevant as it directly relates to the strategy being discussed in the quote, indicating a proactive approach to managing potential risks."
+            },
+            {
+                "keyword": "reduce",
+                "6Rs_score": 6,
+                "justification": "The action of reducing is central to the quote, reflecting the necessity to downscale operations to prevent losses, making it a critical keyword."
+            },
+            {
+                "keyword": "risk management",
+                "6Rs_score": 5,
+                "justification": "This concept is implied in the need to avoid losses, highlighting the importance of managing risks in agricultural practices."
+            },
+            {
+                "keyword": "downscaling",
+                "6Rs_score": 4,
+                "justification": "Downscaling is a specific action mentioned in the quote, relevant to the operational adjustments being made in response to risk."
+            },
+            {
+                "keyword": "losses",
+                "6Rs_score": 4,
+                "justification": "The mention of losses underscores the consequences of not implementing the contingency plan, making it a significant keyword."
+            },
+            {
+                "keyword": "farming",
+                "6Rs_score": 3,
+                "justification": "While farming is the broader context of the quote, it is less specific than the other keywords but still relevant to the overall theme."
+            }
         ]
     },
     {
         "quote": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it? Exactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.",
-        "keywords": [
-            "awareness",
-            "issue",
-            "understanding",
-            "action",
-            "forward"
+        "keywords_data": [
+            {
+                "keyword": "awareness",
+                "6Rs_score": 5,
+                "justification": "The speaker acknowledges awareness of the issue, which is crucial for understanding and addressing it."
+            },
+            {
+                "keyword": "issue identification",
+                "6Rs_score": 6,
+                "justification": "The quote explicitly mentions recognizing the issue, highlighting its importance in the context of problem-solving."
+            },
+            {
+                "keyword": "limitations",
+                "6Rs_score": 4,
+                "justification": "The mention of being 'not in a position personally to do much about it' indicates an awareness of personal limitations in addressing the issue."
+            },
+            {
+                "keyword": "potential for action",
+                "6Rs_score": 5,
+                "justification": "The phrase 'where you\u2019d take it forward' suggests a forward-looking perspective and the possibility of future actions."
+            }
         ]
     },
     {
         "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous.",
-        "keywords": [
-            "stability",
-            "organization",
-            "agriculture",
-            "farming",
-            "disastrous"
+        "keywords_data": [
+            {
+                "keyword": "stability",
+                "6Rs_score": 5,
+                "justification": "Relevance: Directly addresses the state of the organization and agriculture. Relation: Connects the two contrasting states. Representation: Represents the overall theme of stability vs instability."
+            },
+            {
+                "keyword": "agriculture",
+                "6Rs_score": 4,
+                "justification": "Relevance: Central to the discussion of farming stability. Relation: Related to the context of farming. Representation: Represents a key sector affected by stability issues."
+            },
+            {
+                "keyword": "farming",
+                "6Rs_score": 4,
+                "justification": "Relevance: Directly mentioned in the quote. Relation: Tied to the concept of agricultural stability. Representation: Represents the practical aspect of agriculture."
+            }
         ]
     },
     {
         "quote": "Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
-        "keywords": [
-            "farmers",
-            "potatoes",
-            "supply",
-            "stability",
-            "manufacturing"
+        "keywords_data": [
+            {
+                "keyword": "farmers",
+                "6Rs_score": 5,
+                "justification": "Farmers are essential for the supply chain, directly impacting stability in manufacturing."
+            },
+            {
+                "keyword": "potatoes",
+                "6Rs_score": 4,
+                "justification": "Potatoes represent a key agricultural product that contributes to the overall supply chain."
+            },
+            {
+                "keyword": "manufacturing",
+                "6Rs_score": 5,
+                "justification": "Manufacturing is the sector being affected by the stability of agricultural supply."
+            },
+            {
+                "keyword": "supply chain",
+                "6Rs_score": 4,
+                "justification": "The supply chain is crucial for linking farmers to manufacturing, highlighting interdependence."
+            },
+            {
+                "keyword": "stability",
+                "6Rs_score": 5,
+                "justification": "Stability is a central theme in the quote, indicating the need for reliable agricultural supply."
+            }
         ]
     },
     {
         "quote": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying.",
-        "keywords": [
-            "manufacturers",
-            "stop",
-            "kill",
-            "worrying"
+        "keywords_data": [
+            {
+                "keyword": "manufacturers",
+                "6Rs_score": 5,
+                "justification": "The term 'manufacturers' is central to the quote, indicating the subject of concern regarding their operations."
+            },
+            {
+                "keyword": "stop",
+                "6Rs_score": 4,
+                "justification": "The action of 'stop' signifies a critical turning point that could lead to significant consequences."
+            },
+            {
+                "keyword": "kill",
+                "6Rs_score": 5,
+                "justification": "The word 'kill' conveys the severity of the potential outcome, emphasizing the urgency of the situation."
+            },
+            {
+                "keyword": "worrying",
+                "6Rs_score": 4,
+                "justification": "The term 'worrying' reflects the emotional response to the situation, highlighting the concern expressed in the quote."
+            },
+            {
+                "keyword": "consequences",
+                "6Rs_score": 3,
+                "justification": "While not directly stated, the implication of 'consequences' is inherent in the concern about stopping manufacturing."
+            }
         ]
     },
     {
         "quote": "So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?",
-        "keywords": [
-            "investment",
-            "food chain",
-            "shorter",
-            "efficiency",
-            "sustainability"
+        "keywords_data": [
+            {
+                "keyword": "investment",
+                "6Rs_score": 5,
+                "justification": "Investment is crucial for improving food systems, making it highly relevant and impactful."
+            },
+            {
+                "keyword": "food chain",
+                "6Rs_score": 4,
+                "justification": "The concept of food chains is central to the discussion of sustainability and efficiency."
+            },
+            {
+                "keyword": "shorter",
+                "6Rs_score": 3,
+                "justification": "The idea of shortening food chains relates to efficiency and sustainability, making it relevant."
+            },
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 4,
+                "justification": "Sustainability is a key theme in discussions about food systems and investment."
+            },
+            {
+                "keyword": "efficiency",
+                "6Rs_score": 3,
+                "justification": "Efficiency in food systems is implied by the need to shorten food chains."
+            }
         ]
     },
     {
         "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems",
-            "importance",
-            "solution"
+        "keywords_data": [
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 10,
+                "justification": "Sustainability is the central theme of the quote, indicating its critical role in addressing future challenges."
+            },
+            {
+                "keyword": "key",
+                "6Rs_score": 8,
+                "justification": "The term 'key' signifies the importance of sustainability as a foundational element in problem-solving."
+            },
+            {
+                "keyword": "problems",
+                "6Rs_score": 7,
+                "justification": "The mention of 'problems' highlights the consequences of neglecting sustainability, making it a relevant keyword."
+            }
         ]
     },
     {
         "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-        "keywords": [
-            "customer",
-            "farm",
-            "proximity",
-            "benefits"
+        "keywords_data": [
+            {
+                "keyword": "customer proximity",
+                "6Rs_score": 5,
+                "justification": "This concept is central to the quote, highlighting the importance of being close to customers to understand their needs."
+            },
+            {
+                "keyword": "farm",
+                "6Rs_score": 4,
+                "justification": "The mention of 'farm' indicates a return to agricultural roots, which is relevant to the context of production and sustainability."
+            },
+            {
+                "keyword": "engagement",
+                "6Rs_score": 4,
+                "justification": "Engagement with customers is implied, suggesting that closer relationships can lead to better outcomes."
+            },
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 3,
+                "justification": "The quote hints at sustainable practices by referencing a return to the farm, which can be linked to sustainable agriculture."
+            },
+            {
+                "keyword": "customer needs",
+                "6Rs_score": 5,
+                "justification": "Understanding customer needs is crucial for any business, and this quote suggests that proximity aids in this understanding."
+            }
         ]
     },
     {
         "quote": "We need to be sourcing more locally and supporting more local businesses \u2013 that\u2019s a must in every sector we go to.",
-        "keywords": [
-            "sourcing",
-            "locally",
-            "supporting",
-            "local businesses",
-            "must",
-            "every sector"
+        "keywords_data": [
+            {
+                "keyword": "local sourcing",
+                "6Rs_score": 5,
+                "justification": "This term is highly relevant as it directly addresses the need for sourcing products and services from local suppliers, which is a central theme of the quote."
+            },
+            {
+                "keyword": "supporting local businesses",
+                "6Rs_score": 5,
+                "justification": "This phrase captures the essence of the quote's call to action, emphasizing the importance of local economic support, making it both relevant and resonant."
+            },
+            {
+                "keyword": "sustainability",
+                "6Rs_score": 4,
+                "justification": "While not explicitly mentioned, the concept of sustainability is implied through the focus on local sourcing and supporting local economies, making it a relevant theme."
+            },
+            {
+                "keyword": "economic development",
+                "6Rs_score": 4,
+                "justification": "The quote suggests a broader impact on economic development through local business support, which is a significant theme in discussions about community resilience."
+            },
+            {
+                "keyword": "community resilience",
+                "6Rs_score": 3,
+                "justification": "This concept relates to the ability of local businesses to thrive and support the community, aligning with the quote's emphasis on local sourcing."
+            }
         ]
     }
 ]
