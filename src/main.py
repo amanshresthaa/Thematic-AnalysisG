@@ -1,7 +1,7 @@
 import gc
 import logging
 import os
-from typing import List, Dict, Any
+from typing import Dict, Any
 import asyncio
 import dspy
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
@@ -108,10 +108,10 @@ class ThematicAnalysisPipeline:
             output_file=self.config['output_filename']
         )
 
-        # Extract keywords from quotations
+        # Extract keywords from quotations using the enhanced module
         keywords_result = self.keyword_module.process_file(
             input_file=self.config['quotation_file'],
-            research_objectives="Analyze and extract relevant themes and concepts"
+            research_objectives="Analyze and extract relevant themes and concepts using the 6Rs criteria"
         )
         
         if keywords_result.get("keywords"):
