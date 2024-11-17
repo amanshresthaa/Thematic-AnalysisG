@@ -49,10 +49,15 @@ class ThematicAnalysisPipeline:
         dspy.configure(lm=lm)
 
         # Initialize modules
-        self.quotation_module = SelectQuotationModule()
+        self.quotation_module = SelectQuotationModule(
+            contextual_db=self.contextual_db,
+            es_bm25=self.es_bm25
+        )
         self.keyword_module = KeywordExtractionModule(
             input_file=self.config['quotation_file'],
-            output_file=self.config['keywords_output_file']
+            output_file=self.config['keywords_output_file'],
+            contextual_db=self.contextual_db,
+            es_bm25=self.es_bm25
         )
 
         # Initialize QA module
