@@ -8,7 +8,6 @@ from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.retrieval.retrieval import multi_stage_retrieval
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.extract_keywords_module import KeywordExtractionModule
 from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
