@@ -1,0 +1,404 @@
+2024-11-17 14:18:00,822 - elastic_transport.transport - INFO - HEAD http://localhost:9200/contextual_bm25_index [status:404 duration:0.008s]
+2024-11-17 14:18:00,829 - root - WARNING - 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-17 14:18:00,829 - src.analysis.metrics - INFO - Comprehensive Assessment DSPy module initialized successfully.
+2024-11-17 14:18:00,831 - src.processing.answer_generator - INFO - Unoptimized DSPy module initialized successfully.
+2024-11-17 14:18:01,901 - elastic_transport.transport - INFO - HEAD http://localhost:9200/ [status:200 duration:0.005s]
+2024-11-17 14:18:01,903 - elastic_transport.transport - INFO - HEAD http://localhost:9200/contextual_bm25_index [status:404 duration:0.002s]
+2024-11-17 14:18:01,964 - elastic_transport.transport - INFO - PUT http://localhost:9200/contextual_bm25_index [status:200 duration:0.061s]
+2024-11-17 14:18:01,965 - src.core.elasticsearch_bm25 - INFO - Successfully configured index: contextual_bm25_index
+2024-11-17 14:18:03,341 - src.data.data_loader - INFO - Loaded JSON file 'data/codebase_chunks.json' successfully with 1 entries.
+2024-11-17 14:18:03,341 - src.data.data_loader - INFO - Loaded JSON file 'data/queries.json' successfully with 8 entries.
+2024-11-17 14:18:03,341 - src.processing.query_processor - INFO - Validated 8 queries out of 8 provided.
+2024-11-17 14:18:03,341 - src.data.data_loader - INFO - Loaded JSONL file 'data/evaluation_set.jsonl' with 3 entries successfully.
+2024-11-17 14:18:03,342 - src.core.contextual_vector_db - INFO - Loading vector database and FAISS index from disk.
+2024-11-17 14:18:03,342 - src.core.contextual_vector_db - INFO - Vector database metadata loaded from './data/contextual_db/contextual_vector_db.pkl' with 90 entries.
+2024-11-17 14:18:03,342 - src.core.contextual_vector_db - INFO - Chunks loaded: ['Document_chunk_1', 'Document_chunk_0', 'Document_chunk_3', 'Document_chunk_4', 'Document_chunk_2', 'Document_chunk_5', 'Document_chunk_7', 'Document_chunk_6', 'Document_chunk_8', 'Document_chunk_11', 'Document_chunk_9', 'Document_chunk_10', 'Document_chunk_12', 'Document_chunk_15', 'Document_chunk_14', 'Document_chunk_13', 'Document_chunk_17', 'Document_chunk_19', 'Document_chunk_16', 'Document_chunk_20', 'Document_chunk_22', 'Document_chunk_18', 'Document_chunk_21', 'Document_chunk_23', 'Document_chunk_25', 'Document_chunk_26', 'Document_chunk_24', 'Document_chunk_31', 'Document_chunk_28', 'Document_chunk_29', 'Document_chunk_32', 'Document_chunk_27', 'Document_chunk_30', 'Document_chunk_33', 'Document_chunk_35', 'Document_chunk_38', 'Document_chunk_37', 'Document_chunk_34', 'Document_chunk_36', 'Document_chunk_41', 'Document_chunk_39', 'Document_chunk_40', 'Document_chunk_43', 'Document_chunk_45', 'Document_chunk_46', 'Document_chunk_42', 'Document_chunk_50', 'Document_chunk_44', 'Document_chunk_48', 'Document_chunk_47', 'Document_chunk_51', 'Document_chunk_49', 'Document_chunk_53', 'Document_chunk_52', 'Document_chunk_54', 'Document_chunk_55', 'Document_chunk_57', 'Document_chunk_58', 'Document_chunk_59', 'Document_chunk_56', 'Document_chunk_61', 'Document_chunk_60', 'Document_chunk_62', 'Document_chunk_63', 'Document_chunk_64', 'Document_chunk_65', 'Document_chunk_66', 'Document_chunk_68', 'Document_chunk_69', 'Document_chunk_67', 'Document_chunk_71', 'Document_chunk_70', 'Document_chunk_72', 'Document_chunk_75', 'Document_chunk_73', 'Document_chunk_76', 'Document_chunk_74', 'Document_chunk_77', 'Document_chunk_79', 'Document_chunk_78', 'Document_chunk_82', 'Document_chunk_81', 'Document_chunk_80', 'Document_chunk_85', 'Document_chunk_86', 'Document_chunk_84', 'Document_chunk_83', 'Document_chunk_87', 'Document_chunk_89', 'Document_chunk_88']
+2024-11-17 14:18:03,344 - src.core.contextual_vector_db - INFO - FAISS index loaded from './data/contextual_db/faiss_index.bin' with 90 vectors.
+2024-11-17 14:18:03,368 - elastic_transport.transport - INFO - PUT http://localhost:9200/_bulk [status:200 duration:0.024s]
+2024-11-17 14:18:03,387 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_refresh [status:200 duration:0.018s]
+2024-11-17 14:18:03,387 - src.core.elasticsearch_bm25 - INFO - Indexed 90/90 documents successfully
+2024-11-17 14:18:03,387 - __main__ - INFO - Indexed 90 documents in Elasticsearch
+2024-11-17 14:18:03,427 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:03,430 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,430 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,443 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,445 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,450 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,458 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,469 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,471 - src.analysis.metrics - INFO - Comprehensive metric score: 0.84
+2024-11-17 14:18:03,477 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:03,489 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:03,491 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-17 14:18:03,493 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:03,510 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-17 14:18:03,516 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,518 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,518 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,536 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:03,537 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,543 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:03,548 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:03,549 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:03,557 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:03,562 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,567 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,572 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,578 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,583 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,588 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,593 - src.analysis.metrics - INFO - Comprehensive metric score: 0.84
+2024-11-17 14:18:03,599 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:03,604 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,609 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:03,615 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-17 14:18:03,620 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:03,625 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-17 14:18:03,631 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,636 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,641 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,646 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:03,651 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,657 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:03,662 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:03,667 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:03,675 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:03,680 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,686 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,691 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,703 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:03,715 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,715 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:03,728 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:03,733 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,741 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-17 14:18:03,744 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:03,760 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,762 - src.analysis.metrics - INFO - Comprehensive metric score: 0.44000000000000006
+2024-11-17 14:18:03,769 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,780 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-17 14:18:03,780 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,782 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:03,796 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,807 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:03,808 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:03,808 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,816 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6800000000000002
+2024-11-17 14:18:03,830 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:03,830 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:03,840 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,840 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,847 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:03,852 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:03,857 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,863 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,880 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,882 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,888 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,895 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,901 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,920 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:03,928 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:03,928 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,931 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-17 14:18:03,946 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:03,949 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-17 14:18:03,958 - src.analysis.metrics - INFO - Comprehensive metric score: 0.36
+2024-11-17 14:18:03,981 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:03,981 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-17 14:18:03,994 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,001 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,003 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,009 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,011 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,027 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-17 14:18:04,028 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,028 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:04,034 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:04,040 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,065 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,066 - src.analysis.metrics - INFO - Comprehensive metric score: 0.34
+2024-11-17 14:18:04,066 - src.analysis.metrics - INFO - Comprehensive metric score: 0.4
+2024-11-17 14:18:04,066 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000001
+2024-11-17 14:18:04,075 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,097 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:04,097 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:04,098 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9200000000000002
+2024-11-17 14:18:04,101 - src.analysis.metrics - INFO - Comprehensive metric score: 0.98
+2024-11-17 14:18:04,107 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:04,119 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-17 14:18:04,123 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-17 14:18:04,126 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9600000000000001
+2024-11-17 14:18:04,138 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,149 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-17 14:18:04,151 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-17 14:18:04,156 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-17 14:18:04,163 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-17 14:18:04,165 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:04,175 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,175 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6800000000000002
+2024-11-17 14:18:04,181 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,188 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,203 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-17 14:18:04,205 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-17 14:18:04,215 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,216 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-17 14:18:04,229 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:04,231 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9000000000000001
+2024-11-17 14:18:04,246 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,246 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,333 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:04,340 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:04,348 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,350 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:04,363 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,368 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,379 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:04,384 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-17 14:18:04,387 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:04,399 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,404 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:04,409 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,417 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,417 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:04,425 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,430 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-17 14:18:04,452 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-17 14:18:04,457 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:04,460 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-17 14:18:04,460 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,470 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,474 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:04,479 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:04,497 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:04,498 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-17 14:18:04,503 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-17 14:18:04,506 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,513 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,530 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9199999999999999
+2024-11-17 14:18:04,531 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,535 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,538 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-17 14:18:04,560 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,561 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6600000000000001
+2024-11-17 14:18:04,561 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6800000000000002
+2024-11-17 14:18:04,562 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-17 14:18:04,573 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:04,575 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-17 14:18:04,584 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,590 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-17 14:18:04,610 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,613 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,636 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-17 14:18:04,643 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:04,645 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,650 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,655 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:04,663 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,664 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:04,670 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-17 14:18:04,683 - src.analysis.metrics - INFO - Comprehensive metric score: 0.44000000000000006
+2024-11-17 14:18:04,690 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:04,697 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,697 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:04,703 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-17 14:18:04,710 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,727 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,732 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,733 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,735 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:04,739 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:04,745 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:04,752 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:04,757 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:04,763 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,775 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8000000000000003
+2024-11-17 14:18:04,782 - src.analysis.metrics - INFO - Comprehensive metric score: 0.38000000000000006
+2024-11-17 14:18:04,788 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:04,800 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,801 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8800000000000001
+2024-11-17 14:18:04,814 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-17 14:18:04,825 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,825 - src.analysis.metrics - INFO - Comprehensive metric score: 0.26
+2024-11-17 14:18:04,827 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:04,835 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-17 14:18:04,846 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:04,853 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,855 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:04,861 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,866 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,877 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,880 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-17 14:18:04,886 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:04,898 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:04,903 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:04,907 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-17 14:18:04,907 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-17 14:18:04,915 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:04,931 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8000000000000002
+2024-11-17 14:18:04,931 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8800000000000001
+2024-11-17 14:18:04,940 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:04,944 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,949 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:04,958 - src.analysis.metrics - INFO - Comprehensive metric score: 0.94
+2024-11-17 14:18:04,963 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:04,968 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,986 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:04,987 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:04,987 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:05,000 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:05,000 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,011 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-17 14:18:05,012 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:05,024 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,025 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-17 14:18:05,033 - src.analysis.metrics - INFO - Comprehensive metric score: 0.34
+2024-11-17 14:18:05,037 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:05,042 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,048 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-17 14:18:05,053 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:05,061 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,066 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:05,071 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:05,083 - src.analysis.metrics - INFO - Comprehensive metric score: 0.98
+2024-11-17 14:18:05,095 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-17 14:18:05,098 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:05,108 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,111 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,123 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:05,125 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,130 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-17 14:18:05,144 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,149 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:05,149 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:05,158 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:05,163 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,181 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,181 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:05,182 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-17 14:18:05,189 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,207 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-17 14:18:05,207 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,212 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,214 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,219 - src.analysis.metrics - INFO - Comprehensive metric score: 0.44000000000000006
+2024-11-17 14:18:05,226 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,245 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:05,276 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000001
+2024-11-17 14:18:05,285 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8000000000000002
+2024-11-17 14:18:05,288 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8800000000000001
+2024-11-17 14:18:05,295 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,304 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,309 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-17 14:18:05,312 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-17 14:18:05,319 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-17 14:18:05,325 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:05,331 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-17 14:18:05,343 - src.analysis.metrics - INFO - Comprehensive metric score: 0.36
+2024-11-17 14:18:05,348 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,350 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,361 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-17 14:18:05,368 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,368 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:05,373 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,381 - src.analysis.metrics - INFO - Comprehensive metric score: 0.34
+2024-11-17 14:18:05,393 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:05,398 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-17 14:18:05,402 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:05,403 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:05,411 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-17 14:18:05,416 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:05,421 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-17 14:18:05,426 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,443 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-17 14:18:05,445 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,451 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:05,464 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,470 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-17 14:18:05,470 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,477 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,489 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:05,491 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,497 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000001
+2024-11-17 14:18:05,514 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,515 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-17 14:18:05,519 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:05,522 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-17 14:18:05,529 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-17 14:18:05,541 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9599999999999999
+2024-11-17 14:18:05,549 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-17 14:18:05,551 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-17 14:18:05,556 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-17 14:18:05,561 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-17 14:18:05,568 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-17 14:18:05,573 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-17 14:18:05,575 - src.analysis.select_quotation_module - ERROR - Error in quotation selection: ElasticsearchBM25.search() got an unexpected keyword argument 'top_k'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/analysis/select_quotation_module.py", line 25, in forward
+    relevant_docs = self.es_bm25.search(query, top_k=20)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ElasticsearchBM25.search() got an unexpected keyword argument 'top_k'
+2024-11-17 14:18:05,576 - __main__ - WARNING - No quotations were extracted.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@5
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Starting evaluation of 3 queries.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - WARNING - No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - WARNING - No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - WARNING - No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Pass@5: 0.00%, Average Score: 0.0000
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Pass@5: 0.00%
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@10
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Starting evaluation of 3 queries.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - WARNING - No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - WARNING - No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - WARNING - No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-17 14:18:05,576 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Pass@10: 0.00%, Average Score: 0.0000
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Pass@10: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@20
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Starting evaluation of 3 queries.
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - WARNING - No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - WARNING - No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - WARNING - No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Pass@20: 0.00%, Average Score: 0.0000
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Pass@20: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-17 14:18:05,577 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
