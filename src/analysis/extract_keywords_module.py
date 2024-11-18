@@ -42,7 +42,7 @@ class KeywordExtractionModule(dspy.Module):
                 logger.debug(f"Extracting keywords for quote {idx+1}: {quote}")
                 # Retrieve additional context using Elasticsearch BM25
                 query = quote
-                relevant_docs = self.es_bm25.search(query, top_k=5)
+                relevant_docs = self.es_bm25.search(query, k=5)
                 additional_context = " ".join([doc['content'] for doc in relevant_docs])
 
                 # Combine the quote with additional context

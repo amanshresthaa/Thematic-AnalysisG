@@ -1,398 +1,296 @@
 [
     {
-        "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "selling",
-            "individually",
-            "come together",
-            "organisation",
-            "potatoes",
-            "bought centrally",
-            "marketed",
-            "collective effort"
+        "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that.",
+        "keywords_data": [
+            {
+                "keyword": "manufacturing capacity",
+                "category": "Resources"
+            },
+            {
+                "keyword": "potatoes",
+                "category": "Resources"
+            },
+            {
+                "keyword": "import",
+                "category": "Resources"
+            },
+            {
+                "keyword": "ready-made meals",
+                "category": "Results"
+            },
+            {
+                "keyword": "processing",
+                "category": "Resources"
+            },
+            {
+                "keyword": "Brexit",
+                "category": "Risks"
+            },
+            {
+                "keyword": "factories",
+                "category": "Resources"
+            },
+            {
+                "keyword": "collaboration",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "farmers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "organisation",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "customers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "inefficiencies",
+                "category": "Results"
+            },
+            {
+                "keyword": "trader",
+                "category": "Responsibilities"
+            },
+            {
+                "keyword": "growers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "market access",
+                "category": "Results"
+            }
         ]
     },
     {
-        "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
-        "keywords": [
-            "cut out the middle man",
-            "money",
-            "farm",
-            "direct transactions",
-            "financial benefits"
-        ]
-    },
-    {
-        "quote": "we supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people.",
-        "keywords": [
-            "factories",
-            "Walkers",
-            "McCains",
-            "Seabrooks",
-            "crisps",
-            "supply"
-        ]
-    },
-    {
-        "quote": "our customers basically tore up in front of us. For supply, we\u2019ve basically not been able to move the tonnage required.",
-        "keywords": [
-            "customers",
-            "supply",
-            "tonnage",
-            "dissatisfaction",
-            "logistics"
-        ]
-    },
-    {
-        "quote": "we had a lot of potatoes sat there with no homes.",
-        "keywords": [
-            "potatoes",
-            "homes",
-            "abundance",
-            "neglect",
-            "utilization"
-        ]
-    },
-    {
-        "quote": "So, we buy from other farms as well, which supply at different times of year, it varies.",
-        "keywords": [
-            "buy",
-            "farms",
-            "supply",
-            "different times",
-            "year",
-            "varies"
-        ]
-    },
-    {
-        "quote": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
-        "keywords": [
-            "market",
-            "opportunity",
-            "requires",
-            "grab"
-        ]
-    },
-    {
-        "quote": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
-        "keywords": [
-            "trader",
-            "burden",
-            "individual farms",
-            "customers",
-            "engagement"
-        ]
-    },
-    {
-        "quote": "And obviously, we want to supply the factories all year round, and they want a supply all year round.",
-        "keywords": [
-            "supply",
-            "factories",
-            "year round",
-            "continuous provision"
-        ]
-    },
-    {
-        "quote": "Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit.",
-        "keywords": [
-            "potatoes",
-            "export",
-            "Poland",
-            "Ireland",
-            "Belgium",
-            "surplus",
-            "agriculture"
-        ]
-    },
-    {
-        "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "selling",
-            "individually",
-            "come together",
-            "organisation",
-            "potatoes",
-            "bought centrally",
-            "marketed",
-            "collective effort"
-        ]
-    },
-    {
-        "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
-        "keywords": [
-            "cut out the middle man",
-            "money",
-            "farm",
-            "direct transactions",
-            "financial benefits"
-        ]
-    },
-    {
-        "quote": "the money going back to farmers \u2013 that\u2019s what\u2019s not been happening?",
-        "keywords": [
-            "money",
-            "farmers",
-            "financial support",
-            "lack of action"
-        ]
-    },
-    {
-        "quote": "there\u2019s more competition in the area.",
-        "keywords": [
-            "competition",
-            "area",
-            "market",
-            "dynamics"
-        ]
-    },
-    {
-        "quote": "the trouble with all these ideas is that they cost a lot of money.",
-        "keywords": [
-            "trouble",
-            "ideas",
-            "cost",
-            "money"
-        ]
-    },
-    {
-        "quote": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
-        "keywords": [
-            "supplier",
-            "farmers",
-            "demand",
-            "supply chain",
-            "problems",
-            "important"
-        ]
-    },
-    {
-        "quote": "There\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group.",
-        "keywords": [
-            "farms",
-            "suppliers",
-            "contractual",
-            "spuds",
-            "agriculture",
-            "supply chain"
-        ]
-    },
-    {
-        "quote": "What we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "organisation",
-            "potatoes",
-            "centralized buying",
-            "marketing",
-            "collaboration",
-            "collective action"
-        ]
-    },
-    {
-        "quote": "We brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation.",
-        "keywords": [
-            "trader",
-            "burden",
-            "individual farms",
-            "customers",
-            "organisation"
-        ]
-    },
-    {
-        "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "selling",
-            "individually",
-            "come together",
-            "organisation",
-            "potatoes",
-            "bought centrally",
-            "marketed",
-            "collective effort"
-        ]
-    },
-    {
-        "quote": "Sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems"
-        ]
-    },
-    {
-        "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-        "keywords": [
-            "customer",
-            "farm",
-            "proximity",
-            "benefits"
-        ]
-    },
-    {
-        "quote": "We need to move closer to the end product where we can sustain a steady, average price for sustainability.",
-        "keywords": [
-            "end product",
-            "steady price",
-            "average price",
-            "sustainability"
-        ]
-    },
-    {
-        "quote": "I think rather than just selling the potato, we\u2019ll slice it, and things like that.",
-        "keywords": [
-            "selling",
-            "potato",
-            "slice",
-            "transformation",
-            "value addition"
-        ]
-    },
-    {
-        "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
-        "keywords": [
-            "manufacturing capacity",
-            "utilization",
-            "local resources",
-            "potatoes",
-            "importation",
-            "ready-made meals"
-        ]
-    },
-    {
-        "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
-        "keywords": [
-            "stability",
-            "agriculture",
-            "farming",
-            "farmers",
-            "potatoes"
+        "quote": "But as a country we haven\u2019t got enough manufacturers to process the potatoes we have in the country anyway.",
+        "keywords_data": [
+            {
+                "keyword": "manufacturers",
+                "category": "Resources"
+            },
+            {
+                "keyword": "potatoes",
+                "category": "Resources"
+            },
+            {
+                "keyword": "Brexit",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "import",
+                "category": "Resources"
+            },
+            {
+                "keyword": "manufacturing capacity",
+                "category": "Resources"
+            },
+            {
+                "keyword": "ready-made meals",
+                "category": "Returns"
+            },
+            {
+                "keyword": "factories",
+                "category": "Resources"
+            },
+            {
+                "keyword": "suppliers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "farmers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "local supply",
+                "category": "Resources"
+            },
+            {
+                "keyword": "value pack",
+                "category": "Returns"
+            },
+            {
+                "keyword": "road miles",
+                "category": "Returns"
+            }
         ]
     },
     {
         "quote": "Money is key.",
-        "keywords": [
-            "money",
-            "key",
-            "importance",
-            "financial significance"
+        "keywords_data": [
+            {
+                "keyword": "money flow",
+                "category": "Resources"
+            },
+            {
+                "keyword": "middle man",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "direct-to-customer",
+                "category": "Results"
+            },
+            {
+                "keyword": "sustainability",
+                "category": "Responsibility"
+            },
+            {
+                "keyword": "local sourcing",
+                "category": "Resources"
+            },
+            {
+                "keyword": "profitability",
+                "category": "Results"
+            },
+            {
+                "keyword": "food miles",
+                "category": "Regulation"
+            },
+            {
+                "keyword": "farmers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "processing capacity",
+                "category": "Resources"
+            },
+            {
+                "keyword": "local businesses",
+                "category": "Relationships"
+            }
         ]
     },
     {
-        "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems",
-            "importance",
-            "solution"
+        "quote": "The stability in agriculture and farming is disastrous.",
+        "keywords_data": [
+            {
+                "keyword": "stability",
+                "category": "Resilience"
+            },
+            {
+                "keyword": "agriculture",
+                "category": "Research"
+            },
+            {
+                "keyword": "farming",
+                "category": "Research"
+            },
+            {
+                "keyword": "financial issues",
+                "category": "Resources"
+            },
+            {
+                "keyword": "risk",
+                "category": "Risk"
+            },
+            {
+                "keyword": "Brexit",
+                "category": "Risk"
+            },
+            {
+                "keyword": "investment",
+                "category": "Resources"
+            },
+            {
+                "keyword": "diversifying",
+                "category": "Response"
+            },
+            {
+                "keyword": "downscale",
+                "category": "Response"
+            },
+            {
+                "keyword": "farmers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "manufacturing",
+                "category": "Research"
+            },
+            {
+                "keyword": "supply",
+                "category": "Resources"
+            },
+            {
+                "keyword": "sales",
+                "category": "Response"
+            }
         ]
     },
     {
-        "quote": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
-        "keywords": [
-            "bottle-neck",
-            "processing capacity",
-            "UK"
-        ]
-    },
-    {
-        "quote": "From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.",
-        "keywords": [
-            "growers",
-            "risk",
-            "collaboration",
-            "organization",
-            "perspective",
-            "distribution"
-        ]
-    },
-    {
-        "quote": "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing.",
-        "keywords": [
-            "contingency plan",
-            "farm",
-            "reduce",
-            "risk",
-            "losses",
-            "downscaling"
-        ]
-    },
-    {
-        "quote": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it? Exactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.",
-        "keywords": [
-            "awareness",
-            "issue",
-            "understanding",
-            "action",
-            "forward"
-        ]
-    },
-    {
-        "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous.",
-        "keywords": [
-            "stability",
-            "organization",
-            "agriculture",
-            "farming",
-            "disastrous"
-        ]
-    },
-    {
-        "quote": "Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
-        "keywords": [
-            "farmers",
-            "potatoes",
-            "supply",
-            "stability",
-            "manufacturing"
-        ]
-    },
-    {
-        "quote": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying.",
-        "keywords": [
-            "manufacturers",
-            "stop",
-            "kill",
-            "worrying"
-        ]
-    },
-    {
-        "quote": "So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?",
-        "keywords": [
-            "investment",
-            "food chain",
-            "shorter",
-            "efficiency",
-            "sustainability"
-        ]
-    },
-    {
-        "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems",
-            "importance",
-            "solution"
+        "quote": "I think sustainability is the key to anything.",
+        "keywords_data": [
+            {
+                "keyword": "sustainability",
+                "category": "Responsibility"
+            },
+            {
+                "keyword": "local sourcing",
+                "category": "Relevance"
+            },
+            {
+                "keyword": "local businesses",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "food systems",
+                "category": "Resilience"
+            },
+            {
+                "keyword": "farmers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "customers",
+                "category": "Relationships"
+            },
+            {
+                "keyword": "food miles",
+                "category": "Responsibility"
+            },
+            {
+                "keyword": "investment",
+                "category": "Resources"
+            },
+            {
+                "keyword": "stability",
+                "category": "Resilience"
+            },
+            {
+                "keyword": "manufacturing",
+                "category": "Resources"
+            }
         ]
     },
     {
         "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-        "keywords": [
-            "customer",
-            "farm",
-            "proximity",
-            "benefits"
-        ]
-    },
-    {
-        "quote": "We need to be sourcing more locally and supporting more local businesses \u2013 that\u2019s a must in every sector we go to.",
-        "keywords": [
-            "sourcing",
-            "locally",
-            "supporting",
-            "local businesses",
-            "must",
-            "every sector"
+        "keywords_data": [
+            {
+                "keyword": "sustainability",
+                "category": "Rethink"
+            },
+            {
+                "keyword": "local sourcing",
+                "category": "Reuse"
+            },
+            {
+                "keyword": "customer relationships",
+                "category": "Repair"
+            },
+            {
+                "keyword": "farmers organization",
+                "category": "Reduce"
+            },
+            {
+                "keyword": "food miles",
+                "category": "Reduce"
+            },
+            {
+                "keyword": "centralized marketing",
+                "category": "Reuse"
+            }
         ]
     }
 ]

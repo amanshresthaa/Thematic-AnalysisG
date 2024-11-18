@@ -158,7 +158,7 @@ class ElasticsearchBM25:
     def search(
         self,
         query: str,
-        k: int = 20,
+        k: int = 5,
         min_score: float = 0.1,
         fields: List[str] = None,
         operator: str = "or",

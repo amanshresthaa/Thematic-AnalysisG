@@ -1,5 +1,5 @@
 import logging
-from typing import Dict, Any, List
+from typing import Dict, Any
 import dspy
 
 from .select_quotation import SelectQuotationSignature
@@ -22,7 +22,7 @@ class SelectQuotationModule(dspy.Module):
         try:
             # Retrieve relevant transcript chunks using Elasticsearch BM25
             query = research_objectives
-            relevant_docs = self.es_bm25.search(query, top_k=20)
+            relevant_docs = self.es_bm25.search(query, k=20)
             transcript_chunks = [doc['content'] for doc in relevant_docs]
 
             if not transcript_chunks:
