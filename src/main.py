@@ -1,7 +1,7 @@
 import gc
 import logging
 import os
-from typing import Dict, Any , List
+from typing import List, Dict, Any
 import asyncio
 import dspy
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
@@ -19,26 +19,18 @@ from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
 from src.analysis.extract_keywords_module import KeywordExtractionModule
 from src.decorators import handle_exceptions
-import json
 
 # Initialize logging
 setup_logging()
 logger = logging.getLogger(__name__)
 
-def save_quotations(quotations: List[Dict[str, Any]], output_file: str):
-    """Save extracted quotations to output JSON file."""
-    try:
-        os.makedirs(os.path.dirname(output_file), exist_ok=True)
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(quotations, f, indent=4)
-        logger.info(f"Quotations saved to {output_file}")
-    except Exception as e:
-        logger.error(f"Error saving quotations to {output_file}: {e}")
-
 class ThematicAnalysisPipeline:
     def __init__(self, config: Dict[str, Any]):
         """
         Initialize the Thematic Analysis Pipeline with given configuration.
+        
+        Args:
+            config (Dict[str, Any]): Configuration dictionary containing file paths and settings
         """
         self.config = config
         self.contextual_db = None
@@ -56,20 +48,11 @@ class ThematicAnalysisPipeline:
         lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
         dspy.configure(lm=lm)
 
-        # Initialize databases
-        self.contextual_db = ContextualVectorDB("contextual_db")
-        self.es_bm25 = ElasticsearchBM25()
-
-        # Initialize modules with contextual retrieval components
-        self.quotation_module = SelectQuotationModule(
-            contextual_db=self.contextual_db,
-            es_bm25=self.es_bm25
-        )
+        # Initialize modules
+        self.quotation_module = SelectQuotationModule()
         self.keyword_module = KeywordExtractionModule(
             input_file=self.config['quotation_file'],
-            output_file=self.config['keywords_output_file'],
-            contextual_db=self.contextual_db,
-            es_bm25=self.es_bm25
+            output_file=self.config['keywords_output_file']
         )
 
         # Initialize QA module
@@ -81,10 +64,12 @@ class ThematicAnalysisPipeline:
     @handle_exceptions
     def initialize_databases(self, codebase_chunks):
         """Initialize and populate databases."""
-        # Load data into ContextualVectorDB
+        # Initialize ContextualVectorDB
+        self.contextual_db = ContextualVectorDB("contextual_db")
         self.contextual_db.load_data(codebase_chunks, parallel_threads=5)
 
-        # Index documents in ElasticsearchBM25
+        # Initialize ElasticsearchBM25
+        self.es_bm25 = ElasticsearchBM25()
         success_count, _ = self.es_bm25.index_documents(self.contextual_db.metadata)
         logger.info(f"Indexed {success_count} documents in Elasticsearch")
 
@@ -97,7 +82,7 @@ class ThematicAnalysisPipeline:
             'num_candidate_programs': 10,
             'num_threads': 4
         }
-
+        
         self.teleprompter = BootstrapFewShotWithRandomSearch(
             metric=comprehensive_metric,
             **optimizer_config
@@ -108,32 +93,29 @@ class ThematicAnalysisPipeline:
             teacher=self.qa_module,
             trainset=train_dataset
         )
-
+        
         self.optimized_program.save("optimized_program.json")
 
     @handle_exceptions
     async def process_data(self):
         """Process data through the pipeline including quotation selection and keyword extraction."""
-        # Extract quotations using the updated module
-        quotations_result = self.quotation_module.forward(
-            research_objectives=self.config['research_objectives']
+        # Process queries
+        await process_queries(
+            self.validated_queries,
+            self.contextual_db,
+            self.es_bm25,
+            k=20,
+            output_file=self.config['output_filename']
         )
-        quotations = quotations_result.get("quotations", [])
 
-        if quotations:
-            # Save quotations to a file
-            save_quotations(quotations, self.config['quotation_file'])
-
-            # Extract keywords using the updated module
-            keywords_result = self.keyword_module.process_file(
-                input_file=self.config['quotation_file'],
-                research_objectives=self.config['research_objectives']
-            )
-
-            if keywords_result.get("keywords"):
-                logger.info(f"Keywords extracted and saved to {keywords_result.get('output_file')}")
-        else:
-            logger.warning("No quotations were extracted.")
+        # Extract keywords from quotations
+        keywords_result = self.keyword_module.process_file(
+            input_file=self.config['quotation_file'],
+            research_objectives="Analyze and extract relevant themes and concepts"
+        )
+        
+        if keywords_result.get("keywords"):
+            logger.info(f"Keywords extracted and saved to {keywords_result.get('output_file')}")
 
     @handle_exceptions
     def evaluate_pipeline(self, evaluation_set):
@@ -143,7 +125,7 @@ class ThematicAnalysisPipeline:
             es_bm25=self.es_bm25,
             retrieval_function=retrieve_with_reranking
         )
-
+        
         evaluator.evaluate_complete_pipeline(
             k_values=[5, 10, 20],
             evaluation_set=evaluation_set
@@ -155,7 +137,7 @@ class ThematicAnalysisPipeline:
         try:
             # Initialize components
             self.initialize_components()
-
+            
             # Load and prepare data
             dl = DataLoader()
             train_dataset = dl.from_csv(
@@ -163,7 +145,7 @@ class ThematicAnalysisPipeline:
                 fields=("input", "output"),
                 input_keys=("input",)
             )
-
+            
             # Load and validate input data
             codebase_chunks = load_codebase_chunks(self.config['codebase_chunks_file'])
             queries = load_queries(self.config['queries_file'])
@@ -196,9 +178,8 @@ def main():
         'queries_file': 'data/queries.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
         'output_filename': 'query_results.json',
-        'quotation_file': 'data/quotations.json',
-        'keywords_output_file': 'data/keywords.json',
-        'research_objectives': 'Your research objectives here'
+        'quotation_file': 'data/quotation.json',
+        'keywords_output_file': 'data/keywords.json'
     }
 
     pipeline = ThematicAnalysisPipeline(config)
