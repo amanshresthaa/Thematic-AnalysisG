@@ -1,0 +1,32 @@
+[
+    {
+        "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that.",
+        "type": "insight",
+        "function": "Identifying the need for local manufacturing capacity."
+    },
+    {
+        "quote": "But as a country we haven\u2019t got enough manufacturers to process the potatoes we have in the country anyway.",
+        "type": "concern",
+        "function": "Highlighting the lack of processing capacity in the UK."
+    },
+    {
+        "quote": "Money is key.",
+        "type": "statement",
+        "function": "Emphasizing the importance of financial investment in agriculture."
+    },
+    {
+        "quote": "The stability in agriculture and farming is disastrous.",
+        "type": "assessment",
+        "function": "Assessing the current state of stability in the agricultural sector."
+    },
+    {
+        "quote": "I think sustainability is the key to anything.",
+        "type": "vision",
+        "function": "Expressing the importance of sustainability for future food systems."
+    },
+    {
+        "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+        "type": "strategy",
+        "function": "Describing a strategy to improve profitability for farmers."
+    }
+]
