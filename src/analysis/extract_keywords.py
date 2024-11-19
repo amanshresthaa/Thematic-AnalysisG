@@ -1,3 +1,5 @@
+# analysis/extract_keywords.py
+
 import logging
 import json
 from typing import List, Dict, Any
@@ -36,12 +38,11 @@ class KeywordExtractionSignature(dspy.Signature):
             prompt = (
                 f"You are an expert in qualitative research and thematic analysis.\n\n"
                 f"Research Objectives: {research_objectives}\n\n"
-                f"Analyze the following quote about potato farming and supply chain:\n\"{quote}\"\n\n"
+                f"Analyze the following quote:\n\"{quote}\"\n\n"
                 f"Extract key terms, concepts, and themes from this quotation. "
                 f"Return ONLY a list of single words or short phrases (2-3 words maximum) "
                 f"that represent the main concepts, without any additional metadata.\n"
-                f"Focus on business concepts, agricultural terms, supply chain terminology, "
-                f"and important themes mentioned in the quote."
+                f"Focus on important themes mentioned in the quote."
             )
 
             response = self.language_model.generate(

@@ -1,10 +1,11 @@
-# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py
+# analysis/select_quotation_module.py
 
 import logging
 from typing import Dict, Any, List
 import dspy
 
-from src.analysis.select_quotation import SelectQuotationSignature
+from .select_quotation import SelectQuotationSignature
+
 logger = logging.getLogger(__name__)
 
 class SelectQuotationModule(dspy.Module):
