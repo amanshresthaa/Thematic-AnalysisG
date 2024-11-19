@@ -1,3 +1,7 @@
+
+# File: main.py
+#------------------------------------------------------------------------------
+# main.py
 import gc
 import logging
 import os
@@ -6,6 +10,7 @@ import asyncio
 import dspy
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
 from dspy.datasets import DataLoader
+from dspy.primitives.assertions import assert_transform_module, backtrack_handler
 
 from src.utils.logger import setup_logging
 from src.core.contextual_vector_db import ContextualVectorDB
@@ -18,11 +23,6 @@ from src.processing.answer_generator import generate_answer_dspy, QuestionAnswer
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
 from src.decorators import handle_exceptions
-from src.analysis.select_quotation import SelectQuotationSignature
-from src.analysis.select_quotation_module import SelectQuotationModule
-from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
-from src.processing.query_processor import validate_queries, process_queries
-
 
 # Initialize logging
 setup_logging()
@@ -84,7 +84,7 @@ class ThematicAnalysisPipeline:
             # Initialize the DataLoader
 
             # Load the training data from the new CSV format
-            logger.info(f"Loading training data from 'new_training_data.csv'")
+            logger.info(f"Loading training data from 'data/new_training_data.csv'")
             train_dataset = dl.from_csv(
                 "data/new_training_data.csv",
                 fields=("input", "output"),
@@ -197,6 +197,16 @@ class ThematicAnalysisPipeline:
             except Exception as e:
                 logger.error(f"Error saving optimized program: {e}", exc_info=True)
 
+            # Activate assertions in the optimized program
+            logger.info("Activating assertions in the optimized program.")
+            try:
+                # Wrap the program with assertions using assert_transform_module
+                self.optimized_program = assert_transform_module(self.optimized_program, backtrack_handler)
+                logger.info("Assertions activated in the optimized program.")
+            except Exception as e:
+                logger.error(f"Error activating assertions in optimized program: {e}", exc_info=True)
+                return
+
             # Assign the optimized program to answer_generator.qa_module
             try:
                 # The optimized program will be used directly in process_queries
@@ -205,12 +215,12 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error preparing optimized program: {e}", exc_info=True)
                 return
 
-            # Initialize SelectQuotationModule
-            logger.info("Initializing SelectQuotationModule")
+            # Initialize SelectQuotationModule with activated assertions
+            logger.info("Initializing SelectQuotationModule with activated assertions")
             try:
-                from src.analysis.select_quotation_module import SelectQuotationModule
                 self.quotation_module = SelectQuotationModule()
-                logger.info("SelectQuotationModule initialized successfully.")
+                self.quotation_module = assert_transform_module(self.quotation_module, backtrack_handler)
+                logger.info("SelectQuotationModule initialized successfully with assertions activated.")
             except Exception as e:
                 logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
                 return
@@ -218,12 +228,15 @@ class ThematicAnalysisPipeline:
             # Proceed with processing queries using the optimized program and quotation selection
             logger.info("Starting to process queries with the optimized program and quotation selection")
             try:
+                # **Add 'await' before process_queries to properly await the asynchronous function**
                 await process_queries(
                     validated_queries,
                     self.contextual_db,
                     self.es_bm25,
                     k,
-                    output_filename  # Modified to pass only one output file
+                    output_filename,  # Modified to pass only one output file
+                    self.optimized_program,
+                    self.quotation_module
                 )
             except Exception as e:
                 logger.error(f"Error processing queries: {e}", exc_info=True)

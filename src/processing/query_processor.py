@@ -1,3 +1,4 @@
+# src/processing/query_processor.py
 import logging
 from typing import List, Dict, Any, Callable
 import json
@@ -11,7 +12,8 @@ from src.analysis.select_quotation_module import SelectQuotationModule
 from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
-from src.utils.validation_functions import validate_relevance, validate_quality, validate_context_clarity
+import dspy
+
 setup_logging()
 logger = logging.getLogger(__name__)
 
@@ -96,32 +98,37 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     # Define research objectives (this could be part of the query_item or defined elsewhere)
     research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
 
-    # Select quotations using the new DSPy module
-    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
-    quotations = quotations_response.get("quotations", [])
-    types_and_functions = quotations_response.get("types_and_functions", [])
-    purpose = quotations_response.get("purpose", "")
+    # Define theoretical framework (this should be part of the query_item or configuration)
+    theoretical_framework = query_item.get('theoretical_framework', 'Constructivist')
 
-    # Generate answer using DSPy with assertions (optional, depending on your use-case)
-        # Select quotations using the new DSPy module
-    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+    # Select quotations using the DSPy module
+    quotations_response = quotation_module.forward(
+        research_objectives=research_objectives,
+        transcript_chunks=transcript_chunks,
+        theoretical_framework=theoretical_framework
+    )
     quotations = quotations_response.get("quotations", [])
-    purpose = quotations_response.get("purpose", "")
+    analysis = quotations_response.get("analysis", "")
 
-    # Generate answer using DSPy with assertions
-    qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
-    answer = qa_response.get("answer", "")
-    used_chunks_info = qa_response.get("used_chunks", [])
-    retrieved_chunks_count = qa_response.get("num_chunks_used", 0)
+    if not quotations:
+        logger.warning(f"No quotations selected for query '{query_text}'. Skipping answer generation.")
+        answer = "No relevant quotations were found to generate an answer."
+    else:
+        # Generate answer using DSPy with assertions
+        qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
+        answer = qa_response.get("answer", "")
+        used_chunks_info = qa_response.get("used_chunks", [])
+        retrieved_chunks_count = qa_response.get("num_chunks_used", 0)
 
     result = {
         "query": query_text,
         "research_objectives": research_objectives,
+        "theoretical_framework": theoretical_framework,
         "retrieved_chunks": retrieved_chunks,  # Use the original retrieved_chunks
         "retrieved_chunks_count": len(retrieved_chunks),  # Use the length of retrieved_chunks
         "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],  # Fixed nested dictionary access
         "quotations": quotations,  # Now contains all type/function information
-        "purpose": purpose,
+        "analysis": analysis,
         "answer": {
             "answer": answer
         }
@@ -154,7 +161,9 @@ async def process_queries(
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
     k: int,
-    output_file: str
+    output_file: str,
+    optimized_program: dspy.Program,
+    quotation_module: SelectQuotationModule
 ):
     """
     Processes a list of queries to retrieve documents, select quotations, and generate answers.
@@ -165,12 +174,12 @@ async def process_queries(
         es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
         k (int): Number of top documents to retrieve.
         output_file (str): Path to the output file to save results.
+        optimized_program (dspy.Program): The optimized DSPy program.
+        quotation_module (SelectQuotationModule): Module to select quotations.
     """
     logger.info("Starting to process queries.")
 
     all_results = []
-    quotation_module = SelectQuotationModule()  # Initialize the quotation selection module
-
     try:
         for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
             try:

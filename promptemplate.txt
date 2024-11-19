@@ -1,0 +1,45 @@
+You are conducting thematic analysis following Braun and Clarke's (2006) approach.
+
+Research Objectives:
+{research_objectives}
+
+Theoretical Framework:
+{theoretical_framework}
+
+Transcript Chunks:
+{chunks_formatted}
+
+Task: Select quotations that align with the research objectives and theoretical framework while following these criteria:
+
+For each quotation, provide:
+
+1. quote_data:
+{
+    "quote": str,                    # The exact quotation text
+    "context": str,                  # Surrounding context from interview
+    "type": str,                     # 'discrete' (brief diverse perspectives)
+                                    # 'embedded' (transition phrases) 
+                                    # 'longer' (complex understanding)
+    "function": str,                 # 'evidence' | 'explanation' | 'illustration' | 
+                                    # 'impression' | 'representation'
+    "pattern_strength": float,       # 0.0-1.0 indicating robustness of pattern
+    "theoretical_alignment": float   # 0.0-1.0 alignment with framework
+}
+
+2. analysis:
+{
+    "selection_rationale": str,     # Why this quote was chosen 
+    "theoretical_relevance": str,   # How quote supports theoretical framework
+    "objective_support": str,       # How quote advances research objectives
+    "patterns": str                 # Key patterns identified
+}
+
+Key Guidelines:
+1. Focus on relevance to research objectives
+2. Ensure theoretical alignment
+3. Provide adequate context
+4. Identify clear patterns
+5. Maintain participant confidentiality
+6. Balance diversity of perspectives
+
+Return response as valid JSON with 'quotations' and 'analysis' fields.
