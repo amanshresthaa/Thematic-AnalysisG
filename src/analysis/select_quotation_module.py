@@ -1,34 +1,43 @@
-# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/select_quotation_module.py
 
+# File: analysis/select_quotation_module.py
+#------------------------------------------------------------------------------
+# src/analysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
 
-from src.analysis.select_quotation import SelectQuotationSignature
+from src.analysis.select_quotation import EnhancedQuotationModule
+
 logger = logging.getLogger(__name__)
 
 class SelectQuotationModule(dspy.Module):
     """
-    DSPy module to select quotations based on research objectives and transcript chunks.
+    DSPy module to select quotations based on research objectives, transcript chunks, and theoretical framework.
+    Utilizes EnhancedQuotationModule for robust assertion-based selection.
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(SelectQuotationSignature)
+        self.enhanced_module = EnhancedQuotationModule()
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str]) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
         try:
-            logger.debug("Running SelectQuotationModule.")
-            response = self.chain(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+            logger.debug("Running SelectQuotationModule with theoretical framework.")
+            response = self.enhanced_module.forward(
+                research_objectives=research_objectives,
+                transcript_chunks=transcript_chunks,
+                theoretical_framework=theoretical_framework
+            )
             quotations = response.get("quotations", [])
-            purpose = response.get("purpose", "")
-            logger.info(f"Selected {len(quotations)} quotations.")
+            analysis = response.get("analysis", "")
+            logger.info(f"Selected {len(quotations)} quotations aligned with theoretical framework.")
             return {
                 "quotations": quotations,
-                "purpose": purpose
+                "analysis": analysis
             }
         except Exception as e:
             logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
             return {
                 "quotations": [],
-                "purpose": ""
+                "analysis": ""
             }
+
