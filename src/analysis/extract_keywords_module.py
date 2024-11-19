@@ -1,11 +1,9 @@
-# analysis/extract_keywords_module.py
-
 import logging
-from typing import Dict, Any, List
+from typing import Dict, Any
 import dspy
-import os
+import json
 
-from .extract_keywords import KeywordExtractionSignature, load_quotations, save_keywords
+from .extract_keywords import KeywordExtractionSignature, save_keywords
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +11,7 @@ class KeywordExtractionModule(dspy.Module):
     """
     DSPy module to extract keywords from quotations.
     """
-    def __init__(self, input_file: str = "data/quotation.json", output_file: str = "data/keywords.json"):
+    def __init__(self, input_file: str = "query_results.json", output_file: str = "data/keywords.json"):
         super().__init__()
         self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
         self.input_file = input_file
@@ -25,14 +23,25 @@ class KeywordExtractionModule(dspy.Module):
             logger.debug(f"Processing file: {input_file}")
             
             # Load quotations from input file
-            quotations = load_quotations(input_file)
-            if not quotations:
+            with open(input_file, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+            
+            quotes = []
+            for item in data:
+                # Extract quotes from retrieved_chunks
+                for chunk in item.get("retrieved_chunks", []):
+                    quotes.append(chunk["chunk"].get("contextualized_content", ""))
+
+                # Extract quotes from quotations
+                for quotation in item.get("quotations", []):
+                    quotes.append(quotation.get("quote", ""))
+
+            if not quotes:
                 logger.warning(f"No quotations found in {input_file}")
                 return {"keywords": []}
 
             keywords_mapping = []
-            for idx, quote_dict in enumerate(quotations):
-                quote = quote_dict.get("quote", "")
+            for idx, quote in enumerate(quotes):
                 if not quote:
                     logger.warning(f"Quote at index {idx} is empty.")
                     keywords_mapping.append({"quote": quote, "keywords": []})
@@ -42,7 +51,7 @@ class KeywordExtractionModule(dspy.Module):
                 # Extract keywords for the current quote
                 response = self.chain(
                     research_objectives=research_objectives,
-                    quotations=[quote_dict]
+                    quotations=[{"quote": quote}]
                 )
                 keywords = response.get("keywords", [])
 
