@@ -1,7 +1,3 @@
-# File: analysis/extract_keywords.py
-#------------------------------------------------------------------------------
-# analysis/extract_keywords.py
-
 import logging
 import json
 from typing import List, Dict, Any
@@ -19,7 +15,7 @@ class KeywordExtractionSignature(dspy.Signature):
         desc="The research objectives guiding the extraction of keywords."
     )
     quotations: List[Dict[str, str]] = dspy.InputField(
-        desc="List containing quotations with 'quote' field."
+        desc="List containing quotations with 'quotation' field."
     )
     keywords: List[str] = dspy.OutputField(
         desc="List of extracted keywords for the provided quote."
@@ -31,7 +27,7 @@ class KeywordExtractionSignature(dspy.Signature):
                 logger.warning("No quotations provided for keyword extraction.")
                 return {"keywords": []}
             
-            quotes = [quotation.get("quote", "") for quotation in quotations]
+            quotes = [quote.get("quotation", "") for quotation in quotations]
             valid_quotes = [quote for quote in quotes if quote]
 
             if not valid_quotes:
