@@ -1,5 +1,4 @@
-# analysis/select_quotation.py
-
+#analysis/selction_quotation.py
 import logging
 from typing import List, Dict, Any
 import dspy
@@ -106,7 +105,7 @@ class SelectQuotationSignature(dspy.Signature):
             # Attempt to parse the JSON array of quotations
             start_index = response.find('[')
             end_index = response.rfind(']') + 1
-            if start_index == -1 or end_index == -1:
+            if (start_index == -1 or end_index == -1):
                 logger.warning("JSON array of quotations not found in response.")
                 return {"quotations": [], "purpose": ""}
             quotations_json = response[start_index:end_index]

@@ -1,3 +1,5 @@
+# File: analysis/extract_keywords_module.py
+#------------------------------------------------------------------------------
 import logging
 from typing import Dict, Any
 import dspy
@@ -17,7 +19,7 @@ class KeywordExtractionModule(dspy.Module):
         self.input_file = input_file
         self.output_file = output_file
 
-    def process_file(self, input_file: str, research_objectives: str) -> Dict[str, Any]:
+    def process_file(self, input_file: str, research_objectives: str) -> Dict[str,  Any]:
         """Process a single input file and extract keywords for each quote."""
         try:
             logger.debug(f"Processing file: {input_file}")
@@ -30,18 +32,19 @@ class KeywordExtractionModule(dspy.Module):
             for item in data:
                 # Extract quotes from retrieved_chunks
                 for chunk in item.get("retrieved_chunks", []):
-                    quotes.append(chunk["chunk"].get("contextualized_content", ""))
+                    quotes.append({"quote": chunk["chunk"].get("contextualized_content", "")})
 
                 # Extract quotes from quotations
                 for quotation in item.get("quotations", []):
-                    quotes.append(quotation.get("quote", ""))
+                    quotes.append({"quote": quotation.get("quote", "")})
 
             if not quotes:
                 logger.warning(f"No quotations found in {input_file}")
                 return {"keywords": []}
 
             keywords_mapping = []
-            for idx, quote in enumerate(quotes):
+            for idx, quote_dict in enumerate(quotes):
+                quote = quote_dict.get("quote", "")
                 if not quote:
                     logger.warning(f"Quote at index {idx} is empty.")
                     keywords_mapping.append({"quote": quote, "keywords": []})
@@ -51,7 +54,7 @@ class KeywordExtractionModule(dspy.Module):
                 # Extract keywords for the current quote
                 response = self.chain(
                     research_objectives=research_objectives,
-                    quotations=[{"quote": quote}]
+                    quotations=[quote_dict]
                 )
                 keywords = response.get("keywords", [])
 
