@@ -180,7 +180,7 @@ def main():
         'queries_file': 'data/queries.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
         'output_filename': 'query_results.json',
-        'quotation_file': 'data/quotation.json',
+        'quotation_file': 'query_results.json',
         'keywords_output_file': 'data/keywords.json'
     }
 
