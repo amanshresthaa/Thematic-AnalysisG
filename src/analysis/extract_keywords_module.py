@@ -1,10 +1,11 @@
+# analysis/extract_keywords_module.py
+
 import logging
 from typing import Dict, Any, List
 import dspy
 import os
-from datetime import datetime
 
-from .extract_keywords import KeywordExtractionSignature, load_quotations, save_keywords  # Updated relative import
+from .extract_keywords import KeywordExtractionSignature, load_quotations, save_keywords
 
 logger = logging.getLogger(__name__)
 
