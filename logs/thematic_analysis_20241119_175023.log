@@ -1,8 +1,0 @@
-2024-11-19 17:50:23,690 - elastic_transport.transport - INFO - HEAD http://localhost:9200/contextual_bm25_index [status:200 duration:0.007s]
-2024-11-19 17:50:23,713 - elastic_transport.transport - INFO - DELETE http://localhost:9200/contextual_bm25_index [status:200 duration:0.023s]
-2024-11-19 17:50:23,722 - root - WARNING - 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
-Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
-They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
-Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-19 17:50:23,723 - src.analysis.metrics - INFO - Comprehensive Assessment DSPy module initialized successfully.
-2024-11-19 17:50:23,725 - src.processing.answer_generator - INFO - Unoptimized DSPy module initialized successfully.
