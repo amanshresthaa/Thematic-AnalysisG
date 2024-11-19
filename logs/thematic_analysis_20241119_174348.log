@@ -1,0 +1,1112 @@
+2024-11-19 17:43:48,972 - elastic_transport.transport - INFO - HEAD http://localhost:9200/contextual_bm25_index [status:200 duration:0.005s]
+2024-11-19 17:43:48,993 - elastic_transport.transport - INFO - DELETE http://localhost:9200/contextual_bm25_index [status:200 duration:0.022s]
+2024-11-19 17:43:49,000 - root - WARNING - 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-19 17:43:49,001 - src.analysis.metrics - INFO - Comprehensive Assessment DSPy module initialized successfully.
+2024-11-19 17:43:49,003 - src.processing.answer_generator - INFO - Unoptimized DSPy module initialized successfully.
+2024-11-19 17:43:51,727 - src.data.data_loader - INFO - Loaded JSON file 'data/codebase_chunks.json' successfully with 1 entries.
+2024-11-19 17:43:51,728 - src.data.data_loader - INFO - Loaded JSON file 'data/queries.json' successfully with 8 entries.
+2024-11-19 17:43:51,728 - src.processing.query_processor - INFO - Validated 8 queries out of 8 provided.
+2024-11-19 17:43:51,728 - src.data.data_loader - INFO - Loaded JSONL file 'data/evaluation_set.jsonl' with 3 entries successfully.
+2024-11-19 17:43:51,735 - src.core.contextual_vector_db - INFO - Loading vector database and FAISS index from disk.
+2024-11-19 17:43:51,737 - src.core.contextual_vector_db - INFO - Vector database metadata loaded from './data/contextual_db/contextual_vector_db.pkl' with 90 entries.
+2024-11-19 17:43:51,737 - src.core.contextual_vector_db - INFO - Chunks loaded: ['Document_chunk_0', 'Document_chunk_1', 'Document_chunk_4', 'Document_chunk_2', 'Document_chunk_3', 'Document_chunk_7', 'Document_chunk_6', 'Document_chunk_5', 'Document_chunk_10', 'Document_chunk_9', 'Document_chunk_8', 'Document_chunk_11', 'Document_chunk_12', 'Document_chunk_13', 'Document_chunk_14', 'Document_chunk_15', 'Document_chunk_16', 'Document_chunk_18', 'Document_chunk_19', 'Document_chunk_17', 'Document_chunk_20', 'Document_chunk_21', 'Document_chunk_22', 'Document_chunk_25', 'Document_chunk_23', 'Document_chunk_26', 'Document_chunk_24', 'Document_chunk_31', 'Document_chunk_28', 'Document_chunk_29', 'Document_chunk_27', 'Document_chunk_30', 'Document_chunk_36', 'Document_chunk_32', 'Document_chunk_35', 'Document_chunk_34', 'Document_chunk_33', 'Document_chunk_37', 'Document_chunk_38', 'Document_chunk_41', 'Document_chunk_40', 'Document_chunk_39', 'Document_chunk_44', 'Document_chunk_43', 'Document_chunk_42', 'Document_chunk_45', 'Document_chunk_50', 'Document_chunk_47', 'Document_chunk_51', 'Document_chunk_52', 'Document_chunk_53', 'Document_chunk_48', 'Document_chunk_49', 'Document_chunk_46', 'Document_chunk_55', 'Document_chunk_56', 'Document_chunk_54', 'Document_chunk_59', 'Document_chunk_57', 'Document_chunk_58', 'Document_chunk_63', 'Document_chunk_60', 'Document_chunk_61', 'Document_chunk_62', 'Document_chunk_64', 'Document_chunk_65', 'Document_chunk_66', 'Document_chunk_67', 'Document_chunk_68', 'Document_chunk_71', 'Document_chunk_69', 'Document_chunk_70', 'Document_chunk_72', 'Document_chunk_73', 'Document_chunk_74', 'Document_chunk_75', 'Document_chunk_76', 'Document_chunk_78', 'Document_chunk_81', 'Document_chunk_79', 'Document_chunk_80', 'Document_chunk_77', 'Document_chunk_83', 'Document_chunk_86', 'Document_chunk_85', 'Document_chunk_84', 'Document_chunk_82', 'Document_chunk_87', 'Document_chunk_88', 'Document_chunk_89']
+2024-11-19 17:43:51,739 - src.core.contextual_vector_db - INFO - FAISS index loaded from './data/contextual_db/faiss_index.bin' with 90 vectors.
+2024-11-19 17:43:51,746 - elastic_transport.transport - INFO - HEAD http://localhost:9200/ [status:200 duration:0.006s]
+2024-11-19 17:43:51,748 - elastic_transport.transport - INFO - HEAD http://localhost:9200/contextual_bm25_index [status:404 duration:0.003s]
+2024-11-19 17:43:51,801 - elastic_transport.transport - INFO - PUT http://localhost:9200/contextual_bm25_index [status:200 duration:0.052s]
+2024-11-19 17:43:51,801 - src.core.elasticsearch_bm25 - INFO - Successfully configured index: contextual_bm25_index
+2024-11-19 17:43:51,811 - elastic_transport.transport - INFO - PUT http://localhost:9200/_bulk [status:200 duration:0.009s]
+2024-11-19 17:43:51,820 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_refresh [status:200 duration:0.008s]
+2024-11-19 17:43:51,820 - src.core.elasticsearch_bm25 - INFO - Indexed 90/90 documents successfully
+2024-11-19 17:43:51,820 - __main__ - INFO - Indexed 90 documents in Elasticsearch
+2024-11-19 17:43:51,861 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:51,861 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:51,861 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:51,863 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:51,878 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:51,890 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:51,896 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:51,899 - src.analysis.metrics - INFO - Comprehensive metric score: 0.84
+2024-11-19 17:43:51,901 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:51,910 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:51,918 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-19 17:43:51,919 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:51,931 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:51,943 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:51,943 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:51,943 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-19 17:43:51,957 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:51,968 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:51,968 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:51,970 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:51,979 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:51,980 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:51,988 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:51,993 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:51,999 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,004 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,010 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,015 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,020 - src.analysis.metrics - INFO - Comprehensive metric score: 0.84
+2024-11-19 17:43:52,025 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,030 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:52,035 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,041 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,046 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-19 17:43:52,051 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:52,057 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-19 17:43:52,089 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,094 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,095 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,101 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:52,106 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,112 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:52,119 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:52,125 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,134 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:52,140 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,145 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,151 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,165 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,169 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,179 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,194 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-19 17:43:52,201 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:52,203 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:52,213 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:52,217 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,217 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,235 - src.analysis.metrics - INFO - Comprehensive metric score: 0.44000000000000006
+2024-11-19 17:43:52,237 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,237 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-19 17:43:52,260 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,262 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,263 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:52,263 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:52,282 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6800000000000002
+2024-11-19 17:43:52,289 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:52,289 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:52,289 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,296 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,300 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,307 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,312 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:52,317 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,323 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,335 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,342 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,349 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,354 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,360 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,367 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,380 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:52,391 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,393 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-19 17:43:52,395 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-19 17:43:52,406 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,406 - src.analysis.metrics - INFO - Comprehensive metric score: 0.36
+2024-11-19 17:43:52,419 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,421 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,442 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:52,443 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,445 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,447 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,459 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-19 17:43:52,459 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,464 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,469 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:52,476 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:52,481 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,497 - src.analysis.metrics - INFO - Comprehensive metric score: 0.4
+2024-11-19 17:43:52,498 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000001
+2024-11-19 17:43:52,514 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,519 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,520 - src.analysis.metrics - INFO - Comprehensive metric score: 0.98
+2024-11-19 17:43:52,521 - src.analysis.metrics - INFO - Comprehensive metric score: 0.34
+2024-11-19 17:43:52,538 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-19 17:43:52,543 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:52,544 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,544 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9200000000000002
+2024-11-19 17:43:52,559 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:52,559 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-19 17:43:52,570 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,577 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9600000000000001
+2024-11-19 17:43:52,578 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:52,585 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-19 17:43:52,606 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-19 17:43:52,606 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6800000000000002
+2024-11-19 17:43:52,606 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:52,606 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-19 17:43:52,618 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,619 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,626 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,642 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-19 17:43:52,642 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9000000000000001
+2024-11-19 17:43:52,654 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-19 17:43:52,660 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-19 17:43:52,662 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:52,756 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,756 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,760 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:52,774 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:52,776 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:52,776 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,793 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,794 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:52,797 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:52,803 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,811 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-19 17:43:52,812 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:52,825 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:52,831 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,836 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,836 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,848 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,855 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,860 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-19 17:43:52,872 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:52,888 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-19 17:43:52,888 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-19 17:43:52,890 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:52,902 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,909 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:52,916 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:52,927 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-19 17:43:52,932 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,935 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:52,937 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-19 17:43:52,941 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:52,954 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:52,965 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:52,971 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:52,977 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9199999999999999
+2024-11-19 17:43:52,977 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6600000000000001
+2024-11-19 17:43:52,980 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8400000000000001
+2024-11-19 17:43:52,993 - src.analysis.metrics - INFO - Comprehensive metric score: 0.6800000000000002
+2024-11-19 17:43:53,003 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:53,004 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-19 17:43:53,004 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,011 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:53,017 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000002
+2024-11-19 17:43:53,028 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-19 17:43:53,046 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,046 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,046 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,055 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,068 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:53,074 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:53,080 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,088 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,093 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-19 17:43:53,101 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,102 - src.analysis.metrics - INFO - Comprehensive metric score: 0.44000000000000006
+2024-11-19 17:43:53,114 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:53,119 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:53,119 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:53,127 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,140 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:53,140 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,153 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:53,158 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,163 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:53,163 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,171 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,176 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,182 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,199 - src.analysis.metrics - INFO - Comprehensive metric score: 0.38000000000000006
+2024-11-19 17:43:53,201 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8800000000000001
+2024-11-19 17:43:53,218 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:53,218 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8000000000000003
+2024-11-19 17:43:53,225 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,233 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,242 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,242 - src.analysis.metrics - INFO - Comprehensive metric score: 0.26
+2024-11-19 17:43:53,252 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-19 17:43:53,252 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000001
+2024-11-19 17:43:53,264 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,280 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,280 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:53,282 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,284 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:53,296 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,297 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,308 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:53,314 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,314 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-19 17:43:53,320 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:53,325 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-19 17:43:53,332 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,348 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8800000000000001
+2024-11-19 17:43:53,350 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,360 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,367 - src.analysis.metrics - INFO - Comprehensive metric score: 0.94
+2024-11-19 17:43:53,373 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8000000000000002
+2024-11-19 17:43:53,373 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,384 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,392 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,392 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,400 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,411 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:53,411 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:53,429 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:53,434 - src.analysis.metrics - INFO - Comprehensive metric score: 0.88
+2024-11-19 17:43:53,434 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,442 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,442 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-19 17:43:53,461 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,462 - src.analysis.metrics - INFO - Comprehensive metric score: 0.34
+2024-11-19 17:43:53,468 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,469 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:53,474 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-19 17:43:53,481 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,487 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:53,502 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,537 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:53,537 - src.analysis.metrics - INFO - Comprehensive metric score: 0.98
+2024-11-19 17:43:53,542 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:53,547 - src.analysis.metrics - INFO - Comprehensive metric score: 0.42000000000000004
+2024-11-19 17:43:53,559 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,566 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,579 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-19 17:43:53,587 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,601 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:53,601 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,601 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:53,610 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,624 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,627 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:53,639 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,640 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:53,660 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,666 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-19 17:43:53,668 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,671 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,682 - src.analysis.metrics - INFO - Comprehensive metric score: 0.44000000000000006
+2024-11-19 17:43:53,682 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,690 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,696 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,708 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8800000000000001
+2024-11-19 17:43:53,716 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,728 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,734 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000001
+2024-11-19 17:43:53,734 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000002
+2024-11-19 17:43:53,739 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8000000000000002
+2024-11-19 17:43:53,749 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,757 - src.analysis.metrics - INFO - Comprehensive metric score: 0.28
+2024-11-19 17:43:53,765 - src.analysis.metrics - INFO - Comprehensive metric score: 0.30000000000000004
+2024-11-19 17:43:53,771 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8600000000000001
+2024-11-19 17:43:53,790 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9400000000000001
+2024-11-19 17:43:53,791 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,802 - src.analysis.metrics - INFO - Comprehensive metric score: 0.36
+2024-11-19 17:43:53,825 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,829 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,840 - src.analysis.metrics - INFO - Comprehensive metric score: 0.34
+2024-11-19 17:43:53,847 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,853 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:53,860 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:53,867 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,868 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:53,872 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-19 17:43:53,880 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9
+2024-11-19 17:43:53,886 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:53,892 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7400000000000002
+2024-11-19 17:43:53,897 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,916 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8200000000000002
+2024-11-19 17:43:53,924 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,924 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:53,934 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,940 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,945 - src.analysis.metrics - INFO - Comprehensive metric score: 0.5
+2024-11-19 17:43:53,959 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:53,961 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:53,970 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:53,983 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7200000000000001
+2024-11-19 17:43:53,987 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:53,999 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:53,999 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7600000000000002
+2024-11-19 17:43:54,010 - src.analysis.metrics - INFO - Comprehensive metric score: 0.86
+2024-11-19 17:43:54,014 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:54,021 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9599999999999999
+2024-11-19 17:43:54,030 - src.analysis.metrics - INFO - Comprehensive metric score: 0.78
+2024-11-19 17:43:54,030 - src.analysis.metrics - INFO - Comprehensive metric score: 0.8
+2024-11-19 17:43:54,035 - src.analysis.metrics - INFO - Comprehensive metric score: 0.7800000000000001
+2024-11-19 17:43:54,043 - src.analysis.metrics - INFO - Comprehensive metric score: 0.96
+2024-11-19 17:43:54,048 - src.analysis.metrics - INFO - Comprehensive metric score: 0.10000000000000002
+2024-11-19 17:43:54,054 - src.analysis.metrics - INFO - Comprehensive metric score: 0.32000000000000006
+2024-11-19 17:43:54,056 - src.processing.query_processor - INFO - Starting query processing.
+2024-11-19 17:43:54,057 - src.processing.query_processor - INFO - Processing query: Could you say a little bit about your organisation’s activities?
+When you say that, do you mean the farm side or the [org name]?
+I think the [org name].
+[org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.
+So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms, they would rather go through an organisation.
+So, it’s like an interface between the farmers and the customers?
+Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers. And the idea is by taking the middle man out, we are the middle man.
+So, you’re taking the middle man out from between the farmers and the market?
+Yes. We are the traders in the middle.
+2024-11-19 17:43:54,057 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'Could you say a little bit about your organisation’s activities?
+When you say that, do you mean the farm side or the [org name]?
+I think the [org name].
+[org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.
+So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms, they would rather go through an organisation.
+So, it’s like an interface between the farmers and the customers?
+Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers. And the idea is by taking the middle man out, we are the middle man.
+So, you’re taking the middle man out from between the farmers and the market?
+Yes. We are the traders in the middle.'
+2024-11-19 17:43:54,057 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,064 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.007s]
+2024-11-19 17:43:54,070 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.005s]
+2024-11-19 17:43:54,070 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,070 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 8 (required min_chunks=1)
+2024-11-19 17:43:54,070 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'Could you say a little bit about your organisation’s activities?
+When you say that, do you mean the farm side or the [org name]?
+I think the [org name].
+[org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.
+So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms, they would rather go through an organisation.
+So, it’s like an interface between the farmers and the customers?
+Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers. And the idea is by taking the middle man out, we are the middle man.
+So, you’re taking the middle man out from between the farmers and the market?
+Yes. We are the traders in the middle.': [Document_chunk_1, Document_chunk_17, Document_chunk_68, Document_chunk_34, Document_chunk_24, Document_chunk_54, Document_chunk_38, Document_chunk_52]
+2024-11-19 17:43:54,070 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (8). Terminating.
+2024-11-19 17:43:54,070 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,070 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,074 - src.analysis.select_quotation_module - INFO - Selected 5 quotations.
+2024-11-19 17:43:54,074 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'Could you say a little bit about your organisation’s activities?
+When you say that, do you mean the farm side or the [org name]?
+I think the [org name].
+[org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.
+So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms, they would rather go through an organisation.
+So, it’s like an interface between the farmers and the customers?
+Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers. And the idea is by taking the middle man out, we are the middle man.
+So, you’re taking the middle man out from between the farmers and the market?
+Yes. We are the traders in the middle.': 5
+2024-11-19 17:43:54,074 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_1', 'doc_id': 'Document', 'content_snippet': 'When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ...'}, {'chunk_id': 'Document_chunk_17', 'doc_id': 'Document', 'content_snippet': 'Initially we had to go through somewhere else other than [org name] and there is a lot of money in t...'}, {'chunk_id': 'Document_chunk_68', 'doc_id': 'Document', 'content_snippet': 'Yes, you’re just not quite sure how. That’s all rather worrying. And then of course, there is the CO...'}, {'chunk_id': 'Document_chunk_34', 'doc_id': 'Document', 'content_snippet': 'So, I think, looking a little bit towards the future, if you consider the next few years, and for th...'}, {'chunk_id': 'Document_chunk_24', 'doc_id': 'Document', 'content_snippet': 'So, in terms of collaborators – well you’ve touched on competition, but considering who you’re colla...'}]
+2024-11-19 17:43:54,074 - dsp.utils.settings - WARNING - Warning: You seem to be creating DSPy threads in an unsupported way.
+2024-11-19 17:43:54,076 - src.processing.answer_generator - INFO - Number of chunks used for query 'Could you say a little bit about your organisation’s activities?
+When you say that, do you mean the farm side or the [org name]?
+I think the [org name].
+[org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.
+So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms, they would rather go through an organisation.
+So, it’s like an interface between the farmers and the customers?
+Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers. And the idea is by taking the middle man out, we are the middle man.
+So, you’re taking the middle man out from between the farmers and the market?
+Yes. We are the traders in the middle.': 5
+2024-11-19 17:43:54,081 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:54,081 - src.processing.query_processor - INFO - Processed query with 5 quotations selected.
+2024-11-19 17:43:54,081 - src.processing.query_processor - INFO - Processing query: That’s great. What’s your personal involvement in this? What role do you play?
+When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there’s about ten-fifteen farms, supplying in. And we manage that supply so that there’s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.
+So, you believe you operate on a local level?
+The main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.
+Is this nationally, or do you do anything with factories or suppliers in other countries?
+We do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it’s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there’s surplus, things like that.
+So, you operate locally, regionally and nationally. But internationally when you have to, when there’s a gap?
+Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it.
+2024-11-19 17:43:54,082 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'That’s great. What’s your personal involvement in this? What role do you play?
+When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there’s about ten-fifteen farms, supplying in. And we manage that supply so that there’s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.
+So, you believe you operate on a local level?
+The main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.
+Is this nationally, or do you do anything with factories or suppliers in other countries?
+We do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it’s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there’s surplus, things like that.
+So, you operate locally, regionally and nationally. But internationally when you have to, when there’s a gap?
+Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it.'
+2024-11-19 17:43:54,082 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,091 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.008s]
+2024-11-19 17:43:54,097 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.006s]
+2024-11-19 17:43:54,097 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,097 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 9 (required min_chunks=1)
+2024-11-19 17:43:54,097 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'That’s great. What’s your personal involvement in this? What role do you play?
+When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there’s about ten-fifteen farms, supplying in. And we manage that supply so that there’s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.
+So, you believe you operate on a local level?
+The main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.
+Is this nationally, or do you do anything with factories or suppliers in other countries?
+We do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it’s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there’s surplus, things like that.
+So, you operate locally, regionally and nationally. But internationally when you have to, when there’s a gap?
+Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it.': [Document_chunk_10, Document_chunk_15, Document_chunk_1, Document_chunk_9, Document_chunk_11, Document_chunk_7, Document_chunk_14, Document_chunk_24, Document_chunk_34]
+2024-11-19 17:43:54,097 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (9). Terminating.
+2024-11-19 17:43:54,097 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,098 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,101 - src.analysis.select_quotation_module - INFO - Selected 5 quotations.
+2024-11-19 17:43:54,101 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'That’s great. What’s your personal involvement in this? What role do you play?
+When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there’s about ten-fifteen farms, supplying in. And we manage that supply so that there’s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.
+So, you believe you operate on a local level?
+The main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.
+Is this nationally, or do you do anything with factories or suppliers in other countries?
+We do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it’s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there’s surplus, things like that.
+So, you operate locally, regionally and nationally. But internationally when you have to, when there’s a gap?
+Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it.': 5
+2024-11-19 17:43:54,101 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_10', 'doc_id': 'Document', 'content_snippet': 'So, we buy from other farms as well, which supply at different times of year, it varies. Is this nat...'}, {'chunk_id': 'Document_chunk_15', 'doc_id': 'Document', 'content_snippet': 'But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity w...'}, {'chunk_id': 'Document_chunk_1', 'doc_id': 'Document', 'content_snippet': 'When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ...'}, {'chunk_id': 'Document_chunk_9', 'doc_id': 'Document', 'content_snippet': 'But then we do supply factories all over the country. And we buy potatoes from all over the country ...'}, {'chunk_id': 'Document_chunk_11', 'doc_id': 'Document', 'content_snippet': 'We do a little bit. We have exported in the past....'}]
+2024-11-19 17:43:54,102 - src.processing.answer_generator - INFO - Number of chunks used for query 'That’s great. What’s your personal involvement in this? What role do you play?
+When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there’s about ten-fifteen farms, supplying in. And we manage that supply so that there’s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.
+So, you believe you operate on a local level?
+The main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.
+Is this nationally, or do you do anything with factories or suppliers in other countries?
+We do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it’s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there’s surplus, things like that.
+So, you operate locally, regionally and nationally. But internationally when you have to, when there’s a gap?
+Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it.': 5
+2024-11-19 17:43:54,108 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:54,108 - src.processing.query_processor - INFO - Processed query with 5 quotations selected.
+2024-11-19 17:43:54,108 - src.processing.query_processor - INFO - Processing query: How would you consider yourself to be innovative? What do you feel you are doing differently?
+Initially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.
+So, we’re not there to make money, we’re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.
+The money going back to farmers – that’s what’s not been happening?
+It’s not been going back to the farmer.
+And that’s what you aim to address?
+That’s what we’re trying to deal with. And since we’ve become in the area, doing what we’re doing, these other mergers in the middle are taking the mass market out because they have to compete.
+So, are you saying there’s now competition?
+There’s more competition in the area.
+So, people have seen that it’s a good idea and they want in on it?
+Yes, as it were. I’ve just obeyed the company really. We’ve got a lot to do, to get to where we want to get to. It’s certainly helping. Obviously, after Covid it’s been a challenging year.
+2024-11-19 17:43:54,108 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'How would you consider yourself to be innovative? What do you feel you are doing differently?
+Initially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.
+So, we’re not there to make money, we’re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.
+The money going back to farmers – that’s what’s not been happening?
+It’s not been going back to the farmer.
+And that’s what you aim to address?
+That’s what we’re trying to deal with. And since we’ve become in the area, doing what we’re doing, these other mergers in the middle are taking the mass market out because they have to compete.
+So, are you saying there’s now competition?
+There’s more competition in the area.
+So, people have seen that it’s a good idea and they want in on it?
+Yes, as it were. I’ve just obeyed the company really. We’ve got a lot to do, to get to where we want to get to. It’s certainly helping. Obviously, after Covid it’s been a challenging year.'
+2024-11-19 17:43:54,108 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,114 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.006s]
+2024-11-19 17:43:54,118 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.003s]
+2024-11-19 17:43:54,118 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,118 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 10 (required min_chunks=1)
+2024-11-19 17:43:54,118 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'How would you consider yourself to be innovative? What do you feel you are doing differently?
+Initially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.
+So, we’re not there to make money, we’re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.
+The money going back to farmers – that’s what’s not been happening?
+It’s not been going back to the farmer.
+And that’s what you aim to address?
+That’s what we’re trying to deal with. And since we’ve become in the area, doing what we’re doing, these other mergers in the middle are taking the mass market out because they have to compete.
+So, are you saying there’s now competition?
+There’s more competition in the area.
+So, people have seen that it’s a good idea and they want in on it?
+Yes, as it were. I’ve just obeyed the company really. We’ve got a lot to do, to get to where we want to get to. It’s certainly helping. Obviously, after Covid it’s been a challenging year.': [Document_chunk_19, Document_chunk_1, Document_chunk_17, Document_chunk_18, Document_chunk_52, Document_chunk_80, Document_chunk_34, Document_chunk_48, Document_chunk_54, Document_chunk_64]
+2024-11-19 17:43:54,118 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (10). Terminating.
+2024-11-19 17:43:54,118 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,118 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,122 - src.analysis.select_quotation_module - INFO - Selected 5 quotations.
+2024-11-19 17:43:54,122 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'How would you consider yourself to be innovative? What do you feel you are doing differently?
+Initially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.
+So, we’re not there to make money, we’re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.
+The money going back to farmers – that’s what’s not been happening?
+It’s not been going back to the farmer.
+And that’s what you aim to address?
+That’s what we’re trying to deal with. And since we’ve become in the area, doing what we’re doing, these other mergers in the middle are taking the mass market out because they have to compete.
+So, are you saying there’s now competition?
+There’s more competition in the area.
+So, people have seen that it’s a good idea and they want in on it?
+Yes, as it were. I’ve just obeyed the company really. We’ve got a lot to do, to get to where we want to get to. It’s certainly helping. Obviously, after Covid it’s been a challenging year.': 5
+2024-11-19 17:43:54,122 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_19', 'doc_id': 'Document', 'content_snippet': 'So, people have seen that it’s a good idea and they want in on it?...'}, {'chunk_id': 'Document_chunk_1', 'doc_id': 'Document', 'content_snippet': 'When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ...'}, {'chunk_id': 'Document_chunk_17', 'doc_id': 'Document', 'content_snippet': 'Initially we had to go through somewhere else other than [org name] and there is a lot of money in t...'}, {'chunk_id': 'Document_chunk_18', 'doc_id': 'Document', 'content_snippet': 'And that’s what you aim to address? That’s what we’re trying to deal with. And since we’ve become in...'}, {'chunk_id': 'Document_chunk_52', 'doc_id': 'Document', 'content_snippet': 'Do you think that [org name]  could actually, in any way, contribute towards helping with developing...'}]
+2024-11-19 17:43:54,124 - src.processing.answer_generator - INFO - Number of chunks used for query 'How would you consider yourself to be innovative? What do you feel you are doing differently?
+Initially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.
+So, we’re not there to make money, we’re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.
+The money going back to farmers – that’s what’s not been happening?
+It’s not been going back to the farmer.
+And that’s what you aim to address?
+That’s what we’re trying to deal with. And since we’ve become in the area, doing what we’re doing, these other mergers in the middle are taking the mass market out because they have to compete.
+So, are you saying there’s now competition?
+There’s more competition in the area.
+So, people have seen that it’s a good idea and they want in on it?
+Yes, as it were. I’ve just obeyed the company really. We’ve got a lot to do, to get to where we want to get to. It’s certainly helping. Obviously, after Covid it’s been a challenging year.': 5
+2024-11-19 17:43:54,129 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:54,129 - src.processing.query_processor - INFO - Processed query with 5 quotations selected.
+2024-11-19 17:43:54,129 - src.processing.query_processor - INFO - Processing query: Indeed. So, in terms of collaborators – well you’ve touched on competition, but considering who you’re collaborating with at the moment, there’s the three farms and other suppliers?
+There’s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks – various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison’s and different people. [unclear 0:08:51.0]
+And you’ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?
+Yes, basically.
+Who amongst the people you’re working with, who are crucial? With the other people who you’ve mentioned, who you’re collaborating with, are they all crucial to the functioning of [org name]?
+No, not the day-to-day running of it. I’m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?
+Yes, so what you’re saying is that if a supplier dropped out, you could find a different supplier, and things like that?
+Yes, obviously the crucial thing is suppliers and farmers. If you haven’t got them, or enough of them to supply the demand you’ve got, you’ve got problems.
+So, they’re the important ones?
+Yes.
+Plus, of course, the people who like yourself, are actually running the organisation, running the outfit?
+Who’s crucial within who runs it?
+I think you just mentioned the people who are managing it?
+Yeah, that’s me, we’re the crucial ones. Well, if we don’t do what we do then someone else will do it. But yeah, we are the ones making it work.
+2024-11-19 17:43:54,130 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'Indeed. So, in terms of collaborators – well you’ve touched on competition, but considering who you’re collaborating with at the moment, there’s the three farms and other suppliers?
+There’s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks – various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison’s and different people. [unclear 0:08:51.0]
+And you’ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?
+Yes, basically.
+Who amongst the people you’re working with, who are crucial? With the other people who you’ve mentioned, who you’re collaborating with, are they all crucial to the functioning of [org name]?
+No, not the day-to-day running of it. I’m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?
+Yes, so what you’re saying is that if a supplier dropped out, you could find a different supplier, and things like that?
+Yes, obviously the crucial thing is suppliers and farmers. If you haven’t got them, or enough of them to supply the demand you’ve got, you’ve got problems.
+So, they’re the important ones?
+Yes.
+Plus, of course, the people who like yourself, are actually running the organisation, running the outfit?
+Who’s crucial within who runs it?
+I think you just mentioned the people who are managing it?
+Yeah, that’s me, we’re the crucial ones. Well, if we don’t do what we do then someone else will do it. But yeah, we are the ones making it work.'
+2024-11-19 17:43:54,130 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,134 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.004s]
+2024-11-19 17:43:54,138 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.003s]
+2024-11-19 17:43:54,138 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,138 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 2 (required min_chunks=1)
+2024-11-19 17:43:54,138 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'Indeed. So, in terms of collaborators – well you’ve touched on competition, but considering who you’re collaborating with at the moment, there’s the three farms and other suppliers?
+There’s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks – various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison’s and different people. [unclear 0:08:51.0]
+And you’ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?
+Yes, basically.
+Who amongst the people you’re working with, who are crucial? With the other people who you’ve mentioned, who you’re collaborating with, are they all crucial to the functioning of [org name]?
+No, not the day-to-day running of it. I’m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?
+Yes, so what you’re saying is that if a supplier dropped out, you could find a different supplier, and things like that?
+Yes, obviously the crucial thing is suppliers and farmers. If you haven’t got them, or enough of them to supply the demand you’ve got, you’ve got problems.
+So, they’re the important ones?
+Yes.
+Plus, of course, the people who like yourself, are actually running the organisation, running the outfit?
+Who’s crucial within who runs it?
+I think you just mentioned the people who are managing it?
+Yeah, that’s me, we’re the crucial ones. Well, if we don’t do what we do then someone else will do it. But yeah, we are the ones making it work.': [Document_chunk_29, Document_chunk_24]
+2024-11-19 17:43:54,142 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What are the specific roles and contributions of the key suppliers and farmers in the organization’s network, and how do they impact its overall functioning?'
+2024-11-19 17:43:54,142 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,145 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,147 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,147 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,147 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 9 (required min_chunks=1)
+2024-11-19 17:43:54,147 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What are the specific roles and contributions of the key suppliers and farmers in the organization’s network, and how do they impact its overall functioning?': [Document_chunk_29, Document_chunk_24, Document_chunk_28, Document_chunk_54, Document_chunk_86, Document_chunk_82, Document_chunk_6, Document_chunk_38, Document_chunk_34]
+2024-11-19 17:43:54,147 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (9). Terminating.
+2024-11-19 17:43:54,147 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,147 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,151 - src.analysis.select_quotation_module - INFO - Selected 5 quotations.
+2024-11-19 17:43:54,151 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'Indeed. So, in terms of collaborators – well you’ve touched on competition, but considering who you’re collaborating with at the moment, there’s the three farms and other suppliers?
+There’s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks – various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison’s and different people. [unclear 0:08:51.0]
+And you’ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?
+Yes, basically.
+Who amongst the people you’re working with, who are crucial? With the other people who you’ve mentioned, who you’re collaborating with, are they all crucial to the functioning of [org name]?
+No, not the day-to-day running of it. I’m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?
+Yes, so what you’re saying is that if a supplier dropped out, you could find a different supplier, and things like that?
+Yes, obviously the crucial thing is suppliers and farmers. If you haven’t got them, or enough of them to supply the demand you’ve got, you’ve got problems.
+So, they’re the important ones?
+Yes.
+Plus, of course, the people who like yourself, are actually running the organisation, running the outfit?
+Who’s crucial within who runs it?
+I think you just mentioned the people who are managing it?
+Yeah, that’s me, we’re the crucial ones. Well, if we don’t do what we do then someone else will do it. But yeah, we are the ones making it work.': 5
+2024-11-19 17:43:54,151 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_29', 'doc_id': 'Document', 'content_snippet': 'Yes, so what you’re saying is that if a supplier dropped out, you could find a different supplier, a...'}, {'chunk_id': 'Document_chunk_28', 'doc_id': 'Document', 'content_snippet': 'Is that what you mean?...'}, {'chunk_id': 'Document_chunk_24', 'doc_id': 'Document', 'content_snippet': 'So, in terms of collaborators – well you’ve touched on competition, but considering who you’re colla...'}, {'chunk_id': 'Document_chunk_54', 'doc_id': 'Document', 'content_snippet': 'So, you’re aware of this issue but you might not be in a position personally to do much about it?\nEx...'}, {'chunk_id': 'Document_chunk_86', 'doc_id': 'Document', 'content_snippet': 'Put it to them – to do what you want and what you say you’re going to do, we need these businesses t...'}]
+2024-11-19 17:43:54,152 - src.processing.answer_generator - INFO - Number of chunks used for query 'Indeed. So, in terms of collaborators – well you’ve touched on competition, but considering who you’re collaborating with at the moment, there’s the three farms and other suppliers?
+There’s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks – various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison’s and different people. [unclear 0:08:51.0]
+And you’ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?
+Yes, basically.
+Who amongst the people you’re working with, who are crucial? With the other people who you’ve mentioned, who you’re collaborating with, are they all crucial to the functioning of [org name]?
+No, not the day-to-day running of it. I’m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?
+Yes, so what you’re saying is that if a supplier dropped out, you could find a different supplier, and things like that?
+Yes, obviously the crucial thing is suppliers and farmers. If you haven’t got them, or enough of them to supply the demand you’ve got, you’ve got problems.
+So, they’re the important ones?
+Yes.
+Plus, of course, the people who like yourself, are actually running the organisation, running the outfit?
+Who’s crucial within who runs it?
+I think you just mentioned the people who are managing it?
+Yeah, that’s me, we’re the crucial ones. Well, if we don’t do what we do then someone else will do it. But yeah, we are the ones making it work.': 5
+2024-11-19 17:43:54,158 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:54,158 - src.processing.query_processor - INFO - Processed query with 5 quotations selected.
+2024-11-19 17:43:54,158 - src.processing.query_processor - INFO - Processing query: So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, ‘Future Food Systems’?
+My vision for the future – I think sustainability is the key to anything. If we don’t have sustainability, we’ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we’re doing. And also, to look at taking this – we’ve just started off a 7.5kg bag line, it’s a new thing for us, getting closer to the customer, and I think we’ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we’ll get back to the farm.
+So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?
+That is the ultimate. I think rather than just selling the potato, we’ll slice it, and things like that. Or we’ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.
+So, you’re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that’s the direction you want to take in the future?
+I think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.
+And how do you feel this will contribute to sustainability?
+Because you’ve got [unclear] contracts in front of you. The factories, the customers – to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices – these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we’ve seen the base price collapse to £30-£40 per tonne. And to give you an idea, we need £100-£110 per tonne to cover costs, to break even.
+And so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?
+Yes.
+Right, good.
+So, we need to get close to then cut those rogues out the industry, really.
+Okay, so it’s cutting the rogues out. So, it sounds like you’ve already taken the next step towards doing that by starting a direct-to-customer service?
+Yeah, that was done – we launched about four months’ ago.
+And this is basically the direction you’re going in, to expand that part of the business?
+It’s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we’d need to add more of what we’re doing and probably streamline what we’re doing. So, there’s a three-way approach where we can drive out the inefficiencies, really.
+2024-11-19 17:43:54,158 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, ‘Future Food Systems’?
+My vision for the future – I think sustainability is the key to anything. If we don’t have sustainability, we’ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we’re doing. And also, to look at taking this – we’ve just started off a 7.5kg bag line, it’s a new thing for us, getting closer to the customer, and I think we’ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we’ll get back to the farm.
+So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?
+That is the ultimate. I think rather than just selling the potato, we’ll slice it, and things like that. Or we’ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.
+So, you’re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that’s the direction you want to take in the future?
+I think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.
+And how do you feel this will contribute to sustainability?
+Because you’ve got [unclear] contracts in front of you. The factories, the customers – to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices – these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we’ve seen the base price collapse to £30-£40 per tonne. And to give you an idea, we need £100-£110 per tonne to cover costs, to break even.
+And so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?
+Yes.
+Right, good.
+So, we need to get close to then cut those rogues out the industry, really.
+Okay, so it’s cutting the rogues out. So, it sounds like you’ve already taken the next step towards doing that by starting a direct-to-customer service?
+Yeah, that was done – we launched about four months’ ago.
+And this is basically the direction you’re going in, to expand that part of the business?
+It’s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we’d need to add more of what we’re doing and probably streamline what we’re doing. So, there’s a three-way approach where we can drive out the inefficiencies, really.'
+2024-11-19 17:43:54,158 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,166 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.007s]
+2024-11-19 17:43:54,169 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.004s]
+2024-11-19 17:43:54,169 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,169 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 4 (required min_chunks=1)
+2024-11-19 17:43:54,169 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, ‘Future Food Systems’?
+My vision for the future – I think sustainability is the key to anything. If we don’t have sustainability, we’ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we’re doing. And also, to look at taking this – we’ve just started off a 7.5kg bag line, it’s a new thing for us, getting closer to the customer, and I think we’ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we’ll get back to the farm.
+So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?
+That is the ultimate. I think rather than just selling the potato, we’ll slice it, and things like that. Or we’ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.
+So, you’re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that’s the direction you want to take in the future?
+I think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.
+And how do you feel this will contribute to sustainability?
+Because you’ve got [unclear] contracts in front of you. The factories, the customers – to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices – these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we’ve seen the base price collapse to £30-£40 per tonne. And to give you an idea, we need £100-£110 per tonne to cover costs, to break even.
+And so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?
+Yes.
+Right, good.
+So, we need to get close to then cut those rogues out the industry, really.
+Okay, so it’s cutting the rogues out. So, it sounds like you’ve already taken the next step towards doing that by starting a direct-to-customer service?
+Yeah, that was done – we launched about four months’ ago.
+And this is basically the direction you’re going in, to expand that part of the business?
+It’s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we’d need to add more of what we’re doing and probably streamline what we’re doing. So, there’s a three-way approach where we can drive out the inefficiencies, really.': [Document_chunk_1, Document_chunk_42, Document_chunk_34, Document_chunk_38]
+2024-11-19 17:43:54,173 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What are the potential impacts of direct-to-consumer models on sustainability and profitability in agriculture, and how can technology facilitate these transitions in food systems?'
+2024-11-19 17:43:54,173 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,174 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,176 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,177 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,177 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 20 (required min_chunks=1)
+2024-11-19 17:43:54,177 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What are the potential impacts of direct-to-consumer models on sustainability and profitability in agriculture, and how can technology facilitate these transitions in food systems?': [Document_chunk_22, Document_chunk_31, Document_chunk_38, Document_chunk_86, Document_chunk_71, Document_chunk_54, Document_chunk_43, Document_chunk_75, Document_chunk_34, Document_chunk_35, Document_chunk_73, Document_chunk_5, Document_chunk_16, Document_chunk_36, Document_chunk_83, Document_chunk_41, Document_chunk_88, Document_chunk_24, Document_chunk_40, Document_chunk_60]
+2024-11-19 17:43:54,177 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (22). Terminating.
+2024-11-19 17:43:54,177 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,177 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,181 - src.analysis.select_quotation_module - INFO - Selected 5 quotations.
+2024-11-19 17:43:54,181 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, ‘Future Food Systems’?
+My vision for the future – I think sustainability is the key to anything. If we don’t have sustainability, we’ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we’re doing. And also, to look at taking this – we’ve just started off a 7.5kg bag line, it’s a new thing for us, getting closer to the customer, and I think we’ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we’ll get back to the farm.
+So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?
+That is the ultimate. I think rather than just selling the potato, we’ll slice it, and things like that. Or we’ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.
+So, you’re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that’s the direction you want to take in the future?
+I think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.
+And how do you feel this will contribute to sustainability?
+Because you’ve got [unclear] contracts in front of you. The factories, the customers – to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices – these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we’ve seen the base price collapse to £30-£40 per tonne. And to give you an idea, we need £100-£110 per tonne to cover costs, to break even.
+And so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?
+Yes.
+Right, good.
+So, we need to get close to then cut those rogues out the industry, really.
+Okay, so it’s cutting the rogues out. So, it sounds like you’ve already taken the next step towards doing that by starting a direct-to-customer service?
+Yeah, that was done – we launched about four months’ ago.
+And this is basically the direction you’re going in, to expand that part of the business?
+It’s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we’d need to add more of what we’re doing and probably streamline what we’re doing. So, there’s a three-way approach where we can drive out the inefficiencies, really.': 5
+2024-11-19 17:43:54,181 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_1', 'doc_id': 'Document', 'content_snippet': 'When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ...'}, {'chunk_id': 'Document_chunk_22', 'doc_id': 'Document', 'content_snippet': '...'}, {'chunk_id': 'Document_chunk_42', 'doc_id': 'Document', 'content_snippet': 'We want more growers on board, more customers, and to grow that base we’d need to add more of what w...'}, {'chunk_id': 'Document_chunk_31', 'doc_id': 'Document', 'content_snippet': '...'}, {'chunk_id': 'Document_chunk_34', 'doc_id': 'Document', 'content_snippet': 'So, I think, looking a little bit towards the future, if you consider the next few years, and for th...'}]
+2024-11-19 17:43:54,183 - src.processing.answer_generator - INFO - Number of chunks used for query 'So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, ‘Future Food Systems’?
+My vision for the future – I think sustainability is the key to anything. If we don’t have sustainability, we’ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we’re doing. And also, to look at taking this – we’ve just started off a 7.5kg bag line, it’s a new thing for us, getting closer to the customer, and I think we’ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we’ll get back to the farm.
+So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?
+That is the ultimate. I think rather than just selling the potato, we’ll slice it, and things like that. Or we’ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.
+So, you’re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that’s the direction you want to take in the future?
+I think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.
+And how do you feel this will contribute to sustainability?
+Because you’ve got [unclear] contracts in front of you. The factories, the customers – to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices – these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we’ve seen the base price collapse to £30-£40 per tonne. And to give you an idea, we need £100-£110 per tonne to cover costs, to break even.
+And so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?
+Yes.
+Right, good.
+So, we need to get close to then cut those rogues out the industry, really.
+Okay, so it’s cutting the rogues out. So, it sounds like you’ve already taken the next step towards doing that by starting a direct-to-customer service?
+Yeah, that was done – we launched about four months’ ago.
+And this is basically the direction you’re going in, to expand that part of the business?
+It’s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we’d need to add more of what we’re doing and probably streamline what we’re doing. So, there’s a three-way approach where we can drive out the inefficiencies, really.': 5
+2024-11-19 17:43:54,188 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:54,189 - src.processing.query_processor - INFO - Processed query with 5 quotations selected.
+2024-11-19 17:43:54,189 - src.processing.query_processor - INFO - Processing query: And another thing, well as you know, things have changed quite recently – can you see any trends in society that could perhaps accelerate the vision that you’ve just put forward, that might contribute to help?
+Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it’s come from. And I think there is an element of people wanting that, but it’s how you get the price and the customers to stop undermining everything we’re doing in the UK, in the food industry. Because customers are willing to pay for it. They’re willing to pay for quality. But, there’s people within the system that will say, ‘This is this,’ but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.
+I’m wondering if Brexit is a factor? If it’s harder to import things, would that be in your favour?
+Well, it’s harder to import things, definitely. But as a country we haven’t got enough manufacturers to process the potatoes we have in the country anyway. So, we’ve let it all go abroad, potatoes go to Belgium and then come back ready-made.
+But that might be more difficult. So, it’s about developing manufacturing capacity to actually use what we already have?
+We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We’ve got the product to use, it’s here in the country but we’re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there’s McCain’s have reduced what they spend here, and [unclear – 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else – it’s crackers.
+So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?
+Yes. The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what we produce, we’re snookered. We’re just flooding the market.
+Do you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?
+We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn’t a lot of money left in the tank to be able to chuck at these things. You’ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it’s not seen as a very well – the profit margins are pathetic. So, it’s building that to go forward. Money is key. Just like a chicken and egg scenario, isn’t it?
+Yes. So, you’re aware of this issue but you might not be in a position personally to do much about it?
+Exactly. I can see the issue. I know exactly what the issue is and I know where you’d take it forward. But without the investment or money to back what requires doing, it’s a waste of time, isn’t it?
+2024-11-19 17:43:54,189 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'And another thing, well as you know, things have changed quite recently – can you see any trends in society that could perhaps accelerate the vision that you’ve just put forward, that might contribute to help?
+Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it’s come from. And I think there is an element of people wanting that, but it’s how you get the price and the customers to stop undermining everything we’re doing in the UK, in the food industry. Because customers are willing to pay for it. They’re willing to pay for quality. But, there’s people within the system that will say, ‘This is this,’ but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.
+I’m wondering if Brexit is a factor? If it’s harder to import things, would that be in your favour?
+Well, it’s harder to import things, definitely. But as a country we haven’t got enough manufacturers to process the potatoes we have in the country anyway. So, we’ve let it all go abroad, potatoes go to Belgium and then come back ready-made.
+But that might be more difficult. So, it’s about developing manufacturing capacity to actually use what we already have?
+We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We’ve got the product to use, it’s here in the country but we’re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there’s McCain’s have reduced what they spend here, and [unclear – 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else – it’s crackers.
+So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?
+Yes. The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what we produce, we’re snookered. We’re just flooding the market.
+Do you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?
+We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn’t a lot of money left in the tank to be able to chuck at these things. You’ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it’s not seen as a very well – the profit margins are pathetic. So, it’s building that to go forward. Money is key. Just like a chicken and egg scenario, isn’t it?
+Yes. So, you’re aware of this issue but you might not be in a position personally to do much about it?
+Exactly. I can see the issue. I know exactly what the issue is and I know where you’d take it forward. But without the investment or money to back what requires doing, it’s a waste of time, isn’t it?'
+2024-11-19 17:43:54,190 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,195 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.006s]
+2024-11-19 17:43:54,201 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.005s]
+2024-11-19 17:43:54,201 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,201 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 4 (required min_chunks=1)
+2024-11-19 17:43:54,201 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'And another thing, well as you know, things have changed quite recently – can you see any trends in society that could perhaps accelerate the vision that you’ve just put forward, that might contribute to help?
+Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it’s come from. And I think there is an element of people wanting that, but it’s how you get the price and the customers to stop undermining everything we’re doing in the UK, in the food industry. Because customers are willing to pay for it. They’re willing to pay for quality. But, there’s people within the system that will say, ‘This is this,’ but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.
+I’m wondering if Brexit is a factor? If it’s harder to import things, would that be in your favour?
+Well, it’s harder to import things, definitely. But as a country we haven’t got enough manufacturers to process the potatoes we have in the country anyway. So, we’ve let it all go abroad, potatoes go to Belgium and then come back ready-made.
+But that might be more difficult. So, it’s about developing manufacturing capacity to actually use what we already have?
+We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We’ve got the product to use, it’s here in the country but we’re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there’s McCain’s have reduced what they spend here, and [unclear – 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else – it’s crackers.
+So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?
+Yes. The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what we produce, we’re snookered. We’re just flooding the market.
+Do you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?
+We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn’t a lot of money left in the tank to be able to chuck at these things. You’ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it’s not seen as a very well – the profit margins are pathetic. So, it’s building that to go forward. Money is key. Just like a chicken and egg scenario, isn’t it?
+Yes. So, you’re aware of this issue but you might not be in a position personally to do much about it?
+Exactly. I can see the issue. I know exactly what the issue is and I know where you’d take it forward. But without the investment or money to back what requires doing, it’s a waste of time, isn’t it?': [Document_chunk_48, Document_chunk_52, Document_chunk_54, Document_chunk_34]
+2024-11-19 17:43:54,204 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What recent trends in the UK food industry are emerging in relation to sustainability, investment in local processing facilities, and the impact of Brexit on agricultural practices?'
+2024-11-19 17:43:54,204 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,206 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,207 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,208 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,208 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 20 (required min_chunks=1)
+2024-11-19 17:43:54,208 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What recent trends in the UK food industry are emerging in relation to sustainability, investment in local processing facilities, and the impact of Brexit on agricultural practices?': [Document_chunk_51, Document_chunk_49, Document_chunk_48, Document_chunk_47, Document_chunk_45, Document_chunk_89, Document_chunk_61, Document_chunk_86, Document_chunk_46, Document_chunk_57, Document_chunk_67, Document_chunk_59, Document_chunk_22, Document_chunk_31, Document_chunk_83, Document_chunk_60, Document_chunk_87, Document_chunk_70, Document_chunk_63, Document_chunk_84]
+2024-11-19 17:43:54,208 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (23). Terminating.
+2024-11-19 17:43:54,208 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,208 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,211 - src.analysis.select_quotation_module - INFO - Selected 5 quotations.
+2024-11-19 17:43:54,211 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'And another thing, well as you know, things have changed quite recently – can you see any trends in society that could perhaps accelerate the vision that you’ve just put forward, that might contribute to help?
+Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it’s come from. And I think there is an element of people wanting that, but it’s how you get the price and the customers to stop undermining everything we’re doing in the UK, in the food industry. Because customers are willing to pay for it. They’re willing to pay for quality. But, there’s people within the system that will say, ‘This is this,’ but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.
+I’m wondering if Brexit is a factor? If it’s harder to import things, would that be in your favour?
+Well, it’s harder to import things, definitely. But as a country we haven’t got enough manufacturers to process the potatoes we have in the country anyway. So, we’ve let it all go abroad, potatoes go to Belgium and then come back ready-made.
+But that might be more difficult. So, it’s about developing manufacturing capacity to actually use what we already have?
+We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We’ve got the product to use, it’s here in the country but we’re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there’s McCain’s have reduced what they spend here, and [unclear – 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else – it’s crackers.
+So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?
+Yes. The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what we produce, we’re snookered. We’re just flooding the market.
+Do you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?
+We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn’t a lot of money left in the tank to be able to chuck at these things. You’ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it’s not seen as a very well – the profit margins are pathetic. So, it’s building that to go forward. Money is key. Just like a chicken and egg scenario, isn’t it?
+Yes. So, you’re aware of this issue but you might not be in a position personally to do much about it?
+Exactly. I can see the issue. I know exactly what the issue is and I know where you’d take it forward. But without the investment or money to back what requires doing, it’s a waste of time, isn’t it?': 5
+2024-11-19 17:43:54,211 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_51', 'doc_id': 'Document', 'content_snippet': 'The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what...'}, {'chunk_id': 'Document_chunk_49', 'doc_id': 'Document', 'content_snippet': 'So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?...'}, {'chunk_id': 'Document_chunk_48', 'doc_id': 'Document', 'content_snippet': 'So, it’s about developing manufacturing capacity to actually use what we already have? We use what h...'}, {'chunk_id': 'Document_chunk_47', 'doc_id': 'Document', 'content_snippet': 'But that might be more difficult....'}, {'chunk_id': 'Document_chunk_45', 'doc_id': 'Document', 'content_snippet': 'And that, as an industry, as a country, for food manufacturing areas we need to clamp down on....'}]
+2024-11-19 17:43:54,213 - src.processing.answer_generator - INFO - Number of chunks used for query 'And another thing, well as you know, things have changed quite recently – can you see any trends in society that could perhaps accelerate the vision that you’ve just put forward, that might contribute to help?
+Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it’s come from. And I think there is an element of people wanting that, but it’s how you get the price and the customers to stop undermining everything we’re doing in the UK, in the food industry. Because customers are willing to pay for it. They’re willing to pay for quality. But, there’s people within the system that will say, ‘This is this,’ but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.
+I’m wondering if Brexit is a factor? If it’s harder to import things, would that be in your favour?
+Well, it’s harder to import things, definitely. But as a country we haven’t got enough manufacturers to process the potatoes we have in the country anyway. So, we’ve let it all go abroad, potatoes go to Belgium and then come back ready-made.
+But that might be more difficult. So, it’s about developing manufacturing capacity to actually use what we already have?
+We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We’ve got the product to use, it’s here in the country but we’re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there’s McCain’s have reduced what they spend here, and [unclear – 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else – it’s crackers.
+So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?
+Yes. The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what we produce, we’re snookered. We’re just flooding the market.
+Do you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?
+We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn’t a lot of money left in the tank to be able to chuck at these things. You’ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it’s not seen as a very well – the profit margins are pathetic. So, it’s building that to go forward. Money is key. Just like a chicken and egg scenario, isn’t it?
+Yes. So, you’re aware of this issue but you might not be in a position personally to do much about it?
+Exactly. I can see the issue. I know exactly what the issue is and I know where you’d take it forward. But without the investment or money to back what requires doing, it’s a waste of time, isn’t it?': 5
+2024-11-19 17:43:54,218 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9999999999999999
+2024-11-19 17:43:54,218 - src.processing.query_processor - INFO - Processed query with 5 quotations selected.
+2024-11-19 17:43:54,218 - src.processing.query_processor - INFO - Processing query: So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?
+The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you’re doing, we’re not very stable. The problem is, manufacturing full stop. In this country I’m hoping Brexit will change it but we don’t know whether we’ve got a good deal or a bad deal yet, do we?
+It’s still evolving, yeah.
+It’s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that’s not necessarily for the price, it’s the weather patterns and everything. It’s very, very difficult. I’m looking at things from two sides of the fence.
+And so, which two sides?
+The side of the farmer, I’ve a £2 million turnover business farming. And it’s not paying. And I’m on the [org name], the middle part of that is paying, but without farmers, you haven’t got a business.
+So, this is basically the main risk, the whole farming industry in the UK after Brexit?
+We don’t know which way it’s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.
+That is worrying indeed.
+And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now.
+We’ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?
+The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size. Now I’m in my late 30’s (nearly 40!), I should really be pushing things on.
+Yeah, building things up, developing them, yeah.
+Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.
+So, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?
+Which is downscale to a point at which it’s manageable and we can guarantee sales through all of our products we produce. What else can you do? I’m going to be here in the future.
+Yes, you’re just not quite sure how. That’s all rather worrying.
+2024-11-19 17:43:54,218 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?
+The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you’re doing, we’re not very stable. The problem is, manufacturing full stop. In this country I’m hoping Brexit will change it but we don’t know whether we’ve got a good deal or a bad deal yet, do we?
+It’s still evolving, yeah.
+It’s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that’s not necessarily for the price, it’s the weather patterns and everything. It’s very, very difficult. I’m looking at things from two sides of the fence.
+And so, which two sides?
+The side of the farmer, I’ve a £2 million turnover business farming. And it’s not paying. And I’m on the [org name], the middle part of that is paying, but without farmers, you haven’t got a business.
+So, this is basically the main risk, the whole farming industry in the UK after Brexit?
+We don’t know which way it’s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.
+That is worrying indeed.
+And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now.
+We’ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?
+The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size. Now I’m in my late 30’s (nearly 40!), I should really be pushing things on.
+Yeah, building things up, developing them, yeah.
+Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.
+So, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?
+Which is downscale to a point at which it’s manageable and we can guarantee sales through all of our products we produce. What else can you do? I’m going to be here in the future.
+Yes, you’re just not quite sure how. That’s all rather worrying.'
+2024-11-19 17:43:54,219 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,224 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.006s]
+2024-11-19 17:43:54,229 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.004s]
+2024-11-19 17:43:54,229 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,229 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 7 (required min_chunks=1)
+2024-11-19 17:43:54,229 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?
+The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you’re doing, we’re not very stable. The problem is, manufacturing full stop. In this country I’m hoping Brexit will change it but we don’t know whether we’ve got a good deal or a bad deal yet, do we?
+It’s still evolving, yeah.
+It’s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that’s not necessarily for the price, it’s the weather patterns and everything. It’s very, very difficult. I’m looking at things from two sides of the fence.
+And so, which two sides?
+The side of the farmer, I’ve a £2 million turnover business farming. And it’s not paying. And I’m on the [org name], the middle part of that is paying, but without farmers, you haven’t got a business.
+So, this is basically the main risk, the whole farming industry in the UK after Brexit?
+We don’t know which way it’s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.
+That is worrying indeed.
+And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now.
+We’ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?
+The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size. Now I’m in my late 30’s (nearly 40!), I should really be pushing things on.
+Yeah, building things up, developing them, yeah.
+Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.
+So, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?
+Which is downscale to a point at which it’s manageable and we can guarantee sales through all of our products we produce. What else can you do? I’m going to be here in the future.
+Yes, you’re just not quite sure how. That’s all rather worrying.': [Document_chunk_65, Document_chunk_64, Document_chunk_66, Document_chunk_54, Document_chunk_1, Document_chunk_52, Document_chunk_34]
+2024-11-19 17:43:54,229 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (7). Terminating.
+2024-11-19 17:43:54,229 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,229 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,233 - src.analysis.select_quotation_module - INFO - Selected 4 quotations.
+2024-11-19 17:43:54,233 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?
+The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you’re doing, we’re not very stable. The problem is, manufacturing full stop. In this country I’m hoping Brexit will change it but we don’t know whether we’ve got a good deal or a bad deal yet, do we?
+It’s still evolving, yeah.
+It’s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that’s not necessarily for the price, it’s the weather patterns and everything. It’s very, very difficult. I’m looking at things from two sides of the fence.
+And so, which two sides?
+The side of the farmer, I’ve a £2 million turnover business farming. And it’s not paying. And I’m on the [org name], the middle part of that is paying, but without farmers, you haven’t got a business.
+So, this is basically the main risk, the whole farming industry in the UK after Brexit?
+We don’t know which way it’s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.
+That is worrying indeed.
+And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now.
+We’ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?
+The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size. Now I’m in my late 30’s (nearly 40!), I should really be pushing things on.
+Yeah, building things up, developing them, yeah.
+Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.
+So, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?
+Which is downscale to a point at which it’s manageable and we can guarantee sales through all of our products we produce. What else can you do? I’m going to be here in the future.
+Yes, you’re just not quite sure how. That’s all rather worrying.': 5
+2024-11-19 17:43:54,233 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_65', 'doc_id': 'Document', 'content_snippet': 'Now I’m in my late 30’s (nearly 40!), I should really be pushing things on. Yeah, building things up...'}, {'chunk_id': 'Document_chunk_64', 'doc_id': 'Document', 'content_snippet': 'And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, ...'}, {'chunk_id': 'Document_chunk_66', 'doc_id': 'Document', 'content_snippet': 'So, can reduce risk on the [org name]  side by diversifying, bringing in more growers, and on the fa...'}, {'chunk_id': 'Document_chunk_54', 'doc_id': 'Document', 'content_snippet': 'So, you’re aware of this issue but you might not be in a position personally to do much about it?\nEx...'}, {'chunk_id': 'Document_chunk_1', 'doc_id': 'Document', 'content_snippet': 'When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] ...'}]
+2024-11-19 17:43:54,235 - src.processing.answer_generator - INFO - Number of chunks used for query 'So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?
+The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you’re doing, we’re not very stable. The problem is, manufacturing full stop. In this country I’m hoping Brexit will change it but we don’t know whether we’ve got a good deal or a bad deal yet, do we?
+It’s still evolving, yeah.
+It’s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that’s not necessarily for the price, it’s the weather patterns and everything. It’s very, very difficult. I’m looking at things from two sides of the fence.
+And so, which two sides?
+The side of the farmer, I’ve a £2 million turnover business farming. And it’s not paying. And I’m on the [org name], the middle part of that is paying, but without farmers, you haven’t got a business.
+So, this is basically the main risk, the whole farming industry in the UK after Brexit?
+We don’t know which way it’s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.
+That is worrying indeed.
+And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now.
+We’ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?
+The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size. Now I’m in my late 30’s (nearly 40!), I should really be pushing things on.
+Yeah, building things up, developing them, yeah.
+Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.
+So, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?
+Which is downscale to a point at which it’s manageable and we can guarantee sales through all of our products we produce. What else can you do? I’m going to be here in the future.
+Yes, you’re just not quite sure how. That’s all rather worrying.': 5
+2024-11-19 17:43:54,240 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:54,240 - src.processing.query_processor - INFO - Processed query with 4 quotations selected.
+2024-11-19 17:43:54,240 - src.processing.query_processor - INFO - Processing query: And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?
+[org name], as an organisation, we had contracts – our customers basically tore up in front of us. For supply, we’ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn’t require the potatoes. And we’re planning now for 2021/2022 harvest and to be quite honest we’ve got customers who won’t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can’t stop. But the customers are just saying, ‘Well, not sure. Plant them – I’ll let you know later in the year whether we’re going to take them or not.’
+Are you fearing you might end up with a pile of potatoes you can’t sell to anybody?
+Absolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They’ll just get wasted.
+I wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?
+There is an element of that, but there are a lot of people who don’t use potatoes – the cooking at home is rice, it’s pasta. Certainly, don’t want to be importing stuff, which is what’s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.
+And start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, ‘Look, we’ve got all this stuff, you don’t need to go abroad’?
+Well, it is, but we’re probably not a big enough player. When you’re talking to the likes of McCain’s, and Walkers, and those sorts of people, they’re a multinational company anyway, they have suppliers from all over the place. It’s got to come from government level really, to say, ‘No, no more.’ Or the supermarkets, the customers. But it’s not the public, it is the supermarkets. And the government has got to say, ‘No, enough is enough.’
+Apart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?
+The small outlets like farm shops, places like that, they often have online sales, the veg boxes – that side of things has done very well on the back of it. So, that’s something, that’s good. But it’s not to the same scale as what we’ve lost on the other side.
+And I think you’ll be likely to continue building that up, even as COVID passes?
+That will continue and hopefully will go from strength to strength.
+So, you’re not going to go quite back to the way you were before? It’s going to be different?
+It’ll certainly be different.
+Yeah, the combination of COVID and Brexit, indeed.
+Yeah, it’s killing agriculture big style. If all the manufacturers stop, it’ll kill it.
+And that’s all very worrying. Well, I hope things get better for you. I’ve come to the end of my questions now, you’ve shed a lot of insight into what’s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?
+What’s the idea – obviously you’re asking other people within the industry – what is the general consensus of what people are saying?
+We’ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems – and possibly solutions are that people might be facing.
+Yeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It’s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we’re doing. We’ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.
+Without food there isn’t much else, is there really?
+Not really! We’ve got the retail side but that’s upside down. But I’m not saying free money, far from it, I don’t want any subsidies, we’ve got to stand for ourselves. We need to be able survive and we need to be competitive.
+So, what you’re looking for is appropriate investment?
+Yes. And the government-backed loans for the right…it’s like a chicken-and-egg – you can’t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them – to do what you want and what you say you’re going to do, we need these businesses to invest.
+That seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.
+Absolutely.
+So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?
+Well, the less people in the chain, there are less people to pay. So, there’s more money coming back to the farm.
+2024-11-19 17:43:54,240 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?
+[org name], as an organisation, we had contracts – our customers basically tore up in front of us. For supply, we’ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn’t require the potatoes. And we’re planning now for 2021/2022 harvest and to be quite honest we’ve got customers who won’t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can’t stop. But the customers are just saying, ‘Well, not sure. Plant them – I’ll let you know later in the year whether we’re going to take them or not.’
+Are you fearing you might end up with a pile of potatoes you can’t sell to anybody?
+Absolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They’ll just get wasted.
+I wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?
+There is an element of that, but there are a lot of people who don’t use potatoes – the cooking at home is rice, it’s pasta. Certainly, don’t want to be importing stuff, which is what’s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.
+And start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, ‘Look, we’ve got all this stuff, you don’t need to go abroad’?
+Well, it is, but we’re probably not a big enough player. When you’re talking to the likes of McCain’s, and Walkers, and those sorts of people, they’re a multinational company anyway, they have suppliers from all over the place. It’s got to come from government level really, to say, ‘No, no more.’ Or the supermarkets, the customers. But it’s not the public, it is the supermarkets. And the government has got to say, ‘No, enough is enough.’
+Apart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?
+The small outlets like farm shops, places like that, they often have online sales, the veg boxes – that side of things has done very well on the back of it. So, that’s something, that’s good. But it’s not to the same scale as what we’ve lost on the other side.
+And I think you’ll be likely to continue building that up, even as COVID passes?
+That will continue and hopefully will go from strength to strength.
+So, you’re not going to go quite back to the way you were before? It’s going to be different?
+It’ll certainly be different.
+Yeah, the combination of COVID and Brexit, indeed.
+Yeah, it’s killing agriculture big style. If all the manufacturers stop, it’ll kill it.
+And that’s all very worrying. Well, I hope things get better for you. I’ve come to the end of my questions now, you’ve shed a lot of insight into what’s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?
+What’s the idea – obviously you’re asking other people within the industry – what is the general consensus of what people are saying?
+We’ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems – and possibly solutions are that people might be facing.
+Yeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It’s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we’re doing. We’ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.
+Without food there isn’t much else, is there really?
+Not really! We’ve got the retail side but that’s upside down. But I’m not saying free money, far from it, I don’t want any subsidies, we’ve got to stand for ourselves. We need to be able survive and we need to be competitive.
+So, what you’re looking for is appropriate investment?
+Yes. And the government-backed loans for the right…it’s like a chicken-and-egg – you can’t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them – to do what you want and what you say you’re going to do, we need these businesses to invest.
+That seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.
+Absolutely.
+So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?
+Well, the less people in the chain, there are less people to pay. So, there’s more money coming back to the farm.'
+2024-11-19 17:43:54,240 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,248 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.008s]
+2024-11-19 17:43:54,257 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.008s]
+2024-11-19 17:43:54,257 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,257 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 2 (required min_chunks=1)
+2024-11-19 17:43:54,257 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?
+[org name], as an organisation, we had contracts – our customers basically tore up in front of us. For supply, we’ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn’t require the potatoes. And we’re planning now for 2021/2022 harvest and to be quite honest we’ve got customers who won’t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can’t stop. But the customers are just saying, ‘Well, not sure. Plant them – I’ll let you know later in the year whether we’re going to take them or not.’
+Are you fearing you might end up with a pile of potatoes you can’t sell to anybody?
+Absolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They’ll just get wasted.
+I wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?
+There is an element of that, but there are a lot of people who don’t use potatoes – the cooking at home is rice, it’s pasta. Certainly, don’t want to be importing stuff, which is what’s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.
+And start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, ‘Look, we’ve got all this stuff, you don’t need to go abroad’?
+Well, it is, but we’re probably not a big enough player. When you’re talking to the likes of McCain’s, and Walkers, and those sorts of people, they’re a multinational company anyway, they have suppliers from all over the place. It’s got to come from government level really, to say, ‘No, no more.’ Or the supermarkets, the customers. But it’s not the public, it is the supermarkets. And the government has got to say, ‘No, enough is enough.’
+Apart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?
+The small outlets like farm shops, places like that, they often have online sales, the veg boxes – that side of things has done very well on the back of it. So, that’s something, that’s good. But it’s not to the same scale as what we’ve lost on the other side.
+And I think you’ll be likely to continue building that up, even as COVID passes?
+That will continue and hopefully will go from strength to strength.
+So, you’re not going to go quite back to the way you were before? It’s going to be different?
+It’ll certainly be different.
+Yeah, the combination of COVID and Brexit, indeed.
+Yeah, it’s killing agriculture big style. If all the manufacturers stop, it’ll kill it.
+And that’s all very worrying. Well, I hope things get better for you. I’ve come to the end of my questions now, you’ve shed a lot of insight into what’s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?
+What’s the idea – obviously you’re asking other people within the industry – what is the general consensus of what people are saying?
+We’ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems – and possibly solutions are that people might be facing.
+Yeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It’s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we’re doing. We’ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.
+Without food there isn’t much else, is there really?
+Not really! We’ve got the retail side but that’s upside down. But I’m not saying free money, far from it, I don’t want any subsidies, we’ve got to stand for ourselves. We need to be able survive and we need to be competitive.
+So, what you’re looking for is appropriate investment?
+Yes. And the government-backed loans for the right…it’s like a chicken-and-egg – you can’t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them – to do what you want and what you say you’re going to do, we need these businesses to invest.
+That seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.
+Absolutely.
+So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?
+Well, the less people in the chain, there are less people to pay. So, there’s more money coming back to the farm.': [Document_chunk_80, Document_chunk_34]
+2024-11-19 17:43:54,260 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What is the general consensus among agricultural industry stakeholders about the impact of COVID and Brexit, and what potential solutions have been identified to address the challenges faced by farmers and manufacturers?'
+2024-11-19 17:43:54,260 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-11-19 17:43:54,262 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,264 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index/_search [status:200 duration:0.002s]
+2024-11-19 17:43:54,264 - src.retrieval.retrieval - INFO - Filtered 0 chunks due to missing metadata.
+2024-11-19 17:43:54,264 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 20 (required min_chunks=1)
+2024-11-19 17:43:54,264 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What is the general consensus among agricultural industry stakeholders about the impact of COVID and Brexit, and what potential solutions have been identified to address the challenges faced by farmers and manufacturers?': [Document_chunk_80, Document_chunk_86, Document_chunk_61, Document_chunk_51, Document_chunk_45, Document_chunk_48, Document_chunk_67, Document_chunk_57, Document_chunk_23, Document_chunk_89, Document_chunk_54, Document_chunk_22, Document_chunk_31, Document_chunk_59, Document_chunk_58, Document_chunk_82, Document_chunk_84, Document_chunk_69, Document_chunk_85, Document_chunk_55]
+2024-11-19 17:43:54,264 - src.retrieval.retrieval - INFO - Retrieved sufficient chunks (21). Terminating.
+2024-11-19 17:43:54,264 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 5 chunks.
+2024-11-19 17:43:54,264 - src.processing.query_processor - INFO - Retrieved 5 chunks.
+2024-11-19 17:43:54,268 - src.analysis.select_quotation_module - INFO - Selected 4 quotations.
+2024-11-19 17:43:54,268 - src.processing.answer_generator - INFO - Total number of chunks used for context in query 'And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?
+[org name], as an organisation, we had contracts – our customers basically tore up in front of us. For supply, we’ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn’t require the potatoes. And we’re planning now for 2021/2022 harvest and to be quite honest we’ve got customers who won’t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can’t stop. But the customers are just saying, ‘Well, not sure. Plant them – I’ll let you know later in the year whether we’re going to take them or not.’
+Are you fearing you might end up with a pile of potatoes you can’t sell to anybody?
+Absolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They’ll just get wasted.
+I wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?
+There is an element of that, but there are a lot of people who don’t use potatoes – the cooking at home is rice, it’s pasta. Certainly, don’t want to be importing stuff, which is what’s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.
+And start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, ‘Look, we’ve got all this stuff, you don’t need to go abroad’?
+Well, it is, but we’re probably not a big enough player. When you’re talking to the likes of McCain’s, and Walkers, and those sorts of people, they’re a multinational company anyway, they have suppliers from all over the place. It’s got to come from government level really, to say, ‘No, no more.’ Or the supermarkets, the customers. But it’s not the public, it is the supermarkets. And the government has got to say, ‘No, enough is enough.’
+Apart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?
+The small outlets like farm shops, places like that, they often have online sales, the veg boxes – that side of things has done very well on the back of it. So, that’s something, that’s good. But it’s not to the same scale as what we’ve lost on the other side.
+And I think you’ll be likely to continue building that up, even as COVID passes?
+That will continue and hopefully will go from strength to strength.
+So, you’re not going to go quite back to the way you were before? It’s going to be different?
+It’ll certainly be different.
+Yeah, the combination of COVID and Brexit, indeed.
+Yeah, it’s killing agriculture big style. If all the manufacturers stop, it’ll kill it.
+And that’s all very worrying. Well, I hope things get better for you. I’ve come to the end of my questions now, you’ve shed a lot of insight into what’s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?
+What’s the idea – obviously you’re asking other people within the industry – what is the general consensus of what people are saying?
+We’ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems – and possibly solutions are that people might be facing.
+Yeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It’s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we’re doing. We’ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.
+Without food there isn’t much else, is there really?
+Not really! We’ve got the retail side but that’s upside down. But I’m not saying free money, far from it, I don’t want any subsidies, we’ve got to stand for ourselves. We need to be able survive and we need to be competitive.
+So, what you’re looking for is appropriate investment?
+Yes. And the government-backed loans for the right…it’s like a chicken-and-egg – you can’t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them – to do what you want and what you say you’re going to do, we need these businesses to invest.
+That seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.
+Absolutely.
+So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?
+Well, the less people in the chain, there are less people to pay. So, there’s more money coming back to the farm.': 5
+2024-11-19 17:43:54,268 - src.processing.answer_generator - INFO - Chunks used for context: [{'chunk_id': 'Document_chunk_86', 'doc_id': 'Document', 'content_snippet': 'Put it to them – to do what you want and what you say you’re going to do, we need these businesses t...'}, {'chunk_id': 'Document_chunk_80', 'doc_id': 'Document', 'content_snippet': 'If all the manufacturers stop, it’ll kill it. And that’s all very worrying. Well, I hope things get ...'}, {'chunk_id': 'Document_chunk_61', 'doc_id': 'Document', 'content_snippet': 'We don’t know which way it’s going to go....'}, {'chunk_id': 'Document_chunk_51', 'doc_id': 'Document', 'content_snippet': 'The farmers are there, they’ll do a good job. They’re there to do it. But if they can’t process what...'}, {'chunk_id': 'Document_chunk_45', 'doc_id': 'Document', 'content_snippet': 'And that, as an industry, as a country, for food manufacturing areas we need to clamp down on....'}]
+2024-11-19 17:43:54,270 - src.processing.answer_generator - INFO - Number of chunks used for query 'And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?
+[org name], as an organisation, we had contracts – our customers basically tore up in front of us. For supply, we’ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn’t require the potatoes. And we’re planning now for 2021/2022 harvest and to be quite honest we’ve got customers who won’t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can’t stop. But the customers are just saying, ‘Well, not sure. Plant them – I’ll let you know later in the year whether we’re going to take them or not.’
+Are you fearing you might end up with a pile of potatoes you can’t sell to anybody?
+Absolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They’ll just get wasted.
+I wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?
+There is an element of that, but there are a lot of people who don’t use potatoes – the cooking at home is rice, it’s pasta. Certainly, don’t want to be importing stuff, which is what’s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.
+And start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, ‘Look, we’ve got all this stuff, you don’t need to go abroad’?
+Well, it is, but we’re probably not a big enough player. When you’re talking to the likes of McCain’s, and Walkers, and those sorts of people, they’re a multinational company anyway, they have suppliers from all over the place. It’s got to come from government level really, to say, ‘No, no more.’ Or the supermarkets, the customers. But it’s not the public, it is the supermarkets. And the government has got to say, ‘No, enough is enough.’
+Apart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?
+The small outlets like farm shops, places like that, they often have online sales, the veg boxes – that side of things has done very well on the back of it. So, that’s something, that’s good. But it’s not to the same scale as what we’ve lost on the other side.
+And I think you’ll be likely to continue building that up, even as COVID passes?
+That will continue and hopefully will go from strength to strength.
+So, you’re not going to go quite back to the way you were before? It’s going to be different?
+It’ll certainly be different.
+Yeah, the combination of COVID and Brexit, indeed.
+Yeah, it’s killing agriculture big style. If all the manufacturers stop, it’ll kill it.
+And that’s all very worrying. Well, I hope things get better for you. I’ve come to the end of my questions now, you’ve shed a lot of insight into what’s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?
+What’s the idea – obviously you’re asking other people within the industry – what is the general consensus of what people are saying?
+We’ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems – and possibly solutions are that people might be facing.
+Yeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It’s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we’re doing. We’ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.
+Without food there isn’t much else, is there really?
+Not really! We’ve got the retail side but that’s upside down. But I’m not saying free money, far from it, I don’t want any subsidies, we’ve got to stand for ourselves. We need to be able survive and we need to be competitive.
+So, what you’re looking for is appropriate investment?
+Yes. And the government-backed loans for the right…it’s like a chicken-and-egg – you can’t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them – to do what you want and what you say you’re going to do, we need these businesses to invest.
+That seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.
+Absolutely.
+So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?
+Well, the less people in the chain, there are less people to pay. So, there’s more money coming back to the farm.': 5
+2024-11-19 17:43:54,276 - src.analysis.metrics - INFO - Comprehensive metric score: 0.9799999999999999
+2024-11-19 17:43:54,276 - src.processing.query_processor - INFO - Processed query with 4 quotations selected.
+2024-11-19 17:43:54,277 - src.processing.query_processor - INFO - Results saved to 'query_results.json'
+2024-11-19 17:43:54,277 - src.processing.query_processor - INFO - Query processing completed successfully.
+2024-11-19 17:43:54,309 - src.analysis.extract_keywords_module - WARNING - Quote at index 15 is empty.
+2024-11-19 17:43:54,309 - src.analysis.extract_keywords_module - WARNING - Quote at index 16 is empty.
+2024-11-19 17:43:54,309 - src.analysis.extract_keywords_module - WARNING - Quote at index 17 is empty.
+2024-11-19 17:43:54,309 - src.analysis.extract_keywords_module - WARNING - Quote at index 18 is empty.
+2024-11-19 17:43:54,309 - src.analysis.extract_keywords_module - WARNING - Quote at index 19 is empty.
+2024-11-19 17:43:54,337 - src.analysis.extract_keywords_module - WARNING - Quote at index 34 is empty.
+2024-11-19 17:43:54,337 - src.analysis.extract_keywords_module - WARNING - Quote at index 35 is empty.
+2024-11-19 17:43:54,337 - src.analysis.extract_keywords_module - WARNING - Quote at index 36 is empty.
+2024-11-19 17:43:54,337 - src.analysis.extract_keywords_module - WARNING - Quote at index 37 is empty.
+2024-11-19 17:43:54,338 - src.analysis.extract_keywords - INFO - Keywords mapping saved to data/keywords.json
+2024-11-19 17:43:54,338 - __main__ - INFO - Keywords extracted and saved to data/keywords.json
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@5
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Starting evaluation of 3 queries.
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - WARNING - No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - WARNING - No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - WARNING - No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Pass@5: 0.00%, Average Score: 0.0000
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Pass@5: 0.00%
+2024-11-19 17:43:54,338 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@10
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Starting evaluation of 3 queries.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - WARNING - No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - WARNING - No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - WARNING - No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Pass@10: 0.00%, Average Score: 0.0000
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Pass@10: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@20
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Starting evaluation of 3 queries.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - WARNING - No golden contents found for query 'what is digital transformation?'. Skipping evaluation for this query.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - WARNING - No golden contents found for query 'why is aman not promoting digitalization?'. Skipping evaluation for this query.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - WARNING - No golden contents found for query 'The question is how are we going to deal with these risks these are the key that we are working on Nellie please uh and also Sally provide your perspective your data or the um you know mainly how you are localizing for example in Africa these uh challenges and try to provide solutions while you are going along the way.'. Skipping evaluation for this query.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Pass@20: 0.00%, Average Score: 0.0000
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Pass@20: 0.00%
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-11-19 17:43:54,339 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-11-19 17:43:54,340 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-11-19 17:43:54,340 - src.evaluation.evaluation - INFO - Total Queries: 3
+2024-11-19 17:43:54,340 - src.evaluation.evaluation - INFO - Queries with Golden Data: 3
+2024-11-19 17:43:54,340 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
