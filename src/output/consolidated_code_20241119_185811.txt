@@ -47,10 +47,6 @@ __all__ = [
 
 # File: analysis/extract_keywords.py
 #------------------------------------------------------------------------------
-# File: analysis/extract_keywords.py
-#------------------------------------------------------------------------------
-# analysis/extract_keywords.py
-
 import logging
 import json
 from typing import List, Dict, Any
@@ -68,7 +64,7 @@ class KeywordExtractionSignature(dspy.Signature):
         desc="The research objectives guiding the extraction of keywords."
     )
     quotations: List[Dict[str, str]] = dspy.InputField(
-        desc="List containing quotations with 'quote' field."
+        desc="List containing quotations with 'quotation' field."
     )
     keywords: List[str] = dspy.OutputField(
         desc="List of extracted keywords for the provided quote."
@@ -80,7 +76,7 @@ class KeywordExtractionSignature(dspy.Signature):
                 logger.warning("No quotations provided for keyword extraction.")
                 return {"keywords": []}
             
-            quotes = [quotation.get("quote", "") for quotation in quotations]
+            quotes = [quote.get("quotation", "") for quotation in quotations]
             valid_quotes = [quote for quote in quotes if quote]
 
             if not valid_quotes:
@@ -174,7 +170,7 @@ class KeywordExtractionModule(dspy.Module):
         self.input_file = input_file
         self.output_file = output_file
 
-    def process_file(self, input_file: str, research_objectives: str) -> Dict[str,  Any]:
+    def process_file(self, input_file: str, research_objectives: str) -> Dict[str, Any]:
         """Process a single input file and extract keywords for each quote."""
         try:
             logger.debug(f"Processing file: {input_file}")
@@ -185,11 +181,7 @@ class KeywordExtractionModule(dspy.Module):
             
             quotes = []
             for item in data:
-                # Extract quotes from retrieved_chunks
-                for chunk in item.get("retrieved_chunks", []):
-                    quotes.append({"quote": chunk["chunk"].get("contextualized_content", "")})
-
-                # Extract quotes from quotations
+                # Extract quotes only from quotations
                 for quotation in item.get("quotations", []):
                     quotes.append({"quote": quotation.get("quote", "")})
 
@@ -640,13 +632,10 @@ except Exception as e:
 
 # File: analysis/select_quotation.py
 #------------------------------------------------------------------------------
-#analysis/selction_quotation.py
 import logging
 from typing import List, Dict, Any
 import dspy
 import json
-
-from src.utils.validation_functions import validate_relevance, validate_quality, validate_context_clarity
 
 logger = logging.getLogger(__name__)
 
@@ -681,12 +670,9 @@ class SelectQuotationSignature(dspy.Signature):
                 f"```json\n"
                 f"[\n"
                 f"    {{\n"
-                f"        \"quote\": \"This is the first quotation.\",\n"
-                f"        \"category\": \"Descriptive\",\n"
-                f"        \"sub_type\": \"Observation\",\n"
-                f"        \"function\": \"Evidence\",\n"
-                f"        \"thematic_code\": \"Theme1\",\n"
-                f"        \"strength\": 0.85\n"
+                f"        \"quotation\": \"This is the first quotation.\",\n"
+                f"        \"type\": \"Descriptive\",\n"
+                f"        \"function\": \"Evidence\"\n"
                 f"    }}\n"
                 f"]\n"
                 f"```\n"
@@ -705,31 +691,11 @@ class SelectQuotationSignature(dspy.Signature):
 
             logger.info("Quotations selected successfully.")
             parsed_response = self._parse_json_response(response)
-            quotations = parsed_response.get("quotations", [])
+            quotations = self._standardize_quotations(parsed_response.get("quotations", []))
             purpose = parsed_response.get("purpose", "")
 
-            # Assertions
-            # a. Relevance to Research Objectives
-            dspy.Assert(
-                validate_relevance(quotations, research_objectives),
-                msg="Quotations are not sufficiently relevant to the research objectives.",
-                backtrack=self
-            )
-
-            # b. Quality and Representation
-            dspy.Assert(
-                validate_quality(quotations),
-                msg="One or more quotations do not meet the quality standards.",
-                backtrack=self
-            )
-
-            # f. Context and Clarity
-            context = "\n".join(transcript_chunks)
-            dspy.Assert(
-                validate_context_clarity(quotations, context),
-                msg="Quotations lack sufficient context or clarity.",
-                backtrack=self
-            )
+            # Validate quotations
+            self._validate_quotations(quotations, research_objectives, transcript_chunks)
 
             return {
                 "quotations": quotations,
@@ -742,12 +708,55 @@ class SelectQuotationSignature(dspy.Signature):
                 "purpose": ""
             }
 
+    def _standardize_quotations(self, quotations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Standardize quotation format to ensure consistency."""
+        standardized = []
+        for q in quotations:
+            standardized_quote = {}
+            # Ensure "quotation" is the standard key
+            if "quote" in q:
+                standardized_quote["quotation"] = q.pop("quote")
+            elif "quotation" in q:
+                standardized_quote["quotation"] = q["quotation"]
+            else:
+                logger.warning("Quotation missing required text field")
+                continue
+
+            # Copy other fields
+            standardized_quote["type"] = q.get("type", "")
+            standardized_quote["function"] = q.get("function", "")
+            
+            standardized.append(standardized_quote)
+        return standardized
+
+    def _validate_quotations(self, quotations: List[Dict[str, Any]], research_objectives: str, context: List[str]) -> None:
+        """Validate quotations meet quality standards."""
+        if not quotations:
+            return
+
+        context_text = " ".join(context)
+        
+        for q in quotations:
+            # Validate quotation exists in context
+            if q["quotation"] not in context_text:
+                raise ValueError(f"Quotation not found in original context: {q['quotation'][:50]}...")
+            
+            # Validate required fields
+            required_fields = ["quotation", "type", "function"]
+            missing_fields = [field for field in required_fields if not q.get(field)]
+            if missing_fields:
+                raise ValueError(f"Quotation missing required fields: {missing_fields}")
+            
+            # Validate quotation length
+            if len(q["quotation"]) < 10:
+                raise ValueError(f"Quotation too short: {q['quotation']}")
+
     def _parse_json_response(self, response: str) -> Dict[str, Any]:
         try:
             # Attempt to parse the JSON array of quotations
             start_index = response.find('[')
             end_index = response.rfind(']') + 1
-            if (start_index == -1 or end_index == -1):
+            if start_index == -1 or end_index == 0:
                 logger.warning("JSON array of quotations not found in response.")
                 return {"quotations": [], "purpose": ""}
             quotations_json = response[start_index:end_index]
@@ -765,8 +774,6 @@ class SelectQuotationSignature(dspy.Signature):
 
 # File: analysis/select_quotation_module.py
 #------------------------------------------------------------------------------
-# analysis/select_quotation_module.py
-
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -786,21 +793,41 @@ class SelectQuotationModule(dspy.Module):
     def forward(self, research_objectives: str, transcript_chunks: List[str]) -> Dict[str, Any]:
         try:
             logger.debug("Running SelectQuotationModule.")
-            response = self.chain(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
+            
+            # Validate inputs
+            if not research_objectives or not transcript_chunks:
+                logger.warning("Missing required inputs for quotation selection.")
+                return {
+                    "quotations": [],
+                    "purpose": ""
+                }
+
+            # Process through chain
+            response = self.chain(
+                research_objectives=research_objectives,
+                transcript_chunks=transcript_chunks
+            )
+
+            # Extract and validate results
             quotations = response.get("quotations", [])
             purpose = response.get("purpose", "")
+
+            # Log results
             logger.info(f"Selected {len(quotations)} quotations.")
+            if quotations:
+                logger.debug("First quotation sample: " + str(quotations[0]))
+
             return {
                 "quotations": quotations,
                 "purpose": purpose
             }
+
         except Exception as e:
             logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
             return {
                 "quotations": [],
                 "purpose": ""
             }
-
 
 
 ################################################################################
@@ -2031,13 +2058,20 @@ class ThematicAnalysisPipeline:
         self.optimized_program = None
         self.quotation_module = None
         self.keyword_module = None
+        self.lm = None
+        self.lm_history = []
+
+    def log_lm_call(self, prompt):
+        """Log each call to the LLM."""
+        self.lm_history.append(prompt)
+        logger.info(f"LLM Call: {prompt}")
 
     @handle_exceptions
     def initialize_components(self):
         """Initialize all pipeline components."""
         # Configure DSPy Language Model
-        lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
-        dspy.configure(lm=lm)
+        self.lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
+        dspy.configure(lm=self.lm)
 
         # Initialize modules
         self.quotation_module = SelectQuotationModule()
@@ -2052,6 +2086,11 @@ class ThematicAnalysisPipeline:
         except Exception:
             self.qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
 
+        # Example of logging an LLM call
+        prompt = "Initialize components"
+        self.log_lm_call(prompt)
+        self.lm.inspect_history()
+
     @handle_exceptions
     def initialize_databases(self, codebase_chunks):
         """Initialize and populate databases."""
@@ -2063,6 +2102,11 @@ class ThematicAnalysisPipeline:
         self.es_bm25 = ElasticsearchBM25()
         success_count, _ = self.es_bm25.index_documents(self.contextual_db.metadata)
         logger.info(f"Indexed {success_count} documents in Elasticsearch")
+
+        # Log and inspect LLM call
+        prompt = "Initialize databases"
+        self.log_lm_call(prompt)
+        self.lm.inspect_history()
 
     @handle_exceptions
     def optimize_qa_module(self, train_dataset):
@@ -2087,6 +2131,11 @@ class ThematicAnalysisPipeline:
         
         self.optimized_program.save("optimized_program.json")
 
+        # Log and inspect LLM call
+        prompt = "Optimize QA module"
+        self.log_lm_call(prompt)
+        self.lm.inspect_history()
+
     @handle_exceptions
     async def process_data(self):
         """Process data through the pipeline including quotation selection and keyword extraction."""
@@ -2108,6 +2157,11 @@ class ThematicAnalysisPipeline:
         if keywords_result.get("keywords"):
             logger.info(f"Keywords extracted and saved to {keywords_result.get('output_file')}")
 
+        # Log and inspect LLM call
+        prompt = "Process data"
+        self.log_lm_call(prompt)
+        self.lm.inspect_history()
+
     @handle_exceptions
     def evaluate_pipeline(self, evaluation_set):
         """Evaluate the pipeline performance."""
@@ -2121,6 +2175,11 @@ class ThematicAnalysisPipeline:
             k_values=[5, 10, 20],
             evaluation_set=evaluation_set
         )
+
+        # Log and inspect LLM call
+        prompt = "Evaluate pipeline"
+        self.log_lm_call(prompt)
+        self.lm.inspect_history()
 
     @handle_exceptions
     async def run_pipeline(self):
@@ -2178,7 +2237,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
 ################################################################################
@@ -2380,19 +2438,16 @@ def is_answer_factually_correct(example: Dict[str, Any], pred: Dict[str, Any]) -
 # File: processing/query_processor.py
 #------------------------------------------------------------------------------
 import logging
-from typing import List, Dict, Any, Callable
+from typing import List, Dict, Any
 import json
 from tqdm import tqdm
 
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.retrieval.retrieval import multi_stage_retrieval
-from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
 from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
-from src.decorators import handle_exceptions
-from src.utils.validation_functions import validate_relevance, validate_quality, validate_context_clarity
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -2400,12 +2455,6 @@ logger = logging.getLogger(__name__)
 def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Validates the structure of input queries.
-
-    Args:
-        queries (List[Dict[str, Any]]): List of query items.
-
-    Returns:
-        List[Dict[str, Any]]: List of validated query items.
     """
     valid_queries = []
     for idx, query in enumerate(queries):
@@ -2413,14 +2462,9 @@ def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             logger.warning(f"Query at index {idx} is missing the 'query' field or is empty. Skipping.")
             continue
 
-        # Check for optional golden fields
-        has_golden_doc_uuids = 'golden_doc_uuids' in query
-        has_golden_chunk_uuids = 'golden_chunk_uuids' in query
-        has_golden_documents = 'golden_documents' in query
-
-        # If some but not all golden fields are present, log a warning
-        if any([has_golden_doc_uuids, has_golden_chunk_uuids, has_golden_documents]) and not all([has_golden_doc_uuids, has_golden_chunk_uuids, has_golden_documents]):
-            logger.warning(f"Query at index {idx} has incomplete golden data. All golden fields should be present together.")
+        if 'research_objectives' not in query:
+            logger.warning(f"Query at index {idx} missing research_objectives. Using default.")
+            query['research_objectives'] = "Extract relevant insights and themes from the provided text."
 
         valid_queries.append(query)
 
@@ -2430,149 +2474,124 @@ def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
     """
     Retrieves documents using multi-stage retrieval with contextual BM25.
-
-    Args:
-        query (str): The search query.
-        db (ContextualVectorDB): Contextual vector database instance.
-        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
-        k (int): Number of top documents to retrieve.
-
-    Returns:
-        List[Dict[str, Any]]: List of retrieved documents.
     """
-    logger.debug(f"Retrieving documents for query: '{query}' with top {k} results using multi-stage retrieval with contextual BM25.")
+    logger.debug(f"Retrieving documents for query: '{query}' with top {k} results.")
     final_results = multi_stage_retrieval(query, db, es_bm25, k)
-    logger.debug(f"Multi-stage retrieval with contextual BM25 returned {len(final_results)} results.")
+    logger.debug(f"Retrieved {len(final_results)} results.")
     return final_results
 
-@handle_exceptions
-async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule) -> Dict[str, Any]:
+async def process_single_query(
+    query_item: Dict[str, Any],
+    db: ContextualVectorDB,
+    es_bm25: ElasticsearchBM25,
+    k: int,
+    quotation_module: SelectQuotationModule
+) -> Dict[str, Any]:
     """
     Processes a single query to retrieve documents, select quotations, and generate an answer.
-
-    Args:
-        query_item (Dict[str, Any]): The query item containing the query text and other relevant information.
-        db (ContextualVectorDB): Contextual vector database instance.
-        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
-        k (int): Number of top documents to retrieve.
-        quotation_module (SelectQuotationModule): Module to select quotations.
-
-    Returns:
-        Dict[str, Any]: The result of processing the query, including retrieved chunks, quotations, and generated answer.
     """
-    query_text = query_item.get('query', '').strip()
-    if not query_text:
-        logger.warning(f"Query is empty. Skipping.")
+    try:
+        query_text = query_item.get('query', '').strip()
+        if not query_text:
+            logger.warning("Empty query received. Skipping.")
+            return {}
+
+        logger.info(f"Processing query: {query_text}")
+
+        # Retrieve relevant chunks
+        retrieved_chunks = retrieve_documents(query_text, db, es_bm25, k)
+        logger.info(f"Retrieved {len(retrieved_chunks)} chunks.")
+
+        # Extract transcript chunks
+        transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
+
+        # Get research objectives
+        research_objectives = query_item.get('research_objectives', 
+            'Extract relevant insights and themes from the provided text.')
+
+        # Select quotations
+        quotations_response = quotation_module.forward(
+            research_objectives=research_objectives,
+            transcript_chunks=transcript_chunks
+        )
+        
+        # Generate answer
+        qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
+
+        # Construct result
+        result = {
+            "query": query_text,
+            "research_objectives": research_objectives,
+            "retrieved_chunks": retrieved_chunks,
+            "retrieved_chunks_count": len(retrieved_chunks),
+            "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
+            "quotations": quotations_response.get("quotations", []),
+            "purpose": quotations_response.get("purpose", ""),
+            "answer": {
+                "answer": qa_response.get("answer", "")
+            }
+        }
+
+        logger.info(f"Processed query with {len(result['quotations'])} quotations selected.")
+        return result
+
+    except Exception as e:
+        logger.error(f"Error processing query: {e}", exc_info=True)
         return {}
 
-    logger.info(f"Processing query: {query_text}")
-
-    # Retrieve relevant chunks/documents using multi-stage retrieval with contextual BM25
-    retrieved_chunks = retrieve_documents(query_text, db, es_bm25, k)
-    logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
-    logger.info(f"Retrieved chunk IDs: {[chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]}")
-
-    # Extract transcript chunks from retrieved documents
-    transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
-
-    # Define research objectives (this could be part of the query_item or defined elsewhere)
-    research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
-
-    # Select quotations using the new DSPy module
-    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
-    quotations = quotations_response.get("quotations", [])
-    types_and_functions = quotations_response.get("types_and_functions", [])
-    purpose = quotations_response.get("purpose", "")
-
-    # Generate answer using DSPy with assertions (optional, depending on your use-case)
-        # Select quotations using the new DSPy module
-    quotations_response = quotation_module.forward(research_objectives=research_objectives, transcript_chunks=transcript_chunks)
-    quotations = quotations_response.get("quotations", [])
-    purpose = quotations_response.get("purpose", "")
-
-    # Generate answer using DSPy with assertions
-    qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
-    answer = qa_response.get("answer", "")
-    used_chunks_info = qa_response.get("used_chunks", [])
-    retrieved_chunks_count = qa_response.get("num_chunks_used", 0)
-
-    result = {
-        "query": query_text,
-        "research_objectives": research_objectives,
-        "retrieved_chunks": retrieved_chunks,  # Use the original retrieved_chunks
-        "retrieved_chunks_count": len(retrieved_chunks),  # Use the length of retrieved_chunks
-        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],  # Fixed nested dictionary access
-        "quotations": quotations,  # Now contains all type/function information
-        "purpose": purpose,
-        "answer": {
-            "answer": answer
-        }
-    }
-
-    # Log the chunks used for this query
-    logger.info(f"Query '{query_text}' used {retrieved_chunks_count} chunks in answer generation.")
-    logger.info(f"Selected {len(quotations)} quotations for query '{query_text}'.")
-
-    return result
-
-def save_results(results: List[Dict[str, Any]], output_file: str):
+def save_results(results: List[Dict[str, Any]], output_file: str) -> None:
     """
     Saves the results of the processed queries to a specified output file.
-
-    Args:
-        results (List[Dict[str, Any]]): List of results to save.
-        output_file (str): Path to the output file.
     """
     try:
         with open(output_file, 'w', encoding='utf-8') as outfile:
-            json.dump(results, outfile, indent=4)
-        logger.info(f"All query results have been saved to '{output_file}'")
+            json.dump(results, outfile, indent=4, ensure_ascii=False)
+        logger.info(f"Results saved to '{output_file}'")
     except Exception as e:
-        logger.error(f"Error saving results to '{output_file}': {e}", exc_info=True)
+        logger.error(f"Error saving results: {e}", exc_info=True)
+        raise
 
-@handle_exceptions
 async def process_queries(
     queries: List[Dict[str, Any]],
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
     k: int,
     output_file: str
-):
+) -> None:
     """
     Processes a list of queries to retrieve documents, select quotations, and generate answers.
-
-    Args:
-        queries (List[Dict[str, Any]]): List of query items.
-        db (ContextualVectorDB): Contextual vector database instance.
-        es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
-        k (int): Number of top documents to retrieve.
-        output_file (str): Path to the output file to save results.
     """
-    logger.info("Starting to process queries.")
-
+    logger.info("Starting query processing.")
+    
     all_results = []
-    quotation_module = SelectQuotationModule()  # Initialize the quotation selection module
+    quotation_module = SelectQuotationModule()
 
     try:
         for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
             try:
-                result = await process_single_query(query_item, db, es_bm25, k, quotation_module)
+                result = await process_single_query(
+                    query_item=query_item,
+                    db=db,
+                    es_bm25=es_bm25,
+                    k=k,
+                    quotation_module=quotation_module
+                )
                 if result:
                     all_results.append(result)
             except Exception as e:
-                logger.error(f"Error processing query at index {idx}: {e}", exc_info=True)
+                logger.error(f"Error processing query {idx}: {e}", exc_info=True)
+                continue
 
         save_results(all_results, output_file)
+        logger.info("Query processing completed successfully.")
 
     except KeyboardInterrupt:
-        logger.warning("Process interrupted by user. Saving partial results.")
+        logger.warning("Process interrupted. Saving partial results.")
         save_results(all_results, output_file)
         raise
-
     except Exception as e:
-        logger.error(f"Error processing queries: {e}", exc_info=True)
+        logger.error(f"Fatal error in query processing: {e}", exc_info=True)
         raise
-
 
 
 ################################################################################
