@@ -1,86 +1,5 @@
 [
     {
-        "quote": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.",
-        "keywords": [
-            "farmers",
-            "organization",
-            "potatoes",
-            "collectively",
-            "trader",
-            "customers",
-            "interface"
-        ]
-    },
-    {
-        "quote": "Initially, we had to go through other channels outside of [org name], which meant a significant portion of the profits was absorbed by the middleman. Our primary goal is to eliminate this intermediary, ensuring that all the money that would typically go to them is redirected back to the farmers. We are not focused on generating profit for ourselves; instead, our mission is to ensure that the financial benefits are passed directly to the farmers. This is a fundamental issue in the agricultural industry\u2014money is not reaching the farmers as it should. The lack of financial return to farmers is a critical problem we aim to address through our organization.",
-        "keywords": [
-            "intermediary",
-            "profits",
-            "farmers",
-            "financial benefits",
-            "agricultural industry",
-            "critical problem"
-        ]
-    },
-    {
-        "quote": "The organization, referred to as [org name], consists of three farmers who specialize in potato cultivation. Their primary activity is to collaborate in marketing and selling their potatoes collectively, rather than individually. By centralizing the buying and selling process, they aim to eliminate the traditional middleman, thereby increasing the profits that return to the farmers. The organization employs a trader to manage the supply chain, ensuring a steady flow of potatoes to factories and customers. This approach not only simplifies the process for customers, who prefer dealing with an organization rather than individual farms, but also enhances the farmers' ability to meet market demands efficiently. Overall, [org name] serves as a vital interface between the farmers and the market, focusing on sustainability and fair pricing for their produce.",
-        "keywords": [
-            "farmers",
-            "potato cultivation",
-            "collaboration",
-            "marketing",
-            "selling",
-            "middleman",
-            "profits",
-            "supply chain",
-            "customers",
-            "sustainability",
-            "fair pricing"
-        ]
-    },
-    {
-        "quote": "In terms of collaborators, the organization currently works with three direct farms that supply potatoes, along with other contractual farms that guarantee their produce to the group. This collaborative network is essential for maintaining a consistent supply of potatoes to major factories such as Walkers, McCains, and Seabrooks, as well as providing pre-packaged products for supermarkets like Morrison\u2019s. The organization\u2019s role is to bypass the traditional middle man, ensuring that the profits from sales are directed back to the farmers, thereby supporting their livelihoods and promoting a more sustainable agricultural model.",
-        "keywords": [
-            "collaborators",
-            "farms",
-            "potatoes",
-            "supply chain",
-            "factories",
-            "Walkers",
-            "McCains",
-            "Seabrooks",
-            "supermarkets",
-            "Morrison\u2019s",
-            "middle man",
-            "profits",
-            "farmers",
-            "livelihoods",
-            "sustainable",
-            "agricultural model"
-        ]
-    },
-    {
-        "quote": "The COVID-19 pandemic has had a profound impact on [org name], as highlighted by the sudden disruption of contracts with customers. With the food sector, particularly restaurants, ceasing operations overnight, the organization found itself unable to move the required tonnage of potatoes. This situation left a significant amount of produce without a market, illustrating the precarious nature of the agricultural supply chain. The speaker notes that approximately one third of the potato industry is dependent on this sector, underscoring the scale of the challenge faced by [org name] and the urgency to adapt to these unforeseen circumstances.",
-        "keywords": [
-            "COVID-19",
-            "pandemic",
-            "impact",
-            "disruption",
-            "contracts",
-            "customers",
-            "food sector",
-            "restaurants",
-            "potatoes",
-            "produce",
-            "market",
-            "agricultural supply chain",
-            "potato industry",
-            "challenge",
-            "urgency",
-            "adapt"
-        ]
-    },
-    {
         "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
         "keywords": [
             "selling",
@@ -102,107 +21,31 @@
         ]
     },
     {
-        "quote": "we supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people.",
+        "quote": "we had contracts \u2013 our customers basically tore up in front of us.",
         "keywords": [
-            "factories",
-            "Walkers",
-            "McCains",
-            "Seabrooks",
-            "crisps",
-            "snack foods"
-        ]
-    },
-    {
-        "quote": "our customers basically tore up in front of us. For supply, we\u2019ve basically not been able to move the tonnage required.",
-        "keywords": [
+            "contracts",
             "customers",
-            "supply",
-            "tonnage",
-            "challenges",
-            "interaction"
+            "tearing up",
+            "breakdown",
+            "conflict"
         ]
     },
     {
-        "quote": "we had a lot of potatoes sat there with no homes.",
+        "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
         "keywords": [
-            "potatoes",
-            "homes",
-            "abundance",
-            "neglect"
+            "sustainability",
+            "key",
+            "problems"
         ]
     },
     {
-        "quote": "We buy from other farms as well, which supply at different times of year, it varies. This allows us to maintain a steady supply of potatoes throughout the year, regardless of seasonal fluctuations. While our main operations are local, we do engage with factories and suppliers nationally. Additionally, we have occasionally exported to countries like Poland, Ireland, and Belgium, particularly when there is a surplus or when local supply is affected by extreme weather conditions. This flexibility in sourcing is crucial for meeting the demands of our customers and ensuring that we can provide potatoes all year round.",
+        "quote": "the closer to the customer we get, the more we\u2019ll get back to the farm.",
         "keywords": [
-            "sourcing",
-            "potatoes",
-            "steady supply",
-            "seasonal fluctuations",
-            "local operations",
-            "national suppliers",
-            "export",
-            "flexibility",
-            "customer demands"
-        ]
-    },
-    {
-        "quote": "The organization primarily focuses on local and national supply chains, but they also engage in international trade when market conditions necessitate it. As mentioned, \"But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.\" This reflects their strategy of being responsive to market demands, allowing them to export surplus potatoes to countries like Poland, Ireland, and Belgium when local supply exceeds demand. This adaptability is crucial for maintaining a steady flow of business and ensuring that they can meet the needs of their customers throughout the year.",
-        "keywords": [
-            "supply chains",
-            "international trade",
-            "market responsiveness",
-            "adaptability",
-            "customer needs",
-            "export",
-            "surplus potatoes",
-            "Poland",
-            "Ireland",
-            "Belgium"
-        ]
-    },
-    {
-        "quote": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.",
-        "keywords": [
-            "farmers",
-            "organization",
-            "potatoes",
-            "collectively",
-            "trader",
-            "customers",
-            "interface"
-        ]
-    },
-    {
-        "quote": "The organization operates on a national scale, supplying factories across the country with potatoes. To ensure a steady supply throughout the year, they purchase potatoes from various regions on an ad hoc basis, accommodating the different harvesting periods. This strategy is vital for meeting the continuous demand from factories, as both the organization and the factories rely on a reliable year-round supply of potatoes.",
-        "keywords": [
-            "organization",
-            "national scale",
-            "supply",
-            "factories",
-            "potatoes",
-            "steady supply",
-            "ad hoc basis",
-            "harvesting periods",
-            "strategy",
-            "continuous demand",
-            "reliable",
-            "year-round"
-        ]
-    },
-    {
-        "quote": "The organization operates on multiple levels: locally, regionally, and nationally, ensuring a robust supply chain for its potato products. However, it also has the capability to engage in international trade when necessary. For instance, during periods of surplus, the organization has successfully exported potatoes to countries like Poland, Ireland, and Belgium. This strategic approach not only helps manage excess inventory but also allows the organization to tap into broader markets, thereby enhancing its overall operational resilience.",
-        "keywords": [
-            "organization",
-            "supply chain",
-            "potato products",
-            "international trade",
-            "export",
-            "surplus",
-            "Poland",
-            "Ireland",
-            "Belgium",
-            "strategic approach",
-            "operational resilience"
+            "customer",
+            "farm",
+            "proximity",
+            "engagement",
+            "benefits"
         ]
     },
     {
@@ -225,97 +68,35 @@
         ]
     },
     {
-        "quote": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
+        "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
         "keywords": [
-            "trader",
-            "burden",
-            "individual farms",
-            "customers",
-            "engagement"
+            "selling",
+            "organization",
+            "collaboration",
+            "centralization",
+            "marketing"
         ]
     },
     {
-        "quote": "And obviously, we want to supply the factories all year round, and they want a supply all year round.",
+        "quote": "But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round.",
         "keywords": [
             "supply",
             "factories",
-            "year round"
-        ]
-    },
-    {
-        "quote": "Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit.",
-        "keywords": [
             "potatoes",
-            "export",
-            "Poland",
-            "Ireland",
-            "Belgium",
-            "agriculture",
-            "trade"
+            "ad hoc",
+            "year round",
+            "procurement",
+            "sourcing",
+            "availability"
         ]
     },
     {
-        "quote": "Yes, as it were. I\u2019ve just obeyed the company really. We\u2019ve got a lot to do, to get to where we want to get to. It\u2019s certainly helping. Obviously, after Covid it\u2019s been a challenging year. So, people have seen that it\u2019s a good idea and they want in on it? Yes, there\u2019s more competition in the area.",
+        "quote": "We have exported in the past.",
         "keywords": [
-            "obedience",
-            "company",
-            "challenges",
-            "Covid",
-            "competition",
-            "opportunities"
-        ]
-    },
-    {
-        "quote": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.",
-        "keywords": [
-            "farmers",
-            "organization",
-            "potatoes",
-            "collectively",
-            "trader",
-            "customers",
-            "interface"
-        ]
-    },
-    {
-        "quote": "Initially, we had to go through other channels outside of [org name], which meant a significant portion of the profits was absorbed by the middleman. Our primary goal is to eliminate this intermediary, ensuring that all the money that would typically go to them is redirected back to the farmers. We are not focused on generating profit for ourselves; instead, our mission is to ensure that the financial benefits are passed directly to the farmers. This is a fundamental issue in the agricultural industry\u2014money is not reaching the farmers as it should. The lack of financial return to farmers is a critical problem we aim to address through our organization.",
-        "keywords": [
-            "intermediary",
-            "profits",
-            "farmers",
-            "financial benefits",
-            "agricultural industry",
-            "critical problem"
-        ]
-    },
-    {
-        "quote": "This segment illustrates the impact of [org name]'s strategy on the local agricultural market. By cutting out the middleman and centralizing the purchasing and marketing of potatoes, they have created a more competitive environment. The speaker acknowledges that their efforts have prompted other organizations to merge and adapt, indicating a shift in the market dynamics. This competition is seen as a positive development, suggesting that the organization's model is gaining traction and encouraging others to rethink their approaches to potato distribution and sales.",
-        "keywords": [
-            "impact",
-            "strategy",
-            "local agricultural market",
-            "middleman",
-            "competitive environment",
-            "organizations",
-            "merge",
-            "adapt",
-            "market dynamics",
-            "competition",
-            "positive development",
-            "potato distribution",
-            "sales"
-        ]
-    },
-    {
-        "quote": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability.",
-        "keywords": [
-            "financial limitations",
-            "investment",
-            "agricultural financing",
-            "processing capacity",
-            "support",
-            "growth",
-            "sustainability"
+            "exported",
+            "trade",
+            "past",
+            "history"
         ]
     },
     {
@@ -367,182 +148,24 @@
         ]
     },
     {
-        "quote": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes. This exchange illustrates the foundational role that suppliers and farmers play in ensuring the organization can meet its commitments and maintain its operations effectively. Without a reliable network of suppliers, the organization risks falling short in fulfilling customer demands, which could jeopardize its stability and growth.",
-        "keywords": [
-            "suppliers",
-            "farmers",
-            "organizational stability",
-            "customer demands",
-            "reliability",
-            "operations",
-            "risks",
-            "supply chain"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "In terms of collaborators, the organization currently works with three direct farms that supply potatoes, along with other contractual farms that guarantee their produce to the group. This collaborative network is essential for maintaining a consistent supply of potatoes to major factories such as Walkers, McCains, and Seabrooks, as well as providing pre-packaged products for supermarkets like Morrison\u2019s. The organization\u2019s role is to bypass the traditional middle man, ensuring that the profits from sales are directed back to the farmers, thereby supporting their livelihoods and promoting a more sustainable agricultural model.",
-        "keywords": [
-            "collaborators",
-            "farms",
-            "potatoes",
-            "supply chain",
-            "factories",
-            "Walkers",
-            "McCains",
-            "Seabrooks",
-            "supermarkets",
-            "Morrison\u2019s",
-            "middle man",
-            "profits",
-            "farmers",
-            "livelihoods",
-            "sustainable",
-            "agricultural model"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "The crucial players in the functioning of [org name] include the direct suppliers, which are the three farms that form the core of the organization, as well as other contracted farms that guarantee a steady supply of potatoes. While these suppliers are essential for meeting demand, the day-to-day management and operational decisions are primarily handled by the management team, which includes the speaker. This structure allows [org name] to maintain flexibility in sourcing and ensures that the organization can adapt to changes in supply and demand effectively.",
-        "keywords": [
-            "suppliers",
-            "farms",
-            "management team",
-            "flexibility",
-            "sourcing",
-            "supply and demand"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.",
-        "keywords": [
-            "farmers",
-            "organization",
-            "potatoes",
-            "collectively",
-            "trader",
-            "customers",
-            "interface"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "Yeah, that\u2019s me, we\u2019re the crucial ones. This statement underscores my role in the organization, where I manage the day-to-day operations and ensure that everything runs smoothly. Without our efforts, the organization wouldn't be able to function effectively, especially in coordinating the supply of potatoes from various farms to meet market demands. Our focus is on maximizing returns for the farmers and ensuring a steady supply chain, which is vital for the sustainability of our operations.",
-        "keywords": [
-            "crucial",
-            "role",
-            "organization",
-            "day-to-day operations",
-            "supply of potatoes",
-            "market demands",
-            "maximizing returns",
-            "farmers",
-            "steady supply chain",
-            "sustainability"
-        ]
-    },
-    {
-        "quote": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
-        "keywords": [
-            "suppliers",
-            "farmers",
-            "demand",
-            "supply",
-            "stakeholders",
-            "availability",
-            "problems"
-        ]
-    },
-    {
-        "quote": "There\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group.",
-        "keywords": [
-            "farms",
-            "direct suppliers",
-            "contractual",
-            "spuds",
-            "supply relationships"
-        ]
-    },
-    {
-        "quote": "What we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-        "keywords": [
-            "organization",
-            "potatoes",
-            "centralized",
-            "marketing",
-            "collaboration"
-        ]
-    },
-    {
-        "quote": "We brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation.",
-        "keywords": [
-            "trader",
-            "burden",
-            "individual farms",
-            "customers",
-            "organization",
-            "relationship"
-        ]
-    },
-    {
-        "quote": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.",
-        "keywords": [
-            "farmers",
-            "organization",
-            "potatoes",
-            "collectively",
-            "trader",
-            "customers",
-            "interface"
-        ]
-    },
-    {
-        "quote": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. This reflects our commitment to enhancing our operational efficiency and expanding our reach within the agricultural market. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. Additionally, as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help? This question highlights our awareness of the broader market landscape and our desire to leverage societal shifts to bolster our growth strategy.",
-        "keywords": [
-            "growers",
-            "customers",
-            "operational efficiency",
-            "expanding reach",
-            "agricultural market",
-            "inefficiencies",
-            "societal trends",
-            "growth strategy"
-        ]
-    },
-    {
-        "quote": "The speaker envisions a future where sustainability is paramount in the food system. They aim to expand their organization by bringing more farmers on board, thereby increasing the collective benefits for all members. A key initiative is the introduction of a 7.5kg bag line, which represents a step towards getting closer to the customer and reducing dependency on factories. This approach is intended to create a more direct supply chain, ultimately allowing for a process that delivers produce straight from the farm to the end customer. By doing so, they hope to enhance profitability for farmers and ensure that the financial benefits of their work are maximized.",
-        "keywords": [
-            "sustainability",
-            "food system",
-            "farmers",
-            "collective benefits",
-            "7.5kg bag",
-            "direct supply chain",
-            "profitability",
-            "financial benefits"
-        ]
-    },
-    {
-        "quote": "The speaker articulates that sustainability in their operations hinges on achieving fair pricing for their products. They note that while customers are willing to pay a fair price for quality, the market is currently skewed by middlemen and factories that drive prices down, making it difficult for farmers to break even. The speaker emphasizes the need to move closer to the end product to stabilize prices, as they have experienced a significant drop in base prices over the past two years. They assert that to cover costs, farmers need to receive \u00a3100-\u00a3110 per tonne, contrasting sharply with the current market prices of \u00a330-\u00a340 per tonne. This situation underscores the importance of restructuring the supply chain to ensure that farmers can charge fair prices while remaining profitable.",
-        "keywords": [
-            "sustainability",
-            "fair pricing",
-            "supply chain",
-            "farmers",
-            "market dynamics",
-            "profitability",
-            "middlemen",
-            "economic struggles"
-        ]
-    },
-    {
-        "quote": "The organization is not just focused on selling raw potatoes; it is exploring innovative ways to add value to its products. By slicing potatoes and potentially creating ready-made meals, the organization aims to cater directly to consumer preferences, thereby bypassing traditional distribution channels. This direct-to-consumer approach is a strategic move to enhance profitability and ensure that more of the revenue generated from sales goes back to the farmers, aligning with their goal of sustainability and reducing the influence of middlemen in the supply chain.",
-        "keywords": [
-            "innovation",
-            "value addition",
-            "consumer preferences",
-            "direct-to-consumer",
-            "profitability",
-            "sustainability",
-            "supply chain"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
         "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
@@ -555,136 +178,13 @@
         ]
     },
     {
-        "quote": "Sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+        "quote": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
         "keywords": [
-            "sustainability",
-            "problems"
-        ]
-    },
-    {
-        "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-        "keywords": [
-            "customer",
-            "farm",
-            "proximity",
-            "engagement",
-            "return to origins"
-        ]
-    },
-    {
-        "quote": "We need to move closer to the end product where we can sustain a steady, average price for sustainability.",
-        "keywords": [
-            "end product",
-            "steady price",
-            "sustainability"
-        ]
-    },
-    {
-        "quote": "I think rather than just selling the potato, we\u2019ll slice it, and things like that.",
-        "keywords": [
-            "selling",
-            "potato",
-            "slice",
-            "innovation",
-            "product development",
-            "food processing"
-        ]
-    },
-    {
-        "quote": "The speaker is emphasizing the critical need for the UK to enhance its manufacturing capacity to process locally grown potatoes. Currently, a significant amount of potatoes is imported for ready-made meals, despite having ample domestic supply. The investment in processing facilities has largely gone abroad, leading to a situation where UK-grown potatoes are sent to countries like Belgium for processing and then returned as finished products. This not only raises costs but also contributes to unnecessary road miles, which is environmentally unsustainable. The speaker questions the logic behind this practice and advocates for a shift towards utilizing local resources more effectively.",
-        "keywords": [
-            "manufacturing capacity",
-            "locally grown potatoes",
-            "imported potatoes",
-            "processing facilities",
-            "environmental sustainability",
-            "local resources",
-            "investment",
-            "finished products",
-            "road miles",
-            "UK"
-        ]
-    },
-    {
-        "quote": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability.",
-        "keywords": [
-            "financial limitations",
-            "investment",
-            "agricultural financing",
-            "processing capacity",
-            "support",
-            "growth",
-            "sustainability"
-        ]
-    },
-    {
-        "quote": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability.",
-        "keywords": [
-            "agricultural sector",
-            "investment",
-            "stability",
-            "farmers",
-            "financial support",
-            "sustainability",
-            "resilience"
-        ]
-    },
-    {
-        "quote": "The speaker envisions a future where sustainability is paramount in the food system. They aim to expand their organization by bringing more farmers on board, thereby increasing the collective benefits for all members. A key initiative is the introduction of a 7.5kg bag line, which represents a step towards getting closer to the customer and reducing dependency on factories. This approach is intended to create a more direct supply chain, ultimately allowing for a process that delivers produce straight from the farm to the end customer. By doing so, they hope to enhance profitability for farmers and ensure that the financial benefits of their work are maximized.",
-        "keywords": [
-            "sustainability",
-            "food system",
-            "farmers",
-            "collective benefits",
-            "7.5kg bag",
-            "direct supply chain",
-            "profitability",
-            "financial benefits"
-        ]
-    },
-    {
-        "quote": "The discussion reveals that the processing capacity in the UK is a significant bottleneck for the agricultural sector. Despite having a robust supply of farmers and potatoes, the inability to process these products locally means that much of the potential output is wasted or exported for processing abroad. This situation is exacerbated by the current economic climate, where investment in local processing facilities is lacking. The speaker points out that without adequate processing capabilities, the farming industry cannot thrive, leading to a cycle of inefficiency and financial instability. Addressing this bottleneck is crucial for the future sustainability of the agricultural sector in the UK.",
-        "keywords": [
-            "processing capacity",
-            "agricultural sector",
-            "UK",
-            "local processing",
-            "economic climate",
-            "investment",
-            "inefficiency",
-            "financial instability",
-            "sustainability"
-        ]
-    },
-    {
-        "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
-        "keywords": [
-            "manufacturing capacity",
-            "local resources",
-            "utilization",
-            "importation",
-            "potatoes",
-            "ready-made meals"
-        ]
-    },
-    {
-        "quote": "The trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things.",
-        "keywords": [
-            "cost",
-            "money",
-            "farm level",
-            "ideas",
-            "challenges"
-        ]
-    },
-    {
-        "quote": "Without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
-        "keywords": [
-            "investment",
-            "money",
-            "resources",
-            "waste of time",
-            "goals"
+            "trader",
+            "burden",
+            "individual farms",
+            "customers",
+            "engagement"
         ]
     },
     {
@@ -696,6 +196,16 @@
         ]
     },
     {
+        "quote": "I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing.",
+        "keywords": [
+            "farmers",
+            "members",
+            "benefits",
+            "growth",
+            "community"
+        ]
+    },
+    {
         "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
         "keywords": [
             "customer",
@@ -706,72 +216,56 @@
         ]
     },
     {
-        "quote": "Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on. Yeah, building things up, developing them, yeah. However, the reality is that I\u2019m doing quite the opposite. Due to the current challenges in the agricultural sector, I find myself scaling back my operations. From the [org name] point of view, I\u2019m focusing on getting more growers on board and spreading the risk out to more growers. This way, the more growers we have, the less at risk we are, allowing us to navigate the uncertainties of the market more effectively.",
+        "quote": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
         "keywords": [
-            "late 30's",
-            "nearly 40",
-            "pushing things on",
-            "building things up",
-            "developing",
-            "challenges",
-            "agricultural sector",
-            "scaling back",
-            "operations",
-            "growers",
-            "spreading risk",
-            "navigating uncertainties",
-            "market"
-        ]
-    },
-    {
-        "quote": "The speaker highlights the difficulties banks face in lending to businesses with negative cash flow, a situation exacerbated by the COVID-19 pandemic. They express concern that many businesses will find themselves in similar predicaments. In response to these challenges, the speaker has devised a contingency plan for their farming operations, which involves reducing the scale of their activities. This decision is driven by the need to minimize financial risk and ensure that their operations remain viable in an unpredictable market.",
-        "keywords": [
-            "banks",
-            "lending",
-            "negative cash flow",
-            "COVID-19",
-            "businesses",
-            "contingency plan",
-            "farming operations",
-            "financial risk",
-            "viable operations",
-            "unpredictable market"
-        ]
-    },
-    {
-        "quote": "The speaker emphasizes that on the organizational side, they can mitigate risk by diversifying and bringing in more growers. This strategy allows them to spread the risk across a broader base, ensuring that they are not overly reliant on a limited number of suppliers. Conversely, on the farm side, the only viable option is to downscale operations to a level that is manageable. This means reducing the size of their farming activities to ensure that they can guarantee sales for all the products they produce, thus maintaining financial stability in a challenging market environment.",
-        "keywords": [
-            "mitigate risk",
-            "diversifying",
-            "growers",
-            "suppliers",
-            "downscale operations",
-            "manageable",
-            "sales",
-            "financial stability"
-        ]
-    },
-    {
-        "quote": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability.",
-        "keywords": [
-            "agricultural sector",
-            "investment",
-            "stability",
             "farmers",
-            "financial support",
-            "sustainability",
-            "resilience"
+            "processing",
+            "produce",
+            "market",
+            "capability",
+            "flooding"
         ]
     },
     {
-        "quote": "The speaker expresses a deep concern regarding the financial viability of the farming industry in the UK, particularly in the aftermath of Brexit. They note that while their organization ([org name]) is managing to operate profitably, the underlying issue remains that without a robust farming sector, the organization itself cannot sustain its business model. This highlights the precarious nature of agriculture in the current economic climate, where external factors such as Brexit are creating significant risks for farmers, potentially leading to a decline in agricultural productivity and stability.",
+        "quote": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
         "keywords": [
-            "financial viability",
-            "farming industry",
-            "Brexit",
-            "organizational sustainability",
-            "agricultural productivity",
-            "economic risks"
+            "bottle-neck",
+            "processing capacity",
+            "UK",
+            "infrastructure",
+            "operational efficiency"
+        ]
+    },
+    {
+        "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that.",
+        "keywords": [
+            "manufacturing",
+            "capacity",
+            "import",
+            "potatoes",
+            "ready-made meals",
+            "food production"
+        ]
+    },
+    {
+        "quote": "And the factories, the money has been invested in other countries, not the UK for processing potatoes.",
+        "keywords": [
+            "factories",
+            "investment",
+            "countries",
+            "UK",
+            "processing",
+            "potatoes"
+        ]
+    },
+    {
+        "quote": "Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
+        "keywords": [
+            "road miles",
+            "crackers",
+            "frustration",
+            "allowance",
+            "issues"
         ]
     },
     {
@@ -785,24 +279,14 @@
         ]
     },
     {
-        "quote": "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing.",
+        "quote": "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing. Reducing the farm size.",
         "keywords": [
             "contingency plan",
-            "farm",
             "reduce",
             "risk",
             "losses",
-            "downscaling"
-        ]
-    },
-    {
-        "quote": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it? Exactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.",
-        "keywords": [
-            "awareness",
-            "issue",
-            "recognition",
-            "limitations",
-            "action"
+            "downscaling",
+            "farm size"
         ]
     },
     {
@@ -815,124 +299,29 @@
         ]
     },
     {
-        "quote": "Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+        "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
         "keywords": [
-            "farmers",
-            "potatoes",
-            "stability",
-            "manufacturing",
-            "supply"
+            "selling",
+            "organization",
+            "collaboration",
+            "centralization",
+            "marketing"
         ]
     },
     {
-        "quote": "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector.",
-        "keywords": [
-            "agricultural industry",
-            "reliance on manufacturers",
-            "processing capacity",
-            "farmers",
-            "industry stakeholders",
-            "challenges",
-            "collaborative solutions",
-            "strategies"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "The discussion highlights a critical point about the agricultural supply chain: if there were increased investments in food manufacturing, it would enable farmers to supply these firms more effectively. The speaker argues that not only is investment necessary, but the structure of the food chain itself must be simplified. By reducing the number of players involved, farmers can retain a larger share of the profits, which is essential for their sustainability. This approach aims to create a more equitable system where the financial benefits flow back to the farmers, addressing the ongoing issues of profitability and market volatility in the agricultural sector.",
-        "keywords": [
-            "agricultural supply chain",
-            "investment",
-            "food manufacturing",
-            "farmers",
-            "profits",
-            "sustainability",
-            "equitable system",
-            "market volatility"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "The speaker envisions a future where sustainability is paramount in the food system. They aim to expand their organization by bringing more farmers on board, thereby increasing the collective benefits for all members. A key initiative is the introduction of a 7.5kg bag line, which represents a step towards getting closer to the customer and reducing dependency on factories. This approach is intended to create a more direct supply chain, ultimately allowing for a process that delivers produce straight from the farm to the end customer. By doing so, they hope to enhance profitability for farmers and ensure that the financial benefits of their work are maximized.",
-        "keywords": [
-            "sustainability",
-            "food system",
-            "farmers",
-            "collective benefits",
-            "7.5kg bag",
-            "direct supply chain",
-            "profitability",
-            "financial benefits"
-        ]
+        "quote": "",
+        "keywords": []
     },
     {
-        "quote": "The speaker argues that significant changes are necessary at the government level to prioritize local agriculture over imports, stating, \"It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers.\" They acknowledge the negative impacts of COVID but also point out that some local outlets, like farm shops, have thrived during this time, indicating a shift in consumer preferences towards local produce. This dual perspective illustrates the challenges and opportunities within the agricultural landscape post-COVID.",
-        "keywords": [
-            "government intervention",
-            "local agriculture",
-            "consumer preferences",
-            "COVID-19 impact",
-            "supermarkets",
-            "farm shops",
-            "agricultural landscape",
-            "challenges",
-            "opportunities"
-        ]
-    },
-    {
-        "quote": "Yeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses \u2013 that\u2019s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. This perspective aligns with the organization's goal of cutting out the middleman and ensuring that more profits return to the farmers, ultimately fostering a more sustainable and efficient food system.",
-        "keywords": [
-            "local sourcing",
-            "supporting local businesses",
-            "food miles",
-            "sustainable food system",
-            "profits",
-            "farmers"
-        ]
-    },
-    {
-        "quote": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying.",
-        "keywords": [
-            "manufacturers",
-            "stop",
-            "kill",
-            "worrying",
-            "consequences"
-        ]
-    },
-    {
-        "quote": "So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?",
-        "keywords": [
-            "investment",
-            "food chain",
-            "shorter chains",
-            "efficiency",
-            "supply chain"
-        ]
-    },
-    {
-        "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-        "keywords": [
-            "sustainability",
-            "key",
-            "problems"
-        ]
-    },
-    {
-        "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-        "keywords": [
-            "customer",
-            "farm",
-            "proximity",
-            "engagement",
-            "return to origins"
-        ]
-    },
-    {
-        "quote": "We need to be sourcing more locally and supporting more local businesses \u2013 that\u2019s a must in every sector we go to.",
-        "keywords": [
-            "local sourcing",
-            "support local businesses",
-            "must",
-            "every sector"
-        ]
+        "quote": "",
+        "keywords": []
     }
 ]
