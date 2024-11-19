@@ -19,7 +19,7 @@ class KeywordExtractionModule(dspy.Module):
         self.input_file = input_file
         self.output_file = output_file
 
-    def process_file(self, input_file: str, research_objectives: str) -> Dict[str,  Any]:
+    def process_file(self, input_file: str, research_objectives: str) -> Dict[str, Any]:
         """Process a single input file and extract keywords for each quote."""
         try:
             logger.debug(f"Processing file: {input_file}")
@@ -30,11 +30,7 @@ class KeywordExtractionModule(dspy.Module):
             
             quotes = []
             for item in data:
-                # Extract quotes from retrieved_chunks
-                for chunk in item.get("retrieved_chunks", []):
-                    quotes.append({"quote": chunk["chunk"].get("contextualized_content", "")})
-
-                # Extract quotes from quotations
+                # Extract quotes only from quotations
                 for quotation in item.get("quotations", []):
                     quotes.append({"quote": quotation.get("quote", "")})
 
