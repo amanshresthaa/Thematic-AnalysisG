@@ -68,7 +68,7 @@
             "Document_chunk_24",
             "Document_chunk_68"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quotation": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
                 "type": "operational strategy",
@@ -90,7 +90,30 @@
                 "context": "This emphasizes the operational challenges faced due to sudden market changes."
             }
         ],
-        "analysis": "The selected quotations provide a comprehensive view of the farming organization's operations and challenges. The first quotation emphasizes the collaborative strategy of centralizing potato marketing, which aligns with the research objective of understanding operational strategies. The second quotation underscores the economic sustainability goal of returning profits to farmers by cutting out middlemen, directly addressing the economic factors in the research objectives. The third and fourth quotations reveal the significant challenges posed by market dynamics, particularly during the COVID-19 pandemic, illustrating how external factors can disrupt operations and affect supply chains. Together, these quotations support a nuanced understanding of the organization's efforts to navigate market dynamics while striving for sustainability and profitability.",
+        "analysis_primary": "The selected quotations provide a comprehensive view of the farming organization's operations and challenges. The first quotation emphasizes the collaborative strategy of centralizing potato marketing, which aligns with the research objective of understanding operational strategies. The second quotation underscores the economic sustainability goal of returning profits to farmers by cutting out middlemen, directly addressing the economic factors in the research objectives. The third and fourth quotations reveal the significant challenges posed by market dynamics, particularly during the COVID-19 pandemic, illustrating how external factors can disrupt operations and affect supply chains. Together, these quotations support a nuanced understanding of the organization's efforts to navigate market dynamics while striving for sustainability and profitability.",
+        "quotations_alternative": [
+            {
+                "quotation": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+                "type": "operational dynamics",
+                "context": "This quotation highlights the collaborative effort among farmers to centralize their marketing efforts, which is crucial for understanding their operational strategy."
+            },
+            {
+                "quotation": "Initially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.",
+                "type": "economic strategy",
+                "context": "This statement emphasizes the economic strategy of eliminating intermediaries to ensure that profits are returned to the farmers, aligning with the research objective of understanding economic factors."
+            },
+            {
+                "quotation": "Yes, you\u2019re just not quite sure how. That\u2019s all rather worrying. And then of course, there is the COVID crisis on top of this.",
+                "type": "challenges",
+                "context": "This quotation reflects the uncertainty and challenges posed by the COVID crisis, which is essential for understanding the external factors affecting the organization."
+            },
+            {
+                "quotation": "For supply, we\u2019ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped.",
+                "type": "impact of external factors",
+                "context": "This highlights the direct impact of the COVID crisis on the organization's supply chain, illustrating the challenges faced in maintaining operations."
+            }
+        ],
+        "analysis_alternative": "The selected quotations provide a comprehensive view of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, which is essential for understanding how they are attempting to enhance their market presence. The second quotation reveals their economic strategy of cutting out the middleman, which directly addresses the research objective of understanding economic factors and sustainability in their operations. The third and fourth quotations highlight the significant challenges posed by the COVID crisis, showcasing how external market dynamics can disrupt operations and supply chains. Together, these quotations support the research objectives by illustrating the interconnectedness of operational strategies, economic factors, and external challenges faced by the organization.",
         "answer": {
             "answer": "[org name] is an organization formed by three farmers who grow potatoes. Their activities focus on collectively marketing and selling their potatoes to eliminate the middleman, ensuring that profits return directly to the farmers. They employ a trader to manage the supply chain and supply major customers like Walkers and McCains, aiming to streamline the process and enhance sustainability."
         }
@@ -164,7 +187,7 @@
             "Document_chunk_9",
             "Document_chunk_14"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quote": "So, we buy from other farms as well, which supply at different times of year, it varies.",
                 "type": "operational strategy",
@@ -191,7 +214,35 @@
                 "context": "This statement indicates the organization's proactive approach to market fluctuations and their willingness to engage in international trade when necessary."
             }
         ],
-        "analysis": "The selected quotations collectively illustrate the farming organization's operational strategies, challenges, and future outlook in a dynamic market environment. The first quotation reveals their strategy of sourcing from multiple farms to ensure year-round supply, which is crucial for sustainability. The second quotation underscores their adaptability to market demands, showcasing a proactive approach to seizing opportunities. The third quotation highlights the cooperative structure that facilitates better market access and customer engagement, aligning with the research objective of understanding organizational strategies. The fourth quotation emphasizes their commitment to maintaining a sustainable supply chain, while the final quotation points to their readiness to engage in international markets, reflecting a forward-thinking perspective. Together, these insights provide a comprehensive understanding of the organization's operations within the context of market dynamics and economic factors.",
+        "analysis_primary": "The selected quotations collectively illustrate the farming organization's operational strategies, challenges, and future outlook in a dynamic market environment. The first quotation reveals their strategy of sourcing from multiple farms to ensure year-round supply, which is crucial for sustainability. The second quotation underscores their adaptability to market demands, showcasing a proactive approach to seizing opportunities. The third quotation highlights the cooperative structure that facilitates better market access and customer engagement, aligning with the research objective of understanding organizational strategies. The fourth quotation emphasizes their commitment to maintaining a sustainable supply chain, while the final quotation points to their readiness to engage in international markets, reflecting a forward-thinking perspective. Together, these insights provide a comprehensive understanding of the organization's operations within the context of market dynamics and economic factors.",
+        "quotations_alternative": [
+            {
+                "quotation": "So, we buy from other farms as well, which supply at different times of year, it varies.",
+                "type": "operational strategy",
+                "context": "This statement highlights the organization's strategy of diversifying its supply sources to ensure a consistent product availability throughout the year."
+            },
+            {
+                "quotation": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
+                "type": "market dynamics",
+                "context": "This reflects the organization's responsiveness to market conditions, indicating a flexible approach to sourcing based on demand."
+            },
+            {
+                "quotation": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
+                "type": "organizational structure",
+                "context": "This illustrates the strategic decision to centralize marketing efforts, which helps streamline operations and improve customer relations."
+            },
+            {
+                "quotation": "And obviously, we want to supply the factories all year round, and they want a supply all year round.",
+                "type": "supply chain management",
+                "context": "This emphasizes the importance of maintaining a reliable supply chain to meet the needs of their factory clients, which is crucial for economic sustainability."
+            },
+            {
+                "quotation": "Yeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit.",
+                "type": "international operations",
+                "context": "This indicates the organization's ability to adapt to surplus situations by exploring international markets, showcasing their strategic flexibility."
+            }
+        ],
+        "analysis_alternative": "The selected quotations collectively illustrate the farming organization's operational strategies and market dynamics, which are essential for understanding their challenges and future outlook. The emphasis on buying from various farms and adapting to market demands demonstrates a proactive approach to supply chain management. The introduction of a trader to centralize marketing efforts reflects a strategic move to enhance efficiency and customer engagement. Furthermore, the commitment to supplying factories year-round highlights the organization's focus on economic sustainability. Lastly, the willingness to export surplus potatoes indicates a flexible and responsive strategy to market fluctuations, aligning with the research objectives of comprehensively understanding the organization's operations in the context of market dynamics and sustainability.",
         "answer": {
             "answer": "The individual manages the supply of potatoes from multiple farms to factories, ensuring a steady year-round supply. They also coordinate exports to international markets when there is surplus, playing a key role in both local and national operations."
         }
@@ -265,7 +316,7 @@
             "Document_chunk_18",
             "Document_chunk_52"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quote": "So, people have seen that it\u2019s a good idea and they want in on it?",
                 "type": "question",
@@ -292,7 +343,35 @@
                 "context": "This statement underscores the financial challenges faced by farmers and the need for sustainable investment in processing capacity."
             }
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies of the farming organization, the challenges posed by market dynamics, and the financial constraints that impact sustainability. The first quotation indicates a growing interest in collaborative farming, which aligns with the objective of understanding organizational operations. The second quotation emphasizes the strategy of centralizing sales, which is crucial for enhancing market competitiveness. The third quotation reveals the critical issue of profit distribution, highlighting the organization's aim to rectify this imbalance. The fourth quotation points to the increased competition, reflecting the dynamic market environment that the organization must navigate. Finally, the fifth quotation addresses the financial limitations that hinder the development of processing capacity, underscoring the economic factors that influence the organization's future outlook. Together, these quotations illustrate the complex interplay of operations, challenges, and strategies within the context of the farming organization, framed through a constructivist lens that values the farmers' lived experiences and perspectives.",
+        "analysis_primary": "The selected quotations collectively support the research objectives by providing insights into the operational strategies of the farming organization, the challenges posed by market dynamics, and the financial constraints that impact sustainability. The first quotation indicates a growing interest in collaborative farming, which aligns with the objective of understanding organizational operations. The second quotation emphasizes the strategy of centralizing sales, which is crucial for enhancing market competitiveness. The third quotation reveals the critical issue of profit distribution, highlighting the organization's aim to rectify this imbalance. The fourth quotation points to the increased competition, reflecting the dynamic market environment that the organization must navigate. Finally, the fifth quotation addresses the financial limitations that hinder the development of processing capacity, underscoring the economic factors that influence the organization's future outlook. Together, these quotations illustrate the complex interplay of operations, challenges, and strategies within the context of the farming organization, framed through a constructivist lens that values the farmers' lived experiences and perspectives.",
+        "quotations_alternative": [
+            {
+                "quote": "So, people have seen that it\u2019s a good idea and they want in on it?",
+                "type": "question",
+                "context": "This question reflects the growing interest in the farming organization and its potential impact on the market."
+            },
+            {
+                "quote": "we are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+                "type": "statement",
+                "context": "This statement outlines the core strategy of the organization, emphasizing collaboration among farmers."
+            },
+            {
+                "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
+                "type": "statement",
+                "context": "This highlights the economic challenge of middlemen in the industry and the organization's goal to redirect profits back to farmers."
+            },
+            {
+                "quote": "there\u2019s more competition in the area.",
+                "type": "statement",
+                "context": "This indicates the changing market dynamics and the need for the organization to adapt to increased competition."
+            },
+            {
+                "quote": "the trouble with all these ideas is that they cost a lot of money.",
+                "type": "statement",
+                "context": "This reflects the financial challenges faced by the organization in implementing new strategies and the importance of profitability."
+            }
+        ],
+        "analysis_alternative": "The selected quotations support the research objectives by providing insights into the operational strategies of the farming organization, particularly their collaborative approach to marketing and the economic challenges they face. The emphasis on cutting out middlemen and redirecting profits back to farmers illustrates their commitment to sustainability and economic viability. Additionally, the acknowledgment of increased competition and financial constraints highlights the dynamic nature of the market and the need for strategic planning. Overall, these quotations collectively paint a picture of a farming organization navigating complex market dynamics while striving for sustainability and economic success.",
         "answer": {
             "answer": "I consider myself innovative because I have created a model that cuts out the middleman, ensuring that more money goes directly back to the farmers. This approach addresses the critical issue of farmers not receiving fair financial returns and fosters competition in the market, benefiting both farmers and customers."
         }
@@ -366,7 +445,7 @@
             "Document_chunk_1",
             "Document_chunk_32"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quotation": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
                 "type": "operational dynamics",
@@ -388,7 +467,30 @@
                 "context": "This brief statement underscores the self-perception of the farmers as central to the organization's success, reinforcing their agency within the market dynamics."
             }
         ],
-        "analysis": "The selected quotations collectively support the research objectives by illustrating the interconnectedness of suppliers, farmers, and the organization itself. The first quotation highlights the operational challenges related to supplier dependency, which is crucial for understanding market dynamics. The second quotation emphasizes the collaborative efforts among farms, showcasing how these relationships are vital for stability and sustainability. The third quotation reveals a strategic approach to market engagement, indicating a shift towards more efficient customer interactions. Finally, the last quotation reflects the farmers' self-awareness of their critical role, which is essential for understanding the economic factors at play. Together, these insights provide a comprehensive view of the organization's operations, challenges, and strategies in the context of the agricultural market.",
+        "analysis_primary": "The selected quotations collectively support the research objectives by illustrating the interconnectedness of suppliers, farmers, and the organization itself. The first quotation highlights the operational challenges related to supplier dependency, which is crucial for understanding market dynamics. The second quotation emphasizes the collaborative efforts among farms, showcasing how these relationships are vital for stability and sustainability. The third quotation reveals a strategic approach to market engagement, indicating a shift towards more efficient customer interactions. Finally, the last quotation reflects the farmers' self-awareness of their critical role, which is essential for understanding the economic factors at play. Together, these insights provide a comprehensive view of the organization's operations, challenges, and strategies in the context of the agricultural market.",
+        "quotations_alternative": [
+            {
+                "quotation": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
+                "type": "operational insight",
+                "context": "This quotation emphasizes the critical role of suppliers in the farming organization, indicating that their availability directly impacts operational success."
+            },
+            {
+                "quotation": "There\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group.",
+                "type": "collaboration strategy",
+                "context": "This highlights the collaborative approach taken by the organization to secure a stable supply chain through contracts with other farms."
+            },
+            {
+                "quotation": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation.",
+                "type": "strategic decision",
+                "context": "This illustrates the strategic decision to streamline operations by using a trader, which reflects an understanding of market dynamics and customer preferences."
+            },
+            {
+                "quotation": "It\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers.",
+                "type": "organizational structure",
+                "context": "This quotation reveals the organizational structure designed to empower farmers while facilitating market access, showcasing a sustainable approach to business."
+            }
+        ],
+        "analysis_alternative": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, challenges, and collaborative efforts of the farming organization. The emphasis on supplier relationships and the strategic use of a trader to connect with customers illustrates the organization's adaptability to market dynamics. Furthermore, the constructivist framework allows us to see how these farmers construct their operational identity through collaboration and strategic decision-making, ultimately aiming for sustainability and economic success in a competitive landscape.",
         "answer": {
             "answer": "The crucial collaborators are the three direct farms and other contracted farms that supply potatoes, as well as the management team responsible for day-to-day operations."
         }
@@ -462,7 +564,7 @@
             "Document_chunk_38",
             "Document_chunk_36"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
                 "type": "operational strategy",
@@ -489,7 +591,35 @@
                 "context": "This reflects the organization's strategic shift towards direct consumer engagement to enhance profitability."
             }
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, sustainability focus, and economic challenges faced by the farming organization. The emphasis on collaboration among farmers to centralize marketing efforts indicates a strategic response to market dynamics. The commitment to sustainability is underscored by the recognition that without it, the organization faces significant challenges. Additionally, the focus on reducing intermediaries and engaging directly with consumers highlights a proactive approach to addressing economic pressures and ensuring fair pricing. Overall, these quotations illustrate a comprehensive understanding of the organization's current operations and future aspirations within the context of market dynamics and sustainability.",
+        "analysis_primary": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, sustainability focus, and economic challenges faced by the farming organization. The emphasis on collaboration among farmers to centralize marketing efforts indicates a strategic response to market dynamics. The commitment to sustainability is underscored by the recognition that without it, the organization faces significant challenges. Additionally, the focus on reducing intermediaries and engaging directly with consumers highlights a proactive approach to addressing economic pressures and ensuring fair pricing. Overall, these quotations illustrate a comprehensive understanding of the organization's current operations and future aspirations within the context of market dynamics and sustainability.",
+        "quotations_alternative": [
+            {
+                "quote": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+                "type": "strategic collaboration",
+                "context": "This quote emphasizes the organization's effort to unify individual farmers for collective marketing, which is crucial for enhancing market presence and negotiating power."
+            },
+            {
+                "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+                "type": "sustainability focus",
+                "context": "This statement reflects the centrality of sustainability in the organization's vision, indicating that long-term success hinges on sustainable practices."
+            },
+            {
+                "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+                "type": "customer engagement",
+                "context": "This highlights the strategy of reducing intermediaries to improve profitability and sustainability, reinforcing the importance of direct customer relationships."
+            },
+            {
+                "quote": "We need to move closer to the end product where we can sustain a steady, average price for sustainability.",
+                "type": "economic strategy",
+                "context": "This quote addresses the economic challenges faced by farmers and the need for a pricing strategy that ensures viability and sustainability."
+            },
+            {
+                "quote": "You\u2019re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that\u2019s the direction you want to take in the future?",
+                "type": "future outlook",
+                "context": "This reflects the organization's forward-thinking approach to market dynamics, emphasizing a shift towards direct consumer sales as a means to enhance sustainability."
+            }
+        ],
+        "analysis_alternative": "The selected quotations collectively support the research objectives by illustrating the farming organization's strategic initiatives in response to market dynamics and sustainability challenges. The emphasis on collaboration among farmers (first quote) is crucial for enhancing their collective bargaining power and market presence. The focus on sustainability (second quote) underscores the organization's commitment to long-term viability, which is essential in the current economic climate. The strategy of engaging directly with customers (third quote) not only aims to improve profitability but also aligns with sustainable practices by reducing reliance on intermediaries. The economic considerations highlighted in the fourth quote reveal the pressing need for a pricing strategy that ensures farmers can cover their costs and remain profitable. Finally, the future outlook expressed in the last quote indicates a proactive approach to adapting to market changes, reinforcing the organization's commitment to sustainability and economic resilience. Together, these insights provide a comprehensive understanding of the organization's operations, challenges, strategies, and future outlook in the context of the research objectives.",
         "answer": {
             "answer": "The vision for 'Future Food Systems' focuses on sustainability, increasing farmer participation, and creating a direct supply chain that connects farms to consumers, thereby stabilizing prices and enhancing profitability for farmers."
         }
@@ -514,10 +644,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_52",
-                    "original_index": 52,
-                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
-                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
                 "score": 0.16666666666666669
             },
@@ -525,10 +655,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_54",
-                    "original_index": 54,
-                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
-                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
+                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
                 },
                 "score": 0.16666666666666669
             },
@@ -558,41 +688,69 @@
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
             "Document_chunk_48",
-            "Document_chunk_52",
             "Document_chunk_54",
+            "Document_chunk_52",
             "Document_chunk_34",
             "Document_chunk_49"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quotation": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
                 "type": "operational challenge",
                 "context": "This quotation highlights the operational challenge of underutilizing local resources and the impact of outsourcing on sustainability."
             },
             {
-                "quotation": "Do you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
-                "type": "financial constraint",
-                "context": "This quotation emphasizes the financial constraints faced by the organization, which hinder the development of necessary processing capacity."
+                "quotation": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                "type": "economic factors",
+                "context": "This statement reflects the economic instability within the agricultural sector and its direct impact on the organization\u2019s operations."
             },
             {
-                "quotation": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it? Exactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
-                "type": "organizational stability",
-                "context": "This quotation reflects on the stability of the organization in contrast to the broader agricultural sector, highlighting the interdependence of farming and processing."
+                "quotation": "We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
+                "type": "financial constraints",
+                "context": "This quotation emphasizes the financial constraints faced by the organization and the need for investment to support growth and sustainability."
             },
             {
-                "quotation": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?",
+                "quotation": "My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing.",
                 "type": "future outlook",
-                "context": "This quotation outlines the vision for future food systems, emphasizing sustainability and direct connections between farmers and customers."
+                "context": "This statement articulates a vision for the future that prioritizes sustainability and collaboration among farmers."
             },
             {
                 "quotation": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
-                "type": "operational bottleneck",
+                "type": "operational challenge",
                 "context": "This quotation identifies processing capacity as a critical bottleneck in the operational framework of the organization."
             }
         ],
-        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization. The first quotation underscores the operational challenge of underutilizing local resources, which is crucial for understanding market dynamics and sustainability. The second and third quotations reveal significant financial constraints that limit the organization's ability to invest in necessary processing capacity, highlighting the economic factors at play. The fourth quotation presents a forward-looking vision that prioritizes sustainability and direct farmer-to-consumer connections, aligning with the research objectives of understanding future outlooks. Finally, the last quotation succinctly identifies processing capacity as a bottleneck, reinforcing the need for strategic focus in addressing operational challenges. Together, these insights provide a comprehensive understanding of the organization's operations, challenges, and strategies in the context of market dynamics and sustainability.",
+        "analysis_primary": "The selected quotations collectively underscore the multifaceted challenges and strategies of the farming organization in the context of market dynamics and sustainability. The first quotation reveals the operational challenge of underutilizing local resources, which is compounded by the outsourcing of processing to other countries, leading to increased road miles and environmental concerns. The second quotation highlights the economic instability within the agricultural sector, indicating that the organization\u2019s stability is contingent upon the broader agricultural landscape. The financial constraints articulated in the third quotation further illustrate the difficulties in securing investment for necessary improvements, emphasizing the need for profitability to enable reinvestment. The vision for sustainability expressed in the fourth quotation reflects a proactive approach to future challenges, aiming to foster collaboration among farmers. Finally, the identification of processing capacity as a bottleneck in the last quotation encapsulates the operational hurdles that must be addressed to enhance the organization\u2019s resilience and sustainability. Together, these insights align with the research objectives by providing a comprehensive understanding of the organization's operations, challenges, and future outlook.",
+        "quotations_alternative": [
+            {
+                "quote": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
+                "type": "challenge",
+                "context": "This quotation highlights the challenge of underutilizing local resources and the need for developing manufacturing capacity within the UK."
+            },
+            {
+                "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous.",
+                "type": "challenge",
+                "context": "This statement reflects the precarious nature of the agricultural sector, emphasizing the instability that affects the farming organization."
+            },
+            {
+                "quote": "Money is key.",
+                "type": "strategy",
+                "context": "This succinct statement underscores the financial constraints that limit the organization's ability to invest in necessary improvements and innovations."
+            },
+            {
+                "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+                "type": "vision",
+                "context": "This quotation articulates the importance of sustainability in the future of farming and processing, aligning with the organization's long-term goals."
+            },
+            {
+                "quote": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+                "type": "strategy",
+                "context": "This statement reflects a strategic vision for enhancing direct supply chains, which could improve profitability and sustainability."
+            }
+        ],
+        "analysis_alternative": "The selected quotations collectively support the research objectives by providing a nuanced understanding of the farming organization's operations and challenges. The emphasis on developing local processing capacity and the financial constraints faced by the organization reveal critical barriers to sustainability and growth. Furthermore, the vision for a sustainable future that prioritizes direct connections with consumers illustrates a proactive strategy to address these challenges. This analysis aligns with the constructivist theoretical framework, as it highlights how the organization's understanding of its context shapes its strategies and future outlook.",
         "answer": {
-            "answer": "Yes, trends such as increased consumer awareness of food origins and sustainability could accelerate the development of local processing capacity in the UK. However, financial investment is essential to overcome current limitations in the agricultural sector."
+            "answer": "The trends in society that could accelerate the vision for enhancing food processing capacity in the UK include a growing demand for local sourcing and sustainability, particularly in the wake of COVID-19. However, the key challenge remains the lack of investment in local processing facilities, which is necessary to utilize the domestic supply of potatoes effectively."
         }
     },
     {
@@ -664,7 +822,7 @@
             "Document_chunk_54",
             "Document_chunk_60"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quote": "Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on. Yeah, building things up, developing them, yeah. Developing, and actually, we doing quite the opposite. I\u2019m doing the less. From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.",
                 "type": "operational strategy",
@@ -686,7 +844,35 @@
                 "context": "This quote emphasizes the precarious nature of the agricultural sector and its dependence on farmers, reflecting the broader market dynamics affecting the organization."
             }
         ],
-        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization in the context of market dynamics and economic factors. The emphasis on diversifying grower participation as a risk management strategy indicates a proactive approach to sustainability. Furthermore, the acknowledgment of financial difficulties, particularly in securing loans post-COVID, highlights the economic pressures that necessitate operational adjustments, such as downscaling. The contrast between the stability of the organization and the instability of the agricultural sector underscores the critical interdependencies within the industry. These insights align with the research objectives by providing a comprehensive understanding of the operational landscape and the strategic responses to external challenges.",
+        "analysis_primary": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization in the context of market dynamics and economic factors. The emphasis on diversifying grower participation as a risk management strategy indicates a proactive approach to sustainability. Furthermore, the acknowledgment of financial difficulties, particularly in securing loans post-COVID, highlights the economic pressures that necessitate operational adjustments, such as downscaling. The contrast between the stability of the organization and the instability of the agricultural sector underscores the critical interdependencies within the industry. These insights align with the research objectives by providing a comprehensive understanding of the operational landscape and the strategic responses to external challenges.",
+        "quotations_alternative": [
+            {
+                "quote": "Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on. Yeah, building things up, developing them, yeah. Developing, and actually, we doing quite the opposite. I\u2019m doing the less. From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.",
+                "type": "operational strategy",
+                "context": "This quote reflects the strategy of risk management through diversification of growers, which is essential for the organization's sustainability."
+            },
+            {
+                "quote": "And the banks are \u2013 it\u2019s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there\u2019ll be a lot of businesses after COVID with the same scenario now.",
+                "type": "economic challenge",
+                "context": "This highlights the financial challenges faced by the organization, particularly in the context of post-COVID recovery and the implications for lending."
+            },
+            {
+                "quote": "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing. Reducing the farm size.",
+                "type": "risk management",
+                "context": "This statement underscores the necessity of downscaling operations as a contingency plan to manage financial risks."
+            },
+            {
+                "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
+                "type": "market dynamics",
+                "context": "This quote emphasizes the precarious nature of the agricultural sector and its dependence on farmers, which is critical for understanding market dynamics."
+            },
+            {
+                "quote": "And it\u2019s not paying. And I\u2019m on the [org name], the middle part of that is paying, but without farmers, you haven\u2019t got a business.",
+                "type": "economic sustainability",
+                "context": "This reflects the economic sustainability issues within the farming industry, particularly the reliance on farmers for operational viability."
+            }
+        ],
+        "analysis_alternative": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization in navigating market dynamics and economic factors. The emphasis on diversifying grower participation as a risk management strategy indicates a proactive approach to sustainability. The financial challenges highlighted, particularly in relation to negative cash flow and lending difficulties post-COVID, underscore the economic pressures faced by the organization. Furthermore, the acknowledgment of the instability within the agricultural sector, particularly after Brexit, reveals the broader context in which the organization operates. These insights align with the research objectives by providing a comprehensive understanding of the operational landscape, challenges, and future outlook of the farming organization.",
         "answer": {
             "answer": "The organization feels stable, but the agricultural sector is in a disastrous state, particularly post-Brexit. The main risk is the viability of farming, as without farmers, the organization cannot sustain itself. They are downscaling operations and diversifying their grower base to manage these risks."
         }
@@ -760,7 +946,7 @@
             "Document_chunk_76",
             "Document_chunk_81"
         ],
-        "quotations": [
+        "quotations_primary": [
             {
                 "quotation": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying.",
                 "type": "concern",
@@ -787,7 +973,35 @@
                 "context": "This suggests a solution-oriented approach to economic factors affecting the farming organization, advocating for a fairer distribution of resources."
             }
         ],
-        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted challenges and strategies faced by the farming organization. The concern about manufacturers stopping production underscores the precarious nature of market dynamics. The emphasis on investment and shorter supply chains reveals a strategic focus on enhancing economic sustainability. The vision for sustainability as a key element reflects a forward-thinking approach that aligns with contemporary environmental priorities. Additionally, the acknowledgment of governmental and supermarket influences highlights the external challenges impacting the organization. Finally, the call for a fairer distribution of resources down the food chain presents a proactive solution to economic issues, reinforcing the organization's commitment to sustainability and community support.",
+        "analysis_primary": "The selected quotations collectively support the research objectives by illustrating the multifaceted challenges and strategies faced by the farming organization. The concern about manufacturers stopping production underscores the precarious nature of market dynamics. The emphasis on investment and shorter supply chains reveals a strategic focus on enhancing economic sustainability. The vision for sustainability as a key element reflects a forward-thinking approach that aligns with contemporary environmental priorities. Additionally, the acknowledgment of governmental and supermarket influences highlights the external challenges impacting the organization. Finally, the call for a fairer distribution of resources down the food chain presents a proactive solution to economic issues, reinforcing the organization's commitment to sustainability and community support.",
+        "quotations_alternative": [
+            {
+                "quote": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying.",
+                "type": "concern",
+                "context": "This statement reflects the interconnectedness of the agricultural supply chain and the potential risks faced by farmers if manufacturers cease operations."
+            },
+            {
+                "quote": "So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?",
+                "type": "strategy",
+                "context": "This highlights the need for strategic investment in the food supply chain to enhance profitability for farmers by reducing intermediaries."
+            },
+            {
+                "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+                "type": "vision",
+                "context": "This emphasizes the importance of sustainability in future food systems, indicating a forward-thinking approach to farming practices."
+            },
+            {
+                "quote": "It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers.",
+                "type": "call to action",
+                "context": "This reflects the need for systemic change at the governmental and corporate levels to support farmers and address market challenges."
+            },
+            {
+                "quote": "I think we need to allow the money to come down the food chain, to get it back.",
+                "type": "economic factor",
+                "context": "This statement underscores the economic dynamics within the food supply chain and the necessity for financial resources to flow back to farmers."
+            }
+        ],
+        "analysis_alternative": "The selected quotations collectively illustrate the multifaceted challenges and strategies faced by the farming organization. The concern about manufacturers ceasing operations highlights the vulnerability of farmers within the broader market dynamics. The emphasis on investment and shortening food chains reflects a strategic approach to enhance economic viability and sustainability. The vision for future food systems underscores the importance of sustainability as a guiding principle, while the call to action for government and supermarkets indicates a recognition of the need for systemic support. Finally, the focus on economic factors reveals the critical need for financial resources to be redirected to farmers, reinforcing the interconnectedness of these themes in achieving a sustainable agricultural future.",
         "answer": {
             "answer": "COVID impacted the organization by causing a major disruption in the food supply chain, leading to unsold potatoes and uncertainty in securing future contracts. While local farm shops have seen some growth, the overall situation remains challenging, highlighting the need for investment in local food systems and support for local businesses."
         }

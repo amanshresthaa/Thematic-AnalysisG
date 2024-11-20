@@ -1,7 +1,4 @@
-
 # File: main.py
-#------------------------------------------------------------------------------
-# main.py
 import gc
 import logging
 import os
@@ -22,6 +19,7 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
+from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt  # Import the new module
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -37,6 +35,7 @@ class ThematicAnalysisPipeline:
         self.teleprompter = None
         self.optimized_program = None
         self.quotation_module = None
+        self.quotation_module_alt = None  # Initialize the alternative quotation module
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -78,7 +77,8 @@ class ThematicAnalysisPipeline:
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file = self.config['queries_file']
             evaluation_set_file = self.config['evaluation_set_file']
-            output_filename = self.config['output_filename']
+            output_filename_primary = self.config['output_filename_primary']  # Primary output file
+            output_filename_alt = self.config['output_filename_alt']          # Alternative output file
 
             dl = DataLoader()
             # Initialize the DataLoader
@@ -225,18 +225,29 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
                 return
 
-            # Proceed with processing queries using the optimized program and quotation selection
-            logger.info("Starting to process queries with the optimized program and quotation selection")
+            # Initialize SelectQuotationModuleAlt with activated assertions
+            logger.info("Initializing SelectQuotationModuleAlt with activated assertions")
             try:
-                # **Add 'await' before process_queries to properly await the asynchronous function**
+                self.quotation_module_alt = SelectQuotationModuleAlt()
+                self.quotation_module_alt = assert_transform_module(self.quotation_module_alt, backtrack_handler)
+                logger.info("SelectQuotationModuleAlt initialized successfully with assertions activated.")
+            except Exception as e:
+                logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
+                return
+
+            # Proceed with processing queries using both quotation modules
+            logger.info("Starting to process queries with both quotation selection modules")
+            try:
                 await process_queries(
                     validated_queries,
                     self.contextual_db,
                     self.es_bm25,
                     k,
-                    output_filename,  # Modified to pass only one output file
+                    output_filename_primary,  # Primary output file
+                    output_filename_alt,      # Alternative output file
                     self.optimized_program,
-                    self.quotation_module
+                    self.quotation_module,
+                    self.quotation_module_alt  # Pass the new module
                 )
             except Exception as e:
                 logger.error(f"Error processing queries: {e}", exc_info=True)
@@ -272,7 +283,8 @@ if __name__ == "__main__":
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file': 'data/queries.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename': 'query_results.json'
+        'output_filename_primary': 'query_results_primary.json',   # Primary output filename
+        'output_filename_alt': 'query_results_alternative.json'  # Alternative output filename
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
