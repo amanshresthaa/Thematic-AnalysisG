@@ -1,6 +1,6 @@
 # File: src/processing/query_processor.py
 import logging
-from typing import List, Dict, Any, Callable
+from typing import List, Dict, Any
 import json
 from tqdm import tqdm
 
@@ -8,12 +8,14 @@ from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.retrieval.retrieval import multi_stage_retrieval
 from src.retrieval.reranking import retrieve_with_reranking
-from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt  # Import the new module
 from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
 import dspy
+
+# Importing both quotation modules
+from src.analysis.select_quotation_module import SelectQuotationModule
+from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -67,7 +69,13 @@ def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: Elasticsearc
     return final_results
 
 @handle_exceptions
-async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int, quotation_module: SelectQuotationModule, quotation_module_alt: SelectQuotationModuleAlt) -> Dict[str, Any]:
+async def process_single_query(
+    query_item: Dict[str, Any],
+    db: ContextualVectorDB,
+    es_bm25: ElasticsearchBM25,
+    k: int,
+    quotation_module: dspy.Module
+) -> Dict[str, Any]:
     """
     Processes a single query to retrieve documents, select quotations, and generate an answer.
 
@@ -76,15 +84,14 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
         db (ContextualVectorDB): Contextual vector database instance.
         es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
         k (int): Number of top documents to retrieve.
-        quotation_module (SelectQuotationModule): Primary module to select quotations.
-        quotation_module_alt (SelectQuotationModuleAlt): Alternative module to select quotations.
+        quotation_module (dspy.Module): Module to select quotations.
 
     Returns:
         Dict[str, Any]: The result of processing the query, including retrieved chunks, quotations, and generated answer.
     """
     query_text = query_item.get('query', '').strip()
     if not query_text:
-        logger.warning(f"Query is empty. Skipping.")
+        logger.warning("Query is empty. Skipping.")
         return {}
 
     logger.info(f"Processing query: {query_text}")
@@ -103,7 +110,7 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     # Define theoretical framework (this should be part of the query_item or configuration)
     theoretical_framework = query_item.get('theoretical_framework', 'Constructivist')
 
-    # Select quotations using the primary DSPy module
+    # Select quotations using the provided DSPy module
     quotations_response = quotation_module.forward(
         research_objectives=research_objectives,
         transcript_chunks=transcript_chunks,
@@ -112,45 +119,23 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
     quotations = quotations_response.get("quotations", [])
     analysis = quotations_response.get("analysis", "")
 
-    # Select quotations using the alternative DSPy module
-    quotations_alt_response = quotation_module_alt.forward(
-        research_objectives=research_objectives,
-        transcript_chunks=transcript_chunks,
-        theoretical_framework=theoretical_framework
-    )
-    quotations_alt = quotations_alt_response.get("quotations", [])
-    analysis_alt = quotations_alt_response.get("analysis", "")
-
-    # Prepare separate results for primary and alternative modules
-    result_primary = {
+    # Prepare the result
+    result = {
         "query": query_text,
         "research_objectives": research_objectives,
         "theoretical_framework": theoretical_framework,
-        "retrieved_chunks": retrieved_chunks,  # Use the original retrieved_chunks
-        "retrieved_chunks_count": len(retrieved_chunks),  # Use the length of retrieved_chunks
-        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],  # Fixed nested dictionary access
-        "quotations": quotations,  # Quotations from primary module
+        "retrieved_chunks": retrieved_chunks,
+        "retrieved_chunks_count": len(retrieved_chunks),
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
+        "quotations": quotations,
         "analysis": analysis,
         "answer": ""  # Placeholder for the answer
     }
 
-    result_alt = {
-        "query": query_text,
-        "research_objectives": research_objectives,
-        "theoretical_framework": theoretical_framework,
-        "retrieved_chunks": retrieved_chunks,  # Use the original retrieved_chunks
-        "retrieved_chunks_count": len(retrieved_chunks),  # Use the length of retrieved_chunks
-        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],  # Fixed nested dictionary access
-        "quotations": quotations_alt,  # Quotations from alternative module
-        "analysis": analysis_alt,
-        "answer": ""  # Placeholder for the answer
-    }
-
     # Determine if any quotations are selected
-    if not quotations and not quotations_alt:
+    if not quotations:
         logger.warning(f"No quotations selected for query '{query_text}'. Skipping answer generation.")
-        result_primary["answer"] = "No relevant quotations were found to generate an answer."
-        result_alt["answer"] = "No relevant quotations were found to generate an answer."
+        result["answer"] = "No relevant quotations were found to generate an answer."
     else:
         # Generate answer using DSPy with assertions
         qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
@@ -158,51 +143,32 @@ async def process_single_query(query_item: Dict[str, Any], db: ContextualVectorD
         used_chunks_info = qa_response.get("used_chunks", [])
         retrieved_chunks_count = qa_response.get("num_chunks_used", 0)
 
-        result_primary["answer"] = {
-            "answer": answer
-        }
-        result_alt["answer"] = {
+        result["answer"] = {
             "answer": answer
         }
 
     # Log the chunks used for this query
     logger.info(f"Query '{query_text}' used {retrieved_chunks_count} chunks in answer generation.")
-    logger.info(f"Selected {len(quotations)} primary quotations and {len(quotations_alt)} alternative quotations for query '{query_text}'.")
 
-    return {
-        "primary": result_primary,
-        "alternative": result_alt
-    }
+    # Log the number of quotations selected
+    logger.info(f"Selected {len(quotations)} quotations for query '{query_text}'.")
 
-def save_results_primary(results: List[Dict[str, Any]], output_file: str):
+    return result
+
+def save_results(results: List[Dict[str, Any]], output_file: str):
     """
-    Saves the primary results of the processed queries to a specified output file.
+    Saves the processed query results to a specified output file.
 
     Args:
-        results (List[Dict[str, Any]]): List of primary results to save.
-        output_file (str): Path to the primary output file.
+        results (List[Dict[str, Any]]): List of query results to save.
+        output_file (str): Path to the output file.
     """
     try:
         with open(output_file, 'w', encoding='utf-8') as outfile:
             json.dump(results, outfile, indent=4)
-        logger.info(f"All primary query results have been saved to '{output_file}'")
+        logger.info(f"All query results have been saved to '{output_file}'")
     except Exception as e:
-        logger.error(f"Error saving primary results to '{output_file}': {e}", exc_info=True)
-
-def save_results_alternative(results: List[Dict[str, Any]], output_file: str):
-    """
-    Saves the alternative results of the processed queries to a specified output file.
-
-    Args:
-        results (List[Dict[str, Any]]): List of alternative results to save.
-        output_file (str): Path to the alternative output file.
-    """
-    try:
-        with open(output_file, 'w', encoding='utf-8') as outfile:
-            json.dump(results, outfile, indent=4)
-        logger.info(f"All alternative query results have been saved to '{output_file}'")
-    except Exception as e:
-        logger.error(f"Error saving alternative results to '{output_file}': {e}", exc_info=True)
+        logger.error(f"Error saving results to '{output_file}': {e}", exc_info=True)
 
 @handle_exceptions
 async def process_queries(
@@ -210,31 +176,26 @@ async def process_queries(
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
     k: int,
-    output_file_primary: str,
-    output_file_alt: str,
+    output_file: str,
     optimized_program: dspy.Program,
-    quotation_module: SelectQuotationModule,
-    quotation_module_alt: SelectQuotationModuleAlt  # Add the new module as a parameter
+    quotation_module: dspy.Module
 ):
     """
     Processes a list of queries to retrieve documents, select quotations, and generate answers.
-    Saves primary and alternative results into separate output files.
+    Saves results into a specified output file.
 
     Args:
         queries (List[Dict[str, Any]]): List of query items.
         db (ContextualVectorDB): Contextual vector database instance.
         es_bm25 (ElasticsearchBM25): Elasticsearch BM25 instance.
         k (int): Number of top documents to retrieve.
-        output_file_primary (str): Path to the primary output file to save results.
-        output_file_alt (str): Path to the alternative output file to save results.
+        output_file (str): Path to the output file to save results.
         optimized_program (dspy.Program): The optimized DSPy program.
-        quotation_module (SelectQuotationModule): Primary module to select quotations.
-        quotation_module_alt (SelectQuotationModuleAlt): Alternative module to select quotations.
+        quotation_module (dspy.Module): Module to select quotations.
     """
-    logger.info("Starting to process queries.")
+    logger.info(f"Starting to process queries for output file '{output_file}'.")
 
-    all_results_primary = []
-    all_results_alt = []
+    all_results = []
     try:
         for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
             try:
@@ -243,24 +204,19 @@ async def process_queries(
                     db,
                     es_bm25,
                     k,
-                    quotation_module,
-                    quotation_module_alt  # Pass the new module
+                    quotation_module
                 )
                 if result:
-                    # Separate the results
-                    all_results_primary.append(result.get("primary", {}))
-                    all_results_alt.append(result.get("alternative", {}))
+                    all_results.append(result)
             except Exception as e:
                 logger.error(f"Error processing query at index {idx}: {e}", exc_info=True)
 
-        # Save primary and alternative results to separate files
-        save_results_primary(all_results_primary, output_file_primary)
-        save_results_alternative(all_results_alt, output_file_alt)
+        # Save results to the specified output file
+        save_results(all_results, output_file)
 
     except KeyboardInterrupt:
         logger.warning("Process interrupted by user. Saving partial results.")
-        save_results_primary(all_results_primary, output_file_primary)
-        save_results_alternative(all_results_alt, output_file_alt)
+        save_results(all_results, output_file)
         raise
 
     except Exception as e:

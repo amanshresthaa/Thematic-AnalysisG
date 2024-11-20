@@ -4,7 +4,7 @@ from typing import List, Dict, Any
 import dspy
 import json
 
-from src.assertions import (
+from src.assertions_alt import (
     assert_relevant_quotations,
     assert_confidentiality,
     assert_diversity_of_quotations,

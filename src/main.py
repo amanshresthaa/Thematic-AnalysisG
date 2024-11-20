@@ -73,11 +73,12 @@ class ThematicAnalysisPipeline:
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
 
-            # Define file paths
+            # Define file paths from config
             codebase_chunks_file = self.config['codebase_chunks_file']
-            queries_file = self.config['queries_file']
+            queries_file_standard = self.config['queries_file_standard']
+            queries_file_alt = self.config['queries_file_alt']
             evaluation_set_file = self.config['evaluation_set_file']
-            output_filename_primary = self.config['output_filename_primary']  # Primary output file
+            output_filename_primary = self.config['output_filename_primary']   # Primary output file
             output_filename_alt = self.config['output_filename_alt']          # Alternative output file
 
             dl = DataLoader()
@@ -114,28 +115,33 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
                 return
 
-            # Load the queries
-            logger.info(f"Loading queries from '{queries_file}'")
-            queries = load_queries(queries_file)
+            # Load standard queries
+            logger.info(f"Loading standard queries from '{queries_file_standard}'")
+            standard_queries = load_queries(queries_file_standard)
 
-            if not queries:
-                logger.error("No queries found to process.")
+            # Load alternative queries
+            logger.info(f"Loading alternative queries from '{queries_file_alt}'")
+            alternative_queries = load_queries(queries_file_alt)
+
+            if not standard_queries:
+                logger.error("No standard queries found to process.")
+            if not alternative_queries:
+                logger.error("No alternative queries found to process.")
+
+            # Validate standard queries
+            logger.info("Validating standard queries")
+            validated_standard_queries = validate_queries(standard_queries)
+
+            if not validated_standard_queries:
+                logger.error("No valid standard queries to process after validation. Exiting.")
                 return
 
-            # Validate queries
-            logger.info("Validating input queries")
-            validated_queries = validate_queries(queries)
+            # Validate alternative queries
+            logger.info("Validating alternative queries")
+            validated_alternative_queries = validate_queries(alternative_queries)
 
-            if not validated_queries:
-                logger.error("No valid queries to process after validation. Exiting.")
-                return
-
-            # Load the evaluation set
-            logger.info(f"Loading evaluation set from '{evaluation_set_file}'")
-            evaluation_set = load_queries(evaluation_set_file)
-
-            if not evaluation_set:
-                logger.error("No evaluation queries found. Ensure the evaluation set file is correctly formatted and exists.")
+            if not validated_alternative_queries:
+                logger.error("No valid alternative queries to process after validation. Exiting.")
                 return
 
             # Define k value (number of top documents/chunks to retrieve)
@@ -235,23 +241,29 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
                 return
 
-            # Proceed with processing queries using both quotation modules
-            logger.info("Starting to process queries with both quotation selection modules")
-            try:
-                await process_queries(
-                    validated_queries,
-                    self.contextual_db,
-                    self.es_bm25,
-                    k,
-                    output_filename_primary,  # Primary output file
-                    output_filename_alt,      # Alternative output file
-                    self.optimized_program,
-                    self.quotation_module,
-                    self.quotation_module_alt  # Pass the new module
-                )
-            except Exception as e:
-                logger.error(f"Error processing queries: {e}", exc_info=True)
-                return
+            # Process standard queries with SelectQuotationModule
+            logger.info("Processing standard queries with SelectQuotationModule")
+            await process_queries(
+                validated_standard_queries,
+                self.contextual_db,
+                self.es_bm25,
+                k,
+                output_filename_primary,  # Primary output file
+                self.optimized_program,
+                self.quotation_module
+            )
+
+            # Process alternative queries with SelectQuotationModuleAlt
+            logger.info("Processing alternative queries with SelectQuotationModuleAlt")
+            await process_queries(
+                validated_alternative_queries,
+                self.contextual_db,
+                self.es_bm25,
+                k,
+                output_filename_alt,      # Alternative output file
+                self.optimized_program,
+                self.quotation_module_alt
+            )
 
             # Define k values for evaluation
             k_values = [5, 10, 20]
@@ -268,7 +280,7 @@ class ThematicAnalysisPipeline:
                 # Perform evaluation
                 evaluator.evaluate_complete_pipeline(
                     k_values=k_values,
-                    evaluation_set=evaluation_set
+                    evaluation_set=load_queries(evaluation_set_file)
                 )
                 logger.info("Evaluation completed successfully.")
             except Exception as e:
@@ -281,10 +293,11 @@ class ThematicAnalysisPipeline:
 if __name__ == "__main__":
     config = {
         'codebase_chunks_file': 'data/codebase_chunks.json',
-        'queries_file': 'data/queries.json',
+        'queries_file_standard': 'data/queries.json',          # Standard queries
+        'queries_file_alt': 'data/queries_alt.json',          # Alternative queries
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'query_results_primary.json',   # Primary output filename
-        'output_filename_alt': 'query_results_alternative.json'  # Alternative output filename
+        'output_filename_primary': 'query_results_primary.json',   # Primary output file
+        'output_filename_alt': 'query_results_alternative.json'   # Alternative output file
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
