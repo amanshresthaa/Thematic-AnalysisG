@@ -4,6 +4,16 @@ from typing import List, Dict, Any
 import dspy
 import json
 
+from assertions_keyword import (
+    assert_keywords_extracted,
+    assert_realness,
+    assert_richness,
+    assert_repetition,
+    assert_rationale,
+    assert_repartee,
+    assert_regal
+)
+
 logger = logging.getLogger(__name__)
 
 class KeywordExtractionSignature(dspy.Signature):
@@ -77,11 +87,14 @@ class KeywordExtractionSignature(dspy.Signature):
             # Parse response
             keywords = self.parse_response(response)
 
-            # Apply assertions (basic validation)
-            if not keywords:
-                error_msg = "No keywords were extracted from the transcript chunks."
-                logger.error(error_msg)
-                raise AssertionError(error_msg)
+            # Apply assertions
+            assert_keywords_extracted(keywords)
+            assert_realness(keywords, transcript_chunks)
+            assert_richness(keywords)
+            assert_repetition(keywords, transcript_chunks)
+            assert_rationale(keywords, theoretical_framework)
+            assert_repartee(keywords)
+            assert_regal(keywords, research_objectives)
 
             logger.info(f"Successfully extracted {len(keywords)} keywords.")
             return {
@@ -109,7 +122,14 @@ class KeywordExtractionSignature(dspy.Signature):
                 f"Research Objectives:\n{research_objectives}\n\n"
                 f"{theoretical_part}"
                 "Please ensure the following in your next attempt:\n"
-                "Extract meaningful keywords from the transcript chunks using the 6Rs framework.\n\n"
+                "Extract meaningful keywords from the transcript chunks using the 6Rs framework.\n"
+                "Make sure the keywords satisfy the following criteria:\n"
+                f"- Realness: Keywords must be present in the transcript and reflect participants' experiences.\n"
+                f"- Richness: Keywords should be meaningful and provide detailed understanding.\n"
+                f"- Repetition: Keywords should occur frequently in the data.\n"
+                f"- Rationale: Keywords should be connected to the theoretical framework.\n"
+                f"- Repartee: Keywords should be insightful and evocative.\n"
+                f"- Regal: Keywords should be central to understanding the phenomenon.\n\n"
                 "Transcript Chunks:\n" +
                 "\n".join([f"Chunk {i+1}:\n{chunk}\n" for i, chunk in enumerate(transcript_chunks)])
             )
@@ -123,10 +143,13 @@ class KeywordExtractionSignature(dspy.Signature):
             keywords = self.parse_response(response)
 
             # Re-apply assertions
-            if not keywords:
-                error_msg = "No keywords were extracted after refinement."
-                logger.error(error_msg)
-                raise AssertionError(error_msg)
+            assert_keywords_extracted(keywords)
+            assert_realness(keywords, transcript_chunks)
+            assert_richness(keywords)
+            assert_repetition(keywords, transcript_chunks)
+            assert_rationale(keywords, theoretical_framework)
+            assert_repartee(keywords)
+            assert_regal(keywords, research_objectives)
 
             logger.info("Keywords successfully extracted after refinement.")
             return {
