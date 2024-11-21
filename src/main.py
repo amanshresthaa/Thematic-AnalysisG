@@ -19,7 +19,8 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt  # Import the new module
+from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
+from src.analysis.select_keyword_module import SelectKeywordModule  # Import the keyword module
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -35,17 +36,12 @@ class ThematicAnalysisPipeline:
         self.teleprompter = None
         self.optimized_program = None
         self.quotation_module = None
-        self.quotation_module_alt = None  # Initialize the alternative quotation module
+        self.quotation_module_alt = None
+        self.keyword_module = None  # Initialize the keyword module
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
         Create and index documents in Elasticsearch BM25.
-
-        Args:
-            db (ContextualVectorDB): Contextual vector database instance.
-
-        Returns:
-            ElasticsearchBM25: Initialized ElasticsearchBM25 instance.
         """
         logger.debug("Entering create_elasticsearch_bm25_index method.")
         try:
@@ -67,8 +63,8 @@ class ThematicAnalysisPipeline:
         """
         logger.debug("Entering main function.")
         try:
-            # Configure DSPy Language Model using LiteLLM
-            logger.info("Configuring DSPy Language Model with LiteLLM")
+            # Configure DSPy Language Model
+            logger.info("Configuring DSPy Language Model")
 
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
@@ -77,20 +73,22 @@ class ThematicAnalysisPipeline:
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file_standard = self.config['queries_file_standard']
             queries_file_alt = self.config['queries_file_alt']
+            queries_file_keyword = self.config['queries_file_alt']  # Add keyword queries
             evaluation_set_file = self.config['evaluation_set_file']
-            output_filename_primary = self.config['output_filename_primary']   # Primary output file
-            output_filename_alt = self.config['output_filename_alt']          # Alternative output file
+            output_filename_primary = self.config['output_filename_primary']
+            output_filename_alt = self.config['output_filename_alt']
+            output_filename_keyword = self.config['output_filename_keyword']  # Add keyword output
 
             dl = DataLoader()
-            # Initialize the DataLoader
 
-            # Load the training data from the new CSV format
+            # Load the training data
             logger.info(f"Loading training data from 'data/new_training_data.csv'")
             train_dataset = dl.from_csv(
                 "data/new_training_data.csv",
                 fields=("input", "output"),
                 input_keys=("input",)
             )
+
             # Load the codebase chunks
             logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'")
             codebase_chunks = load_codebase_chunks(codebase_chunks_file)
@@ -99,9 +97,9 @@ class ThematicAnalysisPipeline:
             logger.info("Initializing ContextualVectorDB")
             self.contextual_db = ContextualVectorDB("contextual_db")
 
-            # Load and process the data with parallel threads
+            # Load and process the data
             try:
-                logger.info("Loading data into ContextualVectorDB with parallel threads")
+                logger.info("Loading data into ContextualVectorDB")
                 self.contextual_db.load_data(codebase_chunks, parallel_threads=5)
             except Exception as e:
                 logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
@@ -115,37 +113,35 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
                 return
 
-            # Load standard queries
+            # Load queries
             logger.info(f"Loading standard queries from '{queries_file_standard}'")
             standard_queries = load_queries(queries_file_standard)
 
-            # Load alternative queries
             logger.info(f"Loading alternative queries from '{queries_file_alt}'")
             alternative_queries = load_queries(queries_file_alt)
+
+            logger.info(f"Loading keyword queries from '{queries_file_keyword}'")
+            keyword_queries = load_queries(queries_file_keyword)
 
             if not standard_queries:
                 logger.error("No standard queries found to process.")
             if not alternative_queries:
                 logger.error("No alternative queries found to process.")
+            if not keyword_queries:
+                logger.error("No keyword queries found to process.")
 
-            # Validate standard queries
+            # Validate queries
             logger.info("Validating standard queries")
             validated_standard_queries = validate_queries(standard_queries)
 
-            if not validated_standard_queries:
-                logger.error("No valid standard queries to process after validation. Exiting.")
-                return
-
-            # Validate alternative queries
             logger.info("Validating alternative queries")
             validated_alternative_queries = validate_queries(alternative_queries)
 
-            if not validated_alternative_queries:
-                logger.error("No valid alternative queries to process after validation. Exiting.")
-                return
+            logger.info("Validating keyword queries")
+            validated_keyword_queries = validate_queries(keyword_queries)
 
-            # Define k value (number of top documents/chunks to retrieve)
-            k = 20  # Ensure k is set correctly and not overridden elsewhere
+            # Define k value
+            k = 20
 
             # Initialize 'qa_module' to None before the try-except block
             self.qa_module = None
@@ -169,13 +165,13 @@ class ThematicAnalysisPipeline:
             logger.info("Initializing DSPy Optimizer with Comprehensive Metric")
             try:
                 optimizer_config = {
-                    'max_bootstrapped_demos': 4,       # Number of generated demonstrations
-                    'max_labeled_demos': 4,            # Number of labeled demonstrations from trainset
-                    'num_candidate_programs': 10,      # Number of candidate programs to evaluate
-                    'num_threads': 4                    # Number of parallel threads
+                    'max_bootstrapped_demos': 4,
+                    'max_labeled_demos': 4,
+                    'num_candidate_programs': 10,
+                    'num_threads': 4
                 }
                 self.teleprompter = BootstrapFewShotWithRandomSearch(
-                    metric=comprehensive_metric,  # Use the comprehensive metric
+                    metric=comprehensive_metric,
                     **optimizer_config
                 )
                 logger.info("DSPy Optimizer initialized successfully with Comprehensive Metric.")
@@ -188,7 +184,7 @@ class ThematicAnalysisPipeline:
             try:
                 self.optimized_program = self.teleprompter.compile(
                     student=self.qa_module,
-                    teacher=self.qa_module,  # Assuming teacher is the same as student; adjust as needed
+                    teacher=self.qa_module,
                     trainset=train_dataset
                 )
                 logger.info("Program compiled and optimized successfully.")
@@ -206,19 +202,10 @@ class ThematicAnalysisPipeline:
             # Activate assertions in the optimized program
             logger.info("Activating assertions in the optimized program.")
             try:
-                # Wrap the program with assertions using assert_transform_module
                 self.optimized_program = assert_transform_module(self.optimized_program, backtrack_handler)
                 logger.info("Assertions activated in the optimized program.")
             except Exception as e:
                 logger.error(f"Error activating assertions in optimized program: {e}", exc_info=True)
-                return
-
-            # Assign the optimized program to answer_generator.qa_module
-            try:
-                # The optimized program will be used directly in process_queries
-                logger.info("Optimized program ready for query processing.")
-            except Exception as e:
-                logger.error(f"Error preparing optimized program: {e}", exc_info=True)
                 return
 
             # Initialize SelectQuotationModule with activated assertions
@@ -241,6 +228,15 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
                 return
 
+            # Initialize SelectKeywordModule without assertions (since it's only keyword extraction)
+            logger.info("Initializing SelectKeywordModule")
+            try:
+                self.keyword_module = SelectKeywordModule()
+                logger.info("SelectKeywordModule initialized successfully.")
+            except Exception as e:
+                logger.error(f"Error initializing SelectKeywordModule: {e}", exc_info=True)
+                return
+
             # Process standard queries with SelectQuotationModule
             logger.info("Processing standard queries with SelectQuotationModule")
             await process_queries(
@@ -248,7 +244,7 @@ class ThematicAnalysisPipeline:
                 self.contextual_db,
                 self.es_bm25,
                 k,
-                output_filename_primary,  # Primary output file
+                output_filename_primary,
                 self.optimized_program,
                 self.quotation_module
             )
@@ -260,9 +256,22 @@ class ThematicAnalysisPipeline:
                 self.contextual_db,
                 self.es_bm25,
                 k,
-                output_filename_alt,      # Alternative output file
+                output_filename_alt,
                 self.optimized_program,
                 self.quotation_module_alt
+            )
+
+            # Process keyword queries with SelectKeywordModule
+            logger.info("Processing keyword queries with SelectKeywordModule")
+            await process_queries(
+                validated_keyword_queries,
+                self.contextual_db,
+                self.es_bm25,
+                k,
+                output_filename_keyword,
+                self.optimized_program,
+                self.keyword_module,
+                is_keyword_extraction=True  # Indicate that we're only extracting keywords
             )
 
             # Define k values for evaluation
@@ -276,7 +285,7 @@ class ThematicAnalysisPipeline:
                     es_bm25=self.es_bm25,
                     retrieval_function=retrieve_with_reranking
                 )
-                
+
                 # Perform evaluation
                 evaluator.evaluate_complete_pipeline(
                     k_values=k_values,
@@ -293,11 +302,13 @@ class ThematicAnalysisPipeline:
 if __name__ == "__main__":
     config = {
         'codebase_chunks_file': 'data/codebase_chunks.json',
-        'queries_file_standard': 'data/queries.json',          # Standard queries
-        'queries_file_alt': 'data/queries_alt.json',          # Alternative queries
+        'queries_file_standard': 'data/queries.json',
+        'queries_file_alt': 'data/queries_alt.json',
+        'queries_file_keyword': 'data/queries_keyword.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'query_results_primary.json',   # Primary output file
-        'output_filename_alt': 'query_results_alternative.json'   # Alternative output file
+        'output_filename_primary': 'query_results_primary.json',
+        'output_filename_alt': 'query_results_alternative.json',
+        'output_filename_keyword': 'query_results_keyword.json'  # Add output file for keyword extraction
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())

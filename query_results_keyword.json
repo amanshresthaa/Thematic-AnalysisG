@@ -68,37 +68,25 @@
             "Document_chunk_34",
             "Document_chunk_24"
         ],
-        "quotations": [
-            {
-                "quote": "we're trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-                "type": "operational strategy",
-                "context": "This quotation reflects the organization's strategy to centralize marketing efforts to improve efficiency and profitability for the farmers."
-            },
-            {
-                "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
-                "type": "economic challenge",
-                "context": "This highlights the economic challenge of middlemen in the supply chain and the organization's goal to redirect profits back to the farmers."
-            },
-            {
-                "quote": "we had contracts \u2013 our customers basically tore up in front of us.",
-                "type": "impact of COVID-19",
-                "context": "This quotation illustrates the immediate impact of the COVID-19 pandemic on the organization's operations and supply chain."
-            },
-            {
-                "quote": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "type": "future outlook",
-                "context": "This statement emphasizes the importance of sustainability in the organization's future vision and operational strategies."
-            },
-            {
-                "quote": "the closer to the customer we get, the more we\u2019ll get back to the farm.",
-                "type": "strategic vision",
-                "context": "This reflects the organization's strategic vision to enhance direct connections with customers to improve profitability for farmers."
-            }
+        "keywords": [
+            "farming organization",
+            "potatoes",
+            "centralized marketing",
+            "trader",
+            "customers",
+            "middle man",
+            "sustainability",
+            "future food systems",
+            "collaboration",
+            "contracts",
+            "COVID impact",
+            "supply chain",
+            "profit",
+            "direct supply",
+            "factories",
+            "end customer"
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing a comprehensive view of the farming organization's operations, challenges, and strategies. The emphasis on centralizing marketing efforts and cutting out middlemen reveals a proactive approach to addressing economic challenges and ensuring that profits are returned to farmers. The impact of COVID-19 is highlighted, showcasing the vulnerabilities in the supply chain and the need for adaptability. Furthermore, the focus on sustainability as a core principle indicates a forward-thinking approach that aligns with contemporary agricultural practices. Overall, these insights contribute to a deeper understanding of how the organization navigates market dynamics while striving for economic viability and sustainability.",
-        "answer": {
-            "answer": "[org name] is an organization formed by three farmers who grow potatoes. They aim to centralize the buying and marketing of their produce, eliminating the middleman to ensure that profits go directly back to the farmers. The organization also faced challenges during the COVID-19 pandemic, which disrupted their contracts and sales. Their future vision includes expanding their membership and creating direct supply chains to enhance sustainability and profitability for farmers."
-        }
+        "error": ""
     },
     {
         "query": "That\u2019s great. What\u2019s your personal involvement in this? What role do you play?\nWhen the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there\u2019s about ten-fifteen farms, supplying in. And we manage that supply so that there\u2019s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name] and [org name] distributes the money out to the farmers.\nSo, you believe you operate on a local level?\nThe main core of the group is local. But then we do supply factories all over the country. And we buy potatoes from all over the country as well, on an ad hoc basis, so we can supply all year round because potatoes arrive at different periods of the year. And obviously, we want to supply the factories all year round, and they want a supply all year round. So, we buy from other farms as well, which supply at different times of year, it varies.\nIs this nationally, or do you do anything with factories or suppliers in other countries?\nWe do a little bit. We have exported in the past. Not much this year. Last year we were exporting and importing. But it\u2019s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there\u2019s surplus, things like that.\nSo, you operate locally, regionally and nationally. But internationally when you have to, when there\u2019s a gap?\nYeah, when there are too many potatoes here, we have exported to Poland, exported to Ireland and Belgium quite a bit. But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
@@ -169,37 +157,24 @@
             "Document_chunk_9",
             "Document_chunk_11"
         ],
-        "quotations": [
-            {
-                "quotation": "So, we buy from other farms as well, which supply at different times of year, it varies.",
-                "type": "operational strategy",
-                "context": "This statement reflects the organization's strategy of diversifying supply sources to manage seasonal variations in potato availability."
-            },
-            {
-                "quotation": "But that\u2019s not a regular thing, that\u2019s just when the market requires it, if there\u2019s an opportunity we have to grab it.",
-                "type": "market dynamics",
-                "context": "This highlights the organization's responsiveness to market conditions, indicating a flexible approach to operations based on demand."
-            },
-            {
-                "quotation": "So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers.",
-                "type": "collaboration",
-                "context": "This illustrates the collaborative effort among farmers to streamline operations and enhance customer relations, which is crucial for sustainability."
-            },
-            {
-                "quotation": "And obviously, we want to supply the factories all year round, and they want a supply all year round.",
-                "type": "supply chain management",
-                "context": "This emphasizes the importance of consistent supply to meet factory demands, showcasing the economic factors influencing their operational strategies."
-            },
-            {
-                "quotation": "We do a little bit. We have exported in the past.",
-                "type": "future outlook",
-                "context": "This indicates potential growth opportunities for the organization in international markets, aligning with the future outlook aspect of the research objectives."
-            }
+        "keywords": [
+            "farming",
+            "market dynamics",
+            "supply",
+            "factories",
+            "opportunity",
+            "organization",
+            "potatoes",
+            "trader",
+            "customers",
+            "interface",
+            "exported",
+            "ad hoc",
+            "supply chain",
+            "collaboration",
+            "sustainability"
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies of the farming organization. The first quotation reveals their approach to sourcing potatoes, which is essential for understanding their supply chain dynamics. The second quotation underscores their adaptability to market conditions, a critical factor in navigating economic challenges. The third quotation highlights the collaborative nature of their operations, which is vital for sustainability and efficiency. The fourth quotation reinforces the necessity of maintaining a consistent supply to meet customer demands, reflecting the economic pressures they face. Finally, the last quotation points to potential avenues for growth, indicating a forward-looking perspective that is essential for the organization's sustainability in a competitive market.",
-        "answer": {
-            "answer": "The individual is involved in managing the supply of potatoes from multiple farms to factories, ensuring a steady supply throughout the year. They help centralize the buying and marketing of potatoes, acting as an interface between farmers and customers, while also adapting to international markets when needed."
-        }
+        "error": ""
     },
     {
         "query": "How would you consider yourself to be innovative? What do you feel you are doing differently?\nInitially we had to go through somewhere else other than [org name] and there is a lot of money in the middle man. And basically, the idea was that we cut out the middle man and all that money comes back to the farm.\nSo, we\u2019re not there to make money, we\u2019re there to pass the money back to the farmer. And that is the crux of the industry that has not been happening.\nThe money going back to farmers \u2013 that\u2019s what\u2019s not been happening?\nIt\u2019s not been going back to the farmer.\nAnd that\u2019s what you aim to address?\nThat\u2019s what we\u2019re trying to deal with. And since we\u2019ve become in the area, doing what we\u2019re doing, these other mergers in the middle are taking the mass market out because they have to compete.\nSo, are you saying there\u2019s now competition?\nThere\u2019s more competition in the area.\nSo, people have seen that it\u2019s a good idea and they want in on it?\nYes, as it were. I\u2019ve just obeyed the company really. We\u2019ve got a lot to do, to get to where we want to get to. It\u2019s certainly helping. Obviously, after Covid it\u2019s been a challenging year.",
@@ -270,37 +245,23 @@
             "Document_chunk_18",
             "Document_chunk_52"
         ],
-        "quotations": [
-            {
-                "quote": "So, people have seen that it\u2019s a good idea and they want in on it?",
-                "type": "question",
-                "context": "This question reflects the growing interest in the farming organization and its model, indicating a positive perception in the market."
-            },
-            {
-                "quote": "we are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-                "type": "statement",
-                "context": "This statement outlines the core strategy of the organization to unify individual farmers for collective marketing, which is crucial for addressing market dynamics."
-            },
-            {
-                "quote": "the idea was that we cut out the middle man and all that money comes back to the farm.",
-                "type": "statement",
-                "context": "This highlights the organization's goal to eliminate intermediaries, ensuring that profits are returned to farmers, which is a key challenge in the industry."
-            },
-            {
-                "quote": "there\u2019s more competition in the area.",
-                "type": "statement",
-                "context": "This indicates the changing market dynamics and the increased competition that the organization faces, which is essential for understanding their operational context."
-            },
-            {
-                "quote": "the trouble with all these ideas is that they cost a lot of money.",
-                "type": "statement",
-                "context": "This statement addresses the financial challenges that the organization encounters, emphasizing the economic factors influencing their strategies."
-            }
+        "keywords": [
+            "farming organization",
+            "market dynamics",
+            "sustainability",
+            "economic factors",
+            "potatoes",
+            "centralized marketing",
+            "trader",
+            "customers",
+            "middle man",
+            "profits",
+            "competition",
+            "processing capacity",
+            "banking industry",
+            "profit margins"
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing a comprehensive view of the farming organization's operations and challenges. The emphasis on collective marketing and cutting out the middleman reveals strategic efforts to enhance profitability and sustainability. Additionally, the acknowledgment of increased competition and financial constraints highlights the economic factors that shape their future outlook. These insights are crucial for understanding how the organization navigates the complexities of the agricultural market and strives for a sustainable model that benefits farmers.",
-        "answer": {
-            "answer": "I consider myself innovative because I have created a model that cuts out the middleman, ensuring that more money goes directly back to the farmers. This approach addresses the critical issue of farmers not receiving fair financial returns and fosters competition in the market, benefiting both farmers and customers."
-        }
+        "error": ""
     },
     {
         "query": "Indeed. So, in terms of collaborators \u2013 well you\u2019ve touched on competition, but considering who you\u2019re collaborating with at the moment, there\u2019s the three farms and other suppliers?\nThere\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group. And we supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people. [unclear] Food, we do a little bit of pre-packaged for supermarkets with Morrison\u2019s and different people. [unclear 0:08:51.0]\nAnd you\u2019ve explained that your role in this network is bypassing the middle man and making sure that the most profit goes from the customers back to the farmers?\nYes, basically.\nWho amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name]?\nNo, not the day-to-day running of it. I\u2019m obviously managing the office with staff. They are obviously directors of the business, interested in how it works, but the day-to-day management comes back to me and the staff. Is that what you mean?\nYes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that?\nYes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.\nSo, they\u2019re the important ones?\nYes.\nPlus, of course, the people who like yourself, are actually running the organisation, running the outfit?\nWho\u2019s crucial within who runs it?\nI think you just mentioned the people who are managing it?\nYeah, that\u2019s me, we\u2019re the crucial ones. Well, if we don\u2019t do what we do then someone else will do it. But yeah, we are the ones making it work.",
@@ -371,32 +332,22 @@
             "Document_chunk_54",
             "Document_chunk_86"
         ],
-        "quotations": [
-            {
-                "quotation": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
-                "type": "operational insight",
-                "context": "This quotation emphasizes the critical role of suppliers and farmers in the organization's operations, indicating that their availability directly impacts the organization's ability to meet market demand."
-            },
-            {
-                "quotation": "There\u2019s three farms that are direct suppliers, and then we have contractual other farms, basically guaranteeing us their spuds, contracted into the group.",
-                "type": "collaboration strategy",
-                "context": "This highlights the organization's strategy of securing supply through contracts, which is essential for ensuring stability and meeting production needs."
-            },
-            {
-                "quotation": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you\u2019re doing, we\u2019re not very stable.",
-                "type": "challenge identification",
-                "context": "This statement reflects the challenges faced by the organization due to external factors affecting agriculture, underscoring the precarious nature of the farming industry."
-            },
-            {
-                "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                "type": "future outlook",
-                "context": "This quotation points to the necessity of investment for future growth and stability, indicating a strategic direction that aligns with the organization's long-term goals."
-            }
+        "keywords": [
+            "suppliers",
+            "farmers",
+            "collaboration",
+            "competition",
+            "contractual farms",
+            "profit",
+            "investment",
+            "financial issues",
+            "stability",
+            "agriculture",
+            "manufacturing",
+            "market dynamics",
+            "sustainability"
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational dynamics of the farming organization. They reveal the critical importance of suppliers and farmers in maintaining stability and meeting market demands. The quotations also highlight the organization's collaborative strategies, such as securing contracts with farms, which are essential for operational resilience. Furthermore, the acknowledgment of the challenges within the agricultural sector and the call for investment underscore the economic factors influencing the organization's future outlook. This comprehensive understanding of operations, challenges, strategies, and market dynamics aligns well with the research objectives.",
-        "answer": {
-            "answer": "The crucial collaborators for the organization are the suppliers and farmers, as they are essential for meeting demand and ensuring stability. The management team also plays a vital role in the day-to-day operations."
-        }
+        "error": ""
     },
     {
         "query": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019?\nMy vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm.\nSo, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?\nThat is the ultimate. I think rather than just selling the potato, we\u2019ll slice it, and things like that. Or we\u2019ll put it into ready-made meals. Well maybe not that, but get it ready to go closer to the end user.\nSo, you\u2019re sort of gradually, as you mentioned, bypassing elements of the chain, starting recently with going direct to consumer and that\u2019s the direction you want to take in the future?\nI think one thing is the scale, we need to increase the volumes we trade as a group. And on the other side we need an avenue where we get closer to the customer, to take the volatility out of the job.\nAnd how do you feel this will contribute to sustainability?\nBecause you\u2019ve got [unclear] contracts in front of you. The factories, the customers \u2013 to be honest, the customers are quite happy paying a fair price for a good quality product. The problem is market prices \u2013 these dealers in the middle, and the factories, are really, when they can do, dropping the price for the farmers. So, we need to move closer to the end product where we can sustain a steady, average price for sustainability. Because in the last two years, we\u2019ve seen the base price collapse to \u00a330-\u00a340 per tonne. And to give you an idea, we need \u00a3100-\u00a3110 per tonne to cover costs, to break even.\nAnd so, you can charge a fair price to the end customer whilst still getting enough profit to stay in business?\nYes.\nRight, good.\nSo, we need to get close to then cut those rogues out the industry, really.\nOkay, so it\u2019s cutting the rogues out. So, it sounds like you\u2019ve already taken the next step towards doing that by starting a direct-to-customer service?\nYeah, that was done \u2013 we launched about four months\u2019 ago.\nAnd this is basically the direction you\u2019re going in, to expand that part of the business?\nIt\u2019s part of it yes. Obviously, there are different areas. We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really.",
@@ -467,32 +418,24 @@
             "Document_chunk_31",
             "Document_chunk_34"
         ],
-        "quotations": [
-            {
-                "quotation": "We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-                "type": "operational strategy",
-                "context": "This quotation highlights the collaborative effort among farmers to enhance their market presence and efficiency."
-            },
-            {
-                "quotation": "So, there\u2019s a three-way approach where we can drive out the inefficiencies, really.",
-                "type": "challenges and strategies",
-                "context": "This statement reflects the organization's recognition of inefficiencies in their current operations and their strategic approach to address these challenges."
-            },
-            {
-                "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "type": "future outlook",
-                "context": "This quotation emphasizes the centrality of sustainability in the organization's vision for the future, aligning with the research objective of understanding future outlooks."
-            },
-            {
-                "quotation": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-                "type": "market dynamics",
-                "context": "This statement illustrates the organization's strategy to enhance customer relationships and the direct impact on farm operations."
-            }
+        "keywords": [
+            "farming organization",
+            "potatoes",
+            "centralized marketing",
+            "trader",
+            "customers",
+            "interface",
+            "growers",
+            "inefficiencies",
+            "sustainability",
+            "Future Food Systems",
+            "members",
+            "7.5kg bag line",
+            "direct to customer",
+            "produce",
+            "end customer"
         ],
-        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies of the farming organization, the challenges they face, and their vision for the future. The emphasis on collaboration among farmers to market their produce collectively addresses the operational dynamics in a competitive market. The recognition of inefficiencies and the strategic approach to streamline operations reflect the organization's adaptability to market changes. Furthermore, the focus on sustainability as a core principle underscores the importance of environmental considerations in their future planning. Overall, these quotations illustrate a comprehensive understanding of the organization's context within market dynamics, sustainability, and economic factors.",
-        "answer": {
-            "answer": "The vision for 'Future Food Systems' focuses on sustainability, increasing farmer participation, and creating a direct supply chain that delivers produce from farms to consumers, thereby enhancing profitability for farmers and fostering a more sustainable food system."
-        }
+        "error": ""
     },
     {
         "query": "And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?\nObviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it\u2019s come from. And I think there is an element of people wanting that, but it\u2019s how you get the price and the customers to stop undermining everything we\u2019re doing in the UK, in the food industry. Because customers are willing to pay for it. They\u2019re willing to pay for quality. But, there\u2019s people within the system that will say, \u2018This is this,\u2019 but meanwhile bring some cheap stuff in the backdoor. And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.\nI\u2019m wondering if Brexit is a factor? If it\u2019s harder to import things, would that be in your favour?\nWell, it\u2019s harder to import things, definitely. But as a country we haven\u2019t got enough manufacturers to process the potatoes we have in the country anyway. So, we\u2019ve let it all go abroad, potatoes go to Belgium and then come back ready-made.\nBut that might be more difficult. So, it\u2019s about developing manufacturing capacity to actually use what we already have?\nWe use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.\nSo, it sounds like the bottle-neck is actually going to be processing capacity in the UK?\nYes. The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.\nDo you think that [org name] could actually, in any way, contribute towards helping with developing this processing capacity?\nWe could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key. Just like a chicken and egg scenario, isn\u2019t it?\nYes. So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
@@ -563,42 +506,21 @@
             "Document_chunk_47",
             "Document_chunk_45"
         ],
-        "quotations": [
-            {
-                "quotation": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
-                "type": "challenge",
-                "context": "This quotation underscores the critical issue of processing capacity, indicating that without adequate processing facilities, the efforts of farmers are undermined."
-            },
-            {
-                "quotation": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
-                "type": "challenge",
-                "context": "This statement identifies processing capacity as a bottleneck, which is a significant challenge for the farming organization in meeting market demands."
-            },
-            {
-                "quotation": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that.",
-                "type": "strategy",
-                "context": "This quotation suggests a strategic approach to enhance local manufacturing capacity, which is essential for utilizing domestic produce effectively."
-            },
-            {
-                "quotation": "And the factories, the money has been invested in other countries, not the UK for processing potatoes.",
-                "type": "challenge",
-                "context": "This highlights the economic factors affecting the farming organization, where investment in processing facilities has shifted away from the UK, impacting local farmers."
-            },
-            {
-                "quotation": "Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
-                "type": "sustainability",
-                "context": "This statement raises concerns about sustainability and the environmental impact of transporting produce over long distances, advocating for local processing."
-            },
-            {
-                "quotation": "And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.",
-                "type": "strategy",
-                "context": "This emphasizes the need for collective action within the industry to address the challenges faced, suggesting a strategic direction for future improvements."
-            }
+        "keywords": [
+            "farmers",
+            "processing capacity",
+            "manufacturing",
+            "market flooding",
+            "potatoes",
+            "ready-made meals",
+            "utilisation",
+            "investment",
+            "food manufacturing",
+            "road miles",
+            "sustainability",
+            "economic factors"
         ],
-        "analysis": "The selected quotations collectively illustrate the operational challenges and strategic considerations of the farming organization. They reveal a pressing issue with processing capacity, which is identified as a bottleneck that hinders the effective utilization of local produce. The emphasis on developing manufacturing capacity indicates a strategic response to these challenges, aiming to enhance sustainability and economic viability. Furthermore, the quotations highlight the need for investment in local processing facilities to reduce reliance on imports and minimize environmental impact, aligning with the research objectives of understanding the dynamics within the farming sector.",
-        "answer": {
-            "answer": "Yes, trends such as increased consumer demand for local produce and the challenges posed by Brexit could accelerate the vision for improving the UK food industry. However, the key bottleneck remains the lack of processing capacity, which needs to be addressed through investment to fully utilize local resources."
-        }
+        "error": ""
     },
     {
         "query": "So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years?\nThe stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop. In this country I\u2019m hoping Brexit will change it but we don\u2019t know whether we\u2019ve got a good deal or a bad deal yet, do we?\nIt\u2019s still evolving, yeah.\nIt\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything. It\u2019s very, very difficult. I\u2019m looking at things from two sides of the fence.\nAnd so, which two sides?\nThe side of the farmer, I\u2019ve a \u00a32 million turnover business farming. And it\u2019s not paying. And I\u2019m on the [org name], the middle part of that is paying, but without farmers, you haven\u2019t got a business.\nSo, this is basically the main risk, the whole farming industry in the UK after Brexit?\nWe don\u2019t know which way it\u2019s going to go. There are very few farms in the last two or even three years that are actually profitable to a level that is satisfactory to a bank manager.\nThat is worrying indeed.\nAnd the banks are \u2013 it\u2019s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there\u2019ll be a lot of businesses after COVID with the same scenario now.\nWe\u2019ll come back to COVID in a moment, but in your answer to business and in [org name], what sort of contingency plans to you have for the next few years, to deal with these risks?\nThe contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing. Reducing the farm size. Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on.\nYeah, building things up, developing them, yeah.\nDeveloping, and actually, we doing quite the opposite. I\u2019m doing the less. From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.\nSo, can reduce risk on the [org name] side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?\nWhich is downscale to a point at which it\u2019s manageable and we can guarantee sales through all of our products we produce. What else can you do? I\u2019m going to be here in the future.\nYes, you\u2019re just not quite sure how. That\u2019s all rather worrying.",
@@ -669,42 +591,31 @@
             "Document_chunk_54",
             "Document_chunk_1"
         ],
-        "quotations": [
-            {
-                "quote": "Now I\u2019m in my late 30\u2019s (nearly 40!), I should really be pushing things on. Yeah, building things up, developing them, yeah. Developing, and actually, we doing quite the opposite. I\u2019m doing the less. From the [org name] point of view, basically, I\u2019m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are.",
-                "type": "operational strategy",
-                "context": "This quote reflects the strategy of risk management through increasing the number of growers involved, which is crucial for the organization's sustainability."
-            },
-            {
-                "quote": "And the banks are \u2013 it\u2019s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there\u2019ll be a lot of businesses after COVID with the same scenario now.",
-                "type": "economic challenge",
-                "context": "This highlights the financial challenges faced by the organization, particularly in the aftermath of COVID-19, which impacts their operational decisions."
-            },
-            {
-                "quote": "The contingency plan for the farm side of things is basically reduce what I\u2019m doing, because I cannot risk the losses. So, I\u2019m actually downscaling what we\u2019re doing. Reducing the farm size.",
-                "type": "risk management",
-                "context": "This statement emphasizes the necessity of downscaling operations as a contingency plan to mitigate financial risks."
-            },
-            {
-                "quote": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it? Exactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it?",
-                "type": "awareness of challenges",
-                "context": "This quote illustrates the awareness of operational challenges and the need for investment to implement necessary changes."
-            },
-            {
-                "quote": "The stability in [org name] is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
-                "type": "stability assessment",
-                "context": "This reflects the perceived stability of the organization compared to the broader agricultural sector, highlighting the interconnectedness of their operations."
-            },
-            {
-                "quote": "What we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-                "type": "collaboration strategy",
-                "context": "This statement underscores the collaborative efforts among farmers to enhance market presence and operational efficiency."
-            }
+        "keywords": [
+            "operations",
+            "challenges",
+            "strategies",
+            "future outlook",
+            "market dynamics",
+            "sustainability",
+            "economic factors",
+            "risk",
+            "growers",
+            "cash flow",
+            "contingency plans",
+            "downscaling",
+            "diversifying",
+            "resilience",
+            "stability",
+            "agriculture",
+            "manufacturing",
+            "potatoes",
+            "organization",
+            "trader",
+            "customers",
+            "interface"
         ],
-        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization in navigating market dynamics and economic pressures. The emphasis on increasing the number of growers to spread risk demonstrates a proactive approach to sustainability, aligning with the research objective of understanding operational strategies. The acknowledgment of financial difficulties, particularly in the context of negative cash flow post-COVID, highlights the economic factors influencing decision-making. Furthermore, the necessity of downscaling operations as a contingency plan reflects a strategic response to mitigate risks. The collaboration among farmers to centralize marketing efforts indicates a strategic move towards enhancing stability and market presence, which is crucial for the organization's future outlook. Overall, these insights provide a comprehensive understanding of the organization's operations, challenges, and strategies in the current agricultural landscape.",
-        "answer": {
-            "answer": "The organization feels stable, but the agricultural sector is in a disastrous state, particularly due to challenges like Brexit and negative cash flow issues. The speaker is downscaling their farming operations while increasing the number of growers in the organization to spread risk. Thus, the resilience of the organization is closely tied to the recovery of the farming industry."
-        }
+        "error": ""
     },
     {
         "query": "And then of course, there is the COVID crisis on top of this. So, perhaps just considering that in particular, how did COVID impact you as an organisation?\n[org name], as an organisation, we had contracts \u2013 our customers basically tore up in front of us. For supply, we\u2019ve basically not been able to move the tonnage required because one of our sectors we supply, the food sector, restaurants etc., overnight, stopped. And I would say about one third of the potato industry supplies this sector. So, all of a sudden, we had a lot of potatoes sat there with no homes. That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure. Plant them \u2013 I\u2019ll let you know later in the year whether we\u2019re going to take them or not.\u2019\nAre you fearing you might end up with a pile of potatoes you can\u2019t sell to anybody?\nAbsolutely. Thousands of tonnes of potatoes in the ground and in sheds which will not get processed or used. They\u2019ll just get wasted.\nI wonder if the Direct to Customer service could help here? If you could get some straight to the customers, would that help?\nThere is an element of that, but there are a lot of people who don\u2019t use potatoes \u2013 the cooking at home is rice, it\u2019s pasta. Certainly, don\u2019t want to be importing stuff, which is what\u2019s coming up. So, if you want to help the British farmers, the supermarkets, the factories need to stop importing stuff.\nAnd start taking things from British suppliers. So, is [org name] a suitable venue to publicise this, to actually say, \u2018Look, we\u2019ve got all this stuff, you don\u2019t need to go abroad\u2019?\nWell, it is, but we\u2019re probably not a big enough player. When you\u2019re talking to the likes of McCain\u2019s, and Walkers, and those sorts of people, they\u2019re a multinational company anyway, they have suppliers from all over the place. It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers. But it\u2019s not the public, it is the supermarkets. And the government has got to say, \u2018No, enough is enough.\u2019\nApart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?\nThe small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it. So, that\u2019s something, that\u2019s good. But it\u2019s not to the same scale as what we\u2019ve lost on the other side.\nAnd I think you\u2019ll be likely to continue building that up, even as COVID passes?\nThat will continue and hopefully will go from strength to strength.\nSo, you\u2019re not going to go quite back to the way you were before? It\u2019s going to be different?\nIt\u2019ll certainly be different.\nYeah, the combination of COVID and Brexit, indeed.\nYeah, it\u2019s killing agriculture big style. If all the manufacturers stop, it\u2019ll kill it.\nAnd that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add?\nWhat\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying?\nWe\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.\nYeah. I think there are two-three solutions to the problem. One, we need to be sourcing more locally and supporting more local businesses \u2013 that\u2019s a must in every sector we go to. I think we need to allow the money to come down the food chain, to get it back. And these food miles are absolutely nuts. It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.\nWithout food there isn\u2019t much else, is there really?\nNot really! We\u2019ve got the retail side but that\u2019s upside down. But I\u2019m not saying free money, far from it, I don\u2019t want any subsidies, we\u2019ve got to stand for ourselves. We need to be able survive and we need to be competitive.\nSo, what you\u2019re looking for is appropriate investment?\nYes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot. Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.\nThat seems very clear. As we were saying earlier about if there was more investment in food manufacturing then you could supply those manufacturing firms.\nAbsolutely.\nSo, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?\nWell, the less people in the chain, there are less people to pay. So, there\u2019s more money coming back to the farm.",
@@ -775,36 +686,21 @@
             "Document_chunk_51",
             "Document_chunk_45"
         ],
-        "quotations": [
-            {
-                "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                "type": "operational challenge",
-                "context": "This statement emphasizes the necessity for investment from businesses to achieve operational goals, highlighting a key challenge in the farming sector."
-            },
-            {
-                "quotation": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying.",
-                "type": "market dynamics",
-                "context": "This reflects the interconnectedness of the farming organization with manufacturers, indicating that disruptions in manufacturing could severely impact the farming sector."
-            },
-            {
-                "quotation": "We don\u2019t know which way it\u2019s going to go.",
-                "type": "future outlook",
-                "context": "This uncertainty captures the unpredictable nature of market dynamics and its implications for the farming organization's strategies."
-            },
-            {
-                "quotation": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
-                "type": "operational strategy",
-                "context": "This highlights the importance of processing capabilities in the farming operation, indicating a strategic concern that could lead to market oversaturation."
-            },
-            {
-                "quotation": "And that, as an industry, as a country, for food manufacturing areas we need to clamp down on.",
-                "type": "sustainability",
-                "context": "This statement points to the need for regulatory or strategic measures to ensure sustainability within the food manufacturing sector."
-            }
+        "keywords": [
+            "investment",
+            "manufacturers",
+            "challenges",
+            "insight",
+            "common issues",
+            "concerns",
+            "problems",
+            "solutions",
+            "processing",
+            "market flooding",
+            "food manufacturing",
+            "industry",
+            "sustainability"
         ],
-        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization in the context of market dynamics, sustainability, and economic factors. The emphasis on investment highlights a critical operational challenge that must be addressed to ensure the organization's viability. Concerns about the potential cessation of manufacturing underscore the interconnected nature of the agricultural supply chain, while the uncertainty expressed in the future outlook quotation reflects the volatile market conditions that farmers face. Additionally, the need for processing capabilities is crucial for preventing market oversaturation, indicating a strategic imperative for the organization. Finally, the call for industry-wide measures to enhance sustainability reinforces the importance of collective action in addressing these challenges.",
-        "answer": {
-            "answer": "COVID impacted the organization by causing customers to cancel contracts and halting supply to the food sector, leading to a surplus of unsold potatoes. This has created financial uncertainty for farmers, who are now struggling to secure future contracts. While direct-to-consumer sales have seen some growth, the overall situation remains challenging, highlighting the urgent need for investment in local processing and support for the agricultural sector."
-        }
+        "error": ""
     }
 ]
