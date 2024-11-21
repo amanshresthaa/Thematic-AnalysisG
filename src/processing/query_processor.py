@@ -1,3 +1,4 @@
+# src/processing/query_processor.py
 import logging
 from typing import List, Dict, Any
 import json
@@ -6,7 +7,6 @@ from tqdm import tqdm
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.retrieval.retrieval import multi_stage_retrieval
-from src.retrieval.reranking import retrieve_with_reranking
 from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
@@ -40,6 +40,7 @@ def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: Elasticsearc
     """
     logger.debug(f"Retrieving documents for query: '{query}' with top {k} results.")
     final_results = multi_stage_retrieval(query, db, es_bm25, k)
+    # Limiting is handled outside this function
     logger.debug(f"Multi-stage retrieval returned {len(final_results)} results.")
     return final_results
 
@@ -51,57 +52,103 @@ async def process_single_query(
     k: int,
     module: dspy.Module,
     is_keyword_extraction: bool = False  # Flag to indicate if we're only extracting keywords
-) -> Dict[str, Any]:
+) -> List[Dict[str, Any]]:
     """
     Processes a single query to retrieve documents, select quotations, or extract keywords.
+    Returns a list of result dictionaries, one for each quotation.
     """
-    query_text = query_item.get('query', '').strip()
-    if not query_text:
-        logger.warning("Query is empty. Skipping.")
-        return {}
-
-    logger.info(f"Processing query: {query_text}")
-
-    # Retrieve relevant chunks/documents
-    retrieved_chunks = retrieve_documents(query_text, db, es_bm25, k)
-    logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
-
-    # Extract transcript chunks from retrieved documents
-    transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
-
-    # Define research objectives
-    research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
-
-    # Define theoretical framework
-    theoretical_framework = query_item.get('theoretical_framework', '')
-
+    results = []
     if is_keyword_extraction:
-        # Extract keywords using the provided DSPy module
-        response = module.forward(
-            research_objectives=research_objectives,
-            transcript_chunks=transcript_chunks,
-            theoretical_framework=theoretical_framework
-        )
-        keywords = response.get("keywords", [])
-        error = response.get("error", "")
-
-        # Prepare the result
-        result = {
-            "query": query_text,
-            "research_objectives": research_objectives,
-            "theoretical_framework": theoretical_framework,
-            "retrieved_chunks": retrieved_chunks,
-            "retrieved_chunks_count": len(retrieved_chunks),
-            "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
-            "keywords": keywords,
-            "error": error
-        }
-
-        # Log the number of keywords extracted
-        logger.info(f"Extracted {len(keywords)} keywords for query '{query_text}'.")
-
-        return result
+        # Set k to 2 for keyword extraction
+        retrieval_k = 2
+        # Extract quotations intended for keyword extraction
+        quotations = query_item.get('quotations', [])
+        quotation_texts = [q.get('quotation_to_use_keyword', '').strip() for q in quotations if 'quotation_to_use_keyword' in q and q.get('quotation_to_use_keyword', '').strip()]
+        
+        if not quotation_texts:
+            logger.warning("No 'quotation_to_use_keyword' found for keyword extraction. Skipping.")
+            return results  # Empty list
+        
+        logger.info(f"Processing keyword extraction for query: {query_item.get('query', '')[:50]}...")
+        
+        # Define research objectives and theoretical framework
+        research_objectives = query_item.get('research_objectives', 'Extract relevant keywords based on the provided objectives.')
+        theoretical_framework = query_item.get('theoretical_framework', '')
+        
+        # Retrieve top 2 relevant chunks
+        retrieved_chunks = retrieve_documents(query_item.get('query', ''), db, es_bm25, retrieval_k)
+        retrieved_chunks_count = len(retrieved_chunks)
+        used_chunk_ids = [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]
+        analysis = query_item.get('analysis', '')
+        answer = query_item.get('answer', {})
+        
+        # Extract contextualized_content from the top 2 chunks
+        contextual_info = [chunk['chunk']['contextualized_content'] for chunk in retrieved_chunks if 'contextualized_content' in chunk['chunk'] and chunk['chunk']['contextualized_content'].strip()]
+        
+        for idx, quotation in enumerate(quotation_texts, start=1):
+            logger.info(f"Extracting keywords for quotation {idx}: {quotation[:50]}...")
+            
+            # Extract keywords using the provided DSPy module
+            response = module.forward(
+                research_objectives=research_objectives,
+                quotation=quotation,
+                contextual_info=contextual_info,
+                theoretical_framework=theoretical_framework
+            )
+            keywords = response.get("keywords", [])
+            error = response.get("error", "")
+            
+            if error:
+                logger.error(f"Error extracting keywords for quotation {idx}: {error}")
+                # Skip to the next quotation
+                continue
+            
+            # Prepare the result for this quotation
+            result = {
+                "quotation_to_use_keyword": quotation,
+                "research_objectives": research_objectives,
+                "theoretical_framework": theoretical_framework,
+                "retrieved_chunks": retrieved_chunks,
+                "retrieved_chunks_count": retrieved_chunks_count,
+                "used_chunk_ids": used_chunk_ids,
+                "keywords": keywords,  # List of keyword dictionaries
+                "analysis": analysis,
+                "answer": answer
+            }
+            
+            # Remove 'contextualized_content' from retrieved_chunks if not needed in output
+            for chunk in result["retrieved_chunks"]:
+                if 'contextualized_content' in chunk['chunk']:
+                    del chunk['chunk']['contextualized_content']
+            
+            # Log the number of keywords extracted
+            logger.info(f"Extracted {len(keywords)} keywords for quotation {idx}.")
+            
+            results.append(result)
+        
+        return results  # List of result dicts
     else:
+        # Existing logic for processing quotations and generating answers
+        query_text = query_item.get('query', '').strip()
+        if not query_text:
+            logger.warning("Query is empty. Skipping.")
+            return results  # Empty list
+
+        logger.info(f"Processing query: {query_text}")
+
+        # Retrieve relevant chunks/documents
+        retrieved_chunks = retrieve_documents(query_text, db, es_bm25, k)
+        logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
+
+        # Extract transcript chunks from retrieved documents
+        transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
+
+        # Define research objectives
+        research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
+
+        # Define theoretical framework
+        theoretical_framework = query_item.get('theoretical_framework', '')
+
         # Select quotations using the provided DSPy module
         quotations_response = module.forward(
             research_objectives=research_objectives,
@@ -144,7 +191,8 @@ async def process_single_query(
         # Log the number of quotations selected
         logger.info(f"Selected {len(quotations)} quotations for query '{query_text}'.")
 
-        return result
+        results.append(result)
+        return results
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
@@ -187,7 +235,8 @@ async def process_queries(
                     is_keyword_extraction
                 )
                 if result:
-                    all_results.append(result)
+                    # 'result' is a list of dicts
+                    all_results.extend(result)
             except Exception as e:
                 logger.error(f"Error processing query at index {idx}: {e}", exc_info=True)
 

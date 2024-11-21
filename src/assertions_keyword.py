@@ -1,4 +1,4 @@
-# File: assertions_keyword.py
+# src/analysis/assertions_keyword.py
 import logging
 from typing import List
 from collections import Counter
@@ -29,21 +29,47 @@ def assert_keywords_extracted(keywords: List[str]) -> None:
         logger.error(error_msg)
         raise AssertionError(error_msg)
 
-def assert_realness(keywords: List[str], transcript_chunks: List[str]) -> None:
+def assert_realness(keywords: List[str], quotation: str) -> None:
     """
-    Checks if keywords genuinely reflect participants' experiences by verifying their presence in the transcript.
+    Checks if keywords genuinely reflect participants' experiences by verifying their presence in the quotation.
 
     Args:
         keywords (List[str]): List of extracted keywords.
-        transcript_chunks (List[str]): List of transcript chunks.
+        quotation (str): The specific quotation from which to extract keywords.
 
     Raises:
-        AssertionError: If a keyword is not present in the transcript chunks.
+        AssertionError: If a keyword is not present in the quotation.
     """
-    transcript_text = ' '.join(transcript_chunks).lower()
+    quotation_text = quotation.lower()
     for keyword in keywords:
-        if keyword.lower() not in transcript_text:
-            error_msg = f"Keyword '{keyword}' does not reflect participants' experiences (not found in transcript)."
+        if keyword.lower() not in quotation_text:
+            error_msg = f"Keyword '{keyword}' does not reflect participants' experiences (not found in quotation)."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+
+def assert_keywords_not_exclusive_to_context(keywords: List[str], quotation: str, contextual_info: List[str]) -> None:
+    """
+    Ensures that keywords are not exclusively derived from the contextual content.
+    If a keyword exists in contextual_info, it must also exist in the quotation.
+
+    Args:
+        keywords (List[str]): List of extracted keywords.
+        quotation (str): The specific quotation from which to extract keywords.
+        contextual_info (List[str]): List of contextualized content providing background for the quotation.
+
+    Raises:
+        AssertionError: If a keyword is found exclusively in contextual_info.
+    """
+    quotation_text = quotation.lower()
+    contextual_text = ' '.join(contextual_info).lower()
+
+    for keyword in keywords:
+        keyword_lower = keyword.lower()
+        in_quotation = keyword_lower in quotation_text
+        in_context = keyword_lower in contextual_text
+
+        if in_context and not in_quotation:
+            error_msg = f"Keyword '{keyword}' is exclusively present in contextual content and not in the quotation."
             logger.error(error_msg)
             raise AssertionError(error_msg)
 
@@ -66,22 +92,22 @@ def assert_richness(keywords: List[str]) -> None:
             logger.error(error_msg)
             raise AssertionError(error_msg)
 
-def assert_repetition(keywords: List[str], transcript_chunks: List[str]) -> None:
+def assert_repetition(keywords: List[str], quotation: str) -> None:
     """
     Checks that the keywords frequently occur in the data.
 
     Args:
         keywords (List[str]): List of extracted keywords.
-        transcript_chunks (List[str]): List of transcript chunks.
+        quotation (str): The specific quotation from which to extract keywords.
 
     Raises:
         AssertionError: If a keyword does not occur frequently in the data.
     """
-    transcript_text = ' '.join(transcript_chunks).lower()
-    word_counts = Counter(word_tokenize(transcript_text))
+    quotation_text = quotation.lower()
+    word_counts = Counter(word_tokenize(quotation_text))
     total_words = sum(word_counts.values())
     for keyword in keywords:
-        keyword_count = transcript_text.count(keyword.lower())
+        keyword_count = quotation_text.count(keyword.lower())
         frequency = keyword_count / total_words if total_words > 0 else 0
         if frequency < 0.001:  # Threshold can be adjusted
             error_msg = f"Keyword '{keyword}' does not occur frequently in the data."

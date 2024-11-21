@@ -1,4 +1,4 @@
-# File: main.py
+# main.py
 import gc
 import logging
 import os
@@ -84,7 +84,7 @@ class ThematicAnalysisPipeline:
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename_primary = self.config['output_filename_primary']
             output_filename_alt = self.config['output_filename_alt']
-            output_filename_keyword = self.config['output_filename_keyword']  # Add keyword output
+            output_filename_keyword = self.config['output_filename_keyword']  # Add output file for keyword extraction
 
             dl = DataLoader()
 
@@ -147,7 +147,7 @@ class ThematicAnalysisPipeline:
             logger.info("Validating keyword queries")
             validated_keyword_queries = validate_queries(keyword_queries)
 
-            # Define k value
+            # Define k value for standard queries
             k = 20
 
             # Initialize 'qa_module' to None before the try-except block
@@ -235,7 +235,7 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
                 return
 
-            # Initialize SelectKeywordModule without assertions (since it's only keyword extraction)
+            # Initialize SelectKeywordModule
             logger.info("Initializing SelectKeywordModule")
             try:
                 self.keyword_module = SelectKeywordModule()
@@ -274,11 +274,11 @@ class ThematicAnalysisPipeline:
                 validated_keyword_queries,
                 self.contextual_db,
                 self.es_bm25,
-                k,
-                output_filename_keyword,
-                self.optimized_program,
-                self.keyword_module,
-                is_keyword_extraction=True  # Indicate that we're only extracting keywords
+                k=2,  # Fixed k=2 for keyword extraction
+                output_file=output_filename_keyword,
+                optimized_program=self.optimized_program,
+                module=self.keyword_module,
+                is_keyword_extraction=True
             )
 
             # Define k values for evaluation
@@ -311,7 +311,7 @@ if __name__ == "__main__":
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file_standard': 'data/queries.json',
         'queries_file_alt': 'data/queries_alt.json',
-        'queries_file_keyword': 'data/queries_keyword.json',
+        'queries_file_keyword': 'data/queries_keyword.json',  # Add keyword queries
         'evaluation_set_file': 'data/evaluation_set.jsonl',
         'output_filename_primary': 'query_results_primary.json',
         'output_filename_alt': 'query_results_alternative.json',
