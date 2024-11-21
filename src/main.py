@@ -8,6 +8,7 @@ import dspy
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
 from dspy.datasets import DataLoader
 from dspy.primitives.assertions import assert_transform_module, backtrack_handler
+import threading
 
 from src.utils.logger import setup_logging
 from src.core.contextual_vector_db import ContextualVectorDB
@@ -26,6 +27,12 @@ from src.decorators import handle_exceptions
 # Initialize logging
 setup_logging()
 logger = logging.getLogger(__name__)
+
+# Configure DSPy settings
+dspy.settings.configure(main_thread_only=True)
+
+# Introduce a thread lock mechanism
+thread_lock = threading.Lock()
 
 class ThematicAnalysisPipeline:
     def __init__(self, config: Dict[str, Any]):
@@ -73,7 +80,7 @@ class ThematicAnalysisPipeline:
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file_standard = self.config['queries_file_standard']
             queries_file_alt = self.config['queries_file_alt']
-            queries_file_keyword = self.config['queries_file_alt']  # Add keyword queries
+            queries_file_keyword = self.config['queries_file_keyword']  # Add keyword queries
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename_primary = self.config['output_filename_primary']
             output_filename_alt = self.config['output_filename_alt']
@@ -100,7 +107,7 @@ class ThematicAnalysisPipeline:
             # Load and process the data
             try:
                 logger.info("Loading data into ContextualVectorDB")
-                self.contextual_db.load_data(codebase_chunks, parallel_threads=5)
+                self.contextual_db.load_data(codebase_chunks, parallel_threads=1)  # Reduced to single thread
             except Exception as e:
                 logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
                 return
@@ -168,7 +175,7 @@ class ThematicAnalysisPipeline:
                     'max_bootstrapped_demos': 4,
                     'max_labeled_demos': 4,
                     'num_candidate_programs': 10,
-                    'num_threads': 4
+                    'num_threads': 1  # Reduced to single thread
                 }
                 self.teleprompter = BootstrapFewShotWithRandomSearch(
                     metric=comprehensive_metric,
