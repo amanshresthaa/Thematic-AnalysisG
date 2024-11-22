@@ -1,0 +1,186 @@
+input,output
+"
+You are conducting a thematic analysis using keyword extraction based on the 6Rs framework.
+
+Research Objectives:
+To analyze the development, market positioning, user engagement, and competitive strategies of a tech startup in the project management software industry, emphasizing innovation through AI integration.
+
+Theoretical Framework:
+Innovation Diffusion Theory, Technology Acceptance Model
+
+Quotation:
+We integrate AI-driven analytics to provide actionable insights and automate routine tasks.
+
+Contextual Information:
+This quotation highlights the company's use of AI to differentiate its product in a competitive market.
+
+Task:
+**Extract meaningful keywords exclusively from the Quotation provided above using the 6Rs framework.**
+Use the Contextual Information only to better understand the Quotation.
+
+Ensure that the keywords satisfy the following criteria:
+1. Realness: Keywords that reflect the genuine experiences and perceptions of the participants.
+2. Richness: Keywords that are rich in meaning and provide a detailed understanding of the phenomenon.
+3. Repetition: Keywords that frequently occur in the data, indicating their significance.
+4. Rationale: Keywords connected to the theoretical or philosophical foundation of the research.
+5. Repartee: Keywords that are insightful, evocative, and stimulate further discussion.
+6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.
+
+Return the list of extracted keywords with their types and contexts in valid JSON format:
+{
+  'keywords': [
+    {
+      'keywords_to_use_coding': 'string',
+      'type': 'string',
+      'context': 'string'
+    }
+  ]
+}","{
+  ""keywords"": [
+    {
+      ""keywords_to_use_coding"": ""AI-driven analytics"",
+      ""type"": ""Regal"",
+      ""context"": ""Central to understanding the company's innovation strategy and differentiation.""
+    },
+    {
+      ""keywords_to_use_coding"": ""actionable insights"",
+      ""type"": ""Richness"",
+      ""context"": ""Reflects the meaningful outcomes provided by AI integration.""
+    },
+    {
+      ""keywords_to_use_coding"": ""automate routine tasks"",
+      ""type"": ""Realness"",
+      ""context"": ""Indicates practical applications and user-focused benefits of AI.""
+    }
+  ]
+}"
+"
+You are conducting a thematic analysis using keyword extraction based on the 6Rs framework.
+
+Research Objectives:
+To analyze the development, market positioning, user engagement, and competitive strategies of a tech startup in the project management software industry, emphasizing innovation through AI integration.
+
+Theoretical Framework:
+Innovation Diffusion Theory, Technology Acceptance Model
+
+Quotation:
+Our goal is to simplify project management and empower teams with intelligent tools that enhance productivity and decision-making.
+
+Contextual Information:
+This reflects the company's overarching mission to improve team efficiency through smart technology.
+
+Task:
+**Extract meaningful keywords exclusively from the Quotation provided above using the 6Rs framework.**
+Use the Contextual Information only to better understand the Quotation.
+
+Ensure that the keywords satisfy the following criteria:
+1. Realness: Keywords that reflect the genuine experiences and perceptions of the participants.
+2. Richness: Keywords that are rich in meaning and provide a detailed understanding of the phenomenon.
+3. Repetition: Keywords that frequently occur in the data, indicating their significance.
+4. Rationale: Keywords connected to the theoretical or philosophical foundation of the research.
+5. Repartee: Keywords that are insightful, evocative, and stimulate further discussion.
+6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.
+
+Return the list of extracted keywords with their types and contexts in valid JSON format:
+{
+  'keywords': [
+    {
+      'keywords_to_use_coding': 'string',
+      'type': 'string',
+      'context': 'string'
+    }
+  ]
+}","{
+  ""keywords"": [
+    {
+      ""keywords_to_use_coding"": ""simplify project management"",
+      ""type"": ""Regal"",
+      ""context"": ""Core to the company's mission of improving user experiences.""
+    },
+    {
+      ""keywords_to_use_coding"": ""empower teams"",
+      ""type"": ""Repartee"",
+      ""context"": ""Evokes the company's commitment to enhancing team capabilities.""
+    },
+    {
+      ""keywords_to_use_coding"": ""intelligent tools"",
+      ""type"": ""Rationale"",
+      ""context"": ""Tied to the theoretical framework of adopting innovative technologies.""
+    },
+    {
+      ""keywords_to_use_coding"": ""enhance productivity"",
+      ""type"": ""Richness"",
+      ""context"": ""Highlights the meaningful impact of the company's tools on efficiency.""
+    },
+    {
+      ""keywords_to_use_coding"": ""decision-making"",
+      ""type"": ""Realness"",
+      ""context"": ""Reflects practical, real-world applications for users.""
+    }
+  ]
+}"
+"
+You are conducting a thematic analysis using keyword extraction based on the 6Rs framework.
+
+Research Objectives:
+To analyze the development, market positioning, user engagement, and competitive strategies of a tech startup in the project management software industry, emphasizing innovation through AI integration.
+
+Theoretical Framework:
+Innovation Diffusion Theory, Technology Acceptance Model
+
+Quotation:
+Customer feedback has been overwhelmingly positive, particularly regarding the AI features that help streamline workflows.
+
+Contextual Information:
+This indicates strong user satisfaction and the effectiveness of the AI integrations in meeting customer needs.
+
+Task:
+**Extract meaningful keywords exclusively from the Quotation provided above using the 6Rs framework.**
+Use the Contextual Information only to better understand the Quotation.
+
+Ensure that the keywords satisfy the following criteria:
+1. Realness: Keywords that reflect the genuine experiences and perceptions of the participants.
+2. Richness: Keywords that are rich in meaning and provide a detailed understanding of the phenomenon.
+3. Repetition: Keywords that frequently occur in the data, indicating their significance.
+4. Rationale: Keywords connected to the theoretical or philosophical foundation of the research.
+5. Repartee: Keywords that are insightful, evocative, and stimulate further discussion.
+6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.
+
+Return the list of extracted keywords with their types and contexts in valid JSON format:
+{
+  'keywords': [
+    {
+      'keywords_to_use_coding': 'string',
+      'type': 'string',
+      'context': 'string'
+    }
+  ]
+}","{
+  ""keywords"": [
+    {
+      ""keywords_to_use_coding"": ""customer feedback"",
+      ""type"": ""Repetition"",
+      ""context"": ""Indicates user sentiment and engagement frequency.""
+    },
+    {
+      ""keywords_to_use_coding"": ""positive feedback"",
+      ""type"": ""Realness"",
+      ""context"": ""Reflects the genuine experiences of satisfied users.""
+    },
+    {
+      ""keywords_to_use_coding"": ""AI features"",
+      ""type"": ""Regal"",
+      ""context"": ""Central to the effectiveness and competitive positioning of the product.""
+    },
+    {
+      ""keywords_to_use_coding"": ""streamline workflows"",
+      ""type"": ""Richness"",
+      ""context"": ""Represents the impactful benefits of AI integration for users.""
+    },
+    {
+      ""keywords_to_use_coding"": ""user satisfaction"",
+      ""type"": ""Rationale"",
+      ""context"": ""Connected to the theoretical framework and supports technology acceptance.""
+    }
+  ]
+}"
