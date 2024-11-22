@@ -8,9 +8,19 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_85",
-                    "original_index": 85,
-                    "original_content": "Yes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot."
+                    "chunk_id": "Document_chunk_78",
+                    "original_index": 78,
+                    "original_content": "So, that\u2019s something, that\u2019s good."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_13",
+                    "original_index": 13,
+                    "original_content": "But it\u2019s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there\u2019s surplus, things like that."
                 },
                 "score": 0.6
             },
@@ -18,9 +28,9 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_47",
-                    "original_index": 47,
-                    "original_content": "But that might be more difficult."
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
                 },
                 "score": 0.3
             },
@@ -28,34 +38,56 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_54",
-                    "original_index": 54,
-                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop."
+                    "chunk_id": "Document_chunk_77",
+                    "original_index": 77,
+                    "original_content": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
                 },
                 "score": 0.2
             }
         ],
-        "retrieved_chunks_count": 3,
+        "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_85",
-            "Document_chunk_47",
-            "Document_chunk_54"
+            "Document_chunk_78",
+            "Document_chunk_13",
+            "Document_chunk_1",
+            "Document_chunk_77",
+            "Document_chunk_42"
         ],
         "keywords": [
             {
                 "keyword": "AI-driven analytics",
                 "type": "concept",
-                "context": "Integration of AI in project management software for data analysis."
+                "context": "Integration of AI in project management software"
             },
             {
                 "keyword": "actionable insights",
-                "type": "outcome",
-                "context": "Results derived from analytics that can inform decision-making."
+                "type": "benefit",
+                "context": "Outcome of using AI-driven analytics"
             },
             {
                 "keyword": "automate routine tasks",
                 "type": "functionality",
-                "context": "The capability of software to perform repetitive tasks without human intervention."
+                "context": "Purpose of AI integration in software"
+            },
+            {
+                "keyword": "innovation",
+                "type": "theme",
+                "context": "Focus on technological advancement in the industry"
+            },
+            {
+                "keyword": "user engagement",
+                "type": "goal",
+                "context": "Enhancing interaction through AI features"
             }
         ],
         "analysis": "The selected quotations provide a comprehensive understanding of the tech startup's strategic focus on AI integration to enhance project management capabilities. The first quotation underscores the innovative approach of using AI-driven analytics to differentiate their product. The second quotation articulates the company's mission to empower teams, aligning with user-centric design principles. The third quotation offers evidence of successful user engagement and satisfaction, validating the effectiveness of their AI features. Together, these elements illustrate how the startup positions itself in the market, leverages technology for competitive advantage, and maintains strong customer relationships.",
@@ -72,9 +104,19 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_85",
-                    "original_index": 85,
-                    "original_content": "Yes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot."
+                    "chunk_id": "Document_chunk_78",
+                    "original_index": 78,
+                    "original_content": "So, that\u2019s something, that\u2019s good."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_13",
+                    "original_index": 13,
+                    "original_content": "But it\u2019s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there\u2019s surplus, things like that."
                 },
                 "score": 0.6
             },
@@ -82,9 +124,9 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_47",
-                    "original_index": 47,
-                    "original_content": "But that might be more difficult."
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
                 },
                 "score": 0.3
             },
@@ -92,18 +134,30 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_54",
-                    "original_index": 54,
-                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop."
+                    "chunk_id": "Document_chunk_77",
+                    "original_index": 77,
+                    "original_content": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
                 },
                 "score": 0.2
             }
         ],
-        "retrieved_chunks_count": 3,
+        "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_85",
-            "Document_chunk_47",
-            "Document_chunk_54"
+            "Document_chunk_78",
+            "Document_chunk_13",
+            "Document_chunk_1",
+            "Document_chunk_77",
+            "Document_chunk_42"
         ],
         "keywords": [
             {
@@ -118,8 +172,8 @@
             },
             {
                 "keyword": "intelligent tools",
-                "type": "product",
-                "context": "tools that enhance productivity"
+                "type": "technology",
+                "context": "intelligent tools that enhance productivity"
             },
             {
                 "keyword": "productivity",
@@ -146,9 +200,19 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_85",
-                    "original_index": 85,
-                    "original_content": "Yes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot."
+                    "chunk_id": "Document_chunk_78",
+                    "original_index": 78,
+                    "original_content": "So, that\u2019s something, that\u2019s good."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_13",
+                    "original_index": 13,
+                    "original_content": "But it\u2019s only really to fill any gaps. When we have extreme heat, or anything like that, we just fill in gaps when there\u2019s surplus, things like that."
                 },
                 "score": 0.6
             },
@@ -156,9 +220,9 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_47",
-                    "original_index": 47,
-                    "original_content": "But that might be more difficult."
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
                 },
                 "score": 0.3
             },
@@ -166,39 +230,51 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_54",
-                    "original_index": 54,
-                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop."
+                    "chunk_id": "Document_chunk_77",
+                    "original_index": 77,
+                    "original_content": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
                 },
                 "score": 0.2
             }
         ],
-        "retrieved_chunks_count": 3,
+        "retrieved_chunks_count": 5,
         "used_chunk_ids": [
-            "Document_chunk_85",
-            "Document_chunk_47",
-            "Document_chunk_54"
+            "Document_chunk_78",
+            "Document_chunk_13",
+            "Document_chunk_1",
+            "Document_chunk_77",
+            "Document_chunk_42"
         ],
         "keywords": [
             {
                 "keyword": "Customer feedback",
                 "type": "concept",
-                "context": "User engagement and satisfaction"
+                "context": "Positive reception of the product"
             },
             {
-                "keyword": "Positive",
+                "keyword": "Overwhelmingly positive",
                 "type": "sentiment",
-                "context": "Overall reception of the product"
+                "context": "Customer satisfaction level"
             },
             {
                 "keyword": "AI features",
                 "type": "technology",
-                "context": "Innovative aspects of the software"
+                "context": "Innovative aspect of the product"
             },
             {
                 "keyword": "Streamline workflows",
                 "type": "functionality",
-                "context": "Efficiency improvements through technology"
+                "context": "Benefit provided by the AI features"
             }
         ],
         "analysis": "The selected quotations provide a comprehensive understanding of the tech startup's strategic focus on AI integration to enhance project management capabilities. The first quotation underscores the innovative approach of using AI-driven analytics to differentiate their product. The second quotation articulates the company's mission to empower teams, aligning with user-centric design principles. The third quotation offers evidence of successful user engagement and satisfaction, validating the effectiveness of their AI features. Together, these elements illustrate how the startup positions itself in the market, leverages technology for competitive advantage, and maintains strong customer relationships.",
