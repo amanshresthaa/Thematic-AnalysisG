@@ -33,7 +33,7 @@ def assert_confidentiality(quotations: List[Dict[str, Any]], sensitive_keywords:
         AssertionError: If a quotation contains sensitive information.
     """
     for quote in quotations:
-        quote_text = quote.get("quote", "").lower()
+        quote_text = quote.get("quotation", "").lower()
         for keyword in sensitive_keywords:
             if keyword.lower() in quote_text:
                 error_msg = f"Quotation '{quote.get('quote', '')[:50]}...' contains sensitive keyword '{keyword}'."
@@ -69,7 +69,7 @@ def assert_contextual_adequacy(quotations: List[Dict[str, Any]], transcript_chun
         AssertionError: If a quotation lacks necessary context or is not found in transcript.
     """
     for quote in quotations:
-        quote_text = quote.get("quote", "")
+        quote_text = quote.get("quotation", "")
         context = quote.get("context", "").strip()
         # Check if the quote exists in any of the transcript chunks
         in_transcript = any(quote_text in chunk for chunk in transcript_chunks)

@@ -76,11 +76,11 @@ class EnhancedQuotationSignature(dspy.Signature):
         
         f"Task: Analyze the transcript chunks and select relevant quotations that align with both the research objectives and theoretical framework. For each selected quotation, provide:\n\n"
         
-        f"1. Quote Selection:\n"
+        f"1. Quotation Selection:\n"
         f"   {{\n"
-        f"      'quote': str,              # The exact quotation text\n"
+        f"      'quotation': str,              # The exact quotation text\n"
         f"      'context': str,            # Background context including relevant researcher questions\n"
-        f"      'quote_type': str,         # 'discrete' (brief, diverse perspectives)\n"
+        f"      'quotation_type': str,         # 'discrete' (brief, diverse perspectives)\n"
         f"                                 # 'embedded' (short phrases marking transitions)\n"
         f"                                 # 'longer' (complex understanding)\n"
         f"      'function': str,           # 'evidence' | 'explanation' | 'illustration' | \n"
@@ -91,9 +91,9 @@ class EnhancedQuotationSignature(dspy.Signature):
         
         f"2. Analysis Overview:\n"
         f"   {{\n"
-        f"      'selection_rationale': str,    # Why these quotes were chosen\n"
-        f"      'theoretical_alignment': str,  # How quotes support theoretical framework\n"
-        f"      'objective_alignment': str,    # How quotes advance research objectives\n"
+        f"      'selection_rationale': str,    # Why these quotations were chosen\n"
+        f"      'theoretical_alignment': str,  # How quotations support theoretical framework\n"
+        f"      'objective_alignment': str,    # How quotations advance research objectives\n"
         f"      'pattern_summary': str         # Overview of identified patterns\n"
         f"   }}\n\n"
         
@@ -112,7 +112,7 @@ class EnhancedQuotationSignature(dspy.Signature):
             response = self.language_model.generate(
                 prompt=prompt,
                 max_tokens=1500,
-                temperature=0.7
+                temperature=1.0
             ).strip()
             
             # Parse quotations and analysis

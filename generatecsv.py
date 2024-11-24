@@ -98,7 +98,7 @@ For each quotation, provide:
 
 1. quote_data:
 {{
-    "quote": str,                    # The exact quotation text
+    "quotation": str,                    # The exact quotation text
     "context": str,                  # Surrounding context from interview
     "type": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 

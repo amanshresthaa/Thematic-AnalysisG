@@ -29,9 +29,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -44,9 +44,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -59,7 +59,7 @@ Key Guidelines:
 6. Balance diversity of perspectives
 
 Return response as valid JSON with 'quotations' and 'analysis' fields.
-","[{""quote"": ""we're trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the collaborative effort of the farmers to streamline their operations and enhance market presence.""}, {""quote"": ""the idea was that we cut out the middle man and all that money comes back to the farm."", ""type"": ""economic strategy"", ""context"": ""This highlights the economic motivation behind the organization's formation, aiming to increase profitability for farmers.""}, {""quote"": ""we had contracts – our customers basically tore up in front of us."", ""type"": ""challenge"", ""context"": ""This illustrates the significant impact of the COVID crisis on the organization's operations and market stability.""}, {""quote"": ""I think sustainability is the key to anything."", ""type"": ""future outlook"", ""context"": ""This statement emphasizes the importance of sustainability in the organization's vision for the future.""}, {""quote"": ""the closer to the customer we get, the more we’ll get back to the farm."", ""type"": ""strategic vision"", ""context"": ""This reflects the organization's strategy to enhance direct sales to customers, thereby increasing returns to farmers.""}]"
+","[{""quotation"": ""we're trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the collaborative effort of the farmers to streamline their operations and enhance market presence.""}, {""quotation"": ""the idea was that we cut out the middle man and all that money comes back to the farm."", ""type"": ""economic strategy"", ""context"": ""This highlights the economic motivation behind the organization's formation, aiming to increase profitability for farmers.""}, {""quotation"": ""we had contracts – our customers basically tore up in front of us."", ""type"": ""challenge"", ""context"": ""This illustrates the significant impact of the COVID crisis on the organization's operations and market stability.""}, {""quotation"": ""I think sustainability is the key to anything."", ""type"": ""future outlook"", ""context"": ""This statement emphasizes the importance of sustainability in the organization's vision for the future.""}, {""quotation"": ""the closer to the customer we get, the more we’ll get back to the farm."", ""type"": ""strategic vision"", ""context"": ""This reflects the organization's strategy to enhance direct sales to customers, thereby increasing returns to farmers.""}]"
 "
 You are conducting thematic analysis following Braun and Clarke's (2006) approach.
 
@@ -90,9 +90,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -105,9 +105,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -120,7 +120,7 @@ Key Guidelines:
 6. Balance diversity of perspectives
 
 Return response as valid JSON with 'quotations' and 'analysis' fields.
-","[{""quote"": ""So, we buy from other farms as well, which supply at different times of year, it varies."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the organization's strategy of diversifying supply sources to ensure year-round availability of products.""}, {""quote"": ""But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it."", ""type"": ""market dynamics"", ""context"": ""This statement indicates the organization's responsiveness to market demands, showcasing their adaptability in a fluctuating market.""}, {""quote"": ""So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers."", ""type"": ""collaboration"", ""context"": ""This highlights the collaborative effort among farmers to streamline operations and improve customer relations, which is crucial for their sustainability.""}, {""quote"": ""And obviously, we want to supply the factories all year round, and they want a supply all year round."", ""type"": ""supply chain management"", ""context"": ""This quotation emphasizes the importance of maintaining a consistent supply chain to meet customer needs, reflecting the economic factors influencing their operations.""}, {""quote"": ""We do a little bit. We have exported in the past."", ""type"": ""future outlook"", ""context"": ""This statement suggests potential growth opportunities for the organization in international markets, indicating a forward-looking strategy.""}]"
+","[{""quotation"": ""So, we buy from other farms as well, which supply at different times of year, it varies."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the organization's strategy of diversifying supply sources to ensure year-round availability of products.""}, {""quotation"": ""But that’s not a regular thing, that’s just when the market requires it, if there’s an opportunity we have to grab it."", ""type"": ""market dynamics"", ""context"": ""This statement indicates the organization's responsiveness to market demands, showcasing their adaptability in a fluctuating market.""}, {""quotation"": ""So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers."", ""type"": ""collaboration"", ""context"": ""This highlights the collaborative effort among farmers to streamline operations and improve customer relations, which is crucial for their sustainability.""}, {""quotation"": ""And obviously, we want to supply the factories all year round, and they want a supply all year round."", ""type"": ""supply chain management"", ""context"": ""This quotation emphasizes the importance of maintaining a consistent supply chain to meet customer needs, reflecting the economic factors influencing their operations.""}, {""quotation"": ""We do a little bit. We have exported in the past."", ""type"": ""future outlook"", ""context"": ""This statement suggests potential growth opportunities for the organization in international markets, indicating a forward-looking strategy.""}]"
 "
 You are conducting thematic analysis following Braun and Clarke's (2006) approach.
 
@@ -151,9 +151,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -166,9 +166,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -181,7 +181,7 @@ Key Guidelines:
 6. Balance diversity of perspectives
 
 Return response as valid JSON with 'quotations' and 'analysis' fields.
-","[{""quote"": ""So, people have seen that it’s a good idea and they want in on it?"", ""type"": ""question"", ""context"": ""This question reflects the growing interest in the farming organization and the potential for collaboration among farmers.""}, {""quote"": ""we are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."", ""type"": ""statement"", ""context"": ""This statement highlights the operational strategy of centralizing sales to enhance market presence and efficiency.""}, {""quote"": ""the idea was that we cut out the middle man and all that money comes back to the farm."", ""type"": ""statement"", ""context"": ""This quote addresses the challenge of profit distribution in the industry and the organization's goal to ensure that farmers receive fair compensation.""}, {""quote"": ""there’s more competition in the area."", ""type"": ""statement"", ""context"": ""This observation indicates the changing market dynamics and the need for the organization to adapt to increased competition.""}, {""quote"": ""the trouble with all these ideas is that they cost a lot of money."", ""type"": ""statement"", ""context"": ""This statement underscores the financial challenges faced by farmers and the need for sustainable investment in processing capacity.""}]"
+","[{""quotation"": ""So, people have seen that it’s a good idea and they want in on it?"", ""type"": ""question"", ""context"": ""This question reflects the growing interest in the farming organization and the potential for collaboration among farmers.""}, {""quotation"": ""we are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."", ""type"": ""statement"", ""context"": ""This statement highlights the operational strategy of centralizing sales to enhance market presence and efficiency.""}, {""quotation"": ""the idea was that we cut out the middle man and all that money comes back to the farm."", ""type"": ""statement"", ""context"": ""This quotation addresses the challenge of profit distribution in the industry and the organization's goal to ensure that farmers receive fair compensation.""}, {""quotation"": ""there’s more competition in the area."", ""type"": ""statement"", ""context"": ""This observation indicates the changing market dynamics and the need for the organization to adapt to increased competition.""}, {""quotation"": ""the trouble with all these ideas is that they cost a lot of money."", ""type"": ""statement"", ""context"": ""This statement underscores the financial challenges faced by farmers and the need for sustainable investment in processing capacity.""}]"
 "
 You are conducting thematic analysis following Braun and Clarke's (2006) approach.
 
@@ -212,9 +212,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -227,9 +227,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -273,9 +273,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -288,9 +288,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -334,9 +334,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -349,9 +349,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -395,9 +395,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -410,9 +410,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 
@@ -425,7 +425,7 @@ Key Guidelines:
 6. Balance diversity of perspectives
 
 Return response as valid JSON with 'quotations' and 'analysis' fields.
-","[{""quote"": ""Now I’m in my late 30’s (nearly 40!), I should really be pushing things on. Yeah, building things up, developing them, yeah. Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are."", ""type"": ""operational strategy"", ""context"": ""This quote reflects the strategy of risk management through increasing the number of growers involved, which is crucial for the organization's sustainability.""}, {""quote"": ""And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now."", ""type"": ""economic challenge"", ""context"": ""This highlights the financial challenges faced by the organization, particularly in the aftermath of COVID-19, which is essential for understanding the economic factors affecting operations.""}, {""quote"": ""The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size."", ""type"": ""risk management"", ""context"": ""This statement emphasizes the need for downscaling as a contingency plan, showcasing the organization's adaptive strategies in response to economic pressures.""}, {""quote"": ""Without the farmers and the potatoes, and supply what ever you’re doing, we’re not very stable. The problem is, manufacturing full stop."", ""type"": ""stability concern"", ""context"": ""This quote underscores the critical role of farmers in ensuring stability within the organization, linking operational challenges to broader market dynamics.""}, {""quote"": ""So, it’s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers."", ""type"": ""organizational structure"", ""context"": ""This illustrates the collaborative structure being developed to enhance market access and stability, which is vital for the organization's future outlook.""}]"
+","[{""quotation"": ""Now I’m in my late 30’s (nearly 40!), I should really be pushing things on. Yeah, building things up, developing them, yeah. Developing, and actually, we doing quite the opposite. I’m doing the less. From the [org name] point of view, basically, I’m getting more growers on board and spreading the risk out to more growers. So, the more growers we get, the less at risk we are."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the strategy of risk management through increasing the number of growers involved, which is crucial for the organization's sustainability.""}, {""quotation"": ""And the banks are – it’s very difficult for them to lend, if the business has a negative cash flow, through no fault of their own. And there’ll be a lot of businesses after COVID with the same scenario now."", ""type"": ""economic challenge"", ""context"": ""This highlights the financial challenges faced by the organization, particularly in the aftermath of COVID-19, which is essential for understanding the economic factors affecting operations.""}, {""quotation"": ""The contingency plan for the farm side of things is basically reduce what I’m doing, because I cannot risk the losses. So, I’m actually downscaling what we’re doing. Reducing the farm size."", ""type"": ""risk management"", ""context"": ""This statement emphasizes the need for downscaling as a contingency plan, showcasing the organization's adaptive strategies in response to economic pressures.""}, {""quotation"": ""Without the farmers and the potatoes, and supply what ever you’re doing, we’re not very stable. The problem is, manufacturing full stop."", ""type"": ""stability concern"", ""context"": ""This quotation underscores the critical role of farmers in ensuring stability within the organization, linking operational challenges to broader market dynamics.""}, {""quotation"": ""So, it’s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it’s owned by the farmers. Set up for the farmers."", ""type"": ""organizational structure"", ""context"": ""This illustrates the collaborative structure being developed to enhance market access and stability, which is vital for the organization's future outlook.""}]"
 "
 You are conducting thematic analysis following Braun and Clarke's (2006) approach.
 
@@ -456,9 +456,9 @@ Task: Select quotations that align with the research objectives and theoretical 
 
 For each quotation, provide:
 
-1. quote_data:
+1. quotation_data:
 {
-    ""quote"": str,                    # The exact quotation text
+    ""quotation"": str,                    # The exact quotation text
     ""context"": str,                  # Surrounding context from interview
     ""type"": str,                     # 'discrete' (brief diverse perspectives)
                                     # 'embedded' (transition phrases) 
@@ -471,9 +471,9 @@ For each quotation, provide:
 
 2. analysis:
 {
-    ""selection_rationale"": str,     # Why this quote was chosen 
-    ""theoretical_relevance"": str,   # How quote supports theoretical framework
-    ""objective_support"": str,       # How quote advances research objectives
+    ""selection_rationale"": str,     # Why this quotation was chosen 
+    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
+    ""objective_support"": str,       # How quotation advances research objectives
     ""patterns"": str                 # Key patterns identified
 }
 

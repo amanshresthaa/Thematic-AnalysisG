@@ -472,7 +472,7 @@ class SelectQuotationSignature(dspy.Signature):
             response = self.language_model.generate(
                 prompt=prompt,
                 max_tokens=500,
-                temperature=0.7,
+                temperature=1.0,
                 top_p=0.9,
                 n=1,
                 stop=None
@@ -935,7 +935,7 @@ class QueryGeneratorSignature(dspy.Signature):
             new_query = self.language_model.generate(
                 prompt=prompt,
                 max_tokens=50,
-                temperature=0.7,
+                temperature=1.0,
                 top_p=0.9,
                 n=1,
                 stop=["\n"]
@@ -1376,7 +1376,7 @@ class QuestionAnswerSignature(dspy.Signature):
                     f"If no quotations are available, respond with an empty array `[]`."
                 ),
                 max_tokens=max_tokens,
-                temperature=0.7,
+                temperature=1.0,
                 top_p=0.9,
                 n=1,
                 stop=None
@@ -2877,7 +2877,7 @@ def validate_quality(quotations: List[Dict[str, Any]]) -> bool:
     """
     try:
         for quote in quotations:
-            if len(quote["QUOTE"].strip()) < 10:  # Example quality check
+            if len(quote["quotation"].strip()) < 10:  # Example quality check
                 logger.debug(f"Quotation '{quote['QUOTE']}' is too short to be considered high quality.")
                 return False
             # Additional quality checks can be added here

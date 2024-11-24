@@ -26,7 +26,7 @@ def validate_quality(quotations: List[Dict[str, Any]]) -> bool:
     """
     try:
         for quote in quotations:
-            if len(quote["QUOTE"].strip()) < 10:  # Example quality check
+            if len(quote["quotation"].strip()) < 10:  # Example quality check
                 logger.debug(f"Quotation '{quote['QUOTE']}' is too short to be considered high quality.")
                 return False
             # Additional quality checks can be added here
