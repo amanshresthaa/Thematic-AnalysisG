@@ -3199,12 +3199,12 @@ if __name__ == "__main__":
         'queries_file_standard': 'data/queries.json',
         # Removed the following as we're no longer using alternative queries
         # 'queries_file_alt': 'data/queries_alt.json',
-        'queries_file_keyword': 'query_results_quotation.json',
+        'queries_file_keyword': 'data/query_results_quotation.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'query_results_quotation.json',
+        'output_filename_primary': 'data/query_results_quotation.json',
         # Removed the following as we're no longer using alternative output
         # 'output_filename_alt': 'query_results_alternative.json',
-        'output_filename_keyword': 'query_results_keyword.json',
+        'output_filename_keyword': 'data/query_results_keyword.json',
         'keyword_training_data': 'data/keyword_training_data.csv',
         'quotation_training_data': 'data/quotation_training_data.csv',
         'optimized_keyword_program': 'optimized_keyword_program.json',
