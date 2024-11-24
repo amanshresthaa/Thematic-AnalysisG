@@ -1,0 +1,2563 @@
+[
+    {
+        "quotation": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_56",
+                    "original_index": 56,
+                    "original_content": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_25",
+                    "original_index": 25,
+                    "original_content": "Who amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?"
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_1",
+            "Document_chunk_56",
+            "Document_chunk_29",
+            "Document_chunk_25"
+        ],
+        "keywords": [
+            {
+                "keyword": "farmers",
+                "type": "entity",
+                "context": "The individuals involved in the farming organization."
+            },
+            {
+                "keyword": "potatoes",
+                "type": "product",
+                "context": "The primary crop being cultivated and marketed by the farmers."
+            },
+            {
+                "keyword": "organization",
+                "type": "structure",
+                "context": "The collective entity formed by the farmers to streamline operations."
+            },
+            {
+                "keyword": "centralized buying",
+                "type": "strategy",
+                "context": "The approach of purchasing and marketing potatoes collectively."
+            },
+            {
+                "keyword": "marketed together",
+                "type": "strategy",
+                "context": "The method of promoting the product as a unified group."
+            },
+            {
+                "keyword": "trader",
+                "type": "role",
+                "context": "The intermediary brought in to facilitate sales and customer relations."
+            },
+            {
+                "keyword": "customers",
+                "type": "stakeholder",
+                "context": "The end-users who purchase the potatoes."
+            },
+            {
+                "keyword": "supply chain",
+                "type": "concept",
+                "context": "The network involving farmers and suppliers necessary for operations."
+            },
+            {
+                "keyword": "challenges",
+                "type": "issue",
+                "context": "The difficulties faced by farmers in the current agricultural landscape."
+            },
+            {
+                "keyword": "sustainability",
+                "type": "goal",
+                "context": "The aim of maintaining viable farming practices."
+            }
+        ],
+        "analysis": "The selected quotations collectively provide a nuanced understanding of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, emphasizing the importance of centralizing marketing efforts among individual farmers. The second quotation addresses the significant challenges posed by external factors, such as weather patterns, which impact sustainability and economic viability. The third quotation highlights the critical role of suppliers in maintaining operational efficiency, indicating that the organization must strategically manage these relationships to meet market demands. The fourth quotation further supports this by discussing the diversification of supply sources, showcasing adaptability in response to market dynamics. Finally, the fifth quotation reinforces the theme of collaboration, suggesting that the success of the organization hinges on effective partnerships. Together, these insights align with the research objectives by providing a comprehensive view of the organization's functioning within the broader context of market dynamics, sustainability, and economic factors.",
+        "answer": {
+            "answer": "The cooperative focuses on organic vegetable farming, growing a variety of crops including carrots, parsnips, leafy greens, and specialty herbs. By collaborating, the farms improve distribution and pricing, effectively meeting market demands for locally-grown produce."
+        }
+    },
+    {
+        "quotation": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_56",
+                    "original_index": 56,
+                    "original_content": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_25",
+                    "original_index": 25,
+                    "original_content": "Who amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?"
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_1",
+            "Document_chunk_56",
+            "Document_chunk_29",
+            "Document_chunk_25"
+        ],
+        "keywords": [
+            {
+                "keyword": "evolving",
+                "type": "concept",
+                "context": "Describes the ongoing changes in farming practices and challenges."
+            },
+            {
+                "keyword": "dire mess",
+                "type": "condition",
+                "context": "Indicates the severe challenges faced by the farming industry."
+            },
+            {
+                "keyword": "potatoes",
+                "type": "product",
+                "context": "Specifies the crop being discussed, relevant to the farming organization."
+            },
+            {
+                "keyword": "weather patterns",
+                "type": "factor",
+                "context": "Highlights the impact of climate on agricultural productivity."
+            },
+            {
+                "keyword": "price",
+                "type": "economic factor",
+                "context": "Refers to the economic aspect affecting farming operations."
+            }
+        ],
+        "analysis": "The selected quotations collectively provide a nuanced understanding of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, emphasizing the importance of centralizing marketing efforts among individual farmers. The second quotation addresses the significant challenges posed by external factors, such as weather patterns, which impact sustainability and economic viability. The third quotation highlights the critical role of suppliers in maintaining operational efficiency, indicating that the organization must strategically manage these relationships to meet market demands. The fourth quotation further supports this by discussing the diversification of supply sources, showcasing adaptability in response to market dynamics. Finally, the fifth quotation reinforces the theme of collaboration, suggesting that the success of the organization hinges on effective partnerships. Together, these insights align with the research objectives by providing a comprehensive view of the organization's functioning within the broader context of market dynamics, sustainability, and economic factors.",
+        "answer": {
+            "answer": "The cooperative focuses on organic vegetable farming, growing a variety of crops including carrots, parsnips, leafy greens, and specialty herbs. By collaborating, the farms improve distribution and pricing, effectively meeting market demands for locally-grown produce."
+        }
+    },
+    {
+        "quotation": "Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_56",
+                    "original_index": 56,
+                    "original_content": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_25",
+                    "original_index": 25,
+                    "original_content": "Who amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?"
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_1",
+            "Document_chunk_56",
+            "Document_chunk_29",
+            "Document_chunk_25"
+        ],
+        "keywords": [
+            {
+                "keyword": "suppliers",
+                "type": "entity",
+                "context": "Crucial for meeting demand and ensuring operational stability."
+            },
+            {
+                "keyword": "farmers",
+                "type": "entity",
+                "context": "Essential players in the organization, providing the necessary supply."
+            },
+            {
+                "keyword": "demand",
+                "type": "concept",
+                "context": "The need that must be met by the suppliers and farmers."
+            },
+            {
+                "keyword": "problems",
+                "type": "issue",
+                "context": "Arises when there are insufficient suppliers or farmers."
+            }
+        ],
+        "analysis": "The selected quotations collectively provide a nuanced understanding of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, emphasizing the importance of centralizing marketing efforts among individual farmers. The second quotation addresses the significant challenges posed by external factors, such as weather patterns, which impact sustainability and economic viability. The third quotation highlights the critical role of suppliers in maintaining operational efficiency, indicating that the organization must strategically manage these relationships to meet market demands. The fourth quotation further supports this by discussing the diversification of supply sources, showcasing adaptability in response to market dynamics. Finally, the fifth quotation reinforces the theme of collaboration, suggesting that the success of the organization hinges on effective partnerships. Together, these insights align with the research objectives by providing a comprehensive view of the organization's functioning within the broader context of market dynamics, sustainability, and economic factors.",
+        "answer": {
+            "answer": "The cooperative focuses on organic vegetable farming, growing a variety of crops including carrots, parsnips, leafy greens, and specialty herbs. By collaborating, the farms improve distribution and pricing, effectively meeting market demands for locally-grown produce."
+        }
+    },
+    {
+        "quotation": "So, we buy from other farms as well, which supply at different times of year, it varies.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_56",
+                    "original_index": 56,
+                    "original_content": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_25",
+                    "original_index": 25,
+                    "original_content": "Who amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?"
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_1",
+            "Document_chunk_56",
+            "Document_chunk_29",
+            "Document_chunk_25"
+        ],
+        "keywords": [
+            {
+                "keyword": "buy",
+                "type": "action",
+                "context": "refers to the purchasing process from other farms"
+            },
+            {
+                "keyword": "farms",
+                "type": "entity",
+                "context": "indicates the sources of supply for the organization"
+            },
+            {
+                "keyword": "supply",
+                "type": "concept",
+                "context": "relates to the availability of products from different farms"
+            },
+            {
+                "keyword": "different times of year",
+                "type": "temporal",
+                "context": "highlights the variability in supply based on seasonal factors"
+            },
+            {
+                "keyword": "varies",
+                "type": "concept",
+                "context": "emphasizes the unpredictability in sourcing and supply chain management"
+            }
+        ],
+        "analysis": "The selected quotations collectively provide a nuanced understanding of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, emphasizing the importance of centralizing marketing efforts among individual farmers. The second quotation addresses the significant challenges posed by external factors, such as weather patterns, which impact sustainability and economic viability. The third quotation highlights the critical role of suppliers in maintaining operational efficiency, indicating that the organization must strategically manage these relationships to meet market demands. The fourth quotation further supports this by discussing the diversification of supply sources, showcasing adaptability in response to market dynamics. Finally, the fifth quotation reinforces the theme of collaboration, suggesting that the success of the organization hinges on effective partnerships. Together, these insights align with the research objectives by providing a comprehensive view of the organization's functioning within the broader context of market dynamics, sustainability, and economic factors.",
+        "answer": {
+            "answer": "The cooperative focuses on organic vegetable farming, growing a variety of crops including carrots, parsnips, leafy greens, and specialty herbs. By collaborating, the farms improve distribution and pricing, effectively meeting market demands for locally-grown produce."
+        }
+    },
+    {
+        "quotation": "With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_56",
+                    "original_index": 56,
+                    "original_content": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_25",
+                    "original_index": 25,
+                    "original_content": "Who amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?"
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_1",
+            "Document_chunk_56",
+            "Document_chunk_29",
+            "Document_chunk_25"
+        ],
+        "keywords": [
+            {
+                "keyword": "collaboration",
+                "type": "concept",
+                "context": "refers to the working together of farmers within the organization"
+            },
+            {
+                "keyword": "functioning",
+                "type": "action",
+                "context": "describes how the organization operates effectively"
+            },
+            {
+                "keyword": "crucial",
+                "type": "importance",
+                "context": "highlights the essential nature of certain roles within the organization"
+            },
+            {
+                "keyword": "suppliers",
+                "type": "stakeholder",
+                "context": "indicates the importance of those providing resources to the organization"
+            },
+            {
+                "keyword": "farmers",
+                "type": "stakeholder",
+                "context": "refers to the individuals growing potatoes and their role in the organization"
+            },
+            {
+                "keyword": "organization",
+                "type": "entity",
+                "context": "the collective structure formed by the farmers to market their produce"
+            },
+            {
+                "keyword": "potatoes",
+                "type": "product",
+                "context": "the primary crop being marketed and sold by the organization"
+            },
+            {
+                "keyword": "customers",
+                "type": "stakeholder",
+                "context": "the end-users of the potatoes, whose needs the organization aims to meet"
+            },
+            {
+                "keyword": "network",
+                "type": "structure",
+                "context": "the interconnected relationships between suppliers, farmers, and the organization"
+            },
+            {
+                "keyword": "stability",
+                "type": "goal",
+                "context": "the aim of maintaining a reliable operation amidst challenges"
+            }
+        ],
+        "analysis": "The selected quotations collectively provide a nuanced understanding of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, emphasizing the importance of centralizing marketing efforts among individual farmers. The second quotation addresses the significant challenges posed by external factors, such as weather patterns, which impact sustainability and economic viability. The third quotation highlights the critical role of suppliers in maintaining operational efficiency, indicating that the organization must strategically manage these relationships to meet market demands. The fourth quotation further supports this by discussing the diversification of supply sources, showcasing adaptability in response to market dynamics. Finally, the fifth quotation reinforces the theme of collaboration, suggesting that the success of the organization hinges on effective partnerships. Together, these insights align with the research objectives by providing a comprehensive view of the organization's functioning within the broader context of market dynamics, sustainability, and economic factors.",
+        "answer": {
+            "answer": "The cooperative focuses on organic vegetable farming, growing a variety of crops including carrots, parsnips, leafy greens, and specialty herbs. By collaborating, the farms improve distribution and pricing, effectively meeting market demands for locally-grown produce."
+        }
+    },
+    {
+        "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_29",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "growers",
+                "type": "stakeholder",
+                "context": "referring to individuals or entities involved in farming"
+            },
+            {
+                "keyword": "customers",
+                "type": "stakeholder",
+                "context": "referring to the buyers of agricultural products"
+            },
+            {
+                "keyword": "grow",
+                "type": "action",
+                "context": "indicating the desire to expand the customer base"
+            },
+            {
+                "keyword": "streamline",
+                "type": "action",
+                "context": "referring to improving operational efficiency"
+            },
+            {
+                "keyword": "operational efficiency",
+                "type": "concept",
+                "context": "the goal of enhancing processes within the organization"
+            },
+            {
+                "keyword": "market dynamics",
+                "type": "concept",
+                "context": "the changing conditions and trends in the agricultural market"
+            },
+            {
+                "keyword": "expansion",
+                "type": "strategy",
+                "context": "the approach to increase reach and customer base"
+            },
+            {
+                "keyword": "challenges",
+                "type": "concept",
+                "context": "referring to the difficulties faced by the organization in the current financial landscape"
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization. The emphasis on expanding the grower and customer base, alongside streamlining operations, aligns with the objective of understanding operational strategies in a dynamic market. The recognition of the critical role of suppliers and farmers in meeting demand highlights the interconnectedness of these relationships, which is essential for sustainability. Furthermore, the call for investment underscores the economic factors influencing the organization's future outlook. Together, these insights provide a comprehensive understanding of the organization's operations and the challenges it faces in the context of market dynamics.",
+        "answer": {
+            "answer": "I manage the distribution and logistics side of the organization, coordinating with delivery partners to ensure timely delivery of produce, primarily on a regional level."
+        }
+    },
+    {
+        "quotation": "If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_29",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "supply",
+                "type": "concept",
+                "context": "refers to the availability of resources needed to meet market demand"
+            },
+            {
+                "keyword": "demand",
+                "type": "concept",
+                "context": "indicates the market need for agricultural products"
+            },
+            {
+                "keyword": "problems",
+                "type": "issue",
+                "context": "highlights the challenges faced by organizations when supply does not meet demand"
+            },
+            {
+                "keyword": "operational efficiency",
+                "type": "strategy",
+                "context": "relates to the need for organizations to streamline processes to meet market needs"
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization. The emphasis on expanding the grower and customer base, alongside streamlining operations, aligns with the objective of understanding operational strategies in a dynamic market. The recognition of the critical role of suppliers and farmers in meeting demand highlights the interconnectedness of these relationships, which is essential for sustainability. Furthermore, the call for investment underscores the economic factors influencing the organization's future outlook. Together, these insights provide a comprehensive understanding of the organization's operations and the challenges it faces in the context of market dynamics.",
+        "answer": {
+            "answer": "I manage the distribution and logistics side of the organization, coordinating with delivery partners to ensure timely delivery of produce, primarily on a regional level."
+        }
+    },
+    {
+        "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_29",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "investment",
+                "type": "concept",
+                "context": "necessity for businesses to invest for operational success"
+            },
+            {
+                "keyword": "businesses",
+                "type": "entity",
+                "context": "refers to farming organizations needing to adapt and grow"
+            },
+            {
+                "keyword": "efficiency",
+                "type": "concept",
+                "context": "importance of operational efficiency in farming"
+            },
+            {
+                "keyword": "financial support",
+                "type": "concept",
+                "context": "critical need for funding to implement growth strategies"
+            },
+            {
+                "keyword": "market dynamics",
+                "type": "concept",
+                "context": "influence of market conditions on farming operations"
+            },
+            {
+                "keyword": "sustainability",
+                "type": "concept",
+                "context": "long-term viability of farming practices"
+            },
+            {
+                "keyword": "growth strategy",
+                "type": "concept",
+                "context": "approach to expand and enhance business operations"
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization. The emphasis on expanding the grower and customer base, alongside streamlining operations, aligns with the objective of understanding operational strategies in a dynamic market. The recognition of the critical role of suppliers and farmers in meeting demand highlights the interconnectedness of these relationships, which is essential for sustainability. Furthermore, the call for investment underscores the economic factors influencing the organization's future outlook. Together, these insights provide a comprehensive understanding of the organization's operations and the challenges it faces in the context of market dynamics.",
+        "answer": {
+            "answer": "I manage the distribution and logistics side of the organization, coordinating with delivery partners to ensure timely delivery of produce, primarily on a regional level."
+        }
+    },
+    {
+        "quotation": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_29",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "farmers",
+                "type": "subject",
+                "context": "The individuals responsible for agricultural production."
+            },
+            {
+                "keyword": "process",
+                "type": "action",
+                "context": "The ability to handle and transform agricultural products."
+            },
+            {
+                "keyword": "produce",
+                "type": "object",
+                "context": "The output generated by farmers."
+            },
+            {
+                "keyword": "snookered",
+                "type": "condition",
+                "context": "A state of being trapped or unable to proceed due to lack of processing capabilities."
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization. The emphasis on expanding the grower and customer base, alongside streamlining operations, aligns with the objective of understanding operational strategies in a dynamic market. The recognition of the critical role of suppliers and farmers in meeting demand highlights the interconnectedness of these relationships, which is essential for sustainability. Furthermore, the call for investment underscores the economic factors influencing the organization's future outlook. Together, these insights provide a comprehensive understanding of the organization's operations and the challenges it faces in the context of market dynamics.",
+        "answer": {
+            "answer": "I manage the distribution and logistics side of the organization, coordinating with delivery partners to ensure timely delivery of produce, primarily on a regional level."
+        }
+    },
+    {
+        "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop."
+                },
+                "score": 0.6666666666666666
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
+                    "original_content": ""
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.4
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
+                    "original_content": ""
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_54",
+            "Document_chunk_22",
+            "Document_chunk_1",
+            "Document_chunk_31"
+        ],
+        "keywords": [
+            {
+                "keyword": "sustainability",
+                "type": "concept",
+                "context": "importance in agriculture"
+            },
+            {
+                "keyword": "problems",
+                "type": "issue",
+                "context": "consequences of lack of sustainability"
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the farming organization's commitment to sustainability, collaboration, and innovation. The emphasis on sustainability as a foundational principle indicates a proactive approach to addressing market dynamics and economic challenges. The desire to bring more farmers on board reflects a strategic initiative to strengthen community ties and enhance collective benefits. Furthermore, the focus on direct customer engagement through innovative practices demonstrates a forward-thinking mindset aimed at improving operational efficiency and market responsiveness. These insights align closely with the research objectives, providing a comprehensive understanding of the organization's operations and future outlook.",
+        "answer": {
+            "answer": "The organization views itself as innovative due to its real-time inventory system that connects farmers directly with customers, eliminating middlemen and ensuring quality and fair profits for farmers. They are also exploring vertical farming to maintain supply during winter, reflecting a commitment to sustainability and efficiency in the agricultural supply chain."
+        }
+    },
+    {
+        "quotation": "I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop."
+                },
+                "score": 0.6666666666666666
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
+                    "original_content": ""
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.4
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
+                    "original_content": ""
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_54",
+            "Document_chunk_22",
+            "Document_chunk_1",
+            "Document_chunk_31"
+        ],
+        "keywords": [
+            {
+                "keyword": "farmers",
+                "type": "subject",
+                "context": "referring to individuals involved in agriculture who are essential for the organization's stability and growth."
+            },
+            {
+                "keyword": "members",
+                "type": "subject",
+                "context": "indicating the individuals who are part of the organization and contribute to its objectives."
+            },
+            {
+                "keyword": "benefits",
+                "type": "concept",
+                "context": "referring to the advantages and positive outcomes that the organization aims to provide to its members."
+            },
+            {
+                "keyword": "grow",
+                "type": "action",
+                "context": "the intention to increase the number of farmers involved in the organization."
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the farming organization's commitment to sustainability, collaboration, and innovation. The emphasis on sustainability as a foundational principle indicates a proactive approach to addressing market dynamics and economic challenges. The desire to bring more farmers on board reflects a strategic initiative to strengthen community ties and enhance collective benefits. Furthermore, the focus on direct customer engagement through innovative practices demonstrates a forward-thinking mindset aimed at improving operational efficiency and market responsiveness. These insights align closely with the research objectives, providing a comprehensive understanding of the organization's operations and future outlook.",
+        "answer": {
+            "answer": "The organization views itself as innovative due to its real-time inventory system that connects farmers directly with customers, eliminating middlemen and ensuring quality and fair profits for farmers. They are also exploring vertical farming to maintain supply during winter, reflecting a commitment to sustainability and efficiency in the agricultural supply chain."
+        }
+    },
+    {
+        "quotation": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop."
+                },
+                "score": 0.6666666666666666
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
+                    "original_content": ""
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.4
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
+                    "original_content": ""
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_54",
+            "Document_chunk_22",
+            "Document_chunk_1",
+            "Document_chunk_31"
+        ],
+        "keywords": [
+            {
+                "keyword": "customer",
+                "type": "entity",
+                "context": "The closer to the customer we get"
+            },
+            {
+                "keyword": "farm",
+                "type": "entity",
+                "context": "the more we\u2019ll get back to the farm"
+            },
+            {
+                "keyword": "agricultural supply chain",
+                "type": "concept",
+                "context": "reshaping the agricultural supply chain"
+            },
+            {
+                "keyword": "financial stability",
+                "type": "concept",
+                "context": "enhance the financial stability of the farmers"
+            },
+            {
+                "keyword": "sustainability",
+                "type": "concept",
+                "context": "create a more sustainable food system"
+            },
+            {
+                "keyword": "investment",
+                "type": "concept",
+                "context": "need for financial support and investment"
+            },
+            {
+                "keyword": "direct-to-consumer",
+                "type": "strategy",
+                "context": "launching a direct-to-consumer service"
+            },
+            {
+                "keyword": "market dynamics",
+                "type": "concept",
+                "context": "understanding market dynamics"
+            }
+        ],
+        "analysis": "The selected quotations collectively illustrate the farming organization's commitment to sustainability, collaboration, and innovation. The emphasis on sustainability as a foundational principle indicates a proactive approach to addressing market dynamics and economic challenges. The desire to bring more farmers on board reflects a strategic initiative to strengthen community ties and enhance collective benefits. Furthermore, the focus on direct customer engagement through innovative practices demonstrates a forward-thinking mindset aimed at improving operational efficiency and market responsiveness. These insights align closely with the research objectives, providing a comprehensive understanding of the organization's operations and future outlook.",
+        "answer": {
+            "answer": "The organization views itself as innovative due to its real-time inventory system that connects farmers directly with customers, eliminating middlemen and ensuring quality and fair profits for farmers. They are also exploring vertical farming to maintain supply during winter, reflecting a commitment to sustainability and efficiency in the agricultural supply chain."
+        }
+    },
+    {
+        "quotation": "If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_6",
+                    "original_index": 6,
+                    "original_content": "What\u2019s your personal involvement in this? What role do you play?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_6",
+            "Document_chunk_1",
+            "Document_chunk_86",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "supply",
+                "type": "concept",
+                "context": "Refers to the availability of resources needed to meet demand."
+            },
+            {
+                "keyword": "demand",
+                "type": "concept",
+                "context": "Indicates the market need for agricultural products."
+            },
+            {
+                "keyword": "problems",
+                "type": "issue",
+                "context": "Highlights the challenges faced when supply does not meet demand."
+            },
+            {
+                "keyword": "operations",
+                "type": "aspect",
+                "context": "Relates to the functioning and management of the farming organization."
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted nature of the farming organization's operations. The emphasis on sustainability as a strategic vision indicates a forward-thinking approach that aligns with market dynamics and consumer expectations. The acknowledgment of the critical role of suppliers and farmers highlights the operational challenges that the organization faces, particularly in ensuring a stable supply chain. Furthermore, the economic factors discussed reveal the precarious nature of agricultural stability, which is essential for the organization's success. Lastly, the focus on collaboration with major food manufacturers and the strategy to bypass middlemen underscores the organization's commitment to enhancing profitability for farmers, which is crucial for long-term sustainability and growth.",
+        "answer": {
+            "answer": "The key partners in this network are the member farms, logistics partners, and a technology company, along with regular restaurant customers who provide steady demand."
+        }
+    },
+    {
+        "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_6",
+                    "original_index": 6,
+                    "original_content": "What\u2019s your personal involvement in this? What role do you play?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_6",
+            "Document_chunk_1",
+            "Document_chunk_86",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "sustainability",
+                "type": "concept",
+                "context": "critical importance in agricultural operations"
+            },
+            {
+                "keyword": "key",
+                "type": "importance",
+                "context": "sustainability as a fundamental aspect"
+            },
+            {
+                "keyword": "problems",
+                "type": "challenges",
+                "context": "consequences of lacking sustainability"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted nature of the farming organization's operations. The emphasis on sustainability as a strategic vision indicates a forward-thinking approach that aligns with market dynamics and consumer expectations. The acknowledgment of the critical role of suppliers and farmers highlights the operational challenges that the organization faces, particularly in ensuring a stable supply chain. Furthermore, the economic factors discussed reveal the precarious nature of agricultural stability, which is essential for the organization's success. Lastly, the focus on collaboration with major food manufacturers and the strategy to bypass middlemen underscores the organization's commitment to enhancing profitability for farmers, which is crucial for long-term sustainability and growth.",
+        "answer": {
+            "answer": "The key partners in this network are the member farms, logistics partners, and a technology company, along with regular restaurant customers who provide steady demand."
+        }
+    },
+    {
+        "quotation": "The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you\u2019re doing, we\u2019re not very stable.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_6",
+                    "original_index": 6,
+                    "original_content": "What\u2019s your personal involvement in this? What role do you play?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_6",
+            "Document_chunk_1",
+            "Document_chunk_86",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "stability",
+                "type": "concept",
+                "context": "refers to the reliability and consistency in agricultural operations"
+            },
+            {
+                "keyword": "agriculture",
+                "type": "field",
+                "context": "the sector concerned with farming and crop production"
+            },
+            {
+                "keyword": "farming",
+                "type": "activity",
+                "context": "the practice of cultivating land and raising crops"
+            },
+            {
+                "keyword": "farmers",
+                "type": "stakeholder",
+                "context": "individuals who engage in agricultural activities and supply produce"
+            },
+            {
+                "keyword": "potatoes",
+                "type": "product",
+                "context": "specific crop mentioned that is vital for supply"
+            },
+            {
+                "keyword": "supply",
+                "type": "process",
+                "context": "the act of providing agricultural products to the market"
+            },
+            {
+                "keyword": "disastrous",
+                "type": "adjective",
+                "context": "describes the negative impact of instability in agriculture"
+            },
+            {
+                "keyword": "stable",
+                "type": "concept",
+                "context": "the desired state of agricultural operations for sustainability"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted nature of the farming organization's operations. The emphasis on sustainability as a strategic vision indicates a forward-thinking approach that aligns with market dynamics and consumer expectations. The acknowledgment of the critical role of suppliers and farmers highlights the operational challenges that the organization faces, particularly in ensuring a stable supply chain. Furthermore, the economic factors discussed reveal the precarious nature of agricultural stability, which is essential for the organization's success. Lastly, the focus on collaboration with major food manufacturers and the strategy to bypass middlemen underscores the organization's commitment to enhancing profitability for farmers, which is crucial for long-term sustainability and growth.",
+        "answer": {
+            "answer": "The key partners in this network are the member farms, logistics partners, and a technology company, along with regular restaurant customers who provide steady demand."
+        }
+    },
+    {
+        "quotation": "We supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_6",
+                    "original_index": 6,
+                    "original_content": "What\u2019s your personal involvement in this? What role do you play?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_6",
+            "Document_chunk_1",
+            "Document_chunk_86",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "Walkers",
+                "type": "company",
+                "context": "Factory that receives supplies from the farming organization"
+            },
+            {
+                "keyword": "McCains",
+                "type": "company",
+                "context": "Factory that receives supplies from the farming organization"
+            },
+            {
+                "keyword": "Seabrooks",
+                "type": "company",
+                "context": "Factory that receives supplies from the farming organization"
+            },
+            {
+                "keyword": "supply",
+                "type": "concept",
+                "context": "Logistical aspect of managing the distribution of potatoes"
+            },
+            {
+                "keyword": "crisps",
+                "type": "product",
+                "context": "End product made from supplied potatoes"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted nature of the farming organization's operations. The emphasis on sustainability as a strategic vision indicates a forward-thinking approach that aligns with market dynamics and consumer expectations. The acknowledgment of the critical role of suppliers and farmers highlights the operational challenges that the organization faces, particularly in ensuring a stable supply chain. Furthermore, the economic factors discussed reveal the precarious nature of agricultural stability, which is essential for the organization's success. Lastly, the focus on collaboration with major food manufacturers and the strategy to bypass middlemen underscores the organization's commitment to enhancing profitability for farmers, which is crucial for long-term sustainability and growth.",
+        "answer": {
+            "answer": "The key partners in this network are the member farms, logistics partners, and a technology company, along with regular restaurant customers who provide steady demand."
+        }
+    },
+    {
+        "quotation": "Bypassing the middle man and making sure that the most profit goes from the customers back to the farmers.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_6",
+                    "original_index": 6,
+                    "original_content": "What\u2019s your personal involvement in this? What role do you play?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers."
+                },
+                "score": 0.6285714285714286
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_6",
+            "Document_chunk_1",
+            "Document_chunk_86",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "bypassing",
+                "type": "action",
+                "context": "eliminating intermediaries"
+            },
+            {
+                "keyword": "middle man",
+                "type": "entity",
+                "context": "intermediary in supply chain"
+            },
+            {
+                "keyword": "profit",
+                "type": "concept",
+                "context": "financial returns"
+            },
+            {
+                "keyword": "customers",
+                "type": "stakeholder",
+                "context": "end consumers"
+            },
+            {
+                "keyword": "farmers",
+                "type": "stakeholder",
+                "context": "producers of goods"
+            },
+            {
+                "keyword": "supply chain",
+                "type": "system",
+                "context": "logistics of distribution"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted nature of the farming organization's operations. The emphasis on sustainability as a strategic vision indicates a forward-thinking approach that aligns with market dynamics and consumer expectations. The acknowledgment of the critical role of suppliers and farmers highlights the operational challenges that the organization faces, particularly in ensuring a stable supply chain. Furthermore, the economic factors discussed reveal the precarious nature of agricultural stability, which is essential for the organization's success. Lastly, the focus on collaboration with major food manufacturers and the strategy to bypass middlemen underscores the organization's commitment to enhancing profitability for farmers, which is crucial for long-term sustainability and growth.",
+        "answer": {
+            "answer": "The key partners in this network are the member farms, logistics partners, and a technology company, along with regular restaurant customers who provide steady demand."
+        }
+    },
+    {
+        "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key."
+                },
+                "score": 0.35
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_52",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "growers",
+                "type": "stakeholder",
+                "context": "refers to individuals or entities involved in farming"
+            },
+            {
+                "keyword": "customers",
+                "type": "stakeholder",
+                "context": "refers to individuals or entities purchasing agricultural products"
+            },
+            {
+                "keyword": "growth",
+                "type": "goal",
+                "context": "the aim to increase the number of growers and customers"
+            },
+            {
+                "keyword": "streamline",
+                "type": "strategy",
+                "context": "the process of improving efficiency in operations"
+            },
+            {
+                "keyword": "investment",
+                "type": "financial",
+                "context": "the need for financial resources to support growth and processing capabilities"
+            },
+            {
+                "keyword": "processing capacity",
+                "type": "operational",
+                "context": "the ability to handle and process agricultural products effectively"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the operational strategies, economic challenges, and sustainability focus of the farming organization. The emphasis on expanding the customer base and streamlining operations indicates a proactive approach to market dynamics. The acknowledgment of financial constraints highlights the economic factors that influence decision-making, while the commitment to sustainability aligns with contemporary agricultural practices. Furthermore, the strategic move towards direct customer engagement suggests a forward-thinking approach that could enhance both profitability and sustainability in the long term. Overall, these insights provide a comprehensive understanding of the organization's current operations and future outlook in the context of the challenges it faces.",
+        "answer": {
+            "answer": "The vision for the future is to significantly expand the vertical farming operation with a focus on sustainability, efficiency, and careful scaling while maintaining quality and personal relationships."
+        }
+    },
+    {
+        "quotation": "the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key."
+                },
+                "score": 0.35
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_52",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "financial constraints",
+                "type": "challenge",
+                "context": "The speaker discusses the limited financial resources available at the farm level."
+            },
+            {
+                "keyword": "investment",
+                "type": "strategy",
+                "context": "The need for substantial investment in processing capabilities is emphasized."
+            },
+            {
+                "keyword": "agriculture",
+                "type": "sector",
+                "context": "The overall context of the discussion revolves around the agricultural sector."
+            },
+            {
+                "keyword": "profit margins",
+                "type": "economic factor",
+                "context": "Current profit margins in agriculture are insufficient to support new initiatives."
+            },
+            {
+                "keyword": "banking industry's withdrawal",
+                "type": "challenge",
+                "context": "The withdrawal of banks from agricultural financing complicates funding for farms."
+            },
+            {
+                "keyword": "sustainability",
+                "type": "objective",
+                "context": "The need for financial support is linked to fostering growth and sustainability in agriculture."
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the operational strategies, economic challenges, and sustainability focus of the farming organization. The emphasis on expanding the customer base and streamlining operations indicates a proactive approach to market dynamics. The acknowledgment of financial constraints highlights the economic factors that influence decision-making, while the commitment to sustainability aligns with contemporary agricultural practices. Furthermore, the strategic move towards direct customer engagement suggests a forward-thinking approach that could enhance both profitability and sustainability in the long term. Overall, these insights provide a comprehensive understanding of the organization's current operations and future outlook in the context of the challenges it faces.",
+        "answer": {
+            "answer": "The vision for the future is to significantly expand the vertical farming operation with a focus on sustainability, efficiency, and careful scaling while maintaining quality and personal relationships."
+        }
+    },
+    {
+        "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key."
+                },
+                "score": 0.35
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_52",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "sustainability",
+                "type": "concept",
+                "context": "key to addressing problems in agriculture"
+            },
+            {
+                "keyword": "problems",
+                "type": "issue",
+                "context": "arising from lack of sustainability"
+            },
+            {
+                "keyword": "agriculture",
+                "type": "sector",
+                "context": "focus of the research objectives"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the operational strategies, economic challenges, and sustainability focus of the farming organization. The emphasis on expanding the customer base and streamlining operations indicates a proactive approach to market dynamics. The acknowledgment of financial constraints highlights the economic factors that influence decision-making, while the commitment to sustainability aligns with contemporary agricultural practices. Furthermore, the strategic move towards direct customer engagement suggests a forward-thinking approach that could enhance both profitability and sustainability in the long term. Overall, these insights provide a comprehensive understanding of the organization's current operations and future outlook in the context of the challenges it faces.",
+        "answer": {
+            "answer": "The vision for the future is to significantly expand the vertical farming operation with a focus on sustainability, efficiency, and careful scaling while maintaining quality and personal relationships."
+        }
+    },
+    {
+        "quotation": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key."
+                },
+                "score": 0.35
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_52",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "customer",
+                "type": "concept",
+                "context": "importance of customer relationships in farming operations"
+            },
+            {
+                "keyword": "farm",
+                "type": "entity",
+                "context": "reference to the farming organization and its operations"
+            },
+            {
+                "keyword": "operations",
+                "type": "process",
+                "context": "refers to the activities and strategies of the farming organization"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the operational strategies, economic challenges, and sustainability focus of the farming organization. The emphasis on expanding the customer base and streamlining operations indicates a proactive approach to market dynamics. The acknowledgment of financial constraints highlights the economic factors that influence decision-making, while the commitment to sustainability aligns with contemporary agricultural practices. Furthermore, the strategic move towards direct customer engagement suggests a forward-thinking approach that could enhance both profitability and sustainability in the long term. Overall, these insights provide a comprehensive understanding of the organization's current operations and future outlook in the context of the challenges it faces.",
+        "answer": {
+            "answer": "The vision for the future is to significantly expand the vertical farming operation with a focus on sustainability, efficiency, and careful scaling while maintaining quality and personal relationships."
+        }
+    },
+    {
+        "quotation": "The stability in agriculture and farming is disastrous.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key."
+                },
+                "score": 0.35
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?"
+                },
+                "score": 0.2
+            }
+        ],
+        "retrieved_chunks_count": 3,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_52",
+            "Document_chunk_34"
+        ],
+        "keywords": [
+            {
+                "keyword": "stability",
+                "type": "concept",
+                "context": "refers to the reliability and predictability in agricultural practices"
+            },
+            {
+                "keyword": "agriculture",
+                "type": "field",
+                "context": "the sector concerned with farming and production of food"
+            },
+            {
+                "keyword": "farming",
+                "type": "activity",
+                "context": "the act of cultivating land and raising crops or livestock"
+            },
+            {
+                "keyword": "disastrous",
+                "type": "adjective",
+                "context": "describes the severe negative impact of instability in agriculture"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the operational strategies, economic challenges, and sustainability focus of the farming organization. The emphasis on expanding the customer base and streamlining operations indicates a proactive approach to market dynamics. The acknowledgment of financial constraints highlights the economic factors that influence decision-making, while the commitment to sustainability aligns with contemporary agricultural practices. Furthermore, the strategic move towards direct customer engagement suggests a forward-thinking approach that could enhance both profitability and sustainability in the long term. Overall, these insights provide a comprehensive understanding of the organization's current operations and future outlook in the context of the challenges it faces.",
+        "answer": {
+            "answer": "The vision for the future is to significantly expand the vertical farming operation with a focus on sustainability, efficiency, and careful scaling while maintaining quality and personal relationships."
+        }
+    },
+    {
+        "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_43",
+                    "original_index": 43,
+                    "original_content": "Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it\u2019s come from."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_77",
+                    "original_index": 77,
+                    "original_content": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_35",
+                    "original_index": 35,
+                    "original_content": "That is the ultimate."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_43",
+            "Document_chunk_77",
+            "Document_chunk_35"
+        ],
+        "keywords": [
+            {
+                "keyword": "growers",
+                "type": "entity",
+                "context": "refers to the farmers or producers involved in the organization"
+            },
+            {
+                "keyword": "customers",
+                "type": "entity",
+                "context": "the consumers who purchase products from the organization"
+            },
+            {
+                "keyword": "grow",
+                "type": "action",
+                "context": "the goal of expanding the customer base and operations"
+            },
+            {
+                "keyword": "streamline",
+                "type": "action",
+                "context": "the process of making operations more efficient"
+            },
+            {
+                "keyword": "inefficiencies",
+                "type": "concept",
+                "context": "the challenges that need to be addressed to improve operations"
+            },
+            {
+                "keyword": "three-way approach",
+                "type": "strategy",
+                "context": "the method proposed to enhance operations and customer relations"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, market dynamics, and economic challenges faced by the farming organization. The first quotation emphasizes the need for efficiency and growth, which is vital for navigating market changes. The second quotation reveals how small outlets are adapting successfully, indicating a shift in consumer preferences that the organization can leverage. Finally, the third quotation highlights the financial constraints that could hinder the organization's ability to implement long-term strategies, thus framing the economic context in which they operate. Together, these insights contribute to a comprehensive understanding of the organization's current situation and future outlook.",
+        "answer": {
+            "answer": "Current trends that may help achieve this vision include the increasing consumer interest in local food and the rise of digital platforms that connect farmers directly with customers. However, challenges like labor shortages and climate change remain significant obstacles."
+        }
+    },
+    {
+        "quotation": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_43",
+                    "original_index": 43,
+                    "original_content": "Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it\u2019s come from."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_77",
+                    "original_index": 77,
+                    "original_content": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_35",
+                    "original_index": 35,
+                    "original_content": "That is the ultimate."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_43",
+            "Document_chunk_77",
+            "Document_chunk_35"
+        ],
+        "keywords": [
+            {
+                "keyword": "small outlets",
+                "type": "entity",
+                "context": "refers to local businesses like farm shops"
+            },
+            {
+                "keyword": "online sales",
+                "type": "strategy",
+                "context": "indicates the method of selling products through the internet"
+            },
+            {
+                "keyword": "veg boxes",
+                "type": "product",
+                "context": "a specific offering that has gained popularity"
+            },
+            {
+                "keyword": "consumer attitudes",
+                "type": "behavior",
+                "context": "reflects the changing preferences of buyers during the pandemic"
+            },
+            {
+                "keyword": "local produce",
+                "type": "concept",
+                "context": "emphasizes the importance of sourcing food from nearby farms"
+            },
+            {
+                "keyword": "COVID-19 pandemic",
+                "type": "event",
+                "context": "the backdrop influencing market dynamics and consumer behavior"
+            },
+            {
+                "keyword": "sustainability",
+                "type": "goal",
+                "context": "a key objective for the organization in its operations"
+            },
+            {
+                "keyword": "resilient food system",
+                "type": "concept",
+                "context": "the desired outcome of supporting local agriculture and reducing supply chain reliance"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, market dynamics, and economic challenges faced by the farming organization. The first quotation emphasizes the need for efficiency and growth, which is vital for navigating market changes. The second quotation reveals how small outlets are adapting successfully, indicating a shift in consumer preferences that the organization can leverage. Finally, the third quotation highlights the financial constraints that could hinder the organization's ability to implement long-term strategies, thus framing the economic context in which they operate. Together, these insights contribute to a comprehensive understanding of the organization's current situation and future outlook.",
+        "answer": {
+            "answer": "Current trends that may help achieve this vision include the increasing consumer interest in local food and the rise of digital platforms that connect farmers directly with customers. However, challenges like labor shortages and climate change remain significant obstacles."
+        }
+    },
+    {
+        "quotation": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?"
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_43",
+                    "original_index": 43,
+                    "original_content": "Obviously, COVID is a massive thing. I do think there is more of an element of people wanting to know where it\u2019s come from."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_77",
+                    "original_index": 77,
+                    "original_content": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it."
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_35",
+                    "original_index": 35,
+                    "original_content": "That is the ultimate."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_42",
+            "Document_chunk_43",
+            "Document_chunk_77",
+            "Document_chunk_35"
+        ],
+        "keywords": [
+            {
+                "keyword": "money",
+                "type": "economic factor",
+                "context": "financial needs for investment"
+            },
+            {
+                "keyword": "banking industry",
+                "type": "institution",
+                "context": "needs to be relaxed for investment"
+            },
+            {
+                "keyword": "long-term plan",
+                "type": "strategy",
+                "context": "necessary for sustainable operations"
+            },
+            {
+                "keyword": "jobs",
+                "type": "economic factor",
+                "context": "related to business sustainability"
+            },
+            {
+                "keyword": "efficient",
+                "type": "operational strategy",
+                "context": "goal for farming practices"
+            },
+            {
+                "keyword": "business",
+                "type": "economic entity",
+                "context": "importance of sustaining operations"
+            }
+        ],
+        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, market dynamics, and economic challenges faced by the farming organization. The first quotation emphasizes the need for efficiency and growth, which is vital for navigating market changes. The second quotation reveals how small outlets are adapting successfully, indicating a shift in consumer preferences that the organization can leverage. Finally, the third quotation highlights the financial constraints that could hinder the organization's ability to implement long-term strategies, thus framing the economic context in which they operate. Together, these insights contribute to a comprehensive understanding of the organization's current situation and future outlook.",
+        "answer": {
+            "answer": "Current trends that may help achieve this vision include the increasing consumer interest in local food and the rise of digital platforms that connect farmers directly with customers. However, challenges like labor shortages and climate change remain significant obstacles."
+        }
+    },
+    {
+        "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.4
+            }
+        ],
+        "retrieved_chunks_count": 2,
+        "used_chunk_ids": [
+            "Document_chunk_86",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "investment",
+                "type": "concept",
+                "context": "necessity for businesses to invest"
+            },
+            {
+                "keyword": "commitment",
+                "type": "concept",
+                "context": "what you say you\u2019re going to do"
+            },
+            {
+                "keyword": "business operations",
+                "type": "concept",
+                "context": "to do what you want"
+            }
+        ],
+        "analysis": "The selected quotations collectively underscore the pressing need for investment and support within the farming organization to address operational challenges and market dynamics. The first quotation emphasizes the critical role of investment in achieving business goals, aligning with the objective of understanding operational strategies. The second quotation highlights financial challenges, indicating that without accessible funding, the sustainability of the business is at risk. The third and fourth quotations focus on the importance of local manufacturing and the economic implications of current practices, which are essential for understanding the broader market dynamics affecting the organization. Finally, the last quotation calls for government support, illustrating the interconnectedness of financial resources and strategic planning necessary for future growth. Together, these insights provide a comprehensive view of the challenges and strategies that the farming organization faces in the context of sustainability and economic factors.",
+        "answer": {
+            "answer": "The organization feels relatively stable but recognizes the unpredictability of farming. They face challenges in securing investment for expansion and have contingency plans to manage risks."
+        }
+    },
+    {
+        "quotation": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.4
+            }
+        ],
+        "retrieved_chunks_count": 2,
+        "used_chunk_ids": [
+            "Document_chunk_86",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "money",
+                "type": "concept",
+                "context": "financial accessibility"
+            },
+            {
+                "keyword": "investment",
+                "type": "action",
+                "context": "need for financial support"
+            },
+            {
+                "keyword": "efficiency",
+                "type": "goal",
+                "context": "improving operations"
+            },
+            {
+                "keyword": "banking industry",
+                "type": "entity",
+                "context": "financial support"
+            },
+            {
+                "keyword": "long-term plan",
+                "type": "strategy",
+                "context": "sustainable business practices"
+            },
+            {
+                "keyword": "jobs",
+                "type": "outcome",
+                "context": "impact on employment"
+            }
+        ],
+        "analysis": "The selected quotations collectively underscore the pressing need for investment and support within the farming organization to address operational challenges and market dynamics. The first quotation emphasizes the critical role of investment in achieving business goals, aligning with the objective of understanding operational strategies. The second quotation highlights financial challenges, indicating that without accessible funding, the sustainability of the business is at risk. The third and fourth quotations focus on the importance of local manufacturing and the economic implications of current practices, which are essential for understanding the broader market dynamics affecting the organization. Finally, the last quotation calls for government support, illustrating the interconnectedness of financial resources and strategic planning necessary for future growth. Together, these insights provide a comprehensive view of the challenges and strategies that the farming organization faces in the context of sustainability and economic factors.",
+        "answer": {
+            "answer": "The organization feels relatively stable but recognizes the unpredictability of farming. They face challenges in securing investment for expansion and have contingency plans to manage risks."
+        }
+    },
+    {
+        "quotation": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.4
+            }
+        ],
+        "retrieved_chunks_count": 2,
+        "used_chunk_ids": [
+            "Document_chunk_86",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "manufacturing capacity",
+                "type": "concept",
+                "context": "development of local production capabilities"
+            },
+            {
+                "keyword": "potatoes",
+                "type": "resource",
+                "context": "local agricultural product"
+            },
+            {
+                "keyword": "import",
+                "type": "action",
+                "context": "current reliance on external sources"
+            },
+            {
+                "keyword": "ready-made meals",
+                "type": "product",
+                "context": "end-use of imported potatoes"
+            },
+            {
+                "keyword": "utilising",
+                "type": "action",
+                "context": "the need for better resource management"
+            }
+        ],
+        "analysis": "The selected quotations collectively underscore the pressing need for investment and support within the farming organization to address operational challenges and market dynamics. The first quotation emphasizes the critical role of investment in achieving business goals, aligning with the objective of understanding operational strategies. The second quotation highlights financial challenges, indicating that without accessible funding, the sustainability of the business is at risk. The third and fourth quotations focus on the importance of local manufacturing and the economic implications of current practices, which are essential for understanding the broader market dynamics affecting the organization. Finally, the last quotation calls for government support, illustrating the interconnectedness of financial resources and strategic planning necessary for future growth. Together, these insights provide a comprehensive view of the challenges and strategies that the farming organization faces in the context of sustainability and economic factors.",
+        "answer": {
+            "answer": "The organization feels relatively stable but recognizes the unpredictability of farming. They face challenges in securing investment for expansion and have contingency plans to manage risks."
+        }
+    },
+    {
+        "quotation": "And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.4
+            }
+        ],
+        "retrieved_chunks_count": 2,
+        "used_chunk_ids": [
+            "Document_chunk_86",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "factories",
+                "type": "noun",
+                "context": "refers to the facilities involved in processing potatoes"
+            },
+            {
+                "keyword": "investment",
+                "type": "noun",
+                "context": "indicates financial resources allocated for processing"
+            },
+            {
+                "keyword": "processing",
+                "type": "verb",
+                "context": "describes the action of converting raw potatoes into products"
+            },
+            {
+                "keyword": "competitor",
+                "type": "noun",
+                "context": "refers to other companies in the potato processing market"
+            },
+            {
+                "keyword": "road miles",
+                "type": "noun",
+                "context": "highlights the transportation aspect and its environmental impact"
+            },
+            {
+                "keyword": "supermarkets",
+                "type": "noun",
+                "context": "indicates the retail outlets that sell processed potato products"
+            }
+        ],
+        "analysis": "The selected quotations collectively underscore the pressing need for investment and support within the farming organization to address operational challenges and market dynamics. The first quotation emphasizes the critical role of investment in achieving business goals, aligning with the objective of understanding operational strategies. The second quotation highlights financial challenges, indicating that without accessible funding, the sustainability of the business is at risk. The third and fourth quotations focus on the importance of local manufacturing and the economic implications of current practices, which are essential for understanding the broader market dynamics affecting the organization. Finally, the last quotation calls for government support, illustrating the interconnectedness of financial resources and strategic planning necessary for future growth. Together, these insights provide a comprehensive view of the challenges and strategies that the farming organization faces in the context of sustainability and economic factors.",
+        "answer": {
+            "answer": "The organization feels relatively stable but recognizes the unpredictability of farming. They face challenges in securing investment for expansion and have contingency plans to manage risks."
+        }
+    },
+    {
+        "quotation": "Yes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.4
+            }
+        ],
+        "retrieved_chunks_count": 2,
+        "used_chunk_ids": [
+            "Document_chunk_86",
+            "Document_chunk_82"
+        ],
+        "keywords": [
+            {
+                "keyword": "government-backed loans",
+                "type": "financial support",
+                "context": "refers to loans provided by the government to support farming operations"
+            },
+            {
+                "keyword": "investment pot",
+                "type": "financial resource",
+                "context": "indicates the need for available funds for investment in farming"
+            },
+            {
+                "keyword": "chicken-and-egg",
+                "type": "interdependence",
+                "context": "describes the cyclical relationship between loans and investments in agriculture"
+            }
+        ],
+        "analysis": "The selected quotations collectively underscore the pressing need for investment and support within the farming organization to address operational challenges and market dynamics. The first quotation emphasizes the critical role of investment in achieving business goals, aligning with the objective of understanding operational strategies. The second quotation highlights financial challenges, indicating that without accessible funding, the sustainability of the business is at risk. The third and fourth quotations focus on the importance of local manufacturing and the economic implications of current practices, which are essential for understanding the broader market dynamics affecting the organization. Finally, the last quotation calls for government support, illustrating the interconnectedness of financial resources and strategic planning necessary for future growth. Together, these insights provide a comprehensive view of the challenges and strategies that the farming organization faces in the context of sustainability and economic factors.",
+        "answer": {
+            "answer": "The organization feels relatively stable but recognizes the unpredictability of farming. They face challenges in securing investment for expansion and have contingency plans to manage risks."
+        }
+    },
+    {
+        "quotation": "It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers. But it\u2019s not the public, it is the supermarkets. And the government has got to say, \u2018No, enough is enough.\u2019",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
+                    "original_content": ""
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
+                    "original_content": ""
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_82",
+            "Document_chunk_22",
+            "Document_chunk_31",
+            "Document_chunk_86"
+        ],
+        "keywords": [
+            {
+                "type": "entity",
+                "context": "government"
+            },
+            {
+                "type": "entity",
+                "context": "supermarkets"
+            },
+            {
+                "type": "concept",
+                "context": "regulation"
+            },
+            {
+                "type": "concept",
+                "context": "market intervention"
+            },
+            {
+                "type": "concept",
+                "context": "public influence"
+            }
+        ],
+        "analysis": "The selected quotations provide a nuanced understanding of the farming organization's operational landscape. The first quotation underscores the significant challenges posed by external market forces, particularly the dominance of supermarkets and the need for governmental intervention. This highlights the systemic issues that can hinder the sustainability and economic viability of farming operations. In contrast, the second quotation showcases a proactive strategy adopted by smaller outlets, emphasizing their ability to innovate and adapt to market changes, particularly through online sales and direct-to-consumer models. Together, these insights align with the research objectives by illustrating both the challenges and strategies that define the current and future outlook of the farming organization in a dynamic market environment.",
+        "answer": {
+            "answer": "COVID-19 caused a 60% loss in restaurant business but led to a surge in direct-to-consumer demand, prompting the organization to quickly develop a home delivery service. They adapted by creating new packaging, setting up an online ordering system, and reorganizing delivery routes. This transition opened new markets and strengthened community ties, and they plan to continue with direct-to-consumer sales as it has become a vital part of their operations."
+        }
+    },
+    {
+        "quotation": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it.",
+        "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
+        "theoretical_framework": "",
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything."
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
+                    "original_content": ""
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
+                    "original_content": ""
+                },
+                "score": 0.3
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest."
+                },
+                "score": 0.3
+            }
+        ],
+        "retrieved_chunks_count": 4,
+        "used_chunk_ids": [
+            "Document_chunk_82",
+            "Document_chunk_22",
+            "Document_chunk_31",
+            "Document_chunk_86"
+        ],
+        "keywords": [
+            {
+                "keyword": "small outlets",
+                "type": "entity",
+                "context": "refers to local farming businesses like farm shops"
+            },
+            {
+                "keyword": "online sales",
+                "type": "concept",
+                "context": "indicates the method of selling products over the internet"
+            },
+            {
+                "keyword": "veg boxes",
+                "type": "product",
+                "context": "refers to packaged vegetable deliveries that have gained popularity"
+            },
+            {
+                "keyword": "success",
+                "type": "outcome",
+                "context": "describes the positive performance of these sales strategies"
+            }
+        ],
+        "analysis": "The selected quotations provide a nuanced understanding of the farming organization's operational landscape. The first quotation underscores the significant challenges posed by external market forces, particularly the dominance of supermarkets and the need for governmental intervention. This highlights the systemic issues that can hinder the sustainability and economic viability of farming operations. In contrast, the second quotation showcases a proactive strategy adopted by smaller outlets, emphasizing their ability to innovate and adapt to market changes, particularly through online sales and direct-to-consumer models. Together, these insights align with the research objectives by illustrating both the challenges and strategies that define the current and future outlook of the farming organization in a dynamic market environment.",
+        "answer": {
+            "answer": "COVID-19 caused a 60% loss in restaurant business but led to a surge in direct-to-consumer demand, prompting the organization to quickly develop a home delivery service. They adapted by creating new packaging, setting up an online ordering system, and reorganizing delivery routes. This transition opened new markets and strengthened community ties, and they plan to continue with direct-to-consumer sales as it has become a vital part of their operations."
+        }
+    }
+]
