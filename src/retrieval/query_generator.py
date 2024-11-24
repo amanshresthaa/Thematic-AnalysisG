@@ -26,7 +26,7 @@ class QueryGeneratorSignature(dspy.Signature):
             new_query = self.language_model.generate(
                 prompt=prompt,
                 max_tokens=50,
-                temperature=0.7,
+                temperature=1.0,
                 top_p=0.9,
                 n=1,
                 stop=["\n"]

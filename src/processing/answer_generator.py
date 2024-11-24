@@ -54,7 +54,7 @@ class QuestionAnswerSignature(dspy.Signature):
                     f"If no quotations are available, respond with an empty array `[]`."
                 ),
                 max_tokens=max_tokens,
-                temperature=0.7,
+                temperature=1.0,
                 top_p=0.9,
                 n=1,
                 stop=None

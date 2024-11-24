@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 import dspy
 
 from src.analysis.select_quotation import EnhancedQuotationModule
-from src.assertions import (  # Import standard assertions
+from src.assertions import (
     assert_relevant_quotations,
     assert_confidentiality,
     assert_diversity_of_quotations,

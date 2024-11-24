@@ -51,7 +51,7 @@ async def process_single_query(
     es_bm25: ElasticsearchBM25,
     k: int,
     module: dspy.Module,
-    is_keyword_extraction: bool = False  # Flag to indicate if we're only extracting keywords
+    is_keyword_extraction: bool = False
 ) -> List[Dict[str, Any]]:
     """
     Processes a single query to retrieve documents, select quotations, or extract keywords.
@@ -63,31 +63,35 @@ async def process_single_query(
         retrieval_k = 2
         # Extract quotations intended for keyword extraction
         quotations = query_item.get('quotations', [])
-        quotation_texts = [q.get('quotation_to_use_keyword', '').strip() for q in quotations if 'quotation_to_use_keyword' in q and q.get('quotation_to_use_keyword', '').strip()]
-        
+        quotation_texts = [
+            q.get('quotation', '').strip() 
+            for q in quotations 
+            if 'quotation' in q and q.get('quotation', '').strip()
+        ]
+
         if not quotation_texts:
-            logger.warning("No 'quotation_to_use_keyword' found for keyword extraction. Skipping.")
+            logger.warning("No 'quotation' found for keyword extraction. Skipping.")
             return results  # Empty list
-        
+
         logger.info(f"Processing keyword extraction for query: {query_item.get('query', '')[:50]}...")
-        
+
         # Define research objectives and theoretical framework
         research_objectives = query_item.get('research_objectives', 'Extract relevant keywords based on the provided objectives.')
         theoretical_framework = query_item.get('theoretical_framework', '')
-        
+
         # Retrieve top 2 relevant chunks
         retrieved_chunks = retrieve_documents(query_item.get('query', ''), db, es_bm25, retrieval_k)
         retrieved_chunks_count = len(retrieved_chunks)
         used_chunk_ids = [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]
         analysis = query_item.get('analysis', '')
         answer = query_item.get('answer', {})
-        
+
         # Extract contextualized_content from the top 2 chunks
         contextual_info = [chunk['chunk']['contextualized_content'] for chunk in retrieved_chunks if 'contextualized_content' in chunk['chunk'] and chunk['chunk']['contextualized_content'].strip()]
-        
+
         for idx, quotation in enumerate(quotation_texts, start=1):
             logger.info(f"Extracting keywords for quotation {idx}: {quotation[:50]}...")
-            
+
             # Extract keywords using the provided DSPy module
             response = module.forward(
                 research_objectives=research_objectives,
@@ -97,15 +101,15 @@ async def process_single_query(
             )
             keywords = response.get("keywords", [])
             error = response.get("error", "")
-            
+
             if error:
                 logger.error(f"Error extracting keywords for quotation {idx}: {error}")
                 # Skip to the next quotation
                 continue
-            
+
             # Prepare the result for this quotation
             result = {
-                "quotation_to_use_keyword": quotation,
+                "quotation": quotation,
                 "research_objectives": research_objectives,
                 "theoretical_framework": theoretical_framework,
                 "retrieved_chunks": retrieved_chunks,
@@ -115,17 +119,17 @@ async def process_single_query(
                 "analysis": analysis,
                 "answer": answer
             }
-            
+
             # Remove 'contextualized_content' from retrieved_chunks if not needed in output
             for chunk in result["retrieved_chunks"]:
                 if 'contextualized_content' in chunk['chunk']:
                     del chunk['chunk']['contextualized_content']
-            
+
             # Log the number of keywords extracted
             logger.info(f"Extracted {len(keywords)} keywords for quotation {idx}.")
-            
+
             results.append(result)
-        
+
         return results  # List of result dicts
     else:
         # Existing logic for processing quotations and generating answers

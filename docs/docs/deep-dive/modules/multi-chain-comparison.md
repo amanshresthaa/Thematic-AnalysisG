@@ -13,7 +13,7 @@ from ..primitives.program import Module
 import dsp
 
 class MultiChainComparison(Module):
-    def __init__(self, signature, M=3, temperature=0.7, **config):
+    def __init__(self, signature, M=3, temperature=1.0, **config):
         super().__init__()
 
         self.M = M

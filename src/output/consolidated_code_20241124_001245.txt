@@ -801,11 +801,11 @@ class EnhancedQuotationSignature(dspy.Signature):
         
         f"Task: Analyze the transcript chunks and select relevant quotations that align with both the research objectives and theoretical framework. For each selected quotation, provide:\n\n"
         
-        f"1. Quote Selection:\n"
+        f"1. Quotation Selection:\n"
         f"   {{\n"
-        f"      'quote': str,              # The exact quotation text\n"
+        f"      'quotation': str,              # The exact quotation text\n"
         f"      'context': str,            # Background context including relevant researcher questions\n"
-        f"      'quote_type': str,         # 'discrete' (brief, diverse perspectives)\n"
+        f"      'quotation_type': str,         # 'discrete' (brief, diverse perspectives)\n"
         f"                                 # 'embedded' (short phrases marking transitions)\n"
         f"                                 # 'longer' (complex understanding)\n"
         f"      'function': str,           # 'evidence' | 'explanation' | 'illustration' | \n"
@@ -816,9 +816,9 @@ class EnhancedQuotationSignature(dspy.Signature):
         
         f"2. Analysis Overview:\n"
         f"   {{\n"
-        f"      'selection_rationale': str,    # Why these quotes were chosen\n"
-        f"      'theoretical_alignment': str,  # How quotes support theoretical framework\n"
-        f"      'objective_alignment': str,    # How quotes advance research objectives\n"
+        f"      'selection_rationale': str,    # Why these quotations were chosen\n"
+        f"      'theoretical_alignment': str,  # How quotations support theoretical framework\n"
+        f"      'objective_alignment': str,    # How quotations advance research objectives\n"
         f"      'pattern_summary': str         # Overview of identified patterns\n"
         f"   }}\n\n"
         
@@ -1162,7 +1162,7 @@ from typing import Dict, Any, List
 import dspy
 
 from src.analysis.select_quotation import EnhancedQuotationModule
-from src.assertions import (  # Import standard assertions
+from src.assertions import (
     assert_relevant_quotations,
     assert_confidentiality,
     assert_diversity_of_quotations,
@@ -2878,8 +2878,9 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
-from src.analysis.select_keyword_module import SelectKeywordModule  # Import the keyword module
+# Removed the following import as we're no longer using SelectQuotationModuleAlt
+# from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
+from src.analysis.select_keyword_module import SelectKeywordModule
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -2897,12 +2898,16 @@ class ThematicAnalysisPipeline:
         self.config = config
         self.contextual_db = None
         self.es_bm25 = None
-        self.qa_module = None
-        self.teleprompter = None
-        self.optimized_program = None
+        self.keyword_qa_module = None
+        self.quotation_qa_module = None
+        self.keyword_teleprompter = None
+        self.quotation_teleprompter = None
+        self.optimized_keyword_program = None
+        self.optimized_quotation_program = None
         self.quotation_module = None
-        self.quotation_module_alt = None
-        self.keyword_module = None  # Initialize the keyword module
+        # Removed the following line as we're no longer using SelectQuotationModuleAlt
+        # self.quotation_module_alt = None
+        self.keyword_module = None
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -2921,35 +2926,113 @@ class ThematicAnalysisPipeline:
             raise
         return es_bm25
 
+    async def initialize_keyword_optimizer(self):
+        """
+        Initialize the keyword extraction optimizer.
+        """
+        logger.info("Initializing keyword extraction optimizer")
+        dl = DataLoader()
+        keyword_train_dataset = dl.from_csv(
+            self.config['keyword_training_data'],
+            fields=("input", "output"),
+            input_keys=("input",)
+        )
+
+        self.keyword_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+        
+        optimizer_config = {
+            'max_bootstrapped_demos': 4,
+            'max_labeled_demos': 4,
+            'num_candidate_programs': 10,
+            'num_threads': 1
+        }
+        
+        self.keyword_teleprompter = BootstrapFewShotWithRandomSearch(
+            metric=comprehensive_metric,
+            **optimizer_config
+        )
+
+        self.optimized_keyword_program = self.keyword_teleprompter.compile(
+            student=self.keyword_qa_module,
+            teacher=self.keyword_qa_module,
+            trainset=keyword_train_dataset
+        )
+        
+        self.optimized_keyword_program.save(self.config['optimized_keyword_program'])
+        logger.info("Keyword optimizer initialized successfully")
+
+    async def initialize_quotation_optimizer(self):
+        """
+        Initialize the quotation selection optimizer.
+        """
+        logger.info("Initializing quotation selection optimizer")
+        dl = DataLoader()
+        quotation_train_dataset = dl.from_csv(
+            self.config['quotation_training_data'],
+            fields=("input", "output"),
+            input_keys=("input",)
+        )
+
+        self.quotation_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+        
+        optimizer_config = {
+            'max_bootstrapped_demos': 4,
+            'max_labeled_demos': 4,
+            'num_candidate_programs': 10,
+            'num_threads': 1
+        }
+        
+        self.quotation_teleprompter = BootstrapFewShotWithRandomSearch(
+            metric=comprehensive_metric,
+            **optimizer_config
+        )
+
+        self.optimized_quotation_program = self.quotation_teleprompter.compile(
+            student=self.quotation_qa_module,
+            teacher=self.quotation_qa_module,
+            trainset=quotation_train_dataset
+        )
+        
+        self.optimized_quotation_program.save(self.config['optimized_quotation_program'])
+        logger.info("Quotation optimizer initialized successfully")
+
     @handle_exceptions
     async def run_pipeline(self):
         """
         Main function to load data, process queries, and generate outputs.
         """
-        logger.debug("Entering main function.")
+        logger.debug("Entering run_pipeline method.")
         try:
             # Configure DSPy Language Model
             logger.info("Configuring DSPy Language Model")
-
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
 
             # Define file paths from config
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file_standard = self.config['queries_file_standard']
-            queries_file_alt = self.config['queries_file_alt']
-            queries_file_keyword = self.config['queries_file_keyword']  # Add keyword queries
+            # Removed the following as we're no longer using alternative queries
+            # queries_file_alt = self.config['queries_file_alt']
+            queries_file_keyword = self.config['queries_file_keyword']
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename_primary = self.config['output_filename_primary']
-            output_filename_alt = self.config['output_filename_alt']
-            output_filename_keyword = self.config['output_filename_keyword']  # Add output file for keyword extraction
+            # Removed the following as we're no longer using alternative output
+            # output_filename_alt = self.config['output_filename_alt']
+            output_filename_keyword = self.config['output_filename_keyword']
 
             dl = DataLoader()
 
-            # Load the training data
-            logger.info(f"Loading training data from 'data/new_training_data.csv'")
-            train_dataset = dl.from_csv(
-                "data/new_training_data.csv",
+            # Load the training data for keywords and quotations
+            logger.info(f"Loading keyword training data from '{self.config['keyword_training_data']}'")
+            keyword_train_dataset = dl.from_csv(
+                self.config['keyword_training_data'],
+                fields=("input", "output"),
+                input_keys=("input",)
+            )
+
+            logger.info(f"Loading quotation training data from '{self.config['quotation_training_data']}'")
+            quotation_train_dataset = dl.from_csv(
+                self.config['quotation_training_data'],
                 fields=("input", "output"),
                 input_keys=("input",)
             )
@@ -2982,16 +3065,18 @@ class ThematicAnalysisPipeline:
             logger.info(f"Loading standard queries from '{queries_file_standard}'")
             standard_queries = load_queries(queries_file_standard)
 
-            logger.info(f"Loading alternative queries from '{queries_file_alt}'")
-            alternative_queries = load_queries(queries_file_alt)
+            # Removed the following as we're no longer using alternative queries
+            # logger.info(f"Loading alternative queries from '{queries_file_alt}'")
+            # alternative_queries = load_queries(queries_file_alt)
 
             logger.info(f"Loading keyword queries from '{queries_file_keyword}'")
             keyword_queries = load_queries(queries_file_keyword)
 
             if not standard_queries:
                 logger.error("No standard queries found to process.")
-            if not alternative_queries:
-                logger.error("No alternative queries found to process.")
+            # Removed the following as we're no longer using alternative queries
+            # if not alternative_queries:
+            #     logger.error("No alternative queries found to process.")
             if not keyword_queries:
                 logger.error("No keyword queries found to process.")
 
@@ -2999,83 +3084,29 @@ class ThematicAnalysisPipeline:
             logger.info("Validating standard queries")
             validated_standard_queries = validate_queries(standard_queries)
 
-            logger.info("Validating alternative queries")
-            validated_alternative_queries = validate_queries(alternative_queries)
+            # Removed the following as we're no longer using alternative queries
+            # logger.info("Validating alternative queries")
+            # validated_alternative_queries = validate_queries(alternative_queries)
 
             logger.info("Validating keyword queries")
             validated_keyword_queries = validate_queries(keyword_queries)
 
-            # Define k value for standard queries
-            k = 20
+            # Initialize optimizers
+            await self.initialize_keyword_optimizer()
+            await self.initialize_quotation_optimizer()
 
-            # Initialize 'qa_module' to None before the try-except block
-            self.qa_module = None
-
-            # Attempt to load the optimized program
-            logger.info("Attempting to load optimized DSPy program")
+            # Initialize SelectKeywordModule and SelectQuotationModule with assertions
             try:
-                self.qa_module = dspy.Program.load("optimized_program.json")
-                logger.info("Optimized DSPy program loaded successfully.")
+                logger.info("Initializing SelectKeywordModule")
+                self.keyword_module = SelectKeywordModule()
+                self.keyword_module = assert_transform_module(self.keyword_module, backtrack_handler)
+                logger.info("SelectKeywordModule initialized successfully with assertions activated.")
             except Exception as e:
-                # If loading fails, use the unoptimized module
-                logger.warning("Failed to load optimized program. Using unoptimized module.")
-                try:
-                    self.qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
-                    logger.info("Unoptimized DSPy module initialized successfully.")
-                except Exception as inner_e:
-                    logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
-                    raise
-
-            # Initialize DSPy Optimizer with Comprehensive Metric
-            logger.info("Initializing DSPy Optimizer with Comprehensive Metric")
-            try:
-                optimizer_config = {
-                    'max_bootstrapped_demos': 4,
-                    'max_labeled_demos': 4,
-                    'num_candidate_programs': 10,
-                    'num_threads': 1  # Reduced to single thread
-                }
-                self.teleprompter = BootstrapFewShotWithRandomSearch(
-                    metric=comprehensive_metric,
-                    **optimizer_config
-                )
-                logger.info("DSPy Optimizer initialized successfully with Comprehensive Metric.")
-            except Exception as e:
-                logger.error(f"Error initializing DSPy Optimizer: {e}", exc_info=True)
+                logger.error(f"Error initializing SelectKeywordModule: {e}", exc_info=True)
                 return
 
-            # Compile the program using the optimizer
-            logger.info("Compiling the program using the optimizer")
             try:
-                self.optimized_program = self.teleprompter.compile(
-                    student=self.qa_module,
-                    teacher=self.qa_module,
-                    trainset=train_dataset
-                )
-                logger.info("Program compiled and optimized successfully.")
-            except Exception as e:
-                logger.error(f"Error during program compilation: {e}", exc_info=True)
-                return
-
-            # Save the optimized program
-            try:
-                self.optimized_program.save("optimized_program.json")
-                logger.info("Optimized program saved to 'optimized_program.json'")
-            except Exception as e:
-                logger.error(f"Error saving optimized program: {e}", exc_info=True)
-
-            # Activate assertions in the optimized program
-            logger.info("Activating assertions in the optimized program.")
-            try:
-                self.optimized_program = assert_transform_module(self.optimized_program, backtrack_handler)
-                logger.info("Assertions activated in the optimized program.")
-            except Exception as e:
-                logger.error(f"Error activating assertions in optimized program: {e}", exc_info=True)
-                return
-
-            # Initialize SelectQuotationModule with activated assertions
-            logger.info("Initializing SelectQuotationModule with activated assertions")
-            try:
+                logger.info("Initializing SelectQuotationModule")
                 self.quotation_module = SelectQuotationModule()
                 self.quotation_module = assert_transform_module(self.quotation_module, backtrack_handler)
                 logger.info("SelectQuotationModule initialized successfully with assertions activated.")
@@ -3083,61 +3114,57 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
                 return
 
-            # Initialize SelectQuotationModuleAlt with activated assertions
-            logger.info("Initializing SelectQuotationModuleAlt with activated assertions")
-            try:
-                self.quotation_module_alt = SelectQuotationModuleAlt()
-                self.quotation_module_alt = assert_transform_module(self.quotation_module_alt, backtrack_handler)
-                logger.info("SelectQuotationModuleAlt initialized successfully with assertions activated.")
-            except Exception as e:
-                logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
-                return
+            # Removed the following as we're no longer using SelectQuotationModuleAlt
+            # try:
+            #     logger.info("Initializing SelectQuotationModuleAlt")
+            #     self.quotation_module_alt = SelectQuotationModuleAlt()
+            #     self.quotation_module_alt = assert_transform_module(self.quotation_module_alt, backtrack_handler)
+            #     logger.info("SelectQuotationModuleAlt initialized successfully with assertions activated.")
+            # except Exception as e:
+            #     logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
+            #     return
 
-            # Initialize SelectKeywordModule
-            logger.info("Initializing SelectKeywordModule")
-            try:
-                self.keyword_module = SelectKeywordModule()
-                logger.info("SelectKeywordModule initialized successfully.")
-            except Exception as e:
-                logger.error(f"Error initializing SelectKeywordModule: {e}", exc_info=True)
-                return
+            # Define k value for standard and keyword queries
+            k_standard = 20
+            k_keyword = 2  # Fixed k=2 for keyword extraction
 
-            # Process standard queries with SelectQuotationModule
+            # Process standard queries with SelectQuotationModule first
             logger.info("Processing standard queries with SelectQuotationModule")
             await process_queries(
                 validated_standard_queries,
                 self.contextual_db,
                 self.es_bm25,
-                k,
-                output_filename_primary,
-                self.optimized_program,
-                self.quotation_module
+                k=k_standard,
+                output_file=self.config['output_filename_primary'],
+                optimized_program=self.optimized_quotation_program,
+                module=self.quotation_module
             )
 
-            # Process alternative queries with SelectQuotationModuleAlt
-            logger.info("Processing alternative queries with SelectQuotationModuleAlt")
-            await process_queries(
-                validated_alternative_queries,
-                self.contextual_db,
-                self.es_bm25,
-                k,
-                output_filename_alt,
-                self.optimized_program,
-                self.quotation_module_alt
-            )
-
-            # Process keyword queries with SelectKeywordModule
+            # Then process keyword queries with SelectKeywordModule
             logger.info("Processing keyword queries with SelectKeywordModule")
             await process_queries(
                 validated_keyword_queries,
                 self.contextual_db,
                 self.es_bm25,
-                k=2,  # Fixed k=2 for keyword extraction
-                output_file=output_filename_keyword,
-                optimized_program=self.optimized_program,
+                k=k_keyword,
+                output_file=self.config['output_filename_keyword'],
+                optimized_program=self.optimized_keyword_program,
                 module=self.keyword_module,
                 is_keyword_extraction=True
             )
+
+            # Removed the following as we're no longer using SelectQuotationModuleAlt
+            # # Process alternative queries with SelectQuotationModuleAlt
+            # logger.info("Processing alternative queries with SelectQuotationModuleAlt")
+            # await process_queries(
+            #     validated_alternative_queries,
+            #     self.contextual_db,
+            #     self.es_bm25,
+            #     k=k_standard,
+            #     output_file=self.config['output_filename_alt'],
+            #     optimized_program=self.optimized_quotation_program,
+            #     module=self.quotation_module_alt
+            # )
 
             # Define k values for evaluation
             k_values = [5, 10, 20]
@@ -3152,9 +3179,10 @@ class ThematicAnalysisPipeline:
                 )
 
                 # Perform evaluation
+                evaluation_set = load_queries(self.config['evaluation_set_file'])
                 evaluator.evaluate_complete_pipeline(
                     k_values=k_values,
-                    evaluation_set=load_queries(evaluation_set_file)
+                    evaluation_set=evaluation_set
                 )
                 logger.info("Evaluation completed successfully.")
             except Exception as e:
@@ -3162,18 +3190,24 @@ class ThematicAnalysisPipeline:
 
             logger.info("All operations completed successfully.")
         except Exception as e:
-            logger.error(f"Unexpected error in main function: {e}", exc_info=True)
+            logger.error(f"Unexpected error in run_pipeline: {e}", exc_info=True)
 
 if __name__ == "__main__":
     config = {
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file_standard': 'data/queries.json',
-        'queries_file_alt': 'data/queries_alt.json',
-        'queries_file_keyword': 'data/queries_keyword.json',  # Add keyword queries
+        # Removed the following as we're no longer using alternative queries
+        # 'queries_file_alt': 'data/queries_alt.json',
+        'queries_file_keyword': 'data/query_results_quotation.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'query_results_primary.json',
-        'output_filename_alt': 'query_results_alternative.json',
-        'output_filename_keyword': 'query_results_keyword.json'  # Add output file for keyword extraction
+        'output_filename_primary': 'query_results_quotation.json',
+        # Removed the following as we're no longer using alternative output
+        # 'output_filename_alt': 'query_results_alternative.json',
+        'output_filename_keyword': 'query_results_keyword.json',
+        'keyword_training_data': 'data/keyword_training_data.csv',
+        'quotation_training_data': 'data/quotation_training_data.csv',
+        'optimized_keyword_program': 'optimized_keyword_program.json',
+        'optimized_quotation_program': 'optimized_quotation_program.json'
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
@@ -3431,7 +3465,7 @@ async def process_single_query(
     es_bm25: ElasticsearchBM25,
     k: int,
     module: dspy.Module,
-    is_keyword_extraction: bool = False  # Flag to indicate if we're only extracting keywords
+    is_keyword_extraction: bool = False
 ) -> List[Dict[str, Any]]:
     """
     Processes a single query to retrieve documents, select quotations, or extract keywords.
@@ -3443,31 +3477,35 @@ async def process_single_query(
         retrieval_k = 2
         # Extract quotations intended for keyword extraction
         quotations = query_item.get('quotations', [])
-        quotation_texts = [q.get('quotation_to_use_keyword', '').strip() for q in quotations if 'quotation_to_use_keyword' in q and q.get('quotation_to_use_keyword', '').strip()]
-        
+        quotation_texts = [
+            q.get('quotation_to_use_keyword', '').strip() 
+            for q in quotations 
+            if 'quotation_to_use_keyword' in q and q.get('quotation_to_use_keyword', '').strip()
+        ]
+
         if not quotation_texts:
             logger.warning("No 'quotation_to_use_keyword' found for keyword extraction. Skipping.")
             return results  # Empty list
-        
+
         logger.info(f"Processing keyword extraction for query: {query_item.get('query', '')[:50]}...")
-        
+
         # Define research objectives and theoretical framework
         research_objectives = query_item.get('research_objectives', 'Extract relevant keywords based on the provided objectives.')
         theoretical_framework = query_item.get('theoretical_framework', '')
-        
+
         # Retrieve top 2 relevant chunks
         retrieved_chunks = retrieve_documents(query_item.get('query', ''), db, es_bm25, retrieval_k)
         retrieved_chunks_count = len(retrieved_chunks)
         used_chunk_ids = [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]
         analysis = query_item.get('analysis', '')
         answer = query_item.get('answer', {})
-        
+
         # Extract contextualized_content from the top 2 chunks
         contextual_info = [chunk['chunk']['contextualized_content'] for chunk in retrieved_chunks if 'contextualized_content' in chunk['chunk'] and chunk['chunk']['contextualized_content'].strip()]
-        
+
         for idx, quotation in enumerate(quotation_texts, start=1):
             logger.info(f"Extracting keywords for quotation {idx}: {quotation[:50]}...")
-            
+
             # Extract keywords using the provided DSPy module
             response = module.forward(
                 research_objectives=research_objectives,
@@ -3477,12 +3515,12 @@ async def process_single_query(
             )
             keywords = response.get("keywords", [])
             error = response.get("error", "")
-            
+
             if error:
                 logger.error(f"Error extracting keywords for quotation {idx}: {error}")
                 # Skip to the next quotation
                 continue
-            
+
             # Prepare the result for this quotation
             result = {
                 "quotation_to_use_keyword": quotation,
@@ -3495,17 +3533,17 @@ async def process_single_query(
                 "analysis": analysis,
                 "answer": answer
             }
-            
+
             # Remove 'contextualized_content' from retrieved_chunks if not needed in output
             for chunk in result["retrieved_chunks"]:
                 if 'contextualized_content' in chunk['chunk']:
                     del chunk['chunk']['contextualized_content']
-            
+
             # Log the number of keywords extracted
             logger.info(f"Extracted {len(keywords)} keywords for quotation {idx}.")
-            
+
             results.append(result)
-        
+
         return results  # List of result dicts
     else:
         # Existing logic for processing quotations and generating answers
