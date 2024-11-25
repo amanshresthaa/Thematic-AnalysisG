@@ -14,7 +14,7 @@ from src.utils.logger import setup_logging
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.data.data_loader import load_codebase_chunks, load_queries
-from src.processing.query_processor import validate_queries, process_queries
+from src.processing.query_processor import process_queries , validate_queries
 from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
