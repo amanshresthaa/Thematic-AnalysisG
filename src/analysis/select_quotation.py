@@ -1,5 +1,3 @@
-# File: analysis/select_quotation.py
-#------------------------------------------------------------------------------
 # src/analysis/select_quotation.py
 import logging
 from typing import List, Dict, Any
@@ -26,11 +24,11 @@ class EnhancedQuotationSignature(dspy.Signature):
     transcript_chunks: List[str] = dspy.InputField(
         desc="Chunks of transcript from which quotations are to be selected"
     )
-    theoretical_framework: str = dspy.InputField(
+    theoretical_framework: Dict[str, str] = dspy.InputField(
         desc="The theoretical and philosophical framework guiding the analysis"
     )
     quotations: List[Dict[str, Any]] = dspy.OutputField(
-        desc="List of selected quotations with their types and analytical context"
+        desc="List of selected quotations with their classifications and contexts"
     )
     analysis: str = dspy.OutputField(
         desc="Analysis of how the selected quotations support the research objectives"
@@ -39,7 +37,6 @@ class EnhancedQuotationSignature(dspy.Signature):
     def parse_quotations(self, response: str) -> List[Dict[str, Any]]:
         """Parses quotations from the LM response."""
         try:
-            # Assuming the LM returns a JSON-formatted string for easy parsing
             response_json = json.loads(response)
             quotation_list = response_json.get("quotations", [])
             return quotation_list
@@ -53,7 +50,6 @@ class EnhancedQuotationSignature(dspy.Signature):
     def extract_analysis(self, response: str) -> str:
         """Extracts analysis section from the LM response."""
         try:
-            # Assuming the LM returns a JSON-formatted string with an 'analysis' field
             response_json = json.loads(response)
             analysis = response_json.get("analysis", "")
             return analysis
@@ -64,44 +60,24 @@ class EnhancedQuotationSignature(dspy.Signature):
             logger.error(f"Error extracting analysis: {e}")
             return ""
 
-    def create_prompt(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> str:
+    def create_prompt(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> str:
         """Creates the prompt for the language model."""
         chunks_formatted = "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)])
         prompt = (
-        f"You are conducting a thematic analysis following Braun and Clarke's (2006) approach.\n\n"
-        
-        f"Research Objectives:\n{research_objectives}\n\n"
-        f"Theoretical Framework:\n{theoretical_framework}\n\n"
-        f"Transcript Chunks:\n{chunks_formatted}\n\n"
-        
-        f"Task: Analyze the transcript chunks and select relevant quotations that align with both the research objectives and theoretical framework. For each selected quotation, provide:\n\n"
-        
-        f"1. Quotation Selection:\n"
-        f"   {{\n"
-        f"      'quotation': str,              # The exact quotation text\n"
-        f"      'context': str,            # Background context including relevant researcher questions\n"
-        f"      'quotation_type': str,         # 'discrete' (brief, diverse perspectives)\n"
-        f"                                 # 'embedded' (short phrases marking transitions)\n"
-        f"                                 # 'longer' (complex understanding)\n"
-        f"      'function': str,           # 'evidence' | 'explanation' | 'illustration' | \n"
-        f"                                 # 'impression' | 'representation'\n"
-        f"      'pattern_strength': float, # 0.0-1.0 indicating pattern robustness in data\n"
-        f"      'analysis_notes': str      # Interpretation based on theoretical framework\n"
-        f"   }}\n\n"
-        
-        f"2. Analysis Overview:\n"
-        f"   {{\n"
-        f"      'selection_rationale': str,    # Why these quotations were chosen\n"
-        f"      'theoretical_alignment': str,  # How quotations support theoretical framework\n"
-        f"      'objective_alignment': str,    # How quotations advance research objectives\n"
-        f"      'pattern_summary': str         # Overview of identified patterns\n"
-        f"   }}\n\n"
-        
-        f"Return the analysis in valid JSON format."
-    )
+            f"You are conducting a thematic analysis following Braun and Clarke's approach.\n\n"
+            f"Research Objectives:\n{research_objectives}\n\n"
+            f"Theoretical Framework:\n{theoretical_framework}\n\n"
+            f"Transcript Chunks:\n{chunks_formatted}\n\n"
+            f"Task: Analyze the transcript chunks and select relevant quotations that align with both the research objectives and theoretical framework.\n"
+            f"For each selected quotation, provide:\n"
+            f"1. The quotation text.\n"
+            f"2. Type of quotation ('discrete', 'embedded', 'longer') as per Creswell's classification.\n"
+            f"3. Context or explanation.\n"
+            f"Return the results in valid JSON format."
+        )
         return prompt
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
             logger.debug("Starting enhanced quotation selection process with theoretical framework.")
             
@@ -120,11 +96,11 @@ class EnhancedQuotationSignature(dspy.Signature):
             analysis = self.extract_analysis(response)
             
             # Apply assertions
-            assert_relevant_quotations(quotation_list, self.research_objectives)
+            assert_relevant_quotations(quotation_list, research_objectives)
             assert_confidentiality(quotation_list, sensitive_keywords=['confidential', 'secret'])
             assert_diversity_of_quotations(quotation_list, min_participants=3)
-            assert_contextual_adequacy(quotation_list, self.transcript_chunks)
-            assert_philosophical_alignment(quotation_list, self.theoretical_framework)
+            assert_contextual_adequacy(quotation_list, transcript_chunks)
+            assert_philosophical_alignment(quotation_list, theoretical_framework)
             
             logger.info(f"Successfully selected {len(quotation_list)} quotations aligned with theoretical framework.")
             return {
@@ -144,7 +120,7 @@ class EnhancedQuotationSignature(dspy.Signature):
 
     def handle_failed_assertion(self, assertion_failure: AssertionError,
                               research_objectives: str, transcript_chunks: List[str],
-                              theoretical_framework: str) -> Dict[str, Any]:
+                              theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         """Handles failed assertions by attempting to generate improved quotations."""
         try:
             focused_prompt = (
@@ -153,10 +129,9 @@ class EnhancedQuotationSignature(dspy.Signature):
                 f"Theoretical Framework:\n{theoretical_framework}\n\n"
                 "Please select quotations that specifically address this issue by ensuring:\n"
                 "1. Proper quotation type (Discrete/Embedded/Longer)\n"
-                "2. Clear function and purpose\n"
-                "3. Sufficient context and ethical considerations\n"
-                "4. Strong theoretical alignment\n"
-                "5. Diverse participant representation\n\n"
+                "2. Clear context and explanation\n"
+                "3. Strong theoretical alignment\n"
+                "4. Diversity of perspectives\n\n"
                 "Transcript Chunks:\n" +
                 "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)])
             )
@@ -203,7 +178,7 @@ class EnhancedQuotationModule(dspy.Module):
         super().__init__()
         self.chain = dspy.TypedChainOfThought(EnhancedQuotationSignature)
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
             logger.debug("Running EnhancedQuotationModule with theoretical framework.")
             response = self.chain(
