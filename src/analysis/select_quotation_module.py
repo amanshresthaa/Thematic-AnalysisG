@@ -1,5 +1,3 @@
-
-#analysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -17,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class SelectQuotationModule(dspy.Module):
     """
-    DSPy module to select and classify quotations based on research objectives,
+    DSPy module to select and analyze quotations based on research objectives,
     transcript chunks, and theoretical framework.
     """
     def __init__(self):
@@ -27,23 +25,15 @@ class SelectQuotationModule(dspy.Module):
     def forward(self, research_objectives: str, transcript_chunk: str, 
                 contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
-            logger.debug("Running SelectQuotationModule with theoretical framework.")
+            logger.debug("Running SelectQuotationModule with integrated theoretical analysis.")
             response = self.enhanced_module.forward(
                 research_objectives=research_objectives,
                 transcript_chunk=transcript_chunk,
                 contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
-            quotations = response.get("quotations", [])
-            analysis = response.get("analysis", "")
-            logger.info(f"Selected {len(quotations)} quotations aligned with theoretical framework.")
-            return {
-                "quotations": quotations,
-                "analysis": analysis
-            }
+            # The response already includes 'transcript_info', 'quotations', 'analysis', and 'answer'
+            return response
         except Exception as e:
             logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
-            return {
-                "quotations": [],
-                "analysis": ""
-            }
+            return {}

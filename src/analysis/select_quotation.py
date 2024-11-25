@@ -46,7 +46,7 @@ class EnhancedQuotationSignature(dspy.Signature):
     )
 
     def create_prompt(self, research_objectives: str, transcript_chunk: str, 
-                     contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> str:
+                      contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> str:
         """Creates the prompt for the language model."""
         
         # Format contextualized contents
@@ -60,108 +60,104 @@ class EnhancedQuotationSignature(dspy.Signature):
         rationale = theoretical_framework.get("rationale", "")
 
         prompt = (
-    f"You are an experienced qualitative researcher conducting a thematic analysis of "
-    f"interview transcripts using Braun and Clarke's (2006) approach. Your task is to "
-    f"analyze the provided transcript chunks while adhering to key principles from their "
-    f"thematic analysis methodology.\n\n"
+            f"You are an experienced qualitative researcher conducting a thematic analysis of "
+            f"interview transcripts using Braun and Clarke's (2006) approach. Your task is to "
+            f"analyze the provided transcript chunks while adhering to key principles from their "
+            f"thematic analysis methodology.\n\n"
 
-    f"First, review the transcript chunks and contextualized_content:\n\n"
-    f"{chunks_formatted}\n\n"
-    
-    f"Research Objectives:\n"
-    f"<research_objectives>\n"
-    f"{research_objectives}\n"
-    f"</research_objectives>\n\n"
-
-    f"Theoretical Framework:\n"
-    f"<theoretical_framework>\n"
-    f"{theory}\n"
-    f"{philosophical_approach}\n"
-    f"{rationale}\n"
-    f"</theoretical_framework>\n\n"
+            f"First, review the transcript chunks and contextualized_content:\n\n"
+            f"{chunks_formatted}\n\n"
             
-    f"Your analysis should follow these steps:\n\n"
+            f"Research Objectives:\n"
+            f"<research_objectives>\n"
+            f"{research_objectives}\n"
+            f"</research_objectives>\n\n"
 
-    f"1. Quotation Selection:\n"
-    f"   - Select quotes that demonstrate robust patterns in the data.\n"
-    f"   - Classify quotes using Creswell's categories:\n"
-    f"     a) Longer quotations: For complex understandings\n"
-    f"     b) Discrete quotations: For diverse perspectives\n"
-    f"     c) Embedded quotations: Brief phrases showing text shifts\n"
-    f"   - Ensure quotes enhance reader engagement and highlight unique findings.\n"
-    f"   - Provide adequate context for accurate comprehension.\n\n"
+            f"Theoretical Framework:\n"
+            f"<theoretical_framework>\n"
+            f"Theory: {theory}\n"
+            f"Philosophical Approach: {philosophical_approach}\n"
+            f"Rationale: {rationale}\n"
+            f"</theoretical_framework>\n\n"
+                    
+            f"Your analysis should follow these steps:\n\n"
 
-    f"2. Pattern Recognition:\n"
-    f"   - Identify patterns emerging from data rather than predetermined categories.\n"
-    f"   - Support patterns with multiple quotations.\n"
-    f"   - Maintain theoretical alignment while remaining open to emerging themes.\n"
-    f"   - Document methodological decisions transparently.\n\n"
+            f"1. **Quotation Selection**:\n"
+            f"   - Select quotes that demonstrate robust patterns in the data.\n"
+            f"   - Classify quotes using Creswell's categories:\n"
+            f"     a) Longer quotations: For complex understandings\n"
+            f"     b) Discrete quotations: For diverse perspectives\n"
+            f"     c) Embedded quotations: Brief phrases showing text shifts\n"
+            f"   - Ensure quotes enhance reader engagement and highlight unique findings.\n"
+            f"   - Provide adequate context for accurate comprehension.\n\n"
 
-    f"3. Theoretical Integration:\n"
-    f"   - Demonstrate clear philosophical underpinning.\n"
-    f"   - Show how findings connect to the theoretical framework.\n"
-    f"   - Practice researcher reflexivity throughout analysis.\n"
-    f"   - Balance selectivity with comprehensiveness.\n\n"
+            f"2. **Pattern Recognition**:\n"
+            f"   - Identify patterns emerging from data rather than predetermined categories.\n"
+            f"   - Support patterns with multiple quotations.\n"
+            f"   - Maintain theoretical alignment while remaining open to emerging themes.\n"
+            f"   - Document methodological decisions transparently.\n\n"
 
-    f"For each step of your analysis, wrap your analysis process in <analysis_process> tags to explain your thought process and reasoning before providing the final output. It's OK for this section to be quite long. Within the <analysis_process> tags:\n\n"
+            f"3. **Theoretical Integration**:\n"
+            f"   - Demonstrate clear philosophical underpinning.\n"
+            f"   - Show how findings connect to the theoretical framework.\n"
+            f"   - Practice researcher reflexivity throughout analysis.\n"
+            f"   - Balance selectivity with comprehensiveness.\n\n"
 
-    f"a. For Quotation Selection: List potential quotes and justify their selection based on Creswell's categories and relevance to research objectives.\n"
-    f"b. For Pattern Recognition: Identify potential patterns, explaining your reasoning and how they emerge from the data rather than predetermined categories.\n"
-    f"c. For Theoretical Integration: Explain how each finding connects to the theoretical framework, demonstrating clear philosophical underpinning and researcher reflexivity.\n\n"
+            f"For each step of your analysis, wrap your analysis process in <analysis_process> tags to explain your thought process and reasoning before providing the final output. It's OK for this section to be quite long.\n\n"
 
-    "Your final output should follow this JSON structure:\n\n"
+            f"Your final output should follow this JSON structure:\n\n"
 
-    "{\n"
-    "    \"transcript_info\": {\n"
-    "        \"transcript_chunk\": \"\",                // Selected transcript content\n"
-    "        \"research_objectives\": \"\",             // Research goals guiding analysis\n"
-    "        \"theoretical_framework\": {\n"
-    "            \"theory\": \"\",                     // Primary theoretical approach\n"
-    "            \"philosophical_approach\": \"\",      // Philosophical foundation\n"
-    "            \"rationale\": \"\"                   // Justification for approach\n"
-    "        }\n"
-    "    },\n"
-    "    \"quotations\": [\n"
-    "        {\n"
-    "            \"quotation\": \"\",                  // Exact quote text\n"
-    "            \"creswell_category\": \"\",          // longer/discrete/embedded\n"
-    "            \"classification\": \"\",             // Content type\n"
-    "            \"context\": {\n"
-    "                \"preceding_question\": \"\",      // Prior question\n"
-    "                \"situation\": \"\",              // Context description\n"
-    "                \"pattern_representation\": \"\"   // Pattern linkage\n"
-    "            },\n"
-    "            \"analysis_value\": {\n"
-    "                \"relevance\": \"\",              // Research objective alignment\n"
-    "                \"pattern_support\": \"\",        // Pattern evidence\n"
-    "                \"theoretical_alignment\": \"\"    // Framework connection\n"
-    "            }\n"
-    "        }\n"
-    "    ],\n"
-    "    \"analysis\": {\n"
-    "        \"philosophical_underpinning\": \"\",     // Analysis approach\n"
-    "        \"patterns_identified\": [\"\"],          // Key patterns found\n"
-    "        \"theoretical_interpretation\": \"\",      // Framework application\n"
-    "        \"methodological_reflection\": {\n"
-    "            \"pattern_robustness\": \"\",         // Pattern evidence\n"
-    "            \"theoretical_alignment\": \"\",       // Framework fit\n"
-    "            \"researcher_reflexivity\": \"\"      // Interpretation awareness\n"
-    "        },\n"
-    "        \"practical_implications\": \"\"          // Applied insights\n"
-    "    },\n"
-    "    \"answer\": {\n"
-    "        \"summary\": \"\",                        // Key findings\n"
-    "        \"theoretical_contribution\": \"\",        // Theory advancement\n"
-    "        \"methodological_contribution\": {\n"
-    "            \"approach\": \"\",                   // Method used\n"
-    "            \"pattern_validity\": \"\",           // Evidence quality\n"
-    "            \"theoretical_integration\": \"\"      // Theory-data synthesis\n"
-    "        }\n"
-    "    }\n"
-    "}\n\n"
+            "{\n"
+            "  \"transcript_info\": {\n"
+            "    \"transcript_chunk\": \"\",                    // Selected transcript content\n"
+            "    \"research_objectives\": \"\",                 // Research goals guiding analysis\n"
+            "    \"theoretical_framework\": {\n"
+            "      \"theory\": \"\",                           // Primary theoretical approach\n"
+            "      \"philosophical_approach\": \"\",            // Philosophical foundation\n"
+            "      \"rationale\": \"\"                         // Justification for approach\n"
+            "    }\n"
+            "  },\n"
+            "  \"quotations\": [\n"
+            "    {\n"
+            "      \"quotation\": \"\",                        // Exact quote text\n"
+            "      \"creswell_category\": \"\",                // longer/discrete/embedded\n"
+            "      \"classification\": \"\",                   // Content type\n"
+            "      \"context\": {\n"
+            "        \"preceding_question\": \"\",             // Prior question\n"
+            "        \"situation\": \"\",                      // Context description\n"
+            "        \"pattern_representation\": \"\"          // Pattern linkage\n"
+            "      },\n"
+            "      \"analysis_value\": {\n"
+            "        \"relevance\": \"\",                     // Research objective alignment\n"
+            "        \"pattern_support\": \"\",                // Pattern evidence\n"
+            "        \"theoretical_alignment\": \"\"           // Framework connection\n"
+            "      }\n"
+            "    }\n"
+            "  ],\n"
+            "  \"analysis\": {\n"
+            "    \"philosophical_underpinning\": \"\",         // Analysis approach\n"
+            "    \"patterns_identified\": [\"\"],              // Key patterns found\n"
+            "    \"theoretical_interpretation\": \"\",         // Framework application\n"
+            "    \"methodological_reflection\": {\n"
+            "      \"pattern_robustness\": \"\",              // Pattern evidence\n"
+            "      \"theoretical_alignment\": \"\",            // Framework fit\n"
+            "      \"researcher_reflexivity\": \"\"           // Interpretation awareness\n"
+            "    },\n"
+            "    \"practical_implications\": \"\"              // Applied insights\n"
+            "  },\n"
+            "  \"answer\": {\n"
+            "    \"summary\": \"\",                           // Key findings\n"
+            "    \"theoretical_contribution\": \"\",           // Theory advancement\n"
+            "    \"methodological_contribution\": {\n"
+            "      \"approach\": \"\",                        // Method used\n"
+            "      \"pattern_validity\": \"\",                // Evidence quality\n"
+            "      \"theoretical_integration\": \"\"          // Theory-data synthesis\n"
+            "    }\n"
+            "  }\n"
+            "}\n\n"
 
-    f"Remember to wrap your analysis process in <analysis_process> tags throughout your analysis to show your chain of thought before providing the final JSON output.\n\n"
-)
+            f"Remember to wrap your analysis process in <analysis_process> tags throughout your analysis to show your chain of thought before providing the final JSON output.\n\n"
+        )
         return prompt
 
     def parse_response(self, response: str) -> Dict[str, Any]:
@@ -230,15 +226,15 @@ class EnhancedQuotationSignature(dspy.Signature):
         except AssertionError as af:
             logger.warning(f"Assertion failed during analysis: {af}")
             return self.handle_failed_assertion(af, research_objectives, transcript_chunk, 
-                                             contextualized_contents, theoretical_framework)
+                                                 contextualized_contents, theoretical_framework)
         except Exception as e:
             logger.error(f"Error in EnhancedQuotationSignature.forward: {e}", exc_info=True)
             return {}
 
     def handle_failed_assertion(self, assertion_failure: AssertionError,
-                              research_objectives: str, transcript_chunk: str,
-                              contextualized_contents: List[str],
-                              theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+                                research_objectives: str, transcript_chunk: str,
+                                contextualized_contents: List[str],
+                                theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         """Handles failed assertions by attempting to generate improved analysis."""
         try:
             focused_prompt = self.create_prompt(
