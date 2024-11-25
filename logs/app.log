@@ -1,78 +1,58 @@
-2024-11-25 14:07:17,309 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-25 14:07:17,310 [INFO] faiss.loader: Loading faiss.
-2024-11-25 14:07:17,370 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-25 14:07:17,426 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 18:51:17,943 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 18:51:17,943 [INFO] faiss.loader: Loading faiss.
+2024-11-25 18:51:18,020 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 18:51:18,083 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-25 14:07:17,426 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-25 14:07:17,428 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-25 14:07:18,578 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-25 14:07:18,578 [INFO] __main__: Configuring DSPy Language Model
-2024-11-25 14:07:18,578 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-25 14:07:18,579 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-25 14:07:18,584 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-25 14:07:21,029 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-25 14:07:21,029 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-25 14:07:21,101 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-25 14:07:21,124 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-25 14:07:21,124 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-25 14:07:21,124 [INFO] __main__: Validating standard queries
-2024-11-25 14:07:21,124 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-25 14:07:21,912 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-25 14:07:21,912 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-25 14:07:21,915 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-25 14:07:21,915 [INFO] __main__: Initializing TheoreticalAnalysisModule
-2024-11-25 14:07:21,916 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
-2024-11-25 14:07:21,916 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
-2024-11-25 14:07:25,776 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-25 14:07:25,777 [INFO] __main__: Evaluation completed successfully.
-2024-11-25 14:07:25,777 [INFO] __main__: All operations completed successfully.
-2024-11-25 14:13:31,260 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-25 14:13:31,260 [INFO] faiss.loader: Loading faiss.
-2024-11-25 14:13:31,321 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-25 14:13:31,407 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 18:51:18,083 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 18:51:18,086 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 18:51:19,439 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 18:51:19,439 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 18:51:19,439 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 18:51:19,440 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 18:51:19,445 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 18:51:21,693 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 18:51:21,693 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 18:51:21,793 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 18:51:21,837 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 18:51:21,838 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 18:51:21,838 [INFO] __main__: Validating standard queries
+2024-11-25 18:51:21,838 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 18:51:22,691 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 18:51:22,691 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 18:51:22,695 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 18:51:22,695 [INFO] __main__: Processing standard queries with SelectQuotationModule
+2024-11-25 18:52:35,420 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 18:52:35,423 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 18:52:35,423 [INFO] __main__: All operations completed successfully.
+2024-11-25 18:58:22,408 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 18:58:22,409 [INFO] faiss.loader: Loading faiss.
+2024-11-25 18:58:22,479 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 18:58:22,601 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-25 14:13:31,407 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-25 14:13:31,410 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-25 14:15:33,461 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-25 14:15:33,462 [INFO] faiss.loader: Loading faiss.
-2024-11-25 14:15:33,521 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-25 14:15:33,588 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
-Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
-They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
-Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-25 14:15:33,588 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-25 14:15:33,590 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-25 14:18:43,313 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-25 14:18:43,314 [INFO] faiss.loader: Loading faiss.
-2024-11-25 14:18:43,372 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-25 14:18:43,434 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
-Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
-They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
-Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-25 14:18:43,434 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-25 14:18:43,436 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-25 14:18:44,616 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-25 14:18:44,616 [INFO] __main__: Configuring DSPy Language Model
-2024-11-25 14:18:44,616 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-25 14:18:44,616 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-25 14:18:44,622 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-25 14:18:44,623 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-25 14:18:44,623 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-25 14:18:44,714 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-25 14:18:44,733 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-25 14:18:44,734 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-25 14:18:44,734 [INFO] __main__: Validating standard queries
-2024-11-25 14:18:44,734 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-25 14:18:45,709 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-25 14:18:45,709 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-25 14:18:45,711 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-25 14:18:45,711 [INFO] __main__: Initializing TheoreticalAnalysisModule
-2024-11-25 14:18:45,711 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
-2024-11-25 14:18:45,712 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
-2024-11-25 14:20:54,557 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-25 14:20:54,560 [INFO] __main__: Evaluation completed successfully.
-2024-11-25 14:20:54,560 [INFO] __main__: All operations completed successfully.
+2024-11-25 18:58:22,601 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 18:58:22,608 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 18:58:23,860 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 18:58:23,860 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 18:58:23,860 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 18:58:23,861 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 18:58:23,866 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 18:58:23,867 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 18:58:23,867 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 18:58:23,943 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 18:58:23,971 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 18:58:23,971 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 18:58:23,971 [INFO] __main__: Validating standard queries
+2024-11-25 18:58:23,971 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 18:58:24,958 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 18:58:24,958 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 18:58:24,961 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 18:58:24,961 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 18:58:24,961 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 18:58:24,961 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 18:58:58,288 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 18:58:58,289 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 18:58:58,289 [INFO] __main__: All operations completed successfully.
