@@ -1,4 +1,3 @@
-# main.py
 import gc
 import logging
 import os
@@ -19,7 +18,7 @@ from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
-from src.analysis.select_quotation_module import EnhancedQuotationModule  # Updated import
+from src.analysis.select_quotation_module import EnhancedQuotationModule
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -40,7 +39,7 @@ class ThematicAnalysisPipeline:
         self.quotation_qa_module = None
         self.quotation_teleprompter = None
         self.optimized_quotation_program = None
-        self.enhanced_quotation_module = None  # Updated attribute name
+        self.enhanced_quotation_module = None
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -218,4 +217,3 @@ if __name__ == "__main__":
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
-
