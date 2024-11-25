@@ -1,4 +1,5 @@
-# src/analysis/select_quotation_module.py
+
+#analysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -23,12 +24,14 @@ class SelectQuotationModule(dspy.Module):
         super().__init__()
         self.enhanced_module = EnhancedQuotationModule()
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
             logger.debug("Running SelectQuotationModule with theoretical framework.")
             response = self.enhanced_module.forward(
                 research_objectives=research_objectives,
-                transcript_chunks=transcript_chunks,
+                transcript_chunk=transcript_chunk,
+                contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
             quotations = response.get("quotations", [])
