@@ -20,7 +20,6 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.select_keyword_module import SelectKeywordModule
 from src.analysis.theoretical_analysis_module import TheoreticalAnalysisModule
 from src.decorators import handle_exceptions
 
@@ -39,14 +38,10 @@ class ThematicAnalysisPipeline:
         self.config = config
         self.contextual_db = None
         self.es_bm25 = None
-        self.keyword_qa_module = None
         self.quotation_qa_module = None
-        self.keyword_teleprompter = None
         self.quotation_teleprompter = None
-        self.optimized_keyword_program = None
         self.optimized_quotation_program = None
         self.quotation_module = None
-        self.keyword_module = None
         self.theoretical_analysis_module = None
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
@@ -65,41 +60,6 @@ class ThematicAnalysisPipeline:
             logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
             raise
         return es_bm25
-
-    async def initialize_keyword_optimizer(self):
-        """
-        Initialize the keyword extraction optimizer.
-        """
-        logger.info("Initializing keyword extraction optimizer")
-        dl = DataLoader()
-        keyword_train_dataset = dl.from_csv(
-            self.config['keyword_training_data'],
-            fields=("input", "output"),
-            input_keys=("input",)
-        )
-
-        self.keyword_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
-        
-        optimizer_config = {
-            'max_bootstrapped_demos': 4,
-            'max_labeled_demos': 4,
-            'num_candidate_programs': 10,
-            'num_threads': 1
-        }
-        
-        self.keyword_teleprompter = BootstrapFewShotWithRandomSearch(
-            metric=comprehensive_metric,
-            **optimizer_config
-        )
-
-        self.optimized_keyword_program = self.keyword_teleprompter.compile(
-            student=self.keyword_qa_module,
-            teacher=self.keyword_qa_module,
-            trainset=keyword_train_dataset
-        )
-        
-        self.optimized_keyword_program.save(self.config['optimized_keyword_program'])
-        logger.info("Keyword optimizer initialized successfully")
 
     async def initialize_quotation_optimizer(self):
         """
@@ -152,10 +112,8 @@ class ThematicAnalysisPipeline:
             # Define file paths from config
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file_standard = self.config['queries_file_standard']
-            queries_file_keyword = self.config['queries_file_keyword']
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename_primary = self.config['output_filename_primary']
-            output_filename_keyword = self.config['output_filename_keyword']
 
             dl = DataLoader()
 
@@ -170,7 +128,7 @@ class ThematicAnalysisPipeline:
             # Load and process the data
             try:
                 logger.info("Loading data into ContextualVectorDB")
-                self.contextual_db.load_data(codebase_chunks, parallel_threads=1)  # Reduced to single thread
+                self.contextual_db.load_data(codebase_chunks, parallel_threads=1)
             except Exception as e:
                 logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
                 return
@@ -187,35 +145,17 @@ class ThematicAnalysisPipeline:
             logger.info(f"Loading standard queries from '{queries_file_standard}'")
             standard_queries = load_queries(queries_file_standard)
 
-            logger.info(f"Loading keyword queries from '{queries_file_keyword}'")
-            keyword_queries = load_queries(queries_file_keyword)
-
             if not standard_queries:
                 logger.error("No standard queries found to process.")
-            if not keyword_queries:
-                logger.error("No keyword queries found to process.")
 
             # Validate queries
             logger.info("Validating standard queries")
             validated_standard_queries = validate_queries(standard_queries)
 
-            logger.info("Validating keyword queries")
-            validated_keyword_queries = validate_queries(keyword_queries)
-
-            # Initialize optimizers
-            await self.initialize_keyword_optimizer()
+            # Initialize quotation optimizer
             await self.initialize_quotation_optimizer()
 
-            # Initialize SelectKeywordModule and SelectQuotationModule with assertions
-            try:
-                logger.info("Initializing SelectKeywordModule")
-                self.keyword_module = SelectKeywordModule()
-                self.keyword_module = assert_transform_module(self.keyword_module, backtrack_handler)
-                logger.info("SelectKeywordModule initialized successfully with assertions activated.")
-            except Exception as e:
-                logger.error(f"Error initializing SelectKeywordModule: {e}", exc_info=True)
-                return
-
+            # Initialize SelectQuotationModule with assertions
             try:
                 logger.info("Initializing SelectQuotationModule")
                 self.quotation_module = SelectQuotationModule()
@@ -234,9 +174,8 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing TheoreticalAnalysisModule: {e}", exc_info=True)
                 return
 
-            # Define k value for standard and keyword queries
+            # Define k value for standard queries
             k_standard = 20
-            k_keyword = 2  # Fixed k=2 for keyword extraction
 
             # Process standard queries with SelectQuotationModule and TheoreticalAnalysisModule
             logger.info("Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule")
@@ -249,19 +188,6 @@ class ThematicAnalysisPipeline:
                 optimized_program=self.optimized_quotation_program,
                 module=self.quotation_module,
                 theoretical_analysis_module=self.theoretical_analysis_module
-            )
-
-            # Then process keyword queries with SelectKeywordModule
-            logger.info("Processing keyword queries with SelectKeywordModule")
-            await process_queries(
-                validated_keyword_queries,
-                self.contextual_db,
-                self.es_bm25,
-                k=k_keyword,
-                output_file=self.config['output_filename_keyword'],
-                optimized_program=self.optimized_keyword_program,
-                module=self.keyword_module,
-                is_keyword_extraction=True
             )
 
             # Define k values for evaluation
@@ -294,14 +220,11 @@ if __name__ == "__main__":
     config = {
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file_standard': 'data/queries.json',
-        'queries_file_keyword': 'data/query_results_quotation.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'data/query_results_quotation.json',
-        'output_filename_keyword': 'data/query_results_keyword.json',
-        'keyword_training_data': 'data/keyword_training_data.csv',
+        'output_filename_primary': 'query_results_quotation.json',
         'quotation_training_data': 'data/quotation_training_data.csv',
-        'optimized_keyword_program': 'optimized_keyword_program.json',
         'optimized_quotation_program': 'optimized_quotation_program.json'
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
+

@@ -44,8 +44,8 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_22",
-                    "original_index": 22,
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
                     "original_content": "",
                     "contextualized_content": "The organization, [org name], is fundamentally reshaping the agricultural supply chain by acting as a direct interface between farmers and customers. By eliminating the traditional middleman, they ensure that profits are redirected back to the farmers, addressing a long-standing issue in the industry where farmers often receive a fraction of the market price for their produce. This innovative model not only aims to enhance the financial stability of the farmers but also seeks to create a more sustainable food system. The organization is actively managing the supply of potatoes from multiple farms, ensuring a steady flow to factories and consumers alike. Their recent initiatives, such as launching a direct-to-consumer service, reflect a strategic move towards reducing reliance on larger processing firms and fostering a closer connection with end-users. This approach is particularly relevant in the current climate, where the agricultural sector faces significant challenges, including fluctuating market prices and the impacts of global events like COVID-19 and Brexit."
                 },
@@ -55,8 +55,8 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_31",
-                    "original_index": 31,
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
                     "original_content": "",
                     "contextualized_content": "The organization, [org name], is fundamentally reshaping the agricultural supply chain by acting as a direct interface between farmers and customers. By eliminating the traditional middleman, they ensure that profits are redirected back to the farmers, addressing a long-standing issue in the industry where farmers often receive a fraction of the market price for their produce. This innovative model not only aims to enhance the financial stability of the farmers but also seeks to create a more sustainable food system. The organization is actively managing the supply of potatoes from multiple farms, ensuring a steady flow to factories and consumers alike. Their recent initiatives, such as launching a direct-to-consumer service, reflect a strategic move towards reducing reliance on larger processing firms and fostering a closer connection with end-users. This approach is particularly relevant in the current climate, where the agricultural sector faces significant challenges, including fluctuating market prices and the impacts of global events like COVID-19 and Brexit."
                 },
@@ -68,8 +68,8 @@
             "Document_chunk_1",
             "Document_chunk_0",
             "Document_chunk_24",
-            "Document_chunk_22",
-            "Document_chunk_31"
+            "Document_chunk_31",
+            "Document_chunk_22"
         ],
         "quotations": [
             {
@@ -235,8 +235,8 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_22",
-                    "original_index": 22,
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
                     "original_content": "",
                     "contextualized_content": "The organization, [org name], is fundamentally reshaping the agricultural supply chain by acting as a direct interface between farmers and customers. By eliminating the traditional middleman, they ensure that profits are redirected back to the farmers, addressing a long-standing issue in the industry where farmers often receive a fraction of the market price for their produce. This innovative model not only aims to enhance the financial stability of the farmers but also seeks to create a more sustainable food system. The organization is actively managing the supply of potatoes from multiple farms, ensuring a steady flow to factories and consumers alike. Their recent initiatives, such as launching a direct-to-consumer service, reflect a strategic move towards reducing reliance on larger processing firms and fostering a closer connection with end-users. This approach is particularly relevant in the current climate, where the agricultural sector faces significant challenges, including fluctuating market prices and the impacts of global events like COVID-19 and Brexit."
                 },
@@ -246,8 +246,8 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_31",
-                    "original_index": 31,
+                    "chunk_id": "Document_chunk_22",
+                    "original_index": 22,
                     "original_content": "",
                     "contextualized_content": "The organization, [org name], is fundamentally reshaping the agricultural supply chain by acting as a direct interface between farmers and customers. By eliminating the traditional middleman, they ensure that profits are redirected back to the farmers, addressing a long-standing issue in the industry where farmers often receive a fraction of the market price for their produce. This innovative model not only aims to enhance the financial stability of the farmers but also seeks to create a more sustainable food system. The organization is actively managing the supply of potatoes from multiple farms, ensuring a steady flow to factories and consumers alike. Their recent initiatives, such as launching a direct-to-consumer service, reflect a strategic move towards reducing reliance on larger processing firms and fostering a closer connection with end-users. This approach is particularly relevant in the current climate, where the agricultural sector faces significant challenges, including fluctuating market prices and the impacts of global events like COVID-19 and Brexit."
                 },
@@ -279,8 +279,8 @@
         "retrieved_chunks_count": 5,
         "used_chunk_ids": [
             "Document_chunk_16",
-            "Document_chunk_22",
             "Document_chunk_31",
+            "Document_chunk_22",
             "Document_chunk_34",
             "Document_chunk_5"
         ],
@@ -601,8 +601,8 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_22",
-                    "original_index": 22,
+                    "chunk_id": "Document_chunk_31",
+                    "original_index": 31,
                     "original_content": "",
                     "contextualized_content": "The organization, [org name], is fundamentally reshaping the agricultural supply chain by acting as a direct interface between farmers and customers. By eliminating the traditional middleman, they ensure that profits are redirected back to the farmers, addressing a long-standing issue in the industry where farmers often receive a fraction of the market price for their produce. This innovative model not only aims to enhance the financial stability of the farmers but also seeks to create a more sustainable food system. The organization is actively managing the supply of potatoes from multiple farms, ensuring a steady flow to factories and consumers alike. Their recent initiatives, such as launching a direct-to-consumer service, reflect a strategic move towards reducing reliance on larger processing firms and fostering a closer connection with end-users. This approach is particularly relevant in the current climate, where the agricultural sector faces significant challenges, including fluctuating market prices and the impacts of global events like COVID-19 and Brexit."
                 },
@@ -615,7 +615,7 @@
             "Document_chunk_34",
             "Document_chunk_43",
             "Document_chunk_81",
-            "Document_chunk_22"
+            "Document_chunk_31"
         ],
         "quotations": [
             {
