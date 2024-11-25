@@ -1,4 +1,3 @@
-
 # main.py
 import gc
 import logging
@@ -15,13 +14,12 @@ from src.utils.logger import setup_logging
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.data.data_loader import load_codebase_chunks, load_queries
-from src.processing.query_processor import process_queries , validate_queries
+from src.processing.query_processor import process_queries, validate_queries
 from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
-from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.theoretical_analysis_module import TheoreticalAnalysisModule
+from src.analysis.select_quotation_module import EnhancedQuotationModule  # Updated import
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -42,8 +40,7 @@ class ThematicAnalysisPipeline:
         self.quotation_qa_module = None
         self.quotation_teleprompter = None
         self.optimized_quotation_program = None
-        self.quotation_module = None
-        self.theoretical_analysis_module = None
+        self.enhanced_quotation_module = None  # Updated attribute name
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -156,30 +153,24 @@ class ThematicAnalysisPipeline:
             # Initialize quotation optimizer
             await self.initialize_quotation_optimizer()
 
-            # Initialize SelectQuotationModule with assertions
+            # Initialize EnhancedQuotationModule with assertions
             try:
-                logger.info("Initializing SelectQuotationModule")
-                self.quotation_module = SelectQuotationModule()
-                self.quotation_module = assert_transform_module(self.quotation_module, backtrack_handler)
-                logger.info("SelectQuotationModule initialized successfully with assertions activated.")
+                logger.info("Initializing EnhancedQuotationModule")
+                self.enhanced_quotation_module = EnhancedQuotationModule()
+                self.enhanced_quotation_module = assert_transform_module(
+                    self.enhanced_quotation_module, 
+                    backtrack_handler
+                )
+                logger.info("EnhancedQuotationModule initialized successfully with assertions activated.")
             except Exception as e:
-                logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
-                return
-
-            # Initialize TheoreticalAnalysisModule
-            try:
-                logger.info("Initializing TheoreticalAnalysisModule")
-                self.theoretical_analysis_module = TheoreticalAnalysisModule()
-                logger.info("TheoreticalAnalysisModule initialized successfully.")
-            except Exception as e:
-                logger.error(f"Error initializing TheoreticalAnalysisModule: {e}", exc_info=True)
+                logger.error(f"Error initializing EnhancedQuotationModule: {e}", exc_info=True)
                 return
 
             # Define k value for standard queries
             k_standard = 20
 
-            # Process standard queries with SelectQuotationModule and TheoreticalAnalysisModule
-            logger.info("Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule")
+            # Process standard queries with EnhancedQuotationModule
+            logger.info("Processing standard queries with EnhancedQuotationModule")
             await process_queries(
                 validated_standard_queries,
                 self.contextual_db,
@@ -187,8 +178,7 @@ class ThematicAnalysisPipeline:
                 k=k_standard,
                 output_file=self.config['output_filename_primary'],
                 optimized_program=self.optimized_quotation_program,
-                module=self.quotation_module,
-                theoretical_analysis_module=self.theoretical_analysis_module
+                module=self.enhanced_quotation_module
             )
 
             # Define k values for evaluation

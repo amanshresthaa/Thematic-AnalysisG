@@ -1,4 +1,4 @@
-#processing/query_processor.py
+# processing/query_processor.py
 import logging
 from typing import List, Dict, Any
 import json
@@ -43,11 +43,10 @@ async def process_single_transcript(
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
     k: int,
-    module: dspy.Module,
-    theoretical_analysis_module: dspy.Module = None
+    module: dspy.Module
 ) -> Dict[str, Any]:
     """
-    Processes a single transcript chunk to retrieve documents and select quotations.
+    Processes a single transcript chunk to retrieve documents and perform enhanced quotation analysis.
     Returns a result dictionary.
     """
     transcript_chunk = transcript_item.get('transcript_chunk', '').strip()
@@ -69,17 +68,14 @@ async def process_single_transcript(
         'Extract relevant quotations based on the provided objectives.')
     theoretical_framework = transcript_item.get('theoretical_framework', {})
 
-    # Select quotations using the provided DSPy module
-    quotations_response = module.forward(
+    # Process transcript using the enhanced quotation module
+    response = module.forward(
         research_objectives=research_objectives,
         transcript_chunk=transcript_chunk,
         contextualized_contents=contextualized_contents,
         theoretical_framework=theoretical_framework
     )
     
-    quotations = quotations_response.get("quotations", [])
-    initial_analysis = quotations_response.get("analysis", "")
-
     # Prepare the result dictionary
     result = {
         "transcript_chunk": transcript_chunk,
@@ -88,47 +84,17 @@ async def process_single_transcript(
         "retrieved_chunks": retrieved_chunks,
         "retrieved_chunks_count": len(retrieved_chunks),
         "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
-        "quotations": quotations,
-        "analysis": {},
-        "answer": {}
+        "transcript_info": response.get("transcript_info", {}),
+        "quotations": response.get("quotations", []),
+        "analysis": response.get("analysis", {}),
+        "answer": response.get("answer", {})
     }
 
-    # Determine if any quotations are selected
-    if not quotations:
-        logger.warning(f"No quotations selected for transcript chunk: '{transcript_chunk[:100]}...' Skipping theoretical analysis and synthesis.")
-        result["answer"] = "No relevant quotations were found to generate an answer."
-    else:
-        if theoretical_analysis_module:
-            # Perform theoretical analysis
-            theoretical_analysis_response = theoretical_analysis_module.forward(
-                quotations=quotations,
-                theoretical_framework=theoretical_framework,
-                research_objectives=research_objectives
-            )
+    if not result["quotations"]:
+        logger.warning(f"No quotations selected for transcript chunk: '{transcript_chunk[:100]}...'")
+        result["answer"] = {"answer": "No relevant quotations were found to generate an answer."}
 
-            # Update result with theoretical analysis
-            result["analysis"] = {
-                "initial_analysis": initial_analysis,
-                "patterns_identified": theoretical_analysis_response.get("patterns_identified", []),
-                "theoretical_interpretation": theoretical_analysis_response.get("theoretical_interpretation", ""),
-                "practical_implications": theoretical_analysis_response.get("practical_implications", "")
-            }
-
-            # Generate final answer
-            result["answer"] = {
-                "answer": theoretical_analysis_response.get("theoretical_interpretation", ""),
-                "theoretical_contribution": theoretical_analysis_response.get("research_alignment", "")
-            }
-        else:
-            # If no theoretical analysis module provided, use initial analysis
-            result["analysis"] = {
-                "initial_analysis": initial_analysis
-            }
-            result["answer"] = {
-                "answer": initial_analysis
-            }
-
-    logger.info(f"Selected {len(quotations)} quotations for transcript chunk.")
+    logger.info(f"Selected {len(result['quotations'])} quotations for transcript chunk.")
     return result
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
@@ -150,11 +116,10 @@ async def process_queries(
     k: int,
     output_file: str,
     optimized_program: dspy.Program,
-    module: dspy.Module,
-    theoretical_analysis_module: dspy.Module = None
+    module: dspy.Module
 ):
     """
-    Processes a list of transcript chunks to retrieve documents and select quotations.
+    Processes a list of transcript chunks to retrieve documents and perform enhanced quotation analysis.
     Saves results into a specified output file.
     """
     logger.info(f"Starting to process transcripts for output file '{output_file}'.")
@@ -168,8 +133,7 @@ async def process_queries(
                     db,
                     es_bm25,
                     k,
-                    module,
-                    theoretical_analysis_module
+                    module
                 )
                 if result:
                     all_results.append(result)
@@ -187,4 +151,3 @@ async def process_queries(
     except Exception as e:
         logger.error(f"Error processing transcripts: {e}", exc_info=True)
         raise
-
