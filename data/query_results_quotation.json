@@ -497,10 +497,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_86",
-                    "original_index": 86,
-                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                    "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
                 "score": 0.15
             }
@@ -511,7 +511,7 @@
             "Document_chunk_52",
             "Document_chunk_34",
             "Document_chunk_77",
-            "Document_chunk_86"
+            "Document_chunk_54"
         ],
         "quotations": [
             {
@@ -521,39 +521,39 @@
             },
             {
                 "quotation": "the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things.",
-                "classification": "Challenges",
+                "classification": "Economic Challenges",
                 "context": "Addressing financial constraints in implementing new ideas."
             },
             {
                 "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "classification": "Future Outlook",
-                "context": "Emphasizing the importance of sustainability for future food systems."
+                "classification": "Sustainability",
+                "context": "Emphasizing the importance of sustainability for future operations."
             },
             {
                 "quotation": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
                 "classification": "Market Dynamics",
-                "context": "Discussing strategies to enhance direct sales to customers."
+                "context": "Discussing strategies to enhance direct sales and customer relationships."
             },
             {
-                "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                "classification": "Economic Factors",
-                "context": "Highlighting the need for investment to achieve organizational goals."
+                "quotation": "The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable.",
+                "classification": "Future Outlook",
+                "context": "Reflecting on the overall stability of the agricultural sector."
             }
         ],
         "analysis": {
             "patterns_identified": [
                 "Need for growth and efficiency in operations",
                 "Financial constraints in implementing new ideas",
-                "Importance of sustainability for future food systems",
-                "Strategies to enhance direct sales to customers",
-                "Need for investment to achieve organizational goals"
+                "Importance of sustainability for future operations",
+                "Strategies to enhance direct sales and customer relationships",
+                "Instability in the agricultural sector"
             ],
-            "theoretical_interpretation": "The patterns identified reflect the core principles of Sustainable Development Theory, which advocates for a balanced approach to economic growth, environmental sustainability, and social equity. The emphasis on sustainability indicates a recognition of the long-term impacts of farming practices on the environment and society. The financial constraints highlight the challenges that organizations face in implementing sustainable practices, suggesting a need for innovative solutions that align economic viability with sustainability goals.",
-            "practical_implications": "The findings imply that for the farming organization to thrive, it must prioritize sustainable practices while addressing financial constraints. This may involve seeking alternative funding sources, investing in efficient technologies, and enhancing direct customer engagement to improve profitability. Additionally, fostering a culture of sustainability can lead to better long-term outcomes for both the organization and the broader community."
+            "theoretical_interpretation": "The patterns identified reflect the core principles of Sustainable Development Theory, which advocates for a holistic approach to development that considers economic, social, and environmental dimensions. The emphasis on sustainability indicates a recognition of the finite nature of resources and the necessity for practices that ensure long-term viability. The financial constraints mentioned highlight the tension between immediate economic needs and the investment required for sustainable practices, suggesting a need for innovative solutions that reconcile these aspects.",
+            "practical_implications": "The findings imply that farming organizations should prioritize sustainable practices while also seeking innovative funding solutions to overcome economic constraints. By enhancing direct customer relationships and streamlining operations, they can improve their market position and ensure long-term stability. Further research could explore specific strategies for integrating sustainability into operational frameworks without compromising financial viability."
         },
         "answer": {
-            "answer": "The patterns identified reflect the core principles of Sustainable Development Theory, which advocates for a balanced approach to economic growth, environmental sustainability, and social equity. The emphasis on sustainability indicates a recognition of the long-term impacts of farming practices on the environment and society. The financial constraints highlight the challenges that organizations face in implementing sustainable practices, suggesting a need for innovative solutions that align economic viability with sustainability goals.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by exploring the multifaceted aspects of the farming organization, including operations, challenges, strategies, and future outlook. By examining these elements through the lens of market dynamics, sustainability, and economic factors, the study provides a comprehensive understanding of how these components interact and influence the organization's overall performance."
+            "answer": "The patterns identified reflect the core principles of Sustainable Development Theory, which advocates for a holistic approach to development that considers economic, social, and environmental dimensions. The emphasis on sustainability indicates a recognition of the finite nature of resources and the necessity for practices that ensure long-term viability. The financial constraints mentioned highlight the tension between immediate economic needs and the investment required for sustainable practices, suggesting a need for innovative solutions that reconcile these aspects.",
+            "theoretical_contribution": "The analysis aligns with the research objectives by exploring the multifaceted challenges and strategies within the farming organization. It provides a comprehensive understanding of how market dynamics, sustainability, and economic factors influence operations and future planning, thereby addressing the core aims of the research."
         }
     },
     {
