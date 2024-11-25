@@ -1,187 +1,650 @@
-2024-11-24 11:53:46,728 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-24 11:53:46,729 [INFO] faiss.loader: Loading faiss.
-2024-11-24 11:53:46,786 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-24 11:53:46,909 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 01:04:24,840 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:04:24,841 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:04:24,914 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:04:25,039 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-24 11:53:46,909 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-24 11:53:46,913 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-24 11:53:49,000 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-24 11:53:49,000 [INFO] __main__: Configuring DSPy Language Model
-2024-11-24 11:53:49,000 [INFO] __main__: Loading keyword training data from 'data/keyword_training_data.csv'
-2024-11-24 11:53:49,677 [INFO] __main__: Loading quotation training data from 'data/quotation_training_data.csv'
-2024-11-24 11:53:49,841 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-24 11:53:49,841 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-24 11:53:49,848 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-24 11:53:52,114 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-24 11:53:52,114 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-24 11:53:52,193 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-24 11:53:52,221 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-24 11:53:52,221 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-24 11:53:52,221 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
-2024-11-24 11:53:52,222 [INFO] __main__: Validating standard queries
-2024-11-24 11:53:52,222 [INFO] __main__: Validating keyword queries
-2024-11-24 11:53:52,222 [INFO] __main__: Initializing keyword extraction optimizer
-2024-11-24 11:53:52,780 [INFO] __main__: Keyword optimizer initialized successfully
-2024-11-24 11:53:52,780 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-24 11:53:53,919 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-24 11:53:53,919 [INFO] __main__: Initializing SelectKeywordModule
-2024-11-24 11:53:53,921 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
-2024-11-24 11:53:53,921 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-24 11:53:53,925 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-24 11:53:53,925 [INFO] __main__: Processing standard queries with SelectQuotationModule
-2024-11-24 11:53:58,676 [INFO] __main__: Processing keyword queries with SelectKeywordModule
-2024-11-24 11:56:48,086 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-24 11:56:48,088 [INFO] __main__: Evaluation completed successfully.
-2024-11-24 11:56:48,088 [INFO] __main__: All operations completed successfully.
-2024-11-24 12:05:32,267 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-24 12:05:32,267 [INFO] faiss.loader: Loading faiss.
-2024-11-24 12:05:32,333 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-24 12:05:32,443 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 01:04:25,040 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:04:25,043 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:04:27,130 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:04:27,130 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:04:27,130 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:04:27,131 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:04:27,139 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:04:29,757 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:04:29,757 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:04:29,839 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:04:29,863 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:04:29,863 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:04:29,864 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:04:29,865 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:04:30,628 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:04:30,628 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:04:30,943 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:04:30,943 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:04:30,945 [INFO] __main__: SelectKeywordModule initialized successfully
+2024-11-25 01:04:30,945 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:04:30,947 [INFO] __main__: SelectQuotationModule initialized successfully
+2024-11-25 01:04:30,947 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:04:30,948 [INFO] __main__: TheoreticalAnalysisModule initialized successfully
+2024-11-25 01:04:30,948 [INFO] __main__: Processing standard queries
+2024-11-25 01:04:30,948 [INFO] __main__: Processing 8 queries...
+2024-11-25 01:04:34,068 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:04:36,542 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:04:39,121 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:05:43,535 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:05:46,499 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:05:48,546 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:05:58,478 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:06:00,961 [ERROR] __main__: Error processing query: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 127, in process_queries
+    answer = generate_answer_dspy(
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_answer_dspy() got an unexpected keyword argument 'research_objectives'
+2024-11-25 01:06:00,961 [INFO] __main__: Processed 0 queries with a total of 0 keyword analyses
+2024-11-25 01:06:00,963 [INFO] __main__: Results successfully saved to data/query_results_quotation.json
+2024-11-25 01:06:00,963 [INFO] __main__: Processing keyword queries
+2024-11-25 01:06:00,963 [INFO] __main__: Processing 8 queries...
+2024-11-25 01:06:00,963 [INFO] __main__: Found 3 quotations to process for keyword extraction
+2024-11-25 01:07:01,905 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:07:01,906 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:07:01,988 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:07:02,117 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-24 12:05:32,443 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-24 12:05:32,446 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-24 12:05:34,740 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-24 12:05:34,740 [INFO] __main__: Configuring DSPy Language Model
-2024-11-24 12:05:34,740 [INFO] __main__: Loading keyword training data from 'data/keyword_training_data.csv'
-2024-11-24 12:05:35,382 [INFO] __main__: Loading quotation training data from 'data/quotation_training_data.csv'
-2024-11-24 12:05:35,553 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-24 12:05:35,554 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-24 12:05:35,568 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-24 12:05:35,570 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-24 12:05:35,570 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-24 12:05:35,652 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-24 12:05:35,695 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-24 12:05:35,695 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-24 12:05:35,696 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
-2024-11-24 12:05:35,696 [ERROR] __main__: No keyword queries found to process.
-2024-11-24 12:05:35,696 [INFO] __main__: Validating standard queries
-2024-11-24 12:05:35,696 [INFO] __main__: Validating keyword queries
-2024-11-24 12:05:35,696 [INFO] __main__: Initializing keyword extraction optimizer
-2024-11-24 12:05:36,260 [INFO] __main__: Keyword optimizer initialized successfully
-2024-11-24 12:05:36,260 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-24 12:05:37,296 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-24 12:05:37,296 [INFO] __main__: Initializing SelectKeywordModule
-2024-11-24 12:05:37,297 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
-2024-11-24 12:05:37,297 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-24 12:05:37,301 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-24 12:05:37,301 [INFO] __main__: Processing standard queries with SelectQuotationModule
-2024-11-24 12:05:37,980 [INFO] __main__: Processing keyword queries with SelectKeywordModule
-2024-11-24 12:05:37,980 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-24 12:05:37,980 [INFO] __main__: Evaluation completed successfully.
-2024-11-24 12:05:37,980 [INFO] __main__: All operations completed successfully.
-2024-11-24 12:12:21,619 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-24 12:12:21,619 [INFO] faiss.loader: Loading faiss.
-2024-11-24 12:12:21,690 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-24 12:12:21,810 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 01:07:02,117 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:07:02,121 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:07:04,428 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:07:04,428 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:07:04,428 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:07:04,429 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:07:04,436 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:07:04,437 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:07:04,437 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:07:04,514 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:07:04,545 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:07:04,545 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:07:04,546 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:07:04,546 [ERROR] __main__: No keyword queries found to process.
+2024-11-25 01:07:04,546 [INFO] __main__: Validating standard queries
+2024-11-25 01:07:04,546 [INFO] __main__: Validating keyword queries
+2024-11-25 01:07:04,546 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:07:05,404 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:07:05,404 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:07:05,755 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:07:05,755 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:07:05,759 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:07:05,759 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:07:05,762 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:07:05,762 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:07:05,763 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:07:05,763 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:08:31,200 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:08:31,200 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:08:31,201 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:08:31,201 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:24:14,118 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:24:14,119 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:24:14,188 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:24:14,334 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-24 12:12:21,811 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-24 12:12:21,813 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-24 12:12:23,808 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-24 12:12:23,808 [INFO] __main__: Configuring DSPy Language Model
-2024-11-24 12:12:23,808 [INFO] __main__: Loading keyword training data from 'data/keyword_training_data.csv'
-2024-11-24 12:12:24,458 [INFO] __main__: Loading quotation training data from 'data/quotation_training_data.csv'
-2024-11-24 12:12:24,619 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-24 12:12:24,619 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-24 12:12:24,632 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-24 12:12:24,634 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-24 12:12:24,634 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-24 12:12:24,712 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-24 12:12:24,735 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-24 12:12:24,736 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-24 12:12:24,736 [INFO] __main__: Loading keyword queries from 'data/query_results_keyword.json'
-2024-11-24 12:12:24,736 [ERROR] __main__: No keyword queries found to process.
-2024-11-24 12:12:24,737 [INFO] __main__: Validating standard queries
-2024-11-24 12:12:24,737 [INFO] __main__: Validating keyword queries
-2024-11-24 12:12:24,737 [INFO] __main__: Initializing keyword extraction optimizer
-2024-11-24 12:12:25,347 [INFO] __main__: Keyword optimizer initialized successfully
-2024-11-24 12:12:25,347 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-24 12:12:26,382 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-24 12:12:26,382 [INFO] __main__: Initializing SelectKeywordModule
-2024-11-24 12:12:26,384 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
-2024-11-24 12:12:26,384 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-24 12:12:26,388 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-24 12:12:26,388 [INFO] __main__: Processing standard queries with SelectQuotationModule
-2024-11-24 12:12:27,125 [INFO] __main__: Processing keyword queries with SelectKeywordModule
-2024-11-24 12:12:27,125 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-24 12:12:27,126 [INFO] __main__: Evaluation completed successfully.
-2024-11-24 12:12:27,126 [INFO] __main__: All operations completed successfully.
-2024-11-24 12:12:41,751 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-24 12:12:41,751 [INFO] faiss.loader: Loading faiss.
-2024-11-24 12:12:41,802 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-24 12:12:41,885 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 01:24:14,334 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:34:58,139 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:34:58,139 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:34:58,216 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:34:58,298 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-24 12:12:41,885 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-24 12:12:41,887 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-24 12:12:43,692 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-24 12:12:43,692 [INFO] __main__: Configuring DSPy Language Model
-2024-11-24 12:12:43,692 [INFO] __main__: Loading keyword training data from 'data/keyword_training_data.csv'
-2024-11-24 12:12:44,312 [INFO] __main__: Loading quotation training data from 'data/quotation_training_data.csv'
-2024-11-24 12:12:44,478 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-24 12:12:44,479 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-24 12:12:44,494 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-24 12:12:44,495 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-24 12:12:44,495 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-24 12:12:44,562 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-24 12:12:44,582 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-24 12:12:44,582 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-24 12:12:44,583 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
-2024-11-24 12:12:44,584 [INFO] __main__: Validating standard queries
-2024-11-24 12:12:44,584 [INFO] __main__: Validating keyword queries
-2024-11-24 12:12:44,584 [INFO] __main__: Initializing keyword extraction optimizer
-2024-11-24 12:12:45,160 [INFO] __main__: Keyword optimizer initialized successfully
-2024-11-24 12:12:45,160 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-24 12:12:46,277 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-24 12:12:46,277 [INFO] __main__: Initializing SelectKeywordModule
-2024-11-24 12:12:46,280 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
-2024-11-24 12:12:46,280 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-24 12:12:46,283 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-24 12:12:46,283 [INFO] __main__: Processing standard queries with SelectQuotationModule
-2024-11-24 12:12:46,900 [INFO] __main__: Processing keyword queries with SelectKeywordModule
-2024-11-24 12:13:13,124 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-24 12:13:13,127 [INFO] __main__: Evaluation completed successfully.
-2024-11-24 12:13:13,127 [INFO] __main__: All operations completed successfully.
-2024-11-24 12:14:40,242 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-11-24 12:14:40,242 [INFO] faiss.loader: Loading faiss.
-2024-11-24 12:14:40,304 [INFO] faiss.loader: Successfully loaded faiss.
-2024-11-24 12:14:40,397 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-11-25 01:34:58,298 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:34:58,304 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:35:00,587 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:35:00,587 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:35:00,587 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:35:00,587 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:35:00,593 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:35:00,594 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:35:00,594 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:35:00,704 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:35:00,739 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:35:00,739 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:35:00,739 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:35:00,740 [INFO] __main__: Validating standard queries
+2024-11-25 01:35:00,740 [INFO] __main__: Validating keyword queries
+2024-11-25 01:35:00,740 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:35:01,537 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:35:01,537 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:35:01,859 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:35:01,859 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:35:01,861 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:35:01,861 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:35:01,863 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:35:01,863 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:35:01,863 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:35:01,863 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:35:27,115 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:35:27,117 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:35:27,117 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:35:27,117 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:38:19,703 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:38:19,703 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:38:19,765 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:38:19,886 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-11-24 12:14:40,397 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-11-24 12:14:40,400 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-11-24 12:14:42,401 [DEBUG] __main__: Entering run_pipeline method.
-2024-11-24 12:14:42,401 [INFO] __main__: Configuring DSPy Language Model
-2024-11-24 12:14:42,401 [INFO] __main__: Loading keyword training data from 'data/keyword_training_data.csv'
-2024-11-24 12:14:43,053 [INFO] __main__: Loading quotation training data from 'data/quotation_training_data.csv'
-2024-11-24 12:14:43,218 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-11-24 12:14:43,219 [INFO] __main__: Initializing ContextualVectorDB
-2024-11-24 12:14:43,233 [INFO] __main__: Loading data into ContextualVectorDB
-2024-11-24 12:14:43,235 [INFO] __main__: Creating Elasticsearch BM25 index
-2024-11-24 12:14:43,235 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-11-24 12:14:43,310 [INFO] __main__: ElasticsearchBM25 instance created.
-2024-11-24 12:14:43,331 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
-2024-11-24 12:14:43,331 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-11-24 12:14:43,331 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
-2024-11-24 12:14:43,332 [INFO] __main__: Validating standard queries
-2024-11-24 12:14:43,332 [INFO] __main__: Validating keyword queries
-2024-11-24 12:14:43,332 [INFO] __main__: Initializing keyword extraction optimizer
-2024-11-24 12:14:43,923 [INFO] __main__: Keyword optimizer initialized successfully
-2024-11-24 12:14:43,923 [INFO] __main__: Initializing quotation selection optimizer
-2024-11-24 12:14:45,030 [INFO] __main__: Quotation optimizer initialized successfully
-2024-11-24 12:14:45,030 [INFO] __main__: Initializing SelectKeywordModule
-2024-11-24 12:14:45,032 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
-2024-11-24 12:14:45,032 [INFO] __main__: Initializing SelectQuotationModule
-2024-11-24 12:14:45,036 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
-2024-11-24 12:14:45,036 [INFO] __main__: Processing standard queries with SelectQuotationModule
-2024-11-24 12:14:45,625 [INFO] __main__: Processing keyword queries with SelectKeywordModule
-2024-11-24 12:14:57,601 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-11-24 12:14:57,602 [INFO] __main__: Evaluation completed successfully.
-2024-11-24 12:14:57,602 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:38:19,886 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:38:19,889 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:38:21,865 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:38:21,865 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:38:21,865 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:38:21,865 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:38:21,871 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:38:21,873 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:38:21,873 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:38:22,028 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:38:22,058 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:38:22,058 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:38:22,058 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:38:22,059 [INFO] __main__: Validating standard queries
+2024-11-25 01:38:22,059 [INFO] __main__: Validating keyword queries
+2024-11-25 01:38:22,059 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:38:22,893 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:38:22,893 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:38:23,224 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:38:23,224 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:38:23,226 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:38:23,226 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:38:23,228 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:38:23,228 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:38:23,228 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:38:23,229 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:38:23,763 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:38:23,764 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:38:23,764 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:38:23,764 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:39:53,593 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:39:53,593 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:39:53,667 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:39:53,755 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 01:39:53,756 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:39:53,758 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:39:55,739 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:39:55,739 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:39:55,739 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:39:55,739 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:39:55,746 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:39:58,350 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:39:58,351 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:39:58,426 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:39:58,448 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:39:58,448 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:39:58,448 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:39:58,449 [INFO] __main__: Validating standard queries
+2024-11-25 01:39:58,449 [INFO] __main__: Validating keyword queries
+2024-11-25 01:39:58,449 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:39:59,238 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:39:59,238 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:39:59,552 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:39:59,552 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:39:59,554 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:39:59,554 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:39:59,556 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:39:59,556 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:39:59,557 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:39:59,557 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:40:03,491 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:40:03,492 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:40:03,493 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:40:03,493 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:44:04,354 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:44:04,355 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:44:04,422 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:44:04,546 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 01:44:04,547 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:44:04,549 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:44:06,576 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:44:06,576 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:44:06,576 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:44:06,577 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:44:06,583 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:44:06,585 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:44:06,585 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:44:06,671 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:44:06,702 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:44:06,702 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:44:06,703 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:44:06,704 [INFO] __main__: Validating standard queries
+2024-11-25 01:44:06,704 [INFO] __main__: Validating keyword queries
+2024-11-25 01:44:06,704 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:44:07,524 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:44:07,524 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:44:07,848 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:44:07,848 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:44:07,850 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:44:07,850 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:44:07,852 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:44:07,852 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:44:07,853 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:44:07,853 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:44:08,450 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:44:08,451 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:44:08,452 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:44:08,452 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:46:03,265 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:46:03,266 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:46:03,328 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:46:03,457 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 01:46:03,457 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:46:03,461 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:46:05,457 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:46:05,457 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:46:05,457 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:46:05,458 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:46:05,465 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:46:05,466 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:46:05,466 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:46:05,563 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:46:05,591 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:46:05,591 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:46:05,592 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:46:05,592 [INFO] __main__: Validating standard queries
+2024-11-25 01:46:05,592 [INFO] __main__: Validating keyword queries
+2024-11-25 01:46:05,592 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:46:06,438 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:46:06,438 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:46:06,764 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:46:06,764 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:46:06,766 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:46:06,766 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:46:06,768 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:46:06,768 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:46:06,769 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:46:06,769 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:46:07,473 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:46:07,474 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:46:07,474 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:46:07,474 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:48:12,350 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:48:12,351 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:48:12,411 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:48:12,533 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 01:48:12,533 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:48:12,536 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:48:14,548 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:48:14,548 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:48:14,548 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:48:14,549 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:48:14,556 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:48:14,557 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:48:14,557 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:48:14,632 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:48:14,657 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:48:14,657 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:48:14,657 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:48:14,658 [INFO] __main__: Validating standard queries
+2024-11-25 01:48:14,658 [INFO] __main__: Validating keyword queries
+2024-11-25 01:48:14,658 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:48:15,505 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:48:15,505 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:48:15,824 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:48:15,824 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:48:15,826 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:48:15,826 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:48:15,828 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:48:15,828 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:48:15,829 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:48:15,829 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:48:16,550 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:48:16,551 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:48:16,552 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:48:16,552 [INFO] __main__: All operations completed successfully.
+2024-11-25 01:56:14,482 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 01:56:14,483 [INFO] faiss.loader: Loading faiss.
+2024-11-25 01:56:14,552 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 01:56:14,696 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 01:56:14,696 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 01:56:14,701 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 01:56:16,752 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 01:56:16,752 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 01:56:16,752 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 01:56:16,753 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 01:56:16,759 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 01:56:16,760 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 01:56:16,760 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 01:56:16,837 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 01:56:16,862 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 01:56:16,862 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 01:56:16,862 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 01:56:16,863 [INFO] __main__: Validating standard queries
+2024-11-25 01:56:16,863 [INFO] __main__: Validating keyword queries
+2024-11-25 01:56:16,863 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 01:56:17,697 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 01:56:17,698 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 01:56:18,006 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 01:56:18,006 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 01:56:18,008 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 01:56:18,008 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 01:56:18,010 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 01:56:18,011 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 01:56:18,011 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 01:56:18,011 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 01:56:18,706 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 01:56:18,706 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 01:56:18,707 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 01:56:18,707 [INFO] __main__: All operations completed successfully.
+2024-11-25 02:03:03,842 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:03:03,842 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:03:03,910 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:03:04,078 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:03:04,078 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:03:04,087 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:03:06,182 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:03:06,182 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:03:06,183 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:03:06,183 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:03:06,191 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:03:06,192 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:03:06,192 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:03:06,283 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:03:06,312 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:03:06,312 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:03:06,312 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:03:06,313 [INFO] __main__: Validating standard queries
+2024-11-25 02:03:06,313 [INFO] __main__: Validating keyword queries
+2024-11-25 02:03:06,313 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:03:07,160 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:03:07,160 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:03:07,505 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:03:07,505 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:03:07,507 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:03:07,507 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:03:07,511 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:03:07,511 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:03:07,512 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:03:07,512 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:03:08,474 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 02:03:08,474 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 02:03:08,475 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 02:03:08,475 [INFO] __main__: All operations completed successfully.
+2024-11-25 02:09:09,875 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:09:09,876 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:09:10,007 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:09:10,213 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:09:10,213 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:09:10,221 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:09:13,055 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:09:13,055 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:09:13,055 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:09:13,056 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:09:13,063 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:09:13,065 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:09:13,065 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:09:13,144 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:09:13,178 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:09:13,178 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:09:13,178 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:09:13,179 [INFO] __main__: Validating standard queries
+2024-11-25 02:09:13,179 [INFO] __main__: Validating keyword queries
+2024-11-25 02:09:13,179 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:09:13,983 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:09:13,983 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:09:14,310 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:09:14,310 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:09:14,312 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:09:14,313 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:09:14,315 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:09:14,315 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:09:14,316 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:09:14,316 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:09:15,080 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 02:09:15,081 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 02:09:15,081 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 02:09:15,081 [INFO] __main__: All operations completed successfully.
+2024-11-25 02:12:16,279 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:12:16,280 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:12:16,344 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:12:16,474 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:12:16,474 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:12:16,478 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:12:18,464 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:12:18,464 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:12:18,464 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:12:18,465 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:12:18,471 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:12:21,315 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:12:21,315 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:12:21,394 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:12:21,442 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:12:21,442 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:12:21,443 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:12:21,443 [INFO] __main__: Validating standard queries
+2024-11-25 02:12:21,443 [INFO] __main__: Validating keyword queries
+2024-11-25 02:12:21,443 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:12:22,230 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:12:22,230 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:12:22,554 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:12:22,554 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:12:22,556 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:12:22,556 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:12:22,558 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:12:22,558 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:12:22,558 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:12:22,558 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:12:30,414 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 02:12:30,415 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 02:12:30,415 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 02:12:30,415 [INFO] __main__: All operations completed successfully.
+2024-11-25 02:13:58,120 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:13:58,120 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:13:58,186 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:13:58,288 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:13:58,288 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:13:58,290 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:14:00,328 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:14:00,328 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:14:00,328 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:14:00,328 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:14:00,335 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:14:00,336 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:14:00,336 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:14:00,445 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:14:00,476 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:14:00,476 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:14:00,476 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:14:00,477 [INFO] __main__: Validating standard queries
+2024-11-25 02:14:00,477 [INFO] __main__: Validating keyword queries
+2024-11-25 02:14:00,477 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:14:01,303 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:14:01,303 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:14:01,650 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:14:01,650 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:14:01,652 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:14:01,652 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:14:01,655 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:14:01,655 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:14:01,655 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:14:01,655 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:14:01,655 [ERROR] __main__: Unexpected error in run_pipeline: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 243, in run_pipeline
+    await process_queries(
+TypeError: object dict can't be used in 'await' expression
+2024-11-25 02:14:27,580 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:14:27,580 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:14:27,649 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:14:27,764 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:14:27,764 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:14:27,766 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:14:29,735 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:14:29,735 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:14:29,735 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:14:29,736 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:14:29,743 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:14:29,744 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:14:29,745 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:14:29,823 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:14:29,845 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:14:29,845 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:14:29,846 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:14:29,846 [INFO] __main__: Validating standard queries
+2024-11-25 02:14:29,846 [INFO] __main__: Validating keyword queries
+2024-11-25 02:14:29,846 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:14:30,648 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:14:30,648 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:14:30,965 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:14:30,965 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:14:30,967 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:14:30,967 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:14:30,969 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:14:30,969 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:14:30,969 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:14:30,970 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:14:30,970 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 02:14:30,971 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 02:14:30,971 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 02:14:30,971 [INFO] __main__: All operations completed successfully.
+2024-11-25 02:15:04,724 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:15:04,724 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:15:04,772 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:15:04,852 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:15:04,852 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:15:04,854 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:15:06,630 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:15:06,630 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:15:06,630 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:15:06,630 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:15:06,638 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:15:06,639 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:15:06,639 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:15:06,705 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:15:06,731 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:15:06,731 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:15:06,732 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:15:06,732 [INFO] __main__: Validating standard queries
+2024-11-25 02:15:06,732 [INFO] __main__: Validating keyword queries
+2024-11-25 02:15:06,732 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:15:07,517 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:15:07,517 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:15:07,854 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:15:07,855 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:15:07,856 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:15:07,856 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:15:07,858 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:15:07,858 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:15:07,859 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:15:07,859 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:15:07,860 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 02:15:07,860 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 02:15:07,861 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 02:15:07,861 [INFO] __main__: All operations completed successfully.
+2024-11-25 02:23:19,993 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-25 02:23:19,994 [INFO] faiss.loader: Loading faiss.
+2024-11-25 02:23:20,059 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-25 02:23:20,185 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-25 02:23:20,185 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-25 02:23:20,189 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-25 02:23:22,220 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-25 02:23:22,220 [INFO] __main__: Configuring DSPy Language Model
+2024-11-25 02:23:22,220 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-25 02:23:22,220 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-25 02:23:22,227 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-25 02:23:22,229 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-25 02:23:22,229 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-25 02:23:22,319 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-25 02:23:22,347 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-25 02:23:22,348 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-25 02:23:22,348 [INFO] __main__: Loading keyword queries from 'data/query_results_quotation.json'
+2024-11-25 02:23:22,348 [INFO] __main__: Validating standard queries
+2024-11-25 02:23:22,348 [INFO] __main__: Validating keyword queries
+2024-11-25 02:23:22,348 [INFO] __main__: Initializing keyword extraction optimizer
+2024-11-25 02:23:23,151 [INFO] __main__: Keyword optimizer initialized successfully
+2024-11-25 02:23:23,152 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-25 02:23:23,487 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-25 02:23:23,487 [INFO] __main__: Initializing SelectKeywordModule
+2024-11-25 02:23:23,489 [INFO] __main__: SelectKeywordModule initialized successfully with assertions activated.
+2024-11-25 02:23:23,489 [INFO] __main__: Initializing SelectQuotationModule
+2024-11-25 02:23:23,491 [INFO] __main__: SelectQuotationModule initialized successfully with assertions activated.
+2024-11-25 02:23:23,491 [INFO] __main__: Initializing TheoreticalAnalysisModule
+2024-11-25 02:23:23,492 [INFO] __main__: TheoreticalAnalysisModule initialized successfully.
+2024-11-25 02:23:23,492 [INFO] __main__: Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+2024-11-25 02:23:24,268 [INFO] __main__: Processing keyword queries with SelectKeywordModule
+2024-11-25 02:24:34,658 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-25 02:24:34,660 [INFO] __main__: Evaluation completed successfully.
+2024-11-25 02:24:34,660 [INFO] __main__: All operations completed successfully.
