@@ -54,19 +54,34 @@ def clear_pickle_files(data_dir: str, logger: logging.Logger) -> None:
 def clear_temporary_files(data_dir: str, logger: logging.Logger) -> None:
     """Remove temporary files like .pyc, .pyo, and __pycache__ directories."""
     try:
-        for root, dirs, files in os.walk(data_dir):
-            # Remove __pycache__ directories
+        # First, collect all paths to remove
+        cache_dirs = []
+        compiled_files = []
+        
+        for root, dirs, files in os.walk(data_dir, topdown=True):
+            # Collect __pycache__ directories
             if "__pycache__" in dirs:
                 cache_dir = os.path.join(root, "__pycache__")
-                shutil.rmtree(cache_dir, ignore_errors=True)
-                logger.info(f"Removed __pycache__ directory: {cache_dir}")
+                cache_dirs.append(cache_dir)
+                dirs.remove("__pycache__")  # Prevent recursing into __pycache__
             
-            # Remove .pyc and .pyo files
+            # Collect .pyc and .pyo files
             for file in files:
                 if file.endswith((".pyc", ".pyo")):
                     file_path = os.path.join(root, file)
-                    os.remove(file_path)
-                    logger.info(f"Removed compiled Python file: {file_path}")
+                    compiled_files.append(file_path)
+        
+        # Remove collected paths
+        for cache_dir in cache_dirs:
+            if os.path.exists(cache_dir):  # Check again in case it was already removed
+                shutil.rmtree(cache_dir, ignore_errors=True)
+                logger.info(f"Removed __pycache__ directory: {cache_dir}")
+        
+        for file_path in compiled_files:
+            if os.path.exists(file_path):  # Check again in case it was already removed
+                os.remove(file_path)
+                logger.info(f"Removed compiled Python file: {file_path}")
+                
     except Exception as e:
         logger.error(f"Error clearing temporary files: {e}")
 
@@ -114,6 +129,8 @@ def clear_all_cache(base_dir: Optional[str] = None) -> None:
     if base_dir is None:
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
+    logger.info(f"Starting cache clearing process in: {base_dir}")
+    
     # Define paths relative to base directory
     data_dir = os.path.join(base_dir, "data")
     cache_dir = os.path.join(base_dir, "cache")
@@ -139,7 +156,7 @@ def clear_all_cache(base_dir: Optional[str] = None) -> None:
     # 3. Clear pickle files
     clear_pickle_files(data_dir, logger)
     
-    # 4. Clear temporary Python files
+    # 4. Clear temporary Python files from the entire project directory
     clear_temporary_files(base_dir, logger)
     
     # 5. Clear model cache
