@@ -1,4 +1,3 @@
-# processing/query_processor.py
 import logging
 from typing import List, Dict, Any
 import json
@@ -37,6 +36,7 @@ def retrieve_documents(transcript_chunk: str, db: ContextualVectorDB, es_bm25: E
     logger.debug(f"Multi-stage retrieval returned {len(final_results)} results.")
     return final_results
 
+
 @handle_exceptions
 async def process_single_transcript(
     transcript_item: Dict[str, Any],
@@ -60,12 +60,18 @@ async def process_single_transcript(
     retrieved_chunks = retrieve_documents(transcript_chunk, db, es_bm25, k)
     logger.info(f"Total chunks retrieved for transcript chunk: {len(retrieved_chunks)}")
 
-    # Extract contextualized contents from retrieved documents
-    contextualized_contents = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
+    # Filter chunks based on score >= 0.7
+    filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
+    logger.info(f"Chunks after filtering by score >= 0.7: {len(filtered_chunks)}")
+
+    # Extract contextualized contents from filtered chunks
+    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     # Get research objectives and theoretical framework
-    research_objectives = transcript_item.get('research_objectives', 
-        'Extract relevant quotations based on the provided objectives.')
+    research_objectives = transcript_item.get(
+        'research_objectives',
+        'Extract relevant quotations based on the provided objectives.'
+    )
     theoretical_framework = transcript_item.get('theoretical_framework', {})
 
     # Process transcript using the enhanced quotation module
@@ -78,13 +84,16 @@ async def process_single_transcript(
     
     # Prepare the result dictionary
     result = {
-        "transcript_chunk": transcript_chunk,
-        "research_objectives": research_objectives,
-        "theoretical_framework": theoretical_framework,
+        "transcript_info": response.get("transcript_info", {
+            "transcript_chunk": transcript_chunk,
+            "research_objectives": research_objectives,
+            "theoretical_framework": theoretical_framework
+        }),
         "retrieved_chunks": retrieved_chunks,
         "retrieved_chunks_count": len(retrieved_chunks),
-        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
-        "transcript_info": response.get("transcript_info", {}),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "quotations": response.get("quotations", []),
         "analysis": response.get("analysis", {}),
         "answer": response.get("answer", {})
@@ -96,6 +105,7 @@ async def process_single_transcript(
 
     logger.info(f"Selected {len(result['quotations'])} quotations for transcript chunk.")
     return result
+
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
