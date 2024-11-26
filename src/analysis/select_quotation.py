@@ -39,6 +39,9 @@ class EnhancedQuotationSignature(dspy.Signature):
     quotations: List[Dict[str, Any]] = dspy.OutputField(
         desc="List of selected quotations with their classifications and analyses"
     )
+    creswell_category: str = dspy.OutputField(
+        desc="Creswell's classification category for the quotation"
+    )
     analysis: Dict[str, Any] = dspy.OutputField(
         desc="Comprehensive analysis including patterns and theoretical interpretation"
     )
