@@ -1,62 +1,186 @@
 input,output
 "
-You are conducting thematic analysis following Braun and Clarke's (2006) approach.
+You are conducting a thematic analysis using keyword extraction based on the 6Rs framework.
 
 Research Objectives:
-To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.
+To analyze the development, market positioning, user engagement, and competitive strategies of a tech startup in the project management software industry, emphasizing innovation through AI integration.
 
 Theoretical Framework:
-Constructivist
+Innovation Diffusion Theory, Technology Acceptance Model
 
-Transcript Chunks:
-  - Chunk ID: Document_chunk_1
-    Content: When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.
-    Score: 0.8
-  - Chunk ID: Document_chunk_17
-    Content: Initially, we had to go through other channels outside of [org name], which meant a significant portion of the profits was absorbed by the middleman. Our primary goal is to eliminate this intermediary, ensuring that all the money that would typically go to them is redirected back to the farmers. We are not focused on generating profit for ourselves; instead, our mission is to ensure that the financial benefits are passed directly to the farmers. This is a fundamental issue in the agricultural industry—money is not reaching the farmers as it should. The lack of financial return to farmers is a critical problem we aim to address through our organization.
-    Score: 0.1
-  - Chunk ID: Document_chunk_68
-    Content: The COVID-19 pandemic has had a profound impact on [org name], as highlighted by the sudden disruption of contracts with customers. With the food sector, particularly restaurants, ceasing operations overnight, the organization found itself unable to move the required tonnage of potatoes. This situation left a significant amount of produce without a market, illustrating the precarious nature of the agricultural supply chain. The speaker notes that approximately one third of the potato industry is dependent on this sector, underscoring the scale of the challenge faced by [org name] and the urgency to adapt to these unforeseen circumstances.
-    Score: 0.06666666666666667
-  - Chunk ID: Document_chunk_34
-    Content: The speaker envisions a future where sustainability is paramount in the food system. They aim to expand their organization by bringing more farmers on board, thereby increasing the collective benefits for all members. A key initiative is the introduction of a 7.5kg bag line, which represents a step towards getting closer to the customer and reducing dependency on factories. This approach is intended to create a more direct supply chain, ultimately allowing for a process that delivers produce straight from the farm to the end customer. By doing so, they hope to enhance profitability for farmers and ensure that the financial benefits of their work are maximized.
-    Score: 0.05
-  - Chunk ID: Document_chunk_24
-    Content: In terms of collaborators, the organization currently works with three direct farms that supply potatoes, along with other contractual farms that guarantee their produce to the group. This collaborative network is essential for maintaining a consistent supply of potatoes to major factories such as Walkers, McCains, and Seabrooks, as well as providing pre-packaged products for supermarkets like Morrison’s. The organization’s role is to bypass the traditional middle man, ensuring that the profits from sales are directed back to the farmers, thereby supporting their livelihoods and promoting a more sustainable agricultural model.
-    Score: 0.04000000000000001
+Quotation:
+We integrate AI-driven analytics to provide actionable insights and automate routine tasks.
 
-Task: Select quotations that align with the research objectives and theoretical framework while following these criteria:
+Contextual Information:
+This quotation highlights the company's use of AI to differentiate its product in a competitive market.
 
-For each quotation, provide:
+Task:
+**Extract meaningful keywords exclusively from the Quotation provided above using the 6Rs framework.**
+Use the Contextual Information only to better understand the Quotation.
 
-1. quotation_data:
+Ensure that the keywords satisfy the following criteria:
+1. Realness: Keywords that reflect the genuine experiences and perceptions of the participants.
+2. Richness: Keywords that are rich in meaning and provide a detailed understanding of the phenomenon.
+3. Repetition: Keywords that frequently occur in the data, indicating their significance.
+4. Rationale: Keywords connected to the theoretical or philosophical foundation of the research.
+5. Repartee: Keywords that are insightful, evocative, and stimulate further discussion.
+6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.
+
+Return the list of extracted keywords with their types and contexts in valid JSON format:
 {
-    ""quotation"": str,                    # The exact quotation text
-    ""context"": str,                  # Surrounding context from interview
-    ""type"": str,                     # 'discrete' (brief diverse perspectives)
-                                    # 'embedded' (transition phrases) 
-                                    # 'longer' (complex understanding)
-    ""function"": str,                 # 'evidence' | 'explanation' | 'illustration' | 
-                                    # 'impression' | 'representation'
-    ""pattern_strength"": float,       # 0.0-1.0 indicating robustness of pattern
-    ""theoretical_alignment"": float   # 0.0-1.0 alignment with framework
-}
+  'keywords': [
+    {
+      'keywords_to_use_coding': 'string',
+      'type': 'string',
+      'context': 'string'
+    }
+  ]
+}","{
+  ""keywords"": [
+    {
+      ""keywords_to_use_coding"": ""AI-driven analytics"",
+      ""type"": ""Regal"",
+      ""context"": ""Central to understanding the company's innovation strategy and differentiation.""
+    },
+    {
+      ""keywords_to_use_coding"": ""actionable insights"",
+      ""type"": ""Richness"",
+      ""context"": ""Reflects the meaningful outcomes provided by AI integration.""
+    },
+    {
+      ""keywords_to_use_coding"": ""automate routine tasks"",
+      ""type"": ""Realness"",
+      ""context"": ""Indicates practical applications and user-focused benefits of AI.""
+    }
+  ]
+}"
+"
+You are conducting a thematic analysis using keyword extraction based on the 6Rs framework.
 
-2. analysis:
+Research Objectives:
+To analyze the development, market positioning, user engagement, and competitive strategies of a tech startup in the project management software industry, emphasizing innovation through AI integration.
+
+Theoretical Framework:
+Innovation Diffusion Theory, Technology Acceptance Model
+
+Quotation:
+Our goal is to simplify project management and empower teams with intelligent tools that enhance productivity and decision-making.
+
+Contextual Information:
+This reflects the company's overarching mission to improve team efficiency through smart technology.
+
+Task:
+**Extract meaningful keywords exclusively from the Quotation provided above using the 6Rs framework.**
+Use the Contextual Information only to better understand the Quotation.
+
+Ensure that the keywords satisfy the following criteria:
+1. Realness: Keywords that reflect the genuine experiences and perceptions of the participants.
+2. Richness: Keywords that are rich in meaning and provide a detailed understanding of the phenomenon.
+3. Repetition: Keywords that frequently occur in the data, indicating their significance.
+4. Rationale: Keywords connected to the theoretical or philosophical foundation of the research.
+5. Repartee: Keywords that are insightful, evocative, and stimulate further discussion.
+6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.
+
+Return the list of extracted keywords with their types and contexts in valid JSON format:
 {
-    ""selection_rationale"": str,     # Why this quotation was chosen 
-    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
-    ""objective_support"": str,       # How quotation advances research objectives
-    ""patterns"": str                 # Key patterns identified
-}
+  'keywords': [
+    {
+      'keywords_to_use_coding': 'string',
+      'type': 'string',
+      'context': 'string'
+    }
+  ]
+}","{
+  ""keywords"": [
+    {
+      ""keywords_to_use_coding"": ""simplify project management"",
+      ""type"": ""Regal"",
+      ""context"": ""Core to the company's mission of improving user experiences.""
+    },
+    {
+      ""keywords_to_use_coding"": ""empower teams"",
+      ""type"": ""Repartee"",
+      ""context"": ""Evokes the company's commitment to enhancing team capabilities.""
+    },
+    {
+      ""keywords_to_use_coding"": ""intelligent tools"",
+      ""type"": ""Rationale"",
+      ""context"": ""Tied to the theoretical framework of adopting innovative technologies.""
+    },
+    {
+      ""keywords_to_use_coding"": ""enhance productivity"",
+      ""type"": ""Richness"",
+      ""context"": ""Highlights the meaningful impact of the company's tools on efficiency.""
+    },
+    {
+      ""keywords_to_use_coding"": ""decision-making"",
+      ""type"": ""Realness"",
+      ""context"": ""Reflects practical, real-world applications for users.""
+    }
+  ]
+}"
+"
+You are conducting a thematic analysis using keyword extraction based on the 6Rs framework.
 
-Key Guidelines:
-1. Focus on relevance to research objectives
-2. Ensure theoretical alignment
-3. Provide adequate context
-4. Identify clear patterns
-5. Maintain participant confidentiality
-6. Balance diversity of perspectives
+Research Objectives:
+To analyze the development, market positioning, user engagement, and competitive strategies of a tech startup in the project management software industry, emphasizing innovation through AI integration.
 
-Return response as valid JSON with 'quotations' and 'analysis' fields.
-","[{""quotation"": ""we're trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the collaborative effort of the farmers to streamline their operations and enhance market presence.""}, {""quotation"": ""the idea was that we cut out the middle man and all that money comes back to the farm."", ""type"": ""economic strategy"", ""context"": ""This highlights the economic motivation behind the organization's formation, aiming to increase profitability for farmers.""}, {""quotation"": ""we had contracts – our customers basically tore up in front of us."", ""type"": ""challenge"", ""context"": ""This illustrates the significant impact of the COVID crisis on the organization's operations and market stability.""}, {""quotation"": ""I think sustainability is the key to anything."", ""type"": ""future outlook"", ""context"": ""This statement emphasizes the importance of sustainability in the organization's vision for the future.""}, {""quotation"": ""the closer to the customer we get, the more we’ll get back to the farm."", ""type"": ""strategic vision"", ""context"": ""This reflects the organization's strategy to enhance direct sales to customers, thereby increasing returns to farmers.""}]"
+Theoretical Framework:
+Innovation Diffusion Theory, Technology Acceptance Model
+
+Quotation:
+Customer feedback has been overwhelmingly positive, particularly regarding the AI features that help streamline workflows.
+
+Contextual Information:
+This indicates strong user satisfaction and the effectiveness of the AI integrations in meeting customer needs.
+
+Task:
+**Extract meaningful keywords exclusively from the Quotation provided above using the 6Rs framework.**
+Use the Contextual Information only to better understand the Quotation.
+
+Ensure that the keywords satisfy the following criteria:
+1. Realness: Keywords that reflect the genuine experiences and perceptions of the participants.
+2. Richness: Keywords that are rich in meaning and provide a detailed understanding of the phenomenon.
+3. Repetition: Keywords that frequently occur in the data, indicating their significance.
+4. Rationale: Keywords connected to the theoretical or philosophical foundation of the research.
+5. Repartee: Keywords that are insightful, evocative, and stimulate further discussion.
+6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.
+
+Return the list of extracted keywords with their types and contexts in valid JSON format:
+{
+  'keywords': [
+    {
+      'keywords_to_use_coding': 'string',
+      'type': 'string',
+      'context': 'string'
+    }
+  ]
+}","{
+  ""keywords"": [
+    {
+      ""keywords_to_use_coding"": ""customer feedback"",
+      ""type"": ""Repetition"",
+      ""context"": ""Indicates user sentiment and engagement frequency.""
+    },
+    {
+      ""keywords_to_use_coding"": ""positive feedback"",
+      ""type"": ""Realness"",
+      ""context"": ""Reflects the genuine experiences of satisfied users.""
+    },
+    {
+      ""keywords_to_use_coding"": ""AI features"",
+      ""type"": ""Regal"",
+      ""context"": ""Central to the effectiveness and competitive positioning of the product.""
+    },
+    {
+      ""keywords_to_use_coding"": ""streamline workflows"",
+      ""type"": ""Richness"",
+      ""context"": ""Represents the impactful benefits of AI integration for users.""
+    },
+    {
+      ""keywords_to_use_coding"": ""user satisfaction"",
+      ""type"": ""Rationale"",
+      ""context"": ""Connected to the theoretical framework and supports technology acceptance.""
+    }
+  ]
+}"

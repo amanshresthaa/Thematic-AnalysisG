@@ -20,8 +20,9 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
+# Removed the following import as we're no longer using SelectQuotationModuleAlt
+# from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
 from src.analysis.select_keyword_module import SelectKeywordModule
-from src.analysis.theoretical_analysis_module import TheoreticalAnalysisModule
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -46,8 +47,9 @@ class ThematicAnalysisPipeline:
         self.optimized_keyword_program = None
         self.optimized_quotation_program = None
         self.quotation_module = None
+        # Removed the following line as we're no longer using SelectQuotationModuleAlt
+        # self.quotation_module_alt = None
         self.keyword_module = None
-        self.theoretical_analysis_module = None
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -147,17 +149,36 @@ class ThematicAnalysisPipeline:
             logger.info("Configuring DSPy Language Model")
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
-            dspy.Cache = False
+            dspy.Cache=False
 
             # Define file paths from config
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file_standard = self.config['queries_file_standard']
+            # Removed the following as we're no longer using alternative queries
+            # queries_file_alt = self.config['queries_file_alt']
             queries_file_keyword = self.config['queries_file_keyword']
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename_primary = self.config['output_filename_primary']
+            # Removed the following as we're no longer using alternative output
+            # output_filename_alt = self.config['output_filename_alt']
             output_filename_keyword = self.config['output_filename_keyword']
 
             dl = DataLoader()
+
+            # Load the training data for keywords and quotations
+            logger.info(f"Loading keyword training data from '{self.config['keyword_training_data']}'")
+            keyword_train_dataset = dl.from_csv(
+                self.config['keyword_training_data'],
+                fields=("input", "output"),
+                input_keys=("input",)
+            )
+
+            logger.info(f"Loading quotation training data from '{self.config['quotation_training_data']}'")
+            quotation_train_dataset = dl.from_csv(
+                self.config['quotation_training_data'],
+                fields=("input", "output"),
+                input_keys=("input",)
+            )
 
             # Load the codebase chunks
             logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'")
@@ -187,17 +208,28 @@ class ThematicAnalysisPipeline:
             logger.info(f"Loading standard queries from '{queries_file_standard}'")
             standard_queries = load_queries(queries_file_standard)
 
+            # Removed the following as we're no longer using alternative queries
+            # logger.info(f"Loading alternative queries from '{queries_file_alt}'")
+            # alternative_queries = load_queries(queries_file_alt)
+
             logger.info(f"Loading keyword queries from '{queries_file_keyword}'")
             keyword_queries = load_queries(queries_file_keyword)
 
             if not standard_queries:
                 logger.error("No standard queries found to process.")
+            # Removed the following as we're no longer using alternative queries
+            # if not alternative_queries:
+            #     logger.error("No alternative queries found to process.")
             if not keyword_queries:
                 logger.error("No keyword queries found to process.")
 
             # Validate queries
             logger.info("Validating standard queries")
             validated_standard_queries = validate_queries(standard_queries)
+
+            # Removed the following as we're no longer using alternative queries
+            # logger.info("Validating alternative queries")
+            # validated_alternative_queries = validate_queries(alternative_queries)
 
             logger.info("Validating keyword queries")
             validated_keyword_queries = validate_queries(keyword_queries)
@@ -225,21 +257,22 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
                 return
 
-            # Initialize TheoreticalAnalysisModule
-            try:
-                logger.info("Initializing TheoreticalAnalysisModule")
-                self.theoretical_analysis_module = TheoreticalAnalysisModule()
-                logger.info("TheoreticalAnalysisModule initialized successfully.")
-            except Exception as e:
-                logger.error(f"Error initializing TheoreticalAnalysisModule: {e}", exc_info=True)
-                return
+            # Removed the following as we're no longer using SelectQuotationModuleAlt
+            # try:
+            #     logger.info("Initializing SelectQuotationModuleAlt")
+            #     self.quotation_module_alt = SelectQuotationModuleAlt()
+            #     self.quotation_module_alt = assert_transform_module(self.quotation_module_alt, backtrack_handler)
+            #     logger.info("SelectQuotationModuleAlt initialized successfully with assertions activated.")
+            # except Exception as e:
+            #     logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
+            #     return
 
             # Define k value for standard and keyword queries
             k_standard = 20
             k_keyword = 2  # Fixed k=2 for keyword extraction
 
-            # Process standard queries with SelectQuotationModule and TheoreticalAnalysisModule
-            logger.info("Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule")
+            # Process standard queries with SelectQuotationModule first
+            logger.info("Processing standard queries with SelectQuotationModule")
             await process_queries(
                 validated_standard_queries,
                 self.contextual_db,
@@ -247,8 +280,7 @@ class ThematicAnalysisPipeline:
                 k=k_standard,
                 output_file=self.config['output_filename_primary'],
                 optimized_program=self.optimized_quotation_program,
-                module=self.quotation_module,
-                theoretical_analysis_module=self.theoretical_analysis_module
+                module=self.quotation_module
             )
 
             # Then process keyword queries with SelectKeywordModule
@@ -263,6 +295,19 @@ class ThematicAnalysisPipeline:
                 module=self.keyword_module,
                 is_keyword_extraction=True
             )
+
+            # Removed the following as we're no longer using SelectQuotationModuleAlt
+            # # Process alternative queries with SelectQuotationModuleAlt
+            # logger.info("Processing alternative queries with SelectQuotationModuleAlt")
+            # await process_queries(
+            #     validated_alternative_queries,
+            #     self.contextual_db,
+            #     self.es_bm25,
+            #     k=k_standard,
+            #     output_file=self.config['output_filename_alt'],
+            #     optimized_program=self.optimized_quotation_program,
+            #     module=self.quotation_module_alt
+            # )
 
             # Define k values for evaluation
             k_values = [5, 10, 20]
@@ -294,9 +339,13 @@ if __name__ == "__main__":
     config = {
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file_standard': 'data/queries.json',
+        # Removed the following as we're no longer using alternative queries
+        # 'queries_file_alt': 'data/queries_alt.json',
         'queries_file_keyword': 'data/query_results_quotation.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
         'output_filename_primary': 'data/query_results_quotation.json',
+        # Removed the following as we're no longer using alternative output
+        # 'output_filename_alt': 'query_results_alternative.json',
         'output_filename_keyword': 'data/query_results_keyword.json',
         'keyword_training_data': 'data/keyword_training_data.csv',
         'quotation_training_data': 'data/quotation_training_data.csv',
