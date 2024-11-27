@@ -17,23 +17,15 @@ class SelectKeywordModule(dspy.Module):
 
     def forward(self, research_objectives: str, quotation: str, contextual_info: List[str], theoretical_framework: str = None) -> Dict[str, Any]:
         try:
-            logger.debug(f"Running keyword extraction for quotation: {quotation[:100]}...")
-            logger.debug(f"Research objectives: {research_objectives[:100]}...")
-            logger.debug(f"Context info count: {len(contextual_info)}")
-            
+            logger.debug("Running SelectKeywordModule for keyword extraction on individual quotation.")
             response = self.chain(
                 research_objectives=research_objectives,
                 quotation=quotation,
                 contextual_info=contextual_info,
                 theoretical_framework=theoretical_framework
             )
-            
             keywords = response.get("keywords", [])
-            if not keywords:
-                logger.warning("No keywords returned from chain")
-            else:
-                logger.info(f"Successfully extracted {len(keywords)} keywords")
-                
+            logger.info(f"Extracted {len(keywords)} keywords.")
             return {
                 "keywords": keywords
             }
