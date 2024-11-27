@@ -2,10 +2,7 @@
     {
         "query": "Can you tell me about what your cooperative does?\nWe're primarily focused on organic vegetable farming. There are five founding farms in our network, all within Sussex county. Initially we were just growing carrots and parsnips, but we've expanded into leafy greens and specialty herbs.\nSo you've diversified your crop portfolio?\nYes, exactly. The market demand showed us there was a gap for locally-grown herbs, especially for restaurants and specialty markets.\nAnd this is all through the cooperative structure?\nYes, we found that by working together we could better manage distribution and get better prices. Instead of each farm trying to handle their own sales and delivery, we coordinate everything centrally.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Resource-Based View",
-            "philosophical_approach": "Constructivist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -74,53 +71,39 @@
         "quotations": [
             {
                 "quotation": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together.",
-                "classification": "Operational Strategy",
-                "context": "Describing the formation of the organization and the centralization of potato sales."
+                "type": "operational",
+                "context": "This quotation highlights the collaborative effort among farmers to centralize their marketing efforts, which is crucial for understanding the operational strategies of the organization."
             },
             {
                 "quotation": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything.",
-                "classification": "Challenges",
-                "context": "Discussing the ongoing challenges in farming, particularly related to environmental factors."
+                "type": "challenges",
+                "context": "This statement reflects the ongoing challenges faced by the farming organization, particularly regarding external factors like weather patterns, which are essential for understanding the sustainability aspect."
             },
             {
                 "quotation": "Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
-                "classification": "Supply Chain Dynamics",
-                "context": "Emphasizing the importance of having reliable suppliers and farmers for meeting demand."
+                "type": "strategies",
+                "context": "This quotation emphasizes the importance of supplier relationships and the need for adequate supply to meet demand, which is a key strategy for the organization\u2019s success."
             },
             {
                 "quotation": "So, we buy from other farms as well, which supply at different times of year, it varies.",
-                "classification": "Operational Strategy",
-                "context": "Indicating the strategy of diversifying supply sources to manage seasonal variations."
+                "type": "operational",
+                "context": "This highlights the operational strategy of diversifying supply sources, which is important for understanding how the organization adapts to market dynamics."
             },
             {
                 "quotation": "With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?",
-                "classification": "Collaboration",
-                "context": "Inquiring about the importance of collaboration among stakeholders in the organization."
+                "type": "collaboration",
+                "context": "This question underscores the significance of collaboration within the organization, which is vital for its operational effectiveness and sustainability."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Centralization of sales for efficiency",
-                "Ongoing environmental challenges affecting farming",
-                "Importance of reliable suppliers",
-                "Diversification of supply sources",
-                "Collaboration among stakeholders"
-            ],
-            "theoretical_interpretation": "The patterns identified can be interpreted through the Resource-Based View, which posits that organizations can achieve competitive advantage by effectively utilizing their internal resources and capabilities. The centralization of sales indicates a strategic resource allocation aimed at improving market presence and efficiency. The ongoing challenges, particularly environmental factors, highlight the need for adaptive strategies that leverage both human and natural resources. The emphasis on reliable suppliers and collaboration underscores the importance of building a robust network of resources that can enhance operational effectiveness and sustainability.",
-            "practical_implications": "The findings suggest that for the farming organization to thrive, it should focus on strengthening collaboration among stakeholders and diversifying its supply sources. This approach can enhance resilience against environmental challenges and market fluctuations, ultimately leading to improved sustainability and economic viability. Further research could explore specific collaborative models and their impact on operational success."
-        },
+        "analysis": "The selected quotations collectively provide a nuanced understanding of the farming organization's operations, challenges, and strategies. The first quotation illustrates the collaborative nature of the organization, emphasizing the importance of centralizing marketing efforts among individual farmers. The second quotation addresses the significant challenges posed by external factors, such as weather patterns, which impact sustainability and economic viability. The third quotation highlights the critical role of suppliers in maintaining operational efficiency, indicating that the organization must strategically manage these relationships to meet market demands. The fourth quotation further supports this by discussing the diversification of supply sources, showcasing adaptability in response to market dynamics. Finally, the fifth quotation reinforces the theme of collaboration, suggesting that the success of the organization hinges on effective partnerships. Together, these insights align with the research objectives by providing a comprehensive view of the organization's functioning within the broader context of market dynamics, sustainability, and economic factors.",
         "answer": {
-            "answer": "The patterns identified can be interpreted through the Resource-Based View, which posits that organizations can achieve competitive advantage by effectively utilizing their internal resources and capabilities. The centralization of sales indicates a strategic resource allocation aimed at improving market presence and efficiency. The ongoing challenges, particularly environmental factors, highlight the need for adaptive strategies that leverage both human and natural resources. The emphasis on reliable suppliers and collaboration underscores the importance of building a robust network of resources that can enhance operational effectiveness and sustainability.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by providing a comprehensive understanding of the operational strategies and challenges faced by the farming organization. It highlights how market dynamics and sustainability considerations influence decision-making processes, thereby fulfilling the objective of exploring the organization's future outlook in the context of economic factors."
+            "answer": "The cooperative focuses on organic vegetable farming, growing a variety of crops including carrots, parsnips, leafy greens, and specialty herbs. By collaborating, the farms improve distribution and pricing, effectively meeting market demands for locally-grown produce."
         }
     },
     {
         "query": "What's your role in the organization?\nI manage the distribution and logistics side. We have a central warehouse where all the produce comes in, and I coordinate with our delivery partners to get everything to the right place at the right time.\nIs this all local distribution?\nMostly regional actually. We cover about three counties now, but we're looking to expand. The challenge is maintaining freshness - especially with the herbs. They need to get to the customer within 24 hours of harvest ideally.\nDo you handle any international trade?\nWe did try exporting to France last year, mainly specialty herbs that aren't commonly grown there. But the logistics were complicated and expensive. We're focusing on building our regional network first before we try international again.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Supply Chain Management Theory",
-            "philosophical_approach": "Critical Realist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -189,47 +172,34 @@
         "quotations": [
             {
                 "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing.",
-                "classification": "Operational Strategy",
-                "context": "Discussing the need for growth and efficiency in operations."
+                "type": "operational strategy",
+                "context": "This statement reflects the organization's goal to expand its network and improve efficiency, which is crucial for adapting to market dynamics."
             },
             {
                 "quotation": "If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
-                "classification": "Supply Chain Challenge",
-                "context": "Emphasizing the critical role of suppliers and farmers in meeting demand."
+                "type": "challenge",
+                "context": "This highlights the critical challenge of ensuring a sufficient supply of farmers and suppliers to meet market demand, emphasizing the importance of these relationships."
             },
             {
                 "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                "classification": "Investment Requirement",
-                "context": "Highlighting the necessity for investment from businesses to achieve goals."
+                "type": "investment necessity",
+                "context": "This underscores the need for investment from businesses to support the operational goals and sustainability of the farming organization."
             },
             {
                 "quotation": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered.",
-                "classification": "Processing Challenge",
-                "context": "Addressing the issue of processing capacity in relation to production."
+                "type": "operational challenge",
+                "context": "This statement illustrates the operational challenge of processing capacity, which is essential for preventing market oversaturation."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Need for growth and efficiency in operations",
-                "Critical role of suppliers and farmers in meeting demand",
-                "Necessity for investment from businesses",
-                "Processing capacity issues in relation to production"
-            ],
-            "theoretical_interpretation": "The patterns identified can be interpreted through the lens of Supply Chain Management Theory, which emphasizes the importance of collaboration and integration among supply chain partners. The need for growth and efficiency indicates a strategic approach to optimize operations, while the critical role of suppliers highlights the dependency on external partners to meet market demands. The necessity for investment reflects the need for resources to enhance capabilities, and the processing capacity issues underscore the importance of aligning production with processing capabilities to avoid bottlenecks.",
-            "practical_implications": "The findings suggest that for the farming organization to improve its operational efficiency and sustainability, it must focus on strategic investments in processing capabilities and foster stronger relationships with suppliers. Additionally, streamlining operations and enhancing collaboration among stakeholders could lead to better alignment with market demands and ultimately support the organization's growth objectives."
-        },
+        "analysis": "The selected quotations collectively illustrate the multifaceted challenges and strategies of the farming organization. The emphasis on expanding the grower and customer base, alongside streamlining operations, aligns with the objective of understanding operational strategies in a dynamic market. The recognition of the critical role of suppliers and farmers in meeting demand highlights the interconnectedness of these relationships, which is essential for sustainability. Furthermore, the call for investment underscores the economic factors influencing the organization's future outlook. Together, these insights provide a comprehensive understanding of the organization's operations and the challenges it faces in the context of market dynamics.",
         "answer": {
-            "answer": "The patterns identified can be interpreted through the lens of Supply Chain Management Theory, which emphasizes the importance of collaboration and integration among supply chain partners. The need for growth and efficiency indicates a strategic approach to optimize operations, while the critical role of suppliers highlights the dependency on external partners to meet market demands. The necessity for investment reflects the need for resources to enhance capabilities, and the processing capacity issues underscore the importance of aligning production with processing capabilities to avoid bottlenecks.",
-            "theoretical_contribution": "This analysis aligns with the research objectives by providing a comprehensive understanding of the operational challenges and strategies within the farming organization. It highlights the interplay between market dynamics, sustainability, and economic factors, offering insights into how these elements influence the organization's ability to adapt and thrive in a competitive environment."
+            "answer": "I manage the distribution and logistics side of the organization, coordinating with delivery partners to ensure timely delivery of produce, primarily on a regional level."
         }
     },
     {
         "query": "How do you see yourselves as innovative?\nWe've developed a real-time inventory system that connects directly with our farmers. They can log their expected harvest dates and quantities, and our customers - mainly restaurants and specialty stores - can see what's going to be available.\nSo it's like a digital marketplace?\nExactly, but with guaranteed quality because we know and trust all our farmers. We're also experimenting with vertical farming for some of our herbs, which helps us maintain supply during the winter months.\nHas anyone else tried to copy this model?\nWe've seen a few similar operations start up, but our advantage is the relationships we've built with both farmers and customers. It's not just about the technology, it's about trust.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Innovation Diffusion Theory",
-            "philosophical_approach": "Constructivist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -298,41 +268,29 @@
         "quotations": [
             {
                 "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "classification": "Vision for Future",
-                "context": "Discussing the importance of sustainability in future food systems."
+                "type": "vision",
+                "context": "This statement underscores the importance of sustainability in the organization's future planning and operations."
             },
             {
                 "quotation": "I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing.",
-                "classification": "Strategic Goals",
-                "context": "Expressing the desire to expand the organization and its impact."
+                "type": "strategy",
+                "context": "This reflects the organization's strategy to expand its network and enhance collaboration among farmers."
             },
             {
                 "quotation": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-                "classification": "Operational Strategy",
-                "context": "Describing the strategy to enhance customer relationships and streamline operations."
+                "type": "innovation",
+                "context": "This highlights the innovative approach of reducing intermediaries to improve profitability and sustainability."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Emphasis on sustainability as a core value",
-                "Desire to expand and engage more farmers",
-                "Focus on enhancing customer relationships"
-            ],
-            "theoretical_interpretation": "Through the lens of Innovation Diffusion Theory, the identified patterns illustrate how the organization is positioned to adopt and promote sustainable practices. The emphasis on sustainability reflects a shared value that can facilitate the diffusion of innovative practices among farmers. The strategic goal of engaging more farmers aligns with the theory's focus on social networks and communication channels that are crucial for the spread of innovations. Furthermore, the operational strategy of enhancing customer relationships indicates an understanding of market dynamics, which is essential for the successful adoption of sustainable practices.",
-            "practical_implications": "The findings suggest that fostering collaboration among farmers and enhancing customer engagement can lead to more effective adoption of sustainable practices. Organizations may consider implementing programs that facilitate knowledge sharing and support among farmers, as well as strategies to strengthen customer relationships. This approach could not only improve operational efficiency but also contribute to a more sustainable agricultural sector."
-        },
+        "analysis": "The selected quotations collectively illustrate the farming organization's commitment to sustainability, collaboration, and innovation. The emphasis on sustainability as a foundational principle indicates a proactive approach to addressing market dynamics and economic challenges. The desire to bring more farmers on board reflects a strategic initiative to strengthen community ties and enhance collective benefits. Furthermore, the focus on direct customer engagement through innovative practices demonstrates a forward-thinking mindset aimed at improving operational efficiency and market responsiveness. These insights align closely with the research objectives, providing a comprehensive understanding of the organization's operations and future outlook.",
         "answer": {
-            "answer": "Through the lens of Innovation Diffusion Theory, the identified patterns illustrate how the organization is positioned to adopt and promote sustainable practices. The emphasis on sustainability reflects a shared value that can facilitate the diffusion of innovative practices among farmers. The strategic goal of engaging more farmers aligns with the theory's focus on social networks and communication channels that are crucial for the spread of innovations. Furthermore, the operational strategy of enhancing customer relationships indicates an understanding of market dynamics, which is essential for the successful adoption of sustainable practices.",
-            "theoretical_contribution": "The analysis directly aligns with the research objectives by exploring the organization's operational strategies and challenges in the context of sustainability and market dynamics. The identified patterns provide a comprehensive understanding of how the organization navigates these factors, thereby fulfilling the objective of understanding its future outlook and strategic positioning."
+            "answer": "The organization views itself as innovative due to its real-time inventory system that connects farmers directly with customers, eliminating middlemen and ensuring quality and fair profits for farmers. They are also exploring vertical farming to maintain supply during winter, reflecting a commitment to sustainability and efficiency in the agricultural supply chain."
         }
     },
     {
         "query": "Who are your key partners in this network?\nOur core partners are obviously the member farms - we've got five founding farms and another eight that have joined since. Then we have our logistics partners who handle delivery, and a tech company that helps maintain our inventory system.\nAre all these partnerships equally important?\nThey all play different roles. The farms are absolutely crucial - without quality produce, we have nothing to sell. But the technology platform has become increasingly important. When it went down for a day last month, it really showed us how much we depend on it.\nWhat about your customers?\nYes, especially our regular restaurant customers. We have about 20 high-end restaurants that take regular weekly deliveries. They're vital because they provide steady, predictable demand.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Stakeholder Theory",
-            "philosophical_approach": "Critical Realist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -401,53 +359,39 @@
         "quotations": [
             {
                 "quotation": "If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems.",
-                "classification": "Challenges",
-                "context": "Discussing the importance of suppliers and farmers in meeting demand."
+                "type": "operational challenge",
+                "context": "This statement emphasizes the critical role of suppliers and farmers in meeting demand, highlighting a key operational challenge faced by the organization."
             },
             {
                 "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "classification": "Future Outlook",
-                "context": "Expressing the vision for future food systems and the role of sustainability."
+                "type": "strategic vision",
+                "context": "This reflects the organization's strategic vision for the future, underscoring the importance of sustainability in their operations and long-term planning."
             },
             {
                 "quotation": "The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply whatever you\u2019re doing, we\u2019re not very stable.",
-                "classification": "Challenges",
-                "context": "Addressing the financial stability of the organization in relation to the agricultural sector."
+                "type": "economic factor",
+                "context": "This highlights the economic challenges within the agricultural sector, indicating that the organization's stability is heavily reliant on the farming community."
             },
             {
                 "quotation": "We supply factories like Walkers, McCains, Seabrooks \u2013 various crisps, all those sorts of people.",
-                "classification": "Operations",
-                "context": "Describing the organization's collaborations with factories and suppliers."
+                "type": "collaboration",
+                "context": "This illustrates the organization's collaborative efforts with major food manufacturers, showcasing their role in the supply chain."
             },
             {
-                "quotation": "Basically, bypassing the middle man and making sure that the most profit goes from the customers back to the farmers.",
-                "classification": "Strategies",
-                "context": "Explaining the organization's strategy to enhance profitability for farmers."
+                "quotation": "Bypassing the middle man and making sure that the most profit goes from the customers back to the farmers.",
+                "type": "strategic approach",
+                "context": "This statement reveals the organization's strategy to enhance profitability for farmers by minimizing intermediaries in the supply chain."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Importance of suppliers and farmers in meeting demand",
-                "Sustainability as a key factor for future success",
-                "Financial instability in agriculture",
-                "Operational relationships with factories",
-                "Strategic approach to enhance profitability for farmers"
-            ],
-            "theoretical_interpretation": "The patterns identified can be interpreted through the lens of Stakeholder Theory, which posits that organizations must consider the interests and influences of all stakeholders involved. The emphasis on sustainability reflects a growing recognition of the need for responsible practices that benefit not only the organization but also the farmers and the environment. The challenges related to supply and financial stability highlight the vulnerabilities within the agricultural sector, necessitating a collaborative approach to address these issues. The strategies aimed at enhancing profitability for farmers indicate a shift towards more equitable relationships within the supply chain.",
-            "practical_implications": "The findings suggest that farming organizations should prioritize sustainable practices and foster strong relationships with suppliers and other stakeholders. By doing so, they can enhance their operational stability and profitability while contributing to a more sustainable food system. Further research could explore specific strategies for implementing these practices and the impact on overall organizational performance."
-        },
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the multifaceted nature of the farming organization's operations. The emphasis on sustainability as a strategic vision indicates a forward-thinking approach that aligns with market dynamics and consumer expectations. The acknowledgment of the critical role of suppliers and farmers highlights the operational challenges that the organization faces, particularly in ensuring a stable supply chain. Furthermore, the economic factors discussed reveal the precarious nature of agricultural stability, which is essential for the organization's success. Lastly, the focus on collaboration with major food manufacturers and the strategy to bypass middlemen underscores the organization's commitment to enhancing profitability for farmers, which is crucial for long-term sustainability and growth.",
         "answer": {
-            "answer": "The patterns identified can be interpreted through the lens of Stakeholder Theory, which posits that organizations must consider the interests and influences of all stakeholders involved. The emphasis on sustainability reflects a growing recognition of the need for responsible practices that benefit not only the organization but also the farmers and the environment. The challenges related to supply and financial stability highlight the vulnerabilities within the agricultural sector, necessitating a collaborative approach to address these issues. The strategies aimed at enhancing profitability for farmers indicate a shift towards more equitable relationships within the supply chain.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by providing a comprehensive understanding of the farming organization's operations, challenges, strategies, and future outlook. It addresses the market dynamics and economic factors influencing the organization, particularly the importance of sustainability and stakeholder relationships in achieving long-term success."
+            "answer": "The key partners in this network are the member farms, logistics partners, and a technology company, along with regular restaurant customers who provide steady demand."
         }
     },
     {
         "query": "Looking ahead, what's your vision for the future?\nWe want to expand our vertical farming operation significantly. Climate change is making traditional growing more unpredictable, so we need to diversify our growing methods.\nHow far ahead are you planning?\nWe have a five-year plan and a fifteen-year vision. The five-year focus is on expanding our regional network and improving our technology platform. Long-term, we want to create a model that can be replicated in other regions.\nSo you're thinking about scaling up?\nYes, but carefully. We don't want to lose the quality control and personal relationships that make our current model work. It's about finding the right balance between growth and maintaining our values.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Sustainable Development Theory",
-            "philosophical_approach": "Constructivist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -497,10 +441,10 @@
                 "chunk": {
                     "doc_id": "Document",
                     "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
-                    "chunk_id": "Document_chunk_86",
-                    "original_index": 86,
-                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                    "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
                 "score": 0.15
             }
@@ -511,58 +455,44 @@
             "Document_chunk_52",
             "Document_chunk_34",
             "Document_chunk_77",
-            "Document_chunk_86"
+            "Document_chunk_54"
         ],
         "quotations": [
             {
                 "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing.",
-                "classification": "Operations and Strategies",
-                "context": "Discussing the need for growth and efficiency in operations."
+                "type": "operational strategy",
+                "context": "This statement reflects the organization's desire to expand its reach and improve efficiency, which is essential for adapting to market dynamics."
             },
             {
                 "quotation": "the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things.",
-                "classification": "Challenges",
-                "context": "Addressing financial constraints in implementing new ideas."
+                "type": "economic challenge",
+                "context": "This highlights the financial constraints faced by the organization, emphasizing the need for profitability to support future investments."
             },
             {
                 "quotation": "I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems.",
-                "classification": "Future Outlook",
-                "context": "Emphasizing the importance of sustainability for future food systems."
+                "type": "sustainability focus",
+                "context": "This underscores the importance of sustainability in the organization's vision for the future, aligning with broader market trends."
             },
             {
                 "quotation": "The closer to the customer we get, the more we\u2019ll get back to the farm.",
-                "classification": "Market Dynamics",
-                "context": "Discussing strategies to enhance direct sales to customers."
+                "type": "market strategy",
+                "context": "This indicates a strategic shift towards direct customer engagement, which can enhance profitability and sustainability."
             },
             {
-                "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                "classification": "Economic Factors",
-                "context": "Highlighting the need for investment to achieve organizational goals."
+                "quotation": "The stability in agriculture and farming is disastrous.",
+                "type": "industry outlook",
+                "context": "This statement reflects the broader challenges within the agricultural sector, providing context for the organization's operational challenges."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Need for growth and efficiency in operations",
-                "Financial constraints in implementing new ideas",
-                "Importance of sustainability for future food systems",
-                "Strategies to enhance direct sales to customers",
-                "Need for investment to achieve organizational goals"
-            ],
-            "theoretical_interpretation": "The patterns identified reflect the core principles of Sustainable Development Theory, which advocates for a balanced approach to economic growth, environmental sustainability, and social equity. The emphasis on sustainability indicates a recognition of the long-term impacts of farming practices on the environment and society. The financial constraints highlight the challenges that organizations face in implementing sustainable practices, suggesting a need for innovative solutions that align economic viability with sustainability goals.",
-            "practical_implications": "The findings imply that for the farming organization to thrive, it must prioritize sustainable practices while addressing financial constraints. This may involve seeking alternative funding sources, investing in efficient technologies, and enhancing direct customer engagement to improve profitability. Additionally, fostering a culture of sustainability can lead to better long-term outcomes for both the organization and the broader community."
-        },
+        "analysis": "The selected quotations collectively support the research objectives by illustrating the operational strategies, economic challenges, and sustainability focus of the farming organization. The emphasis on expanding the customer base and streamlining operations indicates a proactive approach to market dynamics. The acknowledgment of financial constraints highlights the economic factors that influence decision-making, while the commitment to sustainability aligns with contemporary agricultural practices. Furthermore, the strategic move towards direct customer engagement suggests a forward-thinking approach that could enhance both profitability and sustainability in the long term. Overall, these insights provide a comprehensive understanding of the organization's current operations and future outlook in the context of the challenges it faces.",
         "answer": {
-            "answer": "The patterns identified reflect the core principles of Sustainable Development Theory, which advocates for a balanced approach to economic growth, environmental sustainability, and social equity. The emphasis on sustainability indicates a recognition of the long-term impacts of farming practices on the environment and society. The financial constraints highlight the challenges that organizations face in implementing sustainable practices, suggesting a need for innovative solutions that align economic viability with sustainability goals.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by exploring the multifaceted aspects of the farming organization, including operations, challenges, strategies, and future outlook. By examining these elements through the lens of market dynamics, sustainability, and economic factors, the study provides a comprehensive understanding of how these components interact and influence the organization's overall performance."
+            "answer": "The vision for the future is to significantly expand the vertical farming operation with a focus on sustainability, efficiency, and careful scaling while maintaining quality and personal relationships."
         }
     },
     {
         "query": "Are there any current trends that might help achieve this vision?\nThe growing interest in local food is definitely helping. Consumers are more interested in where their food comes from and how it's grown. The pandemic actually accelerated this trend.\nWhat about technology trends?\nDigital platforms are making it easier to connect directly with customers. We're seeing more restaurants willing to order through apps and online platforms, which fits well with our system.\nAny challenges you see?\nLabor is a big one. Finding people who understand both farming and technology isn't easy. And then there's the challenge of climate change - we're seeing more extreme weather patterns that affect growing conditions.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Technology Adoption Model",
-            "philosophical_approach": "Critical Realist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -630,42 +560,30 @@
         ],
         "quotations": [
             {
-                "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing.",
-                "classification": "Strategy and Operations",
-                "context": "Discussing the need for growth and efficiency in operations."
+                "quotation": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really.",
+                "type": "operational strategy",
+                "context": "This quotation illustrates the organization's focus on growth and efficiency, which are critical for adapting to market dynamics."
             },
             {
                 "quotation": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it.",
-                "classification": "Market Dynamics",
-                "context": "Highlighting successful market trends in small outlets and online sales."
+                "type": "market dynamics",
+                "context": "This highlights the success of small-scale operations in the current market, indicating a shift in consumer behavior and preferences."
             },
             {
-                "quotation": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing.",
-                "classification": "Economic Factors",
-                "context": "Emphasizing the need for financial support to enhance efficiency."
+                "quotation": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
+                "type": "economic challenge",
+                "context": "This quotation underscores the financial barriers that the organization faces, which are essential for understanding the economic factors influencing their operations."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Need for growth and efficiency in operations",
-                "Success of small outlets and online sales",
-                "Importance of financial support for operational efficiency"
-            ],
-            "theoretical_interpretation": "The patterns identified can be interpreted through the Technology Adoption Model, which posits that organizations must adopt new technologies and practices to remain competitive and efficient. The emphasis on growth and efficiency indicates a readiness to embrace innovations that can streamline operations. The success of small outlets and online sales suggests a shift in consumer behavior that farming organizations can leverage through technology. Additionally, the call for financial support underscores the critical role of resources in facilitating technology adoption and operational improvements.",
-            "practical_implications": "The findings suggest that farming organizations should seek financial support to invest in technology and streamline operations. Additionally, there is an opportunity to enhance online sales and market presence through strategic partnerships with small outlets. This approach not only addresses current challenges but also positions the organization for sustainable growth in a competitive market."
-        },
+        "analysis": "The selected quotations collectively support the research objectives by providing insights into the operational strategies, market dynamics, and economic challenges faced by the farming organization. The first quotation emphasizes the need for efficiency and growth, which is vital for navigating market changes. The second quotation reveals how small outlets are adapting successfully, indicating a shift in consumer preferences that the organization can leverage. Finally, the third quotation highlights the financial constraints that could hinder the organization's ability to implement long-term strategies, thus framing the economic context in which they operate. Together, these insights contribute to a comprehensive understanding of the organization's current situation and future outlook.",
         "answer": {
-            "answer": "The patterns identified can be interpreted through the Technology Adoption Model, which posits that organizations must adopt new technologies and practices to remain competitive and efficient. The emphasis on growth and efficiency indicates a readiness to embrace innovations that can streamline operations. The success of small outlets and online sales suggests a shift in consumer behavior that farming organizations can leverage through technology. Additionally, the call for financial support underscores the critical role of resources in facilitating technology adoption and operational improvements.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by providing insights into the operational challenges and strategies of the farming organization. It addresses how market dynamics and economic factors influence their approach to growth and efficiency, thereby fulfilling the objective of understanding the broader context in which the organization operates."
+            "answer": "Current trends that may help achieve this vision include the increasing consumer interest in local food and the rise of digital platforms that connect farmers directly with customers. However, challenges like labor shortages and climate change remain significant obstacles."
         }
     },
     {
         "query": "How financially stable do you feel the organization is?\nWe're in a good position right now, but farming is always unpredictable. We've tried to build resilience by diversifying both our crops and our customer base.\nWhat about investment needs?\nThat's our biggest challenge. The vertical farming expansion we want to do requires significant capital investment. Traditional banks don't always understand our model.\nDo you have contingency plans?\nYes, we maintain cash reserves for weather-related emergencies, and we're developing partnerships with other cooperatives so we can help each other if needed. The diversity of our member farms also helps spread risk.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Financial Sustainability Theory",
-            "philosophical_approach": "Constructivist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -734,59 +652,39 @@
         "quotations": [
             {
                 "quotation": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
-                "classification": "Investment Need",
-                "context": "Emphasizes the necessity for businesses to invest in order to achieve operational goals."
+                "type": "investment",
+                "context": "Emphasizes the necessity of investment for operational success."
             },
             {
                 "quotation": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
-                "classification": "Financial Accessibility",
-                "context": "Discusses the urgency of having accessible funding to ensure business sustainability and efficiency."
+                "type": "financial challenges",
+                "context": "Highlights the urgency of financial support and the impact of banking policies on sustainability."
             },
             {
                 "quotation": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it.",
-                "classification": "Manufacturing Capacity",
-                "context": "Highlights the potential for local production and the inefficiencies in current practices."
+                "type": "manufacturing strategy",
+                "context": "Discusses the need for local manufacturing to enhance efficiency and reduce reliance on imports."
             },
             {
                 "quotation": "And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
-                "classification": "Market Dynamics",
-                "context": "Critiques the current market practices that lead to inefficiencies and increased environmental impact."
-            },
-            {
-                "quotation": "Just like a chicken and egg scenario, isn\u2019t it? Yes.",
-                "classification": "Interdependency",
-                "context": "Reflects on the interdependent nature of investment and operational success."
+                "type": "economic factors",
+                "context": "Critiques the economic decisions affecting local processing and sustainability."
             },
             {
                 "quotation": "Yes. And the government-backed loans for the right\u2026it\u2019s like a chicken-and-egg \u2013 you can\u2019t have one without the other, but someone needs to allow us to have some money, an investment pot.",
-                "classification": "Government Support",
-                "context": "Calls for government intervention to provide necessary funding for sustainable practices."
+                "type": "government support",
+                "context": "Calls for government intervention to provide necessary funding for growth."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Investment Need",
-                "Financial Accessibility",
-                "Manufacturing Capacity",
-                "Market Dynamics",
-                "Interdependency",
-                "Government Support"
-            ],
-            "theoretical_interpretation": "Through the lens of Financial Sustainability Theory, the identified patterns reveal a complex interplay between financial resources and operational success in the farming sector. The emphasis on investment and financial accessibility underscores the necessity for adequate funding to support sustainable practices. The critique of market dynamics highlights inefficiencies that arise from current practices, while the interdependency pattern illustrates how investment and operational success are mutually reinforcing. Government support emerges as a crucial factor in facilitating the necessary investments for sustainability.",
-            "practical_implications": "The findings have significant implications for practice, suggesting that stakeholders in the farming industry should advocate for improved access to funding and government-backed loans. Additionally, there is a need for strategies that enhance local manufacturing capacity and address market inefficiencies. Future research could explore specific funding models and government policies that could support sustainable practices in agriculture."
-        },
+        "analysis": "The selected quotations collectively underscore the pressing need for investment and support within the farming organization to address operational challenges and market dynamics. The first quotation emphasizes the critical role of investment in achieving business goals, aligning with the objective of understanding operational strategies. The second quotation highlights financial challenges, indicating that without accessible funding, the sustainability of the business is at risk. The third and fourth quotations focus on the importance of local manufacturing and the economic implications of current practices, which are essential for understanding the broader market dynamics affecting the organization. Finally, the last quotation calls for government support, illustrating the interconnectedness of financial resources and strategic planning necessary for future growth. Together, these insights provide a comprehensive view of the challenges and strategies that the farming organization faces in the context of sustainability and economic factors.",
         "answer": {
-            "answer": "Through the lens of Financial Sustainability Theory, the identified patterns reveal a complex interplay between financial resources and operational success in the farming sector. The emphasis on investment and financial accessibility underscores the necessity for adequate funding to support sustainable practices. The critique of market dynamics highlights inefficiencies that arise from current practices, while the interdependency pattern illustrates how investment and operational success are mutually reinforcing. Government support emerges as a crucial factor in facilitating the necessary investments for sustainability.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by providing insights into the operational challenges faced by farming organizations in the context of market dynamics and economic factors. By exploring the need for investment, financial accessibility, and government support, the findings contribute to a comprehensive understanding of the strategies required for sustainability in the farming sector."
+            "answer": "The organization feels relatively stable but recognizes the unpredictability of farming. They face challenges in securing investment for expansion and have contingency plans to manage risks."
         }
     },
     {
         "query": "How did COVID-19 affect your operations?\nIt was a complete shift. We lost about 60% of our restaurant business overnight, but direct-to-consumer demand exploded. We had to quickly develop a home delivery service.\nHow did you manage that transition?\nIt was challenging. We had to create new packaging solutions, set up an online ordering system for retail customers, and reorganize our delivery routes. But it actually opened up a new market for us.\nWill you continue with direct-to-consumer?\nDefinitely. Even though restaurant business has recovered, we've maintained about 40% of the direct-to-consumer business we developed during COVID. It's become an important part of our model.\nAny other positive changes from COVID?\nIt forced us to become more flexible and resilient. We also developed stronger relationships with our local community. People really appreciated having a reliable local food source during the lockdowns.\nDo you have any final thoughts about the future of local food systems?\nI think we're going to see more hybrid models like ours - combining traditional farming with new technology and direct-to-consumer distribution. The key is maintaining quality and trust while scaling up operations. We need to grow to be sustainable, but not at the expense of our core values.",
         "research_objectives": "To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.",
-        "theoretical_framework": {
-            "theory": "Resilience Theory",
-            "philosophical_approach": "Critical Realist"
-        },
+        "theoretical_framework": "",
         "retrieved_chunks": [
             {
                 "chunk": {
@@ -854,33 +752,19 @@
         ],
         "quotations": [
             {
-                "quotation": "I wonder if the Direct to Customer service could help here?",
-                "classification": "Strategy",
-                "context": "Exploring potential strategies to enhance customer engagement and sales."
-            },
-            {
                 "quotation": "It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers. But it\u2019s not the public, it is the supermarkets. And the government has got to say, \u2018No, enough is enough.\u2019",
-                "classification": "Challenge",
-                "context": "Discussing the influence of government and supermarkets on market dynamics and challenges faced by farmers."
+                "type": "challenge",
+                "context": "This quotation reflects the challenges posed by market dynamics and the influence of supermarkets and government policies on farming operations."
             },
             {
                 "quotation": "The small outlets like farm shops, places like that, they often have online sales, the veg boxes \u2013 that side of things has done very well on the back of it.",
-                "classification": "Success/Adaptation",
-                "context": "Highlighting successful adaptations by small outlets in response to market changes during the pandemic."
+                "type": "strategy",
+                "context": "This quotation illustrates the strategic adaptations made by small farming outlets in response to changing market conditions, particularly during the COVID-19 pandemic."
             }
         ],
-        "analysis": {
-            "patterns_identified": [
-                "Strategic exploration of direct customer engagement",
-                "External influences from government and supermarkets as challenges",
-                "Successful adaptations by small outlets during market changes"
-            ],
-            "theoretical_interpretation": "The patterns identified can be interpreted through Resilience Theory, which posits that systems must adapt to external pressures to survive and thrive. The strategic exploration of direct customer engagement reflects a proactive approach to resilience, while the challenges posed by government and supermarket influences highlight vulnerabilities within the market system. The success of small outlets in adapting to changing conditions illustrates the capacity for resilience and innovation in response to adversity.",
-            "practical_implications": "The findings suggest that farming organizations should prioritize direct customer engagement strategies to enhance resilience against market fluctuations. Additionally, supporting small outlets and their innovative approaches can foster sustainability and economic viability within the agricultural sector. Future research could explore the long-term impacts of these strategies on the overall resilience of farming organizations."
-        },
+        "analysis": "The selected quotations provide a nuanced understanding of the farming organization's operational landscape. The first quotation underscores the significant challenges posed by external market forces, particularly the dominance of supermarkets and the need for governmental intervention. This highlights the systemic issues that can hinder the sustainability and economic viability of farming operations. In contrast, the second quotation showcases a proactive strategy adopted by smaller outlets, emphasizing their ability to innovate and adapt to market changes, particularly through online sales and direct-to-consumer models. Together, these insights align with the research objectives by illustrating both the challenges and strategies that define the current and future outlook of the farming organization in a dynamic market environment.",
         "answer": {
-            "answer": "The patterns identified can be interpreted through Resilience Theory, which posits that systems must adapt to external pressures to survive and thrive. The strategic exploration of direct customer engagement reflects a proactive approach to resilience, while the challenges posed by government and supermarket influences highlight vulnerabilities within the market system. The success of small outlets in adapting to changing conditions illustrates the capacity for resilience and innovation in response to adversity.",
-            "theoretical_contribution": "The analysis aligns with the research objectives by addressing the operational challenges faced by the farming organization and exploring potential strategies for enhancing resilience. By examining the influence of external factors and the adaptability of small outlets, the findings contribute to a comprehensive understanding of the market dynamics affecting the organization."
+            "answer": "COVID-19 caused a 60% loss in restaurant business but led to a surge in direct-to-consumer demand, prompting the organization to quickly develop a home delivery service. They adapted by creating new packaging, setting up an online ordering system, and reorganizing delivery routes. This transition opened new markets and strengthened community ties, and they plan to continue with direct-to-consumer sales as it has become a vital part of their operations."
         }
     }
 ]
