@@ -503,12 +503,11 @@ class KeywordExtractionSignature(dspy.Signature):
         try:
             response_json = json.loads(response)
             keywords = response_json.get("keywords", [])
-            # Ensure each keyword has 'keywords_to_use_coding', 'type', and 'context'
             validated_keywords = []
             for kw in keywords:
-                if all(key in kw for key in ['keywords_to_use_coding', 'type', 'context']):
+                if all(key in kw for key in ['keyword', 'type', 'context']):  # Changed from 'keywords_to_use_coding'
                     validated_keywords.append({
-                        "keywords_to_use_coding": kw['keywords_to_use_coding'],
+                        "keyword": kw['keyword'],  # Changed field name
                         "type": kw['type'],
                         "context": kw['context']
                     })
@@ -544,11 +543,11 @@ class KeywordExtractionSignature(dspy.Signature):
             f"6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.\n\n"
             f"Return the list of extracted keywords with their types and contexts in valid JSON format:\n"
             f"{{\n"
-            f"  'keywords': [\n"
+            f"  \"keywords\": [\n"
             f"    {{\n"
-            f"      'keywords_to_use_coding': 'string',\n"
-            f"      'type': 'string',\n"
-            f"      'context': 'string'\n"
+            f"      \"keyword\": \"string\",\n"  # Changed field name
+            f"      \"type\": \"string\",\n"
+            f"      \"context\": \"string\"\n"
             f"    }}\n"
             f"  ]\n"
             f"}}\n"
@@ -701,15 +700,23 @@ class SelectKeywordModule(dspy.Module):
 
     def forward(self, research_objectives: str, quotation: str, contextual_info: List[str], theoretical_framework: str = None) -> Dict[str, Any]:
         try:
-            logger.debug("Running SelectKeywordModule for keyword extraction on individual quotation.")
+            logger.debug(f"Running keyword extraction for quotation: {quotation[:100]}...")
+            logger.debug(f"Research objectives: {research_objectives[:100]}...")
+            logger.debug(f"Context info count: {len(contextual_info)}")
+            
             response = self.chain(
                 research_objectives=research_objectives,
                 quotation=quotation,
                 contextual_info=contextual_info,
                 theoretical_framework=theoretical_framework
             )
+            
             keywords = response.get("keywords", [])
-            logger.info(f"Extracted {len(keywords)} keywords.")
+            if not keywords:
+                logger.warning("No keywords returned from chain")
+            else:
+                logger.info(f"Successfully extracted {len(keywords)} keywords")
+                
             return {
                 "keywords": keywords
             }
@@ -720,12 +727,9 @@ class SelectKeywordModule(dspy.Module):
                 "error": f"Error occurred during keyword extraction: {str(e)}"
             }
 
+# File: analysis/select_quotation.py
+#------------------------------------------------------------------------------
 
-# File: analysis/select_quotation.py
-#------------------------------------------------------------------------------
-# File: analysis/select_quotation.py
-#------------------------------------------------------------------------------
-# src/analysis/select_quotation.py
 import logging
 from typing import List, Dict, Any
 import dspy
@@ -748,14 +752,17 @@ class EnhancedQuotationSignature(dspy.Signature):
     research_objectives: str = dspy.InputField(
         desc="The research objectives that provide focus for conducting the analysis"
     )
-    transcript_chunks: List[str] = dspy.InputField(
-        desc="Chunks of transcript from which quotations are to be selected"
+    transcript_chunk: str = dspy.InputField(
+        desc="The main transcript chunk being analyzed"
     )
-    theoretical_framework: str = dspy.InputField(
+    contextualized_contents: List[str] = dspy.InputField(
+        desc="List of related content providing additional context"
+    )
+    theoretical_framework: Dict[str, str] = dspy.InputField(
         desc="The theoretical and philosophical framework guiding the analysis"
     )
     quotations: List[Dict[str, Any]] = dspy.OutputField(
-        desc="List of selected quotations with their types and analytical context"
+        desc="List of selected quotations with their classifications and contexts"
     )
     analysis: str = dspy.OutputField(
         desc="Analysis of how the selected quotations support the research objectives"
@@ -764,7 +771,6 @@ class EnhancedQuotationSignature(dspy.Signature):
     def parse_quotations(self, response: str) -> List[Dict[str, Any]]:
         """Parses quotations from the LM response."""
         try:
-            # Assuming the LM returns a JSON-formatted string for easy parsing
             response_json = json.loads(response)
             quotation_list = response_json.get("quotations", [])
             return quotation_list
@@ -778,7 +784,6 @@ class EnhancedQuotationSignature(dspy.Signature):
     def extract_analysis(self, response: str) -> str:
         """Extracts analysis section from the LM response."""
         try:
-            # Assuming the LM returns a JSON-formatted string with an 'analysis' field
             response_json = json.loads(response)
             analysis = response_json.get("analysis", "")
             return analysis
@@ -789,49 +794,51 @@ class EnhancedQuotationSignature(dspy.Signature):
             logger.error(f"Error extracting analysis: {e}")
             return ""
 
-    def create_prompt(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> str:
+    def create_prompt(self, research_objectives: str, transcript_chunk: str, 
+                     contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> str:
         """Creates the prompt for the language model."""
-        chunks_formatted = "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)])
+        
+        # Format contextualized contents
+        contextualized_text = "\n\n".join([
+            f"Contextualized Content {i+1}:\n{content}" 
+            for i, content in enumerate(contextualized_contents)
+        ])
+
         prompt = (
-        f"You are conducting a thematic analysis following Braun and Clarke's (2006) approach.\n\n"
-        
-        f"Research Objectives:\n{research_objectives}\n\n"
-        f"Theoretical Framework:\n{theoretical_framework}\n\n"
-        f"Transcript Chunks:\n{chunks_formatted}\n\n"
-        
-        f"Task: Analyze the transcript chunks and select relevant quotations that align with both the research objectives and theoretical framework. For each selected quotation, provide:\n\n"
-        
-        f"1. Quotation Selection:\n"
-        f"   {{\n"
-        f"      'quotation': str,              # The exact quotation text\n"
-        f"      'context': str,            # Background context including relevant researcher questions\n"
-        f"      'quotation_type': str,         # 'discrete' (brief, diverse perspectives)\n"
-        f"                                 # 'embedded' (short phrases marking transitions)\n"
-        f"                                 # 'longer' (complex understanding)\n"
-        f"      'function': str,           # 'evidence' | 'explanation' | 'illustration' | \n"
-        f"                                 # 'impression' | 'representation'\n"
-        f"      'pattern_strength': float, # 0.0-1.0 indicating pattern robustness in data\n"
-        f"      'analysis_notes': str      # Interpretation based on theoretical framework\n"
-        f"   }}\n\n"
-        
-        f"2. Analysis Overview:\n"
-        f"   {{\n"
-        f"      'selection_rationale': str,    # Why these quotations were chosen\n"
-        f"      'theoretical_alignment': str,  # How quotations support theoretical framework\n"
-        f"      'objective_alignment': str,    # How quotations advance research objectives\n"
-        f"      'pattern_summary': str         # Overview of identified patterns\n"
-        f"   }}\n\n"
-        
-        f"Return the analysis in valid JSON format."
-    )
+            f"You are a qualitative researcher conducting thematic analysis on interview transcripts "
+            f"using Braun and Clarke's (2006) approach. Your task is to analyze the provided data "
+            f"while adhering to key principles from their thematic analysis methodology.\n\n"
+            
+            f"Research Objectives:\n{research_objectives}\n\n"
+            
+            f"Theoretical Framework:\n{theoretical_framework}\n\n"
+            
+            f"Main Transcript Being Analyzed:\n{transcript_chunk}\n\n"
+            
+            f"Additional Contextual Information:\n{contextualized_text}\n\n"
+            
+            f"Task: Analyze the transcript and contextual information to select relevant quotations "
+            f"that align with both the research objectives and theoretical framework.\n"
+            f"For each selected quotation, provide:\n"
+            f"1. The quotation text\n"
+            f"2. Type of quotation ('discrete', 'embedded', 'longer') as per Creswell's classification\n"
+            f"3. Context or explanation\n\n"
+            f"Return the results in valid JSON format."
+        )
         return prompt
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
             logger.debug("Starting enhanced quotation selection process with theoretical framework.")
             
             # Generate the prompt
-            prompt = self.create_prompt(research_objectives, transcript_chunks, theoretical_framework)
+            prompt = self.create_prompt(
+                research_objectives,
+                transcript_chunk,
+                contextualized_contents,
+                theoretical_framework
+            )
             
             # Generate response
             response = self.language_model.generate(
@@ -845,11 +852,11 @@ class EnhancedQuotationSignature(dspy.Signature):
             analysis = self.extract_analysis(response)
             
             # Apply assertions
-            assert_relevant_quotations(quotation_list, self.research_objectives)
+            assert_relevant_quotations(quotation_list, research_objectives)
             assert_confidentiality(quotation_list, sensitive_keywords=['confidential', 'secret'])
             assert_diversity_of_quotations(quotation_list, min_participants=3)
-            assert_contextual_adequacy(quotation_list, self.transcript_chunks)
-            assert_philosophical_alignment(quotation_list, self.theoretical_framework)
+            assert_contextual_adequacy(quotation_list, [transcript_chunk] + contextualized_contents)
+            assert_philosophical_alignment(quotation_list, theoretical_framework)
             
             logger.info(f"Successfully selected {len(quotation_list)} quotations aligned with theoretical framework.")
             return {
@@ -859,7 +866,8 @@ class EnhancedQuotationSignature(dspy.Signature):
 
         except AssertionError as af:
             logger.warning(f"Assertion failed during quotation selection: {af}")
-            return self.handle_failed_assertion(af, research_objectives, transcript_chunks, theoretical_framework)
+            return self.handle_failed_assertion(af, research_objectives, transcript_chunk, 
+                                             contextualized_contents, theoretical_framework)
         except Exception as e:
             logger.error(f"Error in EnhancedQuotationSignature.forward: {e}", exc_info=True)
             return {
@@ -868,22 +876,24 @@ class EnhancedQuotationSignature(dspy.Signature):
             }
 
     def handle_failed_assertion(self, assertion_failure: AssertionError,
-                              research_objectives: str, transcript_chunks: List[str],
-                              theoretical_framework: str) -> Dict[str, Any]:
+                              research_objectives: str, transcript_chunk: str,
+                              contextualized_contents: List[str],
+                              theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         """Handles failed assertions by attempting to generate improved quotations."""
         try:
             focused_prompt = (
                 f"The previous attempt failed because: {assertion_failure}\n\n"
                 f"Research Objectives:\n{research_objectives}\n\n"
                 f"Theoretical Framework:\n{theoretical_framework}\n\n"
+                f"Main Transcript Being Analyzed:\n{transcript_chunk}\n\n"
+                f"Additional Contextual Information:\n" +
+                "\n\n".join([f"Contextualized Content {i+1}:\n{content}" 
+                            for i, content in enumerate(contextualized_contents)]) + "\n\n"
                 "Please select quotations that specifically address this issue by ensuring:\n"
                 "1. Proper quotation type (Discrete/Embedded/Longer)\n"
-                "2. Clear function and purpose\n"
-                "3. Sufficient context and ethical considerations\n"
-                "4. Strong theoretical alignment\n"
-                "5. Diverse participant representation\n\n"
-                "Transcript Chunks:\n" +
-                "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)])
+                "2. Clear context and explanation\n"
+                "3. Strong theoretical alignment\n"
+                "4. Diversity of perspectives\n"
             )
 
             response = self.language_model.generate(
@@ -895,11 +905,11 @@ class EnhancedQuotationSignature(dspy.Signature):
             quotation_list = self.parse_quotations(response)
             analysis = self.extract_analysis(response)
 
-            # Re-apply assertions on the new quotations
+            # Re-apply assertions
             assert_relevant_quotations(quotation_list, research_objectives)
             assert_confidentiality(quotation_list, sensitive_keywords=['confidential', 'secret'])
             assert_diversity_of_quotations(quotation_list, min_participants=3)
-            assert_contextual_adequacy(quotation_list, transcript_chunks)
+            assert_contextual_adequacy(quotation_list, [transcript_chunk] + contextualized_contents)
             assert_philosophical_alignment(quotation_list, theoretical_framework)
 
             return {
@@ -928,12 +938,14 @@ class EnhancedQuotationModule(dspy.Module):
         super().__init__()
         self.chain = dspy.TypedChainOfThought(EnhancedQuotationSignature)
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
             logger.debug("Running EnhancedQuotationModule with theoretical framework.")
             response = self.chain(
                 research_objectives=research_objectives,
-                transcript_chunks=transcript_chunks,
+                transcript_chunk=transcript_chunk,
+                contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
             quotations = response.get("quotations", [])
@@ -949,6 +961,8 @@ class EnhancedQuotationModule(dspy.Module):
                 "quotations": [],
                 "analysis": ""
             }
+
+
 
 # File: analysis/select_quotation_alt.py
 #------------------------------------------------------------------------------
@@ -1156,7 +1170,8 @@ class EnhancedQuotationModuleAlt(dspy.Module):
 
 # File: analysis/select_quotation_module.py
 #------------------------------------------------------------------------------
-# src/analysis/select_quotation_module.py
+
+#analysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -1174,19 +1189,21 @@ logger = logging.getLogger(__name__)
 
 class SelectQuotationModule(dspy.Module):
     """
-    DSPy module to select quotations based on research objectives, transcript chunks, and theoretical framework.
-    Utilizes EnhancedQuotationModule for robust assertion-based selection.
+    DSPy module to select and classify quotations based on research objectives,
+    transcript chunks, and theoretical framework.
     """
     def __init__(self):
         super().__init__()
         self.enhanced_module = EnhancedQuotationModule()
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
             logger.debug("Running SelectQuotationModule with theoretical framework.")
             response = self.enhanced_module.forward(
                 research_objectives=research_objectives,
-                transcript_chunks=transcript_chunks,
+                transcript_chunk=transcript_chunk,
+                contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
             quotations = response.get("quotations", [])
@@ -1254,6 +1271,198 @@ class SelectQuotationModuleAlt(dspy.Module):
             }
 
 
+# File: analysis/theoretical_analysis.py
+#------------------------------------------------------------------------------
+# src/analysis/theoretical_analysis.py
+import logging
+from typing import List, Dict, Any
+import dspy
+import json
+
+from src.assertions import (
+    assert_patterns_identified,
+    assert_theoretical_interpretation,
+    assert_research_alignment
+)
+
+logger = logging.getLogger(__name__)
+
+class TheoreticalAnalysisSignature(dspy.Signature):
+    quotations: List[Dict[str, Any]] = dspy.InputField(
+        desc="List of selected quotations with their classifications and contexts"
+    )
+    theoretical_framework: Dict[str, str] = dspy.InputField(
+        desc="The theoretical and philosophical framework guiding the analysis"
+    )
+    research_objectives: str = dspy.InputField(
+        desc="The research objectives statement"
+    )
+    patterns_identified: List[str] = dspy.OutputField(
+        desc="List of patterns identified from the quotations"
+    )
+    theoretical_interpretation: str = dspy.OutputField(
+        desc="Analysis of the patterns through the theoretical lens"
+    )
+    research_alignment: str = dspy.OutputField(
+        desc="Explanation of how the analysis aligns with the research objectives"
+    )
+    practical_implications: str = dspy.OutputField(
+        desc="Implications of the findings for practice or further research"
+    )
+
+    def create_prompt(self, quotations: List[Dict[str, Any]], theoretical_framework: Dict[str, str], research_objectives: str) -> str:
+        prompt = (
+            f"You are performing a theoretical analysis based on the provided quotations.\n\n"
+            f"Research Objectives:\n{research_objectives}\n\n"
+            f"Theoretical Framework:\n{theoretical_framework}\n\n"
+            f"Quotations:\n{json.dumps(quotations, indent=2)}\n\n"
+            f"Task: Identify patterns, provide theoretical interpretation, and explain how the analysis aligns with the research objectives.\n"
+            f"Also, discuss the practical implications of the findings.\n"
+            f"Return the results in valid JSON format with the following structure:\n"
+            f"{{\n"
+            f"  \"patterns_identified\": [\"pattern1\", \"pattern2\", ...],\n"
+            f"  \"theoretical_interpretation\": \"Your analysis here\",\n"
+            f"  \"research_alignment\": \"Explanation of alignment\",\n"
+            f"  \"practical_implications\": \"Implications of findings\"\n"
+            f"}}"
+        )
+        return prompt
+
+    def forward(self, quotations: List[Dict[str, Any]], theoretical_framework: Dict[str, str], research_objectives: str) -> Dict[str, Any]:
+        try:
+            logger.debug("Starting theoretical analysis.")
+            prompt = self.create_prompt(quotations, theoretical_framework, research_objectives)
+            response = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=1500,
+                temperature=1.0
+            ).strip()
+
+            # Parse the response
+            response_json = json.loads(response)
+            patterns_identified = response_json.get("patterns_identified", [])
+            theoretical_interpretation = response_json.get("theoretical_interpretation", "")
+            research_alignment = response_json.get("research_alignment", "")
+            practical_implications = response_json.get("practical_implications", "")
+
+            # Apply assertions
+            assert_patterns_identified(patterns_identified)
+            assert_theoretical_interpretation(theoretical_interpretation)
+            assert_research_alignment(research_alignment)
+
+            return {
+                "patterns_identified": patterns_identified,
+                "theoretical_interpretation": theoretical_interpretation,
+                "research_alignment": research_alignment,
+                "practical_implications": practical_implications
+            }
+
+        except AssertionError as af:
+            logger.warning(f"Assertion failed during theoretical analysis: {af}")
+            return self.handle_failed_assertion(af, quotations, theoretical_framework, research_objectives)
+        except Exception as e:
+            logger.error(f"Error in TheoreticalAnalysisSignature.forward: {e}", exc_info=True)
+            return {}
+
+    def handle_failed_assertion(self, assertion_failure: AssertionError,
+                                quotations: List[Dict[str, Any]],
+                                theoretical_framework: Dict[str, str],
+                                research_objectives: str) -> Dict[str, Any]:
+        """Handles failed assertions by attempting to generate improved analysis."""
+        try:
+            focused_prompt = (
+                f"The previous attempt failed because: {assertion_failure}\n\n"
+                f"Research Objectives:\n{research_objectives}\n\n"
+                f"Theoretical Framework:\n{theoretical_framework}\n\n"
+                f"Please ensure that the analysis addresses the following:\n"
+                f"1. Identifies clear patterns from the quotations.\n"
+                f"2. Provides a theoretical interpretation aligning with the theoretical framework.\n"
+                f"3. Explains how the analysis aligns with the research objectives.\n"
+                f"4. Discusses practical implications of the findings.\n\n"
+                f"Quotations:\n{json.dumps(quotations, indent=2)}\n\n"
+                f"Return the results in the specified JSON format."
+            )
+
+            response = self.language_model.generate(
+                prompt=focused_prompt,
+                max_tokens=1500,
+                temperature=0.5
+            ).strip()
+
+            # Parse the response
+            response_json = json.loads(response)
+            patterns_identified = response_json.get("patterns_identified", [])
+            theoretical_interpretation = response_json.get("theoretical_interpretation", "")
+            research_alignment = response_json.get("research_alignment", "")
+            practical_implications = response_json.get("practical_implications", "")
+
+            # Re-apply assertions
+            assert_patterns_identified(patterns_identified)
+            assert_theoretical_interpretation(theoretical_interpretation)
+            assert_research_alignment(research_alignment)
+
+            return {
+                "patterns_identified": patterns_identified,
+                "theoretical_interpretation": theoretical_interpretation,
+                "research_alignment": research_alignment,
+                "practical_implications": practical_implications
+            }
+
+        except AssertionError as af_inner:
+            logger.error(f"Refined analysis still failed assertions: {af_inner}")
+            return {}
+        except Exception as e:
+            logger.error(f"Error in handle_failed_assertion: {e}", exc_info=True)
+            return {}
+
+
+# File: analysis/theoretical_analysis_module.py
+#------------------------------------------------------------------------------
+# src/analysis/theoretical_analysis_module.py
+import logging
+from typing import Dict, Any, List
+import dspy
+
+from src.analysis.theoretical_analysis import TheoreticalAnalysisSignature
+from src.assertions import (
+    assert_patterns_identified,
+    assert_theoretical_interpretation,
+    assert_research_alignment
+)
+
+logger = logging.getLogger(__name__)
+
+class TheoreticalAnalysisModule(dspy.Module):
+    """
+    DSPy module to perform theoretical analysis on selected quotations.
+    """
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.TypedChainOfThought(TheoreticalAnalysisSignature)
+
+    def forward(self, quotations: List[Dict[str, Any]], theoretical_framework: Dict[str, str], research_objectives: str) -> Dict[str, Any]:
+        try:
+            logger.debug("Running TheoreticalAnalysisModule.")
+            response = self.chain(
+                quotations=quotations,
+                theoretical_framework=theoretical_framework,
+                research_objectives=research_objectives
+            )
+            patterns_identified = response.get("patterns_identified", [])
+            theoretical_interpretation = response.get("theoretical_interpretation", "")
+            research_alignment = response.get("research_alignment", "")
+            practical_implications = response.get("practical_implications", "")
+            return {
+                "patterns_identified": patterns_identified,
+                "theoretical_interpretation": theoretical_interpretation,
+                "research_alignment": research_alignment,
+                "practical_implications": practical_implications
+            }
+        except Exception as e:
+            logger.error(f"Error in TheoreticalAnalysisModule.forward: {e}", exc_info=True)
+            return {}
+
+
 
 ################################################################################
 # Module: root
@@ -1281,7 +1490,7 @@ def assert_relevant_quotations(quotations: List[Dict[str, Any]], themes: List[st
     """
     for quote in quotations:
         if not any(theme.lower() in [t.lower() for t in quote.get('themes', [])] for theme in themes):
-            error_msg = f"Quotation '{quote.get('quote', '')[:50]}...' does not align with any identified theme."
+            error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' does not align with any identified theme."
             logger.error(error_msg)
             raise AssertionError(error_msg)
 
@@ -1300,7 +1509,7 @@ def assert_confidentiality(quotations: List[Dict[str, Any]], sensitive_keywords:
         quote_text = quote.get("quotation", "").lower()
         for keyword in sensitive_keywords:
             if keyword.lower() in quote_text:
-                error_msg = f"Quotation '{quote.get('quote', '')[:50]}...' contains sensitive keyword '{keyword}'."
+                error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' contains sensitive keyword '{keyword}'."
                 logger.error(error_msg)
                 raise AssertionError(error_msg)
 
@@ -1346,36 +1555,94 @@ def assert_contextual_adequacy(quotations: List[Dict[str, Any]], transcript_chun
             logger.error(error_msg)
             raise AssertionError(error_msg)
 
-def assert_philosophical_alignment(quotations: List[Dict[str, Any]], theoretical_framework: str) -> None:
+def assert_philosophical_alignment(quotations: List[Dict[str, Any]], theoretical_framework: Dict[str, str]) -> None:
     """
     Ensure that quotations align with the researcher's philosophical stance.
     
     Args:
         quotations (List[Dict[str, Any]]): List of quotations with associated metadata.
-        theoretical_framework (str): The theoretical and philosophical framework guiding the analysis.
+        theoretical_framework (Dict[str, str]): The theoretical and philosophical framework guiding the analysis.
     
     Raises:
         AssertionError: If any quotation does not align with the specified orientation.
     """
-    framework_lower = theoretical_framework.lower()
+    framework_lower = theoretical_framework.get("philosophical_approach", "").lower()
     for quote in quotations:
         alignment_score = float(quote.get("alignment_score", 0.0))
         analysis_notes = quote.get("analysis_notes", "").lower()
         if "constructivist" in framework_lower:
             if alignment_score < 0.7 or "subjective" not in analysis_notes:
-                error_msg = f"Quotation '{quote.get('quote', '')[:50]}...' does not align with constructivist orientation."
+                error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' does not align with constructivist orientation."
                 logger.error(error_msg)
                 raise AssertionError(error_msg)
-        elif "critical realism" in framework_lower:
+        elif "critical realist" in framework_lower:
             if alignment_score < 0.7 or "objective" not in analysis_notes:
-                error_msg = f"Quotation '{quote.get('quote', '')[:50]}...' does not align with critical realism orientation."
+                error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' does not align with critical realism orientation."
                 logger.error(error_msg)
                 raise AssertionError(error_msg)
         else:
             if alignment_score < 0.7:
-                error_msg = f"Quotation '{quote.get('quote', '')[:50]}...' has insufficient alignment score."
+                error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' has insufficient alignment score."
                 logger.error(error_msg)
                 raise AssertionError(error_msg)
+
+def assert_patterns_identified(patterns_identified: List[str]) -> None:
+    """
+    Ensure that patterns have been identified and are valid.
+    
+    Args:
+        patterns_identified (List[str]): List of identified patterns.
+    
+    Raises:
+        AssertionError: If no patterns are identified or if any pattern is invalid.
+    """
+    if not patterns_identified:
+        error_msg = "No patterns were identified in the analysis."
+        logger.error(error_msg)
+        raise AssertionError(error_msg)
+    for pattern in patterns_identified:
+        if not isinstance(pattern, str) or not pattern.strip():
+            error_msg = f"Invalid pattern identified: '{pattern}'."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+
+def assert_theoretical_interpretation(theoretical_interpretation: str) -> None:
+    """
+    Ensure that the theoretical interpretation is adequate.
+    
+    Args:
+        theoretical_interpretation (str): The theoretical interpretation text.
+    
+    Raises:
+        AssertionError: If the interpretation is empty or insufficient.
+    """
+    if not theoretical_interpretation.strip():
+        error_msg = "Theoretical interpretation is empty."
+        logger.error(error_msg)
+        raise AssertionError(error_msg)
+    if len(theoretical_interpretation.strip().split()) < 20:
+        error_msg = "Theoretical interpretation is too brief."
+        logger.error(error_msg)
+        raise AssertionError(error_msg)
+
+def assert_research_alignment(research_alignment: str) -> None:
+    """
+    Ensure that the research alignment explanation is adequate.
+    
+    Args:
+        research_alignment (str): The research alignment text.
+    
+    Raises:
+        AssertionError: If the alignment explanation is empty or insufficient.
+    """
+    if not research_alignment.strip():
+        error_msg = "Research alignment explanation is empty."
+        logger.error(error_msg)
+        raise AssertionError(error_msg)
+    if len(research_alignment.strip().split()) < 20:
+        error_msg = "Research alignment explanation is too brief."
+        logger.error(error_msg)
+        raise AssertionError(error_msg)
 
 
 # File: assertions_alt.py
@@ -2856,6 +3123,7 @@ class PipelineEvaluator:
 
 # File: main.py
 #------------------------------------------------------------------------------
+
 # main.py
 import gc
 import logging
@@ -2872,15 +3140,13 @@ from src.utils.logger import setup_logging
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.data.data_loader import load_codebase_chunks, load_queries
-from src.processing.query_processor import validate_queries, process_queries
+from src.processing.query_processor import process_queries , validate_queries
 from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import SelectQuotationModule
-# Removed the following import as we're no longer using SelectQuotationModuleAlt
-# from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
-from src.analysis.select_keyword_module import SelectKeywordModule
+from src.analysis.theoretical_analysis_module import TheoreticalAnalysisModule
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -2898,16 +3164,11 @@ class ThematicAnalysisPipeline:
         self.config = config
         self.contextual_db = None
         self.es_bm25 = None
-        self.keyword_qa_module = None
         self.quotation_qa_module = None
-        self.keyword_teleprompter = None
         self.quotation_teleprompter = None
-        self.optimized_keyword_program = None
         self.optimized_quotation_program = None
         self.quotation_module = None
-        # Removed the following line as we're no longer using SelectQuotationModuleAlt
-        # self.quotation_module_alt = None
-        self.keyword_module = None
+        self.theoretical_analysis_module = None
 
     def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
         """
@@ -2925,41 +3186,6 @@ class ThematicAnalysisPipeline:
             logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
             raise
         return es_bm25
-
-    async def initialize_keyword_optimizer(self):
-        """
-        Initialize the keyword extraction optimizer.
-        """
-        logger.info("Initializing keyword extraction optimizer")
-        dl = DataLoader()
-        keyword_train_dataset = dl.from_csv(
-            self.config['keyword_training_data'],
-            fields=("input", "output"),
-            input_keys=("input",)
-        )
-
-        self.keyword_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
-        
-        optimizer_config = {
-            'max_bootstrapped_demos': 4,
-            'max_labeled_demos': 4,
-            'num_candidate_programs': 10,
-            'num_threads': 1
-        }
-        
-        self.keyword_teleprompter = BootstrapFewShotWithRandomSearch(
-            metric=comprehensive_metric,
-            **optimizer_config
-        )
-
-        self.optimized_keyword_program = self.keyword_teleprompter.compile(
-            student=self.keyword_qa_module,
-            teacher=self.keyword_qa_module,
-            trainset=keyword_train_dataset
-        )
-        
-        self.optimized_keyword_program.save(self.config['optimized_keyword_program'])
-        logger.info("Keyword optimizer initialized successfully")
 
     async def initialize_quotation_optimizer(self):
         """
@@ -3007,36 +3233,15 @@ class ThematicAnalysisPipeline:
             logger.info("Configuring DSPy Language Model")
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
-            dspy.Cache=False
+            dspy.Cache = False
 
             # Define file paths from config
             codebase_chunks_file = self.config['codebase_chunks_file']
             queries_file_standard = self.config['queries_file_standard']
-            # Removed the following as we're no longer using alternative queries
-            # queries_file_alt = self.config['queries_file_alt']
-            queries_file_keyword = self.config['queries_file_keyword']
             evaluation_set_file = self.config['evaluation_set_file']
             output_filename_primary = self.config['output_filename_primary']
-            # Removed the following as we're no longer using alternative output
-            # output_filename_alt = self.config['output_filename_alt']
-            output_filename_keyword = self.config['output_filename_keyword']
 
             dl = DataLoader()
-
-            # Load the training data for keywords and quotations
-            logger.info(f"Loading keyword training data from '{self.config['keyword_training_data']}'")
-            keyword_train_dataset = dl.from_csv(
-                self.config['keyword_training_data'],
-                fields=("input", "output"),
-                input_keys=("input",)
-            )
-
-            logger.info(f"Loading quotation training data from '{self.config['quotation_training_data']}'")
-            quotation_train_dataset = dl.from_csv(
-                self.config['quotation_training_data'],
-                fields=("input", "output"),
-                input_keys=("input",)
-            )
 
             # Load the codebase chunks
             logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'")
@@ -3049,7 +3254,7 @@ class ThematicAnalysisPipeline:
             # Load and process the data
             try:
                 logger.info("Loading data into ContextualVectorDB")
-                self.contextual_db.load_data(codebase_chunks, parallel_threads=1)  # Reduced to single thread
+                self.contextual_db.load_data(codebase_chunks, parallel_threads=1)
             except Exception as e:
                 logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
                 return
@@ -3066,46 +3271,17 @@ class ThematicAnalysisPipeline:
             logger.info(f"Loading standard queries from '{queries_file_standard}'")
             standard_queries = load_queries(queries_file_standard)
 
-            # Removed the following as we're no longer using alternative queries
-            # logger.info(f"Loading alternative queries from '{queries_file_alt}'")
-            # alternative_queries = load_queries(queries_file_alt)
-
-            logger.info(f"Loading keyword queries from '{queries_file_keyword}'")
-            keyword_queries = load_queries(queries_file_keyword)
-
             if not standard_queries:
                 logger.error("No standard queries found to process.")
-            # Removed the following as we're no longer using alternative queries
-            # if not alternative_queries:
-            #     logger.error("No alternative queries found to process.")
-            if not keyword_queries:
-                logger.error("No keyword queries found to process.")
 
             # Validate queries
             logger.info("Validating standard queries")
             validated_standard_queries = validate_queries(standard_queries)
 
-            # Removed the following as we're no longer using alternative queries
-            # logger.info("Validating alternative queries")
-            # validated_alternative_queries = validate_queries(alternative_queries)
-
-            logger.info("Validating keyword queries")
-            validated_keyword_queries = validate_queries(keyword_queries)
-
-            # Initialize optimizers
-            await self.initialize_keyword_optimizer()
+            # Initialize quotation optimizer
             await self.initialize_quotation_optimizer()
 
-            # Initialize SelectKeywordModule and SelectQuotationModule with assertions
-            try:
-                logger.info("Initializing SelectKeywordModule")
-                self.keyword_module = SelectKeywordModule()
-                self.keyword_module = assert_transform_module(self.keyword_module, backtrack_handler)
-                logger.info("SelectKeywordModule initialized successfully with assertions activated.")
-            except Exception as e:
-                logger.error(f"Error initializing SelectKeywordModule: {e}", exc_info=True)
-                return
-
+            # Initialize SelectQuotationModule with assertions
             try:
                 logger.info("Initializing SelectQuotationModule")
                 self.quotation_module = SelectQuotationModule()
@@ -3115,22 +3291,20 @@ class ThematicAnalysisPipeline:
                 logger.error(f"Error initializing SelectQuotationModule: {e}", exc_info=True)
                 return
 
-            # Removed the following as we're no longer using SelectQuotationModuleAlt
-            # try:
-            #     logger.info("Initializing SelectQuotationModuleAlt")
-            #     self.quotation_module_alt = SelectQuotationModuleAlt()
-            #     self.quotation_module_alt = assert_transform_module(self.quotation_module_alt, backtrack_handler)
-            #     logger.info("SelectQuotationModuleAlt initialized successfully with assertions activated.")
-            # except Exception as e:
-            #     logger.error(f"Error initializing SelectQuotationModuleAlt: {e}", exc_info=True)
-            #     return
+            # Initialize TheoreticalAnalysisModule
+            try:
+                logger.info("Initializing TheoreticalAnalysisModule")
+                self.theoretical_analysis_module = TheoreticalAnalysisModule()
+                logger.info("TheoreticalAnalysisModule initialized successfully.")
+            except Exception as e:
+                logger.error(f"Error initializing TheoreticalAnalysisModule: {e}", exc_info=True)
+                return
 
-            # Define k value for standard and keyword queries
+            # Define k value for standard queries
             k_standard = 20
-            k_keyword = 2  # Fixed k=2 for keyword extraction
 
-            # Process standard queries with SelectQuotationModule first
-            logger.info("Processing standard queries with SelectQuotationModule")
+            # Process standard queries with SelectQuotationModule and TheoreticalAnalysisModule
+            logger.info("Processing standard queries with SelectQuotationModule and TheoreticalAnalysisModule")
             await process_queries(
                 validated_standard_queries,
                 self.contextual_db,
@@ -3138,34 +3312,9 @@ class ThematicAnalysisPipeline:
                 k=k_standard,
                 output_file=self.config['output_filename_primary'],
                 optimized_program=self.optimized_quotation_program,
-                module=self.quotation_module
+                module=self.quotation_module,
+                theoretical_analysis_module=self.theoretical_analysis_module
             )
-
-            # Then process keyword queries with SelectKeywordModule
-            logger.info("Processing keyword queries with SelectKeywordModule")
-            await process_queries(
-                validated_keyword_queries,
-                self.contextual_db,
-                self.es_bm25,
-                k=k_keyword,
-                output_file=self.config['output_filename_keyword'],
-                optimized_program=self.optimized_keyword_program,
-                module=self.keyword_module,
-                is_keyword_extraction=True
-            )
-
-            # Removed the following as we're no longer using SelectQuotationModuleAlt
-            # # Process alternative queries with SelectQuotationModuleAlt
-            # logger.info("Processing alternative queries with SelectQuotationModuleAlt")
-            # await process_queries(
-            #     validated_alternative_queries,
-            #     self.contextual_db,
-            #     self.es_bm25,
-            #     k=k_standard,
-            #     output_file=self.config['output_filename_alt'],
-            #     optimized_program=self.optimized_quotation_program,
-            #     module=self.quotation_module_alt
-            # )
 
             # Define k values for evaluation
             k_values = [5, 10, 20]
@@ -3197,21 +3346,14 @@ if __name__ == "__main__":
     config = {
         'codebase_chunks_file': 'data/codebase_chunks.json',
         'queries_file_standard': 'data/queries.json',
-        # Removed the following as we're no longer using alternative queries
-        # 'queries_file_alt': 'data/queries_alt.json',
-        'queries_file_keyword': 'data/query_results_quotation.json',
         'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'data/query_results_quotation.json',
-        # Removed the following as we're no longer using alternative output
-        # 'output_filename_alt': 'query_results_alternative.json',
-        'output_filename_keyword': 'data/query_results_keyword.json',
-        'keyword_training_data': 'data/keyword_training_data.csv',
+        'output_filename_primary': 'query_results_quotation.json',
         'quotation_training_data': 'data/quotation_training_data.csv',
-        'optimized_keyword_program': 'optimized_keyword_program.json',
         'optimized_quotation_program': 'optimized_quotation_program.json'
     }
     pipeline = ThematicAnalysisPipeline(config)
     asyncio.run(pipeline.run_pipeline())
+
 
 
 
@@ -3413,7 +3555,7 @@ def is_answer_factually_correct(example: Dict[str, Any], pred: Dict[str, Any]) -
 
 # File: processing/query_processor.py
 #------------------------------------------------------------------------------
-# src/processing/query_processor.py
+#processing/query_processor.py
 import logging
 from typing import List, Dict, Any
 import json
@@ -3422,242 +3564,174 @@ from tqdm import tqdm
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.retrieval.retrieval import multi_stage_retrieval
-from src.processing.answer_generator import generate_answer_dspy
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
 import dspy
 
-# Import quotation modules
-from src.analysis.select_quotation_module import SelectQuotationModule
-from src.analysis.select_quotation_module_alt import SelectQuotationModuleAlt
-from src.analysis.select_keyword_module import SelectKeywordModule  # Import the keyword module
-
 setup_logging()
 logger = logging.getLogger(__name__)
 
-def validate_queries(queries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def validate_queries(transcripts: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
-    Validates the structure of input queries.
+    Validates the structure of input transcripts.
     """
-    valid_queries = []
-    for idx, query in enumerate(queries):
-        if 'query' not in query or not query['query'].strip():
-            logger.warning(f"Query at index {idx} is missing the 'query' field or is empty. Skipping.")
+    valid_transcripts = []
+    for idx, transcript in enumerate(transcripts):
+        if 'transcript_chunk' not in transcript or not transcript['transcript_chunk'].strip():
+            logger.warning(f"Transcript at index {idx} is missing the 'transcript_chunk' field or is empty. Skipping.")
             continue
-        valid_queries.append(query)
+        valid_transcripts.append(transcript)
 
-    logger.info(f"Validated {len(valid_queries)} queries out of {len(queries)} provided.")
-    return valid_queries
+    logger.info(f"Validated {len(valid_transcripts)} transcripts out of {len(transcripts)} provided.")
+    return valid_transcripts
 
-def retrieve_documents(query: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
+def retrieve_documents(transcript_chunk: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
     """
     Retrieves documents using multi-stage retrieval with contextual BM25.
     """
-    logger.debug(f"Retrieving documents for query: '{query}' with top {k} results.")
-    final_results = multi_stage_retrieval(query, db, es_bm25, k)
-    # Limiting is handled outside this function
+    logger.debug(f"Retrieving documents for transcript chunk: '{transcript_chunk[:100]}...' with top {k} results.")
+    final_results = multi_stage_retrieval(transcript_chunk, db, es_bm25, k)
     logger.debug(f"Multi-stage retrieval returned {len(final_results)} results.")
     return final_results
 
 @handle_exceptions
-async def process_single_query(
-    query_item: Dict[str, Any],
+async def process_single_transcript(
+    transcript_item: Dict[str, Any],
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
     k: int,
     module: dspy.Module,
-    is_keyword_extraction: bool = False
-) -> List[Dict[str, Any]]:
+    theoretical_analysis_module: dspy.Module = None
+) -> Dict[str, Any]:
     """
-    Processes a single query to retrieve documents, select quotations, or extract keywords.
-    Returns a list of result dictionaries, one for each quotation.
+    Processes a single transcript chunk to retrieve documents and select quotations.
+    Returns a result dictionary.
     """
-    results = []
-    if is_keyword_extraction:
-        # Set k to 2 for keyword extraction
-        retrieval_k = 2
-        # Extract quotations intended for keyword extraction
-        quotations = query_item.get('quotations', [])
-        quotation_texts = [
-            q.get('quotation', '').strip() 
-            for q in quotations 
-            if 'quotation' in q and q.get('quotation', '').strip()
-        ]
+    transcript_chunk = transcript_item.get('transcript_chunk', '').strip()
+    if not transcript_chunk:
+        logger.warning("Transcript chunk is empty. Skipping.")
+        return {}
 
-        if not quotation_texts:
-            logger.warning("No 'quotation' found for keyword extraction. Skipping.")
-            return results  # Empty list
+    logger.info(f"Processing transcript chunk: {transcript_chunk[:100]}...")
 
-        logger.info(f"Processing keyword extraction for query: {query_item.get('query', '')[:50]}...")
+    # Retrieve relevant chunks/documents
+    retrieved_chunks = retrieve_documents(transcript_chunk, db, es_bm25, k)
+    logger.info(f"Total chunks retrieved for transcript chunk: {len(retrieved_chunks)}")
 
-        # Define research objectives and theoretical framework
-        research_objectives = query_item.get('research_objectives', 'Extract relevant keywords based on the provided objectives.')
-        theoretical_framework = query_item.get('theoretical_framework', '')
+    # Extract contextualized contents from retrieved documents
+    contextualized_contents = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
 
-        # Retrieve top 2 relevant chunks
-        retrieved_chunks = retrieve_documents(query_item.get('query', ''), db, es_bm25, retrieval_k)
-        retrieved_chunks_count = len(retrieved_chunks)
-        used_chunk_ids = [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks]
-        analysis = query_item.get('analysis', '')
-        answer = query_item.get('answer', {})
+    # Get research objectives and theoretical framework
+    research_objectives = transcript_item.get('research_objectives', 
+        'Extract relevant quotations based on the provided objectives.')
+    theoretical_framework = transcript_item.get('theoretical_framework', {})
 
-        # Extract contextualized_content from the top 2 chunks
-        contextual_info = [chunk['chunk']['contextualized_content'] for chunk in retrieved_chunks if 'contextualized_content' in chunk['chunk'] and chunk['chunk']['contextualized_content'].strip()]
+    # Select quotations using the provided DSPy module
+    quotations_response = module.forward(
+        research_objectives=research_objectives,
+        transcript_chunk=transcript_chunk,
+        contextualized_contents=contextualized_contents,
+        theoretical_framework=theoretical_framework
+    )
+    
+    quotations = quotations_response.get("quotations", [])
+    initial_analysis = quotations_response.get("analysis", "")
 
-        for idx, quotation in enumerate(quotation_texts, start=1):
-            logger.info(f"Extracting keywords for quotation {idx}: {quotation[:50]}...")
+    # Prepare the result dictionary
+    result = {
+        "transcript_chunk": transcript_chunk,
+        "research_objectives": research_objectives,
+        "theoretical_framework": theoretical_framework,
+        "retrieved_chunks": retrieved_chunks,
+        "retrieved_chunks_count": len(retrieved_chunks),
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
+        "quotations": quotations,
+        "analysis": {},
+        "answer": {}
+    }
 
-            # Extract keywords using the provided DSPy module
-            response = module.forward(
-                research_objectives=research_objectives,
-                quotation=quotation,
-                contextual_info=contextual_info,
-                theoretical_framework=theoretical_framework
-            )
-            keywords = response.get("keywords", [])
-            error = response.get("error", "")
-
-            if error:
-                logger.error(f"Error extracting keywords for quotation {idx}: {error}")
-                # Skip to the next quotation
-                continue
-
-            # Prepare the result for this quotation
-            result = {
-                "quotation": quotation,
-                "research_objectives": research_objectives,
-                "theoretical_framework": theoretical_framework,
-                "retrieved_chunks": retrieved_chunks,
-                "retrieved_chunks_count": retrieved_chunks_count,
-                "used_chunk_ids": used_chunk_ids,
-                "keywords": keywords,  # List of keyword dictionaries
-                "analysis": analysis,
-                "answer": answer
-            }
-
-            # Remove 'contextualized_content' from retrieved_chunks if not needed in output
-            for chunk in result["retrieved_chunks"]:
-                if 'contextualized_content' in chunk['chunk']:
-                    del chunk['chunk']['contextualized_content']
-
-            # Log the number of keywords extracted
-            logger.info(f"Extracted {len(keywords)} keywords for quotation {idx}.")
-
-            results.append(result)
-
-        return results  # List of result dicts
+    # Determine if any quotations are selected
+    if not quotations:
+        logger.warning(f"No quotations selected for transcript chunk: '{transcript_chunk[:100]}...' Skipping theoretical analysis and synthesis.")
+        result["answer"] = "No relevant quotations were found to generate an answer."
     else:
-        # Existing logic for processing quotations and generating answers
-        query_text = query_item.get('query', '').strip()
-        if not query_text:
-            logger.warning("Query is empty. Skipping.")
-            return results  # Empty list
+        if theoretical_analysis_module:
+            # Perform theoretical analysis
+            theoretical_analysis_response = theoretical_analysis_module.forward(
+                quotations=quotations,
+                theoretical_framework=theoretical_framework,
+                research_objectives=research_objectives
+            )
 
-        logger.info(f"Processing query: {query_text}")
-
-        # Retrieve relevant chunks/documents
-        retrieved_chunks = retrieve_documents(query_text, db, es_bm25, k)
-        logger.info(f"Total chunks retrieved for query '{query_text}': {len(retrieved_chunks)}")
-
-        # Extract transcript chunks from retrieved documents
-        transcript_chunks = [chunk['chunk']['original_content'] for chunk in retrieved_chunks]
-
-        # Define research objectives
-        research_objectives = query_item.get('research_objectives', 'Extract relevant quotations based on the provided objectives.')
-
-        # Define theoretical framework
-        theoretical_framework = query_item.get('theoretical_framework', '')
-
-        # Select quotations using the provided DSPy module
-        quotations_response = module.forward(
-            research_objectives=research_objectives,
-            transcript_chunks=transcript_chunks,
-            theoretical_framework=theoretical_framework
-        )
-        quotations = quotations_response.get("quotations", [])
-        analysis = quotations_response.get("analysis", "")
-
-        # Prepare the result
-        result = {
-            "query": query_text,
-            "research_objectives": research_objectives,
-            "theoretical_framework": theoretical_framework,
-            "retrieved_chunks": retrieved_chunks,
-            "retrieved_chunks_count": len(retrieved_chunks),
-            "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in retrieved_chunks],
-            "quotations": quotations,
-            "analysis": analysis,
-            "answer": ""  # Placeholder for the answer
-        }
-
-        # Determine if any quotations are selected
-        if not quotations:
-            logger.warning(f"No quotations selected for query '{query_text}'. Skipping answer generation.")
-            result["answer"] = "No relevant quotations were found to generate an answer."
-        else:
-            # Generate answer using DSPy with assertions
-            qa_response = await generate_answer_dspy(query_text, retrieved_chunks)
-            answer = qa_response.get("answer", "")
-            retrieved_chunks_count = qa_response.get("num_chunks_used", 0)
-
-            result["answer"] = {
-                "answer": answer
+            # Update result with theoretical analysis
+            result["analysis"] = {
+                "initial_analysis": initial_analysis,
+                "patterns_identified": theoretical_analysis_response.get("patterns_identified", []),
+                "theoretical_interpretation": theoretical_analysis_response.get("theoretical_interpretation", ""),
+                "practical_implications": theoretical_analysis_response.get("practical_implications", "")
             }
 
-        # Log the chunks used for this query
-        logger.info(f"Query '{query_text}' used {retrieved_chunks_count} chunks in answer generation.")
+            # Generate final answer
+            result["answer"] = {
+                "answer": theoretical_analysis_response.get("theoretical_interpretation", ""),
+                "theoretical_contribution": theoretical_analysis_response.get("research_alignment", "")
+            }
+        else:
+            # If no theoretical analysis module provided, use initial analysis
+            result["analysis"] = {
+                "initial_analysis": initial_analysis
+            }
+            result["answer"] = {
+                "answer": initial_analysis
+            }
 
-        # Log the number of quotations selected
-        logger.info(f"Selected {len(quotations)} quotations for query '{query_text}'.")
-
-        results.append(result)
-        return results
+    logger.info(f"Selected {len(quotations)} quotations for transcript chunk.")
+    return result
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
-    Saves the processed query results to a specified output file.
+    Saves the processed transcript results to a specified output file.
     """
     try:
         with open(output_file, 'w', encoding='utf-8') as outfile:
             json.dump(results, outfile, indent=4)
-        logger.info(f"All query results have been saved to '{output_file}'")
+        logger.info(f"All transcript results have been saved to '{output_file}'")
     except Exception as e:
         logger.error(f"Error saving results to '{output_file}': {e}", exc_info=True)
 
 @handle_exceptions
 async def process_queries(
-    queries: List[Dict[str, Any]],
+    transcripts: List[Dict[str, Any]],
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
     k: int,
     output_file: str,
     optimized_program: dspy.Program,
     module: dspy.Module,
-    is_keyword_extraction: bool = False
+    theoretical_analysis_module: dspy.Module = None
 ):
     """
-    Processes a list of queries to retrieve documents, select quotations, or extract keywords.
+    Processes a list of transcript chunks to retrieve documents and select quotations.
     Saves results into a specified output file.
     """
-    logger.info(f"Starting to process queries for output file '{output_file}'.")
+    logger.info(f"Starting to process transcripts for output file '{output_file}'.")
 
     all_results = []
     try:
-        for idx, query_item in enumerate(tqdm(queries, desc="Processing queries")):
+        for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
             try:
-                result = await process_single_query(
-                    query_item,
+                result = await process_single_transcript(
+                    transcript_item,
                     db,
                     es_bm25,
                     k,
                     module,
-                    is_keyword_extraction
+                    theoretical_analysis_module
                 )
                 if result:
-                    # 'result' is a list of dicts
-                    all_results.extend(result)
+                    all_results.append(result)
             except Exception as e:
-                logger.error(f"Error processing query at index {idx}: {e}", exc_info=True)
+                logger.error(f"Error processing transcript at index {idx}: {e}", exc_info=True)
 
         # Save results to the specified output file
         save_results(all_results, output_file)
@@ -3668,8 +3742,9 @@ async def process_queries(
         raise
 
     except Exception as e:
-        logger.error(f"Error processing queries: {e}", exc_info=True)
+        logger.error(f"Error processing transcripts: {e}", exc_info=True)
         raise
+
 
 
 
