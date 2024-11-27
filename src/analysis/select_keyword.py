@@ -42,12 +42,11 @@ class KeywordExtractionSignature(dspy.Signature):
         try:
             response_json = json.loads(response)
             keywords = response_json.get("keywords", [])
-            # Ensure each keyword has 'keywords_to_use_coding', 'type', and 'context'
             validated_keywords = []
             for kw in keywords:
-                if all(key in kw for key in ['keywords_to_use_coding', 'type', 'context']):
+                if all(key in kw for key in ['keyword', 'type', 'context']):  # Changed from 'keywords_to_use_coding'
                     validated_keywords.append({
-                        "keywords_to_use_coding": kw['keywords_to_use_coding'],
+                        "keyword": kw['keyword'],  # Changed field name
                         "type": kw['type'],
                         "context": kw['context']
                     })
@@ -83,11 +82,11 @@ class KeywordExtractionSignature(dspy.Signature):
             f"6. Regal: Keywords that are central to understanding the phenomenon and contribute significantly to the literature.\n\n"
             f"Return the list of extracted keywords with their types and contexts in valid JSON format:\n"
             f"{{\n"
-            f"  'keywords': [\n"
+            f"  \"keywords\": [\n"
             f"    {{\n"
-            f"      'keywords_to_use_coding': 'string',\n"
-            f"      'type': 'string',\n"
-            f"      'context': 'string'\n"
+            f"      \"keyword\": \"string\",\n"  # Changed field name
+            f"      \"type\": \"string\",\n"
+            f"      \"context\": \"string\"\n"
             f"    }}\n"
             f"  ]\n"
             f"}}\n"
