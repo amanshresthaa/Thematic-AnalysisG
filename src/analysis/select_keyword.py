@@ -42,11 +42,12 @@ class KeywordExtractionSignature(dspy.Signature):
         try:
             response_json = json.loads(response)
             keywords = response_json.get("keywords", [])
+            # Ensure each keyword has 'keywords_to_use_coding', 'type', and 'context'
             validated_keywords = []
             for kw in keywords:
-                if all(key in kw for key in ['keyword', 'type', 'context']):  # Changed from 'keywords_to_use_coding'
+                if all(key in kw for key in ['keywords_to_use_coding', 'type', 'context']):
                     validated_keywords.append({
-                        "keyword": kw['keyword'],  # Changed field name
+                        "keywords_to_use_coding": kw['keywords_to_use_coding'],
                         "type": kw['type'],
                         "context": kw['context']
                     })
@@ -84,7 +85,7 @@ class KeywordExtractionSignature(dspy.Signature):
             f"{{\n"
             f"  \"keywords\": [\n"
             f"    {{\n"
-            f"      \"keyword\": \"string\",\n"  # Changed field name
+            f"      \"keywords_to_use_coding\": \"string\",\n"
             f"      \"type\": \"string\",\n"
             f"      \"context\": \"string\"\n"
             f"    }}\n"

@@ -1,450 +1,201 @@
-# analysis/select_quotation.py
+# src/analysis/select_quotation.py
 import logging
 from typing import List, Dict, Any
 import dspy
 import json
-import re
+
 from src.assertions import (
     assert_relevant_quotations,
     assert_confidentiality,
     assert_diversity_of_quotations,
     assert_contextual_adequacy,
-    assert_philosophical_alignment,
-    assert_patterns_identified,
-    assert_theoretical_interpretation,
-    assert_research_alignment
+    assert_philosophical_alignment
 )
 
 logger = logging.getLogger(__name__)
 
 class EnhancedQuotationSignature(dspy.Signature):
     """
-    Enhanced signature for selecting and analyzing quotations using Braun and Clarke's thematic analysis.
+    Enhanced signature for selecting relevant quotations based on Braun and Clarke's thematic analysis approach.
     """
     research_objectives: str = dspy.InputField(
         desc="The research objectives that provide focus for conducting the analysis"
     )
-    transcript_chunk: str = dspy.InputField(
-        desc="The main transcript chunk being analyzed"
-    )
-    contextualized_contents: List[str] = dspy.InputField(
-        desc="List of related content providing additional context"
+    transcript_chunks: List[str] = dspy.InputField(
+        desc="Chunks of transcript from which quotations are to be selected"
     )
     theoretical_framework: Dict[str, str] = dspy.InputField(
         desc="The theoretical and philosophical framework guiding the analysis"
     )
-    transcript_info: Dict[str, Any] = dspy.OutputField(
-        desc="Information about the transcript and analysis context"
-    )
     quotations: List[Dict[str, Any]] = dspy.OutputField(
-        desc="List of selected quotations with their classifications and analyses"
+        desc="List of selected quotations with their classifications and contexts"
     )
-    creswell_category: str = dspy.OutputField(
-        desc="Creswell's classification category for the quotation"
-    )
-    analysis: Dict[str, Any] = dspy.OutputField(
-        desc="Comprehensive analysis including patterns and theoretical interpretation"
-    )
-    answer: Dict[str, Any] = dspy.OutputField(
-        desc="Summary of findings and contributions"
+    analysis: str = dspy.OutputField(
+        desc="Analysis of how the selected quotations support the research objectives"
     )
 
-    def create_prompt(self, research_objectives: str, transcript_chunk: str, 
-                      contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> str:
-        """Creates the prompt for the language model."""
-        
-        # Format contextualized contents
-        chunks_formatted = "\n\n".join([
-            f"Content {i+1}:\n{content}" 
-            for i, content in enumerate([transcript_chunk] + contextualized_contents)
-        ])
-
-        theory = theoretical_framework.get("theory", "")
-        philosophical_approach = theoretical_framework.get("philosophical_approach", "")
-        rationale = theoretical_framework.get("rationale", "")
-
-        prompt = (
-            f"You are an experienced qualitative researcher conducting a thematic analysis of "
-            f"interview transcripts using Braun and Clarke's (2006) approach. Your task is to "
-            f"analyze the provided transcript chunks while adhering to key principles from their "
-            f"thematic analysis methodology.\n\n"
-
-            f"First, review the transcript chunks and contextualized_content:\n\n"
-            f"{chunks_formatted}\n\n"
-            
-            f"Research Objectives:\n"
-            f"<research_objectives>\n"
-            f"{research_objectives}\n"
-            f"</research_objectives>\n\n"
-
-            f"Theoretical Framework:\n"
-            f"<theoretical_framework>\n"
-            f"Theory: {theory}\n"
-            f"Philosophical Approach: {philosophical_approach}\n"
-            f"Rationale: {rationale}\n"
-            f"</theoretical_framework>\n\n"
-                    
-            f"Your analysis should follow these steps:\n\n"
-
-            f"1. **Quotation Selection**:\n"
-            f"   - Select quotes that demonstrate robust patterns in the data.\n"
-            f"   - Classify quotes using Creswell's categories:\n"
-            f"     a) Longer quotations: For complex understandings\n"
-            f"     b) Discrete quotations: For diverse perspectives\n"
-            f"     c) Embedded quotations: Brief phrases showing text shifts\n"
-            f"   - Ensure quotes enhance reader engagement and highlight unique findings.\n"
-            f"   - Provide adequate context for accurate comprehension.\n\n"
-
-            f"2. **Pattern Recognition**:\n"
-            f"   - Identify patterns emerging from data rather than predetermined categories.\n"
-            f"   - Support patterns with multiple quotations.\n"
-            f"   - Maintain theoretical alignment while remaining open to emerging themes.\n"
-            f"   - Document methodological decisions transparently.\n\n"
-
-            f"3. **Theoretical Integration**:\n"
-            f"   - Demonstrate clear philosophical underpinning.\n"
-            f"   - Show how findings connect to the theoretical framework.\n"
-            f"   - Practice researcher reflexivity throughout analysis.\n"
-            f"   - Balance selectivity with comprehensiveness.\n\n"
-
-            f"For each step of your analysis, wrap your analysis process in <analysis_process> tags to explain your thought process and reasoning before providing the final output. It's OK for this section to be quite long.\n\n"
-
-            f"Your final output should follow this JSON structure:\n\n"
-
-            "{\n"
-            "  \"transcript_info\": {\n"
-            "    \"transcript_chunk\": \"\",                    // Selected transcript content\n"
-            "    \"research_objectives\": \"\",                 // Research goals guiding analysis\n"
-            "    \"theoretical_framework\": {\n"
-            "      \"theory\": \"\",                            // Primary theoretical approach\n"
-            "      \"philosophical_approach\": \"\",            // Philosophical foundation\n"
-            "      \"rationale\": \"\"                          // Justification for approach\n"
-            "    }\n"
-            "  },\n"
-            "  \"retrieved_chunks\": [],                        // List of retrieved chunks (if needed)\n"
-            "  \"retrieved_chunks_count\": 0,                   // Count of retrieved chunks\n"
-            "  \"contextualized_contents\": [],                 // List of contextualized contents\n"
-            "  \"used_chunk_ids\": [],                          // List of used chunk IDs\n"
-            "  \"quotations\": [\n"
-            "    {\n"
-            "      \"quotation\": \"\",                         // Exact quote text\n"
-            "      \"creswell_category\": \"\",                 // longer/discrete/embedded\n"
-            "      \"classification\": \"\",                    // Content type\n"
-            "      \"context\": {\n"
-            "        \"preceding_question\": \"\",              // Prior question\n"
-            "        \"situation\": \"\",                       // Context description\n"
-            "        \"pattern_representation\": \"\"           // Pattern linkage\n"
-            "      },\n"
-            "      \"analysis_value\": {\n"
-            "        \"relevance\": \"\",                       // Research objective alignment\n"
-            "        \"pattern_support\": \"\",                 // Pattern evidence\n"
-            "        \"theoretical_alignment\": \"\"            // Framework connection\n"
-            "      }\n"
-            "    }\n"
-            "  ],\n"
-            "  \"analysis\": {\n"
-            "    \"philosophical_underpinning\": \"\",          // Analysis approach\n"
-            "    \"patterns_identified\": [\"\"],               // Key patterns found\n"
-            "    \"theoretical_interpretation\": \"\",          // Framework application\n"
-            "    \"methodological_reflection\": {\n"
-            "      \"pattern_robustness\": \"\",                // Pattern evidence\n"
-            "      \"theoretical_alignment\": \"\",             // Framework fit\n"
-            "      \"researcher_reflexivity\": \"\"             // Interpretation awareness\n"
-            "    },\n"
-            "    \"practical_implications\": \"\"               // Applied insights\n"
-            "  },\n"
-            "  \"answer\": {\n"
-            "    \"summary\": \"\",                            // Key findings\n"
-            "    \"theoretical_contribution\": \"\",            // Theory advancement\n"
-            "    \"methodological_contribution\": {\n"
-            "      \"approach\": \"\",                         // Method used\n"
-            "      \"pattern_validity\": \"\",                 // Evidence quality\n"
-            "      \"theoretical_integration\": \"\"           // Theory-data synthesis\n"
-            "    }\n"
-            "  }\n"
-            "}\n\n"
-
-            f"**Important Instructions:**\n"
-            f"- **Your final output must strictly follow the JSON structure provided, including all fields exactly as specified. All fields must be filled with appropriate content based on the analysis. Do not leave any fields empty or use placeholders like 'N/A'.**\n"
-            f"- **Use double quotes for all strings.**\n"
-            f"- **Do not include any additional commentary or text outside of the JSON structure.**\n\n"
-            
-            f"**If you do not have information for a specific field, please provide a brief explanation or a relevant placeholder that accurately reflects the absence of data, rather than leaving it empty.**\n\n"
-            
-            f"Remember to wrap your analysis process in <analysis_process> tags throughout your analysis to show your chain of thought before providing the final JSON output.\n\n"
-
-            )
-        return prompt
-
-    def get_default_structure(self) -> Dict[str, Any]:
-        """Provides the complete default structure."""
-        return {
-            "transcript_info": {
-                "transcript_chunk": "N/A",
-                "research_objectives": "N/A",
-                "theoretical_framework": {
-                    "theory": "N/A",
-                    "philosophical_approach": "N/A",
-                    "rationale": "N/A"
-                }
-            },
-            "retrieved_chunks": [],
-            "retrieved_chunks_count": 0,
-            "filtered_chunks_count": 0,
-            "contextualized_contents": [],
-            "used_chunk_ids": [],
-            "quotations": [
-                {
-                    "quotation": "N/A",
-                    "creswell_category": "N/A",
-                    "classification": "N/A",
-                    "context": {
-                        "preceding_question": "N/A",
-                        "situation": "N/A",
-                        "pattern_representation": "N/A"
-                    },
-                    "analysis_value": {
-                        "relevance": "N/A",
-                        "pattern_support": "N/A",
-                        "theoretical_alignment": "N/A"
-                    }
-                }
-            ],
-            "analysis": {
-                "philosophical_underpinning": "N/A",
-                "patterns_identified": ["N/A"],
-                "theoretical_interpretation": "N/A",
-                "methodological_reflection": {
-                    "pattern_robustness": "N/A",
-                    "theoretical_alignment": "N/A",
-                    "researcher_reflexivity": "N/A"
-                },
-                "practical_implications": "N/A"
-            },
-            "answer": {
-                "summary": "N/A",
-                "theoretical_contribution": "N/A",
-                "methodological_contribution": {
-                    "approach": "N/A",
-                    "pattern_validity": "N/A",
-                    "theoretical_integration": "N/A"
-                }
-            }
-        }
-
-    def get_quotation_structure(self) -> Dict[str, Any]:
-        """Provides the structure for individual quotations."""
-        return {
-            "quotation": "N/A",
-            "creswell_category": "N/A",
-            "classification": "N/A",
-            "context": {
-                "preceding_question": "N/A",
-                "situation": "N/A",
-                "pattern_representation": "N/A"
-            },
-            "analysis_value": {
-                "relevance": "N/A",
-                "pattern_support": "N/A",
-                "theoretical_alignment": "N/A"
-            }
-        }
-
-    def merge_structures(self, source: Any, default: Any) -> Any:
-        """Recursively merges two structures, giving preference to source."""
-        if isinstance(default, dict):
-            result = {}
-            for key in default:
-                if key in source and source[key] is not None:
-                    result[key] = self.merge_structures(source[key], default[key])
-                else:
-                    result[key] = default[key]
-            return result
-        elif isinstance(default, list):
-            if isinstance(source, list) and source:
-                return [self.merge_structures(item, default[0]) if isinstance(default[0], dict) else item for item in source]
-            else:
-                return default
-        else:
-            return source if source else "N/A"
-
-    def replace_empty_strings(self, data: Any) -> Any:
-        """Recursively ensure all fields are filled with 'N/A' if they are empty."""
-        if isinstance(data, dict):
-            return {k: self.replace_empty_strings(v) for k, v in data.items()}
-        elif isinstance(data, list):
-            return [self.replace_empty_strings(item) for item in data]
-        elif isinstance(data, str):
-            return data if data.strip() else "N/A"
-        else:
-            return data
-
-    def parse_response(self, response: str) -> Dict[str, Any]:
-        """Parses the response and ensures it matches the desired JSON structure."""
+    def parse_quotations(self, response: str) -> List[Dict[str, Any]]:
+        """Parses quotations from the LM response."""
         try:
-            # Attempt to extract JSON from code block tagged as json
-            json_match = re.search(r"```json\s*(\{.*?\})\s*```", response, re.DOTALL)
-            if json_match:
-                json_string = json_match.group(1)
-            else:
-                # Try to find any JSON in the response
-                json_match = re.search(r"(\{.*\})", response, re.DOTALL)
-                if json_match:
-                    json_string = json_match.group(1)
-                else:
-                    logger.error("No valid JSON found in response.")
-                    return self.get_default_structure()
-            # Parse JSON
-            response_json = json.loads(json_string)
-            # Ensure structure matches default structure
-            default_structure = self.get_default_structure()
-            response_json = self.merge_structures(response_json, default_structure)
-            # Ensure all quotations have the required structure
-            if "quotations" in response_json:
-                quotation_structure = self.get_quotation_structure()
-                response_json["quotations"] = [
-                    self.merge_structures(quote, quotation_structure)
-                    for quote in response_json["quotations"]
-                ]
-            else:
-                response_json["quotations"] = [self.get_quotation_structure()]
-            # Replace empty strings with "N/A"
-            response_json = self.replace_empty_strings(response_json)
-            return response_json
+            response_json = json.loads(response)
+            quotation_list = response_json.get("quotations", [])
+            return quotation_list
         except json.JSONDecodeError as e:
             logger.error(f"JSON decoding failed: {e}")
-            return self.get_default_structure()
+            return []
         except Exception as e:
-            logger.error(f"Error parsing response: {e}")
-            return self.get_default_structure()
+            logger.error(f"Error parsing quotations: {e}")
+            return []
 
-    def forward(self, research_objectives: str, transcript_chunk: str, 
-                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+    def extract_analysis(self, response: str) -> str:
+        """Extracts analysis section from the LM response."""
         try:
-            logger.debug("Starting enhanced quotation selection and analysis process.")
+            response_json = json.loads(response)
+            analysis = response_json.get("analysis", "")
+            return analysis
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decoding failed: {e}")
+            return ""
+        except Exception as e:
+            logger.error(f"Error extracting analysis: {e}")
+            return ""
+
+    def create_prompt(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> str:
+        """Creates the prompt for the language model."""
+        chunks_formatted = "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)])
+        prompt = (
+            f"You are conducting a thematic analysis following Braun and Clarke's approach.\n\n"
+            f"Research Objectives:\n{research_objectives}\n\n"
+            f"Theoretical Framework:\n{theoretical_framework}\n\n"
+            f"Transcript Chunks:\n{chunks_formatted}\n\n"
+            f"Task: Analyze the transcript chunks and select relevant quotations that align with both the research objectives and theoretical framework.\n"
+            f"For each selected quotation, provide:\n"
+            f"1. The quotation text.\n"
+            f"2. Type of quotation ('discrete', 'embedded', 'longer') as per Creswell's classification.\n"
+            f"3. Context or explanation.\n"
+            f"Return the results in valid JSON format."
+        )
+        return prompt
+
+    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        try:
+            logger.debug("Starting enhanced quotation selection process with theoretical framework.")
             
             # Generate the prompt
-            prompt = self.create_prompt(
-                research_objectives,
-                transcript_chunk,
-                contextualized_contents,
-                theoretical_framework
-            )
+            prompt = self.create_prompt(research_objectives, transcript_chunks, theoretical_framework)
             
             # Generate response
             response = self.language_model.generate(
                 prompt=prompt,
-                max_tokens=6000,
-                temperature=0.5
+                max_tokens=1500,
+                temperature=1.0
             ).strip()
             
-            # Parse the complete response
-            parsed_response = self.parse_response(response)
-            
-            # Extract components
-            quotations = parsed_response.get("quotations", [])
-            analysis = parsed_response.get("analysis", {})
+            # Parse quotations and analysis
+            quotation_list = self.parse_quotations(response)
+            analysis = self.extract_analysis(response)
             
             # Apply assertions
-            assert_relevant_quotations(quotations, research_objectives)
-            assert_confidentiality(quotations, sensitive_keywords=['confidential', 'secret'])
-            assert_diversity_of_quotations(quotations, min_participants=3)
-            assert_contextual_adequacy(quotations, [transcript_chunk] + contextualized_contents)
-            assert_philosophical_alignment(quotations, theoretical_framework)
+            assert_relevant_quotations(quotation_list, research_objectives)
+            assert_confidentiality(quotation_list, sensitive_keywords=['confidential', 'secret'])
+            assert_diversity_of_quotations(quotation_list, min_participants=3)
+            assert_contextual_adequacy(quotation_list, transcript_chunks)
+            assert_philosophical_alignment(quotation_list, theoretical_framework)
             
-            # Additional assertions for theoretical analysis
-            patterns = analysis.get("patterns_identified", [])
-            theoretical_interpretation = analysis.get("theoretical_interpretation", "")
-            research_alignment = analysis.get("methodological_reflection", {}).get("theoretical_alignment", "")
-            
-            assert_patterns_identified(patterns)
-            assert_theoretical_interpretation(theoretical_interpretation)
-            assert_research_alignment(research_alignment)
-            
-            logger.info(f"Successfully completed analysis with {len(quotations)} quotations.")
-            return parsed_response
+            logger.info(f"Successfully selected {len(quotation_list)} quotations aligned with theoretical framework.")
+            return {
+                "quotations": quotation_list,
+                "analysis": analysis
+            }
 
         except AssertionError as af:
-            logger.warning(f"Assertion failed during analysis: {af}")
-            return self.handle_failed_assertion(af, research_objectives, transcript_chunk, 
-                                                 contextualized_contents, theoretical_framework)
+            logger.warning(f"Assertion failed during quotation selection: {af}")
+            return self.handle_failed_assertion(af, research_objectives, transcript_chunks, theoretical_framework)
         except Exception as e:
             logger.error(f"Error in EnhancedQuotationSignature.forward: {e}", exc_info=True)
-            return self.get_default_structure()
+            return {
+                "quotations": [],
+                "analysis": f"Error occurred during quotation selection: {str(e)}"
+            }
 
     def handle_failed_assertion(self, assertion_failure: AssertionError,
-                                research_objectives: str, transcript_chunk: str,
-                                contextualized_contents: List[str],
-                                theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
-        """Handles failed assertions by attempting to generate improved analysis."""
+                              research_objectives: str, transcript_chunks: List[str],
+                              theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """Handles failed assertions by attempting to generate improved quotations."""
         try:
-            focused_prompt = self.create_prompt(
-                research_objectives,
-                transcript_chunk,
-                contextualized_contents,
-                theoretical_framework
-            )
-            
-            focused_prompt += (
-                f"\n\nThe previous attempt failed because: {assertion_failure}\n"
-                f"Please ensure that your analysis addresses this specific issue while maintaining "
-                f"all other requirements for thorough theoretical analysis."
+            focused_prompt = (
+                f"The previous attempt failed because: {assertion_failure}\n\n"
+                f"Research Objectives:\n{research_objectives}\n\n"
+                f"Theoretical Framework:\n{theoretical_framework}\n\n"
+                "Please select quotations that specifically address this issue by ensuring:\n"
+                "1. Proper quotation type (Discrete/Embedded/Longer)\n"
+                "2. Clear context and explanation\n"
+                "3. Strong theoretical alignment\n"
+                "4. Diversity of perspectives\n\n"
+                "Transcript Chunks:\n" +
+                "\n".join([f"Chunk {i+1}: {chunk}" for i, chunk in enumerate(transcript_chunks)])
             )
 
             response = self.language_model.generate(
                 prompt=focused_prompt,
-                max_tokens=2000,
+                max_tokens=1500,
                 temperature=0.5
             ).strip()
 
-            parsed_response = self.parse_response(response)
-            
-            # Re-apply all assertions
-            quotations = parsed_response.get("quotations", [])
-            analysis = parsed_response.get("analysis", {})
-            
-            assert_relevant_quotations(quotations, research_objectives)
-            assert_confidentiality(quotations, sensitive_keywords=['confidential', 'secret'])
-            assert_diversity_of_quotations(quotations, min_participants=3)
-            assert_contextual_adequacy(quotations, [transcript_chunk] + contextualized_contents)
-            assert_philosophical_alignment(quotations, theoretical_framework)
-            
-            patterns = analysis.get("patterns_identified", [])
-            theoretical_interpretation = analysis.get("theoretical_interpretation", "")
-            research_alignment = analysis.get("methodological_reflection", {}).get("theoretical_alignment", "")
-            
-            assert_patterns_identified(patterns)
-            assert_theoretical_interpretation(theoretical_interpretation)
-            assert_research_alignment(research_alignment)
+            quotation_list = self.parse_quotations(response)
+            analysis = self.extract_analysis(response)
 
-            return parsed_response
+            # Re-apply assertions on the new quotations
+            assert_relevant_quotations(quotation_list, research_objectives)
+            assert_confidentiality(quotation_list, sensitive_keywords=['confidential', 'secret'])
+            assert_diversity_of_quotations(quotation_list, min_participants=3)
+            assert_contextual_adequacy(quotation_list, transcript_chunks)
+            assert_philosophical_alignment(quotation_list, theoretical_framework)
+
+            return {
+                "quotations": quotation_list,
+                "analysis": f"Note: Quotations were refined to address: {assertion_failure}\n\n{analysis}"
+            }
 
         except AssertionError as af_inner:
-            logger.error(f"Refined analysis still failed assertions: {af_inner}")
-            return self.get_default_structure()
+            logger.error(f"Refined quotations still failed assertions: {af_inner}")
+            return {
+                "quotations": [],
+                "analysis": f"Failed to select appropriate quotations after refinement: {str(af_inner)}"
+            }
         except Exception as e:
             logger.error(f"Error in handle_failed_assertion: {e}", exc_info=True)
-            return self.get_default_structure()
+            return {
+                "quotations": [],
+                "analysis": f"Failed to select appropriate quotations: {str(assertion_failure)}"
+            }
 
 class EnhancedQuotationModule(dspy.Module):
     """
-    DSPy module implementing the enhanced quotation selection and theoretical analysis functionality.
+    DSPy module implementing the enhanced quotation selection functionality.
     """
     def __init__(self):
         super().__init__()
         self.chain = dspy.TypedChainOfThought(EnhancedQuotationSignature)
 
-    def forward(self, research_objectives: str, transcript_chunk: str, 
-                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
-            logger.debug("Running EnhancedQuotationModule with integrated theoretical analysis.")
+            logger.debug("Running EnhancedQuotationModule with theoretical framework.")
             response = self.chain(
                 research_objectives=research_objectives,
-                transcript_chunk=transcript_chunk,
-                contextualized_contents=contextualized_contents,
+                transcript_chunks=transcript_chunks,
                 theoretical_framework=theoretical_framework
             )
-            return response
+            quotations = response.get("quotations", [])
+            analysis = response.get("analysis", "")
+            logger.info(f"Selected {len(quotations)} quotations aligned with theoretical framework.")
+            return {
+                "quotations": quotations,
+                "analysis": analysis
+            }
         except Exception as e:
             logger.error(f"Error in EnhancedQuotationModule.forward: {e}", exc_info=True)
-            return {}
+            return {
+                "quotations": [],
+                "analysis": ""
+            }
