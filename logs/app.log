@@ -1,0 +1,56 @@
+2024-11-26 00:18:46,175 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-26 00:18:46,175 [INFO] faiss.loader: Loading faiss.
+2024-11-26 00:18:46,232 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-26 00:18:46,511 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-26 00:18:46,511 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-26 00:18:46,516 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-26 00:18:49,512 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-26 00:18:49,512 [INFO] __main__: Configuring DSPy Language Model
+2024-11-26 00:18:49,512 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-26 00:18:49,513 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-26 00:18:49,518 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-26 00:18:53,415 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-26 00:18:53,415 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-26 00:18:53,485 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-26 00:18:53,506 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-26 00:18:53,506 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-26 00:18:53,507 [INFO] __main__: Validating standard queries
+2024-11-26 00:18:53,507 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-26 00:18:54,555 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-26 00:18:54,555 [INFO] __main__: Initializing EnhancedQuotationModule
+2024-11-26 00:18:54,560 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
+2024-11-26 00:18:54,561 [INFO] __main__: Processing standard queries with EnhancedQuotationModule
+2024-11-26 00:21:44,034 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-26 00:21:44,037 [INFO] __main__: Evaluation completed successfully.
+2024-11-26 00:21:44,037 [INFO] __main__: All operations completed successfully.
+2024-11-28 12:08:41,279 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-11-28 12:08:41,279 [INFO] faiss.loader: Loading faiss.
+2024-11-28 12:08:41,338 [INFO] faiss.loader: Successfully loaded faiss.
+2024-11-28 12:08:41,467 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
+They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
+Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
+2024-11-28 12:08:41,467 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-11-28 12:08:41,474 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-11-28 12:08:42,591 [DEBUG] __main__: Entering run_pipeline method.
+2024-11-28 12:08:42,591 [INFO] __main__: Configuring DSPy Language Model
+2024-11-28 12:08:42,592 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-11-28 12:08:42,592 [INFO] __main__: Initializing ContextualVectorDB
+2024-11-28 12:08:42,597 [INFO] __main__: Loading data into ContextualVectorDB
+2024-11-28 12:08:42,599 [INFO] __main__: Creating Elasticsearch BM25 index
+2024-11-28 12:08:42,599 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-11-28 12:08:42,680 [INFO] __main__: ElasticsearchBM25 instance created.
+2024-11-28 12:08:42,703 [INFO] __main__: Elasticsearch BM25 index created successfully with 90 documents indexed.
+2024-11-28 12:08:42,703 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-11-28 12:08:42,703 [INFO] __main__: Validating standard queries
+2024-11-28 12:08:42,703 [INFO] __main__: Initializing quotation selection optimizer
+2024-11-28 12:08:43,499 [INFO] __main__: Quotation optimizer initialized successfully
+2024-11-28 12:08:43,499 [INFO] __main__: Initializing EnhancedQuotationModule
+2024-11-28 12:08:43,508 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
+2024-11-28 12:08:43,508 [INFO] __main__: Processing standard queries with EnhancedQuotationModule
+2024-11-28 12:11:50,182 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-11-28 12:11:50,185 [INFO] __main__: Evaluation completed successfully.
+2024-11-28 12:11:50,185 [INFO] __main__: All operations completed successfully.
