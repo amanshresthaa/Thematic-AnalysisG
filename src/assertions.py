@@ -3,157 +3,144 @@ from typing import List, Dict, Any
 
 logger = logging.getLogger(__name__)
 
-def assert_relevant_quotations(quotations: List[Dict[str, Any]], research_objectives: str) -> None:
+def assert_pattern_representation(quotations: List[Dict[str, Any]], patterns: List[str]) -> None:
     """
-    Ensure that each quotation is relevant to the research objectives.
+    Ensure quotations represent robust patterns in the data.
+    According to the paper: "Quotations should symbolize robust patterns within the data"
+    and "Select quotes that demonstrate robust patterns in the data."
 
     Args:
-        quotations (List[Dict[str, Any]]): List of quotations with associated metadata.
-        research_objectives (str): The research objectives guiding the analysis.
+        quotations (List[Dict[str, Any]]): List of quotations with metadata
+        patterns (List[str]): Identified patterns in the data
 
     Raises:
-        AssertionError: If a quotation does not align with the research objectives.
+        AssertionError: If quotations don't demonstrate robust patterns
     """
+    if not patterns:
+        raise AssertionError("No patterns provided for analysis")
+
+    pattern_support = {pattern: [] for pattern in patterns}
+
     for quote in quotations:
-        if research_objectives.lower() not in quote.get('analysis_value', {}).get('relevance', '').lower():
-            error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' does not align with research objectives."
+        pattern_representation = quote.get("context", {}).get("pattern_representation", "")
+        for pattern in patterns:
+            if pattern.lower() in pattern_representation.lower():
+                pattern_support[pattern].append(quote["quotation"])
+
+    # Each pattern should be supported by multiple quotations for robustness
+    for pattern, supporting_quotes in pattern_support.items():
+        if len(supporting_quotes) < 2:
+            error_msg = f"Pattern '{pattern}' is not robustly supported by multiple quotations"
             logger.error(error_msg)
             raise AssertionError(error_msg)
 
-def assert_confidentiality(quotations: List[Dict[str, Any]], sensitive_keywords: List[str]) -> None:
+def assert_research_objective_alignment(quotations: List[Dict[str, Any]], research_objectives: str) -> None:
     """
-    Ensure that no quotations contain sensitive or identifiable information.
+    Ensure quotations align with research objectives.
+    According to the paper: "The evaluation objectives provide a focus or domain of relevance
+    for conducting the analysis"
 
     Args:
-        quotations (List[Dict[str, Any]]): List of quotations with associated metadata.
-        sensitive_keywords (List[str]): List of keywords that should not appear in quotations.
+        quotations (List[Dict[str, Any]]): List of quotations with metadata
+        research_objectives (str): Research objectives guiding the analysis
 
     Raises:
-        AssertionError: If a quotation contains sensitive information.
+        AssertionError: If quotations don't align with objectives
     """
     for quote in quotations:
-        quote_text = quote.get("quotation", "").lower()
-        for keyword in sensitive_keywords:
-            if keyword.lower() in quote_text:
-                error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' contains sensitive keyword '{keyword}'."
-                logger.error(error_msg)
-                raise AssertionError(error_msg)
+        relevance = quote.get('analysis_value', {}).get('relevance', '')
+        if not relevance or not any(obj.lower() in relevance.lower() for obj in research_objectives.split('.')):
+            error_msg = f"Quotation does not align with research objectives: '{quote.get('quotation', '')[:50]}...'"
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
 
-def assert_diversity_of_quotations(quotations: List[Dict[str, Any]], min_participants: int = 3) -> None:
+def assert_selective_transcription(quotations: List[Dict[str, Any]], transcript: str) -> None:
     """
-    Ensure that quotations represent a diverse set of participants.
+    Ensure quotations are selectively chosen for relevance.
+    According to the paper: "A more useful transcript is a more selective one" and
+    "selecting parts relevant to the evaluation objectives"
 
     Args:
-        quotations (List[Dict[str, Any]]): List of quotations with associated metadata.
-        min_participants (int): Minimum number of different participants required.
+        quotations (List[Dict[str, Any]]): List of quotations with metadata
+        transcript (str): Original transcript text
 
     Raises:
-        AssertionError: If quotations do not represent the required diversity.
+        AssertionError: If quotation selection isn't properly selective
     """
-    participant_ids = {q.get("participant_id") for q in quotations if q.get("participant_id")}
-    if len(participant_ids) < min_participants:
-        error_msg = f"Only {len(participant_ids)} unique participants are represented in quotations; minimum required is {min_participants}."
+    total_words = len(transcript.split())
+    quoted_words = sum(len(quote.get('quotation', '').split()) for quote in quotations)
+
+    # Check if quotations are too verbose (should be selective)
+    if quoted_words > total_words * 0.3:  # Maximum 30% of original text
+        error_msg = "Quotation selection is not selective enough"
         logger.error(error_msg)
         raise AssertionError(error_msg)
 
-def assert_contextual_adequacy(quotations: List[Dict[str, Any]], transcript_chunks: List[str]) -> None:
+def assert_creswell_categorization(quotations: List[Dict[str, Any]]) -> None:
     """
-    Ensure that each quotation has adequate context.
+    Verify proper use of Creswell's quotation categories.
+    According to the paper: "Creswell (2012) classified quotations into three types:
+    discrete, embedded, and longer quotations"
 
     Args:
-        quotations (List[Dict[str, Any]]): List of quotations with associated metadata.
-        transcript_chunks (List[str]): List of transcript chunks.
+        quotations (List[Dict[str, Any]]): List of quotations with metadata
 
     Raises:
-        AssertionError: If a quotation lacks necessary context or is not found in transcript.
+        AssertionError: If quotations don't follow Creswell's guidelines
+    """
+    categories = {'longer': 0, 'discrete': 0, 'embedded': 0}
+
+    for quote in quotations:
+        category = quote.get("creswell_category", "").lower()
+        if category not in categories:
+            error_msg = f"Invalid Creswell category '{category}'"
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+
+        quote_length = len(quote.get("quotation", "").split())
+
+        # Length guidelines based on Creswell's classifications
+        if category == "longer" and quote_length < 40:
+            error_msg = f"'Longer' quotation is too short ({quote_length} words)"
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+        elif category == "discrete" and quote_length > 30:
+            error_msg = f"'Discrete' quotation is too long ({quote_length} words)"
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+        elif category == "embedded" and quote_length > 10:
+            error_msg = f"'Embedded' quotation is too long ({quote_length} words)"
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+
+        categories[category] += 1
+
+def assert_reader_engagement(quotations: List[Dict[str, Any]]) -> None:
+    """
+    Ensure quotations enhance reader engagement.
+    According to the paper: "Quotations can enhance the readers' engagement with the text"
+    and should not be chosen merely to "incite controversy"
+
+    Args:
+        quotations (List[Dict[str, Any]]): List of quotations with metadata
+
+    Raises:
+        AssertionError: If quotations don't promote proper engagement
     """
     for quote in quotations:
+        # Check for essential engagement elements
+        has_context = bool(quote.get("context", {}).get("situation"))
+        has_interpretation = bool(quote.get("analysis_value", {}).get("relevance"))
+        has_pattern = bool(quote.get("context", {}).get("pattern_representation"))
+
+        if not all([has_context, has_interpretation, has_pattern]):
+            error_msg = "Quotation lacks essential engagement elements (context, interpretation, or pattern connection)"
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+
+        # Check against controversial selection without substance
         quote_text = quote.get("quotation", "")
-        # Check if the quote exists in any of the transcript chunks
-        in_transcript = any(quote_text in chunk for chunk in transcript_chunks)
-        if not in_transcript:
-            error_msg = f"Quotation '{quote_text[:50]}...' not found in any transcript chunk."
+        if "!" in quote_text and not has_interpretation:
+            error_msg = "Quotation appears selected for controversy without substantive contribution"
             logger.error(error_msg)
             raise AssertionError(error_msg)
-        context = quote.get("context", {}).get("situation", "").strip()
-        if not context:
-            error_msg = f"Quotation '{quote_text[:50]}...' lacks contextual information."
-            logger.error(error_msg)
-            raise AssertionError(error_msg)
-
-def assert_philosophical_alignment(quotations: List[Dict[str, Any]], theoretical_framework: Dict[str, str]) -> None:
-    """
-    Ensure that quotations align with the researcher's philosophical stance.
-
-    Args:
-        quotations (List[Dict[str, Any]]): List of quotations with associated metadata.
-        theoretical_framework (Dict[str, str]): The theoretical and philosophical framework guiding the analysis.
-
-    Raises:
-        AssertionError: If any quotation does not align with the specified orientation.
-    """
-    philosophical_approach = theoretical_framework.get("philosophical_approach", "").lower()
-    for quote in quotations:
-        theoretical_alignment = quote.get("analysis_value", {}).get("theoretical_alignment", "").lower()
-        if philosophical_approach not in theoretical_alignment:
-            error_msg = f"Quotation '{quote.get('quotation', '')[:50]}...' does not align with the philosophical approach '{philosophical_approach}'."
-            logger.error(error_msg)
-            raise AssertionError(error_msg)
-
-def assert_patterns_identified(patterns_identified: List[str]) -> None:
-    """
-    Ensure that patterns have been identified and are valid.
-
-    Args:
-        patterns_identified (List[str]): List of identified patterns.
-
-    Raises:
-        AssertionError: If no patterns are identified or if any pattern is invalid.
-    """
-    if not patterns_identified:
-        error_msg = "No patterns were identified in the analysis."
-        logger.error(error_msg)
-        raise AssertionError(error_msg)
-    for pattern in patterns_identified:
-        if not isinstance(pattern, str) or not pattern.strip():
-            error_msg = f"Invalid pattern identified: '{pattern}'."
-            logger.error(error_msg)
-            raise AssertionError(error_msg)
-
-def assert_theoretical_interpretation(theoretical_interpretation: str) -> None:
-    """
-    Ensure that the theoretical interpretation is adequate.
-
-    Args:
-        theoretical_interpretation (str): The theoretical interpretation text.
-
-    Raises:
-        AssertionError: If the interpretation is empty or insufficient.
-    """
-    if not theoretical_interpretation.strip():
-        error_msg = "Theoretical interpretation is empty."
-        logger.error(error_msg)
-        raise AssertionError(error_msg)
-    if len(theoretical_interpretation.strip().split()) < 20:
-        error_msg = "Theoretical interpretation is too brief."
-        logger.error(error_msg)
-        raise AssertionError(error_msg)
-
-def assert_research_alignment(research_alignment: str) -> None:
-    """
-    Ensure that the research alignment explanation is adequate.
-
-    Args:
-        research_alignment (str): The research alignment text.
-
-    Raises:
-        AssertionError: If the alignment explanation is empty or insufficient.
-    """
-    if not research_alignment.strip():
-        error_msg = "Research alignment explanation is empty."
-        logger.error(error_msg)
-        raise AssertionError(error_msg)
-    if len(research_alignment.strip().split()) < 20:
-        error_msg = "Research alignment explanation is too brief."
-        logger.error(error_msg)
-        raise AssertionError(error_msg)

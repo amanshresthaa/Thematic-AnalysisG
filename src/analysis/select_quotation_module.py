@@ -1,15 +1,14 @@
-#anlaysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
 
 from src.analysis.select_quotation import EnhancedQuotationModule
 from src.assertions import (
-    assert_relevant_quotations,
-    assert_confidentiality,
-    assert_diversity_of_quotations,
-    assert_contextual_adequacy,
-    assert_philosophical_alignment
+    assert_pattern_representation,
+    assert_research_objective_alignment,
+    assert_selective_transcription,
+    assert_creswell_categorization,
+    assert_reader_engagement
 )
 
 logger = logging.getLogger(__name__)
@@ -33,6 +32,18 @@ class SelectQuotationModule(dspy.Module):
                 contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
+            # Apply new assertions
+            quotations = response.get("quotations", [])
+            analysis = response.get("analysis", {})
+            patterns = analysis.get("patterns_identified", [])
+
+            # Apply the new assertions
+            assert_pattern_representation(quotations, patterns)
+            assert_research_objective_alignment(quotations, research_objectives)
+            assert_selective_transcription(quotations, transcript_chunk)
+            assert_creswell_categorization(quotations)
+            assert_reader_engagement(quotations)
+
             # The response already includes 'transcript_info', 'quotations', 'analysis', and 'answer'
             return response
         except Exception as e:
