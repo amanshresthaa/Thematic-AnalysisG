@@ -1,4 +1,3 @@
-# analysis/select_quotation.py
 import logging
 import re
 import json
@@ -7,14 +6,11 @@ from typing import List, Dict, Any
 import dspy
 
 from src.assertions import (
-    assert_relevant_quotations,
-    assert_confidentiality,
-    assert_diversity_of_quotations,
-    assert_contextual_adequacy,
-    assert_philosophical_alignment,
-    assert_patterns_identified,
-    assert_theoretical_interpretation,
-    assert_research_alignment
+    assert_pattern_representation,
+    assert_research_objective_alignment,
+    assert_selective_transcription,
+    assert_creswell_categorization,
+    assert_reader_engagement
 )
 
 logger = logging.getLogger(__name__)
@@ -282,20 +278,12 @@ class EnhancedQuotationSignature(dspy.Signature):
                 analysis = parsed_response.get("analysis", {})
                 
                 # Apply assertions
-                assert_relevant_quotations(quotations, research_objectives)
-                assert_confidentiality(quotations, sensitive_keywords=['confidential', 'secret'])
-                assert_diversity_of_quotations(quotations, min_participants=3)
-                assert_contextual_adequacy(quotations, [transcript_chunk] + contextualized_contents)
-                assert_philosophical_alignment(quotations, theoretical_framework)
+                assert_pattern_representation(quotations, analysis.get("patterns_identified", []))
+                assert_research_objective_alignment(quotations, research_objectives)
+                assert_selective_transcription(quotations, transcript_chunk)
+                assert_creswell_categorization(quotations)
+                assert_reader_engagement(quotations)
                 
-                # Additional assertions for theoretical analysis
-                patterns = analysis.get("patterns_identified", [])
-                theoretical_interpretation = analysis.get("theoretical_interpretation", "")
-                research_alignment = analysis.get("methodological_reflection", {}).get("theoretical_alignment", "")
-                
-                assert_patterns_identified(patterns)
-                assert_theoretical_interpretation(theoretical_interpretation)
-                assert_research_alignment(research_alignment)
                 
                 logger.info(f"Attempt {attempt + 1} - Successfully completed analysis with {len(quotations)} quotations.")
                 return parsed_response
@@ -361,19 +349,12 @@ class EnhancedQuotationSignature(dspy.Signature):
             quotations = parsed_response.get("quotations", [])
             analysis = parsed_response.get("analysis", {})
             
-            assert_relevant_quotations(quotations, research_objectives)
-            assert_confidentiality(quotations, sensitive_keywords=['confidential', 'secret'])
-            assert_diversity_of_quotations(quotations, min_participants=3)
-            assert_contextual_adequacy(quotations, [transcript_chunk] + contextualized_contents)
-            assert_philosophical_alignment(quotations, theoretical_framework)
+            assert_pattern_representation(quotations, analysis.get("patterns_identified", []))
+            assert_research_objective_alignment(quotations, research_objectives)
+            assert_selective_transcription(quotations, transcript_chunk)
+            assert_creswell_categorization(quotations)
+            assert_reader_engagement(quotations)
             
-            patterns = analysis.get("patterns_identified", [])
-            theoretical_interpretation = analysis.get("theoretical_interpretation", "")
-            research_alignment = analysis.get("methodological_reflection", {}).get("theoretical_alignment", "")
-            
-            assert_patterns_identified(patterns)
-            assert_theoretical_interpretation(theoretical_interpretation)
-            assert_research_alignment(research_alignment)
 
             logger.info("Successfully handled failed assertion and obtained valid analysis.")
             return parsed_response
