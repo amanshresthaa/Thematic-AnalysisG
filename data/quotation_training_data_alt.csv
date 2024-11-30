@@ -1,0 +1,177 @@
+input,output
+"You are an experienced qualitative researcher conducting a thematic analysis of interview transcripts using Braun and Clarke's (2006) approach. Your task is to analyze the provided transcript chunks while adhering to key principles from their thematic analysis methodology.
+
+First, review the transcript chunks and contextualized_content:
+
+<transcript_chunks>
+<transcript_chunk>
+Can you tell me about what your cooperative does?\nWe're primarily focused on organic vegetable farming. There are five founding farms in our network, all within Sussex county. Initially we were just growing carrots and parsnips, but we've expanded into leafy greens and specialty herbs.\nSo you've diversified your crop portfolio?\nYes, exactly. The market demand showed us there was a gap for locally-grown herbs, especially for restaurants and specialty markets.\nAnd this is all through the cooperative structure?\nYes, we found that by working together we could better manage distribution and get better prices. Instead of each farm trying to handle their own sales and delivery, we coordinate everything centrally.
+</transcript_chunk>
+</transcript_chunks>
+
+<contextualized_contents>
+<contextualized_content>
+When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers.
+
+</contextualized_content>
+<contextualized_content>
+It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything.
+</contextualized_content>
+<contextualized_content>
+Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.
+</contextualized_content>
+<contextualized_content>
+So, we buy from other farms as well, which supply at different times of year, it varies. Is this nationally, or do you do anything with factories or suppliers in other countries?
+</contextualized_content>
+<contextualized_content>
+Who amongst the people you\u2019re working with, who are crucial? With the other people who you\u2019ve mentioned, who you\u2019re collaborating with, are they all crucial to the functioning of [org name] ?
+</contextualized_content>
+</contextualized_contents>
+
+Now, consider the research objectives and theoretical framework:
+
+Research Objectives:
+<research_objectives>
+To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.
+</research_objectives>
+
+Theoretical Framework:
+<theoretical_framework>
+{{theory}}:{{Resource-Based View}}
+{{philosophical_approach}}:{{Constructivist}}
+{{rationale}}:{{Examining how collective resources create competitive advantage}}
+</theoretical_framework>
+
+Your analysis should follow these steps:
+
+1. Quotation Selection:
+   - Select quotes that demonstrate robust patterns in the data.
+   - Classify quotes using Creswell's categories:
+     a) Longer quotations: For complex understandings
+     b) Discrete quotations: For diverse perspectives
+     c) Embedded quotations: Brief phrases showing text shifts
+   - Ensure quotes enhance reader engagement and highlight unique findings.
+   - Provide adequate context for accurate comprehension.
+
+2. Pattern Recognition:
+   - Identify patterns emerging from data rather than predetermined categories.
+   - Support patterns with multiple quotations.
+   - Maintain theoretical alignment while remaining open to emerging themes.
+   - Document methodological decisions transparently.
+
+3. Theoretical Integration:
+   - Demonstrate clear philosophical underpinning.
+   - Show how findings connect to the theoretical framework.
+   - Practice researcher reflexivity throughout analysis.
+   - Balance selectivity with comprehensiveness.
+
+For each step of your analysis, wrap your analysis process in <analysis_process> tags to explain your thought process and reasoning before providing the final output. It's OK for this section to be quite long. Within the <analysis_process> tags:
+
+a. For Quotation Selection: List potential quotes and justify their selection based on Creswell's categories and relevance to research objectives.
+b. For Pattern Recognition: Identify potential patterns, explaining your reasoning and how they emerge from the data rather than predetermined categories.
+c. For Theoretical Integration: Explain how each finding connects to the theoretical framework, demonstrating clear philosophical underpinning and researcher reflexivity.
+
+Your final output should follow this JSON structure:
+
+{
+  ""transcript_info"": {
+    ""transcript_chunk"": """",                    // Selected transcript content
+    ""research_objectives"": """",          // Research goals guiding analysis
+    ""theoretical_framework"": {
+      ""theory"": """",                   // Primary theoretical approach
+      ""philosophical_approach"": """",    // Philosophical foundation
+      ""rationale"": """"                 // Justification for approach
+    }
+  },
+  ""quotations"": [
+    {
+      ""quotation"": """",                // Exact quote text
+      ""creswell_category"": """",        // longer/discrete/embedded
+      ""classification"": """",           // Content type
+      ""context"": {
+        ""preceding_question"": """",    // Prior question
+        ""situation"": """",            // Context description
+        ""pattern_representation"": """" // Pattern linkage
+      },
+      ""analysis_value"": {
+        ""relevance"": """",            // Research objective alignment
+        ""pattern_support"": """",       // Pattern evidence
+        ""theoretical_alignment"": """"  // Framework connection
+      }
+    }
+  ],
+  ""analysis"": {
+    ""philosophical_underpinning"": """",   // Analysis approach
+    ""patterns_identified"": [""""],        // Key patterns found
+    ""theoretical_interpretation"": """",    // Framework application
+    ""methodological_reflection"": {
+      ""pattern_robustness"": """",       // Pattern evidence
+      ""theoretical_alignment"": """",     // Framework fit
+      ""researcher_reflexivity"": """"    // Interpretation awareness
+    },
+    ""practical_implications"": """"        // Applied insights
+  },
+  ""answer"": {
+    ""summary"": """",                      // Key findings
+    ""theoretical_contribution"": """",      // Theory advancement
+    ""methodological_contribution"": {
+      ""approach"": """",                 // Method used
+      ""pattern_validity"": """",         // Evidence quality
+      ""theoretical_integration"": """"    // Theory-data synthesis
+    }
+  }
+}
+
+Remember to wrap your analysis process in <analysis_process> tags throughout your analysis to show your chain of thought before providing the final JSON output.","
+{
+  ""transcript_info"": {
+    ""transcript_chunk"": ""We're primarily focused on organic vegetable farming... by working together we could better manage distribution and get better prices"",
+    ""research_objectives"": ""Understanding operations and strategies of farming organization"",
+    ""theoretical_framework"": {
+      ""theory"": ""Resource-Based View"",
+      ""philosophical_approach"": ""Constructivist"",
+      ""rationale"": ""Examining collective resource utilization for competitive advantage""
+    }
+  },
+  ""quotations"": [
+    {
+      ""quotation"": ""We're primarily focused on organic vegetable farming... we've expanded into leafy greens and specialty herbs"",
+      ""creswell_category"": ""longer"",
+      ""classification"": ""Strategic Development"",
+      ""context"": {
+        ""preceding_question"": ""Can you tell me about what your cooperative does?"",
+        ""situation"": ""Description of organizational evolution"",
+        ""pattern_representation"": ""Market Adaptation""
+      },
+      ""analysis_value"": {
+        ""relevance"": ""Demonstrates strategic market positioning"",
+        ""pattern_support"": ""Shows deliberate diversification"",
+        ""theoretical_alignment"": ""Resource optimization for competitive advantage""
+      }
+    }
+  ],
+  ""analysis"": {
+    ""philosophical_underpinning"": ""Constructivist interpretation of collective resource management"",
+    ""patterns_identified"": [
+      ""Collaborative Structure"",
+      ""Market Adaptation"",
+      ""Resource Optimization""
+    ],
+    ""theoretical_interpretation"": ""Alignment with Resource-Based View through collective resource utilization"",
+    ""methodological_reflection"": {
+      ""pattern_robustness"": ""Multiple supporting quotes across transcripts"",
+      ""theoretical_alignment"": ""Strong connection to resource-based competitive advantage"",
+      ""researcher_reflexivity"": ""Awareness of interpretation through theoretical lens""
+    },
+    ""practical_implications"": ""Cooperative structure enables market advantage through resource sharing""
+  },
+  ""answer"": {
+    ""summary"": ""Analysis reveals successful cooperative model leveraging shared resources"",
+    ""theoretical_contribution"": ""Extends Resource-Based View to cooperative farming context"",
+    ""methodological_contribution"": {
+      ""approach"": ""Thematic analysis with theoretical integration"",
+      ""pattern_validity"": ""Multiple supporting instances across data"",
+      ""theoretical_integration"": ""Clear alignment between patterns and framework""
+    }
+  }
+}"

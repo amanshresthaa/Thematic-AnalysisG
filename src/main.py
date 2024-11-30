@@ -1,4 +1,5 @@
-#src/main.py
+# src/main.py
+
 import gc
 import logging
 import os
@@ -19,7 +20,8 @@ from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
-from src.analysis.select_quotation_module import EnhancedQuotationModule
+from src.analysis.select_quotation_module import EnhancedQuotationModule as EnhancedQuotationModuleStandard
+from src.analysis.select_quotation_module_alt import EnhancedQuotationModule as EnhancedQuotationModuleAlt
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -33,40 +35,35 @@ dspy.settings.configure(main_thread_only=True)
 thread_lock = threading.Lock()
 
 class ThematicAnalysisPipeline:
-    def __init__(self, config: Dict[str, Any]):
-        self.config = config
+    def __init__(self):
         self.contextual_db = None
         self.es_bm25 = None
-        self.quotation_qa_module = None
-        self.quotation_teleprompter = None
-        self.optimized_quotation_program = None
-        self.enhanced_quotation_module = None
 
-    def create_elasticsearch_bm25_index(self) -> ElasticsearchBM25:
+    def create_elasticsearch_bm25_index(self, index_name: str) -> ElasticsearchBM25:
         """
         Create and index documents in Elasticsearch BM25.
         """
         logger.debug("Entering create_elasticsearch_bm25_index method.")
         try:
-            es_bm25 = ElasticsearchBM25()
-            logger.info("ElasticsearchBM25 instance created.")
+            es_bm25 = ElasticsearchBM25(index_name=index_name)
+            logger.info(f"ElasticsearchBM25 instance created with index '{index_name}'.")
             success_count, failed_docs = es_bm25.index_documents(self.contextual_db.metadata)
-            logger.info(f"Elasticsearch BM25 index created successfully with {success_count} documents indexed.")
+            logger.info(f"Elasticsearch BM25 index '{index_name}' created successfully with {success_count} documents indexed.")
             if failed_docs:
                 logger.warning(f"{len(failed_docs)} documents failed to index.")
         except Exception as e:
-            logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
+            logger.error(f"Error creating Elasticsearch BM25 index '{index_name}': {e}", exc_info=True)
             raise
         return es_bm25
 
-    async def initialize_quotation_optimizer(self):
+    async def initialize_quotation_optimizer(self, config):
         """
         Initialize the quotation selection optimizer.
         """
         logger.info("Initializing quotation selection optimizer")
         dl = DataLoader()
         quotation_train_dataset = dl.from_csv(
-            self.config['quotation_training_data'],
+            config['quotation_training_data'],
             fields=("input", "output"),
             input_keys=("input",)
         )
@@ -91,15 +88,15 @@ class ThematicAnalysisPipeline:
             trainset=quotation_train_dataset
         )
         
-        self.optimized_quotation_program.save(self.config['optimized_quotation_program'])
+        self.optimized_quotation_program.save(config['optimized_quotation_program'])
         logger.info("Quotation optimizer initialized successfully")
 
     @handle_exceptions
-    async def run_pipeline(self):
+    async def run_pipeline_with_config(self, config, module_class):
         """
         Main function to load data, process queries, and generate outputs.
         """
-        logger.debug("Entering run_pipeline method.")
+        logger.debug("Entering run_pipeline_with_config method.")
         try:
             # Configure DSPy Language Model
             logger.info("Configuring DSPy Language Model")
@@ -108,10 +105,10 @@ class ThematicAnalysisPipeline:
             dspy.Cache = False
 
             # Define file paths from config
-            codebase_chunks_file = self.config['codebase_chunks_file']
-            queries_file_standard = self.config['queries_file_standard']
-            evaluation_set_file = self.config['evaluation_set_file']
-            output_filename_primary = self.config['output_filename_primary']
+            codebase_chunks_file = config['codebase_chunks_file']
+            queries_file_standard = config['queries_file_standard']
+            evaluation_set_file = config['evaluation_set_file']
+            output_filename_primary = config['output_filename_primary']
 
             dl = DataLoader()
 
@@ -133,8 +130,8 @@ class ThematicAnalysisPipeline:
 
             # Create the Elasticsearch BM25 index
             try:
-                logger.info("Creating Elasticsearch BM25 index")
-                self.es_bm25 = self.create_elasticsearch_bm25_index()
+                logger.info(f"Creating Elasticsearch BM25 index '{config['index_name']}'")
+                self.es_bm25 = self.create_elasticsearch_bm25_index(config['index_name'])
             except Exception as e:
                 logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
                 return
@@ -151,14 +148,14 @@ class ThematicAnalysisPipeline:
             validated_standard_queries = validate_queries(standard_queries)
 
             # Initialize quotation optimizer
-            await self.initialize_quotation_optimizer()
+            await self.initialize_quotation_optimizer(config)
 
             # Initialize EnhancedQuotationModule with assertions
             try:
                 logger.info("Initializing EnhancedQuotationModule")
-                self.enhanced_quotation_module = EnhancedQuotationModule()
-                self.enhanced_quotation_module = assert_transform_module(
-                    self.enhanced_quotation_module, 
+                enhanced_quotation_module = module_class()
+                enhanced_quotation_module = assert_transform_module(
+                    enhanced_quotation_module, 
                     backtrack_handler
                 )
                 logger.info("EnhancedQuotationModule initialized successfully with assertions activated.")
@@ -176,9 +173,9 @@ class ThematicAnalysisPipeline:
                 self.contextual_db,
                 self.es_bm25,
                 k=k_standard,
-                output_file=self.config['output_filename_primary'],
+                output_file=config['output_filename_primary'],
                 optimized_program=self.optimized_quotation_program,
-                module=self.enhanced_quotation_module
+                module=enhanced_quotation_module
             )
 
             # Define k values for evaluation
@@ -194,7 +191,7 @@ class ThematicAnalysisPipeline:
                 )
 
                 # Perform evaluation
-                evaluation_set = load_queries(self.config['evaluation_set_file'])
+                evaluation_set = load_queries(config['evaluation_set_file'])
                 evaluator.evaluate_complete_pipeline(
                     k_values=k_values,
                     evaluation_set=evaluation_set
@@ -205,16 +202,35 @@ class ThematicAnalysisPipeline:
 
             logger.info("All operations completed successfully.")
         except Exception as e:
-            logger.error(f"Unexpected error in run_pipeline: {e}", exc_info=True)
+            logger.error(f"Unexpected error in run_pipeline_with_config: {e}", exc_info=True)
+
+    async def run_pipeline(self):
+        # Define standard and alternate configurations
+        config_standard = {
+            'index_name': 'contextual_bm25_index_standard',
+            'codebase_chunks_file': 'data/codebase_chunks.json',
+            'queries_file_standard': 'data/queries.json',
+            'evaluation_set_file': 'data/evaluation_set.jsonl',
+            'output_filename_primary': 'query_results_quotation.json',
+            'quotation_training_data': 'data/quotation_training_data.csv',
+            'optimized_quotation_program': 'optimized_quotation_program.json'
+        }
+        config_alt = {
+            'index_name': 'contextual_bm25_index_alt',
+            'codebase_chunks_file': 'data/codebase_chunks_alt.json',
+            'queries_file_standard': 'data/queries_alt.json',
+            'evaluation_set_file': 'data/evaluation_set_alt.jsonl',
+            'output_filename_primary': 'query_results_quotation_alt.json',
+            'quotation_training_data': 'data/quotation_training_data_alt.csv',
+            'optimized_quotation_program': 'optimized_quotation_program_alt.json'
+        }
+        # Run standard pipeline
+        logger.info("Starting standard pipeline")
+        await self.run_pipeline_with_config(config_standard, EnhancedQuotationModuleStandard)
+        # Run alternate pipeline
+        logger.info("Starting alternate pipeline")
+        await self.run_pipeline_with_config(config_alt, EnhancedQuotationModuleAlt)
 
 if __name__ == "__main__":
-    config = {
-        'codebase_chunks_file': 'data/codebase_chunks.json',
-        'queries_file_standard': 'data/queries.json',
-        'evaluation_set_file': 'data/evaluation_set.jsonl',
-        'output_filename_primary': 'query_results_quotation.json',
-        'quotation_training_data': 'data/quotation_training_data.csv',
-        'optimized_quotation_program': 'optimized_quotation_program.json'
-    }
-    pipeline = ThematicAnalysisPipeline(config)
+    pipeline = ThematicAnalysisPipeline()
     asyncio.run(pipeline.run_pipeline())

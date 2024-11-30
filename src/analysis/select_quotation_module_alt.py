@@ -1,46 +1,52 @@
-# src/analysis/select_quotation_module_alt.py
+#analysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
 
-from src.analysis.select_quotation_alt import EnhancedQuotationModuleAlt
-from src.assertions_alt import (  # Import alternative assertions
-    assert_relevant_quotations,
-    assert_confidentiality,
-    assert_diversity_of_quotations,
-    assert_contextual_adequacy,
-    assert_philosophical_alignment
+from src.analysis.select_quotation_alt import EnhancedQuotationModule
+from src.assertions import (
+    assert_pattern_representation,
+    assert_research_objective_alignment,
+    assert_selective_transcription,
+    assert_creswell_categorization,
+    assert_reader_engagement
 )
 
 logger = logging.getLogger(__name__)
 
-class SelectQuotationModuleAlt(dspy.Module):
+class SelectQuotationModule(dspy.Module):
     """
-    DSPy module to select quotations based on research objectives, transcript chunks, and theoretical framework.
-    Utilizes EnhancedQuotationModuleAlt for robust assertion-based selection with an alternative prompt.
+    DSPy module to select and analyze quotations based on research objectives,
+    transcript chunks, and theoretical framework.
     """
     def __init__(self):
         super().__init__()
-        self.enhanced_module = EnhancedQuotationModuleAlt()
+        self.enhanced_module = EnhancedQuotationModule()
 
-    def forward(self, research_objectives: str, transcript_chunks: List[str], theoretical_framework: str) -> Dict[str, Any]:
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         try:
-            logger.debug("Running SelectQuotationModuleAlt with theoretical framework.")
+            logger.debug("Running SelectQuotationModule with integrated theoretical analysis.")
             response = self.enhanced_module.forward(
                 research_objectives=research_objectives,
-                transcript_chunks=transcript_chunks,
+                transcript_chunk=transcript_chunk,
+                contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
+            # Apply new assertions
             quotations = response.get("quotations", [])
-            analysis = response.get("analysis", "")
-            logger.info(f"Selected {len(quotations)} quotations aligned with theoretical framework (Alt).")
-            return {
-                "quotations": quotations,
-                "analysis": analysis
-            }
+            analysis = response.get("analysis", {})
+            patterns = analysis.get("patterns_identified", [])
+
+            # Apply the new assertions
+            assert_pattern_representation(quotations, patterns)
+            assert_research_objective_alignment(quotations, research_objectives)
+            assert_selective_transcription(quotations, transcript_chunk)
+            assert_creswell_categorization(quotations)
+            assert_reader_engagement(quotations)
+
+            # The response already includes 'transcript_info', 'quotations', 'analysis', and 'answer'
+            return response
         except Exception as e:
-            logger.error(f"Error in SelectQuotationModuleAlt.forward: {e}", exc_info=True)
-            return {
-                "quotations": [],
-                "analysis": ""
-            }
+            logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
+            return {}
