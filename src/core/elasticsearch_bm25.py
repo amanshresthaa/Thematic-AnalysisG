@@ -1,3 +1,5 @@
+# src/core/elasticsearch_bm25.py
+
 import logging
 import time
 from typing import List, Dict, Any, Optional, Tuple
@@ -8,22 +10,15 @@ import json
 import os
 
 from src.utils.logger import setup_logging
+
 setup_logging()
 logger = logging.getLogger(__name__)
-
-es_host = "http://localhost:9200"
-index_name = "contextual_bm25_index"
-es_client = Elasticsearch(es_host)
-
-if es_client.indices.exists(index=index_name):
-    es_client.indices.delete(index=index_name)
-    print(f"Index '{index_name}' deleted.")
 
 class ElasticsearchBM25:
     
     def __init__(
         self, 
-        index_name: str = "contextual_bm25_index",
+        index_name: str,
         es_host: str = "http://localhost:9200",
         logger: Optional[logging.Logger] = None
     ):
@@ -90,20 +85,16 @@ class ElasticsearchBM25:
         
         try:
             if self.es_client.indices.exists(index=self.index_name):
-                self.es_client.indices.close(index=self.index_name)
-                self.es_client.indices.put_settings(
-                    index=self.index_name,
-                    body=index_settings["settings"]
-                )
-                self.es_client.indices.open(index=self.index_name)
+                self.logger.info(f"Index '{self.index_name}' already exists. Skipping creation.")
+                # Optionally, you can update settings if necessary, but avoid changing immutable settings
             else:
                 self.es_client.indices.create(
                     index=self.index_name,
                     body=index_settings
                 )
-            self.logger.info(f"Successfully configured index: {self.index_name}")
+                self.logger.info(f"Successfully created index: {self.index_name}")
         except Exception as e:
-            self.logger.error(f"Failed to create/update index: {str(e)}")
+            self.logger.error(f"Failed to create/update index '{self.index_name}': {str(e)}")
             raise
 
     def index_documents(
@@ -114,7 +105,7 @@ class ElasticsearchBM25:
         if not documents:
             self.logger.warning("No documents provided for indexing")
             return 0, []
-
+    
         failed_docs = []
         success_count = 0
         
