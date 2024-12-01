@@ -18,26 +18,36 @@ from src.analysis.extract_keyword_module import KeywordExtractionModule
 setup_logging()
 logger = logging.getLogger(__name__)
 
-def validate_queries(transcripts: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> List[Dict[str, Any]]:
     """
-    Validates the structure of input transcripts.
+    Validates the structure of input transcripts based on the module type.
     """
     valid_transcripts = []
     for idx, transcript in enumerate(transcripts):
-        if 'transcript_chunk' not in transcript or not transcript['transcript_chunk'].strip():
-            logger.warning(f"Transcript at index {idx} is missing the 'transcript_chunk' field or is empty. Skipping.")
+        if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
+            # Validation for quotation extraction modules
+            if 'transcript_chunk' not in transcript or not transcript['transcript_chunk'].strip():
+                logger.warning(f"Transcript at index {idx} is missing the 'transcript_chunk' field or is empty. Skipping.")
+                continue
+        elif isinstance(module, KeywordExtractionModule):
+            # Validation for keyword extraction module
+            if 'quotation' not in transcript or not transcript['quotation'].strip():
+                logger.warning(f"Transcript at index {idx} is missing the 'quotation' field or is empty. Skipping.")
+                continue
+        else:
+            logger.warning(f"Unknown module type for transcript at index {idx}. Skipping.")
             continue
         valid_transcripts.append(transcript)
 
     logger.info(f"Validated {len(valid_transcripts)} transcripts out of {len(transcripts)} provided.")
     return valid_transcripts
 
-def retrieve_documents(transcript_chunk: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
+def retrieve_documents(input_text: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
     """
     Retrieves documents using multi-stage retrieval with contextual BM25.
     """
-    logger.debug(f"Retrieving documents for transcript chunk: '{transcript_chunk[:100]}...' with top {k} results.")
-    final_results = multi_stage_retrieval(transcript_chunk, db, es_bm25, k)
+    logger.debug(f"Retrieving documents for input text: '{input_text[:100]}...' with top {k} results.")
+    final_results = multi_stage_retrieval(input_text, db, es_bm25, k)
     logger.debug(f"Multi-stage retrieval returned {len(final_results)} results.")
     return final_results
 
@@ -113,15 +123,15 @@ async def process_single_transcript_keyword(
     """
     Processes a single transcript chunk for keyword extraction.
     """
-    transcript_chunk = transcript_item.get('transcript_chunk', '').strip()
-    if not transcript_chunk:
-        logger.warning("Transcript chunk is empty. Skipping.")
+    quotation = transcript_item.get('quotation', '').strip()
+    if not quotation:
+        logger.warning("Quotation is empty. Skipping.")
         return {}
 
-    logger.info(f"Processing transcript chunk for keywords: {transcript_chunk[:100]}...")
+    logger.info(f"Processing quotation for keywords: {quotation[:100]}...")
 
     # Retrieve and filter chunks
-    retrieved_chunks = retrieve_documents(transcript_chunk, db, es_bm25, k)
+    retrieved_chunks = retrieve_documents(quotation, db, es_bm25, k)
     filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
     contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
@@ -131,21 +141,21 @@ async def process_single_transcript_keyword(
     )
     theoretical_framework = transcript_item.get('theoretical_framework', {})
 
-    # Process transcript using keyword module
+    # Process quotation using keyword module
     response = module.forward(
         research_objectives=research_objectives,
-        transcript_chunk=transcript_chunk,
+        quotation=quotation,  # Changed from transcript_chunk to quotation
         contextualized_contents=contextualized_contents,
         theoretical_framework=theoretical_framework
     )
     
     # Prepare keyword-specific result dictionary
     result = {
-        "transcript_info": {
-            "transcript_chunk": transcript_chunk,
+        "quotation_info": response.get("quotation_info", {
+            "quotation": quotation,
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
-        },
+        }),
         "retrieved_chunks": retrieved_chunks,
         "retrieved_chunks_count": len(retrieved_chunks),
         "filtered_chunks_count": len(filtered_chunks),
@@ -156,10 +166,10 @@ async def process_single_transcript_keyword(
     }
 
     if not result["keywords"]:
-        logger.warning(f"No keywords extracted for transcript chunk: '{transcript_chunk[:100]}...'")
+        logger.warning(f"No keywords extracted for quotation: '{quotation[:100]}...'")
         result["analysis"]["error"] = "No relevant keywords were found to analyze."
 
-    logger.info(f"Extracted {len(result['keywords'])} keywords for transcript chunk.")
+    logger.info(f"Extracted {len(result['keywords'])} keywords for quotation.")
     return result
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
@@ -191,9 +201,13 @@ async def process_queries(
     all_results = []
     try:
         # Determine the processing function based on module type
-        process_func = (process_single_transcript_quotation 
-                       if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)) 
-                       else process_single_transcript_keyword)
+        if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
+            process_func = process_single_transcript_quotation
+        elif isinstance(module, KeywordExtractionModule):
+            process_func = process_single_transcript_keyword
+        else:
+            logger.error("Unsupported module type provided.")
+            return
 
         for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
             try:

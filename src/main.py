@@ -184,7 +184,7 @@ class ThematicAnalysisPipeline:
 
             # Validate queries
             logger.info("Validating standard queries")
-            validated_standard_queries = validate_queries(standard_queries)
+            validated_standard_queries = validate_queries(standard_queries, module_class())
 
             # Initialize optimizer (Quotation or Keyword)
             await optimizer_init_func(config)
