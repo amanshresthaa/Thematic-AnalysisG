@@ -30,7 +30,7 @@
                     "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
                     "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
                 },
-                "score": 0.03157894736842105
+                "score": 0.024999999999999998
             },
             {
                 "chunk": {
@@ -41,7 +41,7 @@
                     "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
                     "contextualized_content": "The speaker articulates a critical perspective on the current financial landscape for farmers, stating, \"It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left.\" This underscores the precarious situation faced by agricultural organizations, where the lack of financial support from banks limits their capacity to implement long-term strategies for growth and job creation. The call for a more relaxed banking approach indicates a desire for systemic change that would enable farmers to thrive and contribute positively to the economy."
                 },
-                "score": 0.016216216216216217
+                "score": 0.01276595744680851
             },
             {
                 "chunk": {
@@ -52,7 +52,7 @@
                     "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
                     "contextualized_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes. This exchange illustrates the foundational role that suppliers and farmers play in ensuring the organization can meet its commitments and maintain its operations effectively. Without a reliable network of suppliers, the organization risks falling short in fulfilling customer demands, which could jeopardize its stability and growth."
                 },
-                "score": 0.016216216216216217
+                "score": 0.01276595744680851
             }
         ],
         "retrieved_chunks_count": 4,
@@ -189,7 +189,7 @@
                     "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
                     "contextualized_content": "The speaker articulates a critical perspective on the current financial landscape for farmers, stating, \"It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left.\" This underscores the precarious situation faced by agricultural organizations, where the lack of financial support from banks limits their capacity to implement long-term strategies for growth and job creation. The call for a more relaxed banking approach indicates a desire for systemic change that would enable farmers to thrive and contribute positively to the economy."
                 },
-                "score": 0.23157894736842105
+                "score": 0.225
             },
             {
                 "chunk": {
@@ -211,7 +211,7 @@
                     "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
                     "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
-                "score": 0.03157894736842105
+                "score": 0.024999999999999998
             }
         ],
         "retrieved_chunks_count": 5,
@@ -278,7 +278,7 @@
                     "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
                     "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
-                "score": 0.03157894736842105
+                "score": 0.024999999999999998
             },
             {
                 "chunk": {
@@ -289,7 +289,7 @@
                     "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
                     "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
                 },
-                "score": 0.016216216216216217
+                "score": 0.01276595744680851
             },
             {
                 "chunk": {
@@ -300,7 +300,7 @@
                     "original_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
                     "contextualized_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market. This statement underscores the pressing issue of inadequate processing capacity in the UK agricultural sector, which has been exacerbated by recent challenges such as Brexit and the COVID-19 pandemic. The speaker is concerned that without sufficient processing facilities, the hard work of farmers will not translate into marketable products, leading to waste and financial instability. This reflects a broader call for investment in local processing capabilities to ensure that farmers can effectively bring their produce to market and sustain their livelihoods."
                 },
-                "score": 0.010909090909090908
+                "score": 0.00857142857142857
             }
         ],
         "retrieved_chunks_count": 5,
@@ -367,7 +367,7 @@
                     "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
                     "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
-                "score": 0.03157894736842105
+                "score": 0.024999999999999998
             },
             {
                 "chunk": {
@@ -378,7 +378,7 @@
                     "original_content": "Is that what you mean?",
                     "contextualized_content": "The question \"Is that what you mean?\" arises after the interviewee explains how their organization functions as an interface between farmers and customers, effectively taking on the role of the middleman to streamline the process and ensure that profits return to the farmers. This moment highlights the importance of clear communication in discussions about organizational roles and market dynamics, as the interviewer seeks to confirm their understanding of the innovative approach being taken by the organization."
                 },
-                "score": 0.016216216216216217
+                "score": 0.01276595744680851
             },
             {
                 "chunk": {
@@ -389,7 +389,7 @@
                     "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
                     "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
                 },
-                "score": 0.010909090909090908
+                "score": 0.00857142857142857
             }
         ],
         "retrieved_chunks_count": 5,
@@ -456,7 +456,7 @@
                     "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?",
                     "contextualized_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. This reflects our commitment to enhancing our operational efficiency and expanding our reach within the agricultural market. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. Additionally, as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help? This question highlights our awareness of the broader market landscape and our desire to leverage societal shifts to bolster our growth strategy."
                 },
-                "score": 0.03157894736842105
+                "score": 0.024999999999999998
             },
             {
                 "chunk": {
@@ -467,7 +467,7 @@
                     "original_content": "We don\u2019t know which way it\u2019s going to go.",
                     "contextualized_content": "The phrase \"We don\u2019t know which way it\u2019s going to go\" encapsulates the prevailing uncertainty in the agricultural sector, particularly in light of recent changes such as Brexit and the ongoing challenges posed by the COVID-19 pandemic. Farmers are grappling with unpredictable market conditions, which have been exacerbated by fluctuating prices and the need for sustainable practices. This uncertainty is not just a personal concern but reflects a collective anxiety within the farming community about the future of agriculture in the UK. The speaker emphasizes the importance of addressing these challenges through investment and support for local farming initiatives to ensure a stable and sustainable future."
                 },
-                "score": 0.016216216216216217
+                "score": 0.01276595744680851
             },
             {
                 "chunk": {
@@ -478,7 +478,7 @@
                     "original_content": "That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure.",
                     "contextualized_content": "The COVID-19 pandemic had a profound impact on the potato supply chain, particularly affecting the food service sector. As restaurants and similar businesses closed, the demand for potatoes plummeted, leading to a situation where farmers found themselves with excess stock and no buyers. As we plan for the 2021/2022 harvest, we face a dilemma: many customers are unwilling to sign contracts until they have a clearer understanding of future market conditions. This uncertainty places farmers in a difficult position; we must continue to invest in our operations by purchasing seeds and planting potatoes, even as customers express hesitance about future orders. The situation underscores the challenges of maintaining a stable supply chain in the face of unpredictable market dynamics."
                 },
-                "score": 0.010526315789473684
+                "score": 0.008333333333333333
             }
         ],
         "retrieved_chunks_count": 5,
