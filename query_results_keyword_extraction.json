@@ -63,22 +63,44 @@
         "used_chunk_ids": [
             "Document_chunk_42"
         ],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "Critical Realist approach allows for understanding the complex realities faced by victims.",
-            "patterns_identified": [
-                "Vulnerability factors in victim profiles",
-                "Manipulative tactics used by traffickers",
-                "Identification signs of potential victims"
-            ],
-            "theoretical_interpretation": "Victimology Theory provides a framework for understanding the experiences and characteristics of victims.",
-            "methodological_reflection": {
-                "pattern_robustness": "Patterns are supported by multiple quotations and contextual evidence.",
-                "theoretical_alignment": "Strong alignment with Victimology Theory.",
-                "researcher_reflexivity": "Reflected on personal biases and the importance of ethical considerations in research."
+        "keywords": [
+            {
+                "keyword": "vulnerable backgrounds",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "richness": "Describes the socio-economic factors contributing to victimization.",
+                    "rigor": "Supported by empirical evidence in victimology.",
+                    "resonance": "Relates to broader discussions on social justice.",
+                    "reach": "Applicable to various demographics.",
+                    "reflexivity": "Encourages reflection on societal responsibilities."
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent la n\u00e9cessit\u00e9 de programmes de sensibilisation et de formation pour les travailleurs sociaux et les forces de l'ordre.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "manipulative tactics",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "richness": "Highlights the methods traffickers use to exploit victims.",
+                    "rigor": "Backed by case studies and research.",
+                    "resonance": "Sparks awareness about trafficking methods.",
+                    "reach": "Relevant to law enforcement and social services.",
+                    "reflexivity": "Prompts critical thinking about prevention strategies."
+                }
+            },
+            {
+                "keyword": "identification signs",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "richness": "Identifies key indicators of trafficking victims.",
+                    "rigor": "Based on training for professionals.",
+                    "resonance": "Important for intervention efforts.",
+                    "reach": "Useful for various stakeholders.",
+                    "reflexivity": "Encourages proactive measures in communities."
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis of the transcript reveals critical insights into the profiles, tactics, and identification methods of sex trafficking victims. The keywords extracted provide a framework for understanding the complexities of victimization and the role of traffickers. This information is essential for developing targeted prevention and intervention strategies.",
+            "implications": "The findings underscore the need for comprehensive training for law enforcement and social workers to recognize the signs of trafficking and to understand the backgrounds of potential victims. Additionally, community awareness programs can be developed to address the vulnerabilities that lead to trafficking."
         }
     },
     {
@@ -96,22 +118,82 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "Constructivist approach emphasizing the co-construction of knowledge between legal frameworks and social responses.",
-            "patterns_identified": [
-                "Existence of specific legal frameworks",
-                "Variation in effectiveness across regions",
-                "Critical role of NGOs in victim support and advocacy"
-            ],
-            "theoretical_interpretation": "Application of Legal and Social Systems Theory to understand the interaction between laws and social systems in combating sex trafficking.",
-            "methodological_reflection": {
-                "pattern_robustness": "Patterns identified are supported by multiple quotations and contextual evidence.",
-                "theoretical_alignment": "The findings align with the theoretical framework, emphasizing the importance of both legal and social systems.",
-                "researcher_reflexivity": "Reflected on personal biases and the importance of diverse perspectives in understanding the issue."
+        "keywords": [
+            {
+                "keyword": "Legal Frameworks",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Robustness": "Moderate",
+                    "Recency": "Current",
+                    "Reach": "Global",
+                    "Resilience": "Variable",
+                    "Responsiveness": "Dependent on resources"
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent la n\u00e9cessit\u00e9 d'am\u00e9liorer l'application des lois et de renforcer le soutien aux victimes par le biais des ONG.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "NGOs",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Robustness": "High",
+                    "Recency": "Current",
+                    "Reach": "Local to Global",
+                    "Resilience": "High",
+                    "Responsiveness": "Proactive"
+                }
+            },
+            {
+                "keyword": "Effectiveness",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Robustness": "Moderate",
+                    "Recency": "Current",
+                    "Reach": "Variable",
+                    "Resilience": "Variable",
+                    "Responsiveness": "Dependent on enforcement"
+                }
+            },
+            {
+                "keyword": "Trafficking Victims Protection Act (TVPA)",
+                "6Rs": {
+                    "Relevance": "Moderate",
+                    "Robustness": "High",
+                    "Recency": "Current",
+                    "Reach": "National",
+                    "Resilience": "High",
+                    "Responsiveness": "Effective if enforced"
+                }
+            },
+            {
+                "keyword": "Support Systems",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Robustness": "Moderate",
+                    "Recency": "Current",
+                    "Reach": "Local",
+                    "Resilience": "Variable",
+                    "Responsiveness": "Dependent on local resources"
+                }
+            },
+            {
+                "keyword": "International Agreements",
+                "6Rs": {
+                    "Relevance": "Moderate",
+                    "Robustness": "Moderate",
+                    "Recency": "Current",
+                    "Reach": "Global",
+                    "Resilience": "Variable",
+                    "Responsiveness": "Dependent on national implementation"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis highlights the critical role of legal frameworks and NGOs in combating sex trafficking. While laws like the TVPA provide a foundation, their effectiveness is contingent on enforcement and available resources. NGOs complement these efforts by providing essential services and advocating for policy improvements.",
+            "implications": "Understanding the interplay between legal frameworks and NGO activities can inform policy recommendations and enhance the overall response to sex trafficking.",
+            "recommendations": [
+                "Strengthen enforcement of existing laws.",
+                "Enhance support systems for victims.",
+                "Foster collaboration between NGOs and government agencies."
+            ]
         }
     },
     {
@@ -129,22 +211,66 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "Critical Realist approach to understand the complexities of technology's role.",
-            "patterns_identified": [
-                "Exploitation through technology",
-                "Intervention and prevention mechanisms",
-                "Support systems for victims"
-            ],
-            "theoretical_interpretation": "Application of Technological Impact Theory to analyze the dual role of technology.",
-            "methodological_reflection": {
-                "pattern_robustness": "Patterns are well-supported by the data.",
-                "theoretical_alignment": "Strong alignment with the theoretical framework.",
-                "researcher_reflexivity": "Reflected on personal biases in interpreting technology's role."
+        "keywords": [
+            {
+                "keyword": "Technology",
+                "6Rs": {
+                    "Relevance": "Central to the discussion of sex trafficking",
+                    "Reach": "Affects a wide range of stakeholders",
+                    "Response": "Calls for action from law enforcement and society",
+                    "Relationship": "Connects traffickers and victims through digital means",
+                    "Reflection": "Encourages critical thinking about technology's role",
+                    "Resource": "Provides tools for prevention and intervention"
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent l'importance d'utiliser la technologie pour pr\u00e9venir et intervenir dans la traite des \u00eatres humains.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "Exploitation",
+                "6Rs": {
+                    "Relevance": "Highlights the negative use of technology",
+                    "Reach": "Impacts victims and society at large",
+                    "Response": "Necessitates protective measures",
+                    "Relationship": "Defines the dynamic between traffickers and victims",
+                    "Reflection": "Provokes thought on ethical implications",
+                    "Resource": "Identifies areas needing intervention"
+                }
+            },
+            {
+                "keyword": "Prevention",
+                "6Rs": {
+                    "Relevance": "Focuses on combating trafficking",
+                    "Reach": "Involves law enforcement and community efforts",
+                    "Response": "Encourages proactive strategies",
+                    "Relationship": "Links technology with victim support",
+                    "Reflection": "Promotes awareness of trafficking issues",
+                    "Resource": "Utilizes technology for effective solutions"
+                }
+            },
+            {
+                "keyword": "AI",
+                "6Rs": {
+                    "Relevance": "Represents advanced technological solutions",
+                    "Reach": "Applicable in various sectors",
+                    "Response": "Calls for integration in trafficking prevention",
+                    "Relationship": "Connects data analysis with trafficking patterns",
+                    "Reflection": "Encourages innovation in combating crime",
+                    "Resource": "Offers analytical capabilities"
+                }
+            },
+            {
+                "keyword": "Blockchain",
+                "6Rs": {
+                    "Relevance": "Introduces transparency in transactions",
+                    "Reach": "Affects financial systems and trafficking operations",
+                    "Response": "Promotes secure practices",
+                    "Relationship": "Links financial transactions to trafficking activities",
+                    "Reflection": "Challenges traditional transaction methods",
+                    "Resource": "Provides a secure framework for tracking"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis reveals the dual role of technology in sex trafficking, highlighting both its exploitative use by traffickers and its potential as a tool for prevention and intervention. Key technological solutions such as AI and blockchain are identified as critical in combating trafficking. The findings underscore the need for a multifaceted approach that leverages technology to support victims and enhance law enforcement efforts.",
+            "implications": "The insights gained from this analysis can inform policy-making and the development of technological tools aimed at preventing sex trafficking. It emphasizes the importance of collaboration between technology developers, law enforcement, and support organizations to create effective solutions."
         }
     },
     {
@@ -218,22 +344,56 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "Constructivist approach emphasizes understanding individual experiences and the context of trauma.",
-            "patterns_identified": [
-                "Severe psychological trauma",
-                "Need for multi-faceted support",
-                "Variability in recovery outcomes"
-            ],
-            "theoretical_interpretation": "Application of Psychological Trauma Theory to understand the depth of trauma and the necessity of comprehensive support.",
-            "methodological_reflection": {
-                "pattern_robustness": "Patterns are supported by multiple quotations and reflect consistent themes.",
-                "theoretical_alignment": "Strong alignment with the theoretical framework, reinforcing the importance of psychological support.",
-                "researcher_reflexivity": "Reflected on personal biases and the importance of empathy in interpreting victim experiences."
+        "keywords": [
+            {
+                "keyword": "psychological impacts",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Rigor": "Strong evidence from trauma studies",
+                    "Reach": "Applicable to various victim demographics",
+                    "Resilience": "Understanding trauma aids recovery",
+                    "Responsiveness": "Informs support strategies",
+                    "Reflection": "Encourages further research"
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent la n\u00e9cessit\u00e9 d'un soutien psychologique et social robuste pour les victimes de la traite des \u00eatres humains.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "trauma",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Rigor": "Well-documented in psychological literature",
+                    "Reach": "Broad implications for mental health",
+                    "Resilience": "Key to recovery processes",
+                    "Responsiveness": "Guides therapeutic approaches",
+                    "Reflection": "Highlights need for ongoing support"
+                }
+            },
+            {
+                "keyword": "support mechanisms",
+                "6Rs": {
+                    "Relevance": "High",
+                    "Rigor": "Evidence-based practices exist",
+                    "Reach": "Critical for victim recovery",
+                    "Resilience": "Strengthens recovery pathways",
+                    "Responsiveness": "Adaptable to individual needs",
+                    "Reflection": "Calls for policy improvements"
+                }
+            },
+            {
+                "keyword": "long-term outcomes",
+                "6Rs": {
+                    "Relevance": "Medium",
+                    "Rigor": "Varied outcomes documented",
+                    "Reach": "Important for understanding recovery",
+                    "Resilience": "Influenced by support systems",
+                    "Responsiveness": "Informs future interventions",
+                    "Reflection": "Encourages longitudinal studies"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis reveals significant psychological impacts of sex trafficking, including PTSD, depression, and anxiety. Support mechanisms are crucial for recovery, encompassing psychological, social, and legal assistance. Long-term outcomes for victims vary, heavily influenced by the availability and effectiveness of support systems.",
+            "implications": "Understanding these dynamics is essential for developing effective recovery programs and policies that address the unique needs of sex trafficking victims.",
+            "recommendations": "Future research should focus on longitudinal studies to better understand the long-term effects of trauma and the efficacy of different support strategies."
         }
     },
     {
@@ -307,22 +467,49 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "Critical Realism emphasizes understanding the complex realities of social issues like sex trafficking.",
-            "patterns_identified": [
-                "Social and economic instability caused by trafficking",
-                "Significant economic costs associated with trafficking",
-                "Importance of community empowerment and education"
-            ],
-            "theoretical_interpretation": "The Community Impact Theory provides a framework for understanding the broader implications of sex trafficking on community dynamics.",
-            "methodological_reflection": {
-                "pattern_robustness": "The identified patterns are consistent across the transcript and align with existing literature.",
-                "theoretical_alignment": "The analysis aligns well with the theoretical framework, reinforcing the relevance of Community Impact Theory.",
-                "researcher_reflexivity": "Reflections on the researcher's position and potential biases were considered throughout the analysis."
+        "keywords": [
+            {
+                "keyword": "social instability",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "relationships": "Interconnected with community trust and safety",
+                    "rigor": "Supported by empirical evidence",
+                    "reflexivity": "Acknowledges community perspectives",
+                    "representation": "Reflects the voices of affected individuals",
+                    "responsibility": "Calls for community action"
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent la n\u00e9cessit\u00e9 d'initiatives communautaires pour sensibiliser et \u00e9duquer sur la traite des \u00eatres humains.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "economic costs",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "relationships": "Linked to law enforcement and public health",
+                    "rigor": "Quantifiable through economic studies",
+                    "reflexivity": "Considers broader societal impacts",
+                    "representation": "Includes various stakeholder views",
+                    "responsibility": "Highlights need for policy change"
+                }
+            },
+            {
+                "keyword": "community empowerment",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "relationships": "Essential for prevention strategies",
+                    "rigor": "Supported by community development theories",
+                    "reflexivity": "Involves community engagement",
+                    "representation": "Empowers local voices",
+                    "responsibility": "Encourages proactive measures"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis reveals that sex trafficking significantly disrupts community stability and incurs substantial economic costs. It emphasizes the importance of community empowerment as a strategy to combat trafficking.",
+            "implications": "Understanding these impacts can guide policymakers and community organizations in developing targeted interventions.",
+            "recommendations": [
+                "Increase funding for victim support services.",
+                "Implement community education programs on trafficking awareness.",
+                "Foster partnerships between law enforcement and community organizations."
+            ]
         }
     },
     {
@@ -396,22 +583,44 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "L'analyse est ancr\u00e9e dans une approche constructiviste, reconnaissant que les dynamiques sociales et \u00e9conomiques fa\u00e7onnent la r\u00e9alit\u00e9 de la traite des \u00eatres humains.",
-            "patterns_identified": [
-                "L'augmentation des r\u00e9seaux de traite en raison de la mondialisation.",
-                "L'exploitation des technologies modernes par les trafiquants.",
-                "La n\u00e9cessit\u00e9 d'une coop\u00e9ration internationale pour lutter contre la traite."
-            ],
-            "theoretical_interpretation": "L'application de la th\u00e9orie de la mondialisation et du crime r\u00e9v\u00e8le comment les processus mondiaux facilitent la traite des \u00eatres humains.",
-            "methodological_reflection": {
-                "pattern_robustness": "Les motifs identifi\u00e9s sont soutenus par des donn\u00e9es empiriques et des t\u00e9moignages.",
-                "theoretical_alignment": "Les r\u00e9sultats s'alignent avec les th\u00e9ories existantes sur la mondialisation et le crime.",
-                "researcher_reflexivity": "La r\u00e9flexion sur le r\u00f4le du chercheur dans l'interpr\u00e9tation des donn\u00e9es est essentielle pour \u00e9viter les biais."
+        "keywords": [
+            {
+                "keyword": "global trends",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "relationships": "Connected to globalization and trafficking networks",
+                    "representation": "Reflects the current state of sex trafficking",
+                    "rigor": "Supported by data on trafficking growth",
+                    "reflexivity": "Acknowledges the role of globalization",
+                    "responsiveness": "Calls for international action"
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent la n\u00e9cessit\u00e9 d'une approche globale et coordonn\u00e9e pour lutter contre la traite des \u00eatres humains, impliquant des politiques internationales et des strat\u00e9gies de sensibilisation.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "globalization",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "relationships": "Central to the discussion of trafficking",
+                    "representation": "Key factor in the movement of traffickers and victims",
+                    "rigor": "Backed by theoretical frameworks",
+                    "reflexivity": "Recognizes the complexities of global interactions",
+                    "responsiveness": "Highlights the need for global cooperation"
+                }
+            },
+            {
+                "keyword": "international efforts",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "relationships": "Involves collaboration among nations",
+                    "representation": "Demonstrates proactive measures against trafficking",
+                    "rigor": "Supported by examples of international agreements",
+                    "reflexivity": "Considers the effectiveness of these efforts",
+                    "responsiveness": "Encourages ongoing international dialogue"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis of the transcript highlights the significant impact of globalization on sex trafficking, emphasizing the need for international cooperation to combat this issue. The keywords extracted reflect the core themes of the discussion, providing a framework for understanding the complexities involved.",
+            "implications": "The findings suggest that addressing sex trafficking requires a multifaceted approach that includes understanding global trends, leveraging international cooperation, and recognizing the role of technology in both facilitating and combating trafficking."
         }
     },
     {
@@ -485,22 +694,52 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "Critical Realism emphasizes the importance of understanding the underlying structures that shape media narratives.",
-            "patterns_identified": [
-                "Sensationalism in media portrayal",
-                "Victim blaming and stigmatization",
-                "Potential for positive media engagement"
-            ],
-            "theoretical_interpretation": "The analysis reveals how media representation can both harm and help the understanding of sex trafficking.",
-            "methodological_reflection": {
-                "pattern_robustness": "The identified patterns are consistent across the transcript.",
-                "theoretical_alignment": "The findings align with Media Representation Theory and Critical Realism.",
-                "researcher_reflexivity": "Reflected on personal biases in interpreting media narratives."
+        "keywords": [
+            {
+                "keyword": "sensationalism",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "resonance": "Strong",
+                    "rigor": "Moderate",
+                    "reach": "Wide",
+                    "representation": "Critical",
+                    "reflexivity": "Necessary"
+                }
             },
-            "practical_implications": "Les m\u00e9dias doivent s'engager \u00e0 fournir des reportages pr\u00e9cis et \u00e9quilibr\u00e9s pour soutenir la sensibilisation et la pr\u00e9vention.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "victim blaming",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "resonance": "Strong",
+                    "rigor": "High",
+                    "reach": "Moderate",
+                    "representation": "Essential",
+                    "reflexivity": "Important"
+                }
+            },
+            {
+                "keyword": "accurate reporting",
+                "6Rs_analysis": {
+                    "relevance": "High",
+                    "resonance": "Moderate",
+                    "rigor": "High",
+                    "reach": "Wide",
+                    "representation": "Positive",
+                    "reflexivity": "Beneficial"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The media's portrayal of sex trafficking is often sensationalized, which can lead to harmful stereotypes and victim blaming. However, there is potential for the media to contribute positively by providing accurate and balanced reporting.",
+            "implications": {
+                "negative": "Sensationalism can perpetuate misconceptions and stigmatization of victims.",
+                "positive": "Balanced reporting can educate the public and support victims."
+            },
+            "recommendations": [
+                "Encourage media outlets to adopt ethical reporting standards.",
+                "Highlight stories of survivors to foster empathy and understanding.",
+                "Promote awareness campaigns that focus on the realities of trafficking."
+            ]
         }
     },
     {
@@ -518,22 +757,86 @@
         "filtered_chunks_count": 0,
         "contextualized_contents": [],
         "used_chunk_ids": [],
-        "keywords": [],
-        "analysis": {
-            "philosophical_underpinning": "L'analyse est ancr\u00e9e dans une approche constructiviste, cherchant \u00e0 comprendre les perceptions et les exp\u00e9riences des acteurs impliqu\u00e9s dans les affaires de traite des \u00eatres humains.",
-            "patterns_identified": [
-                "Complexit\u00e9 des crimes de traite des \u00eatres humains",
-                "R\u00e9ticence des victimes \u00e0 t\u00e9moigner",
-                "Barri\u00e8res juridiques li\u00e9es \u00e0 la juridiction"
-            ],
-            "theoretical_interpretation": "L'application de la th\u00e9orie de la justice p\u00e9nale permet de contextualiser les d\u00e9fis rencontr\u00e9s dans la poursuite des affaires de traite des \u00eatres humains.",
-            "methodological_reflection": {
-                "pattern_robustness": "Les motifs identifi\u00e9s sont soutenus par des t\u00e9moignages et des exp\u00e9riences v\u00e9cues.",
-                "theoretical_alignment": "L'analyse est en accord avec les principes de la th\u00e9orie de la justice p\u00e9nale.",
-                "researcher_reflexivity": "La r\u00e9flexion sur le r\u00f4le du chercheur est essentielle pour comprendre les biais potentiels dans l'interpr\u00e9tation des donn\u00e9es."
+        "keywords": [
+            {
+                "keyword": "sex trafficking",
+                "6Rs": {
+                    "relevance": "High",
+                    "rigor": "Moderate",
+                    "richness": "High",
+                    "resonance": "Strong",
+                    "reach": "Global",
+                    "reflexivity": "Critical"
+                }
             },
-            "practical_implications": "Les r\u00e9sultats soulignent la n\u00e9cessit\u00e9 d'une approche collaborative et d'une meilleure protection des victimes dans le syst\u00e8me juridique.",
-            "error": "No relevant keywords were found to analyze."
+            {
+                "keyword": "prosecution challenges",
+                "6Rs": {
+                    "relevance": "High",
+                    "rigor": "Moderate",
+                    "richness": "Moderate",
+                    "resonance": "Strong",
+                    "reach": "National",
+                    "reflexivity": "Important"
+                }
+            },
+            {
+                "keyword": "victim testimony",
+                "6Rs": {
+                    "relevance": "High",
+                    "rigor": "High",
+                    "richness": "Moderate",
+                    "resonance": "Strong",
+                    "reach": "Local",
+                    "reflexivity": "Essential"
+                }
+            },
+            {
+                "keyword": "multi-agency approach",
+                "6Rs": {
+                    "relevance": "Moderate",
+                    "rigor": "Moderate",
+                    "richness": "High",
+                    "resonance": "Moderate",
+                    "reach": "National",
+                    "reflexivity": "Significant"
+                }
+            },
+            {
+                "keyword": "jurisdictional issues",
+                "6Rs": {
+                    "relevance": "High",
+                    "rigor": "Moderate",
+                    "richness": "Moderate",
+                    "resonance": "Strong",
+                    "reach": "International",
+                    "reflexivity": "Critical"
+                }
+            },
+            {
+                "keyword": "evidence gathering",
+                "6Rs": {
+                    "relevance": "High",
+                    "rigor": "High",
+                    "richness": "High",
+                    "resonance": "Strong",
+                    "reach": "Local",
+                    "reflexivity": "Essential"
+                }
+            }
+        ],
+        "analysis": {
+            "summary": "The analysis highlights the multifaceted challenges in prosecuting sex trafficking cases, emphasizing the need for a collaborative approach among various agencies and the importance of victim support.",
+            "key_findings": [
+                "Complexity of sex trafficking crimes necessitates comprehensive evidence gathering.",
+                "Victim testimony is crucial yet often hindered by trauma and fear.",
+                "Jurisdictional issues complicate legal proceedings, especially in international cases."
+            ],
+            "recommendations": [
+                "Enhance training for law enforcement on trauma-informed approaches.",
+                "Develop international legal frameworks to address jurisdictional challenges.",
+                "Increase resources for victim support services to encourage testimony."
+            ]
         }
     }
 ]
