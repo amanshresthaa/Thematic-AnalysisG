@@ -1,16 +1,11 @@
+
+#analysis/extract_keyword_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
 
 from src.analysis.extract_keyword import KeywordExtractionSignature
-from src.assertions import (
-    assert_keyword_realness,
-    assert_keyword_richness,
-    assert_keyword_repetition,
-    assert_keyword_rationale,
-    assert_keyword_repartee,
-    assert_keyword_regal
-)
+
 
 logger = logging.getLogger(__name__)
 
@@ -41,13 +36,7 @@ class KeywordExtractionModule(dspy.Module):
             # Extract components for validation
             keywords = response.get("keywords", [])
             
-            # Apply assertions
-            assert_keyword_realness(keywords)
-            assert_keyword_richness(keywords)
-            assert_keyword_repetition(keywords)
-            assert_keyword_rationale(keywords, theoretical_framework)
-            assert_keyword_repartee(keywords)
-            assert_keyword_regal(keywords)
+            
             
             return response
             

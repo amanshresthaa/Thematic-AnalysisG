@@ -1,3 +1,5 @@
+# src/processing/query_processor.py
+
 import logging
 from typing import List, Dict, Any
 import json
@@ -9,6 +11,9 @@ from src.retrieval.retrieval import multi_stage_retrieval
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
 import dspy
+
+from src.analysis.select_quotation_module import SelectQuotationModule, EnhancedQuotationModule
+from src.analysis.extract_keyword_module import KeywordExtractionModule
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -36,9 +41,8 @@ def retrieve_documents(transcript_chunk: str, db: ContextualVectorDB, es_bm25: E
     logger.debug(f"Multi-stage retrieval returned {len(final_results)} results.")
     return final_results
 
-
 @handle_exceptions
-async def process_single_transcript(
+async def process_single_transcript_quotation(
     transcript_item: Dict[str, Any],
     db: ContextualVectorDB,
     es_bm25: ElasticsearchBM25,
@@ -46,35 +50,27 @@ async def process_single_transcript(
     module: dspy.Module
 ) -> Dict[str, Any]:
     """
-    Processes a single transcript chunk to retrieve documents and perform enhanced quotation analysis.
-    Returns a result dictionary.
+    Processes a single transcript chunk for quotation extraction.
     """
     transcript_chunk = transcript_item.get('transcript_chunk', '').strip()
     if not transcript_chunk:
         logger.warning("Transcript chunk is empty. Skipping.")
         return {}
 
-    logger.info(f"Processing transcript chunk: {transcript_chunk[:100]}...")
+    logger.info(f"Processing transcript chunk for quotation: {transcript_chunk[:100]}...")
 
-    # Retrieve relevant chunks/documents
+    # Retrieve and filter chunks
     retrieved_chunks = retrieve_documents(transcript_chunk, db, es_bm25, k)
-    logger.info(f"Total chunks retrieved for transcript chunk: {len(retrieved_chunks)}")
-
-    # Filter chunks based on score >= 0.7
     filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
-    logger.info(f"Chunks after filtering by score >= 0.7: {len(filtered_chunks)}")
-
-    # Extract contextualized contents from filtered chunks
     contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
-    # Get research objectives and theoretical framework
     research_objectives = transcript_item.get(
         'research_objectives',
         'Extract relevant quotations based on the provided objectives.'
     )
     theoretical_framework = transcript_item.get('theoretical_framework', {})
 
-    # Process transcript using the enhanced quotation module
+    # Process transcript using quotation module
     response = module.forward(
         research_objectives=research_objectives,
         transcript_chunk=transcript_chunk,
@@ -82,7 +78,7 @@ async def process_single_transcript(
         theoretical_framework=theoretical_framework
     )
     
-    # Prepare the result dictionary
+    # Prepare quotation-specific result dictionary
     result = {
         "transcript_info": response.get("transcript_info", {
             "transcript_chunk": transcript_chunk,
@@ -106,6 +102,65 @@ async def process_single_transcript(
     logger.info(f"Selected {len(result['quotations'])} quotations for transcript chunk.")
     return result
 
+@handle_exceptions
+async def process_single_transcript_keyword(
+    transcript_item: Dict[str, Any],
+    db: ContextualVectorDB,
+    es_bm25: ElasticsearchBM25,
+    k: int,
+    module: dspy.Module
+) -> Dict[str, Any]:
+    """
+    Processes a single transcript chunk for keyword extraction.
+    """
+    transcript_chunk = transcript_item.get('transcript_chunk', '').strip()
+    if not transcript_chunk:
+        logger.warning("Transcript chunk is empty. Skipping.")
+        return {}
+
+    logger.info(f"Processing transcript chunk for keywords: {transcript_chunk[:100]}...")
+
+    # Retrieve and filter chunks
+    retrieved_chunks = retrieve_documents(transcript_chunk, db, es_bm25, k)
+    filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
+    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
+
+    research_objectives = transcript_item.get(
+        'research_objectives',
+        'Extract relevant keywords based on the provided objectives.'
+    )
+    theoretical_framework = transcript_item.get('theoretical_framework', {})
+
+    # Process transcript using keyword module
+    response = module.forward(
+        research_objectives=research_objectives,
+        transcript_chunk=transcript_chunk,
+        contextualized_contents=contextualized_contents,
+        theoretical_framework=theoretical_framework
+    )
+    
+    # Prepare keyword-specific result dictionary
+    result = {
+        "transcript_info": {
+            "transcript_chunk": transcript_chunk,
+            "research_objectives": research_objectives,
+            "theoretical_framework": theoretical_framework
+        },
+        "retrieved_chunks": retrieved_chunks,
+        "retrieved_chunks_count": len(retrieved_chunks),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "keywords": response.get("keywords", []),
+        "analysis": response.get("analysis", {})
+    }
+
+    if not result["keywords"]:
+        logger.warning(f"No keywords extracted for transcript chunk: '{transcript_chunk[:100]}...'")
+        result["analysis"]["error"] = "No relevant keywords were found to analyze."
+
+    logger.info(f"Extracted {len(result['keywords'])} keywords for transcript chunk.")
+    return result
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
@@ -129,16 +184,20 @@ async def process_queries(
     module: dspy.Module
 ):
     """
-    Processes a list of transcript chunks to retrieve documents and perform enhanced quotation analysis.
-    Saves results into a specified output file.
+    Processes a list of transcript chunks based on the module type.
     """
     logger.info(f"Starting to process transcripts for output file '{output_file}'.")
 
     all_results = []
     try:
+        # Determine the processing function based on module type
+        process_func = (process_single_transcript_quotation 
+                       if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)) 
+                       else process_single_transcript_keyword)
+
         for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
             try:
-                result = await process_single_transcript(
+                result = await process_func(
                     transcript_item,
                     db,
                     es_bm25,

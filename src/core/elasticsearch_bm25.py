@@ -86,7 +86,7 @@ class ElasticsearchBM25:
         try:
             if self.es_client.indices.exists(index=self.index_name):
                 self.logger.info(f"Index '{self.index_name}' already exists. Skipping creation.")
-                # Optionally, you can update settings if necessary, but avoid changing immutable settings
+                # Avoid modifying immutable settings
             else:
                 self.es_client.indices.create(
                     index=self.index_name,
@@ -105,7 +105,7 @@ class ElasticsearchBM25:
         if not documents:
             self.logger.warning("No documents provided for indexing")
             return 0, []
-    
+
         failed_docs = []
         success_count = 0
         

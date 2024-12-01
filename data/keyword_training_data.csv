@@ -1,62 +1,13 @@
 input,output
-"
-You are conducting thematic analysis following Braun and Clarke's (2006) approach.
-
-Research Objectives:
-To comprehensively understand the operations, challenges, strategies, and future outlook of a farming organization in the context of market dynamics, sustainability, and economic factors.
-
-Theoretical Framework:
-Constructivist
-
-Transcript Chunks:
-  - Chunk ID: Document_chunk_1
-    Content: When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we’re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don’t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs.
-    Score: 0.8
-  - Chunk ID: Document_chunk_17
-    Content: Initially, we had to go through other channels outside of [org name], which meant a significant portion of the profits was absorbed by the middleman. Our primary goal is to eliminate this intermediary, ensuring that all the money that would typically go to them is redirected back to the farmers. We are not focused on generating profit for ourselves; instead, our mission is to ensure that the financial benefits are passed directly to the farmers. This is a fundamental issue in the agricultural industry—money is not reaching the farmers as it should. The lack of financial return to farmers is a critical problem we aim to address through our organization.
-    Score: 0.1
-  - Chunk ID: Document_chunk_68
-    Content: The COVID-19 pandemic has had a profound impact on [org name], as highlighted by the sudden disruption of contracts with customers. With the food sector, particularly restaurants, ceasing operations overnight, the organization found itself unable to move the required tonnage of potatoes. This situation left a significant amount of produce without a market, illustrating the precarious nature of the agricultural supply chain. The speaker notes that approximately one third of the potato industry is dependent on this sector, underscoring the scale of the challenge faced by [org name] and the urgency to adapt to these unforeseen circumstances.
-    Score: 0.06666666666666667
-  - Chunk ID: Document_chunk_34
-    Content: The speaker envisions a future where sustainability is paramount in the food system. They aim to expand their organization by bringing more farmers on board, thereby increasing the collective benefits for all members. A key initiative is the introduction of a 7.5kg bag line, which represents a step towards getting closer to the customer and reducing dependency on factories. This approach is intended to create a more direct supply chain, ultimately allowing for a process that delivers produce straight from the farm to the end customer. By doing so, they hope to enhance profitability for farmers and ensure that the financial benefits of their work are maximized.
-    Score: 0.05
-  - Chunk ID: Document_chunk_24
-    Content: In terms of collaborators, the organization currently works with three direct farms that supply potatoes, along with other contractual farms that guarantee their produce to the group. This collaborative network is essential for maintaining a consistent supply of potatoes to major factories such as Walkers, McCains, and Seabrooks, as well as providing pre-packaged products for supermarkets like Morrison’s. The organization’s role is to bypass the traditional middle man, ensuring that the profits from sales are directed back to the farmers, thereby supporting their livelihoods and promoting a more sustainable agricultural model.
-    Score: 0.04000000000000001
-
-Task: Select quotations that align with the research objectives and theoretical framework while following these criteria:
-
-For each quotation, provide:
-
-1. quotation_data:
-{
-    ""quotation"": str,                    # The exact quotation text
-    ""context"": str,                  # Surrounding context from interview
-    ""type"": str,                     # 'discrete' (brief diverse perspectives)
-                                    # 'embedded' (transition phrases) 
-                                    # 'longer' (complex understanding)
-    ""function"": str,                 # 'evidence' | 'explanation' | 'illustration' | 
-                                    # 'impression' | 'representation'
-    ""pattern_strength"": float,       # 0.0-1.0 indicating robustness of pattern
-    ""theoretical_alignment"": float   # 0.0-1.0 alignment with framework
-}
-
-2. analysis:
-{
-    ""selection_rationale"": str,     # Why this quotation was chosen 
-    ""theoretical_relevance"": str,   # How quotation supports theoretical framework
-    ""objective_support"": str,       # How quotation advances research objectives
-    ""patterns"": str                 # Key patterns identified
-}
-
-Key Guidelines:
-1. Focus on relevance to research objectives
-2. Ensure theoretical alignment
-3. Provide adequate context
-4. Identify clear patterns
-5. Maintain participant confidentiality
-6. Balance diversity of perspectives
-
-Return response as valid JSON with 'quotations' and 'analysis' fields.
-","[{""quotation"": ""we're trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together."", ""type"": ""operational strategy"", ""context"": ""This quotation reflects the collaborative effort of the farmers to streamline their operations and enhance market presence.""}, {""quotation"": ""the idea was that we cut out the middle man and all that money comes back to the farm."", ""type"": ""economic strategy"", ""context"": ""This highlights the economic motivation behind the organization's formation, aiming to increase profitability for farmers.""}, {""quotation"": ""we had contracts – our customers basically tore up in front of us."", ""type"": ""challenge"", ""context"": ""This illustrates the significant impact of the COVID crisis on the organization's operations and market stability.""}, {""quotation"": ""I think sustainability is the key to anything."", ""type"": ""future outlook"", ""context"": ""This statement emphasizes the importance of sustainability in the organization's vision for the future.""}, {""quotation"": ""the closer to the customer we get, the more we’ll get back to the farm."", ""type"": ""strategic vision"", ""context"": ""This reflects the organization's strategy to enhance direct sales to customers, thereby increasing returns to farmers.""}]"
+"research_objectives: To examine teacher experiences with remote learning technology adoption during educational transition
+transcript_chunk: T3: The learning curve was incredibly steep. We were thrown into the deep end with these new tools, but gradually, through trial and error and supporting each other, we found our digital feet.
+contextualized_contents: ['Previous discussions about technology challenges', 'Notes on professional development sessions']
+theoretical_framework: {'theory': 'Technology Acceptance Model', 'philosophical_approach': 'Pragmatism', 'rationale': 'Understanding technology adoption barriers'}","{'keywords': [{'keyword': 'learning curve', 'category': 'richness', 'context': {'surrounding_text': 'The learning curve was incredibly steep', 'usage_pattern': 'Metaphorical description of challenge'}, 'analysis_value': {'realness': 'Authentic expression of challenge', 'richness': 'Captures complexity of adaptation process', 'repetition': 'Common theme in technology adoption', 'rationale': 'Aligns with technology acceptance barriers', 'repartee': 'Evocative metaphor for difficulty', 'regal': 'Central to understanding adaptation process'}}], 'analysis': {'methodology_reflection': 'Keywords capture transition challenges', 'patterns_identified': ['Adaptation process', 'Peer support'], 'theoretical_alignment': 'Connects to Technology Acceptance Model', 'research_implications': 'Highlights importance of support systems'}}"
+"research_objectives: To understand the impact of social media misinformation on panic buying behavior during COVID-19 pandemic
+transcript_chunk: P1: The flood of information on social media was overwhelming. Every time I opened Facebook, there were new posts about death rates rising and stores running out of supplies. It created this constant tension and fear.
+contextualized_contents: ['Earlier discussion about social media usage patterns', 'Context about panic buying incidents']
+theoretical_framework: {'theory': 'Terror Management Theory', 'philosophical_approach': 'Social Constructivism', 'rationale': 'Understanding how fear drives behavior'}","{'keywords': [{'keyword': 'flood of information', 'category': 'realness', 'context': {'surrounding_text': 'The flood of information on social media was overwhelming', 'usage_pattern': 'Metaphorical expression of overwhelm'}, 'analysis_value': {'realness': 'Reflects genuine experience of information overload', 'richness': 'Captures both quantity and impact', 'repetition': 'Recurring theme in social media context', 'rationale': 'Connects to fear-driven behavior theory', 'repartee': 'Vivid metaphor for information overload', 'regal': 'Key to understanding misinformation impact'}}], 'analysis': {'methodology_reflection': 'Keywords capture emotional impact', 'patterns_identified': ['Information overload', 'Fear response'], 'theoretical_alignment': 'Supports Terror Management Theory', 'research_implications': 'Shows misinformation impact mechanisms'}}"
+"research_objectives: To evaluate employee perspectives on workplace wellness initiatives post-pandemic
+transcript_chunk: E7: The hybrid wellness program was a game-changer. Having both virtual and in-person options meant we could prioritize our health without sacrificing flexibility. It's become part of our company DNA now.
+contextualized_contents: ['Program participation statistics', 'Previous wellness initiative feedback']
+theoretical_framework: {'theory': 'Self-Determination Theory', 'philosophical_approach': 'Critical Realism', 'rationale': 'Understanding motivation in wellness participation'}","{'keywords': [{'keyword': 'game-changer', 'category': 'repartee', 'context': {'surrounding_text': 'The hybrid wellness program was a game-changer', 'usage_pattern': 'Metaphorical expression of impact'}, 'analysis_value': {'realness': 'Authentic enthusiasm for program', 'richness': 'Indicates transformative impact', 'repetition': 'Unique but representative', 'rationale': 'Links to motivation theory', 'repartee': 'Powerful expression of change', 'regal': 'Central to program evaluation'}}], 'analysis': {'methodology_reflection': 'Keywords capture program impact', 'patterns_identified': ['Program transformation', 'Cultural integration'], 'theoretical_alignment': 'Reflects Self-Determination Theory', 'research_implications': 'Shows program effectiveness'}}"
