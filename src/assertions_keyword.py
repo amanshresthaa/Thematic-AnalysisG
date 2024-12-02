@@ -1,111 +1,143 @@
+# src/assertions_keyword.py
+
 import logging
 from typing import List, Dict, Any
 
 logger = logging.getLogger(__name__)
 
-def assert_keyword_realness(keywords: List[Dict[str, Any]]) -> None:
+def assert_keywords_not_exclusive_to_quotation(
+    keywords: List[Dict[str, Any]], 
+    quotation: str, 
+    contextualized_contents: List[str]
+) -> None:
     """
-    Assert that keywords reflect genuine experiences and perceptions of participants.
+    Assert that keywords capture concepts beyond verbatim quotes.
     
-    Args:
-        keywords: List of extracted keywords with their analysis
-    
-    Raises:
-        AssertionError: If keywords don't demonstrate sufficient realness
-    """
-    for keyword in keywords:
-        analysis = keyword.get("analysis_value", {})
-        realness = analysis.get("realness", "")
-        
-        assert realness.strip(), f"Keyword '{keyword['keyword']}' lacks realness analysis"
-        assert len(realness) >= 50, f"Realness analysis for '{keyword['keyword']}' is too brief"
+    According to the guideline: "Keywords should represent broader concepts, not just exact phrases from quotations."
 
-def assert_keyword_richness(keywords: List[Dict[str, Any]]) -> None:
-    """
-    Assert that keywords provide rich, detailed understanding of the phenomenon.
-    
     Args:
-        keywords: List of extracted keywords with their analysis
+        keywords (List[Dict[str, Any]]): List of extracted keywords with their analysis.
+        quotation (str): The original quotation.
+        contextualized_contents (List[str]): Additional contextual content for analysis.
     
     Raises:
-        AssertionError: If keywords don't demonstrate sufficient richness
+        AssertionError: If any keyword is too closely tied to verbatim quotes.
     """
     for keyword in keywords:
-        analysis = keyword.get("analysis_value", {})
-        richness = analysis.get("richness", "")
+        keyword_text = keyword.get("keyword", "").strip().lower()
+        if not keyword_text:
+            error_msg = "Keyword is empty or missing."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
         
-        assert richness.strip(), f"Keyword '{keyword['keyword']}' lacks richness analysis"
-        assert len(richness) >= 50, f"Richness analysis for '{keyword['keyword']}' is too brief"
+        if keyword_text in quotation.lower():
+            # Check if the keyword is supported by contextualized contents
+            if not any(keyword_text in context.lower() for context in contextualized_contents):
+                error_msg = f"Keyword '{keyword_text}' appears to be too closely tied to the quotation."
+                logger.error(error_msg)
+                raise AssertionError(error_msg)
+            else:
+                logger.debug(f"Keyword '{keyword_text}' is adequately supported by contextual content.")
 
-def assert_keyword_repetition(keywords: List[Dict[str, Any]]) -> None:
+def assert_keyword_specificity(
+    keywords: List[Dict[str, Any]], 
+    theoretical_framework: Dict[str, str]
+) -> None:
     """
-    Assert that keywords show significant patterns of repetition in the data.
+    Assert that keywords are sufficiently specific and meaningful.
     
-    Args:
-        keywords: List of extracted keywords with their analysis
-    
-    Raises:
-        AssertionError: If keywords don't demonstrate meaningful repetition
-    """
-    for keyword in keywords:
-        analysis = keyword.get("analysis_value", {})
-        repetition = analysis.get("repetition", "")
-        
-        assert repetition.strip(), f"Keyword '{keyword['keyword']}' lacks repetition analysis"
-        assert "frequency" in repetition.lower(), f"Repetition analysis for '{keyword['keyword']}' doesn't discuss frequency"
+    According to the guideline: "Keywords should be specific enough to convey meaningful concepts within the theoretical framework."
 
-def assert_keyword_rationale(keywords: List[Dict[str, Any]], theoretical_framework: Dict[str, str]) -> None:
-    """
-    Assert that keywords connect to the theoretical framework.
-    
     Args:
-        keywords: List of extracted keywords with their analysis
-        theoretical_framework: The research's theoretical foundation
+        keywords (List[Dict[str, Any]]): List of extracted keywords with their analysis.
+        theoretical_framework (Dict[str, str]): Theoretical framework for context.
     
     Raises:
-        AssertionError: If keywords don't demonstrate theoretical connection
+        AssertionError: If any keyword is too broad or vague.
     """
-    theory = theoretical_framework.get("theory", "").lower()
-    
     for keyword in keywords:
-        analysis = keyword.get("analysis_value", {})
-        rationale = analysis.get("rationale", "").lower()
+        keyword_text = keyword.get("keyword", "").strip()
+        if not keyword_text:
+            error_msg = "Keyword is empty or missing."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
         
-        assert rationale.strip(), f"Keyword '{keyword['keyword']}' lacks theoretical rationale"
-        assert any(term in rationale for term in theory.split()), f"Rationale for '{keyword['keyword']}' doesn't connect to theoretical framework"
+        # Example check: keyword length (can be customized based on requirements)
+        if len(keyword_text.split()) < 2:
+            error_msg = f"Keyword '{keyword_text}' is too broad or vague."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+        
+        logger.debug(f"Keyword '{keyword_text}' meets specificity requirements.")
 
-def assert_keyword_repartee(keywords: List[Dict[str, Any]]) -> None:
+def assert_keyword_relevance(
+    keywords: List[Dict[str, Any]], 
+    research_objectives: str,
+    contextualized_contents: List[str]
+) -> None:
     """
-    Assert that keywords are insightful and stimulate further discussion.
+    Assert that keywords are relevant to the research objectives.
     
-    Args:
-        keywords: List of extracted keywords with their analysis
-    
-    Raises:
-        AssertionError: If keywords don't demonstrate insightful qualities
-    """
-    for keyword in keywords:
-        analysis = keyword.get("analysis_value", {})
-        repartee = analysis.get("repartee", "")
-        
-        assert repartee.strip(), f"Keyword '{keyword['keyword']}' lacks repartee analysis"
-        assert "insight" in repartee.lower() or "discussion" in repartee.lower(), \
-            f"Repartee analysis for '{keyword['keyword']}' doesn't demonstrate insight or discussion potential"
+    According to the guideline: "Keywords should align closely with the research objectives to ensure focused analysis."
 
-def assert_keyword_regal(keywords: List[Dict[str, Any]]) -> None:
-    """
-    Assert that keywords are central to understanding the phenomenon.
-    
     Args:
-        keywords: List of extracted keywords with their analysis
+        keywords (List[Dict[str, Any]]): List of extracted keywords with their analysis.
+        research_objectives (str): The research objectives.
+        contextualized_contents (List[str]): Additional contextual content for analysis.
     
     Raises:
-        AssertionError: If keywords don't demonstrate centrality to phenomenon
+        AssertionError: If any keyword is not sufficiently relevant to the research objectives.
     """
+    objectives = [obj.strip().lower() for obj in research_objectives.split('.') if obj.strip()]
+    if not objectives:
+        error_msg = "No research objectives provided for relevance check."
+        logger.error(error_msg)
+        raise AssertionError(error_msg)
+    
     for keyword in keywords:
-        analysis = keyword.get("analysis_value", {})
-        regal = analysis.get("regal", "")
+        keyword_text = keyword.get("keyword", "").strip().lower()
+        if not keyword_text:
+            error_msg = "Keyword is empty or missing."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
         
-        assert regal.strip(), f"Keyword '{keyword['keyword']}' lacks regal analysis"
-        assert "central" in regal.lower() or "core" in regal.lower() or "essential" in regal.lower(), \
-            f"Regal analysis for '{keyword['keyword']}' doesn't demonstrate centrality to phenomenon"
+        # Check if keyword aligns with any research objective
+        if not any(obj in keyword_text for obj in objectives):
+            # Additionally, check if keyword appears in contextualized contents
+            if not any(keyword_text in context.lower() for context in contextualized_contents):
+                error_msg = f"Keyword '{keyword_text}' is not sufficiently relevant to the research objectives."
+                logger.error(error_msg)
+                raise AssertionError(error_msg)
+        
+        logger.debug(f"Keyword '{keyword_text}' is relevant to the research objectives.")
+
+def assert_keyword_distinctiveness(
+    keywords: List[Dict[str, Any]]
+) -> None:
+    """
+    Assert that keywords are sufficiently distinct from one another.
+    
+    According to the guideline: "Keywords should be unique and not redundant to ensure comprehensive coverage of concepts."
+
+    Args:
+        keywords (List[Dict[str, Any]]): List of extracted keywords with their analysis.
+    
+    Raises:
+        AssertionError: If any keywords are too similar or duplicated.
+    """
+    seen_keywords = set()
+    for keyword in keywords:
+        keyword_text = keyword.get("keyword", "").strip().lower()
+        if not keyword_text:
+            error_msg = "Keyword is empty or missing."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+        
+        if keyword_text in seen_keywords:
+            error_msg = f"Keyword '{keyword_text}' is duplicated and not distinct."
+            logger.error(error_msg)
+            raise AssertionError(error_msg)
+        
+        seen_keywords.add(keyword_text)
+        logger.debug(f"Keyword '{keyword_text}' is distinct.")
+

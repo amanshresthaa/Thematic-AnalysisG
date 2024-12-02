@@ -1,79 +1,138 @@
-2024-12-01 13:24:33,336 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-12-01 13:24:33,337 [INFO] faiss.loader: Loading faiss.
-2024-12-01 13:24:33,401 [INFO] faiss.loader: Successfully loaded faiss.
-2024-12-01 13:24:33,728 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-12-02 12:39:38,113 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-12-02 12:39:38,114 [INFO] faiss.loader: Loading faiss.
+2024-12-02 12:39:38,174 [INFO] faiss.loader: Successfully loaded faiss.
+2024-12-02 12:39:38,456 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-12-01 13:24:33,728 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-12-01 13:24:33,732 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-12-01 13:25:15,446 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
-2024-12-01 13:25:15,446 [INFO] faiss.loader: Loading faiss.
-2024-12-01 13:25:15,519 [INFO] faiss.loader: Successfully loaded faiss.
-2024-12-01 13:25:15,571 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
+2024-12-02 12:39:38,456 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-12-02 12:39:38,460 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-12-02 12:39:41,480 [INFO] __main__: Starting Standard Quotation Extraction Pipeline
+2024-12-02 12:39:41,481 [DEBUG] __main__: Entering run_pipeline_with_config method.
+2024-12-02 12:39:41,481 [INFO] __main__: Configuring DSPy Language Model
+2024-12-02 12:39:41,481 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-12-02 12:39:41,481 [INFO] __main__: Initializing ContextualVectorDB
+2024-12-02 12:39:41,487 [INFO] __main__: Loading data into ContextualVectorDB
+2024-12-02 12:39:43,563 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_standard_quotation'
+2024-12-02 12:39:43,564 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-12-02 12:39:43,579 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_standard_quotation'.
+2024-12-02 12:39:43,640 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_standard_quotation' created successfully with 90 documents indexed.
+2024-12-02 12:39:43,641 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-12-02 12:39:43,641 [INFO] __main__: Validating standard queries
+2024-12-02 12:39:43,644 [INFO] __main__: Initializing quotation selection optimizer
+2024-12-02 12:39:44,605 [INFO] __main__: Quotation optimizer initialized successfully
+2024-12-02 12:39:44,605 [INFO] __main__: Initializing EnhancedQuotationModule
+2024-12-02 12:39:44,613 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
+2024-12-02 12:39:44,613 [INFO] __main__: Processing queries with EnhancedQuotationModule
+2024-12-02 12:39:48,026 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-12-02 12:39:48,027 [INFO] __main__: Evaluation completed successfully.
+2024-12-02 12:39:48,027 [INFO] __main__: All operations completed successfully.
+2024-12-02 12:39:48,027 [INFO] __main__: Starting Alternate Quotation Extraction Pipeline
+2024-12-02 12:39:48,027 [DEBUG] __main__: Entering run_pipeline_with_config method.
+2024-12-02 12:39:48,027 [INFO] __main__: Configuring DSPy Language Model
+2024-12-02 12:39:48,027 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks_alt.json'
+2024-12-02 12:39:48,028 [INFO] __main__: Initializing ContextualVectorDB
+2024-12-02 12:39:48,037 [INFO] __main__: Loading data into ContextualVectorDB
+2024-12-02 12:39:48,038 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_alt_quotation'
+2024-12-02 12:39:48,038 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-12-02 12:39:48,045 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_alt_quotation'.
+2024-12-02 12:39:48,079 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_alt_quotation' created successfully with 90 documents indexed.
+2024-12-02 12:39:48,080 [INFO] __main__: Loading standard queries from 'data/queries_alt.json'
+2024-12-02 12:39:48,080 [INFO] __main__: Validating standard queries
+2024-12-02 12:39:48,082 [INFO] __main__: Initializing quotation selection optimizer
+2024-12-02 12:39:48,446 [INFO] __main__: Quotation optimizer initialized successfully
+2024-12-02 12:39:48,447 [INFO] __main__: Initializing EnhancedQuotationModule
+2024-12-02 12:39:48,454 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
+2024-12-02 12:39:48,454 [INFO] __main__: Processing queries with EnhancedQuotationModule
+2024-12-02 12:39:48,454 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-12-02 12:39:48,455 [INFO] __main__: Evaluation completed successfully.
+2024-12-02 12:39:48,455 [INFO] __main__: All operations completed successfully.
+2024-12-02 12:39:48,455 [INFO] __main__: Starting Keyword Extraction Pipeline
+2024-12-02 12:39:48,455 [DEBUG] __main__: Entering run_pipeline_with_config method.
+2024-12-02 12:39:48,455 [INFO] __main__: Configuring DSPy Language Model
+2024-12-02 12:39:48,455 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks_keyword.json'
+2024-12-02 12:39:48,455 [INFO] __main__: Initializing ContextualVectorDB
+2024-12-02 12:39:48,461 [INFO] __main__: Loading data into ContextualVectorDB
+2024-12-02 12:39:48,461 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_keyword_extraction'
+2024-12-02 12:39:48,461 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-12-02 12:39:48,465 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_keyword_extraction'.
+2024-12-02 12:39:48,497 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_keyword_extraction' created successfully with 90 documents indexed.
+2024-12-02 12:39:48,497 [INFO] __main__: Loading standard queries from 'data/queries_keyword.json'
+2024-12-02 12:39:48,497 [INFO] __main__: Validating standard queries
+2024-12-02 12:39:48,498 [INFO] __main__: Initializing keyword extraction optimizer
+2024-12-02 12:39:49,077 [INFO] __main__: Keyword extraction optimizer initialized successfully
+2024-12-02 12:39:49,078 [INFO] __main__: Initializing KeywordExtractionModule
+2024-12-02 12:39:49,084 [INFO] __main__: KeywordExtractionModule initialized successfully with assertions activated.
+2024-12-02 12:39:49,084 [INFO] __main__: Processing queries with KeywordExtractionModule
+2024-12-02 12:39:51,882 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-12-02 12:39:51,883 [INFO] __main__: Evaluation completed successfully.
+2024-12-02 12:39:51,883 [INFO] __main__: All operations completed successfully.
+2024-12-02 12:52:17,254 [DEBUG] faiss.loader: Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-12-02 12:52:17,254 [INFO] faiss.loader: Loading faiss.
+2024-12-02 12:52:17,317 [INFO] faiss.loader: Successfully loaded faiss.
+2024-12-02 12:52:17,372 [WARNING] root: 	*** Since DSPy 2.5.16+, TypedPredictors are now deprecated, underperform, and are about to be removed! ***
 Please use standard predictors, e.g. dspy.Predict and dspy.ChainOfThought.
 They now support type annotations and other features of TypedPredictors and tend to work much better out of the box.
 Please let us know if you face any issues: https://github.com/stanfordnlp/dspy/issues
-2024-12-01 13:25:15,571 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-12-01 13:25:15,573 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
-2024-12-01 13:25:16,679 [INFO] analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
-2024-12-01 13:25:16,691 [INFO] __main__: Starting Standard Quotation Extraction Pipeline
-2024-12-01 13:25:16,691 [DEBUG] __main__: Entering run_pipeline_with_config method.
-2024-12-01 13:25:16,691 [INFO] __main__: Configuring DSPy Language Model
-2024-12-01 13:25:16,691 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
-2024-12-01 13:25:16,693 [INFO] __main__: Initializing ContextualVectorDB
-2024-12-01 13:25:16,703 [INFO] __main__: Loading data into ContextualVectorDB
-2024-12-01 13:25:18,707 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_standard_quotation'
-2024-12-01 13:25:18,708 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-12-01 13:25:18,735 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_standard_quotation'.
-2024-12-01 13:25:18,792 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_standard_quotation' created successfully with 90 documents indexed.
-2024-12-01 13:25:18,792 [INFO] __main__: Loading standard queries from 'data/queries.json'
-2024-12-01 13:25:18,792 [INFO] __main__: Validating standard queries
-2024-12-01 13:25:18,794 [INFO] __main__: Initializing quotation selection optimizer
-2024-12-01 13:25:19,587 [INFO] __main__: Quotation optimizer initialized successfully
-2024-12-01 13:25:19,587 [INFO] __main__: Initializing EnhancedQuotationModule
-2024-12-01 13:25:19,596 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
-2024-12-01 13:25:19,596 [INFO] __main__: Processing queries with EnhancedQuotationModule
-2024-12-01 13:25:24,014 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-12-01 13:25:24,015 [INFO] __main__: Evaluation completed successfully.
-2024-12-01 13:25:24,015 [INFO] __main__: All operations completed successfully.
-2024-12-01 13:25:24,015 [INFO] __main__: Starting Alternate Quotation Extraction Pipeline
-2024-12-01 13:25:24,015 [DEBUG] __main__: Entering run_pipeline_with_config method.
-2024-12-01 13:25:24,015 [INFO] __main__: Configuring DSPy Language Model
-2024-12-01 13:25:24,015 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks_alt.json'
-2024-12-01 13:25:24,016 [INFO] __main__: Initializing ContextualVectorDB
-2024-12-01 13:25:24,025 [INFO] __main__: Loading data into ContextualVectorDB
-2024-12-01 13:25:24,026 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_alt_quotation'
-2024-12-01 13:25:24,026 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-12-01 13:25:24,031 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_alt_quotation'.
-2024-12-01 13:25:24,058 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_alt_quotation' created successfully with 90 documents indexed.
-2024-12-01 13:25:24,058 [INFO] __main__: Loading standard queries from 'data/queries_alt.json'
-2024-12-01 13:25:24,059 [INFO] __main__: Validating standard queries
-2024-12-01 13:25:24,060 [INFO] __main__: Initializing quotation selection optimizer
-2024-12-01 13:25:24,379 [INFO] __main__: Quotation optimizer initialized successfully
-2024-12-01 13:25:24,379 [INFO] __main__: Initializing EnhancedQuotationModule
-2024-12-01 13:25:24,387 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
-2024-12-01 13:25:24,387 [INFO] __main__: Processing queries with EnhancedQuotationModule
-2024-12-01 13:25:24,387 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-12-01 13:25:24,388 [INFO] __main__: Evaluation completed successfully.
-2024-12-01 13:25:24,388 [INFO] __main__: All operations completed successfully.
-2024-12-01 13:25:24,388 [INFO] __main__: Starting Keyword Extraction Pipeline
-2024-12-01 13:25:24,388 [DEBUG] __main__: Entering run_pipeline_with_config method.
-2024-12-01 13:25:24,388 [INFO] __main__: Configuring DSPy Language Model
-2024-12-01 13:25:24,388 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks_keyword.json'
-2024-12-01 13:25:24,388 [INFO] __main__: Initializing ContextualVectorDB
-2024-12-01 13:25:24,394 [INFO] __main__: Loading data into ContextualVectorDB
-2024-12-01 13:25:24,394 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_keyword_extraction'
-2024-12-01 13:25:24,394 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
-2024-12-01 13:25:24,400 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_keyword_extraction'.
-2024-12-01 13:25:24,430 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_keyword_extraction' created successfully with 90 documents indexed.
-2024-12-01 13:25:24,430 [INFO] __main__: Loading standard queries from 'data/queries_keyword.json'
-2024-12-01 13:25:24,430 [INFO] __main__: Validating standard queries
-2024-12-01 13:25:24,431 [INFO] __main__: Initializing keyword extraction optimizer
-2024-12-01 13:25:25,025 [INFO] __main__: Keyword extraction optimizer initialized successfully
-2024-12-01 13:25:25,025 [INFO] __main__: Initializing KeywordExtractionModule
-2024-12-01 13:25:25,032 [INFO] __main__: KeywordExtractionModule initialized successfully with assertions activated.
-2024-12-01 13:25:25,032 [INFO] __main__: Processing queries with KeywordExtractionModule
-2024-12-01 13:28:01,501 [INFO] __main__: Starting evaluation of the retrieval pipeline
-2024-12-01 13:28:01,504 [INFO] __main__: Evaluation completed successfully.
-2024-12-01 13:28:01,505 [INFO] __main__: All operations completed successfully.
+2024-12-02 12:52:17,372 [INFO] src.analysis.metrics: Comprehensive Assessment DSPy module initialized successfully.
+2024-12-02 12:52:17,374 [INFO] src.processing.answer_generator: Unoptimized DSPy module initialized successfully.
+2024-12-02 12:52:18,554 [INFO] __main__: Starting Standard Quotation Extraction Pipeline
+2024-12-02 12:52:18,554 [DEBUG] __main__: Entering run_pipeline_with_config method.
+2024-12-02 12:52:18,554 [INFO] __main__: Configuring DSPy Language Model
+2024-12-02 12:52:18,554 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks.json'
+2024-12-02 12:52:18,555 [INFO] __main__: Initializing ContextualVectorDB
+2024-12-02 12:52:18,561 [INFO] __main__: Loading data into ContextualVectorDB
+2024-12-02 12:52:18,562 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_standard_quotation'
+2024-12-02 12:52:18,562 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-12-02 12:52:18,593 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_standard_quotation'.
+2024-12-02 12:52:18,652 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_standard_quotation' created successfully with 90 documents indexed.
+2024-12-02 12:52:18,652 [INFO] __main__: Loading standard queries from 'data/queries.json'
+2024-12-02 12:52:18,652 [INFO] __main__: Validating standard queries
+2024-12-02 12:52:18,653 [INFO] __main__: Initializing quotation selection optimizer
+2024-12-02 12:52:19,580 [INFO] __main__: Quotation optimizer initialized successfully
+2024-12-02 12:52:19,580 [INFO] __main__: Initializing EnhancedQuotationModule
+2024-12-02 12:52:19,588 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
+2024-12-02 12:52:19,588 [INFO] __main__: Processing queries with EnhancedQuotationModule
+2024-12-02 12:52:22,664 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-12-02 12:52:22,665 [INFO] __main__: Evaluation completed successfully.
+2024-12-02 12:52:22,665 [INFO] __main__: All operations completed successfully.
+2024-12-02 12:52:22,665 [INFO] __main__: Starting Alternate Quotation Extraction Pipeline
+2024-12-02 12:52:22,665 [DEBUG] __main__: Entering run_pipeline_with_config method.
+2024-12-02 12:52:22,665 [INFO] __main__: Configuring DSPy Language Model
+2024-12-02 12:52:22,666 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks_alt.json'
+2024-12-02 12:52:22,666 [INFO] __main__: Initializing ContextualVectorDB
+2024-12-02 12:52:22,674 [INFO] __main__: Loading data into ContextualVectorDB
+2024-12-02 12:52:22,675 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_alt_quotation'
+2024-12-02 12:52:22,675 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-12-02 12:52:22,686 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_alt_quotation'.
+2024-12-02 12:52:22,734 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_alt_quotation' created successfully with 90 documents indexed.
+2024-12-02 12:52:22,734 [INFO] __main__: Loading standard queries from 'data/queries_alt.json'
+2024-12-02 12:52:22,735 [INFO] __main__: Validating standard queries
+2024-12-02 12:52:22,736 [INFO] __main__: Initializing quotation selection optimizer
+2024-12-02 12:52:23,106 [INFO] __main__: Quotation optimizer initialized successfully
+2024-12-02 12:52:23,106 [INFO] __main__: Initializing EnhancedQuotationModule
+2024-12-02 12:52:23,114 [INFO] __main__: EnhancedQuotationModule initialized successfully with assertions activated.
+2024-12-02 12:52:23,114 [INFO] __main__: Processing queries with EnhancedQuotationModule
+2024-12-02 12:52:23,114 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-12-02 12:52:23,115 [INFO] __main__: Evaluation completed successfully.
+2024-12-02 12:52:23,115 [INFO] __main__: All operations completed successfully.
+2024-12-02 12:52:23,115 [INFO] __main__: Starting Keyword Extraction Pipeline
+2024-12-02 12:52:23,115 [DEBUG] __main__: Entering run_pipeline_with_config method.
+2024-12-02 12:52:23,115 [INFO] __main__: Configuring DSPy Language Model
+2024-12-02 12:52:23,115 [INFO] __main__: Loading codebase chunks from 'data/codebase_chunks_keyword.json'
+2024-12-02 12:52:23,116 [INFO] __main__: Initializing ContextualVectorDB
+2024-12-02 12:52:23,122 [INFO] __main__: Loading data into ContextualVectorDB
+2024-12-02 12:52:23,122 [INFO] __main__: Creating Elasticsearch BM25 index 'contextual_bm25_index_keyword_extraction'
+2024-12-02 12:52:23,122 [DEBUG] __main__: Entering create_elasticsearch_bm25_index method.
+2024-12-02 12:52:23,130 [INFO] __main__: ElasticsearchBM25 instance created with index 'contextual_bm25_index_keyword_extraction'.
+2024-12-02 12:52:23,206 [INFO] __main__: Elasticsearch BM25 index 'contextual_bm25_index_keyword_extraction' created successfully with 90 documents indexed.
+2024-12-02 12:52:23,206 [INFO] __main__: Loading standard queries from 'data/queries_keyword.json'
+2024-12-02 12:52:23,206 [INFO] __main__: Validating standard queries
+2024-12-02 12:52:23,207 [INFO] __main__: Initializing keyword extraction optimizer
+2024-12-02 12:52:23,826 [INFO] __main__: Keyword extraction optimizer initialized successfully
+2024-12-02 12:52:23,826 [INFO] __main__: Initializing KeywordExtractionModule
+2024-12-02 12:52:23,832 [INFO] __main__: KeywordExtractionModule initialized successfully with assertions activated.
+2024-12-02 12:52:23,833 [INFO] __main__: Processing queries with KeywordExtractionModule
+2024-12-02 12:55:19,328 [INFO] __main__: Starting evaluation of the retrieval pipeline
+2024-12-02 12:55:19,332 [INFO] __main__: Evaluation completed successfully.
+2024-12-02 12:55:19,332 [INFO] __main__: All operations completed successfully.

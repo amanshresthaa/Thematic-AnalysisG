@@ -30,7 +30,7 @@
                     "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
                     "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
                 },
-                "score": 0.015789473684210523
+                "score": 0.014634146341463414
             },
             {
                 "chunk": {
@@ -41,7 +41,7 @@
                     "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
                     "contextualized_content": "The speaker articulates a critical perspective on the current financial landscape for farmers, stating, \"It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left.\" This underscores the precarious situation faced by agricultural organizations, where the lack of financial support from banks limits their capacity to implement long-term strategies for growth and job creation. The call for a more relaxed banking approach indicates a desire for systemic change that would enable farmers to thrive and contribute positively to the economy."
                 },
-                "score": 0.008
+                "score": 0.007407407407407407
             },
             {
                 "chunk": {
@@ -52,7 +52,7 @@
                     "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
                     "contextualized_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes. This exchange illustrates the foundational role that suppliers and farmers play in ensuring the organization can meet its commitments and maintain its operations effectively. Without a reliable network of suppliers, the organization risks falling short in fulfilling customer demands, which could jeopardize its stability and growth."
                 },
-                "score": 0.008
+                "score": 0.007407407407407407
             }
         ],
         "retrieved_chunks_count": 4,
@@ -67,68 +67,57 @@
             {
                 "keyword": "vulnerable backgrounds",
                 "category": "Profile",
-                "context": {
-                    "surrounding_text": "Victims of sex trafficking often come from vulnerable backgrounds, such as poverty, lack of education, or unstable family situations.",
-                    "usage_pattern": "Describes the typical circumstances of victims.",
-                    "source_location": "First sentence of the quotation."
-                },
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine experiences of victims.",
-                    "richness": "Highlights the socio-economic factors contributing to victimization.",
-                    "repetition": "Not repeated but central to understanding victim profiles.",
-                    "rationale": "Connects to the theoretical framework by emphasizing victim characteristics.",
-                    "repartee": "Contributes to discussions on prevention strategies.",
-                    "regal": "Central to the topic of victim profiles."
+                    "realness": "Reflects genuine experiences of victims",
+                    "richness": "Highlights the complexity of victim profiles"
                 }
             },
             {
                 "keyword": "manipulative tactics",
                 "category": "Tactics",
-                "context": {
-                    "surrounding_text": "Traffickers use a variety of manipulative tactics, including deception, coercion, and psychological manipulation.",
-                    "usage_pattern": "Describes the methods traffickers use to control victims.",
-                    "source_location": "Second paragraph of the quotation."
-                },
+                "6Rs framework": [
+                    "Repetition",
+                    "Rationale"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects actual methods used by traffickers.",
-                    "richness": "Provides insight into the psychological aspects of trafficking.",
-                    "repetition": "Not repeated but crucial for understanding trafficker behavior.",
-                    "rationale": "Aligns with the theoretical framework by focusing on the dynamics of victimization.",
-                    "repartee": "Essential for discussions on intervention strategies.",
-                    "regal": "Key to understanding trafficker-victim relationships."
+                    "repetition": "Commonly referenced in discussions about traffickers",
+                    "rationale": "Connects to the understanding of trafficker behavior"
                 }
             },
             {
                 "keyword": "identifying potential victims",
                 "category": "Identification",
-                "context": {
-                    "surrounding_text": "Identifying potential victims can be challenging, but there are some common signs.",
-                    "usage_pattern": "Discusses the difficulties and signs of identifying victims.",
-                    "source_location": "Third paragraph of the quotation."
-                },
+                "6Rs framework": [
+                    "Regal"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects the challenges faced by professionals in the field.",
-                    "richness": "Highlights the importance of awareness and training.",
-                    "repetition": "Not repeated but vital for effective intervention.",
-                    "rationale": "Connects to the theoretical framework by emphasizing the need for identification.",
-                    "repartee": "Contributes to practical implications for law enforcement and social workers.",
-                    "regal": "Central to the topic of victim identification."
+                    "regal": "Central to the discussion of intervention strategies"
+                }
+            },
+            {
+                "keyword": "signs of fear",
+                "category": "Identification",
+                "6Rs framework": [
+                    "Realness"
+                ],
+                "analysis_value": {
+                    "realness": "Indicates genuine emotional states of victims"
                 }
             }
         ],
         "analysis": {
-            "patterns_identified": [
-                "Victims often come from socio-economically disadvantaged backgrounds.",
-                "Traffickers employ psychological manipulation and deception.",
-                "Identification of victims relies on recognizing specific signs of distress."
-            ],
-            "theoretical_interpretation": "The analysis aligns with Victimology Theory by emphasizing the need to understand victim experiences and the tactics used by traffickers to inform effective interventions.",
+            "patterns_identified": "Victims often share common backgrounds and experiences, while traffickers employ similar manipulative tactics.",
+            "theoretical_interpretation": "Victimology Theory provides a framework for understanding the systemic vulnerabilities that lead to trafficking.",
             "methodological_reflection": {
-                "pattern_robustness": "The identified patterns are consistent across various contexts of trafficking.",
-                "theoretical_alignment": "The findings support the theoretical framework by linking victim characteristics and trafficker tactics.",
-                "researcher_reflexivity": "The analysis reflects an awareness of the complexities involved in trafficking dynamics."
+                "pattern_robustness": "Patterns are consistent across various contexts and support the need for targeted interventions.",
+                "theoretical_alignment": "The findings align with the principles of Victimology, emphasizing the importance of victim experiences.",
+                "researcher_reflexivity": "The analysis reflects a commitment to understanding the complexities of victimization."
             },
-            "practical_implications": "Insights gained from this analysis can inform training programs for law enforcement and social workers to better identify and assist victims."
+            "practical_implications": "Insights gained can inform the development of training programs for law enforcement and social workers to better identify and assist victims."
         }
     },
     {
@@ -149,69 +138,68 @@
         "keywords": [
             {
                 "keyword": "legal frameworks",
-                "category": "Legal Concepts",
-                "context": {
-                    "surrounding_text": "What are the legal frameworks in place to combat sex trafficking? Many countries have laws specifically designed to combat sex trafficking...",
-                    "usage_pattern": "Used to inquire about the existing laws aimed at combating sex trafficking.",
-                    "source_location": "Beginning of the quotation"
-                },
+                "category": "Legal Context",
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects the actual legal structures in place.",
-                    "richness": "Indicates the complexity of laws across different jurisdictions.",
-                    "repetition": "Mentioned multiple times in the context of effectiveness.",
-                    "rationale": "Connects to the theoretical framework of legal systems.",
-                    "repartee": "Contributes to discussions on legal effectiveness.",
-                    "regal": "Central to the topic of combating sex trafficking."
+                    "realness": "Reflects genuine legal structures in place.",
+                    "richness": "Provides depth in understanding the legal landscape."
                 }
             },
             {
                 "keyword": "NGOs",
-                "category": "Organizational Role",
-                "context": {
-                    "surrounding_text": "What role do non-governmental organizations (NGOs) play in this context? NGOs play a crucial role in supporting victims...",
-                    "usage_pattern": "Describes the involvement of NGOs in combating sex trafficking.",
-                    "source_location": "Towards the end of the quotation"
-                },
+                "category": "Support Systems",
+                "6Rs framework": [
+                    "Repartee",
+                    "Regal"
+                ],
                 "analysis_value": {
-                    "realness": "Represents the actual support systems available for victims.",
-                    "richness": "Highlights the multifaceted role of NGOs.",
-                    "repetition": "Reiterated in the context of advocacy and support.",
-                    "rationale": "Aligns with the social systems theory.",
-                    "repartee": "Enhances discussions on the effectiveness of legal frameworks.",
-                    "regal": "Essential to understanding the response to sex trafficking."
+                    "repartee": "Contributes to discussions on support mechanisms.",
+                    "regal": "Central to the response against sex trafficking."
+                }
+            },
+            {
+                "keyword": "Trafficking Victims Protection Act (TVPA)",
+                "category": "Specific Legislation",
+                "6Rs framework": [
+                    "Realness"
+                ],
+                "analysis_value": {
+                    "realness": "Represents a concrete example of legal action."
                 }
             },
             {
                 "keyword": "effectiveness",
                 "category": "Evaluation",
-                "context": {
-                    "surrounding_text": "How effective are these legal frameworks? The effectiveness varies by country...",
-                    "usage_pattern": "Used to assess the impact of legal frameworks.",
-                    "source_location": "Mid-quotation"
-                },
+                "6Rs framework": [
+                    "Rationale"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects the actual outcomes of legal frameworks.",
-                    "richness": "Indicates variability in enforcement and support.",
-                    "repetition": "Discussed in relation to different countries.",
-                    "rationale": "Connects to the evaluation aspect of the theoretical framework.",
-                    "repartee": "Contributes to the discourse on legal effectiveness.",
-                    "regal": "Key to understanding the success of interventions."
+                    "rationale": "Connects to the assessment of legal frameworks."
+                }
+            },
+            {
+                "keyword": "support systems",
+                "category": "Victim Assistance",
+                "6Rs framework": [
+                    "Richness"
+                ],
+                "analysis_value": {
+                    "richness": "Highlights the depth of services available to victims."
                 }
             }
         ],
         "analysis": {
-            "patterns_identified": [
-                "The presence of legal frameworks varies significantly across countries.",
-                "NGOs play a vital role in both supporting victims and advocating for stronger laws.",
-                "The effectiveness of legal frameworks is contingent upon enforcement and available resources."
-            ],
-            "theoretical_interpretation": "The analysis highlights the interplay between legal systems and social support structures, emphasizing the need for a comprehensive approach to combat sex trafficking.",
+            "patterns_identified": "The analysis revealed a dichotomy in the effectiveness of legal frameworks across different regions, highlighting the role of NGOs in bridging gaps in support for victims.",
+            "theoretical_interpretation": "The interplay between legal frameworks and social systems is crucial in understanding the effectiveness of responses to sex trafficking.",
             "methodological_reflection": {
-                "pattern_robustness": "Patterns identified are consistent with existing literature on legal frameworks and NGO roles.",
-                "theoretical_alignment": "The findings align with the Legal and Social Systems Theory, illustrating the importance of both legal and social dimensions.",
-                "researcher_reflexivity": "The researcher acknowledges their perspective on the importance of both legal and social interventions."
+                "pattern_robustness": "Patterns were consistently observed across various contexts.",
+                "theoretical_alignment": "The findings align with the Legal and Social Systems Theory, emphasizing the importance of both legal and social responses.",
+                "researcher_reflexivity": "The researcher acknowledges their perspective in interpreting the effectiveness of legal frameworks."
             },
-            "practical_implications": "The insights gained can inform policy recommendations for enhancing the effectiveness of legal frameworks and the role of NGOs in combating sex trafficking."
+            "practical_implications": "Insights from this analysis can inform policy recommendations for enhancing legal frameworks and NGO support systems."
         }
     },
     {
@@ -232,103 +220,110 @@
         "keywords": [
             {
                 "keyword": "technology",
-                "category": "Concept",
-                "context": {
-                    "surrounding_text": "How does technology play a role in sex trafficking? Technology has both positive and negative impacts on sex trafficking.",
-                    "usage_pattern": "Refers to the overall influence of technology in the context of sex trafficking.",
-                    "source_location": "Beginning of the quotation"
-                },
+                "category": "General",
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine experiences of both traffickers and law enforcement.",
-                    "richness": "Captures the complexity of technology's role.",
-                    "repetition": 3,
-                    "rationale": "Central to understanding the dual role of technology.",
-                    "repartee": "Contributes to discussions on exploitation and prevention.",
-                    "regal": "Central to the topic."
+                    "realness": "Reflection of genuine experiences",
+                    "richness": "Depth of meaning"
                 }
             },
             {
-                "keyword": "traffickers",
-                "category": "Actor",
-                "context": {
-                    "surrounding_text": "On the negative side, traffickers use the internet and social media to recruit and exploit victims.",
-                    "usage_pattern": "Describes the individuals who exploit technology for illegal activities.",
-                    "source_location": "Middle of the quotation"
-                },
+                "keyword": "sex trafficking",
+                "category": "Issue",
+                "6Rs framework": [
+                    "Regal"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects the actual perpetrators in sex trafficking.",
-                    "richness": "Highlights the negative impact of technology.",
-                    "repetition": 2,
-                    "rationale": "Essential for understanding the exploitative side of technology.",
-                    "repartee": "Engages in the discourse on victimization.",
-                    "regal": "Key player in the context."
+                    "regal": "Centrality to the topic"
+                }
+            },
+            {
+                "keyword": "exploitation",
+                "category": "Negative Impact",
+                "6Rs framework": [
+                    "Realness"
+                ],
+                "analysis_value": {
+                    "realness": "Reflection of genuine experiences"
                 }
             },
             {
                 "keyword": "law enforcement",
-                "category": "Actor",
-                "context": {
-                    "surrounding_text": "However, technology also provides tools for law enforcement to track and apprehend traffickers.",
-                    "usage_pattern": "Refers to the agencies that combat trafficking using technology.",
-                    "source_location": "Middle of the quotation"
-                },
+                "category": "Solution",
+                "6Rs framework": [
+                    "Rationale"
+                ],
                 "analysis_value": {
-                    "realness": "Represents the efforts to combat trafficking.",
-                    "richness": "Indicates the proactive use of technology.",
-                    "repetition": 2,
-                    "rationale": "Crucial for understanding the preventive role of technology.",
-                    "repartee": "Contributes to discussions on intervention.",
-                    "regal": "Central to the prevention aspect."
+                    "rationale": "Connection to theoretical foundations"
+                }
+            },
+            {
+                "keyword": "digital forensics",
+                "category": "Tool",
+                "6Rs framework": [
+                    "Richness"
+                ],
+                "analysis_value": {
+                    "richness": "Depth of meaning"
                 }
             },
             {
                 "keyword": "AI",
-                "category": "Technology",
-                "context": {
-                    "surrounding_text": "Artificial intelligence (AI) can be used to analyze large datasets and identify patterns that may indicate trafficking.",
-                    "usage_pattern": "Describes a specific technological solution.",
-                    "source_location": "Towards the end of the quotation"
-                },
+                "category": "Solution",
+                "6Rs framework": [
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects innovative approaches to combat trafficking.",
-                    "richness": "Demonstrates the potential of technology.",
-                    "repetition": 1,
-                    "rationale": "Highlights a modern solution to trafficking.",
-                    "repartee": "Engages in the discourse on technological advancements.",
-                    "regal": "Important for future interventions."
+                    "richness": "Depth of meaning"
+                }
+            },
+            {
+                "keyword": "blockchain",
+                "category": "Solution",
+                "6Rs framework": [
+                    "Richness"
+                ],
+                "analysis_value": {
+                    "richness": "Depth of meaning"
                 }
             },
             {
                 "keyword": "victims",
-                "category": "Subject",
-                "context": {
-                    "surrounding_text": "Technology can provide platforms for victims to seek help anonymously.",
-                    "usage_pattern": "Refers to the individuals affected by trafficking.",
-                    "source_location": "Towards the end of the quotation"
-                },
+                "category": "Focus",
+                "6Rs framework": [
+                    "Regal"
+                ],
                 "analysis_value": {
-                    "realness": "Represents the individuals in need of support.",
-                    "richness": "Indicates the focus on victim assistance.",
-                    "repetition": 2,
-                    "rationale": "Essential for understanding the impact of technology on those affected.",
-                    "repartee": "Contributes to discussions on recovery.",
-                    "regal": "Central to the support aspect."
+                    "regal": "Centrality to the topic"
+                }
+            },
+            {
+                "keyword": "support",
+                "category": "Solution",
+                "6Rs framework": [
+                    "Rationale"
+                ],
+                "analysis_value": {
+                    "rationale": "Connection to theoretical foundations"
                 }
             }
         ],
         "analysis": {
             "patterns_identified": [
-                "Dual role of technology: exploitation vs. prevention",
-                "Use of specific technologies (AI, blockchain) for combating trafficking",
-                "Focus on victim support through technological platforms"
+                "Dual role of technology",
+                "Exploitation vs. prevention",
+                "Support mechanisms for victims"
             ],
-            "theoretical_interpretation": "The analysis aligns with Technological Impact Theory, illustrating how technology can be both a tool for exploitation and a means for intervention.",
+            "theoretical_interpretation": "The analysis aligns with Technological Impact Theory, illustrating how technology can be both a facilitator of trafficking and a means of intervention.",
             "methodological_reflection": {
-                "pattern_robustness": "Patterns are consistently supported by the quotation.",
-                "theoretical_alignment": "Strong alignment with the theoretical framework.",
-                "researcher_reflexivity": "Reflections on the complexities of technology's role in trafficking."
+                "pattern_robustness": "Patterns are consistently supported by the data.",
+                "theoretical_alignment": "The findings are well-aligned with the theoretical framework.",
+                "researcher_reflexivity": "The researcher acknowledges their perspective in interpreting the dual roles of technology."
             },
-            "practical_implications": "Insights can inform the development of technological solutions and policies aimed at combating sex trafficking."
+            "practical_implications": "Insights can inform policy and technological development aimed at combating sex trafficking."
         }
     },
     {
@@ -373,7 +368,7 @@
                     "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
                     "contextualized_content": "The speaker articulates a critical perspective on the current financial landscape for farmers, stating, \"It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left.\" This underscores the precarious situation faced by agricultural organizations, where the lack of financial support from banks limits their capacity to implement long-term strategies for growth and job creation. The call for a more relaxed banking approach indicates a desire for systemic change that would enable farmers to thrive and contribute positively to the economy."
                 },
-                "score": 0.21578947368421053
+                "score": 0.21463414634146344
             },
             {
                 "chunk": {
@@ -395,7 +390,7 @@
                     "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
                     "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
-                "score": 0.015789473684210523
+                "score": 0.014634146341463414
             }
         ],
         "retrieved_chunks_count": 5,
@@ -406,81 +401,75 @@
             {
                 "keyword": "psychological impacts",
                 "category": "Trauma",
-                "context": {
-                    "surrounding_text": "What are the psychological impacts of sex trafficking on victims? The psychological impacts of sex trafficking are profound and long-lasting.",
-                    "usage_pattern": "Used to introduce the topic of trauma experienced by victims.",
-                    "source_location": "Beginning of the quotation"
-                },
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine experiences of victims.",
-                    "richness": "Indicates depth of trauma experienced.",
-                    "repetition": "Central theme throughout the quotation.",
-                    "rationale": "Connects to Psychological Trauma Theory.",
-                    "repartee": "Contributes to discussions on victim support.",
-                    "regal": "Central to understanding the effects of sex trafficking."
+                    "realness": "Reflection of genuine experiences",
+                    "richness": "Depth of meaning"
                 }
             },
             {
                 "keyword": "trauma",
                 "category": "Psychological Effects",
-                "context": {
-                    "surrounding_text": "Victims often experience severe trauma, including post-traumatic stress disorder (PTSD), depression, and anxiety.",
-                    "usage_pattern": "Describes the type of psychological effects victims endure.",
-                    "source_location": "Middle of the quotation"
-                },
+                "6Rs framework": [
+                    "Realness",
+                    "Regal"
+                ],
                 "analysis_value": {
-                    "realness": "Captures the authentic psychological state of victims.",
-                    "richness": "Highlights various forms of trauma.",
-                    "repetition": "Mentioned multiple times in different contexts.",
-                    "rationale": "Aligns with the theoretical framework of trauma.",
-                    "repartee": "Essential for understanding recovery needs.",
-                    "regal": "Key to the discussion on psychological impacts."
+                    "realness": "Reflection of genuine experiences",
+                    "regal": "Centrality to the topic"
                 }
             },
             {
                 "keyword": "support",
-                "category": "Recovery Mechanisms",
-                "context": {
-                    "surrounding_text": "Support for victims involves a multi-faceted approach.",
-                    "usage_pattern": "Introduces the various forms of support available.",
-                    "source_location": "Transition to recovery discussion"
-                },
+                "category": "Recovery Mechanism",
+                "6Rs framework": [
+                    "Repartee",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects the necessity of support in recovery.",
-                    "richness": "Indicates the complexity of support systems.",
-                    "repetition": "Repeatedly emphasized throughout the quotation.",
-                    "rationale": "Connects to the need for comprehensive recovery strategies.",
-                    "repartee": "Crucial for discussions on victim assistance.",
-                    "regal": "Central to the recovery narrative."
+                    "repartee": "Contribution to discussions",
+                    "richness": "Depth of meaning"
+                }
+            },
+            {
+                "keyword": "recovery",
+                "category": "Outcome",
+                "6Rs framework": [
+                    "Realness",
+                    "Regal"
+                ],
+                "analysis_value": {
+                    "realness": "Reflection of genuine experiences",
+                    "regal": "Centrality to the topic"
                 }
             },
             {
                 "keyword": "long-term outcomes",
-                "category": "Recovery Results",
-                "context": {
-                    "surrounding_text": "The long-term outcomes vary widely.",
-                    "usage_pattern": "Discusses the variability in recovery success.",
-                    "source_location": "End of the quotation"
-                },
+                "category": "Impact Assessment",
+                "6Rs framework": [
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects the diverse experiences of victims post-recovery.",
-                    "richness": "Highlights the complexity of recovery journeys.",
-                    "repetition": "Mentioned as a concluding thought.",
-                    "rationale": "Connects to the effectiveness of support systems.",
-                    "repartee": "Important for understanding recovery trajectories.",
-                    "regal": "Key to evaluating support effectiveness."
+                    "richness": "Depth of meaning"
                 }
             }
         ],
         "analysis": {
-            "patterns_identified": "The analysis revealed a strong emphasis on the psychological impacts of trauma, the necessity of multi-faceted support systems, and the variability of long-term outcomes for victims.",
-            "theoretical_interpretation": "The findings align with Psychological Trauma Theory, emphasizing the profound effects of trauma and the importance of tailored support for recovery.",
+            "patterns_identified": [
+                "Severe trauma is a common experience among victims.",
+                "Multi-faceted support is essential for recovery.",
+                "Long-term outcomes are influenced by the quality of support systems."
+            ],
+            "theoretical_interpretation": "The Psychological Trauma Theory helps to understand the depth of trauma experienced by victims and the necessity of comprehensive support systems for recovery.",
             "methodological_reflection": {
-                "pattern_robustness": "The identified patterns are consistent across multiple segments of the quotation.",
-                "theoretical_alignment": "The keywords and themes align closely with the theoretical framework.",
-                "researcher_reflexivity": "The analysis reflects an awareness of the complexities involved in discussing trauma and recovery."
+                "pattern_robustness": "Patterns are consistently supported by the literature on trauma and recovery.",
+                "theoretical_alignment": "The findings align well with the Psychological Trauma Theory, emphasizing the importance of addressing trauma in recovery efforts.",
+                "researcher_reflexivity": "The researcher acknowledges their own biases in interpreting the impacts of trauma and the effectiveness of support systems."
             },
-            "practical_implications": "The insights gained from this analysis can inform the development of more effective support programs for victims of sex trafficking, emphasizing the need for comprehensive psychological, social, and legal support."
+            "practical_implications": "The analysis suggests that effective recovery programs must integrate psychological, social, and legal support to address the complex needs of victims."
         }
     },
     {
@@ -525,7 +514,7 @@
                     "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
                     "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
-                "score": 0.015789473684210523
+                "score": 0.014634146341463414
             },
             {
                 "chunk": {
@@ -536,7 +525,7 @@
                     "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
                     "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
                 },
-                "score": 0.008
+                "score": 0.007407407407407407
             },
             {
                 "chunk": {
@@ -547,7 +536,7 @@
                     "original_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
                     "contextualized_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market. This statement underscores the pressing issue of inadequate processing capacity in the UK agricultural sector, which has been exacerbated by recent challenges such as Brexit and the COVID-19 pandemic. The speaker is concerned that without sufficient processing facilities, the hard work of farmers will not translate into marketable products, leading to waste and financial instability. This reflects a broader call for investment in local processing capabilities to ensure that farmers can effectively bring their produce to market and sustain their livelihoods."
                 },
-                "score": 0.005357142857142856
+                "score": 0.0049586776859504135
             }
         ],
         "retrieved_chunks_count": 5,
@@ -558,68 +547,69 @@
             {
                 "keyword": "sex trafficking",
                 "category": "Social Issue",
-                "context": {
-                    "surrounding_text": "How does sex trafficking affect communities? Sex trafficking has a profound impact on communities.",
-                    "usage_pattern": "Introduced as a central theme affecting communities.",
-                    "source_location": "Beginning of the quotation"
-                },
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine societal concerns.",
-                    "richness": "Deeply intertwined with community dynamics.",
-                    "repetition": "Central to the discussion.",
-                    "rationale": "Connects to the Community Impact Theory.",
-                    "repartee": "Initiates a dialogue on community vulnerabilities.",
-                    "regal": "Central to the topic."
+                    "realness": "Reflection of genuine experiences",
+                    "richness": "Depth of meaning"
+                }
+            },
+            {
+                "keyword": "communities",
+                "category": "Social Structure",
+                "6Rs framework": [
+                    "Regal"
+                ],
+                "analysis_value": {
+                    "regal": "Centrality to the topic"
                 }
             },
             {
                 "keyword": "economic costs",
                 "category": "Economic Impact",
-                "context": {
-                    "surrounding_text": "What are the economic costs of sex trafficking? The economic costs are significant and multifaceted.",
-                    "usage_pattern": "Describes the financial implications of trafficking.",
-                    "source_location": "Mid-quotation"
-                },
+                "6Rs framework": [
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Highlights tangible economic burdens.",
-                    "richness": "Complexity of costs involved.",
-                    "repetition": "Mentioned in relation to direct and indirect costs.",
-                    "rationale": "Aligns with the theoretical framework's focus on economic impacts.",
-                    "repartee": "Contributes to understanding the broader implications.",
-                    "regal": "Key aspect of the analysis."
+                    "richness": "Depth of meaning"
                 }
             },
             {
-                "keyword": "community empowerment",
-                "category": "Prevention Strategy",
-                "context": {
-                    "surrounding_text": "How can communities be empowered to combat trafficking? Empowering communities involves raising awareness and providing education on the signs of trafficking.",
-                    "usage_pattern": "Focuses on proactive measures against trafficking.",
-                    "source_location": "End of the quotation"
-                },
+                "keyword": "empowerment",
+                "category": "Community Strategy",
+                "6Rs framework": [
+                    "Repartee"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine community needs.",
-                    "richness": "Depth in strategies for prevention.",
-                    "repetition": "Reiterated as a solution.",
-                    "rationale": "Directly connects to community-based prevention strategies.",
-                    "repartee": "Encourages dialogue on empowerment.",
-                    "regal": "Essential for addressing the issue."
+                    "repartee": "Contribution to discussions"
+                }
+            },
+            {
+                "keyword": "awareness",
+                "category": "Preventive Measure",
+                "6Rs framework": [
+                    "Rationale"
+                ],
+                "analysis_value": {
+                    "rationale": "Connection to theoretical foundations"
                 }
             }
         ],
         "analysis": {
             "patterns_identified": [
-                "The interplay between social instability and economic costs.",
-                "The role of community organizations in prevention.",
-                "The importance of education and awareness in combating trafficking."
+                "Social instability linked to trafficking",
+                "Economic costs associated with trafficking",
+                "Importance of community empowerment"
             ],
             "theoretical_interpretation": "The Community Impact Theory provides a framework for understanding how sex trafficking disrupts community cohesion and economic stability.",
             "methodological_reflection": {
                 "pattern_robustness": "Patterns are consistently supported by the data.",
-                "theoretical_alignment": "Strong alignment with the theoretical framework.",
-                "researcher_reflexivity": "Reflections on personal biases in interpreting community impacts."
+                "theoretical_alignment": "The findings align with the Community Impact Theory, emphasizing the need for community-based strategies.",
+                "researcher_reflexivity": "The researcher acknowledges their perspective in interpreting the data."
             },
-            "practical_implications": "Insights can inform community programs aimed at prevention and support for victims."
+            "practical_implications": "Strategies for community empowerment and awareness-raising are essential for combating sex trafficking."
         }
     },
     {
@@ -664,7 +654,7 @@
                     "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
                     "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
                 },
-                "score": 0.015789473684210523
+                "score": 0.014634146341463414
             },
             {
                 "chunk": {
@@ -675,7 +665,7 @@
                     "original_content": "Is that what you mean?",
                     "contextualized_content": "The question \"Is that what you mean?\" arises after the interviewee explains how their organization functions as an interface between farmers and customers, effectively taking on the role of the middleman to streamline the process and ensure that profits return to the farmers. This moment highlights the importance of clear communication in discussions about organizational roles and market dynamics, as the interviewer seeks to confirm their understanding of the innovative approach being taken by the organization."
                 },
-                "score": 0.008
+                "score": 0.007407407407407407
             },
             {
                 "chunk": {
@@ -686,7 +676,7 @@
                     "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
                     "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
                 },
-                "score": 0.005357142857142856
+                "score": 0.0049586776859504135
             }
         ],
         "retrieved_chunks_count": 5,
@@ -695,66 +685,62 @@
         "used_chunk_ids": [],
         "keywords": [
             {
-                "keyword": "global trends",
-                "category": "Theme",
-                "context": {
-                    "surrounding_text": "What are the global trends in sex trafficking? Global trends indicate that sex trafficking is a growing problem, fueled by globalization and technological advancements.",
-                    "usage_pattern": "Identifies the overarching patterns in sex trafficking.",
-                    "source_location": "Beginning of the quotation"
-                },
-                "analysis_value": {
-                    "realness": "Reflects the actual increase in sex trafficking incidents.",
-                    "richness": "Highlights the complexity of the issue.",
-                    "repetition": "Reiterated in discussions about the problem's growth.",
-                    "rationale": "Connects to the theoretical framework of globalization's impact.",
-                    "repartee": "Contributes to the discourse on trafficking trends.",
-                    "regal": "Central to understanding the issue."
-                }
-            },
-            {
                 "keyword": "globalization",
-                "category": "Concept",
-                "context": {
-                    "surrounding_text": "fueled by globalization and technological advancements.",
-                    "usage_pattern": "Describes the driving force behind the increase in trafficking.",
-                    "source_location": "Middle of the quotation"
-                },
+                "category": "Theme",
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Indicates a genuine factor in trafficking dynamics.",
-                    "richness": "Provides depth to the understanding of trafficking causes.",
-                    "repetition": "Mentioned multiple times in relation to trafficking.",
-                    "rationale": "Directly linked to the theoretical framework.",
-                    "repartee": "Essential in discussions about trafficking mechanisms.",
-                    "regal": "Key to the analysis of the issue."
+                    "realness": "Reflects genuine experiences of trafficking facilitated by globalization",
+                    "richness": "Depth of meaning in understanding the role of globalization in trafficking operations"
                 }
             },
             {
-                "keyword": "international efforts",
-                "category": "Response",
-                "context": {
-                    "surrounding_text": "What are the international efforts to combat trafficking? International efforts include cooperation between law enforcement agencies across borders.",
-                    "usage_pattern": "Describes the collective actions taken to address trafficking.",
-                    "source_location": "End of the quotation"
-                },
+                "keyword": "trafficking networks",
+                "category": "Concept",
+                "6Rs framework": [
+                    "Regal"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects actual initiatives being undertaken.",
-                    "richness": "Shows the collaborative nature of the response.",
-                    "repetition": "Reinforced in discussions about combating trafficking.",
-                    "rationale": "Connects to the effectiveness of responses in the theoretical framework.",
-                    "repartee": "Contributes to the understanding of global cooperation.",
-                    "regal": "Central to the discussion of solutions."
+                    "regal": "Central to the discussion of how trafficking operates across borders"
+                }
+            },
+            {
+                "keyword": "international cooperation",
+                "category": "Effort",
+                "6Rs framework": [
+                    "Repartee"
+                ],
+                "analysis_value": {
+                    "repartee": "Contributes to discussions on combating trafficking through collaborative efforts"
+                }
+            },
+            {
+                "keyword": "Palermo Protocol",
+                "category": "Framework",
+                "6Rs framework": [
+                    "Rationale"
+                ],
+                "analysis_value": {
+                    "rationale": "Connection to international legal frameworks addressing trafficking"
                 }
             }
         ],
         "analysis": {
-            "patterns_identified": "The analysis identified key patterns such as the increasing sophistication of trafficking networks and the role of globalization in facilitating these activities.",
-            "theoretical_interpretation": "The findings align with the Globalization and Crime Theory, illustrating how globalization creates opportunities for trafficking.",
+            "patterns_identified": [
+                "Increasing sophistication of trafficking networks",
+                "Exploitation of globalization for trafficking",
+                "High demand for commercial sex in developed countries",
+                "Importance of international cooperation"
+            ],
+            "theoretical_interpretation": "The analysis aligns with the Globalization and Crime Theory, illustrating how globalization facilitates trafficking and necessitates international responses.",
             "methodological_reflection": {
-                "pattern_robustness": "The patterns identified are consistent across multiple segments of the quotation.",
-                "theoretical_alignment": "The analysis is well-aligned with the theoretical framework, supporting the research objectives.",
-                "researcher_reflexivity": "The researcher acknowledges their perspective in interpreting the data."
+                "pattern_robustness": "Patterns are consistently supported by the data",
+                "theoretical_alignment": "Strong alignment with the theoretical framework",
+                "researcher_reflexivity": "Reflections on the impact of globalization on trafficking highlight the need for ongoing research."
             },
-            "practical_implications": "The insights gained can inform policy-making and international cooperation efforts to combat sex trafficking."
+            "practical_implications": "Insights can inform policy-making and international cooperation strategies to combat sex trafficking."
         }
     },
     {
@@ -799,7 +785,7 @@
                     "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?",
                     "contextualized_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. This reflects our commitment to enhancing our operational efficiency and expanding our reach within the agricultural market. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. Additionally, as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help? This question highlights our awareness of the broader market landscape and our desire to leverage societal shifts to bolster our growth strategy."
                 },
-                "score": 0.015789473684210523
+                "score": 0.014634146341463414
             },
             {
                 "chunk": {
@@ -810,7 +796,7 @@
                     "original_content": "We don\u2019t know which way it\u2019s going to go.",
                     "contextualized_content": "The phrase \"We don\u2019t know which way it\u2019s going to go\" encapsulates the prevailing uncertainty in the agricultural sector, particularly in light of recent changes such as Brexit and the ongoing challenges posed by the COVID-19 pandemic. Farmers are grappling with unpredictable market conditions, which have been exacerbated by fluctuating prices and the need for sustainable practices. This uncertainty is not just a personal concern but reflects a collective anxiety within the farming community about the future of agriculture in the UK. The speaker emphasizes the importance of addressing these challenges through investment and support for local farming initiatives to ensure a stable and sustainable future."
                 },
-                "score": 0.008
+                "score": 0.007407407407407407
             },
             {
                 "chunk": {
@@ -821,7 +807,7 @@
                     "original_content": "That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure.",
                     "contextualized_content": "The COVID-19 pandemic had a profound impact on the potato supply chain, particularly affecting the food service sector. As restaurants and similar businesses closed, the demand for potatoes plummeted, leading to a situation where farmers found themselves with excess stock and no buyers. As we plan for the 2021/2022 harvest, we face a dilemma: many customers are unwilling to sign contracts until they have a clearer understanding of future market conditions. This uncertainty places farmers in a difficult position; we must continue to invest in our operations by purchasing seeds and planting potatoes, even as customers express hesitance about future orders. The situation underscores the challenges of maintaining a stable supply chain in the face of unpredictable market dynamics."
                 },
-                "score": 0.005263157894736842
+                "score": 0.004878048780487806
             }
         ],
         "retrieved_chunks_count": 5,
@@ -830,54 +816,63 @@
         "used_chunk_ids": [],
         "keywords": [
             {
-                "keyword": "media portrayal",
-                "category": "Theme",
-                "context": {
-                    "surrounding_text": "The media often portrays sex trafficking in sensationalist ways, focusing on dramatic stories and statistics.",
-                    "usage_pattern": "Describes how the media represents sex trafficking.",
-                    "source_location": "Beginning of the quotation"
-                },
+                "keyword": "sensationalist",
+                "category": "Media Representation",
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine concerns about media representation.",
-                    "richness": "Highlights the complexity of media narratives.",
-                    "repetition": "Central theme throughout the quotation.",
-                    "rationale": "Connects to Media Representation Theory.",
-                    "repartee": "Engages in discussions about media ethics.",
-                    "regal": "Central to understanding public perception."
+                    "realness": "Reflection of genuine experiences",
+                    "richness": "Depth of meaning"
                 }
             },
             {
                 "keyword": "victim blaming",
-                "category": "Implication",
-                "context": {
-                    "surrounding_text": "The implications include the potential for victim blaming and stigmatization.",
-                    "usage_pattern": "Identifies a negative consequence of media portrayal.",
-                    "source_location": "Middle of the quotation"
-                },
+                "category": "Implications",
+                "6Rs framework": [
+                    "Repetition",
+                    "Rationale"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects real issues faced by victims.",
-                    "richness": "Deepens understanding of societal impacts.",
-                    "repetition": "Mentioned as a key implication.",
-                    "rationale": "Links to discussions on victim support.",
-                    "repartee": "Contributes to debates on media responsibility.",
-                    "regal": "Critical to the analysis of media effects."
+                    "repetition": "Recurrence in quotation",
+                    "rationale": "Connection to theoretical foundations"
+                }
+            },
+            {
+                "keyword": "stereotypes",
+                "category": "Media Representation",
+                "6Rs framework": [
+                    "Richness",
+                    "Repartee"
+                ],
+                "analysis_value": {
+                    "richness": "Depth of meaning",
+                    "repartee": "Contribution to discussions"
+                }
+            },
+            {
+                "keyword": "normalizing demand",
+                "category": "Media Impact",
+                "6Rs framework": [
+                    "Realness",
+                    "Regal"
+                ],
+                "analysis_value": {
+                    "realness": "Reflection of genuine experiences",
+                    "regal": "Centrality to the topic"
                 }
             },
             {
                 "keyword": "accurate reporting",
-                "category": "Solution",
-                "context": {
-                    "surrounding_text": "The media can play a positive role by providing accurate and balanced reporting on trafficking.",
-                    "usage_pattern": "Suggests a way for media to improve its impact.",
-                    "source_location": "End of the quotation"
-                },
+                "category": "Positive Role",
+                "6Rs framework": [
+                    "Richness",
+                    "Repartee"
+                ],
                 "analysis_value": {
-                    "realness": "Proposes a genuine solution to media issues.",
-                    "richness": "Encourages depth in media narratives.",
-                    "repetition": "Emphasizes the need for responsible reporting.",
-                    "rationale": "Aligns with the goal of educating the public.",
-                    "repartee": "Engages in constructive dialogue about media practices.",
-                    "regal": "Essential for positive media influence."
+                    "richness": "Depth of meaning",
+                    "repartee": "Contribution to discussions"
                 }
             }
         ],
@@ -885,15 +880,15 @@
             "patterns_identified": [
                 "Sensationalism in media portrayal",
                 "Victim blaming and stigmatization",
-                "Potential for positive media engagement"
+                "Positive potential of accurate reporting"
             ],
-            "theoretical_interpretation": "The analysis illustrates how media representation shapes public perception and can either perpetuate stereotypes or foster understanding.",
+            "theoretical_interpretation": "The analysis aligns with Media Representation Theory, illustrating how media narratives shape public perception and influence societal attitudes towards sex trafficking.",
             "methodological_reflection": {
-                "pattern_robustness": "Patterns are consistently supported by the quotation.",
-                "theoretical_alignment": "Strong alignment with Media Representation Theory.",
+                "pattern_robustness": "Patterns are consistently reflected across multiple segments of the quotation.",
+                "theoretical_alignment": "The findings are well-aligned with the theoretical framework, emphasizing the media's role in shaping perceptions.",
                 "researcher_reflexivity": "The researcher acknowledges their own biases in interpreting media narratives."
             },
-            "practical_implications": "The findings suggest that media outlets should prioritize accurate reporting to combat misconceptions and support victims."
+            "practical_implications": "Insights can inform media practices to promote responsible reporting and enhance public understanding of sex trafficking."
         }
     },
     {
@@ -914,65 +909,80 @@
         "keywords": [
             {
                 "keyword": "challenges",
-                "category": "Theme",
-                "context": {
-                    "surrounding_text": "What are the challenges in prosecuting sex trafficking cases? Prosecuting sex trafficking cases is challenging due to the complexity of the crime...",
-                    "usage_pattern": "Identifying the difficulties faced in prosecution.",
-                    "source_location": "Beginning of the quotation"
-                },
+                "category": "Concept",
+                "6Rs framework": [
+                    "Realness",
+                    "Richness"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects genuine obstacles in the legal process.",
-                    "richness": "Highlights the multifaceted nature of the issue.",
-                    "repetition": "Central theme throughout the quotation.",
-                    "rationale": "Connects to the theoretical framework of Criminal Justice Theory.",
-                    "repartee": "Contributes to discussions on legal challenges.",
-                    "regal": "Central to understanding the prosecution of trafficking cases."
+                    "realness": "Reflection of genuine experiences",
+                    "richness": "Depth of meaning"
+                }
+            },
+            {
+                "keyword": "prosecuting",
+                "category": "Action",
+                "6Rs framework": [
+                    "Regal"
+                ],
+                "analysis_value": {
+                    "regal": "Centrality to the topic"
+                }
+            },
+            {
+                "keyword": "evidence",
+                "category": "Concept",
+                "6Rs framework": [
+                    "Richness",
+                    "Repetition"
+                ],
+                "analysis_value": {
+                    "richness": "Depth of meaning",
+                    "repetition": "Recurrence in quotation"
+                }
+            },
+            {
+                "keyword": "victims",
+                "category": "Stakeholder",
+                "6Rs framework": [
+                    "Realness",
+                    "Rationale"
+                ],
+                "analysis_value": {
+                    "realness": "Reflection of genuine experiences",
+                    "rationale": "Connection to theoretical foundations"
+                }
+            },
+            {
+                "keyword": "legal barriers",
+                "category": "Concept",
+                "6Rs framework": [
+                    "Richness"
+                ],
+                "analysis_value": {
+                    "richness": "Depth of meaning"
                 }
             },
             {
                 "keyword": "multi-agency approach",
                 "category": "Strategy",
-                "context": {
-                    "surrounding_text": "Building a strong case involves a multi-agency approach, including law enforcement, social services, and legal experts.",
-                    "usage_pattern": "Describes a collaborative strategy for prosecution.",
-                    "source_location": "Middle of the quotation"
-                },
+                "6Rs framework": [
+                    "Repartee"
+                ],
                 "analysis_value": {
-                    "realness": "Reflects practical strategies in law enforcement.",
-                    "richness": "Indicates depth in collaborative efforts.",
-                    "repetition": "Mentioned as a key strategy.",
-                    "rationale": "Aligns with the need for comprehensive legal intervention.",
-                    "repartee": "Enhances discussions on effective prosecution.",
-                    "regal": "Essential for building strong cases."
-                }
-            },
-            {
-                "keyword": "legal barriers",
-                "category": "Obstacles",
-                "context": {
-                    "surrounding_text": "What are the legal barriers to prosecution? Legal barriers include jurisdictional issues...",
-                    "usage_pattern": "Identifies specific legal challenges.",
-                    "source_location": "End of the quotation"
-                },
-                "analysis_value": {
-                    "realness": "Highlights genuine legal obstacles.",
-                    "richness": "Provides insight into the complexities of law.",
-                    "repetition": "Reiterated as a significant concern.",
-                    "rationale": "Connects to the theoretical framework regarding legal systems.",
-                    "repartee": "Contributes to the understanding of legal challenges.",
-                    "regal": "Central to the discussion of prosecution."
+                    "repartee": "Contribution to discussions"
                 }
             }
         ],
         "analysis": {
-            "patterns_identified": "Key patterns include the complexity of trafficking cases, the necessity of collaboration among agencies, and the legal hurdles that impede prosecution.",
-            "theoretical_interpretation": "The analysis aligns with Criminal Justice Theory, emphasizing the need for a nuanced understanding of legal frameworks and victim support.",
+            "patterns_identified": "The interplay between victim support and legal processes, and the necessity for comprehensive legal frameworks to address jurisdictional issues.",
+            "theoretical_interpretation": "Application of Criminal Justice Theory to understand the complexities of prosecuting sex trafficking cases.",
             "methodological_reflection": {
-                "pattern_robustness": "Patterns are consistently reflected across multiple chunks.",
-                "theoretical_alignment": "Strong alignment with the theoretical framework, particularly in addressing legal complexities.",
-                "researcher_reflexivity": "Reflections on the importance of understanding both legal and social dimensions in trafficking cases."
+                "pattern_robustness": "Strong patterns identified in the relationship between victim support and legal outcomes.",
+                "theoretical_alignment": "The analysis aligns with the constructivist approach, emphasizing the subjective experiences of victims.",
+                "researcher_reflexivity": "Reflections on the researcher's biases and perspectives in interpreting the data."
             },
-            "practical_implications": "Insights gained can inform policy recommendations for improving legal frameworks and victim support systems."
+            "practical_implications": "Insights into the need for improved legal frameworks and victim support systems to enhance prosecution efforts."
         }
     }
 ]
