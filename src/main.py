@@ -1,4 +1,4 @@
-# src/main.py
+# main.py
 
 import gc
 import logging
@@ -23,6 +23,7 @@ from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import EnhancedQuotationModule as EnhancedQuotationModuleStandard
 from src.analysis.select_quotation_module_alt import EnhancedQuotationModule as EnhancedQuotationModuleAlt
 from src.analysis.extract_keyword_module import KeywordExtractionModule  # Import KeywordExtractionModule
+from src.analysis.coding_module import CodingAnalysisModule  # Import CodingAnalysisModule
 from src.decorators import handle_exceptions
 
 # Initialize logging
@@ -39,6 +40,7 @@ class ThematicAnalysisPipeline:
     def __init__(self):
         self.contextual_db = None
         self.es_bm25 = None
+        self.optimized_coding_program = None  # Added for Coding Analysis
 
     def create_elasticsearch_bm25_index(self, index_name: str) -> ElasticsearchBM25:
         """
@@ -127,13 +129,48 @@ class ThematicAnalysisPipeline:
         self.optimized_keyword_program.save(config['optimized_keyword_program'])
         logger.info("Keyword extraction optimizer initialized successfully")
 
+    async def initialize_coding_optimizer(self, config):
+        """
+        Initialize the coding analysis optimizer.
+        """
+        logger.info("Initializing coding analysis optimizer")
+        dl = DataLoader()
+        coding_train_dataset = dl.from_csv(
+            config['coding_training_data'],
+            fields=("input", "output"),
+            input_keys=("input",)
+        )
+
+        self.coding_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+        
+        optimizer_config = {
+            'max_bootstrapped_demos': 4,
+            'max_labeled_demos': 4,
+            'num_candidate_programs': 10,
+            'num_threads': 1
+        }
+        
+        self.coding_teleprompter = BootstrapFewShotWithRandomSearch(
+            metric=comprehensive_metric,
+            **optimizer_config
+        )
+
+        self.optimized_coding_program = self.coding_teleprompter.compile(
+            student=self.coding_qa_module,
+            teacher=self.coding_qa_module,
+            trainset=coding_train_dataset
+        )
+        
+        self.optimized_coding_program.save(config['optimized_coding_program'])
+        logger.info("Coding analysis optimizer initialized successfully")
+
     @handle_exceptions
     async def run_pipeline_with_config(self, config, module_class, optimizer_init_func):
         """
         Main function to load data, process queries, and generate outputs.
         :param config: Configuration dictionary for the pipeline.
-        :param module_class: The DSPy module class to use (Quotation or Keyword Extraction).
-        :param optimizer_init_func: Function to initialize the optimizer (Quotation or Keyword).
+        :param module_class: The DSPy module class to use (Quotation, Keyword Extraction, or Coding Analysis).
+        :param optimizer_init_func: Function to initialize the optimizer (Quotation, Keyword Extraction, or Coding Analysis).
         """
         logger.debug("Entering run_pipeline_with_config method.")
         try:
@@ -148,6 +185,8 @@ class ThematicAnalysisPipeline:
             queries_file_standard = config['queries_file_standard']
             evaluation_set_file = config['evaluation_set_file']
             output_filename_primary = config['output_filename_primary']
+            training_data_file = config.get(f"{module_class.__name__.lower().replace('module', '')}_training_data", None)
+            optimized_program_file = config.get(f"optimized_{module_class.__name__.lower().replace('module', '')}_program", None)
 
             dl = DataLoader()
 
@@ -186,7 +225,7 @@ class ThematicAnalysisPipeline:
             logger.info("Validating standard queries")
             validated_standard_queries = validate_queries(standard_queries, module_class())
 
-            # Initialize optimizer (Quotation or Keyword)
+            # Initialize optimizer (Quotation, Keyword Extraction, or Coding Analysis)
             await optimizer_init_func(config)
 
             # Initialize the module with assertions
@@ -205,6 +244,17 @@ class ThematicAnalysisPipeline:
             # Define k value for queries
             k_standard = 20
 
+            # Determine the optimized program based on module type
+            if 'quotation' in module_class.__name__.lower():
+                optimized_program = self.optimized_quotation_program
+            elif 'keyword' in module_class.__name__.lower():
+                optimized_program = self.optimized_keyword_program
+            elif 'coding' in module_class.__name__.lower():
+                optimized_program = self.optimized_coding_program
+            else:
+                logger.error("No optimized program found for the given module type.")
+                return
+
             # Process queries with the module
             logger.info(f"Processing queries with {module_class.__name__}")
             await process_queries(
@@ -213,7 +263,7 @@ class ThematicAnalysisPipeline:
                 self.es_bm25,
                 k=k_standard,
                 output_file=config['output_filename_primary'],
-                optimized_program=self.optimized_quotation_program if 'quotation' in module_class.__name__.lower() else self.optimized_keyword_program,
+                optimized_program=optimized_program,
                 module=module_instance
             )
 
@@ -269,8 +319,17 @@ class ThematicAnalysisPipeline:
             'queries_file_standard': 'data/queries_keyword.json',
             'evaluation_set_file': 'data/evaluation_set_keyword.jsonl',
             'output_filename_primary': 'query_results_keyword_extraction.json',
-            'keyword_training_data': 'data/keyword_training_data.csv',  # Assuming you have this
+            'keyword_training_data': 'data/keyword_training_data.csv',
             'optimized_keyword_program': 'optimized_keyword_program.json'
+        }
+        config_coding_analysis = {  # Added configuration for Coding Analysis pipeline
+            'index_name': 'contextual_bm25_index_coding_analysis',
+            'codebase_chunks_file': 'data/codebase_chunks_coding.json',
+            'queries_file_standard': 'data/queries_coding.json',
+            'evaluation_set_file': 'data/evaluation_set_coding.jsonl',
+            'output_filename_primary': 'query_results_coding_analysis.json',
+            'coding_training_data': 'data/coding_training_data.csv',
+            'optimized_coding_program': 'optimized_coding_program.json'
         }
 
         # Run Standard Quotation Extraction Pipeline
@@ -295,6 +354,14 @@ class ThematicAnalysisPipeline:
             config_keyword_extraction, 
             KeywordExtractionModule,
             self.initialize_keyword_optimizer
+        )
+
+        # Run Coding Analysis Pipeline
+        logger.info("Starting Coding Analysis Pipeline")
+        await self.run_pipeline_with_config(
+            config_coding_analysis,
+            CodingAnalysisModule,
+            self.initialize_coding_optimizer
         )
 
 if __name__ == "__main__":

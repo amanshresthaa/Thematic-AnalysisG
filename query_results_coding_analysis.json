@@ -1,0 +1,882 @@
+[
+    {
+        "coding_info": {
+            "quotation": "Can you describe the typical profile of a sex trafficking victim?",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_42",
+                    "original_index": 42,
+                    "original_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. And another thing, well as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help?",
+                    "contextualized_content": "We want more growers on board, more customers, and to grow that base we\u2019d need to add more of what we\u2019re doing and probably streamline what we\u2019re doing. This reflects our commitment to enhancing our operational efficiency and expanding our reach within the agricultural market. So, there\u2019s a three-way approach where we can drive out the inefficiencies, really. Additionally, as you know, things have changed quite recently \u2013 can you see any trends in society that could perhaps accelerate the vision that you\u2019ve just put forward, that might contribute to help? This question highlights our awareness of the broader market landscape and our desire to leverage societal shifts to bolster our growth strategy."
+                },
+                "score": 0.6023529411764705
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_66",
+                    "original_index": 66,
+                    "original_content": "So, can reduce risk on the [org name]  side by diversifying, bringing in more growers, and on the farm side all you can do is down scale to a point at which you feel you can operate?\nWhich is downscale to a point at which it\u2019s manageable and we can guarantee sales through all of our products we produce.",
+                    "contextualized_content": "The speaker emphasizes that on the organizational side, they can mitigate risk by diversifying and bringing in more growers. This strategy allows them to spread the risk across a broader base, ensuring that they are not overly reliant on a limited number of suppliers. Conversely, on the farm side, the only viable option is to downscale operations to a level that is manageable. This means reducing the size of their farming activities to ensure that they can guarantee sales for all the products they produce, thus maintaining financial stability in a challenging market environment."
+                },
+                "score": 0.2
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_29",
+                    "original_index": 29,
+                    "original_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes.",
+                    "contextualized_content": "Yes, so what you\u2019re saying is that if a supplier dropped out, you could find a different supplier, and things like that? Yes, obviously the crucial thing is suppliers and farmers. If you haven\u2019t got them, or enough of them to supply the demand you\u2019ve got, you\u2019ve got problems. So, they\u2019re the important ones? Yes. This exchange illustrates the foundational role that suppliers and farmers play in ensuring the organization can meet its commitments and maintain its operations effectively. Without a reliable network of suppliers, the organization risks falling short in fulfilling customer demands, which could jeopardize its stability and growth."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
+                    "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
+                },
+                "score": 0.010526315789473684
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_67",
+                    "original_index": 67,
+                    "original_content": "What else can you do? I\u2019m going to be here in the future.",
+                    "contextualized_content": "This statement comes at a point in the conversation where the speaker is discussing the challenges faced by farmers and the agricultural industry, particularly in light of recent events like COVID-19 and Brexit. They express a need to downscale their farming operations to manage risks while simultaneously working to expand their organization, [org name], by bringing in more growers. The speaker's commitment to being present and active in the future reflects their dedication to finding solutions and ensuring the sustainability of their farming practices and the organization as a whole."
+                },
+                "score": 0.006896551724137931
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "Victims of sex trafficking often come from vulnerable backgrounds, such as poverty, lack of education, or unstable family situations.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [],
+        "retrieved_chunks_count": 0,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "They may be lured by promises of a better life, employment opportunities, or even love.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_47",
+                    "original_index": 47,
+                    "original_content": "But that might be more difficult.",
+                    "contextualized_content": "The statement \"But that might be more difficult.\" is made in the context of discussing the implications of Brexit on the agricultural sector, particularly regarding the importation of potatoes and the processing capacity within the UK. The speaker is highlighting that while the challenges of importing may create opportunities for local farmers, the existing bottlenecks in processing capacity could hinder the ability to fully capitalize on these opportunities. This underscores the need for investment in local processing facilities to ensure that domestic produce can be effectively utilized and marketed."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_60",
+                    "original_index": 60,
+                    "original_content": "And it\u2019s not paying. And I\u2019m on the [org name] , the middle part of that is paying, but without farmers, you haven\u2019t got a business. So, this is basically the main risk, the whole farming industry in the UK after Brexit?",
+                    "contextualized_content": "The speaker expresses a deep concern regarding the financial viability of the farming industry in the UK, particularly in the aftermath of Brexit. They note that while their organization ([org name]) is managing to operate profitably, the underlying issue remains that without a robust farming sector, the organization itself cannot sustain its business model. This highlights the precarious nature of agriculture in the current economic climate, where external factors such as Brexit are creating significant risks for farmers, potentially leading to a decline in agricultural productivity and stability."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_55",
+                    "original_index": 55,
+                    "original_content": "In this country I\u2019m hoping Brexit will change it but we don\u2019t know whether we\u2019ve got a good deal or a bad deal yet, do we?",
+                    "contextualized_content": "In this country, I\u2019m hoping Brexit will change it, but we don\u2019t know whether we\u2019ve got a good deal or a bad deal yet, do we? This uncertainty is a significant concern for farmers and organizations like [org name], as the agricultural industry is heavily influenced by trade agreements and market access. The potential for new opportunities exists, but without clarity on the terms of Brexit, farmers are left in a precarious position, unsure of how to plan for the future. This reflects the broader challenges within the industry, where stability and profitability are increasingly difficult to achieve."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_51",
+                    "original_index": 51,
+                    "original_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
+                    "contextualized_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market. This statement underscores the pressing issue of inadequate processing capacity in the UK agricultural sector, which has been exacerbated by recent challenges such as Brexit and the COVID-19 pandemic. The speaker is concerned that without sufficient processing facilities, the hard work of farmers will not translate into marketable products, leading to waste and financial instability. This reflects a broader call for investment in local processing capabilities to ensure that farmers can effectively bring their produce to market and sustain their livelihoods."
+                },
+                "score": 0.007058823529411764
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_84",
+                    "original_index": 84,
+                    "original_content": "So, what you\u2019re looking for is appropriate investment?",
+                    "contextualized_content": "In the context of the conversation, the speaker has highlighted the critical need for appropriate investment to support their organization and the broader agricultural sector. They emphasize that without sufficient financial resources, it is challenging to implement long-term plans, improve efficiency, and ultimately ensure the survival of their business. The speaker advocates for government-backed loans and investment opportunities that would enable farmers to thrive and contribute to a more sustainable food system. This inquiry encapsulates the essence of their struggle and the solutions they are seeking to address the pressing issues within the industry."
+                },
+                "score": 0.005309734513274336
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "Many are young, often under the age of 25, and may have experienced previous trauma or abuse.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_79",
+                    "original_index": 79,
+                    "original_content": "But it\u2019s not to the same scale as what we\u2019ve lost on the other side. And I think you\u2019ll be likely to continue building that up, even as COVID passes?\nThat will continue and hopefully will go from strength to strength. So, you\u2019re not going to go quite back to the way you were before? It\u2019s going to be different? It\u2019ll certainly be different. Yeah, the combination of COVID and Brexit, indeed. Yeah, it\u2019s killing agriculture big style.",
+                    "contextualized_content": "The speaker notes that while the small outlets and online sales have seen growth during the pandemic, this positive change does not compensate for the substantial losses experienced in other areas of the agricultural sector. They express a clear understanding that the landscape of agriculture is shifting due to the combined effects of COVID-19 and Brexit, leading to a situation where the industry is under significant strain. The speaker concludes that the future of their organization and the agricultural sector will be markedly different from the past, necessitating new strategies and adaptations to survive and thrive in this evolving environment."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_69",
+                    "original_index": 69,
+                    "original_content": "That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure.",
+                    "contextualized_content": "The COVID-19 pandemic had a profound impact on the potato supply chain, particularly affecting the food service sector. As restaurants and similar businesses closed, the demand for potatoes plummeted, leading to a situation where farmers found themselves with excess stock and no buyers. As we plan for the 2021/2022 harvest, we face a dilemma: many customers are unwilling to sign contracts until they have a clearer understanding of future market conditions. This uncertainty places farmers in a difficult position; we must continue to invest in our operations by purchasing seeds and planting potatoes, even as customers express hesitance about future orders. The situation underscores the challenges of maintaining a stable supply chain in the face of unpredictable market dynamics."
+                },
+                "score": 0.2
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_56",
+                    "original_index": 56,
+                    "original_content": "It\u2019s still evolving, yeah. It\u2019s a long way to go to get through this. Farming is in a dire mess. And that includes potatoes. And that\u2019s not necessarily for the price, it\u2019s the weather patterns and everything.",
+                    "contextualized_content": "The farming industry is currently experiencing significant turmoil, with many farmers, including those in the potato sector, facing dire challenges. These challenges are compounded by unpredictable weather patterns, which can severely impact crop yields and overall agricultural productivity. As the situation continues to evolve, farmers must navigate these complexities while striving to maintain their operations and ensure a sustainable future for their businesses."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+                },
+                "score": 0.010526315789473684
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_49",
+                    "original_index": 49,
+                    "original_content": "So, it sounds like the bottle-neck is actually going to be processing capacity in the UK?",
+                    "contextualized_content": "The discussion reveals that the processing capacity in the UK is a significant bottleneck for the agricultural sector. Despite having a robust supply of farmers and potatoes, the inability to process these products locally means that much of the potential output is wasted or exported for processing abroad. This situation is exacerbated by the current economic climate, where investment in local processing facilities is lacking. The speaker points out that without adequate processing capabilities, the farming industry cannot thrive, leading to a cycle of inefficiency and financial instability. Addressing this bottleneck is crucial for the future sustainability of the agricultural sector in the UK."
+                },
+                "score": 0.007058823529411764
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "What are the common tactics used by traffickers?",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_80",
+                    "original_index": 80,
+                    "original_content": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add? What\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying? We\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.",
+                    "contextualized_content": "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector."
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers.",
+                    "contextualized_content": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+                },
+                "score": 0.010526315789473684
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
+                    "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
+                },
+                "score": 0.008074051955807703
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_48",
+                    "original_index": 48,
+                    "original_content": "So, it\u2019s about developing manufacturing capacity to actually use what we already have? We use what here, we import a large amount of potatoes anyway, for ready-made meals and things like that. We\u2019ve got the product to use, it\u2019s here in the country but we\u2019re not utilising it. And the factories, the money has been invested in other countries, not the UK for processing potatoes. And I know there\u2019s McCain\u2019s have reduced what they spend here, and [unclear \u2013 0:16:17:0] their major competitor take potatoes out of the UK, into Belgium, process them and they come back as a value pack for the supermarkets. Why are we allowing the road miles and everything else \u2013 it\u2019s crackers.",
+                    "contextualized_content": "The speaker is emphasizing the critical need for the UK to enhance its manufacturing capacity to process locally grown potatoes. Currently, a significant amount of potatoes is imported for ready-made meals, despite having ample domestic supply. The investment in processing facilities has largely gone abroad, leading to a situation where UK-grown potatoes are sent to countries like Belgium for processing and then returned as finished products. This not only raises costs but also contributes to unnecessary road miles, which is environmentally unsustainable. The speaker questions the logic behind this practice and advocates for a shift towards utilizing local resources more effectively."
+                },
+                "score": 0.006896551724137931
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 1,
+        "contextualized_contents": [
+            "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector."
+        ],
+        "used_chunk_ids": [
+            "Document_chunk_80"
+        ],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "Traffickers use a variety of manipulative tactics, including deception, coercion, and psychological manipulation.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [],
+        "retrieved_chunks_count": 0,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "They may offer false promises, such as well-paying jobs or romantic relationships, to gain the trust of their victims.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_51",
+                    "original_index": 51,
+                    "original_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
+                    "contextualized_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market. This statement underscores the pressing issue of inadequate processing capacity in the UK agricultural sector, which has been exacerbated by recent challenges such as Brexit and the COVID-19 pandemic. The speaker is concerned that without sufficient processing facilities, the hard work of farmers will not translate into marketable products, leading to waste and financial instability. This reflects a broader call for investment in local processing capabilities to ensure that farmers can effectively bring their produce to market and sustain their livelihoods."
+                },
+                "score": 0.6035087719298246
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
+                    "contextualized_content": "The speaker articulates a critical perspective on the current financial landscape for farmers, stating, \"It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left.\" This underscores the precarious situation faced by agricultural organizations, where the lack of financial support from banks limits their capacity to implement long-term strategies for growth and job creation. The call for a more relaxed banking approach indicates a desire for systemic change that would enable farmers to thrive and contribute positively to the economy."
+                },
+                "score": 0.3023529411764706
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_6",
+                    "original_index": 6,
+                    "original_content": "What\u2019s your personal involvement in this? What role do you play?",
+                    "contextualized_content": "When asked about personal involvement, the speaker explains that they manage the supply of potatoes from multiple farms to the factory, ensuring a consistent and steady supply rather than a sporadic one. They coordinate with about ten to fifteen farms, handling the logistics of supply and distribution of payments back to the farmers. This role is pivotal as it not only facilitates the operational efficiency of the organization but also directly impacts the financial returns to the farmers, aligning with the organization's goal of maximizing profits for its members."
+                },
+                "score": 0.2
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_40",
+                    "original_index": 40,
+                    "original_content": "So, we need to get close to then cut those rogues out the industry, really. Okay, so it\u2019s cutting the rogues out.",
+                    "contextualized_content": "So, we need to get close to then cut those rogues out the industry, really. This means that by eliminating the middlemen who often take a significant cut of the profits, we can ensure that more money goes directly back to the farmers. This is crucial for the sustainability of our operations and the livelihoods of the farmers we work with. By focusing on direct relationships and fair pricing, we can create a more equitable system that benefits everyone involved, especially the farmers who are the backbone of our organization."
+                },
+                "score": 0.010526315789473684
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_80",
+                    "original_index": 80,
+                    "original_content": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add? What\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying? We\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.",
+                    "contextualized_content": "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector."
+                },
+                "score": 0.006896551724137931
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "Once the victims are isolated and dependent on the traffickers, they use threats, violence, and control to keep them in the trafficking situation.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_7",
+                    "original_index": 7,
+                    "original_content": "When the factory wants loads, well, rather than going to individual farms, we manage their supply into the factory. So, there\u2019s about ten-fifteen farms, supplying in. And we manage that supply so that there\u2019s a steady supply of potatoes rather than odds and sods here and there. Then obviously, they pay [org name]  and [org name]  distributes the money out to the farmers.",
+                    "contextualized_content": "In the context of [org name], when the factory requires loads of potatoes, instead of sourcing them from individual farms, we take on the responsibility of managing the supply from about ten to fifteen farms. This approach allows us to ensure a steady and reliable supply of potatoes, avoiding the inconsistencies that can arise from individual farm contributions. Once the factory pays [org name], we then handle the distribution of funds back to the farmers, ensuring they receive their fair share of the profits."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_1",
+                    "original_index": 1,
+                    "original_content": "When you say that, do you mean the farm side or the [org name] ? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms, they would rather go through an organisation. So, it\u2019s like an interface between the farmers and the customers? Yes, basically, somewhere in the middle it\u2019s owned by the farmers. Set up for the farmers.",
+                    "contextualized_content": "When you say that, do you mean the farm side or the [org name]? I think the [org name]. [org name] is 3 farmers, we all grow potatoes. We are all selling individually, and what we\u2019re trying to do is come together to make an organisation basically, where all our potatoes are bought centrally and marketed all together. This organization is designed to streamline the process, allowing us to work collectively rather than as isolated entities. So, fundamentally, we brought in a trader to take the burden out of the individual farms and get closer to the customers, because the customers don\u2019t really want to deal with the farms; they would rather go through an organization. This setup acts as an interface between the farmers and the customers, ensuring that the organization is owned by the farmers and tailored to their needs."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_80",
+                    "original_index": 80,
+                    "original_content": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add? What\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying? We\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.",
+                    "contextualized_content": "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector."
+                },
+                "score": 0.2
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_82",
+                    "original_index": 82,
+                    "original_content": "It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left. The banking industry needs to be relaxed for the right people, to allow them to really put a long-term plan in place for jobs and everything.",
+                    "contextualized_content": "The speaker articulates a critical perspective on the current financial landscape for farmers, stating, \"It\u2019s mad. And yeah, money needs to be readily available for people like ourselves to invest in the right places to become more efficient at what we\u2019re doing. We\u2019ll have no business left.\" This underscores the precarious situation faced by agricultural organizations, where the lack of financial support from banks limits their capacity to implement long-term strategies for growth and job creation. The call for a more relaxed banking approach indicates a desire for systemic change that would enable farmers to thrive and contribute positively to the economy."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_34",
+                    "original_index": 34,
+                    "original_content": "So, I think, looking a little bit towards the future, if you consider the next few years, and for the longer term, perhaps the next fifteen years, what would you say is your vision for what you might call, \u2018Future Food Systems\u2019? My vision for the future \u2013 I think sustainability is the key to anything. If we don\u2019t have sustainability, we\u2019ve got problems. I want to bring more farmers on board, to grow our members; to see the benefits of what we\u2019re doing. And also, to look at taking this \u2013 we\u2019ve just started off a 7.5kg bag line, it\u2019s a new thing for us, getting closer to the customer, and I think we\u2019ll look at something else to get closer to the customer really and cut the factories out, where we become further down the chain. The closer to the customer we get, the more we\u2019ll get back to the farm. So, ultimately you would have a process that would take the produce directly from the farm, straight to the end customer?",
+                    "contextualized_content": "The speaker envisions a future where sustainability is paramount in the food system. They aim to expand their organization by bringing more farmers on board, thereby increasing the collective benefits for all members. A key initiative is the introduction of a 7.5kg bag line, which represents a step towards getting closer to the customer and reducing dependency on factories. This approach is intended to create a more direct supply chain, ultimately allowing for a process that delivers produce straight from the farm to the end customer. By doing so, they hope to enhance profitability for farmers and ensure that the financial benefits of their work are maximized."
+                },
+                "score": 0.006896551724137931
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "How do you identify potential victims?",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_55",
+                    "original_index": 55,
+                    "original_content": "In this country I\u2019m hoping Brexit will change it but we don\u2019t know whether we\u2019ve got a good deal or a bad deal yet, do we?",
+                    "contextualized_content": "In this country, I\u2019m hoping Brexit will change it, but we don\u2019t know whether we\u2019ve got a good deal or a bad deal yet, do we? This uncertainty is a significant concern for farmers and organizations like [org name], as the agricultural industry is heavily influenced by trade agreements and market access. The potential for new opportunities exists, but without clarity on the terms of Brexit, farmers are left in a precarious position, unsure of how to plan for the future. This reflects the broader challenges within the industry, where stability and profitability are increasingly difficult to achieve."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_16",
+                    "original_index": 16,
+                    "original_content": "How would you consider yourself to be innovative? What do you feel you are doing differently?",
+                    "contextualized_content": "The speaker considers their organization innovative primarily because they have eliminated the traditional middleman in the agricultural supply chain. By doing so, they ensure that the profits from potato sales are returned directly to the farmers, rather than being siphoned off by intermediaries. This approach not only supports the financial stability of the farmers but also aims to create a more sustainable and equitable food system. The speaker notes that this model is a response to the historical lack of profitability for farmers, and they are committed to changing that dynamic by directly managing the supply and marketing of their produce."
+                },
+                "score": 0.2
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_80",
+                    "original_index": 80,
+                    "original_content": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add? What\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying? We\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.",
+                    "contextualized_content": "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_28",
+                    "original_index": 28,
+                    "original_content": "Is that what you mean?",
+                    "contextualized_content": "The question \"Is that what you mean?\" arises after the interviewee explains how their organization functions as an interface between farmers and customers, effectively taking on the role of the middleman to streamline the process and ensure that profits return to the farmers. This moment highlights the importance of clear communication in discussions about organizational roles and market dynamics, as the interviewer seeks to confirm their understanding of the innovative approach being taken by the organization."
+                },
+                "score": 0.010526315789473684
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_86",
+                    "original_index": 86,
+                    "original_content": "Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest.",
+                    "contextualized_content": "The statement, \"Put it to them \u2013 to do what you want and what you say you\u2019re going to do, we need these businesses to invest,\" encapsulates the urgent call for financial support within the agricultural industry. The speaker is advocating for a shift in focus towards securing investment that can empower farmers and organizations to implement their strategies effectively. This need for investment is underscored by the challenges posed by market volatility, competition, and the impact of external factors like COVID-19 and Brexit, which have exacerbated the financial strain on farmers. By securing the necessary funding, the organization aims to streamline operations, reduce inefficiencies, and ultimately ensure that more profits return to the farmers, thereby fostering a more sustainable food system."
+                },
+                "score": 0.008828735033836542
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "Identifying potential victims can be challenging, but there are some common signs.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_80",
+                    "original_index": 80,
+                    "original_content": "If all the manufacturers stop, it\u2019ll kill it. And that\u2019s all very worrying. Well, I hope things get better for you. I\u2019ve come to the end of my questions now, you\u2019ve shed a lot of insight into what\u2019s sort of happening in this situation. I wonder, do you have any further thoughts, or questions, that you might want to add? What\u2019s the idea \u2013 obviously you\u2019re asking other people within the industry \u2013 what is the general consensus of what people are saying? We\u2019ve only just started, but one of the aims of the research is to find out just that. Find out what are the common issues, what are the common concerns, and what the problems \u2013 and possibly solutions are that people might be facing.",
+                    "contextualized_content": "The discussion highlights the precarious situation facing the agricultural industry, particularly the reliance on manufacturers for the viability of farming operations. The speaker's concern that \"if all the manufacturers stop, it\u2019ll kill it\" underscores the critical need for a stable processing capacity to support farmers. The subsequent inquiry about the general consensus among industry stakeholders reflects an effort to understand the broader challenges and explore collaborative solutions. This context is essential for framing the ongoing research aimed at identifying common issues and potential strategies to bolster the agricultural sector."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_72",
+                    "original_index": 72,
+                    "original_content": "If you could get some straight to the customers, would that help?",
+                    "contextualized_content": "The question, \"If you could get some straight to the customers, would that help?\" reflects a pivotal moment in the conversation about the organization's strategy in response to the disruptions caused by COVID-19. The interviewee acknowledges that while there is potential in direct sales to consumers, there are limitations, as many people may not prioritize potatoes in their cooking, opting instead for staples like rice and pasta. This highlights the need for a strategic approach to marketing and product offerings that align with consumer preferences. The discussion emphasizes the importance of adapting to market demands and finding innovative ways to connect with customers, which is crucial for the organization's sustainability and growth in the face of ongoing challenges."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_69",
+                    "original_index": 69,
+                    "original_content": "That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure.",
+                    "contextualized_content": "The COVID-19 pandemic had a profound impact on the potato supply chain, particularly affecting the food service sector. As restaurants and similar businesses closed, the demand for potatoes plummeted, leading to a situation where farmers found themselves with excess stock and no buyers. As we plan for the 2021/2022 harvest, we face a dilemma: many customers are unwilling to sign contracts until they have a clearer understanding of future market conditions. This uncertainty places farmers in a difficult position; we must continue to invest in our operations by purchasing seeds and planting potatoes, even as customers express hesitance about future orders. The situation underscores the challenges of maintaining a stable supply chain in the face of unpredictable market dynamics."
+                },
+                "score": 0.010526315789473684
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_73",
+                    "original_index": 73,
+                    "original_content": "There is an element of that, but there are a lot of people who don\u2019t use potatoes \u2013 the cooking at home is rice, it\u2019s pasta.",
+                    "contextualized_content": "The speaker acknowledges that while there is potential for direct-to-consumer sales of potatoes, many consumers are gravitating towards staples like rice and pasta for their home cooking. This shift in consumer preference poses a challenge for the potato industry, as it indicates a need for the organization to rethink its approach to marketing and distribution. By recognizing these trends, the organization can better position itself to meet consumer demands and explore innovative ways to promote potato products, ensuring they remain relevant in a competitive market."
+                },
+                "score": 0.007058823529411764
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_76",
+                    "original_index": 76,
+                    "original_content": "It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers. But it\u2019s not the public, it is the supermarkets. And the government has got to say, \u2018No, enough is enough.\u2019 Apart from all these bad things that have clearly happened, is there anything that has changed for the better as a result of COVID? Anything at all?",
+                    "contextualized_content": "The speaker argues that significant changes are necessary at the government level to prioritize local agriculture over imports, stating, \"It\u2019s got to come from government level really, to say, \u2018No, no more.\u2019 Or the supermarkets, the customers.\" They acknowledge the negative impacts of COVID but also point out that some local outlets, like farm shops, have thrived during this time, indicating a shift in consumer preferences towards local produce. This dual perspective illustrates the challenges and opportunities within the agricultural landscape post-COVID."
+                },
+                "score": 0.005309734513274336
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "Victims may exhibit signs of fear, anxiety, or depression.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_61",
+                    "original_index": 61,
+                    "original_content": "We don\u2019t know which way it\u2019s going to go.",
+                    "contextualized_content": "The phrase \"We don\u2019t know which way it\u2019s going to go\" encapsulates the prevailing uncertainty in the agricultural sector, particularly in light of recent changes such as Brexit and the ongoing challenges posed by the COVID-19 pandemic. Farmers are grappling with unpredictable market conditions, which have been exacerbated by fluctuating prices and the need for sustainable practices. This uncertainty is not just a personal concern but reflects a collective anxiety within the farming community about the future of agriculture in the UK. The speaker emphasizes the importance of addressing these challenges through investment and support for local farming initiatives to ensure a stable and sustainable future."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_69",
+                    "original_index": 69,
+                    "original_content": "That was a major effect. To the point after the lockdown now, this sector doesn\u2019t require the potatoes. And we\u2019re planning now for 2021/2022 harvest and to be quite honest we\u2019ve got customers who won\u2019t sign a contract with us until they know more about what is going to happen. But as a farmer, you have to buy the seed, you have to plant the potatoes, you can\u2019t stop. But the customers are just saying, \u2018Well, not sure.",
+                    "contextualized_content": "The COVID-19 pandemic had a profound impact on the potato supply chain, particularly affecting the food service sector. As restaurants and similar businesses closed, the demand for potatoes plummeted, leading to a situation where farmers found themselves with excess stock and no buyers. As we plan for the 2021/2022 harvest, we face a dilemma: many customers are unwilling to sign contracts until they have a clearer understanding of future market conditions. This uncertainty places farmers in a difficult position; we must continue to invest in our operations by purchasing seeds and planting potatoes, even as customers express hesitance about future orders. The situation underscores the challenges of maintaining a stable supply chain in the face of unpredictable market dynamics."
+                },
+                "score": 0.2
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_71",
+                    "original_index": 71,
+                    "original_content": "I wonder if the Direct to Customer service could help here?",
+                    "contextualized_content": "The question about the Direct to Customer service arises during a discussion about the significant impact of COVID-19 on the organization, particularly regarding the loss of contracts with customers in the food service sector. The speaker expresses concern about the potential for thousands of tonnes of unsold potatoes due to the sudden halt in demand from restaurants and similar businesses. By suggesting that the Direct to Customer service could help, the speaker is considering innovative ways to reach consumers directly, thereby potentially reducing the surplus and ensuring that the produce is utilized effectively. This reflects a broader strategy to adapt to changing market conditions and consumer behaviors in the wake of the pandemic."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_51",
+                    "original_index": 51,
+                    "original_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market.",
+                    "contextualized_content": "The farmers are there, they\u2019ll do a good job. They\u2019re there to do it. But if they can\u2019t process what we produce, we\u2019re snookered. We\u2019re just flooding the market. This statement underscores the pressing issue of inadequate processing capacity in the UK agricultural sector, which has been exacerbated by recent challenges such as Brexit and the COVID-19 pandemic. The speaker is concerned that without sufficient processing facilities, the hard work of farmers will not translate into marketable products, leading to waste and financial instability. This reflects a broader call for investment in local processing capabilities to ensure that farmers can effectively bring their produce to market and sustain their livelihoods."
+                },
+                "score": 0.007058823529411764
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_79",
+                    "original_index": 79,
+                    "original_content": "But it\u2019s not to the same scale as what we\u2019ve lost on the other side. And I think you\u2019ll be likely to continue building that up, even as COVID passes?\nThat will continue and hopefully will go from strength to strength. So, you\u2019re not going to go quite back to the way you were before? It\u2019s going to be different? It\u2019ll certainly be different. Yeah, the combination of COVID and Brexit, indeed. Yeah, it\u2019s killing agriculture big style.",
+                    "contextualized_content": "The speaker notes that while the small outlets and online sales have seen growth during the pandemic, this positive change does not compensate for the substantial losses experienced in other areas of the agricultural sector. They express a clear understanding that the landscape of agriculture is shifting due to the combined effects of COVID-19 and Brexit, leading to a situation where the industry is under significant strain. The speaker concludes that the future of their organization and the agricultural sector will be markedly different from the past, necessitating new strategies and adaptations to survive and thrive in this evolving environment."
+                },
+                "score": 0.005309734513274336
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 0,
+        "contextualized_contents": [],
+        "used_chunk_ids": [],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    },
+    {
+        "coding_info": {
+            "quotation": "They may have limited access to personal documents, such as passports or identification cards.",
+            "keywords": [
+                "vulnerable backgrounds",
+                "manipulative tactics",
+                "identifying potential victims",
+                "signs of fear"
+            ],
+            "research_objectives": "To comprehensively understand the profiles, tactics, and identification methods of sex trafficking victims in order to develop effective prevention and intervention strategies.",
+            "theoretical_framework": {
+                "theory": "Victimology Theory",
+                "philosophical_approach": "Critical Realist",
+                "rationale": "Analyzing the characteristics and experiences of sex trafficking victims to inform intervention strategies"
+            }
+        },
+        "retrieved_chunks": [
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_54",
+                    "original_index": 54,
+                    "original_content": "So, you\u2019re aware of this issue but you might not be in a position personally to do much about it?\nExactly. I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward. But without the investment or money to back what requires doing, it\u2019s a waste of time, isn\u2019t it? So, moving on a little bit more to financial issues, how resilient do you feel your organisation is? How stable do you think things might be, going forward in the next few years? The stability in [org name]  is fine. The stability in agriculture and farming is disastrous. Without the farmers and the potatoes, and supply what ever you\u2019re doing, we\u2019re not very stable. The problem is, manufacturing full stop.",
+                    "contextualized_content": "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+                },
+                "score": 0.8
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_89",
+                    "original_index": 89,
+                    "original_content": "END",
+                    "contextualized_content": "The document concludes with a reflection on the challenges and opportunities within the agricultural sector, particularly in potato farming. It highlights the organization's commitment to sustainability, the need for investment in local food systems, and the importance of reducing food miles. The conversation emphasizes the necessity for a more efficient supply chain that benefits farmers directly, ensuring they receive fair compensation for their produce. The insights shared throughout the document underscore the complexities of the agricultural landscape, especially in light of recent global events like COVID-19 and Brexit, which have significantly impacted the industry."
+                },
+                "score": 0.6
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_72",
+                    "original_index": 72,
+                    "original_content": "If you could get some straight to the customers, would that help?",
+                    "contextualized_content": "The question, \"If you could get some straight to the customers, would that help?\" reflects a pivotal moment in the conversation about the organization's strategy in response to the disruptions caused by COVID-19. The interviewee acknowledges that while there is potential in direct sales to consumers, there are limitations, as many people may not prioritize potatoes in their cooking, opting instead for staples like rice and pasta. This highlights the need for a strategic approach to marketing and product offerings that align with consumer preferences. The discussion emphasizes the importance of adapting to market demands and finding innovative ways to connect with customers, which is crucial for the organization's sustainability and growth in the face of ongoing challenges."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_52",
+                    "original_index": 52,
+                    "original_content": "Do you think that [org name]  could actually, in any way, contribute towards helping with developing this processing capacity? We could, but the trouble with all these ideas is that they cost a lot of money. And at a farm level, there isn\u2019t a lot of money left in the tank to be able to chuck at these things. You\u2019ve got to make your profits to then reinvest them. And the banking industry is backing away from agriculture, because it\u2019s not seen as a very well \u2013 the profit margins are pathetic. So, it\u2019s building that to go forward. Money is key.",
+                    "contextualized_content": "The speaker acknowledges that while [org name] could potentially contribute to developing processing capacity, financial limitations pose a significant barrier. They emphasize that substantial investment is required for such initiatives, but current profit margins in agriculture are insufficient to support this. The banking industry's withdrawal from agricultural financing further complicates the situation, making it difficult for organizations like [org name] to secure the necessary funds to invest in processing capabilities. This highlights the critical need for financial support and investment in the agricultural sector to foster growth and sustainability."
+                },
+                "score": 0.020689655172413793
+            },
+            {
+                "chunk": {
+                    "doc_id": "Document",
+                    "original_uuid": "6bd22a0e0e7b4eee9801ab8c35ce7a16",
+                    "chunk_id": "Document_chunk_61",
+                    "original_index": 61,
+                    "original_content": "We don\u2019t know which way it\u2019s going to go.",
+                    "contextualized_content": "The phrase \"We don\u2019t know which way it\u2019s going to go\" encapsulates the prevailing uncertainty in the agricultural sector, particularly in light of recent changes such as Brexit and the ongoing challenges posed by the COVID-19 pandemic. Farmers are grappling with unpredictable market conditions, which have been exacerbated by fluctuating prices and the need for sustainable practices. This uncertainty is not just a personal concern but reflects a collective anxiety within the farming community about the future of agriculture in the UK. The speaker emphasizes the importance of addressing these challenges through investment and support for local farming initiatives to ensure a stable and sustainable future."
+                },
+                "score": 0.010526315789473684
+            }
+        ],
+        "retrieved_chunks_count": 5,
+        "filtered_chunks_count": 1,
+        "contextualized_contents": [
+            "The speaker recognizes the pressing issues within the agricultural sector, stating, \"I can see the issue. I know exactly what the issue is and I know where you\u2019d take it forward.\" However, they feel limited in their ability to effect change due to a lack of investment, saying, \"without the investment or money to back what requires doing, it\u2019s a waste of time.\" They then discuss the stability of their organization, noting, \"The stability in [org name] is fine,\" but contrasting this with the \"disastrous\" state of agriculture, emphasizing that without farmers and a reliable supply of potatoes, their organization cannot maintain stability. This highlights the critical need for financial support and investment in the agricultural sector to ensure its resilience and sustainability."
+        ],
+        "used_chunk_ids": [
+            "Document_chunk_54"
+        ],
+        "codes": [],
+        "analysis": {
+            "error": "No relevant codes were developed for analysis."
+        }
+    }
+]

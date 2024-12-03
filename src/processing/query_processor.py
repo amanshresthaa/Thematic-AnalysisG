@@ -1,3 +1,4 @@
+
 # src/processing/query_processor.py
 
 import logging
@@ -14,6 +15,7 @@ import dspy
 
 from src.analysis.select_quotation_module import SelectQuotationModule, EnhancedQuotationModule
 from src.analysis.extract_keyword_module import KeywordExtractionModule
+from src.analysis.coding_module import CodingAnalysisModule  # Added import for CodingAnalysisModule
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -26,13 +28,31 @@ def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> 
     for idx, transcript in enumerate(transcripts):
         if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
             # Validation for quotation extraction modules
-            if 'transcript_chunk' not in transcript or not transcript['transcript_chunk'].strip():
-                logger.warning(f"Transcript at index {idx} is missing the 'transcript_chunk' field or is empty. Skipping.")
+            if 'transcript_chunk' not in transcript or not isinstance(transcript['transcript_chunk'], str) or not transcript['transcript_chunk'].strip():
+                logger.warning(f"Transcript at index {idx} is missing the 'transcript_chunk' field or it is empty/not a string. Skipping.")
                 continue
         elif isinstance(module, KeywordExtractionModule):
             # Validation for keyword extraction module
-            if 'quotation' not in transcript or not transcript['quotation'].strip():
-                logger.warning(f"Transcript at index {idx} is missing the 'quotation' field or is empty. Skipping.")
+            if 'quotation' not in transcript or not isinstance(transcript['quotation'], str) or not transcript['quotation'].strip():
+                logger.warning(f"Transcript at index {idx} is missing the 'quotation' field or it is empty/not a string. Skipping.")
+                continue
+        elif isinstance(module, CodingAnalysisModule):
+            # Validation for coding analysis module
+            required_string_fields = ['quotation']
+            required_list_fields = ['keywords']
+
+            missing_fields = []
+            # Check string fields
+            for field in required_string_fields:
+                if field not in transcript or not isinstance(transcript[field], str) or not transcript[field].strip():
+                    missing_fields.append(field)
+            # Check list fields
+            for field in required_list_fields:
+                if field not in transcript or not isinstance(transcript[field], list) or not transcript[field]:
+                    missing_fields.append(field)
+
+            if missing_fields:
+                logger.warning(f"Transcript at index {idx} is missing required fields {missing_fields} for coding analysis or they are empty/invalid. Skipping.")
                 continue
         else:
             logger.warning(f"Unknown module type for transcript at index {idx}. Skipping.")
@@ -144,7 +164,7 @@ async def process_single_transcript_keyword(
     # Process quotation using keyword module
     response = module.forward(
         research_objectives=research_objectives,
-        quotation=quotation,  # Changed from transcript_chunk to quotation
+        quotation=quotation,
         contextualized_contents=contextualized_contents,
         theoretical_framework=theoretical_framework
     )
@@ -172,6 +192,72 @@ async def process_single_transcript_keyword(
     logger.info(f"Extracted {len(result['keywords'])} keywords for quotation.")
     return result
 
+@handle_exceptions
+async def process_single_transcript_coding(
+    transcript_item: Dict[str, Any],
+    db: ContextualVectorDB,
+    es_bm25: ElasticsearchBM25,
+    k: int,
+    module: dspy.Module
+) -> Dict[str, Any]:
+    """
+    Processes a single transcript item for coding analysis.
+    """
+    quotation = transcript_item.get('quotation', '').strip()
+    keywords = transcript_item.get('keywords', [])
+    if not quotation:
+        logger.warning("Quotation is missing or empty. Skipping.")
+        return {}
+    if not keywords:
+        logger.warning("Keywords are missing or empty. Skipping.")
+        return {}
+
+    logger.info(f"Processing transcript for coding analysis: Quotation='{quotation[:100]}...', Keywords={keywords}")
+
+    # Retrieve and filter chunks
+    retrieved_chunks = retrieve_documents(quotation, db, es_bm25, k)
+    filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
+    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
+
+    research_objectives = transcript_item.get(
+        'research_objectives',
+        'Perform comprehensive coding analysis based on the provided quotation and keywords.'
+    )
+    theoretical_framework = transcript_item.get('theoretical_framework', {})
+
+    # Process transcript using coding analysis module
+    response = module.forward(
+        research_objectives=research_objectives,
+        quotation=quotation,
+        keywords=keywords,
+        contextualized_contents=contextualized_contents,
+        theoretical_framework=theoretical_framework
+    )
+    
+    # Prepare coding analysis-specific result dictionary
+    result = {
+        "coding_info": response.get("coding_info", {
+            "quotation": quotation,
+            "keywords": keywords,
+            "research_objectives": research_objectives,
+            "theoretical_framework": theoretical_framework
+        }),
+        "retrieved_chunks": retrieved_chunks,
+        "retrieved_chunks_count": len(retrieved_chunks),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "codes": response.get("codes", []),  # Changed 'developed_codes' to 'codes'
+        "analysis": response.get("analysis", {}),
+    }
+
+    if not result["codes"]:
+        logger.warning(f"No codes developed for quotation: '{quotation[:100]}...'")
+        result["analysis"]["error"] = "No relevant codes were developed for analysis."
+
+    logger.info(f"Developed {len(result['codes'])} codes for coding analysis.")
+    return result
+
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
     Saves the processed transcript results to a specified output file.
@@ -194,7 +280,7 @@ async def process_queries(
     module: dspy.Module
 ):
     """
-    Processes a list of transcript chunks based on the module type.
+    Processes a list of transcript items based on the module type.
     """
     logger.info(f"Starting to process transcripts for output file '{output_file}'.")
 
@@ -205,6 +291,8 @@ async def process_queries(
             process_func = process_single_transcript_quotation
         elif isinstance(module, KeywordExtractionModule):
             process_func = process_single_transcript_keyword
+        elif isinstance(module, CodingAnalysisModule):
+            process_func = process_single_transcript_coding
         else:
             logger.error("Unsupported module type provided.")
             return

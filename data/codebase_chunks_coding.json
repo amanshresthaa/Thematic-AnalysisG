@@ -1,0 +1,54 @@
+{
+    "chunks": [
+        {
+            "chunk_id": "victim_profile_1",
+            "content": "Victims of sex trafficking often share common characteristics that make them vulnerable to exploitation. These include economic instability, lack of education or job opportunities, and unstable family environments. Young individuals, particularly those under 25, are at higher risk. Previous trauma or abuse can increase vulnerability.",
+            "contextualized_content": "Understanding victim profiles is crucial for prevention and intervention. The combination of socioeconomic factors, age, and previous trauma creates a complex vulnerability profile that traffickers often exploit. Prevention strategies must address these underlying factors.",
+            "metadata": {
+                "theme": "Victim Profiles",
+                "category": "Risk Factors",
+                "relevance": "High"
+            }
+        },
+        {
+            "chunk_id": "tech_impact_1",
+            "content": "Technology plays a dual role in sex trafficking. Social media and online platforms are used by traffickers for recruitment and exploitation. Anonymous messaging and wide reach make it easier for traffickers to operate. However, these same technological tools can be used by law enforcement for investigation and prevention.",
+            "contextualized_content": "The impact of technology on sex trafficking represents a complex challenge for law enforcement and prevention efforts. While digital platforms facilitate trafficking operations, they also provide opportunities for intervention and victim identification.",
+            "metadata": {
+                "theme": "Technology Impact",
+                "category": "Methods and Tools",
+                "relevance": "High"
+            }
+        },
+        {
+            "chunk_id": "psych_impact_1",
+            "content": "The psychological impact of sex trafficking is severe and long-lasting. Victims commonly experience PTSD, depression, and anxiety. Complex trauma develops from repeated exposure to exploitation and abuse. Mental health support is crucial for recovery but often challenging to access.",
+            "contextualized_content": "Understanding the psychological trauma of trafficking is essential for providing appropriate support services. The complexity of mental health impacts requires a comprehensive approach to victim recovery and rehabilitation.",
+            "metadata": {
+                "theme": "Psychological Impact",
+                "category": "Mental Health",
+                "relevance": "High"
+            }
+        },
+        {
+            "chunk_id": "prevention_1",
+            "content": "Prevention strategies must address both individual and systemic factors. Education programs can raise awareness about trafficking risks. Economic empowerment reduces vulnerability. Community involvement is essential for early identification and intervention.",
+            "contextualized_content": "Effective prevention requires a multi-faceted approach that combines individual support with broader systemic change. Community engagement and economic development play crucial roles in reducing trafficking risk.",
+            "metadata": {
+                "theme": "Prevention Strategies",
+                "category": "Intervention",
+                "relevance": "High"
+            }
+        },
+        {
+            "chunk_id": "legal_framework_1",
+            "content": "Legal frameworks for combating trafficking vary by jurisdiction. International cooperation is crucial for addressing cross-border trafficking. Victim protection and support services are essential components of legal responses. Prosecution of traffickers often faces significant challenges.",
+            "contextualized_content": "The effectiveness of legal responses to trafficking depends on strong frameworks and international cooperation. Protection of victims must be prioritized alongside prosecution of perpetrators.",
+            "metadata": {
+                "theme": "Legal Framework",
+                "category": "Law Enforcement",
+                "relevance": "High"
+            }
+        }
+    ]
+}
