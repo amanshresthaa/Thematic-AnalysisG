@@ -1,37 +1,95 @@
-# File: src/utils/logger.py
+# src/utils/logger.py:
+
 import logging
 import logging.config
 import os
 import yaml
+from typing import Optional
+from functools import wraps
+import time
 
-def setup_logging(default_path='config/logging_config.yaml', default_level=logging.INFO):
+def setup_logging(
+    default_path: str = 'config/logging_config.yaml',
+    default_level: int = logging.INFO,
+    env_key: str = 'LOG_CFG'
+) -> None:
     """
-    Setup logging configuration from a YAML file.
-    Ensures that the log directory exists before configuring handlers.
+    Setup logging configuration with enhanced error handling and directory creation.
+    
+    Args:
+        default_path: Path to the logging configuration file
+        default_level: Default logging level if config file is not found
+        env_key: Environment variable that can be used to override the config path
     """
-    if os.path.exists(default_path):
-        with open(default_path, 'r') as f:
-            config = yaml.safe_load(f.read())
-
-        # Extract all file handler paths to ensure directories exist
-        handlers = config.get('handlers', {})
-        for handler_name, handler in handlers.items():
-            if 'filename' in handler:
-                log_file = handler['filename']
-                log_dir = os.path.dirname(log_file)
-                if log_dir and not os.path.exists(log_dir):
-                    try:
+    try:
+        path = os.getenv(env_key, default_path)
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+                
+            # Create log directories for all handlers
+            handlers = config.get('handlers', {})
+            for handler in handlers.values():
+                if 'filename' in handler:
+                    log_dir = os.path.dirname(handler['filename'])
+                    if log_dir:
                         os.makedirs(log_dir, exist_ok=True)
-                        print(f"Created log directory: {log_dir}")
-                    except Exception as e:
-                        print(f"Failed to create log directory '{log_dir}': {e}")
-
-        # Apply the logging configuration
-        logging.config.dictConfig(config)
-    else:
-        # If the logging configuration file is missing, use basic configuration
+            
+            logging.config.dictConfig(config)
+            logging.info(f"Logging configuration loaded from {path}")
+        else:
+            logging.basicConfig(level=default_level)
+            logging.warning(f"Logging config file not found at {path}. Using basic config.")
+    except Exception as e:
         logging.basicConfig(level=default_level)
-        logging.warning(f"Logging configuration file not found at '{default_path}'. Using basic configuration.")
+        logging.error(f"Error in logging configuration: {str(e)}")
 
-# Initialize logging when this module is imported
-setup_logging()
+def get_logger(name: str) -> logging.Logger:
+    """
+    Get a logger with the specified name and adds extra handlers if needed.
+    
+    Args:
+        name: Name for the logger
+        
+    Returns:
+        logging.Logger: Configured logger instance
+    """
+    logger = logging.getLogger(name)
+    
+    # Add a null handler if no handlers exist
+    if not logger.handlers:
+        logger.addHandler(logging.NullHandler())
+    
+    return logger
+
+def log_execution_time(logger: Optional[logging.Logger] = None):
+    """
+    Decorator to log function execution time.
+    
+    Args:
+        logger: Logger instance to use. If None, creates a new logger.
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            nonlocal logger
+            if logger is None:
+                logger = get_logger(func.__module__)
+            
+            start_time = time.time()
+            try:
+                result = func(*args, **kwargs)
+                execution_time = time.time() - start_time
+                logger.debug(
+                    f"Function '{func.__name__}' executed in {execution_time:.2f} seconds"
+                )
+                return result
+            except Exception as e:
+                execution_time = time.time() - start_time
+                logger.error(
+                    f"Function '{func.__name__}' failed after {execution_time:.2f} seconds. "
+                    f"Error: {str(e)}"
+                )
+                raise
+        return wrapper
+    return decorator

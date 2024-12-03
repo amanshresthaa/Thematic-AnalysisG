@@ -48,12 +48,13 @@ def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> 
                     missing_fields.append(field)
             # Check list fields
             for field in required_list_fields:
-                if field not in transcript or not isinstance(transcript[field], list) or not transcript[field]:
+                if field not in transcript or not isinstance(transcript[field], list) or not all(isinstance(kw, str) and kw.strip() for kw in transcript[field]):
                     missing_fields.append(field)
 
             if missing_fields:
                 logger.warning(f"Transcript at index {idx} is missing required fields {missing_fields} for coding analysis or they are empty/invalid. Skipping.")
                 continue
+
         else:
             logger.warning(f"Unknown module type for transcript at index {idx}. Skipping.")
             continue
@@ -212,6 +213,11 @@ async def process_single_transcript_coding(
         logger.warning("Keywords are missing or empty. Skipping.")
         return {}
 
+    # Ensure keywords are a list of non-empty strings
+    if not all(isinstance(kw, str) and kw.strip() for kw in keywords):
+        logger.warning("One or more keywords are not valid strings. Skipping.")
+        return {}
+
     logger.info(f"Processing transcript for coding analysis: Quotation='{quotation[:100]}...', Keywords={keywords}")
 
     # Retrieve and filter chunks
@@ -233,7 +239,7 @@ async def process_single_transcript_coding(
         contextualized_contents=contextualized_contents,
         theoretical_framework=theoretical_framework
     )
-    
+
     # Prepare coding analysis-specific result dictionary
     result = {
         "coding_info": response.get("coding_info", {
@@ -257,6 +263,7 @@ async def process_single_transcript_coding(
 
     logger.info(f"Developed {len(result['codes'])} codes for coding analysis.")
     return result
+
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
