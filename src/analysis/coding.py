@@ -1,6 +1,3 @@
-
-# src/analysis/coding.py
-
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -35,11 +32,6 @@ class SixRsEvaluation:
 class CodingAnalysisSignature(dspy.Signature):
     """
     Signature for conducting comprehensive thematic coding analysis using the 6Rs framework.
-    
-    This signature encapsulates all necessary inputs and outputs required for
-    developing and analyzing codes within qualitative research. It ensures that
-    the analysis adheres to methodological rigor and aligns with the theoretical
-    framework provided.
     """
 
     # Input Fields
@@ -58,11 +50,10 @@ class CodingAnalysisSignature(dspy.Signature):
         )
     )
 
-    keywords: List[Dict[str, Any]] = dspy.InputField(
+    keywords: List[str] = dspy.InputField(
         desc=(
             "A list of previously identified keywords that inform the coding process. "
-            "Each keyword should include relevant metadata, such as its category or "
-            "contextual significance."
+            "Each keyword should be a string representing the keyword."
         )
     )
 
@@ -125,13 +116,13 @@ class CodingAnalysisSignature(dspy.Signature):
     )
 
     def create_prompt(self, research_objectives: str, quotation: str,
-                     keywords: List[Dict[str, Any]], contextualized_contents: List[str],
+                     keywords: List[str], contextualized_contents: List[str],
                      theoretical_framework: Dict[str, str]) -> str:
         """Generates a detailed prompt for conducting enhanced coding analysis."""
 
         # Format keywords for clarity
         keywords_formatted = "\n".join([
-            f"- **{kw['keyword']}**: {kw.get('category', 'Uncategorized')}"
+            f"- **{kw}**"
             for kw in keywords
         ])
 
@@ -248,7 +239,7 @@ class CodingAnalysisSignature(dspy.Signature):
             raise
 
     def forward(self, research_objectives: str, quotation: str,
-                keywords: List[Dict[str, Any]], contextualized_contents: List[str],
+                keywords: List[str], contextualized_contents: List[str],
                 theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
         """Executes the coding analysis with retry mechanism."""
         for attempt in range(3):
@@ -310,4 +301,3 @@ class CodingAnalysisSignature(dspy.Signature):
         return {
             "error": "Failed to develop valid codes after 3 attempts. Please review the input data and prompt for possible improvements."
         }
-
