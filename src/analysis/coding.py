@@ -31,87 +31,97 @@ class SixRsEvaluation:
 
 class CodingAnalysisSignature(dspy.Signature):
     """
-    Signature for conducting comprehensive thematic coding analysis using the 6Rs framework.
+    Signature for conducting a comprehensive thematic coding analysis utilizing the 6Rs framework.
+    
+    This signature facilitates the systematic analysis of qualitative data by guiding the user
+    through the process of thematic coding, ensuring methodological rigor and theoretical alignment.
     """
 
     # Input Fields
     research_objectives: str = dspy.InputField(
         desc=(
-            "The overarching goals and specific research questions that guide the "
-            "coding analysis. This should outline what the study aims to achieve "
-            "and the key questions it seeks to answer."
+            "A detailed statement of the study's overarching goals and specific research questions "
+            "that direct the coding analysis. This should clearly articulate what the research aims to "
+            "accomplish and the key questions it seeks to address, providing a foundation for the "
+            "subsequent coding process."
         )
     )
 
     quotation: str = dspy.InputField(
         desc=(
-            "The specific excerpt or passage selected for coding analysis. This "
-            "quotation serves as the primary text from which codes will be developed."
+            "The specific excerpt, passage, or segment selected from the data set for coding analysis. "
+            "This quotation serves as the primary source text from which themes and codes will be derived, "
+            "capturing the essential content to be analyzed."
         )
     )
 
     keywords: List[str] = dspy.InputField(
         desc=(
-            "A list of previously identified keywords that inform the coding process. "
-            "Each keyword should be a string representing the keyword."
+            "A curated list of keywords previously identified to inform and guide the coding process. "
+            "Each keyword should be a distinct string that represents a significant theme or concept "
+            "relevant to the research objectives, aiding in the systematic identification of patterns "
+            "within the quotation."
         )
     )
 
     contextualized_contents: List[str] = dspy.InputField(
         desc=(
-            "Supplementary contextual information that aids in the interpretation of the "
-            "quotation. This may include related texts, background information, or other "
-            "content that provides deeper insight into the primary quotation."
+            "Additional contextual information that provides background and deeper insight into the "
+            "primary quotation. This may include related texts, situational context, historical background, "
+            "or any other supplementary content that enhances the understanding and interpretation of the "
+            "quotation being analyzed."
         )
     )
 
     theoretical_framework: Dict[str, str] = dspy.InputField(
         desc=(
-            "The foundational theoretical framework guiding the analysis. This should include:\n"
-            " - **theory**: The primary theoretical approach being applied.\n"
-            " - **philosophical_approach**: The underlying philosophical stance.\n"
-            " - **rationale**: The justification for selecting this particular theoretical "
-            "approach and how it supports the research objectives."
+            "The foundational theoretical framework that underpins the analysis, detailing the guiding "
+            "theoretical approach. This dictionary should include:\n"
+            " - **theory**: The primary theoretical perspective or model being applied to the analysis.\n"
+            " - **philosophical_approach**: The underlying philosophical stance that informs the theoretical "
+            "framework, such as positivism, interpretivism, critical theory, etc.\n"
+            " - **rationale**: A comprehensive justification for selecting this particular theoretical approach, "
+            "explaining how it aligns with and supports the research objectives and questions."
         )
     )
 
     # Output Fields
     coding_info: Dict[str, Any] = dspy.OutputField(
         desc=(
-            "Detailed coding context, encompassing:\n"
-            " - **quotation**: The selected quotation used for analysis.\n"
-            " - **research_objectives**: The specific goals and questions guiding the analysis.\n"
-            " - **theoretical_framework**: Comprehensive details of the theoretical foundation."
-            " - **keywords**: list of extracted keywords from quotation.\n"
-
+            "Comprehensive context and metadata related to the coding analysis, including:\n"
+            " - **quotation**: The original passage selected for analysis.\n"
+            " - **research_objectives**: The specific goals and research questions that guide the analysis.\n"
+            " - **theoretical_framework**: Detailed information about the theoretical foundation supporting the analysis.\n"
+            " - **keywords**: The list of keywords extracted or utilized from the quotation to inform coding."
         )
     )
 
     codes: List[Dict[str, Any]] = dspy.OutputField(
         desc=(
-            "A collection of developed codes, each accompanied by detailed analysis, including:\n"
-            " - **code**: code developed\n"
-            " - **definition**: A clear and concise explanation of the code's meaning.\n"
-            " - **6Rs_framework**: The specific dimensions of the 6Rs framework that the code fulfills (robust,reflective,resplendent,relevant,radical,righteous).\n"
-            " - **6Rs_evaluation**: Evaluation metrics for each fulfilled R by code, including:\n"
-            "     * **robust**: Measures how well the code captures the essence of the data.\n"
-            "     * **reflective**: Assesses the relationship between the data and the theoretical framework.\n"
-            "     * **resplendent**: Evaluates the comprehensiveness of the understanding provided by the code.\n"
-            "     * **relevant**: Determines the appropriateness of the code's representation of the data.\n"
-            "     * **radical**: Identifies the uniqueness and novelty of the insights offered by the code.\n"
-            "     * **righteous**: Ensures the logical alignment of the code within the theoretical framework.\n"
+            "A structured collection of developed codes, each accompanied by an in-depth analysis. Each code entry includes:\n"
+            " - **code**: The name or label of the developed code.\n"
+            " - **definition**: A precise and clear explanation of the code's meaning and scope.\n"
+            " - **6Rs_framework**: The specific dimensions of the 6Rs framework (robust, reflective, resplendent, relevant, radical, righteous) that the code satisfies. Only the dimensions that apply are listed (e.g., ['robust', 'relevant']).\n"
+            " - **6Rs_evaluation**: Detailed justifications and evaluation metrics for the Rs listed in **6Rs_framework**, explaining how the code satisfies those dimensions. Evaluations focus only on these specific Rs, including:\n"
+            "     * **robust**: Assessment of how effectively the code captures the fundamental essence of the data.\n"
+            "     * **reflective**: Evaluation of the code's alignment and relationship with the theoretical framework.\n"
+            "     * **resplendent**: Analysis of the code's comprehensiveness and the depth of understanding it provides.\n"
+            "     * **relevant**: Determination of the code's appropriateness and contextual fit within the data.\n"
+            "     * **radical**: Identification of the code's uniqueness and the novelty of the insights it offers.\n"
+            "     * **righteous**: Verification of the code's logical consistency and alignment with the overarching theoretical framework."
         )
     )
 
+
     analysis: Dict[str, Any] = dspy.OutputField(
         desc=(
-            "Comprehensive analysis of the coding process, including:\n"
-            " - **theoretical_integration**: How the codes integrate and apply the theoretical framework.\n"
-            " - **methodological_reflection**: Reflections on the coding methodology, including:\n"
-            "     * **code_robustness**: The strength and reliability of the codes.\n"
-            "     * **theoretical_alignment**: Consistency between codes and theoretical framework.\n"
-            "     * **researcher_reflexivity**: Consideration of the researcher's influence and biases.\n"
-            " - **practical_implications**: Insights and applications derived from the coding analysis."
+            "An extensive analysis of the coding process, encompassing:\n"
+            " - **theoretical_integration**: An explanation of how the developed codes integrate with and apply the theoretical framework.\n"
+            " - **methodological_reflection**: Critical reflections on the coding methodology, including:\n"
+            "     * **code_robustness**: An evaluation of the strength, reliability, and consistency of the codes.\n"
+            "     * **theoretical_alignment**: Analysis of the extent to which the codes align with the theoretical framework.\n"
+            "     * **researcher_reflexivity**: Consideration of the researcher's own influence, biases, and assumptions in the coding process.\n"
+            " - **practical_implications**: Insights derived from the coding analysis and their potential applications or implications for practice, policy, or further research."
         )
     )
 
