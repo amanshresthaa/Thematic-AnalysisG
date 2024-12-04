@@ -1042,3 +1042,13 @@
 2024-12-04 01:09:06,725 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
 2024-12-04 01:09:08,889 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
 2024-12-04 01:09:10,538 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:28,115 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:28,193 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:28,220 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:36,902 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:36,937 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:36,961 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:48,641 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:50,701 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:52,836 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:10:05,613 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation_set_coding.jsonl': File does not exist.

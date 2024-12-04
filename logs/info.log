@@ -14826,3 +14826,243 @@ LiteLLM completion() model= gpt-4o-mini; provider = openai
 2024-12-04 01:09:12,286 - my_logger - INFO - Starting coding analysis.
 2024-12-04 01:09:12,300 - LiteLLM - INFO - 
 LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:28,103 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:28,109 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:28,112 - my_logger - INFO - Successfully completed coding analysis.
+2024-12-04 01:09:28,112 - src.processing.query_processor - INFO - Developed 3 codes for coding analysis.
+2024-12-04 01:09:28,113 - src.processing.query_processor - INFO - Processing transcript for coding analysis: Quotation='One, we need to be sourcing more locally and supporting more local businesses – that’s a must in eve...', Keywords=['sourcing', 'locally', 'supporting', 'local businesses']
+2024-12-04 01:09:28,115 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to.'
+2024-12-04 01:09:28,115 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:28,162 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.047s]
+2024-12-04 01:09:28,185 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.019s]
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_15
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_61
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_86
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_68
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_77
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_45
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_14
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_37
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_42
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - INFO - Filtered 10 chunks due to missing metadata.
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 1 (required min_chunks=1)
+2024-12-04 01:09:28,187 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'One, we need to be sourcing more locally and supporting more local businesses – that’s a must in every sector we go to.': [interview_001_chunk_2]
+2024-12-04 01:09:28,192 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What are some successful local sourcing initiatives in the agricultural sector that support local businesses?'
+2024-12-04 01:09:28,193 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:28,201 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.008s]
+2024-12-04 01:09:28,213 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.011s]
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_78
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_77
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_45
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_76
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_74
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - INFO - Filtered 6 chunks due to missing metadata.
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 3 (required min_chunks=1)
+2024-12-04 01:09:28,215 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What are some successful local sourcing initiatives in the agricultural sector that support local businesses?': [interview_001_chunk_2, interview_001_chunk_0, interview_001_chunk_1]
+2024-12-04 01:09:28,220 - src.retrieval.retrieval - INFO - Starting hop 3 with query: 'What are effective strategies for local sourcing in the agricultural sector to support local businesses and enhance sustainability?'
+2024-12-04 01:09:28,220 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:28,228 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.008s]
+2024-12-04 01:09:28,238 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.009s]
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_86
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_77
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_74
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_69
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_35
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_45
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - INFO - Filtered 7 chunks due to missing metadata.
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 3 (required min_chunks=1)
+2024-12-04 01:09:28,240 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What are effective strategies for local sourcing in the agricultural sector to support local businesses and enhance sustainability?': [interview_001_chunk_2, interview_001_chunk_0, interview_001_chunk_1]
+2024-12-04 01:09:28,244 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 3 chunks.
+2024-12-04 01:09:28,245 - my_logger - INFO - Starting coding analysis.
+2024-12-04 01:09:28,256 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:36,890 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:36,895 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:36,898 - my_logger - INFO - Successfully completed coding analysis.
+2024-12-04 01:09:36,898 - src.processing.query_processor - INFO - Developed 2 codes for coding analysis.
+2024-12-04 01:09:36,899 - src.processing.query_processor - INFO - Processing transcript for coding analysis: Quotation='I think we need to allow the money to come down the food chain, to get it back....', Keywords=['money', 'food chain', 'come down']
+2024-12-04 01:09:36,901 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'I think we need to allow the money to come down the food chain, to get it back.'
+2024-12-04 01:09:36,902 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:36,917 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.014s]
+2024-12-04 01:09:36,930 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.011s]
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_1
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_65
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_40
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_88
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_54
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_39
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_83
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_45
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_34
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_37
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - INFO - Filtered 11 chunks due to missing metadata.
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 1 (required min_chunks=1)
+2024-12-04 01:09:36,932 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'I think we need to allow the money to come down the food chain, to get it back.': [interview_001_chunk_2]
+2024-12-04 01:09:36,937 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What strategies or policies can help facilitate the flow of financial resources down the food chain to support farmers and local food systems in the wake of the COVID crisis?'
+2024-12-04 01:09:36,937 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:36,945 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.007s]
+2024-12-04 01:09:36,955 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.009s]
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_45
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_86
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_83
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_34
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_88
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_84
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - INFO - Filtered 7 chunks due to missing metadata.
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 3 (required min_chunks=1)
+2024-12-04 01:09:36,957 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What strategies or policies can help facilitate the flow of financial resources down the food chain to support farmers and local food systems in the wake of the COVID crisis?': [interview_001_chunk_2, interview_001_chunk_1, interview_001_chunk_0]
+2024-12-04 01:09:36,961 - src.retrieval.retrieval - INFO - Starting hop 3 with query: 'What strategies or initiatives can be implemented to ensure that financial resources are distributed more equitably within the agricultural sector, particularly to support farmers?'
+2024-12-04 01:09:36,961 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:36,965 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.004s]
+2024-12-04 01:09:36,976 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.008s]
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_86
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_54
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_84
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_82
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_85
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_42
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - INFO - Filtered 6 chunks due to missing metadata.
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 3 (required min_chunks=1)
+2024-12-04 01:09:36,978 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What strategies or initiatives can be implemented to ensure that financial resources are distributed more equitably within the agricultural sector, particularly to support farmers?': [interview_001_chunk_2, interview_001_chunk_1, interview_001_chunk_0]
+2024-12-04 01:09:36,981 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:39,054 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:39,058 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:39,062 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 3 chunks.
+2024-12-04 01:09:39,063 - my_logger - INFO - Starting coding analysis.
+2024-12-04 01:09:39,083 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:48,630 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:48,635 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:48,637 - my_logger - INFO - Successfully completed coding analysis.
+2024-12-04 01:09:48,638 - src.processing.query_processor - INFO - Developed 2 codes for coding analysis.
+2024-12-04 01:09:48,638 - src.processing.query_processor - INFO - Processing transcript for coding analysis: Quotation='So, there needs to be investment down the food chain, but also making those food chains shorter, as ...', Keywords=['investment', 'food chain', 'shorter']
+2024-12-04 01:09:48,640 - src.retrieval.retrieval - INFO - Starting hop 1 with query: 'So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?'
+2024-12-04 01:09:48,641 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:48,655 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.014s]
+2024-12-04 01:09:48,667 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.009s]
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_70
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_88
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_87
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_16
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_85
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_45
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_83
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_34
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_24
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - INFO - Filtered 10 chunks due to missing metadata.
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 1 (required min_chunks=1)
+2024-12-04 01:09:48,668 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'So, there needs to be investment down the food chain, but also making those food chains shorter, as short as possible?': [interview_001_chunk_2]
+2024-12-04 01:09:48,671 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:50,691 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:50,695 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:50,701 - src.retrieval.retrieval - INFO - Starting hop 2 with query: 'What are effective strategies for investing in local food systems and shortening food supply chains in the context of challenges faced by the agricultural sector?'
+2024-12-04 01:09:50,701 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:50,713 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.012s]
+2024-12-04 01:09:50,727 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.011s]
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_87
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_88
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_86
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_89
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_81
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_83
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_84
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_68
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_34
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_54
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - INFO - Filtered 10 chunks due to missing metadata.
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 3 (required min_chunks=1)
+2024-12-04 01:09:50,728 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What are effective strategies for investing in local food systems and shortening food supply chains in the context of challenges faced by the agricultural sector?': [interview_001_chunk_2, interview_001_chunk_0, interview_001_chunk_1]
+2024-12-04 01:09:50,732 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:52,826 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:52,830 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:52,836 - src.retrieval.retrieval - INFO - Starting hop 3 with query: 'What are effective strategies for shortening food supply chains in agriculture, and how can investment support these efforts to enhance sustainability and resilience?'
+2024-12-04 01:09:52,836 - src.core.contextual_vector_db - ERROR - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-04 01:09:52,847 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.010s]
+2024-12-04 01:09:52,862 - elastic_transport.transport - INFO - POST http://localhost:9200/contextual_bm25_index_coding_analysis/_search [status:200 duration:0.013s]
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_54
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_86
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_88
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_11
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_35
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_83
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - WARNING - Chunk metadata not found for chunk_id Document_chunk_34
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - INFO - Filtered 7 chunks due to missing metadata.
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - INFO - Total chunks retrieved after filtering: 3 (required min_chunks=1)
+2024-12-04 01:09:52,864 - src.retrieval.retrieval - INFO - Chunks used for hybrid retrieval for query 'What are effective strategies for shortening food supply chains in agriculture, and how can investment support these efforts to enhance sustainability and resilience?': [interview_001_chunk_2, interview_001_chunk_1, interview_001_chunk_0]
+2024-12-04 01:09:52,869 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:09:55,440 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:09:55,443 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:09:55,446 - src.retrieval.retrieval - INFO - Multi-stage retrieval completed with 3 chunks.
+2024-12-04 01:09:55,447 - my_logger - INFO - Starting coding analysis.
+2024-12-04 01:09:55,472 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2024-12-04 01:10:05,592 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-12-04 01:10:05,599 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2024-12-04 01:10:05,601 - my_logger - INFO - Successfully completed coding analysis.
+2024-12-04 01:10:05,602 - src.processing.query_processor - INFO - Developed 2 codes for coding analysis.
+2024-12-04 01:10:05,612 - src.processing.query_processor - INFO - All transcript results have been saved to 'query_results_coding_analysis.json'
+2024-12-04 01:10:05,612 - __main__ - INFO - Starting evaluation of the retrieval pipeline
+2024-12-04 01:10:05,613 - src.data.data_loader - ERROR - Error loading JSON file 'data/evaluation_set_coding.jsonl': File does not exist.
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@5
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Starting evaluation of 0 queries.
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Total Queries: 0
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Queries with Golden Data: 0
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Pass@5: 0.00%, Average Score: 0.0000
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Pass@5: 0.00%
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-12-04 01:10:05,613 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Total Queries: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Queries with Golden Data: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@10
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Starting evaluation of 0 queries.
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Total Queries: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Queries with Golden Data: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Pass@10: 0.00%, Average Score: 0.0000
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Pass@10: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Total Queries: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Queries with Golden Data: 0
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Starting evaluation for Pass@20
+2024-12-04 01:10:05,614 - src.evaluation.evaluation - INFO - Starting evaluation of 0 queries.
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Evaluation completed.
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Total Queries: 0
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Queries with Golden Data: 0
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Pass@20: 0.00%, Average Score: 0.0000
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Semantic Hits: 0.00%
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - BM25 Contextual Hits: 0.00%
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Pass@20: 0.00%
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Average Score: 0.0000
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Semantic Hit Percentage: 0.00%
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - BM25 Contextual Hit Percentage: 0.00%
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Total Queries: 0
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Queries with Golden Data: 0
+2024-12-04 01:10:05,615 - src.evaluation.evaluation - INFO - Queries without Golden Data: 0
+
+2024-12-04 01:10:05,615 - __main__ - INFO - Evaluation completed successfully.
+2024-12-04 01:10:05,615 - __main__ - INFO - All operations completed successfully.
