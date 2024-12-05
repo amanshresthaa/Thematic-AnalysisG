@@ -1,1054 +1,154 @@
-2024-12-04 01:03:54,726 - src.processing.query_processor - ERROR - [query_processor.py:304] - Unsupported module type provided.
-2024-12-04 01:03:54,729 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/codebase_chunks_keyword.json': File does not exist.
-2024-12-04 01:03:55,445 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,469 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,483 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,510 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,526 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,538 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,551 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,563 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,576 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,588 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,601 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,613 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,625 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,638 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,650 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,662 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,674 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,687 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,700 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,716 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,730 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,744 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,758 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,772 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,787 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,800 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,813 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,825 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,838 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,850 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,861 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,872 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,883 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,895 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,906 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,917 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,928 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,939 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,951 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,962 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,978 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:55,990 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,003 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,016 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,027 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,037 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,049 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,059 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,069 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,081 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,091 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,101 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,112 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,122 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,132 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,142 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,153 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,163 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,174 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,185 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,195 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,205 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,216 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,225 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,237 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,249 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,262 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,273 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,285 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,297 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,307 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,319 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,330 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,342 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,353 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,364 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,391 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,403 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,414 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,425 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,435 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,445 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,455 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,465 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,474 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,483 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,499 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,524 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,534 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,543 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,554 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,563 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,572 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,582 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,591 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,601 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,610 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,620 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,629 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,639 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,648 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,657 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,667 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,676 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,686 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,696 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,706 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,716 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,725 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,736 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,745 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,755 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,765 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,798 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,808 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,819 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,829 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,839 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,849 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,860 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,870 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,880 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,892 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,903 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,914 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,925 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,966 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,977 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:56,990 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,002 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,014 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,026 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,038 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,050 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,062 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,074 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,086 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,098 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,110 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,121 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,131 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,141 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,151 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,162 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,172 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,182 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,192 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,202 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,212 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,223 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,237 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,248 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,260 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,271 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,283 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,295 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,307 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,320 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,331 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,343 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,354 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,365 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,386 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,397 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,408 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,419 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,431 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,442 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,453 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,465 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,475 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,487 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,498 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,510 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,522 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,536 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,554 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,565 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,577 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,589 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,600 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,612 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,624 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,635 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,647 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,658 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,676 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,709 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,721 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,731 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,742 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,754 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,823 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,845 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,856 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,867 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,878 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,889 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,901 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,911 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,922 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,933 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,943 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,954 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,965 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,976 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,986 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:57,996 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,006 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,016 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,027 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,037 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,047 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,057 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,067 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,078 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,088 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,100 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,111 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,131 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,142 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,153 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,164 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,181 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,195 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,216 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,237 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,249 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,261 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,272 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,284 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,295 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,305 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,319 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,329 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,340 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,351 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,363 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,376 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,389 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,401 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,413 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,425 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,437 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,449 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,460 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,472 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,483 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,494 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,507 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,519 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,530 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,544 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,555 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,566 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,578 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,591 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,602 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,613 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,626 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,643 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,654 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,664 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,674 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,686 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,696 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,706 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,715 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,725 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,735 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,746 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,756 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,767 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,778 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,790 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,802 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,813 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,825 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,836 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,847 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,857 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,866 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,875 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,885 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,894 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,904 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,913 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,922 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,932 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,942 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,952 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,961 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,971 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,981 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:58,992 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,002 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,011 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,043 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,059 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,071 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,082 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,098 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,113 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,158 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,170 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,181 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,194 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,207 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,220 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,232 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,247 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,261 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,274 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,288 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,300 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,313 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,333 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,347 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,362 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,374 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,386 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,398 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,411 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,422 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,435 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,447 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,459 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,470 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,482 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,494 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,506 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,518 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,529 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,540 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,552 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,567 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,597 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,610 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,624 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,657 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,668 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,679 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,690 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,700 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,712 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,723 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,733 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,742 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,752 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,764 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,774 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,783 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,793 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,803 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,812 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,822 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,842 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,870 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,886 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,897 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,907 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,918 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,928 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,938 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,948 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,960 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,971 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,985 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:03:59,998 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,016 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,030 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,044 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,056 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,068 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,080 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,094 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,112 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,146 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,161 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,174 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,187 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,204 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,216 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,229 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,241 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,254 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,267 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,279 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,292 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,305 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,317 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,334 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,353 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,380 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,394 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,405 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,424 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,436 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,448 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,460 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,472 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,484 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,496 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,509 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,523 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,536 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,551 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,563 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,576 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,588 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,600 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,614 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,628 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,640 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,686 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,702 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,717 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,749 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,761 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,772 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,784 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,798 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,810 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,826 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,837 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,847 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,857 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,869 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,877 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,885 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,893 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,901 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,908 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,915 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,923 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,932 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,941 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,948 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,958 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,970 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,980 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,989 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:00,996 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,003 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,012 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,020 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,029 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,037 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,045 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,054 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,062 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,069 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,077 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,085 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,253 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,266 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,292 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,306 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,320 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,334 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,347 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,360 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,372 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,384 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,397 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,410 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,422 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,435 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,447 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,460 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,472 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,484 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,497 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,511 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,524 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,539 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,552 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,565 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,577 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,589 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,601 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,644 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,656 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,668 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,680 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,690 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,700 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,710 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,719 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,729 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,738 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,747 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,756 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,769 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,778 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,786 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,794 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,803 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,811 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,820 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,828 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,836 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,845 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,854 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,862 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,870 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,878 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,887 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,895 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,903 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,912 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,920 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,928 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,935 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,944 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,952 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,960 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,969 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,978 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,986 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:01,994 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,003 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,013 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,023 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,037 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,047 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,057 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,066 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,075 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,085 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,114 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,130 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,145 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,155 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,166 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,177 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,188 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,199 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,209 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,219 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,231 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,241 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,250 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,260 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,270 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,279 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,288 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,298 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,308 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,318 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,328 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,338 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,348 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,359 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,370 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,381 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,392 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,403 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,414 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,425 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,436 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,446 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,457 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,468 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,478 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,488 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,499 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,509 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,520 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,556 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,565 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,573 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,582 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,590 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,600 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,612 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,623 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,633 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,644 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,654 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,665 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,675 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,685 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,695 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,703 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,711 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,719 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,726 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,734 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,741 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,749 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,756 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,764 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,772 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,780 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,787 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,794 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,803 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,811 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,819 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,827 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,835 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,843 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,850 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,857 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,866 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,879 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,888 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,898 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,907 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,916 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,925 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,951 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,963 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,971 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,980 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,988 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:02,996 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,004 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,013 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,021 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,029 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,037 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,045 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,053 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,062 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,070 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,078 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,085 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,094 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,103 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,112 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,120 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,128 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,136 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,144 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,152 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,161 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,170 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,178 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,186 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,194 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,203 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,216 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,224 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,233 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,243 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,252 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,262 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,271 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,280 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,289 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,298 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,307 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,317 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,327 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,337 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,346 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,355 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,365 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,384 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,393 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,403 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,412 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,423 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,433 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,443 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,453 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,464 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,474 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,483 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,494 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,503 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,513 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,523 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,532 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,542 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,552 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,562 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:03,600 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:06,012 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:08,296 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,481 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,502 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,518 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,533 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,549 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,564 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,577 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,591 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,606 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,621 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,634 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,647 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,660 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,674 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,686 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,699 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,710 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,722 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,734 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,745 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,757 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,769 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,781 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,793 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,806 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,818 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,830 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,844 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,856 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,867 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,878 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,897 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,924 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,942 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,953 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,963 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,974 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:11,990 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,002 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,012 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,024 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,033 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,043 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,053 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,063 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,073 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,083 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,092 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,101 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,110 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,120 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,128 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,137 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,146 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,155 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,163 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,171 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,179 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,187 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,195 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,203 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,211 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,221 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,229 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,238 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,248 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,258 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,266 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,275 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,284 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,293 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,301 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,310 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,319 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,334 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,346 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,356 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,366 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,386 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,395 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,405 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,416 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,426 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,436 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,448 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,461 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,475 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,487 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,499 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,510 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,521 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,530 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,539 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,548 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,557 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,565 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,573 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,582 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,590 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,598 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,606 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,615 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,623 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,631 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,638 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,646 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,654 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,662 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,669 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,677 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,707 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,720 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,733 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,760 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,775 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,789 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,815 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,829 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,851 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,866 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,877 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:12,902 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:14,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:16,908 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,019 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,046 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,065 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,083 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,099 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,116 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,132 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,147 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,162 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,177 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,190 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,213 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,245 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,257 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,270 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,282 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,294 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,305 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,317 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,330 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,343 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,354 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,365 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,376 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,387 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,398 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,414 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,455 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,470 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,484 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,498 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,512 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,523 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,534 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,546 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,555 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,565 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,578 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,587 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,596 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,605 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,614 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,622 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,632 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,646 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,657 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,667 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,677 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,686 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,697 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,707 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,716 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,725 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,735 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,744 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,753 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,763 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,772 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,781 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,790 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,799 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,810 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,819 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,828 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,836 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,846 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,854 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,862 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,871 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,880 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,888 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,897 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,906 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,915 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:19,930 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:21,093 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:21,118 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:21,131 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:33,250 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:35,006 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:04:36,939 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,761 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,877 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,895 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,916 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,935 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,954 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,971 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:12,986 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,000 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,015 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,030 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,044 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,059 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,080 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,109 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,127 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,141 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,154 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,166 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,179 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,191 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,203 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,215 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,226 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,236 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,248 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,258 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,269 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,279 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,288 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,298 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,307 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,317 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,326 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,337 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,347 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,357 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:13,372 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:15,855 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:30,693 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:32,909 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:34,785 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:50,612 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:53,088 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:05:56,089 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:09,815 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:09,852 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:09,877 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:23,652 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:26,377 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:28,269 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:41,587 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:43,623 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:45,887 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:06:59,471 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:01,851 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:04,111 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:16,723 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:18,871 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:21,395 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:35,773 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:38,616 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:40,914 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,203 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,230 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,247 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,262 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,276 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,288 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,302 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,314 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,327 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,340 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,351 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,363 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,376 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,390 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,403 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,416 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,428 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,439 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,451 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,462 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,473 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,484 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,494 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,506 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,517 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,528 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,553 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,562 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,572 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,581 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,590 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,599 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,608 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,616 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,625 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,633 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,642 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,656 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,668 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,679 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,690 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,701 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,712 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,723 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,733 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,744 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,754 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,764 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,774 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,785 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,795 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,805 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,815 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,826 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,836 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,847 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,858 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,869 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,879 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,891 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,901 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,912 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,923 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,934 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,944 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,955 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,967 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,979 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:56,991 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:57,001 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:57,012 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:57,022 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:57,032 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:57,043 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:07:57,059 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:09,891 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:09,940 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:12,014 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:31,943 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:34,292 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:36,593 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:49,051 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:49,085 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:08:51,249 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:06,725 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:08,889 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:10,538 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:28,115 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:28,193 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:28,220 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:36,902 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:36,937 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:36,961 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:48,641 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:50,701 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:09:52,836 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:234] - Embeddings or metadata are not loaded. Cannot perform search.
-2024-12-04 01:10:05,613 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation_set_coding.jsonl': File does not exist.
+2024-12-05 17:28:40,301 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/codebase_chunks/standard/codebase_chunks.json': File does not exist.
+2024-12-05 17:28:40,320 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:207] - Error creating FAISS index: list index out of range
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 199, in create_faiss_index
+    embedding_dim = len(self.embeddings[0])
+                        ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2024-12-05 17:28:40,321 - __main__ - ERROR - [main.py:241] - Error loading data into ContextualVectorDB: list index out of range
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 239, in run_pipeline_with_config
+    self.contextual_db.load_data(codebase_chunks, parallel_threads=1)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 97, in load_data
+    self._build_faiss_index()
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 193, in _build_faiss_index
+    self.create_faiss_index()
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 199, in create_faiss_index
+    embedding_dim = len(self.embeddings[0])
+                        ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2024-12-05 17:28:40,322 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/codebase_chunks/keyword/codebase_chunks_keyword.json': File does not exist.
+2024-12-05 17:28:40,329 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:207] - Error creating FAISS index: list index out of range
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 199, in create_faiss_index
+    embedding_dim = len(self.embeddings[0])
+                        ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2024-12-05 17:28:40,329 - __main__ - ERROR - [main.py:241] - Error loading data into ContextualVectorDB: list index out of range
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 239, in run_pipeline_with_config
+    self.contextual_db.load_data(codebase_chunks, parallel_threads=1)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 97, in load_data
+    self._build_faiss_index()
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 193, in _build_faiss_index
+    self.create_faiss_index()
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 199, in create_faiss_index
+    embedding_dim = len(self.embeddings[0])
+                        ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2024-12-05 17:28:40,329 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/codebase_chunks/coding/codebase_chunks_coding.json': File does not exist.
+2024-12-05 17:28:40,335 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:207] - Error creating FAISS index: list index out of range
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 199, in create_faiss_index
+    embedding_dim = len(self.embeddings[0])
+                        ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2024-12-05 17:28:40,335 - __main__ - ERROR - [main.py:241] - Error loading data into ContextualVectorDB: list index out of range
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 239, in run_pipeline_with_config
+    self.contextual_db.load_data(codebase_chunks, parallel_threads=1)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 97, in load_data
+    self._build_faiss_index()
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 193, in _build_faiss_index
+    self.create_faiss_index()
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/contextual_vector_db.py", line 199, in create_faiss_index
+    embedding_dim = len(self.embeddings[0])
+                        ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2024-12-05 17:29:27,403 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/quotation/queries.json': File does not exist.
+2024-12-05 17:29:27,403 - __main__ - ERROR - [main.py:257] - No standard queries found to process.
+2024-12-05 17:29:28,007 - __main__ - ERROR - [main.py:329] - Unexpected error in run_pipeline_with_config: Unable to find '/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/data/training_data/quotation/quotation_training_data.csv'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 264, in run_pipeline_with_config
+    await optimizer_init_func(config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 103, in initialize_quotation_optimizer
+    quotation_train_dataset = dl.from_csv(
+                              ^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/datasets/dataloader.py", line 62, in from_csv
+    dataset = load_dataset("csv", data_files=file_path)["train"]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 2132, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 1853, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 1562, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 942, in get_module
+    data_files = DataFilesDict.from_patterns(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 721, in from_patterns
+    else DataFilesList.from_patterns(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 624, in from_patterns
+    resolve_pattern(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 411, in resolve_pattern
+    raise FileNotFoundError(error_msg)
+FileNotFoundError: Unable to find '/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/data/training_data/quotation/quotation_training_data.csv'
+2024-12-05 17:29:28,011 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/codebase_chunks/keyword/codebase_chunks_keyword.json': File does not exist.
+2024-12-05 17:29:28,058 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/keyword/queries_keyword_standard.json': File does not exist.
+2024-12-05 17:29:28,058 - __main__ - ERROR - [main.py:257] - No standard queries found to process.
+2024-12-05 17:29:28,234 - __main__ - ERROR - [main.py:329] - Unexpected error in run_pipeline_with_config: Unable to find '/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/data/training_data/keyword/keyword_training_data.csv'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 264, in run_pipeline_with_config
+    await optimizer_init_func(config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 138, in initialize_keyword_optimizer
+    keyword_train_dataset = dl.from_csv(
+                            ^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/datasets/dataloader.py", line 62, in from_csv
+    dataset = load_dataset("csv", data_files=file_path)["train"]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 2132, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 1853, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 1562, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 942, in get_module
+    data_files = DataFilesDict.from_patterns(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 721, in from_patterns
+    else DataFilesList.from_patterns(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 624, in from_patterns
+    resolve_pattern(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 411, in resolve_pattern
+    raise FileNotFoundError(error_msg)
+FileNotFoundError: Unable to find '/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/data/training_data/keyword/keyword_training_data.csv'
+2024-12-05 17:29:28,288 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/coding/queries_coding_standard.json': File does not exist.
+2024-12-05 17:29:28,288 - __main__ - ERROR - [main.py:257] - No standard queries found to process.
+2024-12-05 17:29:28,459 - __main__ - ERROR - [main.py:329] - Unexpected error in run_pipeline_with_config: Unable to find '/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/data/training_data/coding/coding_training_data.csv'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 264, in run_pipeline_with_config
+    await optimizer_init_func(config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 173, in initialize_coding_optimizer
+    coding_train_dataset = dl.from_csv(
+                           ^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/datasets/dataloader.py", line 62, in from_csv
+    dataset = load_dataset("csv", data_files=file_path)["train"]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 2132, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 1853, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 1562, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/load.py", line 942, in get_module
+    data_files = DataFilesDict.from_patterns(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 721, in from_patterns
+    else DataFilesList.from_patterns(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 624, in from_patterns
+    resolve_pattern(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/datasets/data_files.py", line 411, in resolve_pattern
+    raise FileNotFoundError(error_msg)
+FileNotFoundError: Unable to find '/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/data/training_data/coding/coding_training_data.csv'

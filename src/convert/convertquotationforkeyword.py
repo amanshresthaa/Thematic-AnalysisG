@@ -1,3 +1,4 @@
+# convertquotationforkeyword.py
 import json
 import os
 from typing import List, Dict, Any
@@ -51,9 +52,10 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
     except Exception as e:
         print(f"Error converting file: {e}")
 
-# Usage
-convert_query_results(
-    'query_results_quotation.json',
-    'data',
-    'queries_keyword.json'
-)
+if __name__ == "__main__":
+    # Example usage; this will only run when the script is executed directly
+    convert_query_results(
+        input_file='query_results_quotation.json',
+        output_dir='data',
+        output_file='queries_keyword.json'
+    )

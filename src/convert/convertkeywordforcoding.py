@@ -1,3 +1,5 @@
+# convertkeywordforcoding.py
+
 import json
 import os
 import re
@@ -6,14 +8,7 @@ from typing import List, Dict, Any
 def split_into_sentences(text: str) -> List[str]:
     """
     Splits a given text into sentences using regular expressions.
-    
-    Args:
-        text (str): The text to split.
-    
-    Returns:
-        List[str]: A list of sentences.
     """
-    # Regular expression pattern to identify sentence boundaries.
     sentence_endings = re.compile(r'(?<=[.!?]) +')
     sentences = sentence_endings.split(text.strip())
     return [sentence.strip() for sentence in sentences if sentence.strip()]
@@ -21,30 +16,12 @@ def split_into_sentences(text: str) -> List[str]:
 def extract_keywords(keywords_list: List[Dict[str, Any]]) -> List[str]:
     """
     Extracts the keyword strings from the keywords list.
-    
-    Args:
-        keywords_list (List[Dict[str, Any]]): List of keyword dictionaries.
-    
-    Returns:
-        List[str]: List of keyword strings.
     """
     return [keyword_entry.get('keyword', '') for keyword_entry in keywords_list if 'keyword' in keyword_entry]
 
 def convert_query_results(input_file: str, output_dir: str, output_file: str):
     """
     Convert query results to a simplified format and save them in the specified directory.
-    
-    The simplified format includes:
-    - quotation: Individual sentence from the full quotation.
-    - keywords: List of associated keywords.
-    - research_objectives: The research objectives.
-    - theoretical_framework: The theoretical framework details.
-    - transcript_chunk: The full quotation text for context.
-    
-    Args:
-        input_file (str): Path to the input JSON file.
-        output_dir (str): Directory where the output will be saved.
-        output_file (str): Name of the output JSON file.
     """
     # Ensure the output directory exists
     os.makedirs(os.path.join(output_dir, 'input'), exist_ok=True)
@@ -61,7 +38,6 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
             full_quotation = quotation_info.get('quotation', '')
             research_objectives = quotation_info.get('research_objectives', '')
             theoretical_framework = quotation_info.get('theoretical_framework', {})
-            # Assuming 'transcript_chunk' is the full quotation
             transcript_chunk = full_quotation
 
             # Split the full quotation into sentences
@@ -96,9 +72,10 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
-# Usage Example
-convert_query_results(
-    input_file='query_results_keyword_extraction.json',
-    output_dir='data',
-    output_file='queries_coding.json'
-)
+if __name__ == "__main__":
+    # Example usage; this will only run when the script is executed directly
+    convert_query_results(
+        input_file='query_results_keyword_extraction.json',
+        output_dir='data',
+        output_file='queries_coding.json'
+    )
