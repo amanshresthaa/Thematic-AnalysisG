@@ -92,7 +92,7 @@ class ContextualVectorDB:
             logger.error(f"Error during DSPy situate_context: {e}", exc_info=True)
             return "", None
 
-    def load_data(self, dataset: List[Dict[str, Any]], parallel_threads: int = 1):
+    def load_data(self, dataset: List[Dict[str, Any]], parallel_threads: int = 8):
         logger.debug("Entering load_data method.")
         if self.embeddings and self.metadata and os.path.exists(self.faiss_index_path):
             logger.info("Vector database is already loaded. Skipping data loading.")
@@ -109,7 +109,7 @@ class ContextualVectorDB:
             logger.warning("No texts to embed after processing the dataset.")
             return
 
-        self._embed_and_store(texts_to_embed, metadata)
+        self._embed_and_store(texts_to_embed, metadata, max_workers=parallel_threads)
         self.save_db()
         self._build_faiss_index()
 
@@ -184,29 +184,37 @@ class ContextualVectorDB:
             }
         }
 
-    def _embed_and_store(self, texts: List[str], data: List[Dict[str, Any]]):
+    def _embed_and_store(self, texts: List[str], data: List[Dict[str, Any]], max_workers: int = 4):
         logger.debug("Entering _embed_and_store method.")
         batch_size = 128
         embeddings = []
         logger.info("Starting embedding generation.")
-        try:
-            with tqdm(total=len(texts), desc="Embedding chunks") as pbar:
-                for i in range(0, len(texts), batch_size):
-                    batch = texts[i: i + batch_size]
-                    try:
-                        logger.debug(f"Generating embeddings for batch {i // batch_size + 1}: {len(batch)} texts.")
-                        response = self.client.create_embeddings(
-                            model="text-embedding-ada-002",  # Updated to a valid model
-                            input=batch
-                        )
-                        embeddings_batch = [item['embedding'] for item in response['data']]
-                        embeddings.extend(embeddings_batch)
-                        pbar.update(len(batch))
-                        logger.debug(f"Processed batch {i // batch_size + 1}: {len(batch)} embeddings generated.")
-                    except Exception as e:
-                        logger.error(f"Error during OpenAI embeddings for batch starting at index {i}: {e}", exc_info=True)
-        except Exception as e:
-            logger.error(f"Unexpected error during embedding generation: {e}", exc_info=True)
+
+        # Define a helper function for embedding a batch
+        def embed_batch(batch):
+            try:
+                logger.debug(f"Generating embeddings for batch of size {len(batch)}.")
+                response = self.client.create_embeddings(
+                    model="text-embedding-ada-002",
+                    input=batch
+                )
+                return [item['embedding'] for item in response['data']]
+            except Exception as e:
+                logger.error(f"Error during OpenAI embeddings for batch: {e}", exc_info=True)
+                return []
+
+        # Use ThreadPoolExecutor for parallel embedding
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = []
+            for i in range(0, len(texts), batch_size):
+                batch = texts[i: i + batch_size]
+                futures.append(executor.submit(embed_batch, batch))
+            
+            for future in as_completed(futures):
+                embeddings_batch = future.result()
+                if embeddings_batch:
+                    embeddings.extend(embeddings_batch)
+                    logger.debug(f"Processed a batch with {len(embeddings_batch)} embeddings.")
 
         if not embeddings:
             logger.warning("No embeddings were generated.")
@@ -214,6 +222,9 @@ class ContextualVectorDB:
 
         self.embeddings = embeddings
         self.metadata = data
+        self.save_db()
+        self._build_faiss_index()
+
         logger.info(f"Embedding generation completed. Total embeddings: {len(self.embeddings)}.")
 
     def _build_faiss_index(self):
@@ -276,7 +287,7 @@ class ContextualVectorDB:
             start_time = time.time()
             logger.debug("Generating embedding for the query.")
             response = self.client.create_embeddings(
-                model="text-embedding-ada-002",  # Updated to a valid model
+                model="text-embedding-ada-002",
                 input=[query]
             )
             query_embedding = response['data'][0]['embedding']
