@@ -1,3 +1,5 @@
+# convertcodingfortheme.py
+
 import json
 import os
 from typing import List, Dict, Any
@@ -5,12 +7,6 @@ from typing import List, Dict, Any
 def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
     """
     Extracts and simplifies coding information from a single JSON entry.
-
-    Args:
-        entry (Dict[str, Any]): A dictionary representing a single JSON entry.
-
-    Returns:
-        Dict[str, Any]: A simplified dictionary containing the extracted information.
     """
     try:
         coding_info = entry.get('coding_info', {})
@@ -46,11 +42,6 @@ def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
 def process_input_file(input_file: str, output_dir: str, output_file: str):
     """
     Processes the input JSON file to extract and simplify coding information.
-
-    Args:
-        input_file (str): Path to the input JSON file.
-        output_dir (str): Directory where the output will be saved.
-        output_file (str): Name of the output JSON file.
     """
     # Ensure the output directory exists
     os.makedirs(output_dir, exist_ok=True)
@@ -89,8 +80,8 @@ def process_input_file(input_file: str, output_dir: str, output_file: str):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
-# Usage Example
 if __name__ == "__main__":
+    # Example usage; this will only run when the script is executed directly
     process_input_file(
         input_file='query_results_coding_analysis.json',  # Replace with your input file path
         output_dir='data/input',                  # Replace with your desired output directory

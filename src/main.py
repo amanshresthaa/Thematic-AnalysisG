@@ -21,10 +21,15 @@ from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking
 from src.analysis.select_quotation_module import EnhancedQuotationModule as EnhancedQuotationModuleStandard
-from src.analysis.select_quotation_module_alt import EnhancedQuotationModule as EnhancedQuotationModuleAlt
+# Removed Alternate Quotation Module import
 from src.analysis.extract_keyword_module import KeywordExtractionModule  # Import KeywordExtractionModule
 from src.analysis.coding_module import CodingAnalysisModule  # Import CodingAnalysisModule
 from src.decorators import handle_exceptions
+
+# Import the conversion functions from src.convert/
+from src.convert.convertquotationforkeyword import convert_query_results as convert_quotation_to_keyword
+from src.convert.convertkeywordforcoding import convert_query_results as convert_keyword_to_coding
+from src.convert.convertcodingfortheme import process_input_file as convert_coding_to_theme
 
 # Initialize logging
 setup_logging()
@@ -289,7 +294,7 @@ class ThematicAnalysisPipeline:
             except Exception as e:
                 logger.error(f"Error during evaluation: {e}", exc_info=True)
 
-            logger.info("All operations completed successfully.")
+            logger.info(f"Pipeline for {module_class.__name__} completed successfully.")
         except Exception as e:
             logger.error(f"Unexpected error in run_pipeline_with_config: {e}", exc_info=True)
 
@@ -304,19 +309,10 @@ class ThematicAnalysisPipeline:
             'quotation_training_data': 'data/quotation_training_data.csv',
             'optimized_quotation_program': 'optimized_quotation_program.json'
         }
-        config_alt_quotation = {
-            'index_name': 'contextual_bm25_index_alt_quotation',
-            'codebase_chunks_file': 'data/codebase_chunks_alt.json',
-            'queries_file_standard': 'data/queries_alt.json',
-            'evaluation_set_file': 'data/evaluation_set_alt.jsonl',
-            'output_filename_primary': 'query_results_quotation_alt.json',
-            'quotation_training_data': 'data/quotation_training_data_alt.csv',
-            'optimized_quotation_program': 'optimized_quotation_program_alt.json'
-        }
         config_keyword_extraction = {
             'index_name': 'contextual_bm25_index_keyword_extraction',
             'codebase_chunks_file': 'data/codebase_chunks_keyword.json',
-            'queries_file_standard': 'data/queries_keyword.json',
+            'queries_file_standard': 'data/input/queries_keyword.json',  # Will be updated after conversion
             'evaluation_set_file': 'data/evaluation_set_keyword.jsonl',
             'output_filename_primary': 'query_results_keyword_extraction.json',
             'keyword_training_data': 'data/keyword_training_data.csv',
@@ -325,7 +321,7 @@ class ThematicAnalysisPipeline:
         config_coding_analysis = {  # Added configuration for Coding Analysis pipeline
             'index_name': 'contextual_bm25_index_coding_analysis',
             'codebase_chunks_file': 'data/codebase_chunks_coding.json',
-            'queries_file_standard': 'data/queries_coding.json',
+            'queries_file_standard': 'data/input/queries_coding.json',  # Will be updated after conversion
             'evaluation_set_file': 'data/evaluation_set_coding.jsonl',
             'output_filename_primary': 'query_results_coding_analysis.json',
             'coding_training_data': 'data/coding_training_data.csv',
@@ -340,29 +336,71 @@ class ThematicAnalysisPipeline:
             self.initialize_quotation_optimizer
         )
 
-        # Run Alternate Quotation Extraction Pipeline
-        logger.info("Starting Alternate Quotation Extraction Pipeline")
-        await self.run_pipeline_with_config(
-            config_alt_quotation, 
-            EnhancedQuotationModuleAlt,
-            self.initialize_quotation_optimizer
+        # Removed Alternate Quotation Extraction Pipeline
+
+        # After running the quotation extraction pipeline, perform the conversion
+
+        # Define a helper function to handle the conversion asynchronously
+        async def perform_conversion(func, description="", **kwargs):
+            try:
+                logger.info(f"Converting data: {description}")
+                # Run the conversion in a separate thread to avoid blocking the event loop
+                await asyncio.to_thread(func, **kwargs)
+                logger.info(f"Conversion successful: {description}")
+            except Exception as e:
+                logger.error(f"Conversion failed ({description}): {e}")
+                raise  # Optionally, re-raise the exception to halt the pipeline
+
+        # Perform conversion for Standard Quotation Extraction
+        await perform_conversion(
+            convert_quotation_to_keyword,
+            description="Quotation to Keyword Conversion (Standard)",
+            input_file=config_standard_quotation['output_filename_primary'],
+            output_dir='data',
+            output_file='queries_keyword_standard.json'
         )
 
-        # Run Keyword Extraction Pipeline
-        logger.info("Starting Keyword Extraction Pipeline")
+        # Run Keyword Extraction Pipeline for Standard Quotation
+        logger.info("Starting Keyword Extraction Pipeline for Standard Quotation")
+        config_keyword_extraction_standard = config_keyword_extraction.copy()
+        config_keyword_extraction_standard['queries_file_standard'] = 'data/input/queries_keyword_standard.json'
         await self.run_pipeline_with_config(
-            config_keyword_extraction, 
+            config_keyword_extraction_standard, 
             KeywordExtractionModule,
             self.initialize_keyword_optimizer
         )
 
-        # Run Coding Analysis Pipeline
-        logger.info("Starting Coding Analysis Pipeline")
+        # After Keyword Extraction, perform conversion to Coding
+        await perform_conversion(
+            convert_keyword_to_coding,
+            description="Keyword to Coding Conversion (Standard)",
+            input_file=config_keyword_extraction_standard['output_filename_primary'],
+            output_dir='data',
+            output_file='queries_coding_standard.json'
+        )
+
+        # Run Coding Analysis Pipeline for Standard Keyword Extraction
+        logger.info("Starting Coding Analysis Pipeline for Standard Keyword Extraction")
+        config_coding_analysis_standard = config_coding_analysis.copy()
+        config_coding_analysis_standard['queries_file_standard'] = 'data/input/queries_coding_standard.json'
         await self.run_pipeline_with_config(
-            config_coding_analysis,
+            config_coding_analysis_standard,
             CodingAnalysisModule,
             self.initialize_coding_optimizer
         )
+
+        # After Coding Analysis, perform conversion to Theme (without ThemeAnalysisModule)
+        await perform_conversion(
+            convert_coding_to_theme,
+            description="Coding to Theme Conversion (Standard)",
+            input_file=config_coding_analysis_standard['output_filename_primary'],
+            output_dir='data',
+            output_file='queries_theme_standard.json'
+        )
+
+        # Since ThemeAnalysisModule is not available, we stop here
+
+        logger.info("All pipelines and conversion steps executed successfully up to Coding Analysis.")
 
 if __name__ == "__main__":
     pipeline = ThematicAnalysisPipeline()
