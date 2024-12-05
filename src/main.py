@@ -18,14 +18,13 @@ from src.processing.query_processor import process_queries, validate_queries
 from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
 from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
-from src.retrieval.reranking import retrieve_with_reranking
+from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.analysis.select_quotation_module import EnhancedQuotationModule as EnhancedQuotationModuleStandard
-# Removed Alternate Quotation Module import
-from src.analysis.extract_keyword_module import KeywordExtractionModule  # Import KeywordExtractionModule
-from src.analysis.coding_module import CodingAnalysisModule  # Import CodingAnalysisModule
+from src.analysis.extract_keyword_module import KeywordExtractionModule
+from src.analysis.coding_module import CodingAnalysisModule
 from src.decorators import handle_exceptions
 
-# Import the conversion functions from src.convert/
+# Import the conversion functions
 from src.convert.convertquotationforkeyword import convert_query_results as convert_quotation_to_keyword
 from src.convert.convertkeywordforcoding import convert_query_results as convert_keyword_to_coding
 from src.convert.convertcodingfortheme import process_input_file as convert_coding_to_theme
@@ -39,7 +38,6 @@ dspy.settings.configure(main_thread_only=True)
 
 # Introduce a thread lock mechanism
 thread_lock = threading.Lock()
-
 
 class ThematicAnalysisPipeline:
     def __init__(self):
@@ -204,9 +202,6 @@ class ThematicAnalysisPipeline:
     async def run_pipeline_with_config(self, config, module_class, optimizer_init_func):
         """
         Main function to load data, process queries, and generate outputs.
-        :param config: Configuration dictionary for the pipeline.
-        :param module_class: The DSPy module class to use (Quotation, Keyword Extraction, or Coding Analysis).
-        :param optimizer_init_func: Function to initialize the optimizer (Quotation, Keyword Extraction, or Coding Analysis).
         """
         logger.debug("Entering run_pipeline_with_config method.")
         try:
@@ -222,8 +217,6 @@ class ThematicAnalysisPipeline:
             queries_file_standard = config['queries_file_standard']
             evaluation_set_file = config['evaluation_set_file']
             output_filename_primary = config['output_filename_primary']
-            training_data_file = config.get(f"{module_class.__name__.lower().replace('module', '')}_training_data", None)
-            optimized_program_file = config.get(f"optimized_{module_class.__name__.lower().replace('module', '')}_program", None)
 
             dl = DataLoader()
 
@@ -276,7 +269,7 @@ class ThematicAnalysisPipeline:
             elapsed_time = time.time() - start_time
             logger.info(f"Validated {len(validated_standard_queries)} queries in {elapsed_time:.2f} seconds.")
 
-            # Initialize optimizer (Quotation, Keyword Extraction, or Coding Analysis)
+            # Initialize optimizer
             logger.info(f"Initializing optimizer for {module_class.__name__}.")
             start_time = time.time()
             await optimizer_init_func(config)
@@ -322,7 +315,7 @@ class ThematicAnalysisPipeline:
                 self.contextual_db,
                 self.es_bm25,
                 k=k_standard,
-                output_file=config['output_filename_primary'],
+                output_file=output_filename_primary,
                 optimized_program=optimized_program,
                 module=module_instance
             )
@@ -333,20 +326,29 @@ class ThematicAnalysisPipeline:
             k_values = [5, 10, 20]
             logger.debug(f"Set k_values for evaluation: {k_values}.")
 
+            # Create a reranker configuration (e.g., combined ST + Cohere)
+            reranker_config = RerankerConfig(
+                reranker_type=RerankerType.COHERE,
+                cohere_api_key=os.getenv("COHERE_API_KEY"),
+                st_weight=0.5
+            )
+
             # Initialize the evaluator
             logger.info("Starting evaluation of the retrieval pipeline.")
             try:
                 evaluator = PipelineEvaluator(
                     db=self.contextual_db,
                     es_bm25=self.es_bm25,
-                    retrieval_function=retrieve_with_reranking
+                    retrieval_function=lambda query, db, es_bm25, k: retrieve_with_reranking(
+                        query, db, es_bm25, k, reranker_config
+                    )
                 )
                 logger.debug("PipelineEvaluator instance created.")
 
                 # Perform evaluation
-                logger.info(f"Loading evaluation set from '{config['evaluation_set_file']}'.")
+                logger.info(f"Loading evaluation set from '{evaluation_set_file}'.")
                 start_time = time.time()
-                evaluation_set = load_queries(config['evaluation_set_file'])
+                evaluation_set = load_queries(evaluation_set_file)
                 logger.info(f"Loaded {len(evaluation_set)} evaluation queries in {time.time() - start_time:.2f} seconds.")
 
                 logger.info("Evaluating the complete retrieval pipeline.")
@@ -406,11 +408,7 @@ class ThematicAnalysisPipeline:
             self.initialize_quotation_optimizer
         )
 
-        # Removed Alternate Quotation Extraction Pipeline
-
         # After running the quotation extraction pipeline, perform the conversion
-
-        # Define a helper function to handle the conversion asynchronously
         async def perform_conversion(func, description="", **kwargs):
             try:
                 logger.info(f"Converting data: {description}")
@@ -474,9 +472,6 @@ class ThematicAnalysisPipeline:
 
         elapsed_time = time.time() - start_time
         logger.info(f"All pipelines and conversion steps executed successfully up to Coding Analysis in {elapsed_time:.2f} seconds.")
-
-    # Optionally, you can add more methods or helper functions here if needed.
-
 
 if __name__ == "__main__":
     logger.info("Launching Thematic Analysis Pipeline.")
