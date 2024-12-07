@@ -1,21 +1,20 @@
-
-# src/processing/query_processor.py
-
 import logging
+import time
 from typing import List, Dict, Any
 import json
 from tqdm import tqdm
+import os
 
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
-from src.retrieval.retrieval import multi_stage_retrieval
+from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
 import dspy
 
 from src.analysis.select_quotation_module import SelectQuotationModule, EnhancedQuotationModule
 from src.analysis.extract_keyword_module import KeywordExtractionModule
-from src.analysis.coding_module import CodingAnalysisModule  # Added import for CodingAnalysisModule
+from src.analysis.coding_module import CodingAnalysisModule
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -63,21 +62,10 @@ def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> 
     logger.info(f"Validated {len(valid_transcripts)} transcripts out of {len(transcripts)} provided.")
     return valid_transcripts
 
-def retrieve_documents(input_text: str, db: ContextualVectorDB, es_bm25: ElasticsearchBM25, k: int) -> List[Dict[str, Any]]:
-    """
-    Retrieves documents using multi-stage retrieval with contextual BM25.
-    """
-    logger.debug(f"Retrieving documents for input text: '{input_text[:100]}...' with top {k} results.")
-    final_results = multi_stage_retrieval(input_text, db, es_bm25, k)
-    logger.debug(f"Multi-stage retrieval returned {len(final_results)} results.")
-    return final_results
-
 @handle_exceptions
 async def process_single_transcript_quotation(
     transcript_item: Dict[str, Any],
-    db: ContextualVectorDB,
-    es_bm25: ElasticsearchBM25,
-    k: int,
+    retrieved_docs: List[Dict[str, Any]],
     module: dspy.Module
 ) -> Dict[str, Any]:
     """
@@ -90,9 +78,8 @@ async def process_single_transcript_quotation(
 
     logger.info(f"Processing transcript chunk for quotation: {transcript_chunk[:100]}...")
 
-    # Retrieve and filter chunks
-    retrieved_chunks = retrieve_documents(transcript_chunk, db, es_bm25, k)
-    filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
+    # Filter chunks based on score
+    filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
     contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     research_objectives = transcript_item.get(
@@ -116,8 +103,8 @@ async def process_single_transcript_quotation(
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrieved_chunks": retrieved_chunks,
-        "retrieved_chunks_count": len(retrieved_chunks),
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
         "filtered_chunks_count": len(filtered_chunks),
         "contextualized_contents": contextualized_contents,
         "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
@@ -136,9 +123,7 @@ async def process_single_transcript_quotation(
 @handle_exceptions
 async def process_single_transcript_keyword(
     transcript_item: Dict[str, Any],
-    db: ContextualVectorDB,
-    es_bm25: ElasticsearchBM25,
-    k: int,
+    retrieved_docs: List[Dict[str, Any]],
     module: dspy.Module
 ) -> Dict[str, Any]:
     """
@@ -151,9 +136,8 @@ async def process_single_transcript_keyword(
 
     logger.info(f"Processing quotation for keywords: {quotation[:100]}...")
 
-    # Retrieve and filter chunks
-    retrieved_chunks = retrieve_documents(quotation, db, es_bm25, k)
-    filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
+    # Filter chunks based on score
+    filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
     contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     research_objectives = transcript_item.get(
@@ -177,8 +161,8 @@ async def process_single_transcript_keyword(
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrieved_chunks": retrieved_chunks,
-        "retrieved_chunks_count": len(retrieved_chunks),
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
         "filtered_chunks_count": len(filtered_chunks),
         "contextualized_contents": contextualized_contents,
         "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
@@ -196,9 +180,7 @@ async def process_single_transcript_keyword(
 @handle_exceptions
 async def process_single_transcript_coding(
     transcript_item: Dict[str, Any],
-    db: ContextualVectorDB,
-    es_bm25: ElasticsearchBM25,
-    k: int,
+    retrieved_docs: List[Dict[str, Any]],
     module: dspy.Module
 ) -> Dict[str, Any]:
     """
@@ -213,16 +195,10 @@ async def process_single_transcript_coding(
         logger.warning("Keywords are missing or empty. Skipping.")
         return {}
 
-    # Ensure keywords are a list of non-empty strings
-    if not all(isinstance(kw, str) and kw.strip() for kw in keywords):
-        logger.warning("One or more keywords are not valid strings. Skipping.")
-        return {}
-
     logger.info(f"Processing transcript for coding analysis: Quotation='{quotation[:100]}...', Keywords={keywords}")
 
-    # Retrieve and filter chunks
-    retrieved_chunks = retrieve_documents(quotation, db, es_bm25, k)
-    filtered_chunks = [chunk for chunk in retrieved_chunks if chunk['score'] >= 0.7]
+    # Filter chunks based on score
+    filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
     contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     research_objectives = transcript_item.get(
@@ -248,13 +224,13 @@ async def process_single_transcript_coding(
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrieved_chunks": retrieved_chunks,
-        "retrieved_chunks_count": len(retrieved_chunks),
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
         "filtered_chunks_count": len(filtered_chunks),
         "contextualized_contents": contextualized_contents,
         "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
-        "codes": response.get("codes", []),  # Changed 'developed_codes' to 'codes'
-        "analysis": response.get("analysis", {}),
+        "codes": response.get("codes", []),
+        "analysis": response.get("analysis", {})
     }
 
     if not result["codes"]:
@@ -263,7 +239,6 @@ async def process_single_transcript_coding(
 
     logger.info(f"Developed {len(result['codes'])} codes for coding analysis.")
     return result
-
 
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
@@ -287,9 +262,17 @@ async def process_queries(
     module: dspy.Module
 ):
     """
-    Processes a list of transcript items based on the module type.
+    Processes a list of transcript items based on the module type with reranking.
     """
     logger.info(f"Starting to process transcripts for output file '{output_file}'.")
+
+    # Set up reranker configuration
+    reranker_config = RerankerConfig(
+        reranker_type=RerankerType.COHERE,
+        cohere_api_key=os.getenv("COHERE_API_KEY"),
+        st_weight=0.5
+    )
+    logger.debug(f"Created reranker config with type: {reranker_config.reranker_type}")
 
     all_results = []
     try:
@@ -306,15 +289,26 @@ async def process_queries(
 
         for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
             try:
-                result = await process_func(
-                    transcript_item,
-                    db,
-                    es_bm25,
-                    k,
-                    module
+                # First retrieve documents with reranking
+                query = transcript_item.get('query', transcript_item.get('transcript_chunk', transcript_item.get('quotation', '')))
+                retrieved_docs = retrieve_with_reranking(
+                    query=query,
+                    db=db,
+                    es_bm25=es_bm25,
+                    k=k,
+                    reranker_config=reranker_config
                 )
+
+                # Process with the appropriate module
+                result = await process_func(
+                    transcript_item=transcript_item,
+                    retrieved_docs=retrieved_docs,
+                    module=module
+                )
+
                 if result:
                     all_results.append(result)
+                    
             except Exception as e:
                 logger.error(f"Error processing transcript at index {idx}: {e}", exc_info=True)
 

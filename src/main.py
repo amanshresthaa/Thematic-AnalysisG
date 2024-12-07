@@ -24,60 +24,62 @@ from src.analysis.extract_keyword_module import KeywordExtractionModule
 from src.analysis.coding_module import CodingAnalysisModule
 from src.decorators import handle_exceptions
 
-# Import the conversion functions
 from src.convert.convertquotationforkeyword import convert_query_results as convert_quotation_to_keyword
 from src.convert.convertkeywordforcoding import convert_query_results as convert_keyword_to_coding
 from src.convert.convertcodingfortheme import process_input_file as convert_coding_to_theme
 
-# Initialize logging
 setup_logging()
 logger = logging.getLogger(__name__)
 
-# Configure DSPy settings
 dspy.settings.configure(main_thread_only=True)
 
-# Introduce a thread lock mechanism
 thread_lock = threading.Lock()
 
 class ThematicAnalysisPipeline:
     def __init__(self):
+        logger.info("Initializing ThematicAnalysisPipeline")
         self.contextual_db = ContextualVectorDB("contextual_db")
         self.es_bm25 = None
-        self.optimized_coding_program = None  # Added for Coding Analysis
-        logger.debug("ThematicAnalysisPipeline instance created with ContextualVectorDB initialized.")
+        self.optimized_coding_program = None
+        logger.info("ThematicAnalysisPipeline instance created with ContextualVectorDB initialized")
 
     def create_elasticsearch_bm25_index(self, index_name: str) -> ElasticsearchBM25:
         """
         Create and index documents in Elasticsearch BM25.
         """
-        logger.debug("Entering create_elasticsearch_bm25_index method.")
+        logger.info(f"Creating Elasticsearch BM25 index: {index_name}")
+        start_time = time.time()
+        
         try:
             es_bm25 = ElasticsearchBM25(index_name=index_name)
-            logger.info(f"ElasticsearchBM25 instance created with index '{index_name}'.")
-            start_time = time.time()
+            logger.debug(f"ElasticsearchBM25 instance created with index '{index_name}'")
+            
+            index_start_time = time.time()
             success_count, failed_docs = es_bm25.index_documents(self.contextual_db.metadata)
-            elapsed_time = time.time() - start_time
-            logger.info(
-                f"Elasticsearch BM25 index '{index_name}' created successfully with {success_count} documents indexed "
-                f"in {elapsed_time:.2f} seconds."
-            )
+            index_time = time.time() - index_start_time
+            
+            logger.info(f"Successfully indexed {success_count} documents in {index_time:.2f}s")
+            
             if failed_docs:
-                logger.warning(f"{len(failed_docs)} documents failed to index.")
+                logger.warning(f"Failed to index {len(failed_docs)} documents")
                 for doc in failed_docs:
-                    logger.warning(f"Failed to index document ID: {doc.get('doc_id', 'Unknown')}")
+                    logger.warning(f"Failed document ID: {doc.get('doc_id', 'Unknown')}")
+                    
         except Exception as e:
             logger.error(f"Error creating Elasticsearch BM25 index '{index_name}': {e}", exc_info=True)
-            raise  # Re-raise the exception after logging
-        finally:
-            logger.debug("Exiting create_elasticsearch_bm25_index method.")
+            raise
+            
+        total_time = time.time() - start_time
+        logger.info(f"Elasticsearch BM25 index creation completed in {total_time:.2f}s")
         return es_bm25
 
     async def initialize_quotation_optimizer(self, config):
         """
         Initialize the quotation selection optimizer.
         """
-        logger.info("Initializing quotation selection optimizer.")
+        logger.info("Initializing quotation selection optimizer")
         start_time = time.time()
+        
         try:
             dl = DataLoader()
             quotation_train_dataset = dl.from_csv(
@@ -85,9 +87,10 @@ class ThematicAnalysisPipeline:
                 fields=("input", "output"),
                 input_keys=("input",)
             )
-            logger.debug(f"Quotation training dataset loaded with {len(quotation_train_dataset)} samples.")
+            logger.info(f"Loaded quotation training dataset: {len(quotation_train_dataset)} samples")
 
             self.quotation_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+            logger.debug("Created quotation QA module")
 
             optimizer_config = {
                 'max_bootstrapped_demos': 4,
@@ -95,31 +98,39 @@ class ThematicAnalysisPipeline:
                 'num_candidate_programs': 10,
                 'num_threads': 1
             }
+            logger.debug(f"Optimizer configuration: {optimizer_config}")
 
             self.quotation_teleprompter = BootstrapFewShotWithRandomSearch(
                 metric=comprehensive_metric,
                 **optimizer_config
             )
 
+            compile_start = time.time()
             self.optimized_quotation_program = self.quotation_teleprompter.compile(
                 student=self.quotation_qa_module,
                 teacher=self.quotation_qa_module,
                 trainset=quotation_train_dataset
             )
+            compile_time = time.time() - compile_start
+            logger.info(f"Compiled optimized quotation program in {compile_time:.2f}s")
 
             self.optimized_quotation_program.save(config['optimized_quotation_program'])
-            elapsed_time = time.time() - start_time
-            logger.info(f"Quotation optimizer initialized successfully in {elapsed_time:.2f} seconds.")
+            logger.info(f"Saved optimized quotation program to {config['optimized_quotation_program']}")
+
         except Exception as e:
             logger.error(f"Error initializing quotation optimizer: {e}", exc_info=True)
-            raise  # Re-raise the exception after logging
+            raise
+            
+        total_time = time.time() - start_time
+        logger.info(f"Quotation optimizer initialization completed in {total_time:.2f}s")
 
     async def initialize_keyword_optimizer(self, config):
         """
         Initialize the keyword extraction optimizer.
         """
-        logger.info("Initializing keyword extraction optimizer.")
+        logger.info("Initializing keyword extraction optimizer")
         start_time = time.time()
+        
         try:
             dl = DataLoader()
             keyword_train_dataset = dl.from_csv(
@@ -127,9 +138,10 @@ class ThematicAnalysisPipeline:
                 fields=("input", "output"),
                 input_keys=("input",)
             )
-            logger.debug(f"Keyword training dataset loaded with {len(keyword_train_dataset)} samples.")
+            logger.info(f"Loaded keyword training dataset: {len(keyword_train_dataset)} samples")
 
             self.keyword_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+            logger.debug("Created keyword QA module")
 
             optimizer_config = {
                 'max_bootstrapped_demos': 4,
@@ -137,31 +149,39 @@ class ThematicAnalysisPipeline:
                 'num_candidate_programs': 10,
                 'num_threads': 1
             }
+            logger.debug(f"Optimizer configuration: {optimizer_config}")
 
             self.keyword_teleprompter = BootstrapFewShotWithRandomSearch(
                 metric=comprehensive_metric,
                 **optimizer_config
             )
 
+            compile_start = time.time()
             self.optimized_keyword_program = self.keyword_teleprompter.compile(
                 student=self.keyword_qa_module,
                 teacher=self.keyword_qa_module,
                 trainset=keyword_train_dataset
             )
+            compile_time = time.time() - compile_start
+            logger.info(f"Compiled optimized keyword program in {compile_time:.2f}s")
 
             self.optimized_keyword_program.save(config['optimized_keyword_program'])
-            elapsed_time = time.time() - start_time
-            logger.info(f"Keyword extraction optimizer initialized successfully in {elapsed_time:.2f} seconds.")
+            logger.info(f"Saved optimized keyword program to {config['optimized_keyword_program']}")
+
         except Exception as e:
-            logger.error(f"Error initializing keyword extraction optimizer: {e}", exc_info=True)
-            raise  # Re-raise the exception after logging
+            logger.error(f"Error initializing keyword optimizer: {e}", exc_info=True)
+            raise
+            
+        total_time = time.time() - start_time
+        logger.info(f"Keyword optimizer initialization completed in {total_time:.2f}s")
 
     async def initialize_coding_optimizer(self, config):
         """
         Initialize the coding analysis optimizer.
         """
-        logger.info("Initializing coding analysis optimizer.")
+        logger.info("Initializing coding analysis optimizer")
         start_time = time.time()
+        
         try:
             dl = DataLoader()
             coding_train_dataset = dl.from_csv(
@@ -169,9 +189,10 @@ class ThematicAnalysisPipeline:
                 fields=("input", "output"),
                 input_keys=("input",)
             )
-            logger.debug(f"Coding training dataset loaded with {len(coding_train_dataset)} samples.")
+            logger.info(f"Loaded coding training dataset: {len(coding_train_dataset)} samples")
 
             self.coding_qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+            logger.debug("Created coding QA module")
 
             optimizer_config = {
                 'max_bootstrapped_demos': 4,
@@ -179,306 +200,301 @@ class ThematicAnalysisPipeline:
                 'num_candidate_programs': 10,
                 'num_threads': 1
             }
+            logger.debug(f"Optimizer configuration: {optimizer_config}")
 
             self.coding_teleprompter = BootstrapFewShotWithRandomSearch(
                 metric=comprehensive_metric,
                 **optimizer_config
             )
 
+            compile_start = time.time()
             self.optimized_coding_program = self.coding_teleprompter.compile(
                 student=self.coding_qa_module,
                 teacher=self.coding_qa_module,
                 trainset=coding_train_dataset
             )
+            compile_time = time.time() - compile_start
+            logger.info(f"Compiled optimized coding program in {compile_time:.2f}s")
 
             self.optimized_coding_program.save(config['optimized_coding_program'])
-            elapsed_time = time.time() - start_time
-            logger.info(f"Coding analysis optimizer initialized successfully in {elapsed_time:.2f} seconds.")
+            logger.info(f"Saved optimized coding program to {config['optimized_coding_program']}")
+
         except Exception as e:
-            logger.error(f"Error initializing coding analysis optimizer: {e}", exc_info=True)
-            raise  # Re-raise the exception after logging
+            logger.error(f"Error initializing coding optimizer: {e}", exc_info=True)
+            raise
+            
+        total_time = time.time() - start_time
+        logger.info(f"Coding optimizer initialization completed in {total_time:.2f}s")
 
     @handle_exceptions
     async def run_pipeline_with_config(self, config, module_class, optimizer_init_func):
         """
         Main function to load data, process queries, and generate outputs.
         """
-        logger.debug("Entering run_pipeline_with_config method.")
+        logger.info(f"Starting pipeline with {module_class.__name__}")
+        pipeline_start_time = time.time()
+
         try:
             # Configure DSPy Language Model
-            logger.info("Configuring DSPy Language Model.")
+            logger.info("Configuring DSPy Language Model")
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
             dspy.Cache = False
-            logger.debug("DSPy Language Model configured.")
-
-            # Define file paths from config
-            codebase_chunks_file = config['codebase_chunks_file']
-            queries_file_standard = config['queries_file_standard']
-            evaluation_set_file = config['evaluation_set_file']
-            output_filename_primary = config['output_filename_primary']
-
-            dl = DataLoader()
+            logger.debug("DSPy Language Model configured successfully")
 
             # Load the codebase chunks
-            logger.info(f"Loading codebase chunks from '{codebase_chunks_file}'.")
-            start_time = time.time()
-            codebase_chunks = load_codebase_chunks(codebase_chunks_file)
-            elapsed_time = time.time() - start_time
-            logger.info(f"Loaded {len(codebase_chunks)} documents in {elapsed_time:.2f} seconds.")
+            logger.info(f"Loading codebase chunks from {config['codebase_chunks_file']}")
+            chunks_start_time = time.time()
+            codebase_chunks = load_codebase_chunks(config['codebase_chunks_file'])
+            chunks_time = time.time() - chunks_start_time
+            logger.info(f"Loaded {len(codebase_chunks)} chunks in {chunks_time:.2f}s")
 
-            # Load and process the data
-            try:
-                logger.info("Loading data into ContextualVectorDB.")
-                start_time = time.time()
-                self.contextual_db.load_data(codebase_chunks, parallel_threads=4)
-                elapsed_time = time.time() - start_time
-                logger.info(f"Data loaded into ContextualVectorDB in {elapsed_time:.2f} seconds.")
-                logger.info(f"Total embeddings: {len(self.contextual_db.embeddings)}.")
-                logger.info(f"Total metadata entries: {len(self.contextual_db.metadata)}.")
-            except Exception as e:
-                logger.error(f"Error loading data into ContextualVectorDB: {e}", exc_info=True)
-                return
+            # Load data into ContextualVectorDB
+            logger.info("Loading data into ContextualVectorDB")
+            db_start_time = time.time()
+            self.contextual_db.load_data(codebase_chunks, parallel_threads=4)
+            db_time = time.time() - db_start_time
+            logger.info(f"Loaded data into ContextualVectorDB in {db_time:.2f}s")
+            logger.debug(f"Total embeddings: {len(self.contextual_db.embeddings)}")
+            logger.debug(f"Total metadata entries: {len(self.contextual_db.metadata)}")
 
-            # Create the Elasticsearch BM25 index
-            try:
-                logger.info(f"Creating Elasticsearch BM25 index '{config['index_name']}'.")
-                start_time = time.time()
-                self.es_bm25 = self.create_elasticsearch_bm25_index(config['index_name'])
-                elapsed_time = time.time() - start_time
-                logger.info(f"Elasticsearch BM25 index '{config['index_name']}' created in {elapsed_time:.2f} seconds.")
-            except Exception as e:
-                logger.error(f"Error creating Elasticsearch BM25 index: {e}", exc_info=True)
-                return
+            # Create Elasticsearch BM25 index
+            logger.info(f"Creating Elasticsearch BM25 index: {config['index_name']}")
+            es_start_time = time.time()
+            self.es_bm25 = self.create_elasticsearch_bm25_index(config['index_name'])
+            es_time = time.time() - es_start_time
+            logger.info(f"Created Elasticsearch BM25 index in {es_time:.2f}s")
 
-            # Load queries
-            logger.info(f"Loading standard queries from '{queries_file_standard}'.")
-            start_time = time.time()
-            standard_queries = load_queries(queries_file_standard)
-            elapsed_time = time.time() - start_time
-            logger.info(f"Loaded {len(standard_queries)} standard queries in {elapsed_time:.2f} seconds.")
+            # Load and validate queries
+            logger.info(f"Loading queries from {config['queries_file_standard']}")
+            queries_start_time = time.time()
+            standard_queries = load_queries(config['queries_file_standard'])
+            logger.info(f"Loaded {len(standard_queries)} queries")
 
-            if not standard_queries:
-                logger.error("No standard queries found to process.")
-                return
-
-            # Validate queries
-            logger.info("Validating standard queries.")
-            start_time = time.time()
-            validated_standard_queries = validate_queries(standard_queries, module_class())
-            elapsed_time = time.time() - start_time
-            logger.info(f"Validated {len(validated_standard_queries)} queries in {elapsed_time:.2f} seconds.")
+            logger.info("Validating queries")
+            validated_queries = validate_queries(standard_queries, module_class())
+            queries_time = time.time() - queries_start_time
+            logger.info(f"Validated {len(validated_queries)} queries in {queries_time:.2f}s")
 
             # Initialize optimizer
-            logger.info(f"Initializing optimizer for {module_class.__name__}.")
-            start_time = time.time()
+            logger.info(f"Initializing optimizer for {module_class.__name__}")
+            optimizer_start_time = time.time()
             await optimizer_init_func(config)
-            elapsed_time = time.time() - start_time
-            logger.info(f"Optimizer for {module_class.__name__} initialized in {elapsed_time:.2f} seconds.")
+            optimizer_time = time.time() - optimizer_start_time
+            logger.info(f"Initialized optimizer in {optimizer_time:.2f}s")
 
-            # Initialize the module with assertions
-            try:
-                logger.info(f"Initializing {module_class.__name__}.")
-                module_instance = module_class()
-                module_instance = assert_transform_module(
-                    module_instance,
-                    backtrack_handler
-                )
-                logger.info(f"{module_class.__name__} initialized successfully with assertions activated.")
-            except Exception as e:
-                logger.error(f"Error initializing {module_class.__name__}: {e}", exc_info=True)
-                return
-
-            # Define k value for queries
-            k_standard = 20
-            logger.debug(f"Set k_standard to {k_standard} for query processing.")
-
-            # Determine the optimized program based on module type
-            if 'quotation' in module_class.__name__.lower():
-                optimized_program = self.optimized_quotation_program
-                logger.debug("Using optimized quotation program.")
-            elif 'keyword' in module_class.__name__.lower():
-                optimized_program = self.optimized_keyword_program
-                logger.debug("Using optimized keyword extraction program.")
-            elif 'coding' in module_class.__name__.lower():
-                optimized_program = self.optimized_coding_program
-                logger.debug("Using optimized coding analysis program.")
-            else:
-                logger.error("No optimized program found for the given module type.")
-                return
-
-            # Process queries with the module
-            logger.info(f"Processing queries with {module_class.__name__}.")
-            start_time = time.time()
-            await process_queries(
-                validated_standard_queries,
-                self.contextual_db,
-                self.es_bm25,
-                k=k_standard,
-                output_file=output_filename_primary,
-                optimized_program=optimized_program,
-                module=module_instance
+            # Initialize module with assertions
+            logger.info(f"Initializing {module_class.__name__}")
+            module_instance = module_class()
+            module_instance = assert_transform_module(
+                module_instance,
+                backtrack_handler
             )
-            elapsed_time = time.time() - start_time
-            logger.info(f"Processed queries with {module_class.__name__} in {elapsed_time:.2f} seconds.")
+            logger.info(f"Initialized {module_class.__name__} with assertions")
 
-            # Define k values for evaluation
-            k_values = [5, 10, 20]
-            logger.debug(f"Set k_values for evaluation: {k_values}.")
-
-            # Create a reranker configuration (e.g., combined ST + Cohere)
+            # Set up reranker configuration
             reranker_config = RerankerConfig(
                 reranker_type=RerankerType.COHERE,
                 cohere_api_key=os.getenv("COHERE_API_KEY"),
                 st_weight=0.5
             )
+            logger.debug(f"Created reranker config with type: {reranker_config.reranker_type}")
 
-            # Initialize the evaluator
-            logger.info("Starting evaluation of the retrieval pipeline.")
-            try:
-                evaluator = PipelineEvaluator(
-                    db=self.contextual_db,
-                    es_bm25=self.es_bm25,
-                    retrieval_function=lambda query, db, es_bm25, k: retrieve_with_reranking(
-                        query, db, es_bm25, k, reranker_config
-                    )
+            # Process queries
+            k_standard = 20
+            logger.info(f"Processing queries with k={k_standard}")
+            query_start_time = time.time()
+            
+            if module_class.__name__.lower().find('quotation') != -1:
+                optimized_program = self.optimized_quotation_program
+            elif module_class.__name__.lower().find('keyword') != -1:
+                optimized_program = self.optimized_keyword_program
+            elif module_class.__name__.lower().find('coding') != -1:
+                optimized_program = self.optimized_coding_program
+            else:
+                logger.error(f"Unknown module type: {module_class.__name__}")
+                return
+
+            await process_queries(
+                validated_queries,
+                self.contextual_db,
+                self.es_bm25,
+                k=k_standard,
+                output_file=config['output_filename_primary'],
+                optimized_program=optimized_program,
+                module=module_instance
+            )
+            query_time = time.time() - query_start_time
+            logger.info(f"Processed queries in {query_time:.2f}s")
+
+            # Evaluation
+            # Evaluation
+            logger.info("Starting evaluation")
+            eval_start_time = time.time()
+            
+            evaluator = PipelineEvaluator(
+                db=self.contextual_db,
+                es_bm25=self.es_bm25,
+                retrieval_function=lambda query, db, es_bm25, k: retrieve_with_reranking(
+                    query, db, es_bm25, k, reranker_config
                 )
-                logger.debug("PipelineEvaluator instance created.")
+            )
+            
+            evaluation_set = load_queries(config['evaluation_set_file'])
+            logger.info(f"Loaded {len(evaluation_set)} evaluation queries")
 
-                # Perform evaluation
-                logger.info(f"Loading evaluation set from '{evaluation_set_file}'.")
-                start_time = time.time()
-                evaluation_set = load_queries(evaluation_set_file)
-                logger.info(f"Loaded {len(evaluation_set)} evaluation queries in {time.time() - start_time:.2f} seconds.")
+            k_values = [5, 10, 20]
+            logger.debug(f"Evaluating with k values: {k_values}")
+            
+            evaluator.evaluate_complete_pipeline(
+                k_values=k_values,
+                evaluation_set=evaluation_set
+            )
+            eval_time = time.time() - eval_start_time
+            logger.info(f"Completed evaluation in {eval_time:.2f}s")
 
-                logger.info("Evaluating the complete retrieval pipeline.")
-                start_time = time.time()
-                evaluator.evaluate_complete_pipeline(
-                    k_values=k_values,
-                    evaluation_set=evaluation_set
-                )
-                elapsed_time = time.time() - start_time
-                logger.info(f"Evaluation completed successfully in {elapsed_time:.2f} seconds.")
-            except Exception as e:
-                logger.error(f"Error during evaluation: {e}", exc_info=True)
+            total_pipeline_time = time.time() - pipeline_start_time
+            logger.info(f"Pipeline for {module_class.__name__} completed in {total_pipeline_time:.2f}s")
 
-            logger.info(f"Pipeline for {module_class.__name__} completed successfully.")
-            logger.debug("Exiting run_pipeline_with_config method.")
         except Exception as e:
-            logger.error(f"Unexpected error in run_pipeline_with_config: {e}", exc_info=True)
-            raise  # Re-raise the exception after logging
+            logger.error(f"Error in pipeline execution: {e}", exc_info=True)
+            raise
 
     async def run_pipeline(self):
-        logger.info("Starting Thematic Analysis Pipeline.")
-        start_time = time.time()
-        # Define configurations for each pipeline
-        config_standard_quotation = {
-            'index_name': 'contextual_bm25_index_standard_quotation',
-            'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
-            'queries_file_standard': 'data/input/queries_quotation.json',
-            'evaluation_set_file': 'data/evaluation/evaluation_set_quotation.jsonl',
-            'output_filename_primary': 'data/output/query_results_quotation.json',
-            'quotation_training_data': 'data/training/quotation_training_data.csv',
-            'optimized_quotation_program': 'data/optimized/optimized_quotation_program.json'
-        }
-        config_keyword_extraction = {
-            'index_name': 'contextual_bm25_index_keyword_extraction',
-            'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
-            'queries_file_standard': 'data/input/queries_keyword.json',  # Will be updated after conversion
-            'evaluation_set_file': 'data/evaluation/evaluation_set_keyword.jsonl',
-            'output_filename_primary': 'data/output/query_results_keyword_extraction.json',
-            'keyword_training_data': 'data/training/keyword_training_data.csv',
-            'optimized_keyword_program': 'data/optimized/optimized_keyword_program.json'
-        }
-        config_coding_analysis = {  # Added configuration for Coding Analysis pipeline
-            'index_name': 'contextual_bm25_index_coding_analysis',
-            'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
-            'queries_file_standard': 'data/input/queries_coding.json',  # Will be updated after conversion
-            'evaluation_set_file': 'data/evaluation/evaluation_set_coding.jsonl',
-            'output_filename_primary': 'data/output/query_results_coding_analysis.json',
-            'coding_training_data': 'data/training/coding_training_data.csv',
-            'optimized_coding_program': 'data/optimized/optimized_coding_program.json'
-        }
+        """
+        Run the complete thematic analysis pipeline.
+        """
+        logger.info("Starting Thematic Analysis Pipeline")
+        total_start_time = time.time()
 
-        # Run Standard Quotation Extraction Pipeline
-        logger.info("Starting Standard Quotation Extraction Pipeline.")
-        await self.run_pipeline_with_config(
-            config_standard_quotation,
-            EnhancedQuotationModuleStandard,
-            self.initialize_quotation_optimizer
-        )
+        try:
+            # Configure pipeline stages
+            config_standard_quotation = {
+                'index_name': 'contextual_bm25_index_standard_quotation',
+                'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
+                'queries_file_standard': 'data/input/queries_quotation.json',
+                'evaluation_set_file': 'data/evaluation/evaluation_set_quotation.jsonl',
+                'output_filename_primary': 'data/output/query_results_quotation.json',
+                'quotation_training_data': 'data/training/quotation_training_data.csv',
+                'optimized_quotation_program': 'data/optimized/optimized_quotation_program.json'
+            }
+            
+            config_keyword_extraction = {
+                'index_name': 'contextual_bm25_index_keyword_extraction',
+                'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
+                'queries_file_standard': 'data/input/queries_keyword.json',
+                'evaluation_set_file': 'data/evaluation/evaluation_set_keyword.jsonl',
+                'output_filename_primary': 'data/output/query_results_keyword_extraction.json',
+                'keyword_training_data': 'data/training/keyword_training_data.csv',
+                'optimized_keyword_program': 'data/optimized/optimized_keyword_program.json'
+            }
+            
+            config_coding_analysis = {
+                'index_name': 'contextual_bm25_index_coding_analysis',
+                'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
+                'queries_file_standard': 'data/input/queries_coding.json',
+                'evaluation_set_file': 'data/evaluation/evaluation_set_coding.jsonl',
+                'output_filename_primary': 'data/output/query_results_coding_analysis.json',
+                'coding_training_data': 'data/training/coding_training_data.csv',
+                'optimized_coding_program': 'data/optimized/optimized_coding_program.json'
+            }
 
-        # After running the quotation extraction pipeline, perform the conversion
-        async def perform_conversion(func, description="", **kwargs):
+            # Run Standard Quotation Extraction Pipeline
+            logger.info("Starting Standard Quotation Extraction Pipeline")
+            quotation_start_time = time.time()
+            await self.run_pipeline_with_config(
+                config_standard_quotation,
+                EnhancedQuotationModuleStandard,
+                self.initialize_quotation_optimizer
+            )
+            quotation_time = time.time() - quotation_start_time
+            logger.info(f"Completed Quotation Extraction in {quotation_time:.2f}s")
+
+            # Convert quotation results to keyword format
+            logger.info("Converting quotation results to keyword format")
             try:
-                logger.info(f"Converting data: {description}")
-                start_time = time.time()
-                # Run the conversion in a separate thread to avoid blocking the event loop
-                await asyncio.to_thread(func, **kwargs)
-                elapsed_time = time.time() - start_time
-                logger.info(f"Conversion successful: {description} in {elapsed_time:.2f} seconds.")
+                await asyncio.to_thread(
+                    convert_quotation_to_keyword,
+                    input_file=config_standard_quotation['output_filename_primary'],
+                    output_dir='data',
+                    output_file='queries_keyword_standard.json'
+                )
+                logger.info("Quotation to keyword conversion completed")
             except Exception as e:
-                logger.error(f"Conversion failed ({description}): {e}", exc_info=True)
-                raise  # Re-raise the exception to halt the pipeline
+                logger.error(f"Error in quotation to keyword conversion: {e}", exc_info=True)
+                raise
 
-        # Perform conversion for Standard Quotation Extraction
-        await perform_conversion(
-            convert_quotation_to_keyword,
-            description="Quotation to Keyword Conversion (Standard)",
-            input_file=config_standard_quotation['output_filename_primary'],
-            output_dir='data',
-            output_file='queries_keyword_standard.json'
-        )
+            # Run Keyword Extraction Pipeline
+            logger.info("Starting Keyword Extraction Pipeline")
+            keyword_start_time = time.time()
+            config_keyword_extraction_standard = config_keyword_extraction.copy()
+            config_keyword_extraction_standard['queries_file_standard'] = 'data/input/queries_keyword_standard.json'
+            
+            await self.run_pipeline_with_config(
+                config_keyword_extraction_standard,
+                KeywordExtractionModule,
+                self.initialize_keyword_optimizer
+            )
+            keyword_time = time.time() - keyword_start_time
+            logger.info(f"Completed Keyword Extraction in {keyword_time:.2f}s")
 
-        # Run Keyword Extraction Pipeline for Standard Quotation
-        logger.info("Starting Keyword Extraction Pipeline for Standard Quotation.")
-        config_keyword_extraction_standard = config_keyword_extraction.copy()
-        config_keyword_extraction_standard['queries_file_standard'] = 'data/input/queries_keyword_standard.json'
-        await self.run_pipeline_with_config(
-            config_keyword_extraction_standard,
-            KeywordExtractionModule,
-            self.initialize_keyword_optimizer
-        )
+            # Convert keyword results to coding format
+            logger.info("Converting keyword results to coding format")
+            try:
+                await asyncio.to_thread(
+                    convert_keyword_to_coding,
+                    input_file=config_keyword_extraction_standard['output_filename_primary'],
+                    output_dir='data',
+                    output_file='queries_coding_standard.json'
+                )
+                logger.info("Keyword to coding conversion completed")
+            except Exception as e:
+                logger.error(f"Error in keyword to coding conversion: {e}", exc_info=True)
+                raise
 
-        # After Keyword Extraction, perform conversion to Coding
-        await perform_conversion(
-            convert_keyword_to_coding,
-            description="Keyword to Coding Conversion (Standard)",
-            input_file=config_keyword_extraction_standard['output_filename_primary'],
-            output_dir='data',
-            output_file='queries_coding_standard.json'
-        )
+            # Run Coding Analysis Pipeline
+            logger.info("Starting Coding Analysis Pipeline")
+            coding_start_time = time.time()
+            config_coding_analysis_standard = config_coding_analysis.copy()
+            config_coding_analysis_standard['queries_file_standard'] = 'data/input/queries_coding_standard.json'
+            
+            await self.run_pipeline_with_config(
+                config_coding_analysis_standard,
+                CodingAnalysisModule,
+                self.initialize_coding_optimizer
+            )
+            coding_time = time.time() - coding_start_time
+            logger.info(f"Completed Coding Analysis in {coding_time:.2f}s")
 
-        # Run Coding Analysis Pipeline for Standard Keyword Extraction
-        logger.info("Starting Coding Analysis Pipeline for Standard Keyword Extraction.")
-        config_coding_analysis_standard = config_coding_analysis.copy()
-        config_coding_analysis_standard['queries_file_standard'] = 'data/input/queries_coding_standard.json'
-        await self.run_pipeline_with_config(
-            config_coding_analysis_standard,
-            CodingAnalysisModule,
-            self.initialize_coding_optimizer
-        )
+            # Convert coding results to theme format
+            logger.info("Converting coding results to theme format")
+            try:
+                await asyncio.to_thread(
+                    convert_coding_to_theme,
+                    input_file=config_coding_analysis_standard['output_filename_primary'],
+                    output_dir='data',
+                    output_file='queries_theme_standard.json'
+                )
+                logger.info("Coding to theme conversion completed")
+            except Exception as e:
+                logger.error(f"Error in coding to theme conversion: {e}", exc_info=True)
+                raise
 
-        # After Coding Analysis, perform conversion to Theme (without ThemeAnalysisModule)
-        await perform_conversion(
-            convert_coding_to_theme,
-            description="Coding to Theme Conversion (Standard)",
-            input_file=config_coding_analysis_standard['output_filename_primary'],
-            output_dir='data',
-            output_file='queries_theme_standard.json'
-        )
+            total_time = time.time() - total_start_time
+            logger.info(f"All pipeline stages completed successfully in {total_time:.2f}s")
 
-        # Since ThemeAnalysisModule is not available, we stop here
-
-        elapsed_time = time.time() - start_time
-        logger.info(f"All pipelines and conversion steps executed successfully up to Coding Analysis in {elapsed_time:.2f} seconds.")
+        except Exception as e:
+            logger.error(f"Pipeline execution failed: {e}", exc_info=True)
+            raise
 
 if __name__ == "__main__":
-    logger.info("Launching Thematic Analysis Pipeline.")
+    logger.info("Launching Thematic Analysis Pipeline")
     pipeline = ThematicAnalysisPipeline()
     try:
         asyncio.run(pipeline.run_pipeline())
+        logger.info("Pipeline execution completed successfully")
     except Exception as e:
         logger.critical(f"Pipeline execution failed: {e}", exc_info=True)
     finally:
-        logger.info("Thematic Analysis Pipeline execution completed.")
+        logger.info("Thematic Analysis Pipeline execution finished")
+        gc.collect()  # Final cleanup
