@@ -1,0 +1,557 @@
+2024-12-10 22:02:10,016 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:02:39,771 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:03:02,751 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:03:29,576 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:03:53,862 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:04:25,589 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:04:50,786 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:05:19,629 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:05:45,469 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:06:08,412 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:06:50,114 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:07:22,165 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:07:49,402 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:08:15,608 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:08:33,329 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:09:03,669 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:09:29,898 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:10:02,966 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:10:33,357 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:11:04,167 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:11:35,172 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:12:16,756 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:12:48,576 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:13:17,188 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:13:45,902 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:14:14,532 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:15:08,333 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:15:40,384 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:16:02,671 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:16:42,510 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:17:19,061 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type); Input should be a valid dictionary: codes, 2 (error type: dict_type)'})
+2024-12-10 22:17:45,534 - src.analysis.theme_development_module - ERROR - [theme_development_module.py:62] - Error during theme development analysis: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/analysis/theme_development_module.py", line 45, in forward
+    response = self.chain(
+               ^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/utils/callback.py", line 202, in wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/primitives/program.py", line 24, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/dspy/functional/functional.py", line 396, in forward
+    raise ValueError(
+ValueError: ('Too many retries trying to get the correct output format. Try simplifying the requirements.', {'general': 'Input should be a valid dictionary: codes, 0 (error type: dict_type); Input should be a valid dictionary: codes, 1 (error type: dict_type)'})
+2024-12-10 22:17:45,547 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_theme.jsonl': File does not exist.
+2024-12-10 22:24:21,587 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:23,215 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:24,288 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:25,337 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:27,287 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:28,305 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:29,884 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:30,676 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:31,650 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:32,635 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:34,149 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:36,253 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:37,136 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:37,925 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:38,977 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:40,049 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:41,099 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:43,415 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:44,450 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:45,432 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:46,441 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:48,490 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:49,476 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:50,475 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:53,107 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:54,973 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:55,976 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:56,987 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:58,230 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:24:59,251 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:00,237 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:01,047 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:02,125 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:03,453 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:04,472 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:05,401 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:06,415 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:07,883 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:09,155 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:10,112 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:11,124 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:12,105 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:13,990 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:16,075 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:16,919 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:17,717 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:18,528 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:19,393 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:20,164 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:22,036 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:22,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:23,661 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:24,451 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:25,308 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:26,060 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:26,986 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:27,784 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:28,602 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:29,389 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:30,184 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:31,014 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:31,828 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:32,676 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:33,575 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:34,302 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:35,187 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:36,233 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:37,189 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:39,188 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:40,188 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:40,975 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:41,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:42,606 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:43,413 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:44,237 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:46,671 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:25:57,107 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:26:08,038 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:26:22,381 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:26:31,514 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:26:39,440 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:26:49,908 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:27:04,876 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:27:17,778 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:27:29,000 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:27:36,517 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:27:47,160 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:27:55,784 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:28:07,671 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:28:19,217 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:28:30,721 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:28:42,055 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:28:52,625 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:29:08,164 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:29:16,056 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:29:25,273 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:29:39,247 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:29:49,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:29:58,903 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:30:08,316 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:30:20,834 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:30:28,988 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:30:42,862 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:30:59,618 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:31:07,083 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:31:18,700 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:31:35,185 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:280] - Embeddings or metadata are not loaded. Cannot perform search.
+2024-12-10 22:31:44,819 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_theme.jsonl': File does not exist.

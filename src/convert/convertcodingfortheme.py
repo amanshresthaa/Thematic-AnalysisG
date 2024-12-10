@@ -7,6 +7,7 @@ from typing import List, Dict, Any
 def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
     """
     Extracts and simplifies coding information from a single JSON entry.
+    This revised version keeps codes in dictionary format instead of just extracting their 'code' strings.
     """
     try:
         coding_info = entry.get('coding_info', {})
@@ -15,9 +16,16 @@ def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
         research_objectives = coding_info.get('research_objectives', '').strip()
         theoretical_framework = coding_info.get('theoretical_framework', {})
 
-        # Extract codes
+        # Extract codes as dictionaries if possible
         codes = entry.get('codes', [])
-        coding = [code_entry.get('code', '').strip() for code_entry in codes if 'code' in code_entry]
+        processed_codes = []
+        for code_entry in codes:
+            # Ensure the code_entry is a dictionary and has at least the 'code' key
+            if isinstance(code_entry, dict) and 'code' in code_entry:
+                processed_codes.append(code_entry)
+            else:
+                # If the code entry is not in the expected format, skip it or handle as needed
+                print(f"Warning: Code entry is not a valid dictionary or missing 'code' key: {code_entry}")
 
         # Combine transcript chunks
         retrieved_chunks = entry.get('retrieved_chunks', [])
@@ -27,7 +35,7 @@ def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
         simplified_entry = {
             "quotation": quotation,
             "keywords": keywords,
-            "coding": coding,
+            "codes": processed_codes,  # Keep codes as dictionaries
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework,
             "transcript_chunk": transcript_chunk
@@ -39,18 +47,26 @@ def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
         print(f"Error processing entry: {e}")
         return {}
 
-def process_input_file(input_file: str, output_dir: str, output_file: str):
+def convert_query_results(input_file: str, output_dir: str, output_file: str):
     """
-    Processes the input JSON file to extract and simplify coding information.
+    Convert query results to a simplified format and save them in the specified directory.
+    
+    The simplified format includes:
+    - quotation: The actual quotation text.
+    - keywords: List of keywords associated with the quotation.
+    - codes: List of code dictionaries associated with the quotation.
+    - research_objectives: The research objectives.
+    - theoretical_framework: The theoretical framework details.
+    - transcript_chunk: The combined transcript chunk for context.
     """
     # Ensure the output directory exists
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(os.path.join(output_dir, 'input'), exist_ok=True)
 
     try:
         # Read the input JSON file
         with open(input_file, 'r', encoding='utf-8') as f:
             input_data = json.load(f)
-
+        
         # Check if input_data is a list; if not, make it a list
         if not isinstance(input_data, list):
             input_data = [input_data]
@@ -65,13 +81,13 @@ def process_input_file(input_file: str, output_dir: str, output_file: str):
                 print(f"Entry at index {idx} could not be processed and was skipped.")
 
         # Define the output path
-        output_path = os.path.join(output_dir, output_file)
+        output_path = os.path.join(output_dir, 'input', output_file)
 
         # Write the simplified data to the output JSON file
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(simplified_data, f, indent=4, ensure_ascii=False)
 
-        print(f"Successfully processed and saved to {output_path}")
+        print(f"Successfully converted and saved to {output_path}")
 
     except FileNotFoundError:
         print(f"Error: The file {input_file} was not found.")
@@ -82,8 +98,8 @@ def process_input_file(input_file: str, output_dir: str, output_file: str):
 
 if __name__ == "__main__":
     # Example usage; this will only run when the script is executed directly
-    process_input_file(
+    convert_query_results(
         input_file='query_results_coding_analysis.json',  # Replace with your input file path
-        output_dir='data/input',                  # Replace with your desired output directory
-        output_file='queries_theme.json'  # Replace with your desired output file name
+        output_dir='data/',                          # Replace with your desired output directory
+        output_file='queries_theme.json'             # Replace with your desired output file name
     )
