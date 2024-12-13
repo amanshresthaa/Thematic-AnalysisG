@@ -1,18 +1,16 @@
 # query_processor.py
 
 import logging
-import time
 from typing import List, Dict, Any
 import json
-from tqdm import tqdm
 import os
-
+import dspy
+from tqdm import tqdm
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.utils.logger import setup_logging
 from src.decorators import handle_exceptions
-import dspy
 
 from src.analysis.select_quotation_module import SelectQuotationModule, EnhancedQuotationModule
 from src.analysis.extract_keyword_module import KeywordExtractionModule
@@ -23,53 +21,41 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> List[Dict[str, Any]]:
-    """
-    Validates the structure of input transcripts based on the module type.
-    """
     valid_transcripts = []
     for idx, transcript in enumerate(transcripts):
         if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
-            # Validation for quotation extraction modules
             if 'transcript_chunk' not in transcript or not isinstance(transcript['transcript_chunk'], str) or not transcript['transcript_chunk'].strip():
-                logger.warning(f"Transcript at index {idx} is missing the 'transcript_chunk' field or it is empty/not a string. Skipping.")
+                logger.warning(f"Transcript at index {idx} missing 'transcript_chunk'. Skipping.")
                 continue
         elif isinstance(module, KeywordExtractionModule):
-            # Validation for keyword extraction module
             if 'quotation' not in transcript or not isinstance(transcript['quotation'], str) or not transcript['quotation'].strip():
-                logger.warning(f"Transcript at index {idx} is missing the 'quotation' field or it is empty/not a string. Skipping.")
+                logger.warning(f"Transcript at index {idx} missing 'quotation' for keyword extraction. Skipping.")
                 continue
         elif isinstance(module, CodingAnalysisModule):
-            # Validation for coding analysis module
             required_string_fields = ['quotation']
             required_list_fields = ['keywords']
-
             missing_fields = []
-            # Check string fields
             for field in required_string_fields:
                 if field not in transcript or not isinstance(transcript[field], str) or not transcript[field].strip():
                     missing_fields.append(field)
-            # Check list fields
             for field in required_list_fields:
-                if field not in transcript or not isinstance(transcript[field], list) or not all(isinstance(kw, str) and kw.strip() for kw in transcript[field]):
+                if field not in transcript or not isinstance(transcript[field], list) or not transcript[field]:
                     missing_fields.append(field)
-
             if missing_fields:
-                logger.warning(f"Transcript at index {idx} is missing required fields {missing_fields} for coding analysis or they are empty/invalid. Skipping.")
+                logger.warning(f"Coding analysis transcript at {idx} missing required fields {missing_fields}. Skipping.")
                 continue
-
         elif isinstance(module, ThemedevelopmentAnalysisModule):
-            # Validation for theme development module
-            # Expect at least 'quotation', 'keywords', and 'codes'
-            if 'quotation' not in transcript or not isinstance(transcript['quotation'], str) or not transcript['quotation'].strip():
-                logger.warning(f"Transcript at index {idx} is missing or empty 'quotation'. Skipping.")
-                continue
-            if 'keywords' not in transcript or not isinstance(transcript['keywords'], list) or not transcript['keywords']:
-                logger.warning(f"Transcript at index {idx} is missing or empty 'keywords'. Skipping.")
+            # For theme development now only:
+            # research_objectives (str), codes (list), theoretical_framework (dict)
+            if 'research_objectives' not in transcript or not isinstance(transcript['research_objectives'], str) or not transcript['research_objectives'].strip():
+                logger.warning(f"Theme transcript at index {idx} missing or empty 'research_objectives'. Skipping.")
                 continue
             if 'codes' not in transcript or not isinstance(transcript['codes'], list) or not transcript['codes']:
-                logger.warning(f"Transcript at index {idx} is missing or empty 'codes'. Skipping.")
+                logger.warning(f"Theme transcript at index {idx} missing or empty 'codes'. Skipping.")
                 continue
-
+            if 'theoretical_framework' not in transcript or not isinstance(transcript['theoretical_framework'], dict):
+                logger.warning(f"Theme transcript at index {idx} missing or invalid 'theoretical_framework'. Skipping.")
+                continue
         else:
             logger.warning(f"Unknown module type for transcript at index {idx}. Skipping.")
             continue
@@ -233,65 +219,49 @@ async def process_single_transcript_theme(
     module: dspy.Module
 ) -> Dict[str, Any]:
     """
-    Processes a single transcript item for theme development.
+    Processes a single transcript item for theme development without quotation and keywords.
     """
-    quotation = transcript_item.get('quotation', '').strip()
-    keywords = transcript_item.get('keywords', [])
+    research_objectives = transcript_item.get('research_objectives', '').strip()
+    theoretical_framework = transcript_item.get('theoretical_framework', {})
     codes = transcript_item.get('codes', [])
-    transcript_chunk = transcript_item.get('transcript_chunk', '')
 
-    if not quotation:
-        logger.warning("Quotation is missing or empty for theme development. Skipping.")
+    if not research_objectives:
+        logger.warning("Research objectives are missing or empty for theme development. Skipping.")
         return {}
-    if not keywords:
-        logger.warning("Keywords are missing or empty for theme development. Skipping.")
+    if not theoretical_framework:
+        logger.warning("Theoretical framework is missing or empty for theme development. Skipping.")
         return {}
     if not codes:
         logger.warning("Codes are missing or empty for theme development. Skipping.")
         return {}
 
-    logger.info(f"Processing transcript for theme development: Quotation='{quotation[:100]}...', Keywords={keywords}, Codes={len(codes)}")
-    # For theme development, retrieved docs and contextualized_contents can be used if needed
-    filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
-    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
+    logger.info(f"Processing transcript for theme development: Research Objectives='{research_objectives[:100]}...', Codes Count={len(codes)}")
+    # Note: Since retrieval is skipped, retrieved_docs is expected to be empty
+    contextualized_contents = []  # No contextualized contents without retrieval
 
-    research_objectives = transcript_item.get('research_objectives', 'Develop higher-level themes based on the provided codes and theoretical framework.')
-    theoretical_framework = transcript_item.get('theoretical_framework', {})
-
-    # The theme development module uses a similar forward method
     response = module.forward(
         research_objectives=research_objectives,
-        quotation=quotation,
-        keywords=keywords,
         codes=codes,
-        theoretical_framework=theoretical_framework,
-        transcript_chunk=transcript_chunk
+        theoretical_framework=theoretical_framework
     )
 
     result = {
         "theme_info": {
-            "quotation": quotation,
-            "keywords": keywords,
-            "codes": codes,
             "research_objectives": research_objectives,
-            "theoretical_framework": theoretical_framework,
-            "transcript_chunk": transcript_chunk
+            "theoretical_framework": theoretical_framework
         },
         "retrieved_chunks": retrieved_docs,
         "retrieved_chunks_count": len(retrieved_docs),
-        "filtered_chunks_count": len(filtered_chunks),
+        "filtered_chunks_count": len([]),  # No filtering since no retrieval
         "contextualized_contents": contextualized_contents,
-        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "used_chunk_ids": [],
         "themes": response.get("themes", []),
         "analysis": response.get("analysis", {})
     }
 
     if not result["themes"]:
-        logger.warning(f"No themes developed for quotation: '{quotation[:100]}...'")
-        if "analysis" in result and isinstance(result["analysis"], dict):
-            result["analysis"]["error"] = "No themes were developed."
-        else:
-            result["analysis"] = {"error": "No themes were developed."}
+        logger.warning("No themes developed.")
+        result["analysis"]["error"] = "No themes were developed."
 
     logger.info(f"Developed {len(result['themes'])} themes for theme development.")
     return result
@@ -318,31 +288,47 @@ async def process_queries(
     module: dspy.Module
 ):
     logger.info(f"Starting to process transcripts for output file '{output_file}'.")
-
     reranker_config = RerankerConfig(
         reranker_type=RerankerType.COHERE,
         cohere_api_key=os.getenv("COHERE_API_KEY"),
         st_weight=0.5
     )
-    logger.debug(f"Created reranker config with type: {reranker_config.reranker_type}")
-
     all_results = []
-    try:
-        if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
-            process_func = process_single_transcript_quotation
-        elif isinstance(module, KeywordExtractionModule):
-            process_func = process_single_transcript_keyword
-        elif isinstance(module, CodingAnalysisModule):
-            process_func = process_single_transcript_coding
-        elif isinstance(module, ThemedevelopmentAnalysisModule):
-            process_func = process_single_transcript_theme
-        else:
-            logger.error("Unsupported module type provided.")
-            return
 
-        for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
-            try:
-                query = transcript_item.get('query', transcript_item.get('transcript_chunk', transcript_item.get('quotation', '')))
+    if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
+        process_func = process_single_transcript_quotation
+    elif isinstance(module, KeywordExtractionModule):
+        process_func = process_single_transcript_keyword
+    elif isinstance(module, CodingAnalysisModule):
+        process_func = process_single_transcript_coding
+    elif isinstance(module, ThemedevelopmentAnalysisModule):
+        process_func = process_single_transcript_theme
+    else:
+        logger.error("Unsupported module type provided.")
+        return
+
+    for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
+        try:
+            # Define query based on module type
+            if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
+                query = transcript_item.get('transcript_chunk', '')
+            elif isinstance(module, KeywordExtractionModule):
+                query = transcript_item.get('quotation', '')
+            elif isinstance(module, CodingAnalysisModule):
+                query = transcript_item.get('quotation', '')  # or another relevant field
+            elif isinstance(module, ThemedevelopmentAnalysisModule):
+                query = ''  # No query needed for theme development
+            else:
+                query = ''
+
+            if not query:
+                if isinstance(module, ThemedevelopmentAnalysisModule):
+                    # Skip retrieval for theme development
+                    retrieved_docs = []
+                else:
+                    logger.warning(f"No query found for transcript at index {idx}. Skipping retrieval.")
+                    retrieved_docs = []
+            else:
                 retrieved_docs = retrieve_with_reranking(
                     query=query,
                     db=db,
@@ -351,25 +337,17 @@ async def process_queries(
                     reranker_config=reranker_config
                 )
 
-                result = await process_func(
-                    transcript_item=transcript_item,
-                    retrieved_docs=retrieved_docs,
-                    module=module
-                )
+            result = await process_func(
+                transcript_item=transcript_item,
+                retrieved_docs=retrieved_docs,
+                module=module
+            )
 
-                if result:
-                    all_results.append(result)
-                    
-            except Exception as e:
-                logger.error(f"Error processing transcript at index {idx}: {e}", exc_info=True)
+            if result:
+                all_results.append(result)
+                
+        except Exception as e:
+            logger.error(f"Error processing transcript at index {idx}: {e}", exc_info=True)
 
-        save_results(all_results, output_file)
-
-    except KeyboardInterrupt:
-        logger.warning("Process interrupted by user. Saving partial results.")
-        save_results(all_results, output_file)
-        raise
-
-    except Exception as e:
-        logger.error(f"Error processing transcripts: {e}", exc_info=True)
-        raise
+    # Save all results to the output file
+    save_results(all_results, output_file)
