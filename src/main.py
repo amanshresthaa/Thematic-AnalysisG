@@ -1,4 +1,3 @@
-#main.py
 import gc
 import logging
 import os
@@ -585,3 +584,5 @@ if __name__ == "__main__":
     finally:
         logger.info("Thematic Analysis Pipeline execution finished")
         gc.collect()
+
+

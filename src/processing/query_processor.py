@@ -1,5 +1,5 @@
-# query_processor.py
 
+#query_processor.py
 import logging
 from typing import List, Dict, Any
 import json
@@ -236,8 +236,8 @@ async def process_single_transcript_theme(
         return {}
 
     logger.info(f"Processing transcript for theme development: Research Objectives='{research_objectives[:100]}...', Codes Count={len(codes)}")
-    # Note: Since retrieval is skipped, retrieved_docs is expected to be empty
-    contextualized_contents = []  # No contextualized contents without retrieval
+    filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
+    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     response = module.forward(
         research_objectives=research_objectives,
@@ -252,9 +252,9 @@ async def process_single_transcript_theme(
         },
         "retrieved_chunks": retrieved_docs,
         "retrieved_chunks_count": len(retrieved_docs),
-        "filtered_chunks_count": len([]),  # No filtering since no retrieval
+        "filtered_chunks_count": len(filtered_chunks),
         "contextualized_contents": contextualized_contents,
-        "used_chunk_ids": [],
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "themes": response.get("themes", []),
         "analysis": response.get("analysis", {})
     }
@@ -317,17 +317,13 @@ async def process_queries(
             elif isinstance(module, CodingAnalysisModule):
                 query = transcript_item.get('quotation', '')  # or another relevant field
             elif isinstance(module, ThemedevelopmentAnalysisModule):
-                query = ''  # No query needed for theme development
+                query = transcript_item.get('research_objectives', '')
             else:
                 query = ''
 
             if not query:
-                if isinstance(module, ThemedevelopmentAnalysisModule):
-                    # Skip retrieval for theme development
-                    retrieved_docs = []
-                else:
-                    logger.warning(f"No query found for transcript at index {idx}. Skipping retrieval.")
-                    retrieved_docs = []
+                logger.warning(f"No query found for transcript at index {idx}. Skipping retrieval.")
+                retrieved_docs = []
             else:
                 retrieved_docs = retrieve_with_reranking(
                     query=query,
