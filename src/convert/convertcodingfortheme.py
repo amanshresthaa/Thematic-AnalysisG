@@ -1,8 +1,6 @@
-# convertcodingfortheme.py
-
 import json
 import os
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -47,7 +45,7 @@ def extract_coding_info(entry: Dict[str, Any]) -> Dict[str, Any]:
         print(f"Error processing entry: {e}")
         return {}
 
-def convert_query_results(input_file: str, output_dir: str, output_file: str):
+def convert_query_results(input_file: str, output_dir: str, output_file: str, sub_dir: Optional[str] = 'input'):
     """
     Convert query results to a simplified format and save them in the specified directory.
     
@@ -60,7 +58,11 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
     - transcript_chunk: The combined transcript chunk for context.
     """
     # Ensure the output directory exists
-    os.makedirs(os.path.join(output_dir, 'input'), exist_ok=True)
+    if sub_dir:
+        target_dir = os.path.join(output_dir, sub_dir)
+    else:
+        target_dir = output_dir
+    os.makedirs(target_dir, exist_ok=True)
 
     try:
         # Read the input JSON file
@@ -81,7 +83,7 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
                 print(f"Entry at index {idx} could not be processed and was skipped.")
 
         # Define the output path
-        output_path = os.path.join(output_dir, 'input', output_file)
+        output_path = os.path.join(target_dir, output_file)
 
         # Write the simplified data to the output JSON file
         with open(output_path, 'w', encoding='utf-8') as f:
@@ -100,6 +102,7 @@ if __name__ == "__main__":
     # Example usage; this will only run when the script is executed directly
     convert_query_results(
         input_file='query_results_coding_analysis.json',  # Replace with your input file path
-        output_dir='data/',                          # Replace with your desired output directory
-        output_file='queries_theme.json'             # Replace with your desired output file name
+        output_dir='data',                               # Set to 'data' to avoid double 'input' subdirectory
+        output_file='queries_theme.json'                # Replace with your desired output file name
+        # sub_dir='input'  # Optional: Specify if needed
     )
