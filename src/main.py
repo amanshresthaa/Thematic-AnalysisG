@@ -32,6 +32,9 @@ from src.processing.query_processor import process_queries, validate_queries
 from src.retrieval.reranking import RerankerConfig, RerankerType, retrieve_with_reranking
 from src.utils.logger import setup_logging
 
+# Importing the newly created GroupingAnalysisModule
+from src.analysis.grouping_module import GroupingAnalysisModule
+
 setup_logging()
 logger = logging.getLogger(__name__)
 
@@ -196,7 +199,7 @@ class ThematicAnalysisPipeline:
             logger.info(f"Initializing {config.module_class.__name__}")
             module_instance = config.module_class()
             module_instance = assert_transform_module(module_instance, backtrack_handler)
-            logger.info(f"Initialized {config.module_class.__name__} with assertions")
+            logger.info(f"Initialized {config.module_class().__class__.__name__} with assertions")
 
             # Setup reranker
             reranker_config = RerankerConfig(
@@ -272,7 +275,6 @@ class ThematicAnalysisPipeline:
                 input_file=input_file,
                 output_dir=output_dir,
                 output_file=output_file
-                # sub_dir='input'  # If needed, modify the function to accept sub_dir
             )
             logger.info(f"Conversion {conversion_func.__name__} completed successfully")
         except Exception as e:
@@ -286,7 +288,7 @@ class ThematicAnalysisPipeline:
         try:
             optimizer_config = OptimizerConfig()
 
-            # Define configurations for each module
+            # Existing pipeline stages
             configs = [
                 ModuleConfig(
                     index_name='contextual_bm25_index_standard_quotation',
@@ -330,7 +332,19 @@ class ThematicAnalysisPipeline:
                     training_data='data/training/theme_training_data.csv',
                     optimized_program_path='data/optimized/optimized_theme_program.json',
                     module_class=ThemedevelopmentAnalysisModule,
-                    conversion_func=None  # No further conversion after theme development
+                    conversion_func=None
+                ),
+                # New grouping stage after theme development
+                ModuleConfig(
+                    index_name='contextual_bm25_index_grouping',
+                    codebase_chunks_file='data/codebase_chunks/codebase_chunks.json',
+                    queries_file_standard='data/input/queries_grouping.json',
+                    evaluation_set_file='data/evaluation/evaluation_set_grouping.jsonl',
+                    output_filename_primary='data/output/query_results_grouping.json',
+                    training_data='data/training/grouping_training_data.csv',
+                    optimized_program_path='data/optimized/optimized_grouping_program.json',
+                    module_class=GroupingAnalysisModule,
+                    conversion_func=None
                 )
             ]
 
@@ -345,8 +359,8 @@ class ThematicAnalysisPipeline:
                     await self.convert_results(
                         conversion_func=config.conversion_func,
                         input_file=config.output_filename_primary,
-                        output_dir='data',  # Set to 'data' to ensure 'input' subdirectory is correctly appended
-                        output_file=next_config.queries_file_standard.split('/')[-1]  # Extract filename
+                        output_dir='data',
+                        output_file=next_config.queries_file_standard.split('/')[-1]
                     )
 
             total_time = time.time() - total_start_time

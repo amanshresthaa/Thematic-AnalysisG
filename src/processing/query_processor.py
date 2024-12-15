@@ -18,6 +18,7 @@ from src.analysis.select_quotation_module import SelectQuotationModule, Enhanced
 from src.analysis.extract_keyword_module import KeywordExtractionModule
 from src.analysis.coding_module import CodingAnalysisModule
 from src.analysis.theme_development_module import ThemedevelopmentAnalysisModule
+from src.analysis.grouping_module import GroupingAnalysisModule
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -59,7 +60,6 @@ def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> 
 
         elif isinstance(module, ThemedevelopmentAnalysisModule):
             # Validation for theme development module
-            # Expect at least 'quotation', 'keywords', and 'codes'
             if 'quotation' not in transcript or not isinstance(transcript['quotation'], str) or not transcript['quotation'].strip():
                 logger.warning(f"Transcript at index {idx} is missing or empty 'quotation'. Skipping.")
                 continue
@@ -68,6 +68,13 @@ def validate_queries(transcripts: List[Dict[str, Any]], module: dspy.Module) -> 
                 continue
             if 'codes' not in transcript or not isinstance(transcript['codes'], list) or not transcript['codes']:
                 logger.warning(f"Transcript at index {idx} is missing or empty 'codes'. Skipping.")
+                continue
+
+        elif isinstance(module, GroupingAnalysisModule):
+            # Validation for grouping analysis module
+            # Expect 'codes' to be present as a list of code dictionaries
+            if 'codes' not in transcript or not isinstance(transcript['codes'], list) or not transcript['codes']:
+                logger.warning(f"Transcript at index {idx} is missing or empty 'codes' for grouping. Skipping.")
                 continue
 
         else:
@@ -251,14 +258,12 @@ async def process_single_transcript_theme(
         return {}
 
     logger.info(f"Processing transcript for theme development: Quotation='{quotation[:100]}...', Keywords={keywords}, Codes={len(codes)}")
-    # For theme development, retrieved docs and contextualized_contents can be used if needed
     filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
     contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     research_objectives = transcript_item.get('research_objectives', 'Develop higher-level themes based on the provided codes and theoretical framework.')
     theoretical_framework = transcript_item.get('theoretical_framework', {})
 
-    # The theme development module uses a similar forward method
     response = module.forward(
         research_objectives=research_objectives,
         quotation=quotation,
@@ -296,6 +301,68 @@ async def process_single_transcript_theme(
     logger.info(f"Developed {len(result['themes'])} themes for theme development.")
     return result
 
+@handle_exceptions
+async def process_single_transcript_grouping(
+    transcript_item: Dict[str, Any],
+    retrieved_docs: List[Dict[str, Any]],
+    module: dspy.Module
+) -> Dict[str, Any]:
+    """
+    Processes a single transcript item for grouping analysis.
+    """
+    codes = transcript_item.get('codes', [])
+    if not codes:
+        logger.warning("Codes are missing or empty for grouping analysis. Skipping.")
+        return {}
+
+    # Load research_objectives and theoretical_framework from info.json
+    info_path = 'data/input/info.json'  # Make sure this path is correct
+    if os.path.exists(info_path):
+        with open(info_path, 'r', encoding='utf-8') as f:
+            info = json.load(f)
+    else:
+        info = {
+            "research_objectives": "N/A",
+            "theoretical_framework": {}
+        }
+
+    research_objectives = info.get('research_objectives', 'Group codes into potential themes.')
+    theoretical_framework = info.get('theoretical_framework', {})
+
+    logger.info(f"Processing transcript for grouping analysis with {len(codes)} codes.")
+    filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
+    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
+
+    # Forward to the grouping module
+    response = module.forward(
+        research_objectives=research_objectives,
+        theoretical_framework=theoretical_framework,
+        codes=codes
+    )
+
+    result = {
+        "grouping_info": {
+            "codes": codes,
+            "research_objectives": research_objectives,
+            "theoretical_framework": theoretical_framework
+        },
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "groupings": response.get("groupings", [])
+    }
+
+    if not result["groupings"]:
+        logger.warning("No groupings were developed.")
+        result["groupings"] = []
+        result["error"] = "No groupings could be formed."
+
+    logger.info(f"Developed {len(result['groupings'])} groupings.")
+    return result
+
+
 def save_results(results: List[Dict[str, Any]], output_file: str):
     """
     Saves the processed transcript results to a specified output file.
@@ -328,6 +395,7 @@ async def process_queries(
 
     all_results = []
     try:
+        # Determine which process function to use based on the module type
         if isinstance(module, (SelectQuotationModule, EnhancedQuotationModule)):
             process_func = process_single_transcript_quotation
         elif isinstance(module, KeywordExtractionModule):
@@ -336,21 +404,34 @@ async def process_queries(
             process_func = process_single_transcript_coding
         elif isinstance(module, ThemedevelopmentAnalysisModule):
             process_func = process_single_transcript_theme
+        elif isinstance(module, GroupingAnalysisModule):
+            process_func = process_single_transcript_grouping
         else:
             logger.error("Unsupported module type provided.")
             return
 
         for idx, transcript_item in enumerate(tqdm(transcripts, desc="Processing transcripts")):
             try:
-                query = transcript_item.get('query', transcript_item.get('transcript_chunk', transcript_item.get('quotation', '')))
-                retrieved_docs = retrieve_with_reranking(
-                    query=query,
-                    db=db,
-                    es_bm25=es_bm25,
-                    k=k,
-                    reranker_config=reranker_config
-                )
+                # For modules other than grouping, we rely on a query field for retrieval
+                if not isinstance(module, GroupingAnalysisModule):
+                    query = transcript_item.get('query', transcript_item.get('transcript_chunk', transcript_item.get('quotation', '')))
+                    if not query.strip():
+                        logger.warning(f"Transcript at index {idx} has no valid query to process. Skipping.")
+                        continue
 
+                    # Perform retrieval only if not grouping
+                    retrieved_docs = retrieve_with_reranking(
+                        query=query,
+                        db=db,
+                        es_bm25=es_bm25,
+                        k=k,
+                        reranker_config=reranker_config
+                    )
+                else:
+                    # For grouping, skip retrieval entirely
+                    retrieved_docs = []
+
+                # Now process the transcript with the appropriate function
                 result = await process_func(
                     transcript_item=transcript_item,
                     retrieved_docs=retrieved_docs,
@@ -359,7 +440,7 @@ async def process_queries(
 
                 if result:
                     all_results.append(result)
-                    
+
             except Exception as e:
                 logger.error(f"Error processing transcript at index {idx}: {e}", exc_info=True)
 
