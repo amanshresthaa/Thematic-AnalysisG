@@ -1,7 +1,9 @@
+# main.py
+
 import gc
 import logging
 import os
-from typing import Dict, Any
+from typing import List, Dict, Any
 import asyncio
 import dspy
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
@@ -9,7 +11,6 @@ from dspy.datasets import DataLoader
 from dspy.primitives.assertions import assert_transform_module, backtrack_handler
 import threading
 import time
-import json
 
 from src.utils.logger import setup_logging
 from src.core.contextual_vector_db import ContextualVectorDB
@@ -18,7 +19,7 @@ from src.data.data_loader import load_codebase_chunks, load_queries
 from src.processing.query_processor import process_queries, validate_queries
 from src.evaluation.evaluation import PipelineEvaluator
 from src.analysis.metrics import comprehensive_metric
-from src.processing.answer_generator import QuestionAnswerSignature
+from src.processing.answer_generator import generate_answer_dspy, QuestionAnswerSignature
 from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.analysis.select_quotation_module import EnhancedQuotationModule as EnhancedQuotationModuleStandard
 from src.analysis.extract_keyword_module import KeywordExtractionModule
@@ -341,119 +342,11 @@ class ThematicAnalysisPipeline:
             logger.error(f"Error in pipeline execution: {e}", exc_info=True)
             raise
 
-    async def run_theme_development_pipeline(self):
-        """
-        Specific method to handle the theme development pipeline using interview_001.json and queries_theme.json.
-        """
-        logger.info("Starting Theme Development Pipeline")
-        theme_start_time = time.time()
-        try:
-            config_theme_development = {
-                'index_name': 'contextual_bm25_index_theme_development',
-                'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
-                'queries_file_standard': 'data/input/queries_theme.json',  # Contains only codes
-                'evaluation_set_file': 'data/evaluation/evaluation_set_theme.jsonl',
-                'output_filename_primary': 'data/output/query_results_theme_development.json',
-                'theme_training_data': 'data/training/theme_training_data.csv',
-                'optimized_theme_program': 'data/optimized/optimized_theme_program.json'
-            }
-
-            # Integrate interview_001.json and queries_theme.json
-            logger.info("Integrating interview_001.json and queries_theme.json for theme development")
-            try:
-                # Load interview data
-                with open('data/input/interview_001.json', 'r', encoding='utf-8') as f:
-                    interview_data = json.load(f)
-
-                # Load codes from queries_theme.json
-                with open('data/input/queries_theme.json', 'r', encoding='utf-8') as f:
-                    theme_codes = json.load(f)
-
-                # Construct input for theme development without quotation and keywords
-                theme_input = [{
-                    "research_objectives": interview_data.get("research_objectives", ""),
-                    "theoretical_framework": interview_data.get("theoretical_framework", {}),
-                    "codes": theme_codes
-                }]
-
-                # Validate theme_input directly
-                validated_theme_queries = validate_queries(theme_input, ThemedevelopmentAnalysisModule())
-            except Exception as e:
-                logger.error(f"Error loading or merging theme development inputs: {e}", exc_info=True)
-                raise
-
-            # Initialize optimizer for theme development
-            await self.initialize_theme_optimizer(config_theme_development)
-
-            # Initialize the theme development module
-            module_instance = ThemedevelopmentAnalysisModule()
-            module_instance = assert_transform_module(
-                module_instance,
-                backtrack_handler
-            )
-            logger.info(f"Initialized ThemedevelopmentAnalysisModule with assertions")
-
-            # Configure DSPy LM for theme development
-            lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
-            dspy.configure(lm=lm)
-            dspy.Cache = False
-
-            # Define reranker config
-            reranker_config = RerankerConfig(
-                reranker_type=RerankerType.COHERE,
-                cohere_api_key=os.getenv("COHERE_API_KEY"),
-                st_weight=0.5
-            )
-
-            k_theme = 20
-            logger.info(f"Processing theme development queries with k={k_theme}")
-            theme_query_start_time = time.time()
-
-            await process_queries(
-                transcripts=validated_theme_queries,
-                db=self.contextual_db,
-                es_bm25=self.es_bm25,
-                k=k_theme,
-                output_file=config_theme_development['output_filename_primary'],
-                optimized_program=self.optimized_theme_program,
-                module=module_instance
-            )
-            theme_query_time = time.time() - theme_query_start_time
-            logger.info(f"Processed theme development queries in {theme_query_time:.2f}s")
-
-            logger.info("Starting evaluation for Theme Development")
-            eval_start_time = time.time()
-            evaluator = PipelineEvaluator(
-                db=self.contextual_db,
-                es_bm25=self.es_bm25,
-                retrieval_function=lambda query, db, es_bm25, k: retrieve_with_reranking(
-                    query, db, es_bm25, k, reranker_config
-                )
-            )
-            evaluation_set = load_queries(config_theme_development['evaluation_set_file'])
-            logger.info(f"Loaded {len(evaluation_set)} evaluation queries for theme development")
-
-            k_values = [5, 10, 20]
-            evaluator.evaluate_complete_pipeline(
-                k_values=k_values,
-                evaluation_set=evaluation_set
-            )
-            eval_time = time.time() - eval_start_time
-            logger.info(f"Completed evaluation for Theme Development in {eval_time:.2f}s")
-
-            theme_total_time = time.time() - theme_start_time
-            logger.info(f"Theme Development Pipeline completed in {theme_total_time:.2f}s")
-
-        except Exception as e:
-            logger.error(f"Error in Theme Development Pipeline: {e}", exc_info=True)
-            raise
-
     async def run_pipeline(self):
         logger.info("Starting Thematic Analysis Pipeline")
         total_start_time = time.time()
 
         try:
-            # Configuration dictionaries for each stage
             config_standard_quotation = {
                 'index_name': 'contextual_bm25_index_standard_quotation',
                 'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
@@ -484,6 +377,16 @@ class ThematicAnalysisPipeline:
                 'optimized_coding_program': 'data/optimized/optimized_coding_program.json'
             }
 
+            config_theme_development = {
+                'index_name': 'contextual_bm25_index_theme_development',
+                'codebase_chunks_file': 'data/codebase_chunks/codebase_chunks.json',
+                'queries_file_standard': 'data/input/input/queries_theme.json',
+                'evaluation_set_file': 'data/evaluation/evaluation_set_theme.jsonl',
+                'output_filename_primary': 'data/output/query_results_theme_development.json',
+                'theme_training_data': 'data/training/theme_training_data.csv',
+                'optimized_theme_program': 'data/optimized/optimized_theme_program.json'
+            }
+
             # Run Quotation Extraction Pipeline
             logger.info("Starting Standard Quotation Extraction Pipeline")
             quotation_start_time = time.time()
@@ -502,7 +405,7 @@ class ThematicAnalysisPipeline:
                     convert_quotation_to_keyword,
                     input_file=config_standard_quotation['output_filename_primary'],
                     output_dir='data',
-                    output_file='data/input/queries_keyword_standard.json'
+                    output_file='queries_keyword_standard.json'
                 )
                 logger.info("Quotation to keyword conversion completed")
             except Exception as e:
@@ -529,7 +432,7 @@ class ThematicAnalysisPipeline:
                     convert_keyword_to_coding,
                     input_file=config_keyword_extraction_standard['output_filename_primary'],
                     output_dir='data',
-                    output_file='data/input/queries_coding_standard.json'
+                    output_file='queries_coding_standard.json'
                 )
                 logger.info("Keyword to coding conversion completed")
             except Exception as e:
@@ -556,15 +459,23 @@ class ThematicAnalysisPipeline:
                     convert_coding_to_theme,
                     input_file=config_coding_analysis_standard['output_filename_primary'],
                     output_dir='data/input',
-                    output_file='data/input/queries_theme.json'
+                    output_file='queries_theme.json'
                 )
                 logger.info("Coding to theme conversion completed")
             except Exception as e:
                 logger.error(f"Error in coding to theme conversion: {e}", exc_info=True)
                 raise
 
-            # Run Theme Development Pipeline
-            await self.run_theme_development_pipeline()
+            # Run Theme Development Pipeline (similar to coding, but now from queries_theme.json)
+            logger.info("Starting Theme Development Pipeline")
+            theme_start_time = time.time()
+            await self.run_pipeline_with_config(
+                config_theme_development,
+                ThemedevelopmentAnalysisModule,
+                self.initialize_theme_optimizer
+            )
+            theme_time = time.time() - theme_start_time
+            logger.info(f"Completed Theme Development in {theme_time:.2f}s")
 
             total_time = time.time() - total_start_time
             logger.info(f"All pipeline stages completed successfully in {total_time:.2f}s")
@@ -584,5 +495,3 @@ if __name__ == "__main__":
     finally:
         logger.info("Thematic Analysis Pipeline execution finished")
         gc.collect()
-
-
