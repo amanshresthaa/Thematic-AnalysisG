@@ -1,13 +1,17 @@
+# grouping_module.py
+
 import logging
 from typing import Dict, Any, List
 import dspy
-from grouping import GroupingAnalysisSignature, group_codes
+from analysis.grouping import GroupingAnalysisSignature
 
 logger = logging.getLogger(__name__)
 
 class GroupingAnalysisModule(dspy.Module):
     """
-    DSPy module for grouping codes into sets without introducing theme labels.
+    DSPy module for grouping similar codes into potential themes,
+    building upon code definitions, research objectives, and 
+    a theoretical framework.
     """
 
     def __init__(self):
@@ -22,30 +26,21 @@ class GroupingAnalysisModule(dspy.Module):
     ) -> Dict[str, Any]:
         """
         Executes the grouping analysis using the defined signature 
-        and grouping logic, producing only sets of codes.
+        and the language model.
         """
         logger.info("Starting grouping analysis.")
-
         try:
-            # Execute the grouping logic
-            groupings = group_codes(
+            response = self.chain(
                 research_objectives=research_objectives,
                 theoretical_framework=theoretical_framework,
                 codes=codes
             )
 
-            if not groupings:
-                logger.warning("No groupings were generated.")
-                return {
-                    "groupings": [],
-                    "message": "No groupings were generated. Please review the input codes."
-                }
+            if not response.get("groupings"):
+                logger.warning("No groupings were generated. Possible issue with inputs or prompt formulation.")
 
-            logger.info(f"Grouping analysis completed with {len(groupings)} groups formed.")
-            return {"groupings": groupings}
-
+            logger.info("Successfully completed grouping analysis.")
+            return response
         except Exception as e:
             logger.error(f"Error during grouping analysis: {e}", exc_info=True)
-            return {
-                "error": f"Grouping analysis failed due to an unexpected error: {str(e)}"
-            }
+            return {}

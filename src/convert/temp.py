@@ -6,8 +6,9 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
     """
     Convert query results to only extract the code arrays from all entries and write them to an output JSON file.
     If multiple entries have the same 'code' name, only the first instance is included in the final output.
+    The final output is structured as a list containing a single dictionary with a 'codes' key.
     """
-
+    
     # Ensure the output directory exists
     os.makedirs(os.path.join(output_dir, 'input'), exist_ok=True)
 
@@ -29,15 +30,19 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
             codes = entry.get('codes', [])
             for code_entry in codes:
                 # code_entry should be a dictionary containing 'code' and other keys
-                code_name = code_entry.get('code', '')
+                code_name = code_entry.get('code', '').strip()
                 if code_name and code_name not in seen_codes:
                     seen_codes[code_name] = True
                     final_codes.append(code_entry)
 
-        # Write the unique codes to the output JSON file
+        # Structure the final output as a list containing one dictionary with 'codes' key
+        structured_output = {"codes": final_codes}
+        output_list = [structured_output]
+
+        # Write the structured output to the output JSON file
         output_path = os.path.join(output_dir, 'input', output_file)
         with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(final_codes, f, indent=4, ensure_ascii=False)
+            json.dump(output_list, f, indent=4, ensure_ascii=False)
 
         print(f"Successfully extracted and saved unique codes to {output_path}")
 
@@ -52,6 +57,6 @@ if __name__ == "__main__":
     # Example usage; adjust paths as needed
     convert_query_results(
         input_file='src/convert/query_results_coding_analysis.json',  # Replace with your input file path
-        output_dir='data/',                               # Replace with your desired output directory
-        output_file='queries_themes.json'                  # Replace with your desired output file name
+        output_dir='data/',                                           # Replace with your desired output directory
+        output_file='queries_themes.json'                            # Replace with your desired output file name
     )
