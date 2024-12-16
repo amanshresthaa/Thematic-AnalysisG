@@ -98,14 +98,16 @@ async def process_single_transcript_quotation(
     )
     
     result = {
-        "transcriptInfo": response.get("transcript_info", {
+        "transcript_info": response.get("transcript_info", {
             "transcript_chunk": transcript_chunk,
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrievedChunks": retrieved_docs,
-        "contextualizedContents": contextualized_contents,
-        "usedChunkIds": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "quotations": response.get("quotations", []),
         "analysis": response.get("analysis", {}),
         "answer": response.get("answer", {})
@@ -144,14 +146,16 @@ async def process_single_transcript_keyword(
     )
     
     result = {
-        "quotationInfo": response.get("quotation_info", {
+        "quotation_info": response.get("quotation_info", {
             "quotation": quotation,
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrievedChunks": retrieved_docs,
-        "contextualizedContents": contextualized_contents,
-        "usedChunkIds": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "keywords": response.get("keywords", []),
         "analysis": response.get("analysis", {})
     }
@@ -194,15 +198,17 @@ async def process_single_transcript_coding(
     )
 
     result = {
-        "codingInfo": response.get("coding_info", {
+        "coding_info": response.get("coding_info", {
             "quotation": quotation,
             "keywords": keywords,
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrievedChunks": retrieved_docs,
-        "contextualizedContents": contextualized_contents,
-        "usedChunkIds": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "codes": response.get("codes", []),
         "analysis": response.get("analysis", {})
     }
@@ -227,7 +233,6 @@ async def process_single_transcript_grouping(
 
     logger.debug(f"Processing grouping analysis for {len(codes)} codes.")
     filtered_chunks = [chunk for chunk in retrieved_docs if chunk['score'] >= 0.7]
-    contextualized_contents = [chunk['chunk']['contextualized_content'] for chunk in filtered_chunks]
 
     info_path = 'data/input/info.json'
     if os.path.exists(info_path):
@@ -255,14 +260,15 @@ async def process_single_transcript_grouping(
         batched_groupings.extend(batch_groupings)
 
     result = {
-        "groupingInfo": {
+        "grouping_info": {
             "codes": codes,
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         },
-        "retrievedChunks": retrieved_docs,
-        "contextualizedContents": contextualized_contents,
-        "usedChunkIds": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
+        "filtered_chunks_count": len(filtered_chunks),
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "groupings": batched_groupings
     }
 
@@ -306,14 +312,16 @@ async def process_single_transcript_theme(
     )
 
     result = {
-        "themeInfo": response.get("theme_info", {
+        "theme_info": response.get("theme_info", {
             "groupings": groupings,
             "research_objectives": research_objectives,
             "theoretical_framework": theoretical_framework
         }),
-        "retrievedChunks": retrieved_docs,
-        "contextualizedContents": contextualized_contents,
-        "usedChunkIds": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
+        "retrieved_chunks": retrieved_docs,
+        "retrieved_chunks_count": len(retrieved_docs),
+        "filtered_chunks_count": len(filtered_chunks),
+        "contextualized_contents": contextualized_contents,
+        "used_chunk_ids": [chunk['chunk']['chunk_id'] for chunk in filtered_chunks],
         "themes": response.get("themes", []),
         "analysis": response.get("analysis", {})
     }
@@ -328,16 +336,12 @@ async def process_single_transcript_theme(
     logger.debug(f"Developed {len(result['themes'])} themes.")
     return result
 
-def save_results(results: List[Dict[str, Any]], output_file: str, single_object: bool = False):
+def save_results(results: List[Dict[str, Any]], output_file: str):
     try:
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, 'w', encoding='utf-8') as outfile:
-            if single_object and len(results) == 1:
-                json.dump(results[0], outfile, indent=4)
-                logger.info(f"Saved single optimized result to '{output_file}'")
-            else:
-                json.dump(results, outfile, indent=4)
-                logger.info(f"Saved results to '{output_file}'")
+            json.dump(results, outfile, indent=4)
+        logger.info(f"Saved results to '{output_file}'")
     except Exception as e:
         logger.error(f"Error saving results to '{output_file}': {e}", exc_info=True)
 
@@ -349,11 +353,10 @@ async def process_queries(
     k: int,
     output_file: str,
     optimized_program: dspy.Program,
-    module: dspy.Module,
-    single_output: bool = False  # New parameter to handle single object output
+    module: dspy.Module
 ):
     logger.info(f"Processing transcripts for '{output_file}'.")
-    
+
     reranker_config = RerankerConfig(
         reranker_type=RerankerType.COHERE,
         cohere_api_key=os.getenv("COHERE_API_KEY"),
@@ -403,7 +406,4 @@ async def process_queries(
         except Exception as e:
             logger.error(f"Error processing transcript at index {idx}: {e}", exc_info=True)
 
-    if single_output and len(all_results) == 1:
-        save_results(all_results, output_file, single_object=True)
-    else:
-        save_results(all_results, output_file)
+    save_results(all_results, output_file)
