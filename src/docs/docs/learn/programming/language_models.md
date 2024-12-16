@@ -149,7 +149,7 @@ GPT-3.5-turbo: The castle David Gregory inherited has 7 floors.
 For any LM, you can configure any of the following attributes at initialization or in each subsequent call.
 
 ```python linenums="1" 
-gpt_4o_mini = dspy.LM('openai/gpt-4o-mini', temperature=0.9, max_tokens=3000, stop=None, cache=False)
+gpt_4o_mini = dspy.LM('openai/gpt-4o-mini', temperature=0.9, max_tokens=8000, stop=None, cache=False)
 ```
 
 By default LMs in DSPy are cached. If you repeat the same call, you will get the same outputs. But you can turn off caching by setting `cache=False`.

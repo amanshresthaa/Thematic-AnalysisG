@@ -269,7 +269,7 @@ class CodingAnalysisSignature(dspy.Signature):
                 # Interact with the language model to generate a response
                 response = self.language_model.generate(
                     prompt=prompt,
-                    max_tokens=3000,
+                    max_tokens=8000,
                     temperature=0.5  # Adjusted for greater consistency
                 ).strip()
 

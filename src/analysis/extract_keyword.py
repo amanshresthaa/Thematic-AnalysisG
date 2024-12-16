@@ -244,7 +244,7 @@ class KeywordExtractionSignature(dspy.Signature):
                 # Generate response from the language model
                 response = self.language_model.generate(
                     prompt=prompt,
-                    max_tokens=3000,
+                    max_tokens=8000,
                     temperature=0.7
                 ).strip()
 
