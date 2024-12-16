@@ -73,20 +73,20 @@ class ThemedevelopmentAnalysisSignature(dspy.Signature):
     themes: List[Dict[str, Any]] = dspy.OutputField(
         desc=(
             "A list of identified themes. Each theme includes:\n"
-            " - **theme**: The name or label of the emerging theme.\n"
+            " - **name**: The name or label of the emerging theme.\n"
             " - **description**: A detailed explanation of the theme’s meaning and how it relates to the data.\n"
-            " - **associated_codes**: Which codes contribute to this theme, demonstrating how multiple codes are synthesized.\n"
-            " - **dimensions_evaluation**: An evaluation of how well the theme integrates, abstracts, and aligns theoretically.\n"
-            " - **theoretical_integration**: How this theme fits within the specified theoretical framework.\n"
+            " - **associatedCodes**: Which codes contribute to this theme, demonstrating how multiple codes are synthesized.\n"
+            " - **evaluation**: An evaluation of how well the theme integrates, abstracts, and aligns theoretically.\n"
+            " - **theoreticalAlignment**: How this theme fits within the specified theoretical framework.\n"
         )
     )
 
     analysis: Dict[str, Any] = dspy.OutputField(
         desc=(
             "An analysis of the theme development process, including:\n"
-            " - **methodological_reflection**: Insights on the process of moving from codes to themes.\n"
-            " - **alignment_with_research_objectives**: An evaluation of how well the themes address the original research aims.\n"
-            " - **future_implications**: How these themes might inform subsequent steps in the research, "
+            " - **methodology**: Insights on the process of moving from codes to themes.\n"
+            " - **objectiveAlignment**: An evaluation of how well the themes address the original research aims.\n"
+            " - **futureImplications**: How these themes might inform subsequent steps in the research, "
             "further analysis, or practical applications."
         )
     )
@@ -130,10 +130,10 @@ class ThemedevelopmentAnalysisSignature(dspy.Signature):
             f"- Present your response as a JSON object encapsulated in ```json``` code blocks.\n\n"
 
             f"Your final output should contain:\n"
-            f" - A 'themes' array, with each theme having 'theme', 'description', 'associated_codes', "
-            f"   'dimensions_evaluation', and 'theoretical_integration'.\n"
-            f" - An 'analysis' object with 'methodological_reflection', 'alignment_with_research_objectives', "
-            f"   and 'future_implications'."
+            f" - A 'themes' array, with each theme having 'name', 'description', 'associatedCodes', "
+            f"   'evaluation', and 'theoreticalAlignment'.\n"
+            f" - An 'analysis' object with 'methodology', 'objectiveAlignment', "
+            f"   and 'futureImplications'."
         )
         return prompt
 
