@@ -1,4 +1,4 @@
-# main.py
+# src/main.py
 
 import asyncio
 import gc
@@ -6,7 +6,8 @@ import logging
 import os
 import threading
 import time
-from dataclasses import dataclass, field
+import json
+from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Type, Optional
 
 import dspy
@@ -19,28 +20,25 @@ from src.analysis.extract_keyword_module import KeywordExtractionModule
 from src.analysis.metrics import comprehensive_metric
 from src.analysis.select_quotation_module import EnhancedQuotationModule as EnhancedQuotationModuleStandard
 from src.analysis.theme_development_module import ThemedevelopmentAnalysisModule
+from src.analysis.grouping_module import GroupingAnalysisModule
 from src.convert.convertcodingfortheme import convert_query_results as convert_coding_to_theme
 from src.convert.convertkeywordforcoding import convert_query_results as convert_keyword_to_coding
 from src.convert.convertquotationforkeyword import convert_query_results as convert_quotation_to_keyword
+from src.convert.convertcodingforgrouping import convert_query_results as convert_coding_to_grouping
+from src.convert.convertgroupingfortheme import convert_query_results as convert_grouping_to_theme
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.data.data_loader import load_codebase_chunks, load_queries
 from src.decorators import handle_exceptions
 from src.evaluation.evaluation import PipelineEvaluator
-from src.processing.answer_generator import QuestionAnswerSignature, generate_answer_dspy
+from src.processing.answer_generator import QuestionAnswerSignature
 from src.processing.query_processor import process_queries, validate_queries
-from src.retrieval.reranking import RerankerConfig, RerankerType, retrieve_with_reranking
+from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.utils.logger import setup_logging
 
-# Importing the newly created GroupingAnalysisModule
-from src.analysis.grouping_module import GroupingAnalysisModule
-
+# Setup logging
 setup_logging()
 logger = logging.getLogger(__name__)
-
-dspy.settings.configure(main_thread_only=True)
-thread_lock = threading.Lock()
-
 
 @dataclass
 class OptimizerConfig:
@@ -48,7 +46,6 @@ class OptimizerConfig:
     max_labeled_demos: int = 4
     num_candidate_programs: int = 10
     num_threads: int = 1
-
 
 @dataclass
 class ModuleConfig:
@@ -60,14 +57,13 @@ class ModuleConfig:
     training_data: str
     optimized_program_path: str
     module_class: Type[Any]
-    conversion_func: Optional[Callable[[str, str, str], None]] = None  # Allow None for the last module
-
+    conversion_func: Optional[Callable[[str, str, str], None]] = None
 
 class ThematicAnalysisPipeline:
     def __init__(self):
         logger.info("Initializing ThematicAnalysisPipeline")
         self.contextual_db = ContextualVectorDB("contextual_db")
-        self.es_bm25: ElasticsearchBM25 = None
+        self.es_bm25: Optional[ElasticsearchBM25] = None
         self.optimized_programs: Dict[str, Any] = {}
         self.lock = threading.Lock()
         logger.info("ThematicAnalysisPipeline instance created with ContextualVectorDB initialized")
@@ -77,23 +73,15 @@ class ThematicAnalysisPipeline:
         start_time = time.time()
         try:
             es_bm25 = ElasticsearchBM25(index_name=index_name)
-            logger.debug(f"ElasticsearchBM25 instance created with index '{index_name}'")
-            index_start_time = time.time()
             success_count, failed_docs = es_bm25.index_documents(self.contextual_db.metadata)
-            index_time = time.time() - index_start_time
-            logger.info(f"Successfully indexed {success_count} documents in {index_time:.2f}s")
-
             if failed_docs:
                 logger.warning(f"Failed to index {len(failed_docs)} documents")
-                for doc in failed_docs:
-                    logger.warning(f"Failed document ID: {doc.get('doc_id', 'Unknown')}")
+            total_time = time.time() - start_time
+            logger.info(f"Elasticsearch BM25 index creation completed in {total_time:.2f}s")
+            return es_bm25
         except Exception as e:
             logger.error(f"Error creating Elasticsearch BM25 index '{index_name}': {e}", exc_info=True)
             raise
-
-        total_time = time.time() - start_time
-        logger.info(f"Elasticsearch BM25 index creation completed in {total_time:.2f}s")
-        return es_bm25
 
     async def initialize_optimizer(self, config: ModuleConfig, optimizer_config: OptimizerConfig):
         module_name = config.module_class.__name__.replace("Module", "").lower()
@@ -107,9 +95,10 @@ class ThematicAnalysisPipeline:
                 fields=("input", "output"),
                 input_keys=("input",)
             )
-            logger.info(f"Loaded {module_name} training dataset: {len(train_dataset)} samples")
+            logger.info(f"Loaded {len(train_dataset)} samples for {module_name} training data")
 
-            qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+            # Update to use ChainOfThought instead of TypedChainOfThought
+            qa_module = dspy.ChainOfThought(QuestionAnswerSignature)
             teleprompter = BootstrapFewShotWithRandomSearch(
                 metric=comprehensive_metric,
                 max_bootstrapped_demos=optimizer_config.max_bootstrapped_demos,
@@ -149,34 +138,29 @@ class ThematicAnalysisPipeline:
         pipeline_start_time = time.time()
 
         try:
-            # Configure DSPy Language Model
             logger.info("Configuring DSPy Language Model")
             lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
             dspy.configure(lm=lm)
             dspy.Cache = False
 
-            # Load codebase chunks
             logger.info(f"Loading codebase chunks from {config.codebase_chunks_file}")
             chunks_start_time = time.time()
             codebase_chunks = load_codebase_chunks(config.codebase_chunks_file)
             chunks_time = time.time() - chunks_start_time
-            logger.info(f"Loaded {len(codebase_chunks)} chunks in {chunks_time:.2f}s")
+            logger.info(f"Loaded {len(codebase_chunks)} codebase chunks in {chunks_time:.2f}s")
 
-            # Load data into ContextualVectorDB
             logger.info("Loading data into ContextualVectorDB")
             db_start_time = time.time()
             self.contextual_db.load_data(codebase_chunks, parallel_threads=4)
             db_time = time.time() - db_start_time
             logger.info(f"Loaded data into ContextualVectorDB in {db_time:.2f}s")
 
-            # Create Elasticsearch BM25 index
             logger.info(f"Creating Elasticsearch BM25 index: {config.index_name}")
             es_start_time = time.time()
             self.es_bm25 = self.create_elasticsearch_bm25_index(config.index_name)
             es_time = time.time() - es_start_time
             logger.info(f"Created Elasticsearch BM25 index in {es_time:.2f}s")
 
-            # Load and validate queries
             logger.info(f"Loading queries from {config.queries_file_standard}")
             queries_start_time = time.time()
             standard_queries = load_queries(config.queries_file_standard)
@@ -188,33 +172,28 @@ class ThematicAnalysisPipeline:
             queries_time = time.time() - queries_start_time
             logger.info(f"Validated queries in {queries_time:.2f}s")
 
-            # Initialize optimizer
             logger.info(f"Initializing optimizer for {module_name.capitalize()}")
             optimizer_start_time = time.time()
             await self.initialize_optimizer(config, optimizer_config)
             optimizer_time = time.time() - optimizer_start_time
             logger.info(f"Initialized optimizer in {optimizer_time:.2f}s")
 
-            # Initialize module with assertions
-            logger.info(f"Initializing {config.module_class.__name__}")
+            logger.info(f"Initializing {config.module_class().__class__.__name__}")
             module_instance = config.module_class()
             module_instance = assert_transform_module(module_instance, backtrack_handler)
-            logger.info(f"Initialized {config.module_class().__class__.__name__} with assertions")
+            logger.info(f"Initialized {config.module_class().__class__.__name__}")
 
-            # Setup reranker
             reranker_config = RerankerConfig(
                 reranker_type=RerankerType.COHERE,
                 cohere_api_key=os.getenv("COHERE_API_KEY"),
                 st_weight=0.5
             )
 
-            # Determine optimized program
             optimized_program = self.optimized_programs.get(module_name)
             if not optimized_program:
-                logger.error(f"Optimized program for {module_name} not found")
+                logger.error(f"Optimized program for {module_name} not found. Exiting.")
                 return
 
-            # Process queries
             k_standard = 20
             logger.info(f"Processing queries with k={k_standard}")
             query_start_time = time.time()
@@ -230,7 +209,6 @@ class ThematicAnalysisPipeline:
             query_time = time.time() - query_start_time
             logger.info(f"Processed queries in {query_time:.2f}s")
 
-            # Evaluation
             logger.info("Starting evaluation")
             eval_start_time = time.time()
             evaluator = PipelineEvaluator(
@@ -281,6 +259,66 @@ class ThematicAnalysisPipeline:
             logger.error(f"Error in conversion {conversion_func.__name__}: {e}", exc_info=True)
             raise
 
+    def generate_theme_input(self):
+        try:
+            logger.info("Generating queries_theme.json from info.json and query_results_grouping.json")
+            info_path = 'data/input/info.json'
+            grouping_results_path = 'data/output/query_results_grouping.json'
+
+            if not os.path.exists(info_path):
+                logger.error("info.json not found.")
+                return
+
+            if not os.path.exists(grouping_results_path):
+                logger.error("query_results_grouping.json not found.")
+                return
+
+            with open(info_path, 'r', encoding='utf-8') as f:
+                info = json.load(f)
+
+            with open(grouping_results_path, 'r', encoding='utf-8') as f:
+                grouping_results = json.load(f)
+
+            if not grouping_results:
+                logger.error("query_results_grouping.json is empty.")
+                return
+
+            first_result = grouping_results[0]
+
+            research_objectives = info.get("research_objectives", "")
+            theoretical_framework = info.get("theoretical_framework", {})
+
+            codes = first_result.get("grouping_info", {}).get("codes", [])
+            groupings = first_result.get("groupings", [])
+
+            # The final theme module needs quotation, keywords, and transcript_chunk.
+            # These should be retrieved from previous pipeline stages or stored accordingly.
+            # Here, we assume placeholders for demonstration.
+            quotation = "Original quotation from previous step."
+            keywords = ["improvement", "reasoning", "innovation"]
+            transcript_chunk = "A relevant transcript chunk providing context."
+
+            queries_theme = [
+                {
+                    "quotation": quotation,
+                    "keywords": keywords,
+                    "codes": codes,
+                    "research_objectives": research_objectives,
+                    "theoretical_framework": theoretical_framework,
+                    "transcript_chunk": transcript_chunk,
+                    "groupings": groupings
+                }
+            ]
+
+            theme_path = 'data/input/queries_theme.json'
+            os.makedirs(os.path.dirname(theme_path), exist_ok=True)
+            with open(theme_path, 'w', encoding='utf-8') as f:
+                json.dump(queries_theme, f, indent=4)
+            logger.info(f"Generated {theme_path} successfully.")
+        except Exception as e:
+            logger.error(f"Error generating queries_theme.json: {e}", exc_info=True)
+
+    @handle_exceptions
     async def run_pipeline(self):
         logger.info("Starting Thematic Analysis Pipeline")
         total_start_time = time.time()
@@ -288,7 +326,6 @@ class ThematicAnalysisPipeline:
         try:
             optimizer_config = OptimizerConfig()
 
-            # Existing pipeline stages
             configs = [
                 ModuleConfig(
                     index_name='contextual_bm25_index_standard_quotation',
@@ -321,7 +358,18 @@ class ThematicAnalysisPipeline:
                     training_data='data/training/coding_training_data.csv',
                     optimized_program_path='data/optimized/optimized_coding_program.json',
                     module_class=CodingAnalysisModule,
-                    conversion_func=convert_coding_to_theme
+                    conversion_func=convert_coding_to_grouping
+                ),
+                ModuleConfig(
+                    index_name='contextual_bm25_index_grouping',
+                    codebase_chunks_file='data/codebase_chunks/codebase_chunks.json',
+                    queries_file_standard='data/input/queries_grouping.json',
+                    evaluation_set_file='data/evaluation/evaluation_set_grouping.jsonl',
+                    output_filename_primary='data/output/query_results_grouping.json',
+                    training_data='data/training/grouping_training_data.csv',
+                    optimized_program_path='data/optimized/optimized_grouping_program.json',
+                    module_class=GroupingAnalysisModule,
+                    conversion_func=convert_grouping_to_theme
                 ),
                 ModuleConfig(
                     index_name='contextual_bm25_index_theme_development',
@@ -332,36 +380,30 @@ class ThematicAnalysisPipeline:
                     training_data='data/training/theme_training_data.csv',
                     optimized_program_path='data/optimized/optimized_theme_program.json',
                     module_class=ThemedevelopmentAnalysisModule,
-                    conversion_func=None
-                ),
-                # New grouping stage after theme development
-                ModuleConfig(
-                    index_name='contextual_bm25_index_grouping',
-                    codebase_chunks_file='data/codebase_chunks/codebase_chunks.json',
-                    queries_file_standard='data/input/queries_grouping.json',
-                    evaluation_set_file='data/evaluation/evaluation_set_grouping.jsonl',
-                    output_filename_primary='data/output/query_results_grouping.json',
-                    training_data='data/training/grouping_training_data.csv',
-                    optimized_program_path='data/optimized/optimized_grouping_program.json',
-                    module_class=GroupingAnalysisModule,
-                    conversion_func=None
+                    conversion_func=None  # No conversion after theme development
                 )
             ]
 
-            # Run each pipeline stage sequentially with appropriate conversions
             for idx, config in enumerate(configs):
                 logger.info(f"Starting {config.module_class.__name__} Pipeline")
                 await self.run_pipeline_with_config(config, optimizer_config)
 
-                # Handle conversions between stages except for the last module
+                # Perform conversion only if not the last module
                 if idx < len(configs) - 1 and config.conversion_func is not None:
                     next_config = configs[idx + 1]
                     await self.convert_results(
                         conversion_func=config.conversion_func,
                         input_file=config.output_filename_primary,
-                        output_dir='data',
-                        output_file=next_config.queries_file_standard.split('/')[-1]
+                        output_dir='data/',  # Target directory for the next stage's input
+                        output_file=os.path.basename(next_config.queries_file_standard)  # Only the filename
                     )
+
+            # Before running the theme development stage, generate queries_theme.json using info.json and query_results_grouping.json
+            self.generate_theme_input()
+
+            # Run the final stage (theme development) again after generating queries_theme.json
+            final_config = configs[-1]
+            await self.run_pipeline_with_config(final_config, optimizer_config)
 
             total_time = time.time() - total_start_time
             logger.info(f"All pipeline stages completed successfully in {total_time:.2f}s")
@@ -372,7 +414,6 @@ class ThematicAnalysisPipeline:
         finally:
             logger.info("Thematic Analysis Pipeline execution finished")
             gc.collect()
-
 
 if __name__ == "__main__":
     logger.info("Launching Thematic Analysis Pipeline")

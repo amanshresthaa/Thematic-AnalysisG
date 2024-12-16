@@ -1,4 +1,4 @@
-# convertkeywordforcoding.py
+# src/convert/convertkeywordforcoding.py
 
 import json
 import os
@@ -56,7 +56,7 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
                 }
                 simplified_data.append(simplified_entry)
 
-        # Define the output path
+        # Define the output path with '_standard' suffix
         output_path = os.path.join(output_dir, 'input', output_file)
 
         # Write the simplified data to the output JSON file
@@ -75,7 +75,7 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
 if __name__ == "__main__":
     # Example usage; this will only run when the script is executed directly
     convert_query_results(
-        input_file='query_results_keyword_extraction.json',
+        input_file='data/output/query_results_keyword_extraction.json',  # Ensure this path is correct
         output_dir='data',
-        output_file='queries_coding.json'
+        output_file='queries_coding_standard.json'  # Modified filename
     )
