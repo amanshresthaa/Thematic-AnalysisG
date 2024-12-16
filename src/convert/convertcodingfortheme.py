@@ -1,3 +1,5 @@
+# src/convert/convertcodingfortheme.py
+
 import json
 import os
 from typing import List, Dict, Any, Optional
@@ -101,8 +103,8 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str, su
 if __name__ == "__main__":
     # Example usage; this will only run when the script is executed directly
     convert_query_results(
-        input_file='query_results_coding_analysis.json',  # Replace with your input file path
-        output_dir='data',                               # Set to 'data' to avoid double 'input' subdirectory
-        output_file='queries_theme.json'                # Replace with your desired output file name
+        input_file='data/output/query_results_coding_analysis.json',  # Replace with your input file path
+        output_dir='data',                                           # Set to 'data' to avoid double 'input' subdirectory
+        output_file='queries_theme.json'                            # Replace with your desired output file name
         # sub_dir='input'  # Optional: Specify if needed
     )

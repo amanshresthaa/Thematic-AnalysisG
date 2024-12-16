@@ -1,9 +1,26 @@
 {
-  "predictor": {
+  "self": {
     "lm": null,
     "traces": [],
     "train": [],
-    "demos": [],
+    "demos": [
+      {
+        "augmented": true,
+        "input": "research_objectives: To evaluate employee perspectives on workplace wellness initiatives post-pandemic\ntranscript_chunk: E7: The hybrid wellness program was a game-changer. Having both virtual and in-person options meant we could prioritize our health without sacrificing flexibility. It's become part of our company DNA now.\ncontextualized_contents: ['Program participation statistics', 'Previous wellness initiative feedback']\ntheoretical_framework: {'theory': 'Self-Determination Theory', 'philosophical_approach': 'Critical Realism', 'rationale': 'Understanding motivation in wellness participation'}",
+        "reasoning": "The input outlines research objectives focused on evaluating employee perspectives on workplace wellness initiatives after the pandemic. The transcript indicates that the hybrid wellness program has been positively received, highlighting its flexibility and integration into the company culture. The contextualized contents suggest that participation statistics and previous feedback will provide additional insights into employee perspectives. The theoretical framework emphasizes understanding motivation, which is relevant to assessing how employees engage with wellness initiatives. Therefore, the answer should reflect the positive employee sentiment towards the hybrid wellness program as a significant factor in workplace wellness post-pandemic.",
+        "answer": "Employees view the hybrid wellness program positively, appreciating its flexibility and integration into the company culture, which has enhanced their engagement in workplace wellness initiatives post-pandemic."
+      },
+      {
+        "augmented": true,
+        "input": "research_objectives: To understand the impact of social media misinformation on panic buying behavior during COVID-19 pandemic\ntranscript_chunk: P1: The flood of information on social media was overwhelming. Every time I opened Facebook, there were new posts about death rates rising and stores running out of supplies. It created this constant tension and fear.\ncontextualized_contents: ['Earlier discussion about social media usage patterns', 'Context about panic buying incidents']\ntheoretical_framework: {'theory': 'Terror Management Theory', 'philosophical_approach': 'Social Constructivism', 'rationale': 'Understanding how fear drives behavior'}",
+        "reasoning": "The research objectives focus on understanding how misinformation on social media influenced panic buying during the COVID-19 pandemic. The provided transcript highlights the overwhelming nature of information on social media, which contributed to feelings of fear and tension. This aligns with the Terror Management Theory, which suggests that fear can drive behavior, such as panic buying. The context about social media usage patterns and panic buying incidents supports the idea that misinformation exacerbated fear, leading to irrational purchasing behaviors.",
+        "answer": "The impact of social media misinformation on panic buying behavior during the COVID-19 pandemic was significant, as it created fear and tension among individuals, prompting them to engage in panic buying."
+      },
+      {
+        "input": "research_objectives: To examine teacher experiences with remote learning technology adoption during educational transition\ntranscript_chunk: T3: The learning curve was incredibly steep. We were thrown into the deep end with these new tools, but gradually, through trial and error and supporting each other, we found our digital feet.\ncontextualized_contents: ['Previous discussions about technology challenges', 'Notes on professional development sessions']\ntheoretical_framework: {'theory': 'Technology Acceptance Model', 'philosophical_approach': 'Pragmatism', 'rationale': 'Understanding technology adoption barriers'}",
+        "output": "{'keywords': [{'keyword': 'learning curve', 'category': 'richness', 'context': {'surrounding_text': 'The learning curve was incredibly steep', 'usage_pattern': 'Metaphorical description of challenge'}, 'analysis_value': {'realness': 'Authentic expression of challenge', 'richness': 'Captures complexity of adaptation process', 'repetition': 'Common theme in technology adoption', 'rationale': 'Aligns with technology acceptance barriers', 'repartee': 'Evocative metaphor for difficulty', 'regal': 'Central to understanding adaptation process'}}], 'analysis': {'methodology_reflection': 'Keywords capture transition challenges', 'patterns_identified': ['Adaptation process', 'Peer support'], 'theoretical_alignment': 'Connects to Technology Acceptance Model', 'research_implications': 'Highlights importance of support systems'}}"
+      }
+    ],
     "signature": {
       "instructions": "Given the fields `input`, produce the fields `answer`.",
       "fields": [
@@ -13,7 +30,24 @@
         },
         {
           "prefix": "Reasoning: Let's think step by step in order to",
-          "description": "${produce the answer}. We ..."
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "The generated answer to the question. The answer should be concise, directly address the question, and be grounded in the provided context to ensure factual accuracy."
+        }
+      ]
+    },
+    "extended_signature": {
+      "instructions": "Given the fields `input`, produce the fields `answer`.",
+      "fields": [
+        {
+          "prefix": "Input:",
+          "description": "The combined input containing both the question and context. The format should be 'question: <question_text> context: <context_text>'."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
         },
         {
           "prefix": "Answer:",

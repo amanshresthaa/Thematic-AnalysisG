@@ -13,14 +13,14 @@ class ThemedevelopmentAnalysisModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(ThemedevelopmentAnalysisSignature)
+        self.chain = dspy.ChainOfThought(ThemedevelopmentAnalysisSignature)  # Updated to use ChainOfThought
 
-    def forward(self, 
-                research_objectives: str, 
-                quotation: str, 
-                keywords: List[str], 
-                codes: List[Dict[str, Any]], 
-                theoretical_framework: Dict[str, str], 
+    def forward(self,
+                research_objectives: str,
+                quotation: str,
+                keywords: List[str],
+                codes: List[Dict[str, Any]],
+                theoretical_framework: Dict[str, str],
                 transcript_chunk: str) -> Dict[str, Any]:
         """
         Execute theme development analysis to transform codes into higher-order themes.

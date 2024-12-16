@@ -4,32 +4,21 @@ import logging
 from typing import Dict, Any, List
 import dspy
 import json
+import re
 from dataclasses import dataclass
 
 logger = logging.getLogger(__name__)
 
 @dataclass
 class ThemeDimensionsEvaluation:
-    """
-    Evaluation metrics for each identified theme, focusing on integration, abstraction, coherence,
-    and alignment with the theoretical framework.
-    """
     integrated: str
     abstracted: str
     coherent: str
     theoretically_aligned: str
 
-
 class ThemedevelopmentAnalysisSignature(dspy.Signature):
     """
-    Signature for elevating coded data into broader, more abstract themes. 
-    
-    This signature helps in synthesizing codes into higher-level themes that embody deeper patterns,
-    theoretical constructs, and interpretive insights. It ensures the themes are:
-    - Integrated: Combining multiple codes into a cohesive concept.
-    - Abstracted: Elevating from raw codes to more general concepts.
-    - Coherent: Internally consistent and methodologically sound.
-    - Theoretically Aligned: Reflective of the chosen theoretical framework and research objectives.
+    Signature for elevating coded data into broader, more abstract themes.
     """
 
     # Input Fields
@@ -120,20 +109,14 @@ class ThemedevelopmentAnalysisSignature(dspy.Signature):
         rationale = theoretical_framework.get("rationale", "N/A")
 
         prompt = (
-            f"You are a qualitative researcher skilled in thematic analysis. You have a set of codes "
-            f"derived from the provided quotation and keywords. Your goal is to synthesize these codes "
+            f"You are a qualitative researcher skilled in thematic analysis. Your goal is to synthesize these codes "
             f"into higher-level themes that capture deeper patterns and theoretical insights.\n\n"
 
             f"**Quotation:**\n{quotation}\n\n"
-
             f"**Keywords:**\n{keywords_formatted}\n\n"
-
             f"**Codes Derived from Quotation:**\n{codes_formatted}\n\n"
-
             f"**Transcript Context:**\n{transcript_chunk}\n\n"
-
             f"**Research Objectives:**\n{research_objectives}\n\n"
-
             f"**Theoretical Framework:**\n"
             f"- Theory: {theory}\n"
             f"- Philosophical Approach: {philosophical_approach}\n"
@@ -156,7 +139,6 @@ class ThemedevelopmentAnalysisSignature(dspy.Signature):
 
     def parse_response(self, response: str) -> Dict[str, Any]:
         try:
-            import re
             json_match = re.search(r"```json\s*(\{.*?\})\s*```", response, re.DOTALL)
             if not json_match:
                 logger.error("No valid JSON found in the response.")
@@ -178,8 +160,7 @@ class ThemedevelopmentAnalysisSignature(dspy.Signature):
         # Attempt up to 3 times to get a valid response
         for attempt in range(3):
             try:
-                logger.debug(f"Attempt {attempt + 1} - Initiating theme development analysis.")
-
+                logger.debug(f"Theme development attempt {attempt + 1}")
                 prompt = self.create_prompt(
                     research_objectives,
                     quotation,
@@ -201,7 +182,6 @@ class ThemedevelopmentAnalysisSignature(dspy.Signature):
 
                 if not parsed_response:
                     raise ValueError("Parsed response is empty or invalid.")
-
                 if not parsed_response.get("themes"):
                     raise ValueError("No themes generated. Check inputs or prompt.")
 
