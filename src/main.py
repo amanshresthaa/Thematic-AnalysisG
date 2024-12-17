@@ -40,6 +40,21 @@ from src.utils.logger import setup_logging
 setup_logging()
 logger = logging.getLogger(__name__)
 
+def create_directories(dir_paths: List[str]):
+    """
+    Creates directories if they do not exist.
+
+    Args:
+        dir_paths (List[str]): A list of directory paths to create.
+    """
+    for path in dir_paths:
+        try:
+            os.makedirs(path, exist_ok=True)
+            logger.info(f"Directory ensured: {path}")
+        except Exception as e:
+            logger.error(f"Failed to create directory {path}: {e}", exc_info=True)
+            raise
+
 @dataclass
 class OptimizerConfig:
     max_bootstrapped_demos: int = 4
@@ -62,6 +77,20 @@ class ModuleConfig:
 class ThematicAnalysisPipeline:
     def __init__(self):
         logger.info("Initializing ThematicAnalysisPipeline")
+        
+        # Define all necessary directories
+        required_directories = [
+            'data/input',
+            'data/output',
+            'data/codebase_chunks',
+            'data/optimized',
+            'data/training',
+            'data/evaluation'
+        ]
+        
+        # Create directories if they don't exist
+        create_directories(required_directories)
+        
         self.contextual_db = ContextualVectorDB("contextual_db")
         self.es_bm25: Optional[ElasticsearchBM25] = None
         self.optimized_programs: Dict[str, Any] = {}
@@ -246,6 +275,9 @@ class ThematicAnalysisPipeline:
             logger.info("No conversion function provided; skipping conversion step.")
             return
 
+        # Ensure the output directory exists
+        create_directories([output_dir])
+
         logger.info(f"Converting results using {conversion_func.__name__}")
         try:
             await asyncio.to_thread(
@@ -311,7 +343,10 @@ class ThematicAnalysisPipeline:
             ]
 
             theme_path = 'data/input/queries_theme.json'
-            os.makedirs(os.path.dirname(theme_path), exist_ok=True)
+            
+            # Ensure the output directory exists
+            create_directories([os.path.dirname(theme_path)])
+
             with open(theme_path, 'w', encoding='utf-8') as f:
                 json.dump(queries_theme, f, indent=4)
             logger.info(f"Generated {theme_path} successfully.")
