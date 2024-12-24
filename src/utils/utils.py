@@ -1,10 +1,33 @@
-# File: /Users/amankumarshrestha/Downloads/Thematic-AnalysisE/src/utils/utils.py
+# src/utils/utils.py
 
 import logging
+from functools import wraps
+import time
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 logger = logging.getLogger(__name__)
+
+def handle_assertion(func, *args, **kwargs):
+    """
+    Handles exceptions in assertion functions.
+    Logs start, pass, or fail.
+    """
+    func_name = func.__name__
+    start_time = time.time()
+    logger.debug(f"Starting assertion check: '{func_name}'")
+    try:
+        func(*args, **kwargs)
+        elapsed_time = time.time() - start_time
+        logger.debug(f"Assertion in '{func_name}' passed successfully in {elapsed_time:.4f}s.")
+    except AssertionError as ae:
+        elapsed_time = time.time() - start_time
+        logger.error(f"Assertion in '{func_name}' failed in {elapsed_time:.4f}s. Error: {ae}")
+        raise  # Re-raise the exception
+    except Exception as e:
+        elapsed_time = time.time() - start_time
+        logger.error(f"Error during assertion in '{func_name}' in {elapsed_time:.4f}s: {e}", exc_info=True)
+        raise
 
 def check_answer_length(answer: str, max_length: int = 500) -> bool:
     """

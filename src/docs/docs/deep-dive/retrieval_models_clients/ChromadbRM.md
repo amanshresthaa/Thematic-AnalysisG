@@ -49,7 +49,7 @@ from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 
 embedding_function = OpenAIEmbeddingFunction(
     api_key=os.environ.get('OPENAI_API_KEY'),
-    model_name="text-embedding-ada-002"
+    model_name="text-embedding-3-small"
 )
 
 retriever_model = ChromadbRM(
