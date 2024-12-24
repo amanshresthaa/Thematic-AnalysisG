@@ -195,7 +195,7 @@ class ContextualVectorDB:
             try:
                 logger.debug(f"Generating embeddings for batch of size {len(batch)}.")
                 response = self.client.create_embeddings(
-                    model="text-embedding-ada-002",
+                    model="text-embedding-3-small",
                     input=batch
                 )
                 return [item['embedding'] for item in response['data']]
@@ -287,7 +287,7 @@ class ContextualVectorDB:
             start_time = time.time()
             logger.debug("Generating embedding for the query.")
             response = self.client.create_embeddings(
-                model="text-embedding-ada-002",
+                model="text-embedding-3-small",
                 input=[query]
             )
             query_embedding = response['data'][0]['embedding']

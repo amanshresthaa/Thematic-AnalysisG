@@ -11,7 +11,7 @@ Neo4jRM(
     k: int = 5,
     retrieval_query: str = None,
     embedding_provider: str = "openai",
-    embedding_model: str = "text-embedding-ada-002",
+    embedding_model: str = "text-embedding-3-small",
 )
 ```
 
@@ -36,7 +36,7 @@ You need to define the credentials as environment variables:
 - `k` (_int_, _optional_): The number of top results to return from the retrieval operation. It defaults to 5 if not explicitly specified.
 - `retrieval_query` (_str_, _optional_): A custom query string provided for retrieving data. If not provided, a default query tailored to the `text_node_property` will be used.
 - `embedding_provider` (_str_, _optional_): The name of the service provider for generating embeddings. Defaults to "openai" if not specified.
-- `embedding_model` (_str_, _optional_): The specific embedding model to use from the provider. By default, it uses the "text-embedding-ada-002" model from OpenAI.
+- `embedding_model` (_str_, _optional_): The specific embedding model to use from the provider. By default, it uses the "text-embedding-3-small" model from OpenAI.
 
 ### Methods
 

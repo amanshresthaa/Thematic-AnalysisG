@@ -41,6 +41,12 @@ class GroupingAnalysisSignature(dspy.Signature):
          - group_label: A tentative label that reflects the shared meaning of the grouped codes.
          - codes: A list of codes belonging to this grouping.
          - rationale: A brief explanation for grouping these codes together. 
+         **Grouping Principles (4Rs Framework):
+        - **Reciprocal:** Identify codes that share mutual connections or relationships, potentially leading to the formation of new concepts when grouped together. Consider how the meanings of codes interact and complement each other.
+        - **Recognizable:** Ensure that the groupings are grounded in the original data. The keywords provided offer insights into the prominent concepts within the data. Utilise these keywords to guide the formation of groupings that accurately reflect the recurring patterns in the data.
+        - **Responsive:** The research objectives outline the key areas of inquiry. Create groupings that directly address these objectives, ensuring that the generated themes are relevant to the research goals.
+        - **Resourceful:** Focus on creating groupings that offer valuable insights and contribute to answering the research questions. Explain how the themes derived from these groupings help to understand the phenomenon under investigation.
+
         """
     )
 
@@ -67,30 +73,36 @@ class GroupingAnalysisSignature(dspy.Signature):
 
         # Instructions for the LLM
         prompt = (
-            f"You are an expert qualitative researcher specializing in thematic analysis. "
-            f"You have a set of codes derived from prior coding stages. Your task is to group these codes into "
-            f"higher-level themes that reflect shared meanings or patterns. The groupings should align with "
-            f"the given research objectives and theoretical framework.\n\n"
+        f"You are an expert qualitative researcher specialising in thematic analysis. "
+        f"You have a set of codes and associated keywords derived from prior coding stages. Your task is to group these codes into "
+        f"higher-level themes that reflect shared meanings or patterns. The groupings should align with "
+        f"the given research objectives and theoretical framework, considering the following principles:\n\n"
 
-            f"**Research Objectives:**\n{research_objectives}\n\n"
+        f"**Research Objectives:**\n{research_objectives}\n\n"
 
-            f"**Theoretical Framework:**\n"
-            f"- Theory: {theory}\n"
-            f"- Philosophical Approach: {philosophical_approach}\n"
-            f"- Rationale: {rationale}\n\n"
+        f"**Theoretical Framework:**\n"
+        f"- Theory: {theory}\n"
+        f"- Philosophical Approach: {philosophical_approach}\n"
+        f"- Rationale: {rationale}\n\n"
 
-            f"**Codes to be Grouped:**\n{formatted_codes}\n\n"
+        f"**Codes to be Grouped:**\n{formatted_codes}\n\n" 
 
-            f"Your response should identify meaningful themes or groups that these codes can be organized into. "
-            f"For each grouping, provide:\n"
-            f"- **group_label**: A tentative label describing the shared meaning of the grouped codes.\n"
-            f"- **codes**: A list of the code labels in that grouping.\n"
-            f"- **rationale**: A brief explanation of why these codes were grouped together.\n\n"
 
-            f"Return your final answer in JSON format inside triple backticks, e.g.:\n"
-            f"```json\n{{\n  \"groupings\": [\n    {{\n      \"group_label\": \"Label\",\n      \"codes\": [\"Code A\", \"Code B\"],\n      \"rationale\": \"Explanation.\"\n    }}\n  ]\n}}\n```\n"
-        )
-        return prompt
+        f"**Grouping Principles (4Rs Framework):**\n"
+        f"- **Reciprocal:** Identify codes that share mutual connections or relationships, potentially leading to the formation of new concepts when grouped together. Consider how the meanings of codes interact and complement each other.\n"
+        f"- **Recognizable:** Ensure that the groupings are grounded in the original data. The keywords provided offer insights into the prominent concepts within the data. Utilise these keywords to guide the formation of groupings that accurately reflect the recurring patterns in the data.\n"
+        f"- **Responsive:** The research objectives outline the key areas of inquiry. Create groupings that directly address these objectives, ensuring that the generated themes are relevant to the research goals.\n"
+        f"- **Resourceful:** Focus on creating groupings that offer valuable insights and contribute to answering the research questions. Explain how the themes derived from these groupings help to understand the phenomenon under investigation.\n\n" 
+
+        f"Your response should identify meaningful themes or groups that these codes can be organised into. "
+        f"For each grouping, provide:\n"
+        f"- **group_label**: A tentative label describing the shared meaning of the grouped codes.\n"
+        f"- **codes**: A list of the code labels in that grouping.\n"
+        f"- **rationale**: A brief explanation of why these codes were grouped together, explicitly addressing how this grouping aligns with the 4Rs framework.\n\n"
+        
+        f"Return your final answer in JSON format inside triple backticks, e.g.:\n"
+        f"```json\n{{\n \"groupings\": [\n {{\n \"group_label\": \"Label\",\n \"codes\": [\"Code A\", \"Code B\"],\n \"rationale\": \"Explanation.\"\n }}\n ]\n}}\n```\n"
+    ) 
 
     def parse_response(self, response: str) -> Dict[str, Any]:
         """

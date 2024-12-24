@@ -21,7 +21,7 @@ The constructor initializes an instance of the `AzureAISearchRM` class and sets 
 - `field_vector` (Optional[str]): The name of the field containing vector content in the search index.
 - `k` (int, optional): The default number of top passages to retrieve. Defaults to 3.
 - `azure_openai_client` (Optional[openai.AzureOpenAI]): An instance of the AzureOpenAI client. Either openai_client or embedding_func must be provided. Defaults to None.
-- `openai_embed_model` (Optional[str]): The name of the OpenAI embedding model. Defaults to "text-embedding-ada-002".
+- `openai_embed_model` (Optional[str]): The name of the OpenAI embedding model. Defaults to "text-embedding-3-small".
 - `embedding_func` (Optional[Callable]): A function for generating embeddings. Either openai_client or embedding_func must be provided. Defaults to None.
 - `semantic_ranker` (bool, optional): Whether to use semantic ranking. Defaults to False.
 - `filter` (str, optional): Additional filter query. Defaults to None.
@@ -82,7 +82,7 @@ AzureAISearchRM(
     field_vector: Optional[str] = None,
     k: int = 3,
     azure_openai_client: Optional[openai.AzureOpenAI] = None,
-    openai_embed_model: Optional[str] = "text-embedding-ada-002",
+    openai_embed_model: Optional[str] = "text-embedding-3-small",
     embedding_func: Optional[Callable] = None,
     semantic_ranker: bool = False,
     filter: str = None,
@@ -172,7 +172,7 @@ azure_search = AzureAISearchRM(
     field_vector="field_vector",
     k=3,
     azure_openai_client="azure_openai_client",
-    openai_embed_model="text-embedding-ada-002"
+    openai_embed_model="text-embedding-3-small"
     semantic_ranker=True,
     query_type=QueryType.SEMANTIC,
     semantic_configuration_name="semantic_configuration_name",
