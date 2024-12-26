@@ -1,91 +1,14 @@
-2024-12-25 22:04:47,026 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:29] - Initializing ThematicAnalysisPipeline
-2024-12-25 22:04:47,033 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:156] - Starting the entire Thematic Analysis Pipeline
-2024-12-25 22:04:47,033 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:163] - --- Running EnhancedQuotationModule stage ---
-2024-12-25 22:04:47,033 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Starting pipeline stage for Enhancedquotation
-2024-12-25 22:04:47,033 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:66] - Configuring DSPy Language Model
-2024-12-25 22:04:47,033 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:71] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2024-12-25 22:04:47,033 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:74] - Loading data into ContextualVectorDB
-2024-12-25 22:04:58,818 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:77] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
-2024-12-25 22:04:58,818 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:45] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
-2024-12-25 22:04:58,909 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:53] - Elasticsearch BM25 index creation completed in 0.09s
-2024-12-25 22:04:58,909 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:80] - Loading queries from data/input/queries_quotation.json
-2024-12-25 22:04:58,910 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:83] - Validating queries
-2024-12-25 22:04:58,913 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:86] - Initializing optimizer for Enhancedquotation
-2024-12-25 22:04:59,759 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:97] - Processing queries for Enhancedquotation
-2024-12-25 22:09:04,397 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:108] - Starting evaluation for Enhancedquotation
-2024-12-25 22:09:04,404 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:124] - Pipeline stage for Enhancedquotation completed in 257.37s
-2024-12-25 22:09:04,404 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:142] - Converting results with convert_query_results
-2024-12-25 22:09:04,407 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:163] - --- Running KeywordExtractionModule stage ---
-2024-12-25 22:09:04,407 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Starting pipeline stage for Keywordextraction
-2024-12-25 22:09:04,407 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:66] - Configuring DSPy Language Model
-2024-12-25 22:09:04,407 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:71] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2024-12-25 22:09:04,408 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:74] - Loading data into ContextualVectorDB
-2024-12-25 22:09:04,408 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:77] - Creating Elasticsearch BM25 index: contextual_bm25_index_keyword_extraction
-2024-12-25 22:09:04,408 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:45] - Creating Elasticsearch BM25 index: contextual_bm25_index_keyword_extraction
-2024-12-25 22:09:04,457 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:53] - Elasticsearch BM25 index creation completed in 0.05s
-2024-12-25 22:09:04,457 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:80] - Loading queries from data/input/queries_keyword_standard.json
-2024-12-25 22:09:04,457 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:83] - Validating queries
-2024-12-25 22:09:04,459 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:86] - Initializing optimizer for Keywordextraction
-2024-12-25 22:09:05,534 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:97] - Processing queries for Keywordextraction
-2024-12-25 22:09:05,535 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:108] - Starting evaluation for Keywordextraction
-2024-12-25 22:09:05,536 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:124] - Pipeline stage for Keywordextraction completed in 1.13s
-2024-12-25 22:09:05,536 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:142] - Converting results with convert_query_results
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:163] - --- Running CodingAnalysisModule stage ---
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Starting pipeline stage for Codinganalysis
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:66] - Configuring DSPy Language Model
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:71] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:74] - Loading data into ContextualVectorDB
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:77] - Creating Elasticsearch BM25 index: contextual_bm25_index_coding_analysis
-2024-12-25 22:09:05,538 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:45] - Creating Elasticsearch BM25 index: contextual_bm25_index_coding_analysis
-2024-12-25 22:09:05,593 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:53] - Elasticsearch BM25 index creation completed in 0.05s
-2024-12-25 22:09:05,593 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:80] - Loading queries from data/input/queries_coding_standard.json
-2024-12-25 22:09:05,593 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:83] - Validating queries
-2024-12-25 22:09:05,596 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:86] - Initializing optimizer for Codinganalysis
-2024-12-25 22:09:06,105 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:97] - Processing queries for Codinganalysis
-2024-12-25 22:09:06,105 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:108] - Starting evaluation for Codinganalysis
-2024-12-25 22:09:06,107 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:124] - Pipeline stage for Codinganalysis completed in 0.57s
-2024-12-25 22:09:06,107 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:142] - Converting results with convert_query_results
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:163] - --- Running GroupingAnalysisModule stage ---
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Starting pipeline stage for Groupinganalysis
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:66] - Configuring DSPy Language Model
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:71] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:74] - Loading data into ContextualVectorDB
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:77] - Creating Elasticsearch BM25 index: contextual_bm25_index_grouping
-2024-12-25 22:09:06,109 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:45] - Creating Elasticsearch BM25 index: contextual_bm25_index_grouping
-2024-12-25 22:09:06,150 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:53] - Elasticsearch BM25 index creation completed in 0.04s
-2024-12-25 22:09:06,150 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:80] - Loading queries from data/input/queries_grouping.json
-2024-12-25 22:09:06,150 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:83] - Validating queries
-2024-12-25 22:09:06,151 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:86] - Initializing optimizer for Groupinganalysis
-2024-12-25 22:09:06,705 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:97] - Processing queries for Groupinganalysis
-2024-12-25 22:09:06,705 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:108] - Starting evaluation for Groupinganalysis
-2024-12-25 22:09:06,707 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:124] - Pipeline stage for Groupinganalysis completed in 0.60s
-2024-12-25 22:09:06,707 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:142] - Converting results with convert_query_results
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:163] - --- Running ThemedevelopmentAnalysisModule stage ---
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Starting pipeline stage for Themedevelopmentanalysis
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:66] - Configuring DSPy Language Model
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:71] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:74] - Loading data into ContextualVectorDB
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:77] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2024-12-25 22:09:06,708 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:45] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2024-12-25 22:09:06,749 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:53] - Elasticsearch BM25 index creation completed in 0.04s
-2024-12-25 22:09:06,749 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:80] - Loading queries from data/input/queries_theme.json
-2024-12-25 22:09:06,749 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:83] - Validating queries
-2024-12-25 22:09:06,750 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:86] - Initializing optimizer for Themedevelopmentanalysis
-2024-12-25 22:09:07,052 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:97] - Processing queries for Themedevelopmentanalysis
-2024-12-25 22:09:07,052 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:108] - Starting evaluation for Themedevelopmentanalysis
-2024-12-25 22:09:07,053 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:124] - Pipeline stage for Themedevelopmentanalysis completed in 0.35s
-2024-12-25 22:09:07,054 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Starting pipeline stage for Themedevelopmentanalysis
-2024-12-25 22:09:07,054 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:66] - Configuring DSPy Language Model
-2024-12-25 22:09:07,054 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:71] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2024-12-25 22:09:07,054 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:74] - Loading data into ContextualVectorDB
-2024-12-25 22:09:07,054 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:77] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2024-12-25 22:09:07,054 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:45] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2024-12-25 22:09:07,093 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:53] - Elasticsearch BM25 index creation completed in 0.04s
-2024-12-25 22:09:07,093 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:80] - Loading queries from data/input/queries_theme.json
-2024-12-25 22:09:07,093 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:83] - Validating queries
-2024-12-25 22:09:07,094 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:86] - Initializing optimizer for Themedevelopmentanalysis
-2024-12-25 22:09:07,390 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:97] - Processing queries for Themedevelopmentanalysis
-2024-12-25 22:09:07,390 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:108] - Starting evaluation for Themedevelopmentanalysis
-2024-12-25 22:09:07,392 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:124] - Pipeline stage for Themedevelopmentanalysis completed in 0.34s
-2024-12-25 22:09:07,392 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:188] - Entire pipeline completed in 260.36s
-2024-12-25 22:09:07,392 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:194] - Thematic Analysis Pipeline execution finished
+2024-12-25 23:57:48,960 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:30] - Initializing ThematicAnalysisPipeline
+2024-12-25 23:57:48,968 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:159] - Starting the entire Thematic Analysis Pipeline
+2024-12-25 23:57:48,968 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:166] - --- Running EnhancedQuotationModule stage ---
+2024-12-25 23:57:48,968 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:63] - Starting pipeline stage for Enhancedquotation
+2024-12-25 23:57:48,968 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:67] - Configuring DSPy Language Model
+2024-12-25 23:57:48,968 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:72] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2024-12-25 23:57:48,968 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:75] - Loading data into ContextualVectorDB
+2024-12-25 23:57:55,130 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
+2024-12-25 23:57:55,131 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:46] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
+2024-12-25 23:57:55,212 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:54] - Elasticsearch BM25 index creation completed in 0.08s
+2024-12-25 23:57:55,212 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:81] - Loading queries from data/input/queries_quotation.json
+2024-12-25 23:57:55,212 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:88] - Initializing optimizer for Enhancedquotation
+2024-12-25 23:57:56,006 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:92] - Module instance created: EnhancedQuotationModule
+2024-12-25 23:57:56,016 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:100] - Processing queries for Enhancedquotation

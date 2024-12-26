@@ -17,7 +17,8 @@ from src.evaluation.evaluation import PipelineEvaluator
 from src.pipeline.pipeline_configs import OptimizerConfig, ModuleConfig
 from src.pipeline.pipeline_data import create_directories, generate_theme_input
 from src.pipeline.pipeline_optimizer import initialize_optimizer
-from src.processing.query_processor import process_queries, validate_queries
+from src.processing.query_processor import process_queries
+
 from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.utils.logger import setup_logging
 
@@ -80,13 +81,15 @@ class ThematicAnalysisPipeline:
             logger.info(f"Loading queries from {config.queries_file_standard}")
             standard_queries = load_queries(config.queries_file_standard)
 
-            logger.info("Validating queries")
-            validated_queries = validate_queries(standard_queries, config.module_class())
+            # Removed separate validation step as it's now handled internally within process_queries
+            # logger.info("Validating queries")
+            # validated_queries = validate_queries(standard_queries, config.module_class())
 
             logger.info(f"Initializing optimizer for {module_name.capitalize()}")
             await initialize_optimizer(config, optimizer_config, self.optimized_programs)
 
             module_instance = config.module_class()
+            logger.debug(f"Module instance created: {type(module_instance).__name__}")
             module_instance = assert_transform_module(module_instance, backtrack_handler)
 
             optimized_program = self.optimized_programs.get(module_name)
@@ -96,9 +99,9 @@ class ThematicAnalysisPipeline:
 
             logger.info(f"Processing queries for {module_name.capitalize()}")
             await process_queries(
-                validated_queries,
-                self.contextual_db,
-                self.es_bm25,
+                transcripts=standard_queries,  # Pass standard_queries directly without separate validation
+                db=self.contextual_db,
+                es_bm25=self.es_bm25,
                 k=20,
                 output_file=config.output_filename_primary,
                 optimized_program=optimized_program,
@@ -167,10 +170,10 @@ class ThematicAnalysisPipeline:
                 if idx < len(configs) - 1 and config.conversion_func:
                     next_config = configs[idx + 1]
                     await self.convert_results(
-                        config.conversion_func,
-                        config.output_filename_primary,
-                        'data/',
-                        os.path.basename(next_config.queries_file_standard)
+                        conversion_func=config.conversion_func,
+                        input_file=config.output_filename_primary,
+                        output_dir='data/',
+                        output_file=os.path.basename(next_config.queries_file_standard)
                     )
 
             # Example of generating queries_theme.json before running final stage
