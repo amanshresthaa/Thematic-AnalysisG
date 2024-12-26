@@ -1,7 +1,0 @@
-2024-12-25 22:09:05,534 - src.processing.query_processor - ERROR - [query_processor.py:377] - Unsupported module type.
-2024-12-25 22:09:06,105 - src.processing.query_processor - ERROR - [query_processor.py:377] - Unsupported module type.
-2024-12-25 22:09:06,705 - src.processing.query_processor - ERROR - [query_processor.py:377] - Unsupported module type.
-2024-12-25 22:09:06,705 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_grouping.jsonl': File does not exist.
-2024-12-25 22:09:06,749 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/queries_theme.json': File does not exist.
-2024-12-25 22:09:07,052 - src.processing.query_processor - ERROR - [query_processor.py:377] - Unsupported module type.
-2024-12-25 22:09:07,390 - src.processing.query_processor - ERROR - [query_processor.py:377] - Unsupported module type.
