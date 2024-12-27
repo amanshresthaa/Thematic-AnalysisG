@@ -65,7 +65,14 @@ class EnhancedQuotationSignature(dspy.Signature):
     
     quotations: List[Dict[str, Any]] = dspy.OutputField(
         desc="""Selected quotations with detailed analysis:
-        - quotation: Exact quote text
+        - quotation: Exact quote text (f"**Quotation Selection**:\n"
+            f"   - Select quotes that demonstrate robust patterns in the data.\n"
+            f"   - Classify quotes using Creswell's categories:\n"
+            f"     a) Longer quotations: For complex understandings\n"
+            f"     b) Discrete quotations: For diverse perspectives\n"
+            f"     c) Embedded quotations: Brief phrases showing text shifts\n"
+            f"   - Ensure quotes enhance reader engagement and highlight unique findings.\n"
+            f"   - Provide adequate context for accurate comprehension.\n\n")
         - creswell_category: Classification (longer/discrete/embedded)
         - classification: Content type
         - context: 
