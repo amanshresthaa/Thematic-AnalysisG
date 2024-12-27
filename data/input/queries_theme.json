@@ -660,13 +660,13 @@
                 }
             }
         ],
-        "research_objectives": "To develop advanced reasoning capabilities in AI models...",
+        "research_objectives": "To examine the viability and strategic importance of next-generation nuclear power in the United States, specifically focusing on: 1) The technical and economic feasibility of new reactor designs, 2) The role of public-private partnerships in nuclear innovation, 3) The intersection of energy security, climate goals, and technological leadership, and 4) The political sustainability of nuclear energy initiatives across different administrations",
         "theoretical_framework": {
-            "theory": "Scaling laws of deep learning suggest...",
-            "philosophical_approach": "A pragmatic, engineering-driven approach...",
-            "rationale": "Reasoning is identified as a crucial bottleneck..."
+            "theory": "Technological Innovation Systems Theory - examining how technological innovation in nuclear power emerges from the interaction between private sector innovation, government policy, market forces, and existing infrastructure",
+            "philosophical_approach": "Pragmatic Realism - balancing idealistic goals (clean energy, climate action) with practical constraints (costs, political realities, security concerns) while emphasizing measurable outcomes and concrete solutions",
+            "rationale": "The framework is chosen because it addresses the multi-faceted nature of nuclear energy development, which requires analyzing: 1) Technical innovation (simplified reactor design, safety improvements), 2) Economic factors (cost competitiveness, scalability), 3) Political dynamics (bipartisan support, regulatory environment), 4) Infrastructure considerations (grid integration, fuel supply chains), and 5) Social factors (public acceptance, environmental concerns)"
         },
-        "transcript_chunk": "A relevant transcript chunk providing context.",
+        "transcript_chunk": "Some relevant transcript chunk.",
         "groupings": [
             {
                 "group_label": "Technical Innovation and Safety",
