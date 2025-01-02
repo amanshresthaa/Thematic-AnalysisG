@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.1.4",
+    "@radix-ui/react-progress": "^1.1.1",
+    "events": "^3.3.0",
+    "lucide-react": "^0.469.0",
     "web-vitals": "^4.2.4"
   }
 }
