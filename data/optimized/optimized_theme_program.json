@@ -45,5 +45,12 @@
         }
       ]
     }
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12.7",
+      "dspy": "2.5.43",
+      "cloudpickle": "3.1.0"
+    }
   }
 }
