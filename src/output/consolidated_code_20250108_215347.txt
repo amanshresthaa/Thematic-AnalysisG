@@ -1,0 +1,2243 @@
+# Consolidated Source Code
+# ==============================================================================
+
+
+
+################################################################################
+# Module: root
+################################################################################
+
+
+# File: __init__.py
+#------------------------------------------------------------------------------
+#init
+"""
+Analysis modules for thematic analysis.
+Contains metrics and quotation selection functionality.
+"""
+
+from .metrics import comprehensive_metric, is_answer_fully_correct, factuality_metric
+from .select_quotation import EnhancedQuotationSignature
+from .select_quotation_module import SelectQuotationModule
+
+__all__ = [
+    'comprehensive_metric',
+    'is_answer_fully_correct',
+    'factuality_metric',
+    'EnhancedQuotationSignature',
+    'SelectQuotationModule'
+]
+
+# File: base.py
+#------------------------------------------------------------------------------
+# src/analysis/base.py
+
+import logging
+from abc import ABC, abstractmethod
+from typing import Dict, Any, Optional, List
+import time
+import json
+import asyncio
+
+logger = logging.getLogger(__name__)
+
+class BaseAnalysisModule(ABC):
+    """
+    Abstract base class for all analysis modules.
+    Provides common functionality for JSON handling, error recovery,
+    prompt management and retry mechanisms.
+    """
+    
+    def __init__(self, max_retries: int = 3, backoff_factor: float = 1.5):
+        self.max_retries = max_retries
+        self.backoff_factor = backoff_factor
+        self._setup_logging()
+
+    def _setup_logging(self):
+        """Configure logging for the module."""
+        self.logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
+        if not self.logger.handlers:
+            handler = logging.StreamHandler()
+            formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            )
+            handler.setFormatter(formatter)
+            self.logger.addHandler(handler)
+            self.logger.setLevel(logging.INFO)
+
+    async def execute_with_retry(self, func, *args, **kwargs) -> Dict[str, Any]:
+        """
+        Execute a function with exponential backoff retry logic.
+        
+        Args:
+            func: The async function to execute
+            *args: Positional arguments for the function
+            **kwargs: Keyword arguments for the function
+            
+        Returns:
+            Dict[str, Any]: The function result or error response
+        """
+        for attempt in range(self.max_retries):
+            try:
+                self.logger.debug(f"Attempt {attempt + 1}/{self.max_retries}")
+                result = await func(*args, **kwargs)
+                return result
+            except Exception as e:
+                wait_time = self.backoff_factor ** attempt
+                self.logger.warning(
+                    f"Attempt {attempt + 1}/{self.max_retries} failed: {str(e)}. "
+                    f"Retrying in {wait_time:.1f}s"
+                )
+                if attempt < self.max_retries - 1:
+                    await asyncio.sleep(wait_time)
+                else:
+                    self.logger.error(f"All retry attempts failed: {str(e)}")
+                    return {"error": str(e)}
+    
+    def validate_json(self, json_str: str) -> Optional[Dict[str, Any]]:
+        """
+        Validate and parse JSON string.
+        
+        Args:
+            json_str: JSON string to validate
+            
+        Returns:
+            Optional[Dict[str, Any]]: Parsed JSON or None if invalid
+        """
+        try:
+            return json.loads(json_str)
+        except json.JSONDecodeError as e:
+            self.logger.error(f"Invalid JSON: {e}")
+            return None
+    
+    def format_error_response(self, error: Exception) -> Dict[str, Any]:
+        """
+        Format an error response.
+        
+        Args:
+            error: The exception to format
+            
+        Returns:
+            Dict[str, Any]: Formatted error response
+        """
+        return {
+            "error": True,
+            "message": str(error),
+            "type": error.__class__.__name__
+        }
+
+    @abstractmethod
+    async def validate_input(self, **kwargs) -> bool:
+        """
+        Validate input parameters.
+        
+        Args:
+            **kwargs: Input parameters to validate
+            
+        Returns:
+            bool: True if valid, False otherwise
+        """
+        pass
+
+    @abstractmethod
+    def generate_prompt(self, **kwargs) -> str:
+        """
+        Generate prompt for the analysis.
+        
+        Args:
+            **kwargs: Parameters for prompt generation
+            
+        Returns:
+            str: Generated prompt
+        """
+        pass
+
+    @abstractmethod
+    async def process_results(self, results: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Process and validate analysis results.
+        
+        Args:
+            results: Raw analysis results to process
+            
+        Returns:
+            Dict[str, Any]: Processed results
+        """
+        pass
+
+    @abstractmethod
+    async def analyze(self, **kwargs) -> Dict[str, Any]:
+        """
+        Perform the analysis.
+        
+        Args:
+            **kwargs: Analysis parameters
+            
+        Returns:
+            Dict[str, Any]: Analysis results
+        """
+        pass
+
+    async def run_analysis(self, **kwargs) -> Dict[str, Any]:
+        """
+        Execute the complete analysis workflow with error handling.
+        
+        Args:
+            **kwargs: Analysis parameters
+            
+        Returns:
+            Dict[str, Any]: Analysis results or error response
+        """
+        start_time = time.time()
+        self.logger.info("Starting analysis workflow")
+        
+        try:
+            # Validate inputs
+            if not await self.validate_input(**kwargs):
+                raise ValueError("Invalid input parameters")
+
+            # Generate prompt
+            prompt = self.generate_prompt(**kwargs)
+            
+            # Execute analysis
+            results = await self.execute_with_retry(self.analyze, prompt=prompt, **kwargs)
+            
+            # Process results
+            final_results = await self.process_results(results)
+            
+            elapsed_time = time.time() - start_time
+            self.logger.info(f"Analysis completed in {elapsed_time:.2f}s")
+            
+            return final_results
+            
+        except Exception as e:
+            self.logger.error(f"Analysis failed: {str(e)}", exc_info=True)
+            return self.format_error_response(e)
+
+# File: coding.py
+#------------------------------------------------------------------------------
+#analysis/coding.py
+import logging
+from typing import Dict, Any, List
+import dspy
+from dataclasses import dataclass
+import json
+from src.assertions_coding import (
+    assert_robustness,
+    assert_reflectiveness,
+    assert_resplendence,
+    assert_relevance,
+    assert_radicality,
+    assert_righteousness,
+    assert_code_representation,
+    assert_code_specificity,
+    assert_code_relevance,
+    assert_code_distinctiveness,
+    run_all_coding_assertions
+)
+
+logger = logging.getLogger(__name__)
+
+@dataclass
+class SixRsEvaluation:
+    """Evaluation metrics for each dimension of the 6Rs framework."""
+    robust: str
+    reflective: str
+    resplendent: str
+    relevant: str
+    radical: str
+    righteous: str
+
+class CodingAnalysisSignature(dspy.Signature):
+    """
+    Signature for conducting a comprehensive thematic coding analysis utilizing the 6Rs framework.
+    
+    This signature facilitates the systematic analysis of qualitative data by guiding the user
+    through the process of thematic coding, ensuring methodological rigor and theoretical alignment.
+    """
+
+    # Input Fields
+    research_objectives: str = dspy.InputField(
+        desc=(
+            "A detailed statement of the study's overarching goals and specific research questions "
+            "that direct the coding analysis. This should clearly articulate what the research aims to "
+            "accomplish and the key questions it seeks to address, providing a foundation for the "
+            "subsequent coding process."
+        )
+    )
+
+    quotation: str = dspy.InputField(
+        desc=(
+            "The specific excerpt, passage, or segment selected from the data set for coding analysis. "
+            "This quotation serves as the primary source text from which themes and codes will be derived, "
+            "capturing the essential content to be analyzed."
+        )
+    )
+
+    keywords: List[str] = dspy.InputField(
+        desc=(
+            "A curated list of keywords previously identified to inform and guide the coding process. "
+            "Each keyword should be a distinct string that represents a significant theme or concept "
+            "relevant to the research objectives, aiding in the systematic identification of patterns "
+            "within the quotation."
+        )
+    )
+
+    contextualized_contents: List[str] = dspy.InputField(
+        desc=(
+            "Additional contextual information that provides background and deeper insight into the "
+            "primary quotation. This may include related texts, situational context, historical background, "
+            "or any other supplementary content that enhances the understanding and interpretation of the "
+            "quotation being analyzed."
+        )
+    )
+
+    theoretical_framework: Dict[str, str] = dspy.InputField(
+        desc=(
+            "The foundational theoretical framework that underpins the analysis, detailing the guiding "
+            "theoretical approach. This dictionary should include:\n"
+            " - **theory**: The primary theoretical perspective or model being applied to the analysis.\n"
+            " - **philosophical_approach**: The underlying philosophical stance that informs the theoretical "
+            "framework, such as positivism, interpretivism, critical theory, etc.\n"
+            " - **rationale**: A comprehensive justification for selecting this particular theoretical approach, "
+            "explaining how it aligns with and supports the research objectives and questions."
+        )
+    )
+
+    # Output Fields
+    coding_info: Dict[str, Any] = dspy.OutputField(
+        desc=(
+            "Comprehensive context and metadata related to the coding analysis, including:\n"
+            " - **quotation**: The original passage selected for analysis.\n"
+            " - **research_objectives**: The specific goals and research questions that guide the analysis.\n"
+            " - **theoretical_framework**: Detailed information about the theoretical foundation supporting the analysis.\n"
+            " - **keywords**: The list of keywords extracted or utilized from the quotation to inform coding."
+        )
+    )
+
+    codes: List[Dict[str, Any]] = dspy.OutputField(
+        desc=(
+            "A structured collection of developed codes, each accompanied by an in-depth analysis. Each code entry includes:\n"
+            " - **code**: The name or label of the developed code.\n"
+            " - **definition**: A precise and clear explanation of the code's meaning and scope.\n"
+            " - **6Rs_framework**: The specific dimensions of the 6Rs framework (robust, reflective, resplendent, relevant, radical, righteous) that the code satisfies. Only the dimensions that apply are listed (e.g., ['robust', 'relevant']).\n"
+            " - **6Rs_evaluation**: Detailed justifications and evaluation metrics for the Rs listed in **6Rs_framework**, explaining how the code satisfies those dimensions. Evaluations focus only on these specific Rs, including:\n"
+            "     * **robust**: Assessment of how effectively the code captures the fundamental essence of the data.\n"
+            "     * **reflective**: Evaluation of the code's alignment and relationship with the theoretical framework.\n"
+            "     * **resplendent**: Analysis of the code's comprehensiveness and the depth of understanding it provides.\n"
+            "     * **relevant**: Determination of the code's appropriateness and contextual fit within the data.\n"
+            "     * **radical**: Identification of the code's uniqueness and the novelty of the insights it offers.\n"
+            "     * **righteous**: Verification of the code's logical consistency and alignment with the overarching theoretical framework."
+        )
+    )
+
+
+    analysis: Dict[str, Any] = dspy.OutputField(
+        desc=(
+            "An extensive analysis of the coding process, encompassing:\n"
+            " - **theoretical_integration**: An explanation of how the developed codes integrate with and apply the theoretical framework.\n"
+            " - **methodological_reflection**: Critical reflections on the coding methodology, including:\n"
+            "     * **code_robustness**: An evaluation of the strength, reliability, and consistency of the codes.\n"
+            "     * **theoretical_alignment**: Analysis of the extent to which the codes align with the theoretical framework.\n"
+            "     * **researcher_reflexivity**: Consideration of the researcher's own influence, biases, and assumptions in the coding process.\n"
+            " - **practical_implications**: Insights derived from the coding analysis and their potential applications or implications for practice, policy, or further research."
+        )
+    )
+
+    def create_prompt(self, research_objectives: str, quotation: str,
+                     keywords: List[str], contextualized_contents: List[str],
+                     theoretical_framework: Dict[str, str]) -> str:
+        """Generates a detailed prompt for conducting enhanced coding analysis."""
+
+        # Format keywords for clarity
+        keywords_formatted = "\n".join([
+            f"- **{kw}**"
+            for kw in keywords
+        ])
+
+        # Format contextualized contents with clear labeling
+        contents_formatted = "\n\n".join([
+            f"**Content {i+1}:**\n{content}"
+            for i, content in enumerate([quotation] + contextualized_contents)
+        ])
+
+        # Extract theoretical framework components with default empty strings
+        theory = theoretical_framework.get("theory", "N/A")
+        philosophical_approach = theoretical_framework.get("philosophical_approach", "N/A")
+        rationale = theoretical_framework.get("rationale", "N/A")
+
+        # Construct the prompt with clear sections and instructions
+        prompt = (
+            f"You are an experienced qualitative researcher specializing in thematic coding analysis "
+            f"utilizing the 6Rs framework and grounded in {theory}. Your objective is to develop and critically analyze codes based on "
+            f"the provided keywords and quotation, ensuring methodological rigor and theoretical alignment.\n\n"
+
+            f"**Quotation for Analysis:**\n{quotation}\n\n"
+
+            f"**Identified Keywords:**\n{keywords_formatted}\n\n"
+
+            f"**Additional Contextualized Contents:**\n{contents_formatted}\n\n"
+
+            f"**Research Objectives:**\n{research_objectives}\n\n"
+
+            f"**Theoretical Framework:**\n"
+            f"- **Theory:** {theory}\n"
+            f"- **Philosophical Approach:** {philosophical_approach}\n"
+            f"- **Rationale:** {rationale}\n\n"
+
+            f"**Guidelines for Analysis:**\n"
+            f"Your analysis should adhere to the 6Rs framework, addressing each dimension as follows:\n"
+            f"1. **Robust:** Ensure that the code captures the true essence of the data in a theoretically sound manner.\n"
+            f"2. **Reflective:** Demonstrate clear relationships between the data and the theoretical framework.\n"
+            f"3. **Resplendent:** Provide a comprehensive understanding that encompasses all relevant aspects.\n"
+            f"4. **Relevant:** Accurately represent the data, ensuring appropriateness and contextual fit.\n"
+            f"5. **Radical:** Introduce unique and innovative insights that advance understanding.\n"
+            f"6. **Righteous:** Maintain logical alignment with the overarching theoretical framework.\n\n"
+
+            f"**Example Code Development:**\n"
+            f"- **Code:** Economic Vulnerability\n"
+            f"  - **Definition:** Victims originate from economically disadvantaged backgrounds, lacking financial stability.\n"
+            f"  - **Keywords:** Poverty, Lack of Education\n"
+            f"  - **6Rs Evaluation:** Robust, Relevant\n"
+            f"  - **Theoretical Alignment:** Connects economic factors with victim vulnerability as per {theory}.\n"
+            f"  - **Supporting Quotes:** [\"Victims of sex trafficking often come from vulnerable backgrounds, such as poverty...\"]\n"
+            f"  - **Analytical Memos:** Economic hardship is a primary factor that increases susceptibility to trafficking offers.\n\n"
+
+            f"**Instructions:**\n"
+            f"- Each code should include its definition, associated keywords, 6Rs evaluation, theoretical alignment, supporting quotes, and analytical memos.\n"
+            f"- Ensure that the codes are directly related to the theoretical framework and research objectives.\n"
+            f"- Use the identified keywords as foundational themes for each code.\n"
+            f"- Present the response in JSON format encapsulated within ```json``` blocks."
+        )
+        return prompt
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        """Extracts and parses the JSON content from the language model's response."""
+        try:
+            import re
+            # Use regex to find JSON content within code blocks
+            json_match = re.search(r"```json\s*(\{.*?\})\s*```", response, re.DOTALL)
+            if not json_match:
+                logger.error("No valid JSON found in the response.")
+                logger.debug(f"Full response received: {response}")
+                return {}
+            json_string = json_match.group(1)
+
+            # Parse the JSON string into a Python dictionary
+            response_json = json.loads(json_string)
+            return response_json
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decoding failed: {e}. Response: {response}")
+            return {}
+        except Exception as e:
+            logger.error(f"Unexpected error during response parsing: {e}")
+            return {}
+
+    def validate_codes(self, codes: List[Dict[str, Any]], research_objectives: str,
+                      theoretical_framework: Dict[str, str]) -> None:
+        """
+        Validates the developed codes against the 6Rs framework and other assertions.
+        
+        This method ensures that each code meets the defined quality standards and aligns
+        with the research objectives and theoretical framework.
+
+        Args:
+            codes (List[Dict[str, Any]]): The list of developed codes with their metadata.
+            research_objectives (str): The research goals and questions.
+            theoretical_framework (Dict[str, str]): Details of the theoretical foundation.
+
+        Raises:
+            AssertionError: If any code fails to meet the validation criteria.
+        """
+        try:
+            run_all_coding_assertions(
+                codes=codes,
+                research_objectives=research_objectives,
+                theoretical_framework=theoretical_framework
+            )
+            logger.debug("All coding assertions passed successfully.")
+        except AssertionError as ae:
+            logger.error(f"Code validation failed: {ae}")
+            # Additional logging to identify problematic codes
+            for code in codes:
+                try:
+                    assert_code_relevance(code, research_objectives, theoretical_framework)
+                    # Add other individual assertions as needed
+                except AssertionError as individual_ae:
+                    logger.error(f"Validation failed for code '{code.get('code', 'Unknown')}': {individual_ae}")
+            raise
+
+    def forward(self, research_objectives: str, quotation: str,
+                keywords: List[str], contextualized_contents: List[str],
+                theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """Executes the coding analysis with retry mechanism."""
+        for attempt in range(3):
+            try:
+                logger.debug(f"Attempt {attempt + 1} - Initiating coding analysis.")
+
+                # Generate the prompt for the language model
+                prompt = self.create_prompt(
+                    research_objectives,
+                    quotation,
+                    keywords,
+                    contextualized_contents,
+                    theoretical_framework
+                )
+
+                # Interact with the language model to generate a response
+                response = self.language_model.generate(
+                    prompt=prompt,
+                    max_tokens=8000,
+                    temperature=0.5  # Adjusted for greater consistency
+                ).strip()
+
+                logger.debug(f"Attempt {attempt + 1} - Response received from language model.")
+
+                # Parse the JSON response
+                parsed_response = self.parse_response(response)
+
+                if not parsed_response:
+                    raise ValueError("Parsed response is empty or invalid JSON.")
+
+                # Extract codes and analysis from the parsed response
+                codes = parsed_response.get("codes", [])
+                analysis = parsed_response.get("analysis", {})
+
+                if not codes:
+                    raise ValueError("No codes were generated. Please check the prompt and input data.")
+
+                # Validate the developed codes
+                self.validate_codes(
+                    codes=codes,
+                    research_objectives=research_objectives,
+                    theoretical_framework=theoretical_framework
+                )
+
+                logger.info(f"Attempt {attempt + 1} - Successfully developed and validated {len(codes)} codes.")
+                return parsed_response
+
+            except AssertionError as ae:
+                logger.warning(f"Attempt {attempt + 1} - Assertion failed during coding analysis: {ae}")
+                logger.debug(f"Attempt {attempt + 1} - Response causing assertion failure: {response}")
+            except ValueError as ve:
+                logger.warning(f"Attempt {attempt + 1} - ValueError: {ve}")
+                logger.debug(f"Attempt {attempt + 1} - Response causing ValueError: {response}")
+            except Exception as e:
+                logger.error(f"Attempt {attempt + 1} - Error in CodingAnalysisSignature.forward: {e}", exc_info=True)
+
+        logger.error(f"Failed to develop valid codes after 3 attempts. Last response: {response}")
+        # Optionally, provide a summary of issues or next steps
+        return {
+            "error": "Failed to develop valid codes after 3 attempts. Please review the input data and prompt for possible improvements."
+        }
+
+
+# File: coding_module.py
+#------------------------------------------------------------------------------
+#analysis/coding_module.py
+import logging
+from typing import Dict, Any, List
+import dspy
+from analysis.coding import CodingAnalysisSignature
+
+logger = logging.getLogger('my_logger')
+
+class CodingAnalysisModule(dspy.Module):
+    """
+    DSPy module for developing and analyzing codes using the 6Rs framework,
+    building upon extracted keywords.
+    """
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.TypedChainOfThought(CodingAnalysisSignature)
+
+    def forward(self, research_objectives: str, quotation: str,
+                keywords: List[str], contextualized_contents: List[str],
+                theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Execute coding analysis with the 6Rs framework, building upon extracted keywords.
+
+        Args:
+            research_objectives (str): Research goals and questions
+            quotation (str): Selected quotation for analysis
+            keywords (List[Dict[str, Any]]): Previously extracted keywords
+            contextualized_contents (List[str]): Additional context
+            theoretical_framework (Dict[str, str]): Theoretical foundation
+
+        Returns:
+            Dict[str, Any]: Complete coding analysis results including codes and analysis
+        """
+        logger.info("Starting coding analysis.")
+        logger.debug(f"Input parameters: Research Objectives='{research_objectives[:100]}', "
+                     f"Quotation='{quotation[:100]}', Keywords={keywords}, "
+                     f"Contextualized Contents={contextualized_contents[:2]}, "
+                     f"Theoretical Framework={theoretical_framework}")
+
+        try:
+            response = self.chain(
+                research_objectives=research_objectives,
+                quotation=quotation,
+                keywords=keywords,
+                contextualized_contents=contextualized_contents,
+                theoretical_framework=theoretical_framework
+            )
+            logger.info("Successfully completed coding analysis.")
+            logger.debug(f"Response: {response}")
+
+            if not response.get("codes"):
+                logger.warning("No codes were generated. Possible issue with inputs or prompt formulation.")
+            
+            return response
+        except Exception as e:
+            logger.error(f"Error during coding analysis: {e}", exc_info=True)
+            return {}
+
+
+# File: extract_keyword.py
+#------------------------------------------------------------------------------
+import logging
+from typing import Dict, Any, List, Optional
+import dspy
+from dataclasses import dataclass
+import json
+import asyncio
+
+from src.assertions_keyword import validate_keywords_dspy, AssertionConfig
+from src.config.keyword_config import KeywordExtractionConfig
+
+logger = logging.getLogger(__name__)
+
+@dataclass
+class KeywordAnalysisValue:
+    """Analysis values for each of the 6Rs framework dimensions."""
+    realness: str
+    richness: str
+    repetition: str
+    rationale: str
+    repartee: str
+    regal: str
+
+class KeywordExtractionSignature(dspy.Signature):
+    """Signature for conducting thematic keyword extraction from quotations."""
+    research_objectives: str = dspy.InputField(
+        desc="Research goals and questions guiding the keyword analysis"
+    )
+    quotation: str = dspy.InputField(
+        desc="Selected quotation for keyword extraction"
+    )
+    contextualized_contents: List[str] = dspy.InputField(
+        desc="Additional contextual content to support interpretation"
+    )
+    theoretical_framework: Dict[str, str] = dspy.InputField(
+        desc="""Theoretical foundation including:
+        - theory: Primary theoretical approach
+        - philosophical_approach: Underlying philosophical foundation
+        - rationale: Justification for chosen approach"""
+    )
+
+    quotation_info: Dict[str, Any] = dspy.OutputField(
+        desc="Comprehensive context information"
+    )
+    keywords: List[Dict[str, Any]] = dspy.OutputField(
+        desc="Extracted keywords with detailed analysis"
+    )
+    analysis: Dict[str, Any] = dspy.OutputField(
+        desc="Comprehensive keyword analysis output"
+    )
+
+class KeywordExtractionModule(dspy.Module):
+    """Enhanced DSPy module for keyword extraction with configurable validation."""
+    
+    def __init__(self, config: Optional[KeywordExtractionConfig] = None):
+        """Initialize the module with optional configuration."""
+        super().__init__()
+        self.config = config or KeywordExtractionConfig()
+        self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
+        logger.info("Initialized KeywordExtractionModule with config: %s", self.config)
+
+    def create_prompt(self, research_objectives: str, quotation: str,
+                     contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> str:
+        """Creates the enhanced prompt for keyword extraction."""
+        logger.debug("Creating prompt for keyword extraction")
+        
+        context_formatted = "\n\n".join([
+            f"Context {i+1}:\n{content}"
+            for i, content in enumerate(contextualized_contents)
+        ])
+
+        theory = theoretical_framework.get("theory", "")
+        philosophical_approach = theoretical_framework.get("philosophical_approach", "")
+        rationale = theoretical_framework.get("rationale", "")
+
+        prompt = (
+            f"As an experienced qualitative researcher, analyze the following quotation "
+            f"using the 6Rs framework to extract meaningful keywords.\n\n"
+
+            f"Quotation:\n{quotation}\n\n"
+            f"Additional Context:\n{context_formatted}\n\n"
+            f"Research Objectives:\n{research_objectives}\n\n"
+
+            f"Theoretical Framework:\n"
+            f"Theory: {theory}\n"
+            f"Philosophical Approach: {philosophical_approach}\n"
+            f"Rationale: {rationale}\n\n"
+
+            f"6Rs Framework Guidelines:\n"
+            f"1. Realness: Select words reflecting genuine experiences\n"
+            f"2. Richness: Identify words with deep meaning\n"
+            f"3. Repetition: Note recurring patterns\n"
+            f"4. Rationale: Connect to theoretical foundations\n"
+            f"5. Repartee: Consider discussion value\n"
+            f"6. Regal: Focus on centrality to topic\n\n"
+
+            f"Requirements:\n"
+            "1. Each keyword must be analyzed across all 6Rs dimensions\n"
+            "2. Include theoretical alignment justification\n"
+            "3. Consider contextual significance\n"
+            "4. Note pattern frequency\n"
+            f"5. Maximum keywords: {self.config.max_keywords}\n"
+            f"6. Minimum confidence: {self.config.min_confidence}\n\n"
+
+            "Expected Output Format:\n"
+            "{\n"
+            '  "quotation_info": {\n'
+            '    "quotation": "...",\n'
+            '    "research_objectives": "...",\n'
+            '    "theoretical_framework": {...}\n'
+            "  },\n"
+            '  "keywords": [\n'
+            "    {\n"
+            '      "keyword": "...",\n'
+            '      "category": "...",\n'
+            '      "6Rs_framework": ["..."],\n'
+            '      "analysis_value": {\n'
+            '        "realness": "...",\n'
+            '        "richness": "...",\n'
+            '        "repetition": "...",\n'
+            '        "rationale": "...",\n'
+            '        "repartee": "...",\n'
+            '        "regal": "..."\n'
+            "      }\n"
+            "    }\n"
+            "  ],\n"
+            '  "analysis": {\n'
+            '    "patterns_identified": [...],\n'
+            '    "theoretical_interpretation": "...",\n'
+            '    "methodological_reflection": {...},\n'
+            '    "practical_implications": "..."\n'
+            "  }\n"
+            "}\n"
+        )
+        
+        logger.debug("Created prompt with length: %d characters", len(prompt))
+        return prompt
+
+    async def forward(self, 
+                     research_objectives: str, 
+                     quotation: str,
+                     contextualized_contents: List[str], 
+                     theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """Execute keyword extraction with validation and retry mechanism."""
+        attempt = 0
+        max_retries = self.config.max_retries
+        
+        while attempt < max_retries:
+            attempt += 1
+            logger.info("Attempt %d/%d - Starting keyword extraction", attempt, max_retries)
+            
+            try:
+                prompt = self.create_prompt(
+                    research_objectives,
+                    quotation,
+                    contextualized_contents,
+                    theoretical_framework
+                )
+
+                start_time = asyncio.get_event_loop().time()
+                response = await self.chain(
+                    research_objectives=research_objectives,
+                    quotation=quotation,
+                    contextualized_contents=contextualized_contents,
+                    theoretical_framework=theoretical_framework
+                )
+                generation_time = asyncio.get_event_loop().time() - start_time
+                logger.debug("LLM response generated in %.2f seconds", generation_time)
+
+                # Extract keywords and validate
+                keywords = response.keywords if hasattr(response, 'keywords') else []
+                if not keywords:
+                    raise ValueError("No keywords found in response")
+
+                logger.info("Extracted %d keywords", len(keywords))
+
+                # Validate using new assertion system
+                validation_result = validate_keywords_dspy(
+                    keywords=keywords,
+                    quotation=quotation,
+                    contextualized_contents=contextualized_contents,
+                    research_objectives=research_objectives,
+                    theoretical_framework=theoretical_framework,
+                    config=self.config.assertion_config
+                )
+
+                if not validation_result["passed"]:
+                    if self.config.strict_mode:
+                        raise ValueError(
+                            f"Keyword validation failed: {validation_result['failed_assertions']}"
+                        )
+                    logger.warning(
+                        "Keyword validation produced warnings: %s", 
+                        validation_result["warnings"]
+                    )
+
+                # Apply configuration limits
+                if len(keywords) > self.config.max_keywords:
+                    logger.warning(
+                        "Truncating keywords to maximum limit of %d", 
+                        self.config.max_keywords
+                    )
+                    keywords = keywords[:self.config.max_keywords]
+
+                # Prepare final response
+                final_response = {
+                    "quotation_info": {
+                        "quotation": quotation,
+                        "research_objectives": research_objectives,
+                        "theoretical_framework": theoretical_framework
+                    },
+                    "keywords": keywords,
+                    "analysis": response.analysis if hasattr(response, 'analysis') else {},
+                    "validation_report": validation_result
+                }
+
+                logger.info("Successfully extracted and validated keywords on attempt %d", attempt)
+                return final_response
+
+            except Exception as e:
+                logger.error("Error in attempt %d: %s", attempt, str(e))
+                if attempt == max_retries:
+                    logger.error("Max retries reached. Extraction failed.")
+                    return {
+                        "error": str(e),
+                        "keywords": [],
+                        "quotation_info": {
+                            "quotation": quotation,
+                            "research_objectives": research_objectives,
+                            "theoretical_framework": theoretical_framework
+                        },
+                        "analysis": {
+                            "error": "Failed to complete keyword extraction after maximum retries"
+                        }
+                    }
+                logger.info("Retrying keyword extraction...")
+                await asyncio.sleep(1)  # Brief delay before retry
+
+        return {}
+
+# File: extract_keyword_module.py
+#------------------------------------------------------------------------------
+# src/analysis/extract_keyword_module.py
+
+import logging
+from typing import Dict, Any, List
+import dspy
+
+from src.analysis.extract_keyword import KeywordExtractionSignature
+
+logger = logging.getLogger(__name__)
+
+class KeywordExtractionModule(dspy.Module):
+    """
+    DSPy module for extracting and analyzing keywords from quotations using the 6Rs framework.
+    """
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
+
+    def forward(self, research_objectives: str, quotation: str,
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Execute keyword extraction and analysis with the 6Rs framework.
+        """
+        try:
+            logger.debug("Running KeywordExtractionModule with integrated keyword assertions.")
+            response = self.chain(
+                research_objectives=research_objectives,
+                quotation=quotation,
+                contextualized_contents=contextualized_contents,
+                theoretical_framework=theoretical_framework
+            )
+            return response
+        except Exception as e:
+            logger.error(f"Error in KeywordExtractionModule.forward: {e}", exc_info=True)
+            return {}
+
+
+# File: grouping.py
+#------------------------------------------------------------------------------
+# src/analysis/grouping.py
+
+import logging
+from typing import Dict, Any, List
+import dspy
+from dataclasses import dataclass
+import json
+import re
+
+logger = logging.getLogger(__name__)
+
+@dataclass
+class GroupingAnalysisSignature(dspy.Signature):
+    """
+    A signature for grouping similar codes into potential themes based 
+    on research objectives and a theoretical framework.
+    """
+
+    # Input Fields
+    research_objectives: str = dspy.InputField(
+        desc="The specific goals and research questions guiding the analysis."
+    )
+
+    theoretical_framework: Dict[str, str] = dspy.InputField(
+        desc="Detailed information about the theoretical foundation supporting the analysis."
+    )
+
+    codes: List[Dict[str, Any]] = dspy.InputField(
+        desc="""
+        A structured collection of developed codes, each accompanied by its definition. 
+        Each code entry includes:
+         - code: The name or label of the developed code.
+         - definition: A precise and clear explanation of the code's meaning and scope.
+        """
+    )
+
+    # Output Fields
+    groupings: List[Dict[str, Any]] = dspy.OutputField(
+        desc="""
+        A structured collection of code groupings, representing potential themes. Each grouping entry includes:
+         - group_label: A tentative label that reflects the shared meaning of the grouped codes.
+         - codes: A list of codes belonging to this grouping.
+         - rationale: A brief explanation for grouping these codes together. 
+         **Grouping Principles (4Rs Framework):
+        - **Reciprocal:** Identify codes that share mutual connections or relationships, potentially leading to the formation of new concepts when grouped together. Consider how the meanings of codes interact and complement each other.
+        - **Recognizable:** Ensure that the groupings are grounded in the original data. The keywords provided offer insights into the prominent concepts within the data. Utilise these keywords to guide the formation of groupings that accurately reflect the recurring patterns in the data.
+        - **Responsive:** The research objectives outline the key areas of inquiry. Create groupings that directly address these objectives, ensuring that the generated themes are relevant to the research goals.
+        - **Resourceful:** Focus on creating groupings that offer valuable insights and contribute to answering the research questions. Explain how the themes derived from these groupings help to understand the phenomenon under investigation.
+
+        """
+    )
+
+    def create_prompt(
+        self,
+        research_objectives: str,
+        theoretical_framework: Dict[str, str],
+        codes: List[Dict[str, Any]]
+    ) -> str:
+        """
+        Creates a prompt to be given to the language model, instructing it to group the provided codes into potential themes.
+        """
+
+        # Extract theory details for context
+        theory = theoretical_framework.get("theory", "N/A")
+        philosophical_approach = theoretical_framework.get("philosophical_approach", "N/A")
+        rationale = theoretical_framework.get("rationale", "N/A")
+
+        # Format codes for display
+        formatted_codes = "\n".join([
+            f"- **{c['code']}**: {c['definition']}"
+            for c in codes
+        ])
+
+        # Instructions for the LLM
+        prompt = (
+        f"You are an expert qualitative researcher specialising in thematic analysis. "
+        f"You have a set of codes and associated keywords derived from prior coding stages. Your task is to group these codes into "
+        f"higher-level themes that reflect shared meanings or patterns. The groupings should align with "
+        f"the given research objectives and theoretical framework, considering the following principles:\n\n"
+
+        f"**Research Objectives:**\n{research_objectives}\n\n"
+
+        f"**Theoretical Framework:**\n"
+        f"- Theory: {theory}\n"
+        f"- Philosophical Approach: {philosophical_approach}\n"
+        f"- Rationale: {rationale}\n\n"
+
+        f"**Codes to be Grouped:**\n{formatted_codes}\n\n" 
+
+
+        f"**Grouping Principles (4Rs Framework):**\n"
+        f"- **Reciprocal:** Identify codes that share mutual connections or relationships, potentially leading to the formation of new concepts when grouped together. Consider how the meanings of codes interact and complement each other.\n"
+        f"- **Recognizable:** Ensure that the groupings are grounded in the original data. The keywords provided offer insights into the prominent concepts within the data. Utilise these keywords to guide the formation of groupings that accurately reflect the recurring patterns in the data.\n"
+        f"- **Responsive:** The research objectives outline the key areas of inquiry. Create groupings that directly address these objectives, ensuring that the generated themes are relevant to the research goals.\n"
+        f"- **Resourceful:** Focus on creating groupings that offer valuable insights and contribute to answering the research questions. Explain how the themes derived from these groupings help to understand the phenomenon under investigation.\n\n" 
+
+        f"Your response should identify meaningful themes or groups that these codes can be organised into. "
+        f"For each grouping, provide:\n"
+        f"- **group_label**: A tentative label describing the shared meaning of the grouped codes.\n"
+        f"- **codes**: A list of the code labels in that grouping.\n"
+        f"- **rationale**: A brief explanation of why these codes were grouped together, explicitly addressing how this grouping aligns with the 4Rs framework.\n\n"
+        
+        f"Return your final answer in JSON format inside triple backticks, e.g.:\n"
+        f"```json\n{{\n \"groupings\": [\n {{\n \"group_label\": \"Label\",\n \"codes\": [\"Code A\", \"Code B\"],\n \"rationale\": \"Explanation.\"\n }}\n ]\n}}\n```\n"
+    ) 
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        """
+        Extracts and parses the JSON content from the language model's response.
+        """
+        try:
+            json_match = re.search(r"```json\s*(\{.*?\})\s*```", response, re.DOTALL)
+            if not json_match:
+                logger.error("No valid JSON found in the response.")
+                logger.debug(f"Full response: {response}")
+                return {}
+            json_string = json_match.group(1)
+            response_json = json.loads(json_string)
+            return response_json
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decoding failed: {e}. Response: {response}")
+            return {}
+        except Exception as e:
+            logger.error(f"Unexpected error during response parsing: {e}")
+            return {}
+
+    def forward(
+        self,
+        research_objectives: str,
+        theoretical_framework: Dict[str, str],
+        codes: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
+        """
+        Executes the grouping analysis by generating a prompt and sending it to the language model.
+        Tries multiple times in case the response is not valid.
+        """
+        prompt = self.create_prompt(
+            research_objectives=research_objectives,
+            theoretical_framework=theoretical_framework,
+            codes=codes
+        )
+
+        for attempt in range(3):
+            try:
+                response = self.language_model.generate(
+                    prompt=prompt,
+                    max_tokens=2000,
+                    temperature=0.5
+                ).strip()
+
+                parsed_response = self.parse_response(response)
+
+                if not parsed_response or 'groupings' not in parsed_response:
+                    raise ValueError("Parsed response is empty or missing 'groupings'.")
+
+                groupings = parsed_response.get("groupings", [])
+                if not groupings:
+                    raise ValueError("No groupings were generated. Check the prompt and input data.")
+
+                logger.info(f"Successfully generated {len(groupings)} groupings.")
+                return parsed_response
+
+            except ValueError as ve:
+                logger.warning(f"Attempt {attempt + 1} - ValueError: {ve}")
+                logger.debug(f"Response causing ValueError: {response}")
+            except Exception as e:
+                logger.error(f"Attempt {attempt + 1} - Error in GroupingAnalysisSignature.forward: {e}", exc_info=True)
+
+        logger.error("Failed to produce valid groupings after 3 attempts.")
+        return {
+            "error": "Failed to develop valid groupings after multiple attempts. Please review the input data and prompt."
+        }
+
+
+# File: grouping_module.py
+#------------------------------------------------------------------------------
+# src/analysis/grouping_module.py
+
+import logging
+from typing import Dict, Any, List
+import dspy
+from analysis.grouping import GroupingAnalysisSignature
+
+logger = logging.getLogger(__name__)
+
+class GroupingAnalysisModule(dspy.Module):
+    """
+    DSPy module for grouping similar codes into potential themes,
+    building upon code definitions, research objectives, and 
+    a theoretical framework.
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.TypedChainOfThought(GroupingAnalysisSignature)
+
+    def forward(
+        self,
+        research_objectives: str,
+        theoretical_framework: Dict[str, str],
+        codes: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
+        """
+        Executes the grouping analysis using the defined signature 
+        and the language model.
+        """
+        logger.info("Starting grouping analysis.")
+        try:
+            response = self.chain(
+                research_objectives=research_objectives,
+                theoretical_framework=theoretical_framework,
+                codes=codes
+            )
+
+            if not response.get("groupings"):
+                logger.warning("No groupings were generated. Possible issue with inputs or prompt formulation.")
+
+            logger.info("Successfully completed grouping analysis.")
+            return response
+        except Exception as e:
+            logger.error(f"Error during grouping analysis: {e}", exc_info=True)
+            return {}
+
+
+# File: metrics.py
+#------------------------------------------------------------------------------
+#metrics.py
+import logging
+from typing import List, Dict, Any, Callable
+import dspy
+
+from src.utils.utils import check_answer_length
+from src.utils.logger import setup_logging
+# Initialize logger
+logger = logging.getLogger(__name__)
+
+class BaseAssessment(dspy.Signature):
+    """
+    Base class for all assessment signatures.
+    """
+    context: str = dspy.InputField(
+        desc=(
+            "The contextual information provided to generate the answer. This includes all relevant "
+            "documents, data chunks, or information sources that the answer is based upon."
+        )
+    )
+    question: str = dspy.InputField(
+        desc=(
+            "The original question that was posed. This is used to understand the intent and scope "
+            "of the answer in relation to the provided context."
+        )
+    )
+    answer: str = dspy.InputField(
+        desc=(
+            "The answer generated by the system that needs to be evaluated for factual correctness "
+            "based on the provided context."
+        )
+    )
+
+    def generate_prompt(self, context: str, question: str, answer: str, task: str) -> str:
+        return (
+            f"Context: {context}\n"
+            f"Question: {question}\n"
+            f"Answer: {answer}\n\n"
+            f"{task}"
+        )
+
+class Assess(BaseAssessment):
+    """
+    Assess the factual correctness of an answer based on the provided context.
+
+    This signature evaluates whether the generated answer accurately reflects the information
+    present in the given context. It leverages a language model to perform a nuanced analysis
+    beyond simple keyword matching, ensuring a thorough assessment of factual accuracy.
+    """
+    factually_correct: str = dspy.OutputField(
+        desc=(
+            "Indicator of whether the answer is factually correct based on the context. "
+            "Should be 'Yes' if the answer accurately reflects the information in the context, "
+            "and 'No' otherwise."
+        )
+    )
+
+    def forward(self, context: str, question: str, answer: str) -> Dict[str, str]:
+        try:
+            logger.debug(f"Assessing factual correctness for question: '{question}'")
+            prompt = self.generate_prompt(
+                context, question, answer,
+                "Based on the context provided, evaluate whether the answer is factually correct.\n"
+                "Respond with 'Yes' if the answer accurately reflects the information in the context.\n"
+                "Respond with 'No' if the answer contains factual inaccuracies or is not supported by the context.\n"
+                "Please respond with 'Yes' or 'No' only."
+            )
+            response = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=3,
+                temperature=0.0,
+                top_p=1.0,
+                n=1,
+                stop=["\n"]
+            ).strip()
+            logger.debug(f"Factuality assessment response: '{response}'")
+            if response.lower() in ['yes', 'no']:
+                result = response.capitalize()
+            else:
+                logger.warning(f"Unexpected response from factuality assessment: '{response}'. Defaulting to 'No'.")
+                result = 'No'
+            logger.info(f"Factuality assessment result: {result} for question: '{question}'")
+            return {"factually_correct": result}
+        except Exception as e:
+            logger.error(f"Error in Assess.forward: {e}", exc_info=True)
+            return {"factually_correct": "No"}
+
+
+class AssessRelevance(BaseAssessment):
+    """
+    Assess the relevance of an answer to the given question and context.
+    
+    This signature evaluates whether the generated answer directly and comprehensively 
+    addresses the user's query, considering the provided context.
+    """
+    relevance_score: int = dspy.OutputField(desc="A score indicating relevance (1-5).")
+
+    def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
+        try:
+            logger.debug(f"Assessing relevance for question: '{question}'")
+            prompt = self.generate_prompt(
+                context, question, answer,
+                "Evaluate the relevance of the answer to the question based on the context.\n"
+                "Provide a relevance score between 1 (not relevant) and 5 (highly relevant)."
+            )
+            response = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=1,
+                temperature=0.0,
+                top_p=1.0,
+                n=1,
+                stop=["\n"]
+            ).strip()
+            logger.debug(f"Relevance assessment response: '{response}'")
+            try:
+                score = int(response)
+                if 1 <= score <= 5:
+                    result = score
+                else:
+                    logger.warning(f"Unexpected relevance score: '{response}'. Defaulting to 1.")
+                    result = 1
+            except ValueError:
+                logger.warning(f"Invalid relevance score format: '{response}'. Defaulting to 1.")
+                result = 1
+            logger.info(f"Relevance assessment result: {result} for question: '{question}'")
+            return {"relevance_score": result}
+        except Exception as e:
+            logger.error(f"Error in AssessRelevance.forward: {e}", exc_info=True)
+            return {"relevance_score": 1}
+
+
+class AssessCoherence(BaseAssessment):
+    """
+    Assess the coherence of an answer.
+    
+    This signature evaluates whether the generated answer is well-structured and logically consistent.
+    """
+    coherence_score: int = dspy.OutputField(desc="A score indicating coherence (1-5).")
+
+    def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
+        try:
+            logger.debug("Assessing coherence of the answer.")
+            prompt = self.generate_prompt(
+                context, question, answer,
+                "Evaluate the coherence of the above answer.\n"
+                "Provide a coherence score between 1 (not coherent) and 5 (highly coherent)."
+            )
+            response = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=1,
+                temperature=0.0,
+                top_p=1.0,
+                n=1,
+                stop=["\n"]
+            ).strip()
+            logger.debug(f"Coherence assessment response: '{response}'")
+            try:
+                score = int(response)
+                if 1 <= score <= 5:
+                    result = score
+                else:
+                    logger.warning(f"Unexpected coherence score: '{response}'. Defaulting to 1.")
+                    result = 1
+            except ValueError:
+                logger.warning(f"Invalid coherence score format: '{response}'. Defaulting to 1.")
+                result = 1
+            logger.info(f"Coherence assessment result: {result}")
+            return {"coherence_score": result}
+        except Exception as e:
+            logger.error(f"Error in AssessCoherence.forward: {e}", exc_info=True)
+            return {"coherence_score": 1}
+
+
+class AssessConciseness(BaseAssessment):
+    """
+    Assess the conciseness of an answer.
+    
+    This signature evaluates whether the generated answer is succinct and free from unnecessary verbosity.
+    """
+    conciseness_score: int = dspy.OutputField(desc="A score indicating conciseness (1-5).")
+
+    def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
+        try:
+            logger.debug("Assessing conciseness of the answer.")
+            prompt = self.generate_prompt(
+                context, question, answer,
+                "Evaluate the conciseness of the above answer.\n"
+                "Provide a conciseness score between 1 (not concise) and 5 (highly concise)."
+            )
+            response = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=1,
+                temperature=0.0,
+                top_p=1.0,
+                n=1,
+                stop=["\n"]
+            ).strip()
+            logger.debug(f"Conciseness assessment response: '{response}'")
+            try:
+                score = int(response)
+                if 1 <= score <= 5:
+                    result = score
+                else:
+                    logger.warning(f"Unexpected conciseness score: '{response}'. Defaulting to 1.")
+                    result = 1
+            except ValueError:
+                logger.warning(f"Invalid conciseness score format: '{response}'. Defaulting to 1.")
+                result = 1
+            logger.info(f"Conciseness assessment result: {result}")
+            return {"conciseness_score": result}
+        except Exception as e:
+            logger.error(f"Error in AssessConciseness.forward: {e}", exc_info=True)
+            return {"conciseness_score": 1}
+
+
+class AssessFluency(BaseAssessment):
+    """
+    Assess the fluency of an answer.
+    
+    This signature evaluates whether the generated answer exhibits natural language flow and is free from grammatical errors.
+    """
+    fluency_score: int = dspy.OutputField(desc="A score indicating fluency (1-5).")
+
+    def forward(self, context: str, question: str, answer: str) -> Dict[str, int]:
+        try:
+            logger.debug("Assessing fluency of the answer.")
+            prompt = self.generate_prompt(
+                context, question, answer,
+                "Evaluate the fluency of the above answer.\n"
+                "Provide a fluency score between 1 (not fluent) and 5 (highly fluent)."
+            )
+            response = self.language_model.generate(
+                prompt=prompt,
+                max_tokens=1,
+                temperature=0.0,
+                top_p=1.0,
+                n=1,
+                stop=["\n"]
+            ).strip()
+            logger.debug(f"Fluency assessment response: '{response}'")
+            try:
+                score = int(response)
+                if 1 <= score <= 5:
+                    result = score
+                else:
+                    logger.warning(f"Unexpected fluency score: '{response}'. Defaulting to 1.")
+                    result = 1
+            except ValueError:
+                logger.warning(f"Invalid fluency score format: '{response}'. Defaulting to 1.")
+                result = 1
+            logger.info(f"Fluency assessment result: {result}")
+            return {"fluency_score": result}
+        except Exception as e:
+            logger.error(f"Error in AssessFluency.forward: {e}", exc_info=True)
+            return {"fluency_score": 1}
+
+
+class ComprehensiveAssessment(BaseAssessment):
+    """
+    Comprehensive assessment of generated answers across multiple dimensions.
+    """
+    factually_correct: str = dspy.OutputField(desc="Whether the answer is factually correct ('Yes'/'No').")
+    relevance_score: int = dspy.OutputField(desc="A score indicating relevance (1-5).")
+    coherence_score: int = dspy.OutputField(desc="A score indicating coherence (1-5).")
+    conciseness_score: int = dspy.OutputField(desc="A score indicating conciseness (1-5).")
+    fluency_score: int = dspy.OutputField(desc="A score indicating fluency (1-5).")
+
+    def forward(self, context: str, question: str, answer: str) -> Dict[str, Any]:
+        try:
+            logger.debug(f"Performing comprehensive assessment for question: '{question}'")
+            
+            # Assess factual correctness
+            factuality = Assess()(context=context, question=question, answer=answer)['factually_correct']
+            
+            # Assess relevance
+            relevance = AssessRelevance()(context=context, question=question, answer=answer)['relevance_score']
+            
+            # Assess coherence
+            coherence = AssessCoherence()(context=context, question=question, answer=answer)['coherence_score']
+            
+            # Assess conciseness
+            conciseness = AssessConciseness()(context=context, question=question, answer=answer)['conciseness_score']
+            
+            # Assess fluency
+            fluency = AssessFluency()(context=context, question=question, answer=answer)['fluency_score']
+            
+            # Aggregate scores with adjusted weights
+            composite_score = {
+                "factually_correct": factuality,
+                "relevance_score": relevance,
+                "coherence_score": coherence,
+                "conciseness_score": conciseness,
+                "fluency_score": fluency
+            }
+            logger.info(f"Comprehensive assessment result: {composite_score}")
+            return composite_score
+        except Exception as e:
+            logger.error(f"Error in ComprehensiveAssessment.forward: {e}", exc_info=True)
+            return {
+                "factually_correct": "No",
+                "relevance_score": 1,
+                "coherence_score": 1,
+                "conciseness_score": 1,
+                "fluency_score": 1
+            }
+
+
+def comprehensive_metric(example: Dict[str, Any], pred: Dict[str, Any], trace: Any = None) -> float:
+    """
+    Comprehensive metric to evaluate the answer across multiple dimensions.
+    
+    Args:
+        example (Dict[str, Any]): The example containing 'context' and 'question'.
+        pred (Dict[str, Any]): The prediction containing the generated 'answer'.
+        trace (Any, optional): Trace information for optimization (unused here).
+    
+    Returns:
+        float: A combined score representing the quality of the answer.
+    """
+    try:
+        logger.debug(f"Evaluating comprehensive metrics for question: '{example.get('question', '')}'")
+        assessment = comprehensive_assessment_module(
+            context=example.get('context', ''),
+            question=example.get('question', ''),
+            answer=pred.get('answer', '')
+        )
+        logger.debug(f"Comprehensive assessment: {assessment}")
+        
+        # Convert 'factually_correct' to binary
+        factually_correct = 1 if assessment.get("factually_correct") == "Yes" else 0
+        
+        # Normalize scores between 0 and 1
+        relevance = assessment.get("relevance_score", 1) / 5
+        coherence = assessment.get("coherence_score", 1) / 5
+        conciseness = assessment.get("conciseness_score", 1) / 5
+        fluency = assessment.get("fluency_score", 1) / 5
+        
+        # Define adjusted weights for each metric
+        weights = {
+            "factually_correct": 0.5,
+            "relevance": 0.2,
+            "coherence": 0.1,
+            "conciseness": 0.1,
+            "fluency": 0.1
+        }
+        
+        # Calculate the composite score
+        composite_score = (
+            weights["factually_correct"] * factually_correct +
+            weights["relevance"] * relevance +
+            weights["coherence"] * coherence +
+            weights["conciseness"] * conciseness +
+            weights["fluency"] * fluency
+        )
+        
+        logger.info(f"Comprehensive metric score: {composite_score}")
+        return composite_score
+    except Exception as e:
+        logger.error(f"Error in comprehensive_metric: {e}", exc_info=True)
+        return 0.0
+
+
+def is_answer_fully_correct(example: Dict[str, Any], pred: Dict[str, Any]) -> bool:
+    """
+    Determines if the answer meets all quality metrics.
+    
+    Args:
+        example (Dict[str, Any]): The example containing 'context' and 'question'.
+        pred (Dict[str, Any]): The prediction containing the generated 'answer'.
+    
+    Returns:
+        bool: True if all metrics meet the desired thresholds, False otherwise.
+    """
+    scores = comprehensive_metric(example, pred)
+    # Define threshold (e.g., composite score should be at least 0.8)
+    is_factual = scores >= 0.8
+    logger.debug(f"Is answer fully correct (scores >= 0.8): {is_factual}")
+    return is_factual
+
+
+def factuality_metric(example: Dict[str, Any], pred: Dict[str, Any]) -> int:
+    """
+    Metric to evaluate factual correctness of the answer.
+
+    Args:
+        example (Dict[str, Any]): The example containing 'context' and 'question'.
+        pred (Dict[str, Any]): The prediction containing the generated 'answer'.
+
+    Returns:
+        int: 1 if factually correct, 0 otherwise.
+    """
+    try:
+        assess = Assess()
+        result = assess(context=example.get('context', ''), question=example.get('question', ''), answer=pred.get('answer', ''))
+        factually_correct = result.get('factually_correct', 'No')
+        logger.debug(f"Factuality metric result: {factually_correct}")
+        return 1 if factually_correct == 'Yes' else 0
+    except Exception as e:
+        logger.error(f"Error in factuality_metric: {e}", exc_info=True)
+        return 0 
+
+
+# Initialize the assessment modules
+try:
+    # Use the unoptimized module directly without caching
+    comprehensive_assessment_module = dspy.TypedChainOfThought(ComprehensiveAssessment)
+    logger.info("Comprehensive Assessment DSPy module initialized successfully.")
+except Exception as e:
+    logger.error(f"Error initializing Comprehensive Assessment DSPy module: {e}", exc_info=True)
+    raise
+
+
+# File: select_quotation.py
+#------------------------------------------------------------------------------
+#analysis/select_quotation.py
+import logging
+import re
+import json
+from typing import List, Dict, Any
+
+import dspy
+
+from src.assertions import (
+    assert_pattern_representation,
+    assert_research_objective_alignment,
+    assert_selective_transcription,
+    assert_creswell_categorization,
+    assert_reader_engagement
+)
+
+logger = logging.getLogger(__name__)
+
+class EnhancedQuotationSignature(dspy.Signature):
+    """
+    A comprehensive signature for conducting thematic analysis of interview transcripts
+    following Braun and Clarke's (2006) methodology. This signature supports systematic
+    qualitative analysis with robust pattern recognition and theoretical integration.
+    """
+    
+    # Input Fields
+    research_objectives: str = dspy.InputField(
+        desc="Research goals and questions guiding the thematic analysis"
+    )
+    
+    transcript_chunk: str = dspy.InputField(
+        desc="Primary transcript segment for analysis"
+    )
+    
+    contextualized_contents: List[str] = dspy.InputField(
+        desc="Additional contextual content to support interpretation"
+    )
+    
+    theoretical_framework: Dict[str, str] = dspy.InputField(
+        desc="""Theoretical foundation including:
+        - theory: Primary theoretical approach
+        - philosophical_approach: Underlying philosophical foundation
+        - rationale: Justification for chosen approach"""
+    )
+    
+    # Output Fields
+    transcript_info: Dict[str, Any] = dspy.OutputField(
+        desc="""Comprehensive context information including:
+        - transcript_chunk: Selected content
+        - research_objectives: Analysis goals
+        - theoretical_framework: Complete framework details"""
+    )
+    
+    retrieved_chunks: List[str] = dspy.OutputField(
+        desc="Collection of relevant transcript segments retrieved for analysis"
+    )
+    
+    retrieved_chunks_count: int = dspy.OutputField(
+        desc="Number of transcript chunks retrieved and analyzed"
+    )
+    
+    used_chunk_ids: List[str] = dspy.OutputField(
+        desc="Identifiers of transcript chunks utilized in the analysis"
+    )
+    
+    quotations: List[Dict[str, Any]] = dspy.OutputField(
+        desc="""Selected quotations with detailed analysis:
+        - quotation: Exact quote text (f"**Quotation Selection**:\n"
+            f"   - Select quotes that demonstrate robust patterns in the data.\n"
+            f"   - Classify quotes using Creswell's categories:\n"
+            f"     a) Longer quotations: For complex understandings\n"
+            f"     b) Discrete quotations: For diverse perspectives\n"
+            f"     c) Embedded quotations: Brief phrases showing text shifts\n"
+            f"   - Ensure quotes enhance reader engagement and highlight unique findings.\n"
+            f"   - Provide adequate context for accurate comprehension.\n\n")
+        - creswell_category: Classification (longer/discrete/embedded)
+        - classification: Content type
+        - context: 
+            * preceding_question
+            * situation
+            * pattern_representation
+        - analysis_value:
+            * relevance to objectives
+            * pattern support
+            * theoretical alignment"""
+    )
+    
+    analysis: Dict[str, Any] = dspy.OutputField(
+        desc="""Comprehensive thematic analysis including:
+        - philosophical_underpinning: Analysis approach
+        - patterns_identified: Key patterns discovered
+        - theoretical_interpretation: Framework application
+        - methodological_reflection:
+            * pattern_robustness
+            * theoretical_alignment
+            * researcher_reflexivity
+        - practical_implications: Applied insights"""
+    )
+    
+    answer: Dict[str, Any] = dspy.OutputField(
+        desc="""Analysis synthesis and contributions:
+        - summary: Key findings
+        - theoretical_contribution: Theory advancement
+        - methodological_contribution:
+            * approach
+            * pattern_validity
+            * theoretical_integration"""
+    )
+
+    def create_prompt(self, research_objectives: str, transcript_chunk: str, 
+                     contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> str:
+        """Creates the prompt for the language model."""
+        
+        # Format contextualized contents
+        chunks_formatted = "\n\n".join([
+            f"Content {i+1}:\n{content}" 
+            for i, content in enumerate([transcript_chunk] + contextualized_contents)
+        ])
+
+        theory = theoretical_framework.get("theory", "")
+        philosophical_approach = theoretical_framework.get("philosophical_approach", "")
+        rationale = theoretical_framework.get("rationale", "")
+
+        prompt = (
+            f"You are an experienced qualitative researcher conducting a thematic analysis of "
+            f"interview transcripts using Braun and Clarke's (2006) approach. Your task is to "
+            f"analyze the provided transcript chunks while adhering to key principles from their "
+            f"thematic analysis methodology.\n\n"
+
+            f"First, review the transcript chunks and contextualized_content:\n\n"
+            f"{chunks_formatted}\n\n"
+            
+            f"Research Objectives:\n"
+            f"<research_objectives>\n"
+            f"{research_objectives}\n"
+            f"</research_objectives>\n\n"
+
+            f"Theoretical Framework:\n"
+            f"<theoretical_framework>\n"
+            f"Theory: {theory}\n"
+            f"Philosophical Approach: {philosophical_approach}\n"
+            f"Rationale: {rationale}\n"
+            f"</theoretical_framework>\n\n"
+                    
+            f"Your analysis should follow these steps:\n\n"
+
+            f"1. **Quotation Selection**:\n"
+            f"   - Select quotes that demonstrate robust patterns in the data.\n"
+            f"   - Classify quotes using Creswell's categories:\n"
+            f"     a) Longer quotations: For complex understandings\n"
+            f"     b) Discrete quotations: For diverse perspectives\n"
+            f"     c) Embedded quotations: Brief phrases showing text shifts\n"
+            f"   - Ensure quotes enhance reader engagement and highlight unique findings.\n"
+            f"   - Provide adequate context for accurate comprehension.\n\n"
+
+            f"2. **Pattern Recognition**:\n"
+            f"   - Identify patterns emerging from data rather than predetermined categories.\n"
+            f"   - Support patterns with multiple quotations.\n"
+            f"   - Maintain theoretical alignment while remaining open to emerging themes.\n"
+            f"   - Document methodological decisions transparently.\n\n"
+
+            f"3. **Theoretical Integration**:\n"
+            f"   - Demonstrate clear philosophical underpinning.\n"
+            f"   - Show how findings connect to the theoretical framework.\n"
+            f"   - Practice researcher reflexivity throughout analysis.\n"
+            f"   - Balance selectivity with comprehensiveness.\n\n"
+
+            f"For each step of your analysis, wrap your analysis process in <analysis_process> tags to explain your thought process and reasoning before providing the final output. It's OK for this section to be quite long.\n\n"
+
+            f"Your final output should follow this JSON structure:\n\n"
+
+            "{\n"
+            "  \"transcript_info\": {\n"
+            "    \"transcript_chunk\": \"\",                    // Selected transcript content\n"
+            "    \"research_objectives\": \"\",                 // Research goals guiding analysis\n"
+            "    \"theoretical_framework\": {\n"
+            "      \"theory\": \"\",                            // Primary theoretical approach\n"
+            "      \"philosophical_approach\": \"\",            // Philosophical foundation\n"
+            "      \"rationale\": \"\"                          // Justification for approach\n"
+            "    }\n"
+            "  },\n"
+            "  \"retrieved_chunks\": [],                        // List of retrieved chunks (if needed)\n"
+            "  \"retrieved_chunks_count\": 0,                   // Count of retrieved chunks\n"
+            "  \"contextualized_contents\": [],                 // List of contextualized contents\n"
+            "  \"used_chunk_ids\": [],                          // List of used chunk IDs\n"
+            "  \"quotations\": [\n"
+            "    {\n"
+            "      \"quotation\": \"\",                         // Exact quote text\n"
+            "      \"creswell_category\": \"\",                 // longer/discrete/embedded\n"
+            "      \"classification\": \"\",                    // Content type\n"
+            "      \"context\": {\n"
+            "        \"preceding_question\": \"\",              // Prior question\n"
+            "        \"situation\": \"\",                       // Context description\n"
+            "        \"pattern_representation\": \"\"           // Pattern linkage\n"
+            "      },\n"
+            "      \"analysis_value\": {\n"
+            "        \"relevance\": \"\",                       // Research objective alignment\n"
+            "        \"pattern_support\": \"\",                 // Pattern evidence\n"
+            "        \"theoretical_alignment\": \"\"            // Framework connection\n"
+            "      }\n"
+            "    }\n"
+            "  ],\n"
+            "  \"analysis\": {\n"
+            "    \"philosophical_underpinning\": \"\",          // Analysis approach\n"
+            "    \"patterns_identified\": [\"\"],               // Key patterns found\n"
+            "    \"theoretical_interpretation\": \"\",          // Framework application\n"
+            "    \"methodological_reflection\": {\n"
+            "      \"pattern_robustness\": \"\",                // Pattern evidence\n"
+            "      \"theoretical_alignment\": \"\",             // Framework fit\n"
+            "      \"researcher_reflexivity\": \"\"             // Interpretation awareness\n"
+            "    },\n"
+            "    \"practical_implications\": \"\"               // Applied insights\n"
+            "  },\n"
+            "  \"answer\": {\n"
+            "    \"summary\": \"\",                            // Key findings\n"
+            "    \"theoretical_contribution\": \"\",            // Theory advancement\n"
+            "    \"methodological_contribution\": {\n"
+            "      \"approach\": \"\",                         // Method used\n"
+            "      \"pattern_validity\": \"\",                 // Evidence quality\n"
+            "      \"theoretical_integration\": \"\"           // Theory-data synthesis\n"
+            "    }\n"
+            "  }\n"
+            "}\n\n"
+
+            f"**Important Instructions:**\n"
+            f"- **Your final output must strictly follow the JSON structure provided below, including all fields exactly as specified, even if some fields are empty. Do not omit any fields.**\n"
+            f"- **Use double quotes for all strings.**\n"
+            f"- **Do not include any additional commentary or text outside of the JSON structure.**\n\n"
+            
+            f"Remember to wrap your analysis process in <analysis_process> tags throughout your analysis to show your chain of thought before providing the final JSON output.\n\n"
+        )
+        return prompt
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        """Parses the complete response from the language model."""
+        try:
+            # Use regex to extract JSON content within a code block tagged as json
+            json_match = re.search(r"```json\s*(\{.*\})\s*```", response, re.DOTALL)
+            if not json_match:
+                logger.error("No valid JSON found in response.")
+                logger.debug(f"Full response received: {response}")
+                return {}
+            json_string = json_match.group(1)
+
+            response_json = json.loads(json_string)
+            return response_json
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decoding failed: {e}, Response: {response}")
+            return {}
+        except Exception as e:
+            logger.error(f"Error parsing response: {e}")
+            return {}
+
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """Executes the quotation selection and analysis process with retry mechanism."""
+        for attempt in range(3):  # Retry mechanism with up to 3 attempts
+            try:
+                logger.debug(f"Attempt {attempt + 1} - Starting enhanced quotation selection and analysis process.")
+                
+                # Generate the prompt
+                prompt = self.create_prompt(
+                    research_objectives,
+                    transcript_chunk,
+                    contextualized_contents,
+                    theoretical_framework
+                )
+                
+                # Generate response from the language model
+                response = self.language_model.generate(
+                    prompt=prompt,
+                    max_tokens=6000,
+                    temperature=0.5
+                ).strip()
+                
+                logger.debug(f"Attempt {attempt + 1} - Response received from language model.")
+                
+                # Parse the complete response
+                parsed_response = self.parse_response(response)
+                
+                if not parsed_response:
+                    raise ValueError("Parsed response is empty. Possibly invalid JSON.")
+                
+                # Extract components
+                quotations = parsed_response.get("quotations", [])
+                analysis = parsed_response.get("analysis", {})
+                
+                # Apply assertions
+                assert_pattern_representation(quotations, analysis.get("patterns_identified", []))
+                assert_research_objective_alignment(quotations, research_objectives)
+                assert_selective_transcription(quotations, transcript_chunk)
+                assert_creswell_categorization(quotations)
+                assert_reader_engagement(quotations)
+                
+                
+                logger.info(f"Attempt {attempt + 1} - Successfully completed analysis with {len(quotations)} quotations.")
+                return parsed_response
+
+            except AssertionError as af:
+                logger.warning(f"Attempt {attempt + 1} - Assertion failed during analysis: {af}")
+                logger.debug(f"Attempt {attempt + 1} - Response causing assertion failure: {response}")
+                # Handle failed assertion by refining the prompt and retrying
+                parsed_response = self.handle_failed_assertion(
+                    af, research_objectives, transcript_chunk, contextualized_contents, theoretical_framework
+                )
+                if parsed_response:
+                    return parsed_response
+            except Exception as e:
+                logger.error(f"Attempt {attempt + 1} - Error in EnhancedQuotationSignature.forward: {e}", exc_info=True)
+                # Continue to next attempt
+                
+        logger.error(f"Failed to generate valid output after multiple attempts. Last response: {response}")
+        return {}
+
+    def handle_failed_assertion(self, assertion_failure: AssertionError,
+                                research_objectives: str, transcript_chunk: str,
+                                contextualized_contents: List[str],
+                                theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Handles failed assertions by attempting to generate improved analysis.
+        This method refines the prompt based on the specific assertion failure and retries the generation.
+        """
+        try:
+            logger.debug("Handling failed assertion by refining the prompt.")
+
+            # Generate the initial prompt
+            focused_prompt = self.create_prompt(
+                research_objectives,
+                transcript_chunk,
+                contextualized_contents,
+                theoretical_framework
+            )
+            
+            # Append instructions to address the specific assertion failure
+            focused_prompt += (
+                f"\n\nThe previous attempt failed because: {assertion_failure}\n"
+                f"Please ensure that your analysis addresses this specific issue while maintaining "
+                f"all other requirements for thorough theoretical analysis."
+            )
+
+            # Generate a new response with the refined prompt
+            response = self.language_model.generate(
+                prompt=focused_prompt,
+                max_tokens=2000,
+                temperature=0.5
+            ).strip()
+
+            logger.debug("Response received from language model after handling assertion failure.")
+
+            # Parse the new response
+            parsed_response = self.parse_response(response)
+            
+            if not parsed_response:
+                raise ValueError("Parsed response is empty after handling assertion failure.")
+            
+            # Re-apply all assertions
+            quotations = parsed_response.get("quotations", [])
+            analysis = parsed_response.get("analysis", {})
+            
+            assert_pattern_representation(quotations, analysis.get("patterns_identified", []))
+            assert_research_objective_alignment(quotations, research_objectives)
+            assert_selective_transcription(quotations, transcript_chunk)
+            assert_creswell_categorization(quotations)
+            assert_reader_engagement(quotations)
+            
+
+            logger.info("Successfully handled failed assertion and obtained valid analysis.")
+            return parsed_response
+
+        except AssertionError as af_inner:
+            logger.error(f"Refined analysis still failed assertions: {af_inner}")
+            return {}
+        except Exception as e:
+            logger.error(f"Error in handle_failed_assertion: {e}", exc_info=True)
+            return {}
+
+class EnhancedQuotationModule(dspy.Module):
+    """
+    DSPy module implementing the enhanced quotation selection and theoretical analysis functionality.
+    """
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.TypedChainOfThought(EnhancedQuotationSignature)
+
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        try:
+            logger.debug("Running EnhancedQuotationModule with integrated theoretical analysis.")
+            response = self.chain(
+                research_objectives=research_objectives,
+                transcript_chunk=transcript_chunk,
+                contextualized_contents=contextualized_contents,
+                theoretical_framework=theoretical_framework
+            )
+            return response
+        except Exception as e:
+            logger.error(f"Error in EnhancedQuotationModule.forward: {e}", exc_info=True)
+            return {}
+
+
+# File: select_quotation_module.py
+#------------------------------------------------------------------------------
+#analysis/select_quotation_module.py
+import logging
+from typing import Dict, Any, List
+import dspy
+
+from src.analysis.select_quotation import EnhancedQuotationModule
+from src.assertions import (
+    assert_pattern_representation,
+    assert_research_objective_alignment,
+    assert_selective_transcription,
+    assert_creswell_categorization,
+    assert_reader_engagement
+)
+
+logger = logging.getLogger(__name__)
+
+class SelectQuotationModule(dspy.Module):
+    """
+    DSPy module to select and analyze quotations based on research objectives,
+    transcript chunks, and theoretical framework.
+    """
+    def __init__(self):
+        super().__init__()
+        self.enhanced_module = EnhancedQuotationModule()
+
+    def forward(self, research_objectives: str, transcript_chunk: str, 
+                contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
+        try:
+            logger.debug("Running SelectQuotationModule with integrated theoretical analysis.")
+            response = self.enhanced_module.forward(
+                research_objectives=research_objectives,
+                transcript_chunk=transcript_chunk,
+                contextualized_contents=contextualized_contents,
+                theoretical_framework=theoretical_framework
+            )
+            # Apply new assertions
+            quotations = response.get("quotations", [])
+            analysis = response.get("analysis", {})
+            patterns = analysis.get("patterns_identified", [])
+
+            # Apply the new assertions
+            assert_pattern_representation(quotations, patterns)
+            assert_research_objective_alignment(quotations, research_objectives)
+            assert_selective_transcription(quotations, transcript_chunk)
+            assert_creswell_categorization(quotations)
+            assert_reader_engagement(quotations)
+
+            # The response already includes 'transcript_info', 'quotations', 'analysis', and 'answer'
+            return response
+        except Exception as e:
+            logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
+            return {}
+
+
+# File: theme_development.py
+#------------------------------------------------------------------------------
+# src/analysis/theme_development.py
+
+import logging
+from typing import Dict, Any, List
+import dspy
+import json
+import re
+from dataclasses import dataclass
+
+logger = logging.getLogger(__name__)
+
+@dataclass
+class ThemeDimensionsEvaluation:
+    integrated: str
+    abstracted: str
+    coherent: str
+    theoretically_aligned: str
+
+class ThemedevelopmentAnalysisSignature(dspy.Signature):
+    """
+    Signature for elevating coded data into broader, more abstract themes.
+    """
+
+    # Input Fields
+    research_objectives: str = dspy.InputField(
+        desc=(
+            "A statement of the research goals and questions. This guides the theme development by "
+            "ensuring that all identified themes remain relevant and aligned with what the study "
+            "aims to explore."
+        )
+    )
+
+    quotation: str = dspy.InputField(
+        desc=(
+            "The original quotation from the data that was analyzed during the coding stage. "
+            "Serves as a reference point for developing higher-level themes that go beyond this "
+            "specific excerpt."
+        )
+    )
+
+    keywords: List[str] = dspy.InputField(
+        desc=(
+            "Keywords extracted from the original quotation, providing anchors for thematic development. "
+            "These terms help ensure that the emerging themes remain grounded in the data."
+        )
+    )
+
+    codes: List[Dict[str, Any]] = dspy.InputField(
+        desc=(
+            "A set of previously developed and validated codes derived from the quotation. "
+            "Each code contains a label, definition, and an evaluation along various dimensions. "
+            "Themes should build upon these codes, grouping and abstracting them into higher-level concepts."
+        )
+    )
+
+    theoretical_framework: Dict[str, str] = dspy.InputField(
+        desc=(
+            "The theoretical foundation guiding the analysis. Themes should reflect and engage with "
+            "the specified theory, philosophical approach, and rationale. This ensures that the generated "
+            "themes are not only data-driven but also theory-informed."
+        )
+    )
+
+    transcript_chunk: str = dspy.InputField(
+        desc=(
+            "The original transcript chunk or contextual segment associated with the quotation. "
+            "Provides a broader context for understanding how the identified codes and emerging themes "
+            "fit into the larger narrative or dataset."
+        )
+    )
+
+    # Output Fields
+    themes: List[Dict[str, Any]] = dspy.OutputField(
+        desc=(
+            "A list of identified themes. Each theme includes:\n"
+            " - **name**: The name or label of the emerging theme.\n"
+            " - **description**: A detailed explanation of the theme’s meaning and how it relates to the data.\n"
+            " - **associatedCodes**: Which codes contribute to this theme, demonstrating how multiple codes are synthesized.\n"
+            " - **evaluation**: An evaluation of how well the theme integrates, abstracts, and aligns theoretically.\n"
+            " - **theoreticalAlignment**: How this theme fits within the specified theoretical framework.\n"
+        )
+    )
+
+    analysis: Dict[str, Any] = dspy.OutputField(
+        desc=(
+            "An analysis of the theme development process, including:\n"
+            " - **methodology**: Insights on the process of moving from codes to themes.\n"
+            " - **objectiveAlignment**: An evaluation of how well the themes address the original research aims.\n"
+            " - **futureImplications**: How these themes might inform subsequent steps in the research, "
+            "further analysis, or practical applications."
+        )
+    )
+
+    def create_prompt(self, research_objectives: str, quotation: str, keywords: List[str],
+                      codes: List[Dict[str, Any]], theoretical_framework: Dict[str, str],
+                      transcript_chunk: str) -> str:
+        # Format keywords
+        keywords_formatted = "\n".join([f"- {kw}" for kw in keywords])
+
+        # Format codes for display
+        codes_formatted = "\n".join([
+            f"- Code: {code.get('code', 'N/A')}\n  Definition: {code.get('definition', 'N/A')}\n"
+            f"  6Rs_framework: {code.get('6Rs_framework', [])}\n" 
+            for code in codes
+        ])
+
+        theory = theoretical_framework.get("theory", "N/A")
+        philosophical_approach = theoretical_framework.get("philosophical_approach", "N/A")
+        rationale = theoretical_framework.get("rationale", "N/A")
+
+        prompt = (
+            f"You are a qualitative researcher skilled in thematic analysis. Your goal is to synthesize these codes "
+            f"into higher-level themes that capture deeper patterns and theoretical insights.\n\n"
+
+            f"**Quotation:**\n{quotation}\n\n"
+            f"**Keywords:**\n{keywords_formatted}\n\n"
+            f"**Codes Derived from Quotation:**\n{codes_formatted}\n\n"
+            f"**Transcript Context:**\n{transcript_chunk}\n\n"
+            f"**Research Objectives:**\n{research_objectives}\n\n"
+            f"**Theoretical Framework:**\n"
+            f"- Theory: {theory}\n"
+            f"- Philosophical Approach: {philosophical_approach}\n"
+            f"- Rationale: {rationale}\n\n"
+
+            f"**Instructions:**\n"
+            f"- Identify overarching themes that group and abstract the codes into more general concepts.\n"
+            f"- Each theme should integrate multiple codes, showing how they collectively represent a larger concept.\n"
+            f"- Evaluate each theme along dimensions of integration, abstraction, coherence, and theoretical alignment.\n"
+            f"- Describe how each theme fits within the theoretical framework and addresses the research objectives.\n"
+            f"- Present your response as a JSON object encapsulated in ```json``` code blocks.\n\n"
+
+            f"Your final output should contain:\n"
+            f" - A 'themes' array, with each theme having 'name', 'description', 'associatedCodes', "
+            f"   'evaluation', and 'theoreticalAlignment'.\n"
+            f" - An 'analysis' object with 'methodology', 'objectiveAlignment', "
+            f"   and 'futureImplications'."
+        )
+        return prompt
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        try:
+            json_match = re.search(r"```json\s*(\{.*?\})\s*```", response, re.DOTALL)
+            if not json_match:
+                logger.error("No valid JSON found in the response.")
+                logger.debug(f"Full response: {response}")
+                return {}
+            json_string = json_match.group(1)
+            response_json = json.loads(json_string)
+            return response_json
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decoding failed: {e}. Response: {response}")
+            return {}
+        except Exception as e:
+            logger.error(f"Unexpected error during response parsing: {e}")
+            return {}
+
+    def forward(self, research_objectives: str, quotation: str, keywords: List[str], 
+                codes: List[Dict[str, Any]], theoretical_framework: Dict[str, str], 
+                transcript_chunk: str) -> Dict[str, Any]:
+        # Attempt up to 3 times to get a valid response
+        for attempt in range(3):
+            try:
+                logger.debug(f"Theme development attempt {attempt + 1}")
+                prompt = self.create_prompt(
+                    research_objectives,
+                    quotation,
+                    keywords,
+                    codes,
+                    theoretical_framework,
+                    transcript_chunk
+                )
+
+                response = self.language_model.generate(
+                    prompt=prompt,
+                    max_tokens=8000,
+                    temperature=0.5
+                ).strip()
+
+                logger.debug(f"Attempt {attempt + 1} - Response received from language model.")
+
+                parsed_response = self.parse_response(response)
+
+                if not parsed_response:
+                    raise ValueError("Parsed response is empty or invalid.")
+                if not parsed_response.get("themes"):
+                    raise ValueError("No themes generated. Check inputs or prompt.")
+
+                logger.info(f"Attempt {attempt + 1} - Successfully developed {len(parsed_response.get('themes', []))} themes.")
+                return parsed_response
+
+            except ValueError as ve:
+                logger.warning(f"Attempt {attempt + 1} - {ve}")
+                logger.debug(f"Response: {response}")
+            except Exception as e:
+                logger.error(f"Attempt {attempt + 1} - Error in ThemedevelopmentAnalysisSignature.forward: {e}", exc_info=True)
+
+        logger.error("Failed to develop valid themes after 3 attempts.")
+        return {
+            "error": "Failed to develop valid themes after multiple attempts. Please review inputs and prompt."
+        }
+
+
+# File: theme_development_module.py
+#------------------------------------------------------------------------------
+# src/analysis/theme_development_module.py
+
+import logging
+from typing import Dict, Any, List
+import dspy
+from .theme_development import ThemedevelopmentAnalysisSignature
+
+logger = logging.getLogger(__name__)
+
+class ThemedevelopmentAnalysisModule(dspy.Module):
+    """
+    DSPy module for developing and refining themes from previously derived codes.
+    """
+    def __init__(self):
+        super().__init__()
+        self.chain = dspy.ChainOfThought(ThemedevelopmentAnalysisSignature)  # Updated to use ChainOfThought
+
+    def forward(self,
+                research_objectives: str,
+                quotation: str,
+                keywords: List[str],
+                codes: List[Dict[str, Any]],
+                theoretical_framework: Dict[str, str],
+                transcript_chunk: str) -> Dict[str, Any]:
+        """
+        Execute theme development analysis to transform codes into higher-order themes.
+
+        Args:
+            research_objectives (str): The research aims and guiding questions.
+            quotation (str): The original excerpt or passage analyzed.
+            keywords (List[str]): The extracted keywords from the quotation.
+            codes (List[Dict[str, Any]]): The previously developed and validated codes.
+            theoretical_framework (Dict[str, str]): The theoretical foundation and rationale.
+            transcript_chunk (str): The contextual transcript segment associated with the quotation.
+
+        Returns:
+            Dict[str, Any]: Thematic analysis results including identified themes and their analysis.
+        """
+        logger.info("Starting theme development analysis.")
+        logger.debug(f"Inputs: Research Objectives='{research_objectives[:100]}', Quotation='{quotation[:100]}', "
+                     f"Keywords={keywords}, Codes={len(codes)}, Theoretical Framework={theoretical_framework}, "
+                     f"Transcript Chunk Length={len(transcript_chunk)}")
+
+        try:
+            response = self.chain(
+                research_objectives=research_objectives,
+                quotation=quotation,
+                keywords=keywords,
+                codes=codes,
+                theoretical_framework=theoretical_framework,
+                transcript_chunk=transcript_chunk
+            )
+
+            logger.info("Successfully completed theme development analysis.")
+            logger.debug(f"Response: {response}")
+
+            if not response.get("themes"):
+                logger.warning("No themes were generated. Possible issue with inputs or prompt formulation.")
+            
+            return response
+        except Exception as e:
+            logger.error(f"Error during theme development analysis: {e}", exc_info=True)
+            return {}
+

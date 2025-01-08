@@ -1,9 +1,10 @@
-#analysis/coding.py
+# analysis/coding.py
 import logging
 from typing import Dict, Any, List
 import dspy
 from dataclasses import dataclass
 import json
+
 from src.assertions_coding import (
     assert_robustness,
     assert_reflectiveness,
@@ -17,6 +18,7 @@ from src.assertions_coding import (
     assert_code_distinctiveness,
     run_all_coding_assertions
 )
+from analysis.base_analysis import BaseAnalysisSignature
 
 logger = logging.getLogger(__name__)
 
@@ -30,15 +32,12 @@ class SixRsEvaluation:
     radical: str
     righteous: str
 
-class CodingAnalysisSignature(dspy.Signature):
+class CodingAnalysisSignature(BaseAnalysisSignature, dspy.Signature):
     """
-    Signature for conducting a comprehensive thematic coding analysis utilizing the 6Rs framework.
-    
-    This signature facilitates the systematic analysis of qualitative data by guiding the user
-    through the process of thematic coding, ensuring methodological rigor and theoretical alignment.
+    Signature for comprehensive thematic coding analysis utilizing the 6Rs framework.
+    Inherits common behaviors from BaseAnalysisSignature.
     """
 
-    # Input Fields
     research_objectives: str = dspy.InputField(
         desc=(
             "A detailed statement of the study's overarching goals and specific research questions "
@@ -51,86 +50,37 @@ class CodingAnalysisSignature(dspy.Signature):
     quotation: str = dspy.InputField(
         desc=(
             "The specific excerpt, passage, or segment selected from the data set for coding analysis. "
-            "This quotation serves as the primary source text from which themes and codes will be derived, "
-            "capturing the essential content to be analyzed."
+            "This quotation serves as the primary source text from which themes and codes will be derived."
         )
     )
 
     keywords: List[str] = dspy.InputField(
-        desc=(
-            "A curated list of keywords previously identified to inform and guide the coding process. "
-            "Each keyword should be a distinct string that represents a significant theme or concept "
-            "relevant to the research objectives, aiding in the systematic identification of patterns "
-            "within the quotation."
-        )
+        desc="A curated list of keywords to guide the coding process."
     )
 
     contextualized_contents: List[str] = dspy.InputField(
-        desc=(
-            "Additional contextual information that provides background and deeper insight into the "
-            "primary quotation. This may include related texts, situational context, historical background, "
-            "or any other supplementary content that enhances the understanding and interpretation of the "
-            "quotation being analyzed."
-        )
+        desc="Additional contextual information related to the quotation."
     )
 
     theoretical_framework: Dict[str, str] = dspy.InputField(
-        desc=(
-            "The foundational theoretical framework that underpins the analysis, detailing the guiding "
-            "theoretical approach. This dictionary should include:\n"
-            " - **theory**: The primary theoretical perspective or model being applied to the analysis.\n"
-            " - **philosophical_approach**: The underlying philosophical stance that informs the theoretical "
-            "framework, such as positivism, interpretivism, critical theory, etc.\n"
-            " - **rationale**: A comprehensive justification for selecting this particular theoretical approach, "
-            "explaining how it aligns with and supports the research objectives and questions."
-        )
+        desc="The foundational theoretical framework that underpins the analysis."
     )
 
-    # Output Fields
     coding_info: Dict[str, Any] = dspy.OutputField(
-        desc=(
-            "Comprehensive context and metadata related to the coding analysis, including:\n"
-            " - **quotation**: The original passage selected for analysis.\n"
-            " - **research_objectives**: The specific goals and research questions that guide the analysis.\n"
-            " - **theoretical_framework**: Detailed information about the theoretical foundation supporting the analysis.\n"
-            " - **keywords**: The list of keywords extracted or utilized from the quotation to inform coding."
-        )
+        desc="Comprehensive context and metadata related to the coding analysis."
     )
 
     codes: List[Dict[str, Any]] = dspy.OutputField(
-        desc=(
-            "A structured collection of developed codes, each accompanied by an in-depth analysis. Each code entry includes:\n"
-            " - **code**: The name or label of the developed code.\n"
-            " - **definition**: A precise and clear explanation of the code's meaning and scope.\n"
-            " - **6Rs_framework**: The specific dimensions of the 6Rs framework (robust, reflective, resplendent, relevant, radical, righteous) that the code satisfies. Only the dimensions that apply are listed (e.g., ['robust', 'relevant']).\n"
-            " - **6Rs_evaluation**: Detailed justifications and evaluation metrics for the Rs listed in **6Rs_framework**, explaining how the code satisfies those dimensions. Evaluations focus only on these specific Rs, including:\n"
-            "     * **robust**: Assessment of how effectively the code captures the fundamental essence of the data.\n"
-            "     * **reflective**: Evaluation of the code's alignment and relationship with the theoretical framework.\n"
-            "     * **resplendent**: Analysis of the code's comprehensiveness and the depth of understanding it provides.\n"
-            "     * **relevant**: Determination of the code's appropriateness and contextual fit within the data.\n"
-            "     * **radical**: Identification of the code's uniqueness and the novelty of the insights it offers.\n"
-            "     * **righteous**: Verification of the code's logical consistency and alignment with the overarching theoretical framework."
-        )
+        desc="A structured collection of developed codes with in-depth analysis."
     )
 
-
     analysis: Dict[str, Any] = dspy.OutputField(
-        desc=(
-            "An extensive analysis of the coding process, encompassing:\n"
-            " - **theoretical_integration**: An explanation of how the developed codes integrate with and apply the theoretical framework.\n"
-            " - **methodological_reflection**: Critical reflections on the coding methodology, including:\n"
-            "     * **code_robustness**: An evaluation of the strength, reliability, and consistency of the codes.\n"
-            "     * **theoretical_alignment**: Analysis of the extent to which the codes align with the theoretical framework.\n"
-            "     * **researcher_reflexivity**: Consideration of the researcher's own influence, biases, and assumptions in the coding process.\n"
-            " - **practical_implications**: Insights derived from the coding analysis and their potential applications or implications for practice, policy, or further research."
-        )
+        desc="An extensive analysis of the coding process."
     )
 
     def create_prompt(self, research_objectives: str, quotation: str,
-                     keywords: List[str], contextualized_contents: List[str],
-                     theoretical_framework: Dict[str, str]) -> str:
-        """Generates a detailed prompt for conducting enhanced coding analysis."""
-
+                      keywords: List[str], contextualized_contents: List[str],
+                      theoretical_framework: Dict[str, str]) -> str:
         # Format keywords for clarity
         keywords_formatted = "\n".join([
             f"- **{kw}**"
@@ -193,43 +143,10 @@ class CodingAnalysisSignature(dspy.Signature):
         )
         return prompt
 
-    def parse_response(self, response: str) -> Dict[str, Any]:
-        """Extracts and parses the JSON content from the language model's response."""
-        try:
-            import re
-            # Use regex to find JSON content within code blocks
-            json_match = re.search(r"```json\s*(\{.*?\})\s*```", response, re.DOTALL)
-            if not json_match:
-                logger.error("No valid JSON found in the response.")
-                logger.debug(f"Full response received: {response}")
-                return {}
-            json_string = json_match.group(1)
-
-            # Parse the JSON string into a Python dictionary
-            response_json = json.loads(json_string)
-            return response_json
-        except json.JSONDecodeError as e:
-            logger.error(f"JSON decoding failed: {e}. Response: {response}")
-            return {}
-        except Exception as e:
-            logger.error(f"Unexpected error during response parsing: {e}")
-            return {}
-
     def validate_codes(self, codes: List[Dict[str, Any]], research_objectives: str,
-                      theoretical_framework: Dict[str, str]) -> None:
+                       theoretical_framework: Dict[str, str]) -> None:
         """
-        Validates the developed codes against the 6Rs framework and other assertions.
-        
-        This method ensures that each code meets the defined quality standards and aligns
-        with the research objectives and theoretical framework.
-
-        Args:
-            codes (List[Dict[str, Any]]): The list of developed codes with their metadata.
-            research_objectives (str): The research goals and questions.
-            theoretical_framework (Dict[str, str]): Details of the theoretical foundation.
-
-        Raises:
-            AssertionError: If any code fails to meet the validation criteria.
+        Validates developed codes specific to coding analysis.
         """
         try:
             run_all_coding_assertions(
@@ -240,11 +157,9 @@ class CodingAnalysisSignature(dspy.Signature):
             logger.debug("All coding assertions passed successfully.")
         except AssertionError as ae:
             logger.error(f"Code validation failed: {ae}")
-            # Additional logging to identify problematic codes
             for code in codes:
                 try:
                     assert_code_relevance(code, research_objectives, theoretical_framework)
-                    # Add other individual assertions as needed
                 except AssertionError as individual_ae:
                     logger.error(f"Validation failed for code '{code.get('code', 'Unknown')}': {individual_ae}")
             raise
@@ -256,8 +171,6 @@ class CodingAnalysisSignature(dspy.Signature):
         for attempt in range(3):
             try:
                 logger.debug(f"Attempt {attempt + 1} - Initiating coding analysis.")
-
-                # Generate the prompt for the language model
                 prompt = self.create_prompt(
                     research_objectives,
                     quotation,
@@ -265,30 +178,23 @@ class CodingAnalysisSignature(dspy.Signature):
                     contextualized_contents,
                     theoretical_framework
                 )
-
-                # Interact with the language model to generate a response
                 response = self.language_model.generate(
                     prompt=prompt,
                     max_tokens=8000,
-                    temperature=0.5  # Adjusted for greater consistency
+                    temperature=0.5
                 ).strip()
-
                 logger.debug(f"Attempt {attempt + 1} - Response received from language model.")
-
-                # Parse the JSON response
                 parsed_response = self.parse_response(response)
 
                 if not parsed_response:
                     raise ValueError("Parsed response is empty or invalid JSON.")
 
-                # Extract codes and analysis from the parsed response
                 codes = parsed_response.get("codes", [])
                 analysis = parsed_response.get("analysis", {})
 
                 if not codes:
                     raise ValueError("No codes were generated. Please check the prompt and input data.")
 
-                # Validate the developed codes
                 self.validate_codes(
                     codes=codes,
                     research_objectives=research_objectives,
@@ -307,8 +213,7 @@ class CodingAnalysisSignature(dspy.Signature):
             except Exception as e:
                 logger.error(f"Attempt {attempt + 1} - Error in CodingAnalysisSignature.forward: {e}", exc_info=True)
 
-        logger.error(f"Failed to develop valid codes after 3 attempts. Last response: {response}")
-        # Optionally, provide a summary of issues or next steps
+        logger.error("Failed to develop valid codes after 3 attempts.")
         return {
             "error": "Failed to develop valid codes after 3 attempts. Please review the input data and prompt for possible improvements."
         }
