@@ -1,4 +1,4 @@
-#analysis/coding_module.py
+# analysis/coding_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -8,8 +8,7 @@ logger = logging.getLogger('my_logger')
 
 class CodingAnalysisModule(dspy.Module):
     """
-    DSPy module for developing and analyzing codes using the 6Rs framework,
-    building upon extracted keywords.
+    DSPy module for developing and analyzing codes using the 6Rs framework.
     """
     def __init__(self):
         super().__init__()
@@ -18,19 +17,6 @@ class CodingAnalysisModule(dspy.Module):
     def forward(self, research_objectives: str, quotation: str,
                 keywords: List[str], contextualized_contents: List[str],
                 theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
-        """
-        Execute coding analysis with the 6Rs framework, building upon extracted keywords.
-
-        Args:
-            research_objectives (str): Research goals and questions
-            quotation (str): Selected quotation for analysis
-            keywords (List[Dict[str, Any]]): Previously extracted keywords
-            contextualized_contents (List[str]): Additional context
-            theoretical_framework (Dict[str, str]): Theoretical foundation
-
-        Returns:
-            Dict[str, Any]: Complete coding analysis results including codes and analysis
-        """
         logger.info("Starting coding analysis.")
         logger.debug(f"Input parameters: Research Objectives='{research_objectives[:100]}', "
                      f"Quotation='{quotation[:100]}', Keywords={keywords}, "

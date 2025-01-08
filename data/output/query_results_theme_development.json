@@ -3,134 +3,176 @@
         "theme_info": {
             "groupings": [
                 {
-                    "group_label": "Technical Innovation and Safety",
+                    "group_label": "Technical and Economic Feasibility",
                     "codes": [
-                        "Innovative Reactor Design",
+                        "New Reactor Design",
                         "Safety Enhancement",
-                        "Cost Reduction"
-                    ],
-                    "rationale": "These codes collectively address the advancements in reactor technology, emphasizing safety improvements and cost-effectiveness, which are crucial for the technical feasibility of new nuclear designs."
-                },
-                {
-                    "group_label": "Economic Viability and Investor Confidence",
-                    "codes": [
+                        "Cost Reduction",
+                        "Elimination of Water Cooling",
                         "Cost Distribution",
-                        "Unit Production",
-                        "Investor Confidence",
-                        "Economic Feasibility"
+                        "Scale of Production"
                     ],
-                    "rationale": "This grouping focuses on the economic aspects of nuclear power, highlighting strategies for cost management and the importance of investor trust in the financial success of nuclear projects."
+                    "rationale": "These codes collectively address the innovative aspects of new reactor designs and their economic implications, which are crucial for assessing the feasibility of next-generation nuclear power."
                 },
                 {
-                    "group_label": "Community and Public Engagement",
+                    "group_label": "Community and Collaborative Support",
                     "codes": [
                         "Community Support",
-                        "Public Engagement",
-                        "Job Creation",
-                        "Construction Phase"
+                        "Public-Private Partnerships",
+                        "Investor Confidence"
                     ],
-                    "rationale": "These codes emphasize the role of community involvement and public perception in the success of nuclear initiatives, as well as the economic benefits associated with job creation during construction."
+                    "rationale": "This grouping reflects the importance of local backing and collaborative efforts between public and private sectors in advancing nuclear energy projects."
                 },
                 {
-                    "group_label": "Energy Demand and Sustainability",
+                    "group_label": "Energy Demand and Security",
                     "codes": [
                         "Rising Electricity Demand",
-                        "Electric Vehicles",
+                        "Impact of Electric Vehicles",
                         "Electric Heat Pumps",
-                        "Nuclear Energy Importance",
-                        "Complementarity of Energy Sources",
-                        "Electricity Demand Challenge"
+                        "Nuclear Energy Necessity",
+                        "Renewable Energy Integration",
+                        "Electricity Demand Challenges",
+                        "Energy Security"
                     ],
-                    "rationale": "This grouping addresses the increasing demand for electricity and the necessity of integrating nuclear energy with other sources to ensure a stable and sustainable energy supply."
+                    "rationale": "These codes highlight the increasing demand for electricity and the role of nuclear energy in ensuring a stable and secure energy supply amidst rising consumption."
                 },
                 {
-                    "group_label": "Climate Goals and Emissions Reduction",
+                    "group_label": "Environmental Goals and Transition",
                     "codes": [
-                        "emissions_reduction_goal",
-                        "ambitious_target",
-                        "timeline_2050"
+                        "Emission Reduction Goal",
+                        "Ambitious Target",
+                        "Nuclear Energy Transition"
                     ],
-                    "rationale": "These codes reflect the overarching climate objectives and the urgency of achieving significant emissions reductions, aligning with the research focus on the intersection of energy security and climate goals."
+                    "rationale": "This grouping emphasizes the environmental aspirations driving the transition to nuclear energy, particularly in the context of achieving significant emissions reduction targets."
+                },
+                {
+                    "group_label": "Economic Impact and Feasibility",
+                    "codes": [
+                        "Job Creation Potential",
+                        "Construction Phase Importance",
+                        "Economic Feasibility",
+                        "Workforce Transition",
+                        "Community Transition to Nuclear Energy"
+                    ],
+                    "rationale": "These codes collectively highlight the economic benefits and feasibility of transitioning to nuclear power, emphasizing job creation, the significance of the construction phase, and the economic implications of workforce transitions."
                 },
                 {
                     "group_label": "Public Perception and Safety",
                     "codes": [
-                        "public perception of nuclear energy",
-                        "Historical Impact",
-                        "Safety Concerns",
-                        "Safety features",
-                        "Public Awareness"
+                        "Public Perception of Nuclear Energy",
+                        "Historical Disasters Impacting Perception",
+                        "Safety Features",
+                        "Safety Features in New Designs",
+                        "Public Perception of Nuclear Safety"
                     ],
-                    "rationale": "This grouping captures the various dimensions of how public perception and safety concerns influence the acceptance and implementation of nuclear energy. It highlights the importance of addressing historical events and current safety features to build public trust."
+                    "rationale": "This grouping focuses on the public's perception of nuclear energy, shaped by historical disasters and the importance of safety features in new reactor designs, which are crucial for gaining community acceptance."
                 },
                 {
-                    "group_label": "Political Dynamics and Support",
+                    "group_label": "Political Support and Legislative Action",
                     "codes": [
-                        "bipartisan support",
-                        "Political Sustainability",
-                        "Political Emphasis on Energy Security",
-                        "Public-Private Partnerships"
+                        "Bipartisan Support",
+                        "Legislative Support for Nuclear Energy",
+                        "Legislative Action"
                     ],
-                    "rationale": "This grouping focuses on the political aspects of nuclear energy initiatives, emphasizing the importance of bipartisan support and the role of public-private partnerships in advancing nuclear innovation. It reflects the political landscape's impact on energy policy."
+                    "rationale": "These codes reflect the political dynamics surrounding nuclear energy initiatives, highlighting bipartisan support and legislative actions that facilitate the development of nuclear power."
                 },
                 {
-                    "group_label": "Technical and Economic Feasibility",
+                    "group_label": "Energy Security and Independence",
                     "codes": [
-                        "Sodium Cooling",
-                        "Heat Absorption",
+                        "Energy Independence",
+                        "Uranium Availability"
+                    ],
+                    "rationale": "This grouping addresses the strategic importance of energy security and the availability of uranium resources in the U.S., which are essential for the sustainability of nuclear energy initiatives."
+                },
+                {
+                    "group_label": "Technological Innovation",
+                    "codes": [
                         "Nuclear Innovation",
-                        "Legislative Action",
-                        "Uranium Resources",
-                        "Local Economic Impact",
-                        "Energy Independence"
+                        "Sodium Cooling System",
+                        "Heat Management"
                     ],
-                    "rationale": "This grouping addresses the technical and economic factors that underpin the feasibility of next-generation nuclear power. It includes innovations in reactor design, resource availability, and the economic implications for local communities, aligning with the research objectives."
+                    "rationale": "These codes emphasize advancements in nuclear technology, particularly focusing on innovative safety features and heat management systems that enhance the operational efficiency and safety of new reactor designs."
                 },
                 {
-                    "group_label": "Energy Transition and Infrastructure",
+                    "group_label": "Legislative and Regulatory Support",
                     "codes": [
-                        "Nuclear Energy Transition",
-                        "workforce transition"
+                        "Legislative Support for Domestic Supply",
+                        "Legislative Support",
+                        "Regulatory Environment for Nuclear Projects"
                     ],
-                    "rationale": "This grouping reflects the broader implications of transitioning to nuclear energy, including workforce dynamics and the necessary infrastructure changes. It highlights the importance of preparing for a shift from fossil fuels to nuclear energy."
+                    "rationale": "These codes highlight the importance of legislative actions and regulatory frameworks that support the development of nuclear energy, ensuring energy independence and facilitating new projects."
                 },
                 {
-                    "group_label": "Political and Public Perception",
+                    "group_label": "Public Perception and Safety",
                     "codes": [
-                        "Democratic Values",
-                        "Clean Energy Advocacy",
-                        "Nuclear Energy Perception",
-                        "Green Energy Perception",
-                        "Energy Security"
+                        "Public Perception Challenges",
+                        "Public Perception and Safety",
+                        "Safety Innovations",
+                        "Green Energy Perception"
                     ],
-                    "rationale": "This grouping captures the political dynamics and public perceptions surrounding nuclear energy, emphasizing the role of advocacy and values in shaping energy policy."
+                    "rationale": "This grouping addresses the challenges and advancements related to public perception of nuclear energy, emphasizing the historical context and safety innovations that aim to improve acceptance."
                 },
                 {
-                    "group_label": "Technological and Economic Feasibility",
+                    "group_label": "Political Dynamics and Bipartisan Support",
                     "codes": [
-                        "Energy Transition",
-                        "Technological Competitiveness",
-                        "U.S. Energy Technology Potential"
+                        "Bipartisan Support for Nuclear Energy",
+                        "Bipartisan Support for Energy Policy",
+                        "Republican Emphasis on Energy Security",
+                        "Democratic Values"
                     ],
-                    "rationale": "These codes focus on the technical and economic aspects of nuclear energy, highlighting the importance of innovation and competitiveness in the energy sector."
+                    "rationale": "These codes reflect the political landscape surrounding nuclear energy, showcasing the collaborative efforts across party lines and the emphasis on energy security and clean energy values."
+                },
+                {
+                    "group_label": "Economic and Workforce Implications",
+                    "codes": [
+                        "Job Creation",
+                        "Workforce Implications",
+                        "Technological Competitiveness"
+                    ],
+                    "rationale": "This grouping focuses on the economic benefits of nuclear energy, including job creation and the need for technological advancements to maintain competitiveness in the energy sector."
                 },
                 {
                     "group_label": "National and Global Security",
                     "codes": [
-                        "National Security Concerns",
-                        "Proactive Security Measures",
-                        "Evolving Threat Landscape",
-                        "Importance of Dialogue"
+                        "National Security",
+                        "US Leadership",
+                        "China's Leadership in Nuclear Energy",
+                        "Exporting Power"
                     ],
-                    "rationale": "This grouping addresses the security implications of nuclear energy, emphasizing the need for proactive measures and ongoing dialogue to mitigate risks."
+                    "rationale": "These codes address the strategic implications of nuclear energy in terms of national security, global leadership, and the competitive landscape with other nations, particularly China."
                 },
                 {
-                    "group_label": "Global Leadership and Competition",
+                    "group_label": "Innovation and Future Potential",
                     "codes": [
-                        "US Leadership in Energy",
-                        "China's Nuclear Leadership"
+                        "U.S. Potential for Innovation",
+                        "Clean Energy Advocacy"
                     ],
-                    "rationale": "These codes reflect the competitive landscape of nuclear energy, focusing on the strategic importance of U.S. leadership in the context of global energy dynamics."
+                    "rationale": "This grouping emphasizes the potential for innovation in nuclear technology and the advocacy for clean energy solutions as part of the broader energy transition."
+                },
+                {
+                    "group_label": "Political and Regulatory Support",
+                    "codes": [
+                        "Bipartisan Support for Nuclear Initiatives",
+                        "Regulatory Environment",
+                        "Federal Government Support"
+                    ],
+                    "rationale": "This grouping reflects the critical role of political dynamics and regulatory frameworks in facilitating the development of nuclear energy projects. Understanding these factors is essential for assessing the feasibility and strategic importance of next-generation nuclear power."
+                },
+                {
+                    "group_label": "Security and Innovation Strategies",
+                    "codes": [
+                        "Importance of Dialogue",
+                        "Adversarial Intelligence",
+                        "Proactive Security Measures"
+                    ],
+                    "rationale": "This grouping emphasizes the need for advanced security strategies and ongoing dialogue to address evolving threats. It highlights the importance of innovation in maintaining energy security and technological leadership in the nuclear sector."
+                },
+                {
+                    "group_label": "Competitive Landscape and Innovation Urgency",
+                    "codes": [
+                        "Competitive Landscape"
+                    ],
+                    "rationale": "This code underscores the urgency for the U.S. to innovate in the nuclear sector amidst global competition, particularly with China. It is crucial for understanding the strategic importance of nuclear energy in maintaining technological leadership."
                 }
             ],
             "research_objectives": "To examine the viability and strategic importance of next-generation nuclear power in the United States, specifically focusing on: 1) The technical and economic feasibility of new reactor designs, 2) The role of public-private partnerships in nuclear innovation, 3) The intersection of energy security, climate goals, and technological leadership, and 4) The political sustainability of nuclear energy initiatives across different administrations",
@@ -147,102 +189,90 @@
         "used_chunk_ids": [],
         "themes": [
             {
-                "name": "Innovative Safety and Design",
-                "description": "This theme encapsulates the advancements in reactor design that prioritize safety and operational efficiency, highlighting the shift towards innovative technologies such as sodium cooling and simplified operations. It reflects the necessity of enhancing public confidence in nuclear energy through improved safety features.",
+                "name": "Innovative Reactor Design and Safety",
+                "description": "This theme encapsulates the advancements in reactor technology, particularly the shift towards designs that enhance safety and operational efficiency. It highlights the elimination of water cooling and the incorporation of advanced safety features, which are crucial for public acceptance and regulatory approval.",
                 "associatedCodes": [
                     {
-                        "code": "Innovative Reactor Design"
+                        "code": "New Reactor Design"
                     },
                     {
                         "code": "Safety Enhancement"
                     },
                     {
-                        "code": "Sodium Cooling"
+                        "code": "Sodium Cooling System"
                     },
                     {
-                        "code": "Safety Features"
+                        "code": "Safety Features in New Designs"
                     }
                 ],
-                "evaluation": {
-                    "robust": "The theme effectively integrates multiple codes that address safety and innovation, showcasing the critical advancements in nuclear technology.",
-                    "relevant": "It is highly pertinent to the research objectives, focusing on the technical feasibility and public acceptance of new reactor designs."
-                },
-                "theoreticalAlignment": "This theme aligns with the Technological Innovation Systems Theory by emphasizing the role of innovation in enhancing safety and public trust in nuclear energy."
+                "evaluation": "This theme effectively integrates multiple codes related to technological innovation and safety, demonstrating a clear alignment with the objectives of exploring technical feasibility and public perception.",
+                "theoreticalAlignment": "Aligns with the Technological Innovation Systems Theory by illustrating how innovations in reactor design emerge from interactions between technological advancements and public safety concerns."
             },
             {
-                "name": "Economic Viability and Community Engagement",
-                "description": "This theme focuses on the economic aspects of nuclear energy, including cost reduction strategies, job creation, and community support. It highlights the importance of public-private partnerships and local economic impacts in fostering a favorable environment for nuclear projects.",
+                "name": "Economic Viability and Community Impact",
+                "description": "This theme focuses on the economic aspects of nuclear energy, including cost reduction strategies, job creation potential, and community support for transitioning from coal to nuclear. It emphasizes the importance of economic feasibility in garnering public and political support.",
                 "associatedCodes": [
                     {
                         "code": "Cost Reduction"
                     },
                     {
-                        "code": "Job Creation"
+                        "code": "Job Creation Potential"
                     },
                     {
                         "code": "Community Support"
                     },
                     {
-                        "code": "Public Engagement"
+                        "code": "Workforce Transition"
                     }
                 ],
-                "evaluation": {
-                    "robust": "The theme synthesizes economic and social dimensions, illustrating how community involvement and economic feasibility are intertwined.",
-                    "relevant": "It directly addresses the research objectives related to the economic feasibility of nuclear power and the role of community support."
-                },
-                "theoreticalAlignment": "This theme reflects the pragmatic realism approach by balancing economic considerations with community engagement in energy transitions."
+                "evaluation": "The theme synthesizes economic and social dimensions, addressing the research objective of evaluating the economic feasibility of new reactor designs and their impact on local communities.",
+                "theoreticalAlignment": "Reflects the pragmatic realism approach by balancing economic considerations with community implications, highlighting the need for measurable outcomes in energy transitions."
             },
             {
-                "name": "Political Dynamics and Energy Security",
-                "description": "This theme explores the political landscape surrounding nuclear energy, emphasizing bipartisan support, legislative actions, and the strategic importance of energy security. It addresses how political sustainability influences the viability of nuclear initiatives across different administrations.",
+                "name": "Public-Private Partnerships and Political Dynamics",
+                "description": "This theme explores the role of public-private partnerships in advancing nuclear innovation and the political landscape that supports these initiatives. It underscores the importance of bipartisan support and legislative actions in fostering a conducive environment for nuclear energy development.",
                 "associatedCodes": [
+                    {
+                        "code": "Public-Private Partnerships"
+                    },
                     {
                         "code": "Bipartisan Support"
                     },
                     {
-                        "code": "Political Sustainability"
+                        "code": "Legislative Support"
                     },
+                    {
+                        "code": "Federal Government Support"
+                    }
+                ],
+                "evaluation": "This theme effectively captures the interplay between government policy and private sector innovation, aligning well with the research objective of examining political sustainability.",
+                "theoreticalAlignment": "Engages with the Technological Innovation Systems Theory by highlighting how political dynamics and partnerships influence technological advancements in nuclear energy."
+            },
+            {
+                "name": "Energy Security and Environmental Goals",
+                "description": "This theme addresses the intersection of energy security, climate goals, and the necessity of nuclear energy in achieving these objectives. It emphasizes the role of nuclear power in complementing renewable energy sources and meeting rising electricity demands.",
+                "associatedCodes": [
                     {
                         "code": "Energy Security"
                     },
                     {
-                        "code": "Legislative Action"
+                        "code": "Nuclear Energy Necessity"
+                    },
+                    {
+                        "code": "Emission Reduction Goal"
+                    },
+                    {
+                        "code": "Renewable Energy Integration"
                     }
                 ],
-                "evaluation": {
-                    "robust": "The theme effectively captures the political dimensions of nuclear energy, highlighting the interplay between policy and public perception.",
-                    "relevant": "It is crucial for understanding the political sustainability of nuclear energy initiatives in the context of energy security."
-                },
-                "theoreticalAlignment": "This theme aligns with the Technological Innovation Systems Theory by examining how political dynamics shape technological innovation and energy policy."
-            },
-            {
-                "name": "Public Perception and Acceptance",
-                "description": "This theme addresses the complexities of public perception regarding nuclear energy, influenced by historical events, safety concerns, and advancements in technology. It highlights the importance of public awareness and the need for effective communication strategies to foster acceptance.",
-                "associatedCodes": [
-                    {
-                        "code": "Public Perception of Nuclear Energy"
-                    },
-                    {
-                        "code": "Safety Concerns"
-                    },
-                    {
-                        "code": "Public Awareness"
-                    },
-                    {
-                        "code": "Nuclear Energy Perception"
-                    }
-                ],
-                "evaluation": {
-                    "robust": "The theme integrates various codes that reflect public attitudes and concerns, providing a comprehensive understanding of the challenges faced by nuclear energy.",
-                    "relevant": "It is directly related to the research objectives concerning public acceptance and the implications for energy policy."
-                },
-                "theoreticalAlignment": "This theme reflects the pragmatic realism approach by emphasizing the need for public engagement and awareness in the context of technological innovation."
+                "evaluation": "The theme integrates environmental and security considerations, aligning with the research objective of exploring the strategic importance of nuclear energy in the context of climate action.",
+                "theoreticalAlignment": "Aligns with the pragmatic realism framework by addressing the balance between idealistic climate goals and the practical need for diverse energy sources."
             }
         ],
         "analysis": {
-            "methodology": "The transition from codes to themes involved identifying commonalities and overarching narratives within the coded data. By grouping related codes, we were able to abstract key concepts that reflect the multifaceted nature of nuclear energy development.",
-            "objectiveAlignment": "The identified themes align well with the original research objectives, addressing technical feasibility, economic factors, political dynamics, and public perception, all of which are critical for understanding the viability of next-generation nuclear power.",
-            "futureImplications": "These themes will inform subsequent research phases, guiding further analysis of stakeholder perspectives, policy implications, and practical applications in promoting nuclear energy as a viable solution for energy security and climate goals."
+            "methodology": "The transition from codes to themes involved identifying commonalities and overarching narratives within the coded data. Each theme was developed by synthesizing related codes that reflect key aspects of the research objectives, ensuring a comprehensive understanding of the subject matter.",
+            "objectiveAlignment": "The identified themes directly address the research objectives by exploring technical feasibility, economic implications, political dynamics, and the intersection of energy security and climate goals, providing a holistic view of next-generation nuclear power.",
+            "futureImplications": "These themes will inform subsequent research phases, guiding further analysis of public perception, policy implications, and the practical applications of nuclear energy innovations. They may also serve as a foundation for developing strategies to enhance community engagement and support for nuclear initiatives."
         }
     }
 ]

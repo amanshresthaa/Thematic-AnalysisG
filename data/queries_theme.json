@@ -8,656 +8,527 @@
         ],
         "codes": [
             {
-                "code": "Innovative Reactor Design",
-                "definition": "Refers to the new reactor design that enhances safety and simplifies operations by eliminating water cooling.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively captures the essence of the new reactor design's innovative features.",
-                    "relevant": "This code is highly appropriate as it directly relates to the advancements in nuclear technology discussed in the quotation."
-                }
+                "code": "New Reactor Design",
+                "description": "Refers to the innovative reactor that does not use water cooling, representing a shift in nuclear technology.",
+                "examples": [
+                    "we have a new reactor design",
+                    "achieves even better safety through simplifying"
+                ]
             },
             {
                 "code": "Safety Enhancement",
-                "definition": "The aspect of the reactor design that focuses on improving safety measures compared to traditional reactors.",
-                "6Rs_framework": [
-                    "robust",
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code encapsulates the core safety improvements mentioned in the quotation.",
-                    "reflective": "It aligns with the theoretical framework of safety in engineering and technology.",
-                    "righteous": "The code logically connects to the overarching goal of enhancing safety in nuclear energy."
-                }
+                "description": "Highlights the improved safety features of the new reactor design compared to traditional reactors.",
+                "examples": [
+                    "achieves even better safety",
+                    "simplifying by not using water cooling"
+                ]
             },
             {
                 "code": "Cost Reduction",
-                "definition": "The potential for the new reactor design to lower operational and construction costs.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code captures the significant cost-saving implications of the new reactor design.",
-                    "relevant": "It is contextually appropriate as it addresses economic factors in energy production.",
-                    "radical": "The insights provided by this code are novel, as they challenge traditional cost structures in nuclear energy."
-                }
+                "description": "Indicates the potential for lower operational costs associated with the new reactor design.",
+                "examples": [
+                    "reduce the costs",
+                    "make a better product"
+                ]
+            },
+            {
+                "code": "Elimination of Water Cooling",
+                "description": "Focuses on the decision to not use water cooling, which simplifies the reactor's operation.",
+                "examples": [
+                    "not using water cooling"
+                ]
             },
             {
                 "code": "Community Support",
-                "definition": "The active involvement and positive attitude of the local community towards nuclear energy initiatives.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively captures the essence of community engagement, which is crucial for the success of energy projects.",
-                    "relevant": "This code is highly appropriate as it directly relates to the quotation and the broader context of energy transition."
-                }
-            },
-            {
-                "code": "Public Engagement",
-                "definition": "The process through which the community interacts with and influences energy policy and project development.",
-                "6Rs_framework": [
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical understanding of community dynamics in energy transitions.",
-                    "righteous": "The code logically fits within the context of community support and its implications for energy policy."
-                }
-            },
-            {
-                "code": "Investor Confidence",
-                "definition": "The belief and trust that investors must have in the project's viability and potential for success.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code effectively captures the essence of the need for investor belief in the project's success, which is fundamental to securing funding.",
-                    "relevant": "The code is highly appropriate as it directly relates to the financial dynamics of energy project development."
-                }
-            },
-            {
-                "code": "Cost Distribution",
-                "definition": "The strategy of spreading design costs over multiple units to make the project financially feasible.",
-                "6Rs_framework": [
-                    "robust",
-                    "reflective"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code encapsulates the financial strategy discussed in the quotation, highlighting its importance in project planning.",
-                    "reflective": "The code aligns with the theoretical understanding of cost management in large-scale projects."
-                }
-            },
-            {
-                "code": "Unit Production",
-                "definition": "The emphasis on producing a large number of units to achieve economies of scale.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "This code provides a comprehensive understanding of the production strategy necessary for project success.",
-                    "radical": "The focus on unit production as a means to attract investment offers a novel insight into project financing."
-                }
-            },
-            {
-                "code": "Rising Electricity Demand",
-                "definition": "The increasing need for electricity in the U.S. due to the adoption of electric vehicles and heat pumps.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code effectively captures the essence of the quotation, highlighting the significant shift in electricity demand.",
-                    "relevant": "The code is highly appropriate as it directly relates to the themes of energy consumption and transition."
-                }
-            },
-            {
-                "code": "Electric Vehicles",
-                "definition": "The role of electric cars and buses in contributing to the rising demand for electricity.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework by emphasizing the impact of electric vehicles on energy consumption.",
-                    "radical": "The insights provided by this code are novel, as they highlight a shift in transportation energy sources."
-                }
-            },
-            {
-                "code": "Electric Heat Pumps",
-                "definition": "The use of electric heat pumps in homes as a factor in increasing electricity demand.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "This code provides a comprehensive understanding of how residential energy consumption is evolving.",
-                    "righteous": "The code logically fits within the context of rising electricity demand and aligns with the overarching themes."
-                }
-            },
-            {
-                "code": "Nuclear Energy Importance",
-                "definition": "This code captures the significance of nuclear energy as a necessary complement to renewable energy sources in meeting electricity demand.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively encapsulates the essential argument that nuclear energy is crucial for maintaining electricity supply.",
-                    "relevant": "The code is highly appropriate as it directly addresses the concerns raised in the quotation regarding energy security."
-                }
-            },
-            {
-                "code": "Complementarity of Energy Sources",
-                "definition": "This code reflects the idea that different energy sources, particularly nuclear and renewables, must work together to ensure a stable energy supply.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the theoretical framework by emphasizing the interdependence of energy sources.",
-                    "radical": "The code offers a novel perspective on energy integration, highlighting the necessity of nuclear energy in a renewable-dominated landscape."
-                }
-            },
-            {
-                "code": "Electricity Demand Challenge",
-                "definition": "This code addresses the challenges posed by increasing electricity demand and the implications for energy policy.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "The code provides a comprehensive understanding of the implications of rising electricity demand on energy policy.",
-                    "righteous": "The code is logically consistent with the overarching theme of energy security and the need for diverse energy sources."
-                }
-            },
-            {
-                "code": "emissions_reduction_goal",
-                "definition": "The target to eliminate all emissions by the year 2050, indicating a significant commitment to environmental sustainability.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively captures the essence of the goal stated in the quotation, emphasizing the urgency of emissions reduction.",
-                    "relevant": "The code is highly appropriate as it directly relates to the overarching theme of climate action and energy transition."
-                }
-            },
-            {
-                "code": "ambitious_target",
-                "definition": "The characterization of the emissions reduction goal as ambitious, reflecting the challenges and aspirations associated with such a target.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework of environmental sustainability, highlighting the challenges of achieving such targets.",
-                    "radical": "The ambition of the target presents a novel approach to emissions reduction, pushing the boundaries of current energy practices."
-                }
-            },
-            {
-                "code": "timeline_2050",
-                "definition": "The specific timeline set for achieving the emissions reduction goal, indicating a long-term vision for sustainability.",
-                "6Rs_framework": [
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "relevant": "The timeline is crucial for understanding the urgency and planning required for effective climate action."
-                }
-            },
-            {
-                "code": "Job Creation",
-                "definition": "The process and implications of generating employment opportunities during the construction phase of the nuclear reactor.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively captures the essence of the quotation, highlighting the significant job creation expected during the construction phase.",
-                    "relevant": "This code is highly appropriate as it directly relates to the research objectives concerning job creation in the context of energy transition."
-                }
-            },
-            {
-                "code": "Construction Phase",
-                "definition": "The specific period during which the nuclear reactor is being built, characterized by increased employment and economic activity.",
-                "6Rs_framework": [
-                    "robust",
-                    "reflective"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code encompasses the critical timeframe mentioned in the quotation, emphasizing its importance in the job creation narrative.",
-                    "reflective": "This code aligns with the theoretical framework by illustrating the economic implications of construction in the energy sector."
-                }
-            },
-            {
-                "code": "Economic Feasibility",
-                "definition": "The assessment of the financial viability and potential economic benefits of transitioning to nuclear power from coal.",
-                "6Rs_framework": [
-                    "radical",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "radical": "This code introduces a novel perspective on the economic implications of energy transition, which is often overlooked in discussions about job creation.",
-                    "righteous": "The code maintains logical consistency with the overarching theoretical framework by addressing economic considerations in energy policy."
-                }
-            },
-            {
-                "code": "workforce transition",
-                "definition": "The shift in workforce size and composition from coal to nuclear energy operations.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively captures the essence of workforce dynamics in energy transitions, highlighting the comparative size of workforces.",
-                    "relevant": "This code is appropriate as it directly relates to the research objective of analyzing workforce implications in the energy sector."
-                }
-            },
-            {
-                "code": "public perception of nuclear energy",
-                "definition": "The community's attitudes and beliefs regarding nuclear energy, influenced by historical events and safety concerns.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework by addressing how public perception shapes energy policy and community acceptance.",
-                    "radical": "It offers unique insights into the challenges faced by nuclear energy in gaining public trust, especially in light of past disasters."
-                }
-            },
-            {
-                "code": "safety features",
-                "definition": "The advanced safety mechanisms incorporated in the new nuclear plant design to mitigate risks and enhance public confidence.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "The code provides a comprehensive understanding of how safety features are critical in addressing public concerns about nuclear energy.",
-                    "righteous": "It logically aligns with the overarching goal of ensuring safe energy transitions and public safety."
-                }
-            },
-            {
-                "code": "bipartisan support",
-                "definition": "The collaborative political backing for nuclear energy initiatives, reflecting a shared recognition of its importance for energy independence and environmental goals.",
-                "6Rs_framework": [
-                    "relevant",
-                    "robust"
-                ],
-                "6Rs_evaluation": {
-                    "relevant": "This code is pertinent as it highlights the political dimensions of energy policy and public support.",
-                    "robust": "It captures the essence of political dynamics that influence energy transitions and public policy."
-                }
-            },
-            {
-                "code": "Historical Impact",
-                "definition": "This code captures the influence of past nuclear accidents on current public perception of nuclear energy.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively encapsulates the essence of how historical events shape current attitudes towards nuclear energy.",
-                    "relevant": "This code is highly appropriate as it directly relates to the public's concerns and perceptions regarding nuclear energy."
-                }
-            },
-            {
-                "code": "Safety Concerns",
-                "definition": "This code reflects the apprehensions surrounding the safety of nuclear energy, particularly in light of past disasters.",
-                "6Rs_framework": [
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the broader discourse on safety in nuclear energy, connecting to theoretical discussions on risk perception.",
-                    "righteous": "The code logically follows from the quotation, as it addresses the public's fears stemming from historical accidents."
-                }
-            },
-            {
-                "code": "Public Awareness",
-                "definition": "This code denotes the level of public knowledge and awareness regarding nuclear energy and its associated risks.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "The code provides a comprehensive understanding of how public awareness shapes perceptions and attitudes.",
-                    "radical": "This code offers unique insights into the disconnect between public perception and the advancements in nuclear technology."
-                }
-            },
-            {
-                "code": "Sodium Cooling",
-                "definition": "The use of sodium as a coolant in nuclear reactors, which enhances safety and efficiency by effectively absorbing heat.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code captures the essential function of sodium in the cooling process, which is critical for reactor safety.",
-                    "relevant": "This code is directly applicable to the context of nuclear innovation and addresses public safety concerns."
-                }
-            },
-            {
-                "code": "Heat Absorption",
-                "definition": "The process by which sodium absorbs heat in the reactor, contributing to temperature regulation and safety.",
-                "6Rs_framework": [
-                    "reflective",
-                    "resplendent"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework of safety in nuclear technology, reflecting the importance of heat management.",
-                    "resplendent": "It provides a comprehensive understanding of how heat absorption is crucial for the operational safety of nuclear reactors."
-                }
-            },
-            {
-                "code": "Nuclear Innovation",
-                "definition": "The advancements in nuclear technology aimed at improving safety, efficiency, and public acceptance of nuclear energy.",
-                "6Rs_framework": [
-                    "radical",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "radical": "This code highlights the novel approaches being taken in nuclear technology, which differ from traditional methods.",
-                    "righteous": "It demonstrates a commitment to improving nuclear energy's public perception and safety, aligning with broader societal goals."
-                }
-            },
-            {
-                "code": "Legislative Action",
-                "definition": "The process and implications of the U.S. Congress passing a bill related to nuclear fuel supply.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code effectively captures the essence of the legislative process and its significance in shaping energy policy.",
-                    "relevant": "The code is highly appropriate as it directly relates to the quotation and the broader context of energy independence."
-                }
-            },
-            {
-                "code": "Energy Independence",
-                "definition": "The goal of reducing reliance on foreign sources of energy, particularly in the context of nuclear fuel.",
-                "6Rs_framework": [
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework of energy policy and national security, reflecting the importance of self-sufficiency.",
-                    "righteous": "The code logically connects to the overarching theme of national security and the rationale behind the legislation."
-                }
-            },
-            {
-                "code": "Bipartisan Support",
-                "definition": "The collaborative effort between Republican and Democratic parties to support nuclear energy initiatives.",
-                "6Rs_framework": [
-                    "radical",
-                    "resplendent"
-                ],
-                "6Rs_evaluation": {
-                    "radical": "This code highlights the unique aspect of bipartisan cooperation in a typically polarized political landscape.",
-                    "resplendent": "The code provides a comprehensive understanding of the political dynamics surrounding nuclear energy legislation."
-                }
-            },
-            {
-                "code": "Uranium Resources",
-                "definition": "This code captures the availability and significance of uranium deposits in the U.S., particularly in Wyoming, as a critical resource for nuclear energy production.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively encapsulates the essence of the quotation, highlighting the abundance of uranium resources.",
-                    "relevant": "The code is contextually appropriate as it directly relates to the research objectives concerning energy independence and nuclear power."
-                }
-            },
-            {
-                "code": "Nuclear Energy Transition",
-                "definition": "This code reflects the broader implications of utilizing local uranium resources for transitioning to nuclear energy, emphasizing the role of uranium in energy policy.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the theoretical framework of energy policy analysis, reflecting on the transition from fossil fuels to nuclear energy.",
-                    "radical": "The insights provided by this code are unique, as they highlight a shift in energy strategy that may not be widely recognized."
-                }
-            },
-            {
-                "code": "Local Economic Impact",
-                "definition": "This code addresses the potential economic benefits for local communities in Wyoming due to uranium mining and nuclear energy development.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "The code provides a comprehensive understanding of the socio-economic implications of uranium mining in the region.",
-                    "righteous": "The code is logically consistent with the overarching themes of energy independence and local economic development."
-                }
-            },
-            {
-                "code": "Political Sustainability",
-                "definition": "The long-term viability of nuclear power as a politically supported energy source, reflecting a commitment to energy independence and environmental goals.",
-                "6Rs_framework": [
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the theoretical framework by emphasizing the political dimensions of energy policy.",
-                    "righteous": "It logically connects to the overarching theme of sustainable energy practices supported by both parties."
-                }
-            },
-            {
-                "code": "Public-Private Partnerships",
-                "definition": "Collaborative efforts between government entities and private sectors to advance nuclear energy initiatives, ensuring resource allocation and support.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "resplendent": "The code provides a comprehensive understanding of the collaborative nature of nuclear energy projects.",
-                    "radical": "It offers novel insights into how bipartisan support can facilitate innovative partnerships in energy policy."
-                }
-            },
-            {
-                "code": "Political Emphasis on Energy Security",
-                "definition": "This code captures the focus of political parties, particularly Republicans, on energy security as a critical issue in their policy discussions.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively encapsulates the essence of the quotation, highlighting the political dimension of energy security.",
-                    "relevant": "The code is contextually appropriate as it directly relates to the political discourse on energy policies."
-                }
-            },
-            {
-                "code": "Exporting Energy Resources",
-                "definition": "This code refers to the discussion around the exportation of energy resources, indicating a strategic approach to energy policy.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the theoretical framework by reflecting on the implications of energy exportation in the context of national security.",
-                    "radical": "The code offers unique insights into the strategic importance of energy exports in political discourse."
-                }
-            },
-            {
-                "code": "Democratic Values",
-                "definition": "This code captures the values held by the Democratic party, particularly in relation to energy policy and environmental concerns.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively encapsulates the essence of the Democrats' stance on energy, highlighting their commitment to clean energy sources.",
-                    "relevant": "This code is highly appropriate as it directly relates to the quotation and the broader context of energy policy discussions."
-                }
-            },
-            {
-                "code": "Clean Energy Advocacy",
-                "definition": "This code reflects the advocacy for clean energy sources, emphasizing the importance of sustainability in energy policy.",
-                "6Rs_framework": [
-                    "reflective",
-                    "resplendent"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the theoretical framework of environmental sustainability, reflecting the Democrats' focus on clean energy.",
-                    "resplendent": "It provides a comprehensive understanding of the Democrats' position on energy, showcasing their dual focus on environmental and energy concerns."
-                }
-            },
-            {
-                "code": "Nuclear Energy Perception",
-                "definition": "The public and political perception of nuclear energy, influenced by historical events and current safety advancements.",
-                "6Rs_framework": [
-                    "reflective",
-                    "resplendent"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework by addressing how perceptions shape energy policy decisions.",
-                    "resplendent": "It provides a comprehensive understanding of the complexities surrounding nuclear energy, including safety concerns and legislative responses."
-                }
+                "description": "Reflects the local community's backing for the new reactor project, particularly in Wyoming.",
+                "examples": [
+                    "the choice of Wyoming, where a coal plant is closing",
+                    "supported by the local community"
+                ]
             },
             {
                 "code": "Energy Transition",
-                "definition": "The shift from traditional energy sources to nuclear energy as part of a broader strategy to reduce greenhouse gas emissions and enhance energy independence.",
-                "6Rs_framework": [
-                    "radical",
-                    "righteous"
+                "description": "The shift from traditional energy sources, such as coal, to advanced nuclear technologies as part of a broader strategy to meet energy demands sustainably.",
+                "examples": [
+                    "The choice of Wyoming, where a coal plant is closing, reflects a strategic move supported by the local community."
                 ],
-                "6Rs_evaluation": {
-                    "radical": "The code offers unique insights into the transformative potential of nuclear energy in the context of climate change.",
-                    "righteous": "It aligns with the overarching goal of promoting sustainable energy practices and reducing reliance on fossil fuels."
-                }
+                "relevance": "This transition is critical for addressing climate change and ensuring energy security."
             },
             {
-                "code": "Green Energy Perception",
-                "definition": "The understanding and valuation of nuclear energy as a form of green energy, despite mixed public opinions.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
+                "code": "Public-Private Partnerships",
+                "description": "Collaborative efforts between government entities and private companies to develop and implement new energy technologies.",
+                "examples": [
+                    "Preliminary construction has already begun, indicating a proactive approach to revitalizing nuclear energy in the U.S."
                 ],
-                "6Rs_evaluation": {
-                    "robust": "The code captures the essence of the quotation by highlighting the dual perception of nuclear energy as both green and contentious.",
-                    "relevant": "This code is directly applicable to the research objectives, addressing public perception and its implications for energy policy."
-                }
+                "relevance": "Such partnerships are vital for funding and facilitating innovative energy projects."
             },
             {
-                "code": "US Leadership in Energy",
-                "definition": "The strategic importance of U.S. leadership in nuclear energy technology and its implications for global energy security.",
-                "6Rs_framework": [
-                    "robust",
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code effectively encapsulates the quotation's emphasis on U.S. leadership as a critical factor in nuclear energy.",
-                    "reflective": "It aligns with the theoretical framework by connecting leadership to national security and technological advancement.",
-                    "righteous": "The code maintains logical consistency with the overarching theme of U.S. strategic interests."
-                }
+                "code": "Investor Confidence",
+                "description": "The necessity for investors to have confidence in the project's viability and potential for success.",
+                "examples": [
+                    "you need uh investors who are willing to believe"
+                ]
             },
             {
-                "code": "National Security Concerns",
-                "definition": "The potential risks associated with nuclear materials and the importance of monitoring to prevent military misuse.",
-                "6Rs_framework": [
-                    "robust",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "This code effectively addresses the concerns raised in the quotation regarding the security of nuclear materials.",
-                    "radical": "It offers unique insights into the intersection of energy policy and national security."
-                }
+                "code": "Cost Distribution",
+                "description": "The strategy of spreading design costs over a larger number of units to make the project financially feasible.",
+                "examples": [
+                    "take the cost of design and spread them over a lot of units"
+                ]
             },
             {
-                "code": "Technological Competitiveness",
-                "definition": "The necessity for the U.S. to maintain a competitive edge in nuclear technology amidst rising energy demands.",
-                "6Rs_framework": [
-                    "robust",
-                    "reflective"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code captures the essence of the quotation's focus on technological advancement as a competitive necessity.",
-                    "reflective": "It aligns with the theoretical framework by emphasizing the role of technology in energy policy."
-                }
+                "code": "Scale of Production",
+                "description": "The importance of building a significant number of units to achieve economies of scale.",
+                "examples": [
+                    "you're going to build a lot of units"
+                ]
             },
             {
-                "code": "China's Nuclear Leadership",
-                "definition": "This code captures the significance of China's current position as the leading nation in nuclear reactor construction, highlighting its implications for global energy dynamics.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
-                ],
-                "6Rs_evaluation": {
-                    "robust": "The code effectively encapsulates the essence of the quotation, focusing on China's dominance in nuclear reactor construction.",
-                    "relevant": "The code is highly appropriate as it directly relates to the competitive landscape of nuclear energy and the implications for U.S. energy policy."
-                }
+                "code": "Rising Electricity Demand",
+                "description": "The increasing need for electricity in the U.S. driven by the adoption of electric vehicles and heat pumps.",
+                "examples": [
+                    "the demand for electricity in the United States for the first time in a long time is going to go up quite a bit",
+                    "it's electric cars buses uh some people use electric heat pumps and their homes"
+                ]
             },
             {
-                "code": "U.S. Energy Technology Potential",
-                "definition": "This code reflects the potential for the U.S. to innovate and reclaim its leadership in energy technology, particularly in the context of nuclear energy.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "The code aligns with the broader discussion of energy technology leadership and the U.S.'s capacity to respond to foreign competition.",
-                    "radical": "This code introduces a novel perspective on the U.S. energy landscape, emphasizing the potential for innovation in response to China's advancements."
-                }
+                "code": "Impact of Electric Vehicles",
+                "description": "The role of electric cars in contributing to the overall increase in electricity demand.",
+                "examples": [
+                    "it's electric cars buses"
+                ]
+            },
+            {
+                "code": "Electric Heat Pumps",
+                "description": "The use of electric heat pumps in homes as a factor in rising electricity consumption.",
+                "examples": [
+                    "some people use electric heat pumps and their homes"
+                ]
+            },
+            {
+                "code": "Nuclear Energy Necessity",
+                "description": "The critical role of nuclear energy in complementing renewable sources to meet electricity demand.",
+                "examples": [
+                    "if we don't have uh nuclear to complement the wind and Sun",
+                    "the country will fall behind the demand for electricity"
+                ]
+            },
+            {
+                "code": "Renewable Energy Integration",
+                "description": "The importance of integrating nuclear energy with wind and solar to ensure a stable energy supply.",
+                "examples": [
+                    "complement the wind and Sun"
+                ]
+            },
+            {
+                "code": "Electricity Demand Challenges",
+                "description": "The challenges posed by rising electricity demand and the need for diverse energy sources.",
+                "examples": [
+                    "the country will fall behind the demand for electricity"
+                ]
             },
             {
                 "code": "Energy Security",
-                "definition": "The assurance of a stable and sufficient energy supply, which is a key concern driving bipartisan support for nuclear energy.",
-                "6Rs_framework": [
-                    "reflective",
-                    "righteous"
-                ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical framework by highlighting the importance of energy security in political discourse.",
-                    "righteous": "The code logically connects to the overarching theme of energy policy and bipartisan support, reinforcing the rationale for nuclear energy initiatives."
-                }
+                "description": "The implications of energy source diversification for national energy security.",
+                "examples": [
+                    "the country will fall behind the demand for electricity"
+                ]
             },
             {
-                "code": "Proactive Security Measures",
-                "definition": "The strategies and actions taken to anticipate and mitigate security threats before they materialize.",
-                "6Rs_framework": [
-                    "robust",
-                    "relevant"
+                "code": "Emission Reduction Goal",
+                "description": "The aspiration to eliminate emissions by 2050 reflects a significant commitment to environmental sustainability and climate action.",
+                "keywords": [
+                    "emissions",
+                    "2050"
                 ],
-                "6Rs_evaluation": {
-                    "robust": "This code effectively captures the essence of the need for proactive measures in security, reflecting the dynamic nature of threats.",
-                    "relevant": "The code is highly appropriate as it directly relates to the dialogue about staying ahead of adversaries."
-                }
+                "contextual_relevance": "This goal is set against the backdrop of a major transition in the energy sector, particularly with the introduction of advanced nuclear reactors."
             },
             {
-                "code": "Evolving Threat Landscape",
-                "definition": "The changing nature of security threats as adversaries become more sophisticated.",
-                "6Rs_framework": [
-                    "reflective",
-                    "radical"
+                "code": "Ambitious Target",
+                "description": "The term 'ambitious' indicates the challenges and high expectations associated with achieving the 2050 emissions goal.",
+                "keywords": [
+                    "ambitious"
                 ],
-                "6Rs_evaluation": {
-                    "reflective": "This code aligns with the theoretical understanding of security dynamics, emphasizing the need for continuous adaptation.",
-                    "radical": "It offers unique insights into the necessity of evolving strategies in response to smarter adversaries."
-                }
+                "contextual_relevance": "The ambitious nature of this target highlights the complexities involved in transitioning to cleaner energy sources."
+            },
+            {
+                "code": "Nuclear Energy Transition",
+                "description": "The shift towards nuclear energy, particularly in Wyoming, signifies a strategic move to replace coal and enhance energy safety and efficiency.",
+                "keywords": [
+                    "nuclear",
+                    "coal",
+                    "energy"
+                ],
+                "contextual_relevance": "This transition is crucial for meeting the emissions reduction goal and reflects community support for cleaner energy solutions."
+            },
+            {
+                "code": "Job Creation Potential",
+                "description": "This code captures the emphasis on job creation during the construction phase of the nuclear reactor, highlighting the economic opportunities that arise from this initiative.",
+                "examples": [
+                    "the time that we create the most jobs is actually between now and 2030",
+                    "during the construction phase we have a lot of jobs"
+                ]
+            },
+            {
+                "code": "Construction Phase Importance",
+                "description": "This code focuses on the significance of the construction phase in generating employment and its role in the overall project timeline.",
+                "examples": [
+                    "the time that we create the most jobs is actually between now and 2030",
+                    "during the construction phase we have a lot of jobs"
+                ]
+            },
+            {
+                "code": "Transition from Coal",
+                "description": "This code relates to the broader context of transitioning from coal energy to nuclear power, reflecting the strategic decisions made in energy policy.",
+                "examples": [
+                    "The choice of Wyoming, where a coal plant is closing, reflects a strategic move supported by the local community."
+                ]
+            },
+            {
+                "code": "Economic Feasibility",
+                "description": "This code addresses the economic aspects of the new reactor design, including its potential to reduce costs and enhance safety.",
+                "examples": [
+                    "The advantages of this new reactor design are particularly noteworthy, as they promise to simplify operations and improve safety."
+                ]
+            },
+            {
+                "code": "Workforce Transition",
+                "description": "The shift in workforce size from coal to nuclear energy indicates a positive economic impact on the local community.",
+                "examples": [
+                    "the workforce to operate the nuclear plant uh is just a little bit bigger than the workforce that was operating the coal plant"
+                ]
+            },
+            {
+                "code": "Public Perception of Nuclear Energy",
+                "description": "Concerns about nuclear energy are influenced by historical disasters, affecting community acceptance.",
+                "examples": [
+                    "public perception of nuclear energy is often clouded by past disasters like Three Mile Island, Chernobyl, and Fukushima."
+                ]
+            },
+            {
+                "code": "Safety Features",
+                "description": "The incorporation of advanced safety features in the new reactor design aims to alleviate public concerns.",
+                "examples": [
+                    "the new reactor design incorporates advanced safety features, such as a sodium cooling system that effectively manages heat retention."
+                ]
+            },
+            {
+                "code": "Bipartisan Support",
+                "description": "The project is recognized as a bipartisan effort, highlighting the political consensus on the importance of nuclear energy.",
+                "examples": [
+                    "the project is positioned as a bipartisan effort, with both Republican and Democratic support."
+                ]
+            },
+            {
+                "code": "Historical Disasters Impacting Perception",
+                "description": "This code captures the influence of past nuclear disasters, such as Three Mile Island and Chernobyl, on public perception of nuclear energy. It highlights the fear and skepticism that arise from these events, which can hinder acceptance of new nuclear projects.",
+                "examples": [
+                    "the public hears about nuclear energy though they think of some of the worst cases",
+                    "Three Mile Island Pennsylvania Chernobyl"
+                ]
+            },
+            {
+                "code": "Safety Features in New Designs",
+                "description": "This code focuses on the advanced safety features of new nuclear reactor designs, which aim to address the concerns raised by historical accidents. It emphasizes the importance of technological advancements in improving public confidence in nuclear energy.",
+                "examples": [
+                    "the new reactor design incorporates advanced safety features",
+                    "sodium cooling system that effectively manages heat retention"
+                ]
+            },
+            {
+                "code": "Legislative Support for Nuclear Energy",
+                "description": "This code reflects the recent legislative actions taken to support nuclear energy, including ensuring a domestic fuel supply and bipartisan support for nuclear projects. It underscores the political and economic dimensions of nuclear energy development.",
+                "examples": [
+                    "U.S. Congress has recently passed legislation to ensure that the nuclear fuel supply will not come from Russia",
+                    "bipartisan effort, with both Republican and Democratic support"
+                ]
+            },
+            {
+                "code": "Community Transition to Nuclear Energy",
+                "description": "This code captures the local community's perspective on transitioning from coal to nuclear energy, highlighting the workforce implications and the perceived benefits of this shift.",
+                "examples": [
+                    "the workforce to operate the new nuclear plant in Kemmer, Wyoming, is expected to be slightly larger than that of the existing coal plant",
+                    "a positive sign for the local community that values this transition"
+                ]
+            },
+            {
+                "code": "Sodium Cooling System",
+                "description": "Refers to the use of sodium as a coolant in nuclear reactors, highlighting its role in heat absorption and safety.",
+                "examples": [
+                    "sodium to cool everything",
+                    "can absorb all that heat"
+                ]
+            },
+            {
+                "code": "Heat Management",
+                "description": "Focuses on the effective management of heat within the reactor, which is critical for operational safety and efficiency.",
+                "examples": [
+                    "can absorb all that heat"
+                ]
+            },
+            {
+                "code": "Nuclear Innovation",
+                "description": "Represents advancements in nuclear technology aimed at improving safety and public perception.",
+                "examples": [
+                    "advanced safety features",
+                    "new reactor design"
+                ]
+            },
+            {
+                "code": "Legislative Action",
+                "description": "The role of the U.S. Congress in passing legislation that impacts nuclear fuel supply.",
+                "examples": [
+                    "the US Congress recently passed a bill",
+                    "None of the fuel will come out of Russia"
+                ]
+            },
+            {
+                "code": "Energy Independence",
+                "description": "The importance of ensuring that nuclear fuel is sourced from non-Russian suppliers to enhance national security.",
+                "examples": [
+                    "None of the fuel will come out of Russia",
+                    "crucial for national security and energy independence"
+                ]
+            },
+            {
+                "code": "Public Perception",
+                "description": "Concerns and historical context surrounding nuclear energy that affect public opinion.",
+                "examples": [
+                    "public perception of nuclear energy is often clouded by past disasters",
+                    "Three Mile Island, Chernobyl, and Fukushima"
+                ]
+            },
+            {
+                "code": "Uranium Availability",
+                "description": "Highlights the presence of uranium resources in the U.S., particularly in Wyoming, which is essential for nuclear energy development.",
+                "examples": [
+                    "the US is very lucky that between the US and Canada there's quite a bit of uranium even in Wyoming",
+                    "there are good uranium mines there"
+                ]
+            },
+            {
+                "code": "Public Perception of Nuclear Safety",
+                "description": "Addresses concerns regarding nuclear energy safety, referencing historical disasters and the need for advanced safety features.",
+                "examples": [
+                    "public perception of nuclear energy is often clouded by past disasters like Three Mile Island, Chernobyl, and Fukushima",
+                    "the new reactor design incorporates advanced safety features"
+                ]
+            },
+            {
+                "code": "Legislative Support for Domestic Supply",
+                "description": "Discusses recent legislative efforts to secure a domestic uranium supply chain and reduce reliance on foreign sources.",
+                "examples": [
+                    "the U.S. Congress has recently passed legislation to ensure that the nuclear fuel supply will not come from Russia",
+                    "efforts are underway to develop a domestic uranium supply chain"
+                ]
+            },
+            {
+                "code": "Public Perception Challenges",
+                "description": "The historical context of nuclear energy, including past disasters that affect public opinion and acceptance.",
+                "examples": [
+                    "public perception of nuclear energy is often clouded by past disasters like Three Mile Island, Chernobyl, and Fukushima"
+                ]
+            },
+            {
+                "code": "Safety Innovations",
+                "description": "The advancements in nuclear reactor design aimed at improving safety and addressing historical concerns.",
+                "examples": [
+                    "the new reactor design incorporates advanced safety features, such as a sodium cooling system"
+                ]
+            },
+            {
+                "code": "Republican Emphasis on Energy Security",
+                "description": "This code captures the focus of the Republican party on energy security as a critical issue, particularly in the context of nuclear energy and its implications for national policy.",
+                "examples": [
+                    "the Republicans May emphasize the security issues",
+                    "energy security exporting these Power things"
+                ]
+            },
+            {
+                "code": "Exporting Power",
+                "description": "This code reflects the notion of exporting energy resources as a strategy for enhancing national security and economic power on a global scale.",
+                "examples": [
+                    "exporting these Power things to the entire world"
+                ]
+            },
+            {
+                "code": "Bipartisan Support for Nuclear Energy",
+                "description": "This code highlights the collaborative efforts between Republicans and Democrats in supporting nuclear energy as a viable solution for future energy demands.",
+                "examples": [
+                    "The project is positioned as a bipartisan effort"
+                ]
+            },
+            {
+                "code": "Democratic Values",
+                "description": "This code captures the Democratic Party's emphasis on clean energy sources as part of their broader energy policy agenda.",
+                "examples": [
+                    "the Democrats value those things but they also value that it's a clean source of energy"
+                ]
+            },
+            {
+                "code": "Clean Energy Advocacy",
+                "description": "This code reflects the advocacy for clean energy solutions, particularly nuclear energy, as a viable alternative to fossil fuels.",
+                "examples": [
+                    "the Democrats value those things but they also value that it's a clean source of energy"
+                ]
+            },
+            {
+                "code": "Bipartisan Support for Energy Policy",
+                "description": "This code highlights the bipartisan nature of the current energy policy discussions, indicating a shared recognition of the importance of nuclear energy.",
+                "examples": [
+                    "The project is positioned as a bipartisan effort, with both Republican and Democratic support"
+                ]
+            },
+            {
+                "code": "Public Perception and Safety",
+                "description": "Concerns regarding public perception of nuclear energy due to historical disasters and the measures taken to enhance safety.",
+                "examples": [
+                    "Public perception of nuclear energy is often clouded by past disasters like Three Mile Island, Chernobyl, and Fukushima.",
+                    "The new reactor design incorporates advanced safety features."
+                ]
+            },
+            {
+                "code": "Workforce Implications",
+                "description": "The expected increase in workforce for the new nuclear plant compared to the existing coal plant, indicating positive community impact.",
+                "examples": [
+                    "The workforce to operate the new nuclear plant in Kemmer, Wyoming, is expected to be slightly larger than that of the existing coal plant."
+                ]
+            },
+            {
+                "code": "Legislative Support",
+                "description": "Recent legislative actions aimed at ensuring energy independence and security in the nuclear fuel supply.",
+                "examples": [
+                    "The U.S. Congress has recently passed legislation to ensure that the nuclear fuel supply will not come from Russia."
+                ]
+            },
+            {
+                "code": "Green Energy Perception",
+                "description": "Explores how nuclear energy is categorized as green energy despite mixed public perceptions.",
+                "examples": [
+                    "it's its own category of green energy because not because it's green",
+                    "there are people who don't value that part of it"
+                ]
+            },
+            {
+                "code": "US Leadership",
+                "description": "Highlights the importance of US leadership in the nuclear energy sector and its strategic implications.",
+                "examples": [
+                    "they value it because of the US leadership",
+                    "you really don't want the nuclear reactors around the world made by adversaries"
+                ]
+            },
+            {
+                "code": "Job Creation",
+                "description": "Focuses on the economic benefits of nuclear energy, particularly in job creation.",
+                "examples": [
+                    "it's economically a huge job Creator",
+                    "the workforce to operate the new nuclear plant in Kemmer, Wyoming"
+                ]
+            },
+            {
+                "code": "National Security",
+                "description": "Addresses concerns regarding the safety and security of nuclear materials and their potential diversion.",
+                "examples": [
+                    "the materials involved in these reactors possibly could be diverted",
+                    "you want your eye on you know making sure that it's not feeding into to some military related activity"
+                ]
+            },
+            {
+                "code": "Technological Competitiveness",
+                "description": "Connects the need for technological advancement in the nuclear sector to maintain US competitiveness.",
+                "examples": [
+                    "staying competitive in technology",
+                    "our demands going up"
+                ]
+            },
+            {
+                "code": "China's Leadership in Nuclear Energy",
+                "description": "This code captures the theme of China's dominance in the construction of nuclear reactors, highlighting its current position as a leader in the global nuclear energy landscape.",
+                "examples": [
+                    "the country that's building the most nuclear reactors today is China"
+                ]
+            },
+            {
+                "code": "U.S. Potential for Innovation",
+                "description": "This code reflects the potential for the U.S. to innovate in nuclear energy technology and reclaim its leadership position, emphasizing the competitive nature of the energy sector.",
+                "examples": [
+                    "the U.S. has the potential to innovate and reclaim its leadership in energy technology"
+                ]
+            },
+            {
+                "code": "Regulatory Environment for Nuclear Projects",
+                "description": "This code addresses the regulatory advantages in certain U.S. states that facilitate nuclear energy projects, which is crucial for understanding the operational landscape for nuclear energy.",
+                "examples": [
+                    "states like West Virginia, Wyoming, and Texas are advantageous for nuclear energy projects due to their faster regulatory processes"
+                ]
+            },
+            {
+                "code": "Bipartisan Support for Nuclear Initiatives",
+                "description": "This code highlights the importance of bipartisan support in advancing nuclear energy projects, which is essential for fostering a conducive environment for innovation and development.",
+                "examples": [
+                    "This environment is conducive to building pilot plants, which could foster bipartisan support for nuclear initiatives."
+                ]
+            },
+            {
+                "code": "Regulatory Environment",
+                "description": "The favorable conditions in certain states that facilitate the development of nuclear energy projects.",
+                "examples": [
+                    "states like West Virginia, Wyoming, and Texas are advantageous for nuclear energy projects due to their faster regulatory processes and lighter regulatory burdens"
+                ],
+                "relevance": "Understanding the regulatory landscape is crucial for assessing the feasibility of nuclear projects and their potential for garnering bipartisan support."
+            },
+            {
+                "code": "Competitive Landscape",
+                "description": "The context of global competition in nuclear energy, particularly with China.",
+                "examples": [
+                    "China is currently leading in the construction of nuclear reactors"
+                ],
+                "relevance": "This code highlights the urgency for the U.S. to innovate and reclaim its leadership in energy technology, which may influence bipartisan support."
+            },
+            {
+                "code": "Federal Government Support",
+                "description": "The role of the federal government in promoting nuclear energy initiatives.",
+                "examples": [
+                    "the speaker expresses confidence in the federal government's support for nuclear energy"
+                ],
+                "relevance": "Government backing is a critical factor in the success of nuclear energy projects and can enhance bipartisan support."
             },
             {
                 "code": "Importance of Dialogue",
-                "definition": "The significance of ongoing conversations about security strategies among stakeholders.",
-                "6Rs_framework": [
-                    "resplendent",
-                    "righteous"
+                "description": "The necessity of ongoing conversations about security measures in response to evolving threats.",
+                "keywords": [
+                    "dialogue",
+                    "security",
+                    "communication"
                 ],
-                "6Rs_evaluation": {
-                    "resplendent": "This code provides a comprehensive understanding of the collaborative aspect of security, highlighting its necessity.",
-                    "righteous": "It logically aligns with the overarching theme of proactive engagement in security discussions."
-                }
+                "examples": [
+                    "the dialogue of how even as the bad guys get smarter",
+                    "important dialogue"
+                ]
+            },
+            {
+                "code": "Adversarial Intelligence",
+                "description": "The recognition that adversaries are becoming more sophisticated, necessitating advanced security strategies.",
+                "keywords": [
+                    "bad guys",
+                    "adversaries",
+                    "intelligence"
+                ],
+                "examples": [
+                    "even as the bad guys get smarter"
+                ]
+            },
+            {
+                "code": "Proactive Security Measures",
+                "description": "The emphasis on staying ahead of threats through innovation and strategic planning.",
+                "keywords": [
+                    "staying ahead",
+                    "proactive",
+                    "innovation"
+                ],
+                "examples": [
+                    "how do we stay ahead"
+                ]
             }
         ],
         "research_objectives": "To develop advanced reasoning capabilities in AI models...",
@@ -669,134 +540,176 @@
         "transcript_chunk": "A relevant transcript chunk providing context.",
         "groupings": [
             {
-                "group_label": "Technical Innovation and Safety",
+                "group_label": "Technical and Economic Feasibility",
                 "codes": [
-                    "Innovative Reactor Design",
+                    "New Reactor Design",
                     "Safety Enhancement",
-                    "Cost Reduction"
-                ],
-                "rationale": "These codes collectively address the advancements in reactor technology, emphasizing safety improvements and cost-effectiveness, which are crucial for the technical feasibility of new nuclear designs."
-            },
-            {
-                "group_label": "Economic Viability and Investor Confidence",
-                "codes": [
+                    "Cost Reduction",
+                    "Elimination of Water Cooling",
                     "Cost Distribution",
-                    "Unit Production",
-                    "Investor Confidence",
-                    "Economic Feasibility"
+                    "Scale of Production"
                 ],
-                "rationale": "This grouping focuses on the economic aspects of nuclear power, highlighting strategies for cost management and the importance of investor trust in the financial success of nuclear projects."
+                "rationale": "These codes collectively address the innovative aspects of new reactor designs and their economic implications, which are crucial for assessing the feasibility of next-generation nuclear power."
             },
             {
-                "group_label": "Community and Public Engagement",
+                "group_label": "Community and Collaborative Support",
                 "codes": [
                     "Community Support",
-                    "Public Engagement",
-                    "Job Creation",
-                    "Construction Phase"
+                    "Public-Private Partnerships",
+                    "Investor Confidence"
                 ],
-                "rationale": "These codes emphasize the role of community involvement and public perception in the success of nuclear initiatives, as well as the economic benefits associated with job creation during construction."
+                "rationale": "This grouping reflects the importance of local backing and collaborative efforts between public and private sectors in advancing nuclear energy projects."
             },
             {
-                "group_label": "Energy Demand and Sustainability",
+                "group_label": "Energy Demand and Security",
                 "codes": [
                     "Rising Electricity Demand",
-                    "Electric Vehicles",
+                    "Impact of Electric Vehicles",
                     "Electric Heat Pumps",
-                    "Nuclear Energy Importance",
-                    "Complementarity of Energy Sources",
-                    "Electricity Demand Challenge"
+                    "Nuclear Energy Necessity",
+                    "Renewable Energy Integration",
+                    "Electricity Demand Challenges",
+                    "Energy Security"
                 ],
-                "rationale": "This grouping addresses the increasing demand for electricity and the necessity of integrating nuclear energy with other sources to ensure a stable and sustainable energy supply."
+                "rationale": "These codes highlight the increasing demand for electricity and the role of nuclear energy in ensuring a stable and secure energy supply amidst rising consumption."
             },
             {
-                "group_label": "Climate Goals and Emissions Reduction",
+                "group_label": "Environmental Goals and Transition",
                 "codes": [
-                    "emissions_reduction_goal",
-                    "ambitious_target",
-                    "timeline_2050"
+                    "Emission Reduction Goal",
+                    "Ambitious Target",
+                    "Nuclear Energy Transition"
                 ],
-                "rationale": "These codes reflect the overarching climate objectives and the urgency of achieving significant emissions reductions, aligning with the research focus on the intersection of energy security and climate goals."
+                "rationale": "This grouping emphasizes the environmental aspirations driving the transition to nuclear energy, particularly in the context of achieving significant emissions reduction targets."
+            },
+            {
+                "group_label": "Economic Impact and Feasibility",
+                "codes": [
+                    "Job Creation Potential",
+                    "Construction Phase Importance",
+                    "Economic Feasibility",
+                    "Workforce Transition",
+                    "Community Transition to Nuclear Energy"
+                ],
+                "rationale": "These codes collectively highlight the economic benefits and feasibility of transitioning to nuclear power, emphasizing job creation, the significance of the construction phase, and the economic implications of workforce transitions."
             },
             {
                 "group_label": "Public Perception and Safety",
                 "codes": [
-                    "public perception of nuclear energy",
-                    "Historical Impact",
-                    "Safety Concerns",
-                    "Safety features",
-                    "Public Awareness"
+                    "Public Perception of Nuclear Energy",
+                    "Historical Disasters Impacting Perception",
+                    "Safety Features",
+                    "Safety Features in New Designs",
+                    "Public Perception of Nuclear Safety"
                 ],
-                "rationale": "This grouping captures the various dimensions of how public perception and safety concerns influence the acceptance and implementation of nuclear energy. It highlights the importance of addressing historical events and current safety features to build public trust."
+                "rationale": "This grouping focuses on the public's perception of nuclear energy, shaped by historical disasters and the importance of safety features in new reactor designs, which are crucial for gaining community acceptance."
             },
             {
-                "group_label": "Political Dynamics and Support",
+                "group_label": "Political Support and Legislative Action",
                 "codes": [
-                    "bipartisan support",
-                    "Political Sustainability",
-                    "Political Emphasis on Energy Security",
-                    "Public-Private Partnerships"
+                    "Bipartisan Support",
+                    "Legislative Support for Nuclear Energy",
+                    "Legislative Action"
                 ],
-                "rationale": "This grouping focuses on the political aspects of nuclear energy initiatives, emphasizing the importance of bipartisan support and the role of public-private partnerships in advancing nuclear innovation. It reflects the political landscape's impact on energy policy."
+                "rationale": "These codes reflect the political dynamics surrounding nuclear energy initiatives, highlighting bipartisan support and legislative actions that facilitate the development of nuclear power."
             },
             {
-                "group_label": "Technical and Economic Feasibility",
+                "group_label": "Energy Security and Independence",
                 "codes": [
-                    "Sodium Cooling",
-                    "Heat Absorption",
+                    "Energy Independence",
+                    "Uranium Availability"
+                ],
+                "rationale": "This grouping addresses the strategic importance of energy security and the availability of uranium resources in the U.S., which are essential for the sustainability of nuclear energy initiatives."
+            },
+            {
+                "group_label": "Technological Innovation",
+                "codes": [
                     "Nuclear Innovation",
-                    "Legislative Action",
-                    "Uranium Resources",
-                    "Local Economic Impact",
-                    "Energy Independence"
+                    "Sodium Cooling System",
+                    "Heat Management"
                 ],
-                "rationale": "This grouping addresses the technical and economic factors that underpin the feasibility of next-generation nuclear power. It includes innovations in reactor design, resource availability, and the economic implications for local communities, aligning with the research objectives."
+                "rationale": "These codes emphasize advancements in nuclear technology, particularly focusing on innovative safety features and heat management systems that enhance the operational efficiency and safety of new reactor designs."
             },
             {
-                "group_label": "Energy Transition and Infrastructure",
+                "group_label": "Legislative and Regulatory Support",
                 "codes": [
-                    "Nuclear Energy Transition",
-                    "workforce transition"
+                    "Legislative Support for Domestic Supply",
+                    "Legislative Support",
+                    "Regulatory Environment for Nuclear Projects"
                 ],
-                "rationale": "This grouping reflects the broader implications of transitioning to nuclear energy, including workforce dynamics and the necessary infrastructure changes. It highlights the importance of preparing for a shift from fossil fuels to nuclear energy."
+                "rationale": "These codes highlight the importance of legislative actions and regulatory frameworks that support the development of nuclear energy, ensuring energy independence and facilitating new projects."
             },
             {
-                "group_label": "Political and Public Perception",
+                "group_label": "Public Perception and Safety",
                 "codes": [
-                    "Democratic Values",
-                    "Clean Energy Advocacy",
-                    "Nuclear Energy Perception",
-                    "Green Energy Perception",
-                    "Energy Security"
+                    "Public Perception Challenges",
+                    "Public Perception and Safety",
+                    "Safety Innovations",
+                    "Green Energy Perception"
                 ],
-                "rationale": "This grouping captures the political dynamics and public perceptions surrounding nuclear energy, emphasizing the role of advocacy and values in shaping energy policy."
+                "rationale": "This grouping addresses the challenges and advancements related to public perception of nuclear energy, emphasizing the historical context and safety innovations that aim to improve acceptance."
             },
             {
-                "group_label": "Technological and Economic Feasibility",
+                "group_label": "Political Dynamics and Bipartisan Support",
                 "codes": [
-                    "Energy Transition",
-                    "Technological Competitiveness",
-                    "U.S. Energy Technology Potential"
+                    "Bipartisan Support for Nuclear Energy",
+                    "Bipartisan Support for Energy Policy",
+                    "Republican Emphasis on Energy Security",
+                    "Democratic Values"
                 ],
-                "rationale": "These codes focus on the technical and economic aspects of nuclear energy, highlighting the importance of innovation and competitiveness in the energy sector."
+                "rationale": "These codes reflect the political landscape surrounding nuclear energy, showcasing the collaborative efforts across party lines and the emphasis on energy security and clean energy values."
+            },
+            {
+                "group_label": "Economic and Workforce Implications",
+                "codes": [
+                    "Job Creation",
+                    "Workforce Implications",
+                    "Technological Competitiveness"
+                ],
+                "rationale": "This grouping focuses on the economic benefits of nuclear energy, including job creation and the need for technological advancements to maintain competitiveness in the energy sector."
             },
             {
                 "group_label": "National and Global Security",
                 "codes": [
-                    "National Security Concerns",
-                    "Proactive Security Measures",
-                    "Evolving Threat Landscape",
-                    "Importance of Dialogue"
+                    "National Security",
+                    "US Leadership",
+                    "China's Leadership in Nuclear Energy",
+                    "Exporting Power"
                 ],
-                "rationale": "This grouping addresses the security implications of nuclear energy, emphasizing the need for proactive measures and ongoing dialogue to mitigate risks."
+                "rationale": "These codes address the strategic implications of nuclear energy in terms of national security, global leadership, and the competitive landscape with other nations, particularly China."
             },
             {
-                "group_label": "Global Leadership and Competition",
+                "group_label": "Innovation and Future Potential",
                 "codes": [
-                    "US Leadership in Energy",
-                    "China's Nuclear Leadership"
+                    "U.S. Potential for Innovation",
+                    "Clean Energy Advocacy"
                 ],
-                "rationale": "These codes reflect the competitive landscape of nuclear energy, focusing on the strategic importance of U.S. leadership in the context of global energy dynamics."
+                "rationale": "This grouping emphasizes the potential for innovation in nuclear technology and the advocacy for clean energy solutions as part of the broader energy transition."
+            },
+            {
+                "group_label": "Political and Regulatory Support",
+                "codes": [
+                    "Bipartisan Support for Nuclear Initiatives",
+                    "Regulatory Environment",
+                    "Federal Government Support"
+                ],
+                "rationale": "This grouping reflects the critical role of political dynamics and regulatory frameworks in facilitating the development of nuclear energy projects. Understanding these factors is essential for assessing the feasibility and strategic importance of next-generation nuclear power."
+            },
+            {
+                "group_label": "Security and Innovation Strategies",
+                "codes": [
+                    "Importance of Dialogue",
+                    "Adversarial Intelligence",
+                    "Proactive Security Measures"
+                ],
+                "rationale": "This grouping emphasizes the need for advanced security strategies and ongoing dialogue to address evolving threats. It highlights the importance of innovation in maintaining energy security and technological leadership in the nuclear sector."
+            },
+            {
+                "group_label": "Competitive Landscape and Innovation Urgency",
+                "codes": [
+                    "Competitive Landscape"
+                ],
+                "rationale": "This code underscores the urgency for the U.S. to innovate in the nuclear sector amidst global competition, particularly with China. It is crucial for understanding the strategic importance of nuclear energy in maintaining technological leadership."
             }
         ]
     }
