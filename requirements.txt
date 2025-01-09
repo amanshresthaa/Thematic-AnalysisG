@@ -16,3 +16,4 @@ typing-extensions
 python-dotenv
 uvicorn
 fastapi
+spacy

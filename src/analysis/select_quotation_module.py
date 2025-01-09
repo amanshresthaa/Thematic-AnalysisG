@@ -1,4 +1,3 @@
-#analysis/select_quotation_module.py
 import logging
 from typing import Dict, Any, List
 import dspy
@@ -33,19 +32,17 @@ class SelectQuotationModule(dspy.Module):
                 contextualized_contents=contextualized_contents,
                 theoretical_framework=theoretical_framework
             )
-            # Apply new assertions
+            
             quotations = response.get("quotations", [])
             analysis = response.get("analysis", {})
             patterns = analysis.get("patterns_identified", [])
 
-            # Apply the new assertions
             assert_pattern_representation(quotations, patterns)
             assert_research_objective_alignment(quotations, research_objectives)
             assert_selective_transcription(quotations, transcript_chunk)
             assert_creswell_categorization(quotations)
             assert_reader_engagement(quotations)
 
-            # The response already includes 'transcript_info', 'quotations', 'analysis', and 'answer'
             return response
         except Exception as e:
             logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
