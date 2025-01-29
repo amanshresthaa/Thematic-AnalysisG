@@ -1,14 +1,14 @@
-# src/pipeline/pipeline_runner.py
-
 import asyncio
 import logging
 import time
 import gc
 import os
 from typing import Optional, Callable
+from dotenv import load_dotenv
 
 import dspy
 from dspy.primitives.assertions import assert_transform_module, backtrack_handler
+from src.config.model_config import get_model_config, ModelProvider
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.data.data_loader import load_codebase_chunks, load_queries
@@ -26,6 +26,7 @@ logger = logging.getLogger(__name__)
 
 class ThematicAnalysisPipeline:
     def __init__(self):
+        load_dotenv()
         setup_logging()
         logger.info("Initializing ThematicAnalysisPipeline")
 
@@ -42,6 +43,20 @@ class ThematicAnalysisPipeline:
         self.es_bm25: Optional[ElasticsearchBM25] = None
         self.optimized_programs = {}
 
+    def _setup_model_environment(self, model_config):
+        """Set up environment variables for the specified model."""
+        api_key = os.getenv(model_config.api_key_env)
+        if not api_key:
+            raise ValueError(f"{model_config.api_key_env} environment variable is not set")
+
+        # Set provider-specific environment variables
+        if model_config.provider == ModelProvider.OPENAI:
+            os.environ['OPENAI_API_KEY'] = api_key
+        elif model_config.provider == ModelProvider.GOOGLE:
+            os.environ['GOOGLE_API_KEY'] = api_key
+        elif model_config.provider == ModelProvider.DEEPSEEK:
+            os.environ['DEEPSEEK_API_KEY'] = api_key
+
     def create_elasticsearch_bm25_index(self, index_name: str) -> ElasticsearchBM25:
         logger.info(f"Creating Elasticsearch BM25 index: {index_name}")
         start_time = time.time()
@@ -57,6 +72,28 @@ class ThematicAnalysisPipeline:
             logger.error(f"Error creating Elasticsearch BM25 index '{index_name}': {e}", exc_info=True)
             raise
 
+    def _configure_language_model(self, model_config):
+        """Configure the language model based on provider."""
+        logger.info(f"Configuring DSPy Language Model for provider: {model_config.provider.value}")
+        
+        if model_config.provider == ModelProvider.OPENAI:
+            model_name = model_config.model_name
+        elif model_config.provider == ModelProvider.GOOGLE:
+            model_name = f"google/{model_config.model_name}"
+        elif model_config.provider == ModelProvider.DEEPSEEK:
+            model_name = model_config.model_name
+        else:
+            raise ValueError(f"Unsupported provider: {model_config.provider}")
+
+        lm = dspy.LM(
+            model_name,
+            max_tokens=model_config.max_tokens,
+            temperature=model_config.temperature
+        )
+        dspy.configure(lm=lm)
+        dspy.Cache = False
+        return lm
+
     @handle_exceptions
     async def run_pipeline_with_config(self, config: ModuleConfig, optimizer_config: OptimizerConfig):
         module_name = config.module_class.__name__.replace("Module", "").lower()
@@ -64,10 +101,14 @@ class ThematicAnalysisPipeline:
         pipeline_start_time = time.time()
 
         try:
-            logger.info("Configuring DSPy Language Model")
-            lm = dspy.LM('openai/gpt-4o-mini', max_tokens=8192)
-            dspy.configure(lm=lm)
-            dspy.Cache = False
+            # Get model configuration from ModuleConfig or use default
+            model_config = get_model_config(getattr(config, 'model_provider', None))
+            
+            # Setup environment variables for the selected model
+            self._setup_model_environment(model_config)
+            
+            # Configure the language model
+            lm = self._configure_language_model(model_config)
 
             logger.info(f"Loading codebase chunks from {config.codebase_chunks_file}")
             codebase_chunks = load_codebase_chunks(config.codebase_chunks_file)
@@ -80,10 +121,6 @@ class ThematicAnalysisPipeline:
 
             logger.info(f"Loading queries from {config.queries_file_standard}")
             standard_queries = load_queries(config.queries_file_standard)
-
-            # Removed separate validation step as it's now handled internally within process_queries
-            # logger.info("Validating queries")
-            # validated_queries = validate_queries(standard_queries, config.module_class())
 
             logger.info(f"Initializing optimizer for {module_name.capitalize()}")
             await initialize_optimizer(config, optimizer_config, self.optimized_programs)
@@ -99,7 +136,7 @@ class ThematicAnalysisPipeline:
 
             logger.info(f"Processing queries for {module_name.capitalize()}")
             await process_queries(
-                transcripts=standard_queries,  # Pass standard_queries directly without separate validation
+                transcripts=standard_queries,
                 db=self.contextual_db,
                 es_bm25=self.es_bm25,
                 k=20,
@@ -166,7 +203,6 @@ class ThematicAnalysisPipeline:
                 logger.info(f"--- Running {config.module_class.__name__} stage ---")
                 await self.run_pipeline_with_config(config, optimizer_config)
 
-                # Convert step (except for the last module)
                 if idx < len(configs) - 1 and config.conversion_func:
                     next_config = configs[idx + 1]
                     await self.convert_results(
@@ -176,14 +212,12 @@ class ThematicAnalysisPipeline:
                         output_file=os.path.basename(next_config.queries_file_standard)
                     )
 
-            # Example of generating queries_theme.json before running final stage
             generate_theme_input(
                 info_path='data/input/info.json',
                 grouping_path='data/output/query_results_grouping.json',
                 output_path='data/input/queries_theme.json'
             )
 
-            # Run the final stage if needed
             final_config = configs[-1]
             await self.run_pipeline_with_config(final_config, optimizer_config)
 
