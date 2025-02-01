@@ -1,0 +1,49 @@
+{
+  "self": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Given the fields `input`, produce the fields `answer`.",
+      "fields": [
+        {
+          "prefix": "Input:",
+          "description": "The combined input containing both the question and context. The format should be 'question: <question_text> context: <context_text>'."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "The generated answer to the question. The answer should be concise, directly address the question, and be grounded in the provided context to ensure factual accuracy."
+        }
+      ]
+    },
+    "extended_signature": {
+      "instructions": "Given the fields `input`, produce the fields `answer`.",
+      "fields": [
+        {
+          "prefix": "Input:",
+          "description": "The combined input containing both the question and context. The format should be 'question: <question_text> context: <context_text>'."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "The generated answer to the question. The answer should be concise, directly address the question, and be grounded in the provided context to ensure factual accuracy."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12.8",
+      "dspy": "2.5.43",
+      "cloudpickle": "3.1.0"
+    }
+  }
+}
