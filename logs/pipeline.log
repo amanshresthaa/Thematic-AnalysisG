@@ -1,91 +1,91 @@
-2025-02-01 12:50:32,288 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:32] - Initializing ThematicAnalysisPipeline
-2025-02-01 12:50:32,294 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:197] - Starting the entire Thematic Analysis Pipeline
-2025-02-01 12:50:32,295 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running EnhancedQuotationModule stage ---
-2025-02-01 12:50:32,295 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Enhancedquotation
-2025-02-01 12:50:32,295 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
-2025-02-01 12:50:32,295 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2025-02-01 12:50:32,295 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
-2025-02-01 12:50:42,204 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
-2025-02-01 12:50:42,204 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
-2025-02-01 12:50:42,268 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.06s
-2025-02-01 12:50:42,268 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_quotation.json
-2025-02-01 12:50:42,268 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Enhancedquotation
-2025-02-01 12:50:43,057 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: EnhancedQuotationModule
-2025-02-01 12:50:43,064 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Enhancedquotation
-2025-02-01 12:54:57,888 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Enhancedquotation
-2025-02-01 12:54:57,893 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Enhancedquotation completed in 265.60s
-2025-02-01 12:54:57,893 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
-2025-02-01 12:54:57,896 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running KeywordExtractionModule stage ---
-2025-02-01 12:54:57,896 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Keywordextraction
-2025-02-01 12:54:57,897 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
-2025-02-01 12:54:57,897 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2025-02-01 12:54:57,898 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
-2025-02-01 12:54:57,898 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_keyword_extraction
-2025-02-01 12:54:57,898 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_keyword_extraction
-2025-02-01 12:54:57,983 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.08s
-2025-02-01 12:54:57,983 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_keyword_standard.json
-2025-02-01 12:54:57,983 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Keywordextraction
-2025-02-01 12:54:59,166 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: KeywordExtractionModule
-2025-02-01 12:54:59,192 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Keywordextraction
-2025-02-01 12:57:28,865 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Keywordextraction
-2025-02-01 12:57:28,867 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Keywordextraction completed in 150.97s
-2025-02-01 12:57:28,868 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
-2025-02-01 12:57:28,871 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running CodingAnalysisModule stage ---
-2025-02-01 12:57:28,871 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Codinganalysis
-2025-02-01 12:57:28,871 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
-2025-02-01 12:57:28,871 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2025-02-01 12:57:28,872 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
-2025-02-01 12:57:28,872 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_coding_analysis
-2025-02-01 12:57:28,872 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_coding_analysis
-2025-02-01 12:57:28,944 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.07s
-2025-02-01 12:57:28,944 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_coding_standard.json
-2025-02-01 12:57:28,944 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Codinganalysis
-2025-02-01 12:57:29,982 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: CodingAnalysisModule
-2025-02-01 12:57:29,985 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Codinganalysis
-2025-02-01 12:59:51,990 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Codinganalysis
-2025-02-01 12:59:51,994 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Codinganalysis completed in 143.12s
-2025-02-01 12:59:51,995 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
-2025-02-01 12:59:51,998 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running GroupingAnalysisModule stage ---
-2025-02-01 12:59:51,999 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Groupinganalysis
-2025-02-01 12:59:51,999 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
-2025-02-01 12:59:51,999 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2025-02-01 12:59:52,000 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
-2025-02-01 12:59:52,000 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_grouping
-2025-02-01 12:59:52,000 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_grouping
-2025-02-01 12:59:52,091 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.09s
-2025-02-01 12:59:52,091 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_grouping.json
-2025-02-01 12:59:52,091 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Groupinganalysis
-2025-02-01 12:59:53,102 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: GroupingAnalysisModule
-2025-02-01 12:59:53,104 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Groupinganalysis
-2025-02-01 13:00:15,967 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Groupinganalysis
-2025-02-01 13:00:15,971 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Groupinganalysis completed in 23.97s
-2025-02-01 13:00:15,971 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
-2025-02-01 13:00:15,975 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running ThemedevelopmentAnalysisModule stage ---
-2025-02-01 13:00:15,975 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Themedevelopmentanalysis
-2025-02-01 13:00:15,975 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
-2025-02-01 13:00:15,975 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2025-02-01 13:00:15,976 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
-2025-02-01 13:00:15,976 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2025-02-01 13:00:15,976 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2025-02-01 13:00:16,027 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.05s
-2025-02-01 13:00:16,027 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_theme.json
-2025-02-01 13:00:16,027 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Themedevelopmentanalysis
-2025-02-01 13:00:16,737 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: ThemedevelopmentAnalysisModule
-2025-02-01 13:00:16,740 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Themedevelopmentanalysis
-2025-02-01 13:00:16,740 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Themedevelopmentanalysis
-2025-02-01 13:00:16,742 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Themedevelopmentanalysis completed in 0.77s
-2025-02-01 13:00:16,743 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Themedevelopmentanalysis
-2025-02-01 13:00:16,743 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
-2025-02-01 13:00:16,743 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
-2025-02-01 13:00:16,743 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
-2025-02-01 13:00:16,743 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2025-02-01 13:00:16,743 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
-2025-02-01 13:00:16,778 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.04s
-2025-02-01 13:00:16,778 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_theme.json
-2025-02-01 13:00:16,778 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Themedevelopmentanalysis
-2025-02-01 13:00:17,082 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: ThemedevelopmentAnalysisModule
-2025-02-01 13:00:17,084 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Themedevelopmentanalysis
-2025-02-01 13:00:36,958 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Themedevelopmentanalysis
-2025-02-01 13:00:36,962 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Themedevelopmentanalysis completed in 20.22s
-2025-02-01 13:00:36,962 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:226] - Entire pipeline completed in 604.67s
-2025-02-01 13:00:36,962 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:232] - Thematic Analysis Pipeline execution finished
+2025-02-02 13:26:39,361 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:32] - Initializing ThematicAnalysisPipeline
+2025-02-02 13:26:39,367 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:197] - Starting the entire Thematic Analysis Pipeline
+2025-02-02 13:26:39,367 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running EnhancedQuotationModule stage ---
+2025-02-02 13:26:39,367 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Enhancedquotation
+2025-02-02 13:26:39,367 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
+2025-02-02 13:26:39,367 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2025-02-02 13:26:39,368 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
+2025-02-02 13:26:41,154 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
+2025-02-02 13:26:41,154 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_standard_quotation
+2025-02-02 13:26:41,230 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.08s
+2025-02-02 13:26:41,230 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_quotation.json
+2025-02-02 13:26:41,231 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Enhancedquotation
+2025-02-02 13:26:42,003 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: EnhancedQuotationModule
+2025-02-02 13:26:42,010 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Enhancedquotation
+2025-02-02 13:26:47,742 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Enhancedquotation
+2025-02-02 13:26:47,745 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Enhancedquotation completed in 8.38s
+2025-02-02 13:26:47,745 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
+2025-02-02 13:26:47,746 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running KeywordExtractionModule stage ---
+2025-02-02 13:26:47,746 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Keywordextraction
+2025-02-02 13:26:47,746 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
+2025-02-02 13:26:47,746 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2025-02-02 13:26:47,747 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
+2025-02-02 13:26:47,747 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_keyword_extraction
+2025-02-02 13:26:47,747 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_keyword_extraction
+2025-02-02 13:26:47,790 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.04s
+2025-02-02 13:26:47,790 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_keyword_standard.json
+2025-02-02 13:26:47,791 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Keywordextraction
+2025-02-02 13:26:48,180 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: KeywordExtractionModule
+2025-02-02 13:26:48,183 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Keywordextraction
+2025-02-02 13:26:51,557 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Keywordextraction
+2025-02-02 13:26:51,560 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Keywordextraction completed in 3.81s
+2025-02-02 13:26:51,560 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running CodingAnalysisModule stage ---
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Codinganalysis
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_coding_analysis
+2025-02-02 13:26:51,562 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_coding_analysis
+2025-02-02 13:26:51,603 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.04s
+2025-02-02 13:26:51,603 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_coding_standard.json
+2025-02-02 13:26:51,603 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Codinganalysis
+2025-02-02 13:26:52,361 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: CodingAnalysisModule
+2025-02-02 13:26:52,364 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Codinganalysis
+2025-02-02 13:26:54,600 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Codinganalysis
+2025-02-02 13:26:54,602 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Codinganalysis completed in 3.04s
+2025-02-02 13:26:54,602 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
+2025-02-02 13:26:54,604 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running GroupingAnalysisModule stage ---
+2025-02-02 13:26:54,604 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Groupinganalysis
+2025-02-02 13:26:54,604 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
+2025-02-02 13:26:54,605 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2025-02-02 13:26:54,605 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
+2025-02-02 13:26:54,605 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_grouping
+2025-02-02 13:26:54,605 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_grouping
+2025-02-02 13:26:54,642 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.04s
+2025-02-02 13:26:54,642 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_grouping.json
+2025-02-02 13:26:54,642 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Groupinganalysis
+2025-02-02 13:26:55,139 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: GroupingAnalysisModule
+2025-02-02 13:26:55,141 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Groupinganalysis
+2025-02-02 13:26:55,155 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Groupinganalysis
+2025-02-02 13:26:55,156 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Groupinganalysis completed in 0.55s
+2025-02-02 13:26:55,156 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:183] - Converting results with convert_query_results
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:204] - --- Running ThemedevelopmentAnalysisModule stage ---
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Themedevelopmentanalysis
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
+2025-02-02 13:26:55,157 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
+2025-02-02 13:26:55,187 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.03s
+2025-02-02 13:26:55,187 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_theme.json
+2025-02-02 13:26:55,187 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Themedevelopmentanalysis
+2025-02-02 13:26:55,477 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: ThemedevelopmentAnalysisModule
+2025-02-02 13:26:55,479 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Themedevelopmentanalysis
+2025-02-02 13:26:55,479 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Themedevelopmentanalysis
+2025-02-02 13:26:55,481 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Themedevelopmentanalysis completed in 0.32s
+2025-02-02 13:26:55,481 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:101] - Starting pipeline stage for Themedevelopmentanalysis
+2025-02-02 13:26:55,482 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:78] - Configuring DSPy Language Model for provider: openai
+2025-02-02 13:26:55,482 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:114] - Loading codebase chunks from data/codebase_chunks/codebase_chunks.json
+2025-02-02 13:26:55,482 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:117] - Loading data into ContextualVectorDB
+2025-02-02 13:26:55,482 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:120] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
+2025-02-02 13:26:55,482 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:62] - Creating Elasticsearch BM25 index: contextual_bm25_index_theme_development
+2025-02-02 13:26:55,515 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:70] - Elasticsearch BM25 index creation completed in 0.03s
+2025-02-02 13:26:55,515 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:123] - Loading queries from data/input/queries_theme.json
+2025-02-02 13:26:55,515 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:126] - Initializing optimizer for Themedevelopmentanalysis
+2025-02-02 13:26:55,798 - pipeline.pipeline_runner - DEBUG - [pipeline_runner.py:130] - Module instance created: ThemedevelopmentAnalysisModule
+2025-02-02 13:26:55,800 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:138] - Processing queries for Themedevelopmentanalysis
+2025-02-02 13:26:55,804 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:149] - Starting evaluation for Themedevelopmentanalysis
+2025-02-02 13:26:55,805 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:165] - Pipeline stage for Themedevelopmentanalysis completed in 0.32s
+2025-02-02 13:26:55,805 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:226] - Entire pipeline completed in 16.44s
+2025-02-02 13:26:55,806 - pipeline.pipeline_runner - INFO - [pipeline_runner.py:232] - Thematic Analysis Pipeline execution finished
