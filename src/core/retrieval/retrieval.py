@@ -7,7 +7,7 @@ import dspy
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.utils.logger import setup_logging
-from src.retrieval.query_generator import QueryGeneratorSignature
+from src.core.retrieval.query_generator import QueryGeneratorSignature
 from src.utils.utils import compute_similarity
 # Initialize logger
 setup_logging()

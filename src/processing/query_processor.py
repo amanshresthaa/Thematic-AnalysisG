@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
-from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
+from src.core.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 
 # Import local modules
 from .logger import get_logger

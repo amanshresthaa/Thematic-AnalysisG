@@ -11,7 +11,7 @@ from enum import Enum
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
 from src.utils.logger import setup_logging
-from src.retrieval.retrieval import hybrid_retrieval
+from src.core.retrieval.retrieval import hybrid_retrieval
 
 # Initialize logger
 setup_logging()

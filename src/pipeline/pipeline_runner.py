@@ -20,7 +20,7 @@ from src.pipeline.pipeline_data import create_directories, generate_theme_input
 from src.pipeline.pipeline_optimizer import initialize_optimizer
 from src.processing.query_processor import process_queries
 
-from src.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
+from src.core.retrieval.reranking import retrieve_with_reranking, RerankerConfig, RerankerType
 from src.utils.logger import setup_logging
 
 logger = logging.getLogger(__name__)
