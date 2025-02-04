@@ -1,3 +1,6 @@
+
+# File: contextual_vector_db.py
+# ------------------------------------------------------------------------------
 """
 Module: contextual_vector_db
 
@@ -21,7 +24,7 @@ import dspy
 import time
 
 from src.core.openai_client import OpenAIClient
-from src.utils.logger import setup_logging
+from src.utils.logger import setup_logging, log_execution_time, get_logger
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -95,9 +98,9 @@ class ContextualVectorDB:
             log_exception(logger, "Failed to initialize OpenAIClient", e, {"name": self.name})
             raise
 
-        # Initialize FAISS index attribute
-        self.index = None
+        self.index = None  # FAISS index
 
+    @log_execution_time(logger)
     def situate_context(self, doc: str, chunk: str) -> Tuple[str, Any]:
         logger.debug(f"Entering situate_context with doc length={len(doc)} and chunk length={len(chunk)}.")
         try:
@@ -111,17 +114,24 @@ class ContextualVectorDB:
             logger.debug(f"Generated contextualized_content using DSPy in {elapsed_time:.2f} seconds.")
 
             contextualized_content = response.contextualized_content
-            usage_metrics = {}  # Actual usage metrics can be populated here if available.
+            usage_metrics = {}  # Actual usage metrics can be populated here if desired.
             return contextualized_content, usage_metrics
         except Exception as e:
-            log_exception(logger, "Error during DSPy situate_context", e, {"doc_length": len(doc), "chunk_length": len(chunk)})
+            log_exception(
+                logger,
+                "Error during DSPy situate_context",
+                e,
+                {"doc_length": len(doc), "chunk_length": len(chunk)}
+            )
             return "", None
 
+    @log_execution_time(logger)
     def load_data(self, dataset: List[Dict[str, Any]], parallel_threads: int = 8):
         logger.debug("Entering load_data method.")
         if self.embeddings and self.metadata and os.path.exists(self.faiss_index_path):
             logger.info("Vector database is already loaded. Skipping data loading.")
             return
+
         if os.path.exists(self.db_path) and os.path.exists(self.faiss_index_path):
             logger.info("Loading vector database and FAISS index from disk.")
             self.load_db()
@@ -137,9 +147,9 @@ class ContextualVectorDB:
         self._embed_and_store(texts_to_embed, metadata, max_workers=parallel_threads)
         self.save_db()
         self._build_faiss_index()
-
         logger.info(f"Contextual Vector database loaded and saved. Total chunks processed: {len(texts_to_embed)}.")
 
+    @log_execution_time(logger)
     def _process_dataset(self, dataset: List[Dict[str, Any]], parallel_threads: int) -> Tuple[List[str], List[Dict[str, Any]]]:
         texts_to_embed = []
         metadata = []
@@ -166,7 +176,11 @@ class ContextualVectorDB:
 
         return texts_to_embed, metadata
 
+    @log_execution_time(logger)
     def _generate_contextualized_content(self, doc: Dict[str, Any], chunk: Any) -> Dict[str, Any]:
+        """
+        Generates contextualized content for a single doc-chunk pair.
+        """
         try:
             if not isinstance(doc, dict):
                 logger.error(f"Document is not a dictionary: {doc}")
@@ -175,7 +189,7 @@ class ContextualVectorDB:
             if isinstance(chunk, dict):
                 chunk_id = chunk.get('chunk_id')
                 if not chunk_id:
-                    # Assign a unique chunk_id combining doc_id and chunk's index
+                    # Assign a unique chunk_id if missing
                     chunk_index = chunk.get('index', 0)
                     chunk_id = f"{doc.get('doc_id', 'unknown_doc_id')}_{chunk_index}"
                     chunk['chunk_id'] = chunk_id
@@ -192,7 +206,6 @@ class ContextualVectorDB:
                 return None
 
             logger.debug(f"Processing chunk_id='{chunk_id}' in doc_id='{doc.get('doc_id', 'unknown_doc_id')}'.")
-
             contextualized_text, usage = self.situate_context(doc.get('content', ''), content)
             if not contextualized_text:
                 logger.warning(f"Contextualized content is empty for chunk_id='{chunk_id}'.")
@@ -210,9 +223,13 @@ class ContextualVectorDB:
                 }
             }
         except Exception as e:
-            log_exception(logger, "Error generating contextualized content", e, {"doc_id": doc.get('doc_id', 'unknown'), "chunk": chunk})
+            log_exception(logger, "Error generating contextualized content", e, {
+                "doc_id": doc.get('doc_id', 'unknown'), 
+                "chunk": chunk
+            })
             return None
 
+    @log_execution_time(logger)
     def _embed_and_store(self, texts: List[str], data: List[Dict[str, Any]], max_workers: int = 4):
         logger.debug("Entering _embed_and_store method.")
         batch_size = 128
@@ -254,9 +271,9 @@ class ContextualVectorDB:
         self.metadata = data
         self.save_db()
         self._build_faiss_index()
-
         logger.info(f"Embedding generation completed. Total embeddings: {len(self.embeddings)}.")
 
+    @log_execution_time(logger)
     def _build_faiss_index(self):
         logger.debug("Entering _build_faiss_index method.")
         start_time = time.time()
@@ -269,6 +286,7 @@ class ContextualVectorDB:
         elapsed_time = time.time() - start_time
         logger.info(f"FAISS index built and saved in {elapsed_time:.2f} seconds.")
 
+    @log_execution_time(logger)
     def create_faiss_index(self):
         logger.debug("Entering create_faiss_index method.")
         try:
@@ -287,6 +305,7 @@ class ContextualVectorDB:
             log_exception(logger, "Error creating FAISS index", e)
             raise
 
+    @log_execution_time(logger)
     def save_faiss_index(self):
         logger.debug("Entering save_faiss_index method.")
         os.makedirs(os.path.dirname(self.faiss_index_path), exist_ok=True)
@@ -296,6 +315,7 @@ class ContextualVectorDB:
         except Exception as e:
             log_exception(logger, "Error saving FAISS index", e, {"faiss_index_path": self.faiss_index_path})
 
+    @log_execution_time(logger)
     def load_faiss_index(self):
         logger.debug("Entering load_faiss_index method.")
         if not os.path.exists(self.faiss_index_path):
@@ -308,6 +328,7 @@ class ContextualVectorDB:
             log_exception(logger, "Error loading FAISS index", e, {"faiss_index_path": self.faiss_index_path})
             raise
 
+    @log_execution_time(logger)
     def search(self, query: str, k: int = 20) -> List[Dict[str, Any]]:
         logger.debug(f"Entering search method with query='{query}' and k={k}.")
         if not self.embeddings or not self.metadata:
@@ -368,6 +389,7 @@ class ContextualVectorDB:
         logger.debug(f"Chunks retrieved: {[res['chunk_id'] for res in top_results]}.")
         return top_results
 
+    @log_execution_time(logger)
     def save_db(self):
         logger.debug("Entering save_db method.")
         data = {
@@ -381,6 +403,7 @@ class ContextualVectorDB:
         except Exception as e:
             log_exception(logger, "Error saving vector database metadata", e, {"db_path": self.db_path})
 
+    @log_execution_time(logger)
     def load_db(self):
         logger.debug("Entering load_db method.")
         if not os.path.exists(self.db_path):

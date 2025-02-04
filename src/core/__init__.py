@@ -1,3 +1,5 @@
+# File: __init__.py
+# ------------------------------------------------------------------------------
 """
 Core functionality for the thematic analysis package.
 Contains database and client implementations.

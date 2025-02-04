@@ -1,5 +1,6 @@
-# src/utils/logger.py:
 
+# src/utils/logger.py:
+# ------------------------------------------------------------------------------
 import logging
 import logging.config
 import os
@@ -46,7 +47,7 @@ def setup_logging(
 
 def get_logger(name: str) -> logging.Logger:
     """
-    Get a logger with the specified name and adds extra handlers if needed.
+    Get a logger with the specified name and add a null handler if no handlers exist.
     
     Args:
         name: Name for the logger
@@ -67,7 +68,7 @@ def log_execution_time(logger: Optional[logging.Logger] = None):
     Decorator to log function execution time.
     
     Args:
-        logger: Logger instance to use. If None, creates a new logger.
+        logger: Logger instance to use. If None, a module-level logger is used.
     """
     def decorator(func):
         @wraps(func)
@@ -88,7 +89,8 @@ def log_execution_time(logger: Optional[logging.Logger] = None):
                 execution_time = time.time() - start_time
                 logger.error(
                     f"Function '{func.__name__}' failed after {execution_time:.2f} seconds. "
-                    f"Error: {str(e)}"
+                    f"Error: {str(e)}",
+                    exc_info=True
                 )
                 raise
         return wrapper

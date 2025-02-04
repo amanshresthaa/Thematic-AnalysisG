@@ -1,4 +1,7 @@
+
+
 # File: retrieval/reranking.py
+# ------------------------------------------------------------------------------
 import logging
 from typing import List, Dict, Any, Optional
 from sentence_transformers import SentenceTransformer, util
@@ -10,10 +13,9 @@ from enum import Enum
 
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
-from src.utils.logger import setup_logging
+from src.utils.logger import setup_logging, log_execution_time
 from src.core.retrieval.retrieval import hybrid_retrieval
 
-# Initialize logger
 setup_logging()
 logger = logging.getLogger(__name__)
 
@@ -51,6 +53,7 @@ class SentenceTransformerReRanker:
         self.model.to(self.device)
         logger.info(f"SentenceTransformerReRanker initialized with model '{model_name}' on device '{self.device}'")
 
+    @log_execution_time(logger)
     def rerank(self, query: str, documents: List[str], top_k: int = 20) -> List[Dict[str, Any]]:
         if not query or not documents:
             logger.warning("Query and documents must be provided for re-ranking.")
@@ -81,7 +84,14 @@ class SentenceTransformerReRanker:
                 })
             
             elapsed_time = time.time() - start_time
-            logger.info(f"ST reranking completed in {elapsed_time:.2f}s. Top score: {re_ranked_docs[0]['score']:.4f}, Bottom score: {re_ranked_docs[-1]['score']:.4f}")
+            if re_ranked_docs:
+                logger.info(
+                    f"ST reranking completed in {elapsed_time:.2f}s. "
+                    f"Top score: {re_ranked_docs[0]['score']:.4f}, "
+                    f"Bottom score: {re_ranked_docs[-1]['score']:.4f}"
+                )
+            else:
+                logger.info(f"ST reranking completed in {elapsed_time:.2f}s with no documents returned.")
             return re_ranked_docs
             
         except Exception as e:
@@ -96,6 +106,7 @@ class CohereReRanker:
         self.client = cohere.Client(self.api_key)
         logger.info("CohereReRanker initialized successfully")
 
+    @log_execution_time(logger)
     def rerank(self, query: str, documents: List[str], top_k: int = 20) -> List[Dict[str, Any]]:
         if not query or not documents:
             logger.warning("Query and documents must be provided for Cohere re-ranking.")
@@ -121,7 +132,14 @@ class CohereReRanker:
                 })
             
             elapsed_time = time.time() - start_time
-            logger.info(f"Cohere reranking completed in {elapsed_time:.2f}s. Top score: {re_ranked_docs[0]['score']:.4f}, Bottom score: {re_ranked_docs[-1]['score']:.4f}")
+            if re_ranked_docs:
+                logger.info(
+                    f"Cohere reranking completed in {elapsed_time:.2f}s. "
+                    f"Top score: {re_ranked_docs[0]['score']:.4f}, "
+                    f"Bottom score: {re_ranked_docs[-1]['score']:.4f}"
+                )
+            else:
+                logger.info(f"Cohere reranking completed in {elapsed_time:.2f}s with no documents returned.")
             return re_ranked_docs
             
         except Exception as e:
@@ -139,6 +157,7 @@ class CombinedReRanker:
         self.st_weight = st_weight
         logger.info(f"CombinedReRanker initialized with ST weight: {st_weight}")
 
+    @log_execution_time(logger)
     def rerank(self, query: str, documents: List[str], top_k: int = 20) -> List[Dict[str, Any]]:
         try:
             start_time = time.time()
@@ -159,13 +178,28 @@ class CombinedReRanker:
                 cohere_score = cohere_scores.get(doc, 0.0)
                 combined_score = (st_score * self.st_weight) + (cohere_score * (1 - self.st_weight))
                 combined_scores[doc] = combined_score
-                logger.debug(f"Document scores - ST: {st_score:.4f}, Cohere: {cohere_score:.4f}, Combined: {combined_score:.4f}")
+                logger.debug(
+                    f"Document scores - ST: {st_score:.4f}, "
+                    f"Cohere: {cohere_score:.4f}, "
+                    f"Combined: {combined_score:.4f}"
+                )
             
-            sorted_docs = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)[:top_k]
+            sorted_docs = sorted(
+                combined_scores.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )[:top_k]
             final_results = [{"document": doc, "score": score} for doc, score in sorted_docs]
             
             elapsed_time = time.time() - start_time
-            logger.info(f"Combined reranking completed in {elapsed_time:.2f}s. Top score: {final_results[0]['score']:.4f}, Bottom score: {final_results[-1]['score']:.4f}")
+            if final_results:
+                logger.info(
+                    f"Combined reranking completed in {elapsed_time:.2f}s. "
+                    f"Top score: {final_results[0]['score']:.4f}, "
+                    f"Bottom score: {final_results[-1]['score']:.4f}"
+                )
+            else:
+                logger.info(f"Combined reranking completed in {elapsed_time:.2f}s with no documents returned.")
             return final_results
             
         except Exception as e:
@@ -193,11 +227,12 @@ class RerankerFactory:
             logger.error(error_msg)
             raise ValueError(error_msg)
 
+@log_execution_time(logger)
 def retrieve_with_reranking(query: str,
-                          db: ContextualVectorDB,
-                          es_bm25: ElasticsearchBM25,
-                          k: int,
-                          reranker_config: Optional[RerankerConfig] = None) -> List[Dict[str, Any]]:
+                            db: ContextualVectorDB,
+                            es_bm25: ElasticsearchBM25,
+                            k: int,
+                            reranker_config: Optional[RerankerConfig] = None) -> List[Dict[str, Any]]:
     start_time = time.time()
     logger.info(f"Starting retrieval and reranking for query: '{query[:100]}...'")
 
@@ -241,3 +276,4 @@ def retrieve_with_reranking(query: str,
     except Exception as e:
         logger.error(f"Error during retrieval/reranking for query '{query[:100]}...': {e}", exc_info=True)
         return []
+
