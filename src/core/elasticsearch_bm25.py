@@ -1,3 +1,6 @@
+
+# File: elasticsearch_bm25.py
+# ------------------------------------------------------------------------------
 # src/core/elasticsearch_bm25.py
 
 import logging
@@ -9,13 +12,14 @@ from elasticsearch.exceptions import NotFoundError, RequestError
 import json
 import os
 
-from src.utils.logger import setup_logging
+from src.utils.logger import setup_logging, log_execution_time
 
 setup_logging()
 logger = logging.getLogger(__name__)
 
 class ElasticsearchBM25:
     
+    @log_execution_time(logger)
     def __init__(
         self, 
         index_name: str,
@@ -31,6 +35,7 @@ class ElasticsearchBM25:
             
         self._create_index()
         
+    @log_execution_time(logger)
     def _create_index(self) -> None:
         index_settings = {
             "settings": {
@@ -86,7 +91,6 @@ class ElasticsearchBM25:
         try:
             if self.es_client.indices.exists(index=self.index_name):
                 self.logger.info(f"Index '{self.index_name}' already exists. Skipping creation.")
-                # Avoid modifying immutable settings
             else:
                 self.es_client.indices.create(
                     index=self.index_name,
@@ -97,6 +101,7 @@ class ElasticsearchBM25:
             self.logger.error(f"Failed to create/update index '{self.index_name}': {str(e)}")
             raise
 
+    @log_execution_time(logger)
     def index_documents(
         self,
         documents: List[Dict[str, Any]],
@@ -146,6 +151,7 @@ class ElasticsearchBM25:
         self.logger.info(f"Indexed {success_count}/{len(documents)} documents successfully")
         return success_count, failed_docs
 
+    @log_execution_time(logger)
     def search(
         self,
         query: str,
@@ -207,6 +213,7 @@ class ElasticsearchBM25:
             self.logger.error(f"Search error: {str(e)}")
             raise
 
+    @log_execution_time(logger)
     def search_content(self, query: str, k: int = 20) -> List[Dict[str, Any]]:
         self.logger.debug(f"Performing BM25 search on 'content' for query: '{query}'")
         return self.search(
@@ -217,6 +224,7 @@ class ElasticsearchBM25:
             minimum_should_match="30%"
         )
 
+    @log_execution_time(logger)
     def search_contextualized(self, query: str, k: int = 20) -> List[Dict[str, Any]]:
         self.logger.debug(f"Performing BM25 search on 'contextualized_content' for query: '{query}'")
         return self.search(
@@ -226,3 +234,4 @@ class ElasticsearchBM25:
             operator="or",
             minimum_should_match="30%"
         )
+

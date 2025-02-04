@@ -1,4 +1,6 @@
-# File: retrieval.py
+
+# File: retrieval/retrieval.py
+# ------------------------------------------------------------------------------
 import logging
 import time
 from typing import List, Dict, Any
@@ -6,14 +8,14 @@ import dspy
 
 from src.core.contextual_vector_db import ContextualVectorDB
 from src.core.elasticsearch_bm25 import ElasticsearchBM25
-from src.utils.logger import setup_logging
+from src.utils.logger import setup_logging, log_execution_time
 from src.core.retrieval.query_generator import QueryGeneratorSignature
 from src.utils.utils import compute_similarity
-# Initialize logger
+
 setup_logging()
 logger = logging.getLogger(__name__)
 
-
+@log_execution_time(logger)
 def hybrid_retrieval(
     query: str,
     db: ContextualVectorDB,
@@ -25,7 +27,8 @@ def hybrid_retrieval(
     min_chunks: int = 1
 ) -> List[Dict[str, Any]]:
     """
-    Performs hybrid retrieval by combining FAISS semantic search and dual BM25 contextual search using Reciprocal Rank Fusion.
+    Performs hybrid retrieval by combining FAISS semantic search and dual BM25
+    contextual search using Reciprocal Rank Fusion.
     """
     logger.debug(
         f"Entering hybrid_retrieval with query='{query}', k={k}, "
@@ -139,7 +142,7 @@ def hybrid_retrieval(
     logger.debug(f"Exiting hybrid_retrieval method. Time taken: {end_time - start_time:.2f} seconds.")
     return final_results
 
-
+@log_execution_time(logger)
 def multi_stage_retrieval(
     query: str,
     db: ContextualVectorDB,
@@ -205,3 +208,4 @@ def multi_stage_retrieval(
 
     logger.info(f"Multi-stage retrieval completed with {len(final_results)} chunks.")
     return final_results
+

@@ -1,8 +1,11 @@
+
+# File: openai_client.py
+# ------------------------------------------------------------------------------
 import logging
 import os
 from typing import List, Dict, Any
 from openai import OpenAI
-# Initialize logger
+
 logger = logging.getLogger(__name__)
 
 class OpenAIClient:
@@ -49,7 +52,7 @@ class OpenAIClient:
             logger.debug(f"Chat completion created successfully for model '{model}'.")
             return response.model_dump()
         except Exception as e:
-            logger.error(f"Error creating chat completion: {e}")
+            logger.error(f"Error creating chat completion: {e}", exc_info=True)
             raise
 
     def create_embeddings(self, model: str, input: List[str]) -> Dict[str, Any]:
@@ -75,5 +78,6 @@ class OpenAIClient:
             logger.debug(f"Embeddings created successfully using model '{model}'.")
             return response.model_dump()
         except Exception as e:
-            logger.error(f"Error creating embeddings: {e}")
+            logger.error(f"Error creating embeddings: {e}", exc_info=True)
             raise
+

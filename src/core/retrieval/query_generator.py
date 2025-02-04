@@ -1,5 +1,6 @@
-# File: /Users/amankumarshrestha/Downloads/Example/src/query_generator.py
-# query_generator.py
+
+# File: retrieval/query_generator.py
+# ------------------------------------------------------------------------------
 import dspy
 import logging
 from typing import Dict
