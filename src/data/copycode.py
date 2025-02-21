@@ -2,7 +2,7 @@ import logging
 import os
 import asyncio
 import aiofiles
-from typing import List, Set
+from typing import List, Set, Tuple
 import time
 from pathlib import Path
 
@@ -28,12 +28,12 @@ class CodeFileHandler:
         self.ignored_dirs = {'.venv', 'venv', 'env', '.env', 'myenv', '__pycache__', '.git', 'node_modules'}
         self.output_dir = os.path.join(project_root, 'output')
 
-    async def get_code_files(self) -> List[str]:
+    async def get_code_files(self) -> List[Tuple[str, str]]:
         """
         Get all code files from the src directory.
         
         Returns:
-            List[str]: List of file paths
+            List[Tuple[str, str]]: List of (file_path, relative_path) tuples
         """
         logger.info(f"Scanning for code files in: {self.src_dir}")
         start_time = time.time()
@@ -60,12 +60,12 @@ class CodeFileHandler:
         logger.info(f"Found {len(code_files)} code files in {end_time - start_time:.2f} seconds")
         return sorted(code_files, key=lambda x: x[1])  # Sort by relative path
 
-    async def copy_code_to_file(self, code_files: List[tuple], output_file: str):
+    async def copy_code_to_file(self, code_files: List[Tuple[str, str]], output_file: str):
         """
         Copy code files to a single output file with proper organization.
         
         Args:
-            code_files (List[tuple]): List of (file_path, relative_path) tuples
+            code_files (List[Tuple[str, str]]): List of (file_path, relative_path) tuples
             output_file (str): Output file path
         """
         logger.info(f"Writing consolidated code to: {output_file}")
@@ -101,10 +101,11 @@ class CodeFileHandler:
                             content = await infile.read()
                             await outfile.write(content)
                             await outfile.write("\n")
+                            logger.debug(f"Copied content from {relative_path}")
                     except Exception as e:
                         error_msg = f"# Error reading file {relative_path}: {str(e)}\n"
                         await outfile.write(error_msg)
-                        logger.error(error_msg)
+                        logger.error(f"Error reading file {relative_path}: {e}", exc_info=True)
 
         except Exception as e:
             logger.error(f"Error writing to output file: {e}", exc_info=True)
