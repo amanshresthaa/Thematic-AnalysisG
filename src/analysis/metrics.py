@@ -403,7 +403,7 @@ def factuality_metric(example: Dict[str, Any], pred: Dict[str, Any]) -> int:
 # Initialize the assessment modules
 try:
     # Use the unoptimized module directly without caching
-    comprehensive_assessment_module = dspy.TypedChainOfThought(ComprehensiveAssessment)
+    comprehensive_assessment_module = dspy.ChainOfThought(ComprehensiveAssessment)
     logger.info("Comprehensive Assessment DSPy module initialized successfully.")
 except Exception as e:
     logger.error(f"Error initializing Comprehensive Assessment DSPy module: {e}", exc_info=True)

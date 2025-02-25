@@ -1,0 +1,278 @@
+2025-02-25 12:31:37,314 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:280] - Error in pipeline execution for enhancedquotation: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 228, in run_pipeline_with_config
+    await initialize_optimizer(config, optimizer_config, self.optimized_programs)
+TypeError: object dict can't be used in 'await' expression
+2025-02-25 12:31:37,315 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:341] - Pipeline execution failed: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 317, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 228, in run_pipeline_with_config
+    await initialize_optimizer(config, optimizer_config, self.optimized_programs)
+TypeError: object dict can't be used in 'await' expression
+2025-02-25 12:31:37,441 - __main__ - CRITICAL - [main.py:94] - Pipeline execution failed: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 91, in <module>
+    asyncio.run(pipeline.run_pipeline(configs))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 317, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 228, in run_pipeline_with_config
+    await initialize_optimizer(config, optimizer_config, self.optimized_programs)
+TypeError: object dict can't be used in 'await' expression
+2025-02-25 12:33:33,089 - src.pipeline.pipeline_optimizer - ERROR - [pipeline_optimizer.py:59] - Error initializing optimizer for EnhancedQuotationModule: 'OptimizerConfig' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_optimizer.py", line 50, in initialize_optimizer
+    N=optimizer_config.get('max_retries', 3),
+      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'get'
+2025-02-25 12:33:33,089 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:285] - Error in pipeline execution for enhancedquotation: 'OptimizerConfig' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 228, in run_pipeline_with_config
+    self.optimized_programs[module_name] = initialize_optimizer(
+                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_optimizer.py", line 50, in initialize_optimizer
+    N=optimizer_config.get('max_retries', 3),
+      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'get'
+2025-02-25 12:33:33,090 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:346] - Pipeline execution failed: 'OptimizerConfig' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 322, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 228, in run_pipeline_with_config
+    self.optimized_programs[module_name] = initialize_optimizer(
+                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_optimizer.py", line 50, in initialize_optimizer
+    N=optimizer_config.get('max_retries', 3),
+      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'get'
+2025-02-25 12:33:33,193 - __main__ - CRITICAL - [main.py:94] - Pipeline execution failed: 'OptimizerConfig' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 91, in <module>
+    asyncio.run(pipeline.run_pipeline(configs))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 322, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 228, in run_pipeline_with_config
+    self.optimized_programs[module_name] = initialize_optimizer(
+                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_optimizer.py", line 50, in initialize_optimizer
+    N=optimizer_config.get('max_retries', 3),
+      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'get'
+2025-02-25 12:34:52,932 - src.processing.factories - ERROR - [factories.py:52] - Unsupported module type: BestOfN (defined in dspy.predict.best_of_n)
+Module MRO: (<class 'dspy.predict.best_of_n.BestOfN'>, <class 'dspy.primitives.program.Module'>, <class 'dspy.primitives.module.BaseModule'>, <class 'object'>)
+2025-02-25 12:34:52,932 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:285] - Error in pipeline execution for enhancedquotation: Unsupported module type: BestOfN
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 256, in run_pipeline_with_config
+    await process_queries(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/query_processor.py", line 66, in process_queries
+    handler: BaseHandler = get_handler_for_module(module)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/factories.py", line 56, in get_handler_for_module
+    raise ValueError(f"Unsupported module type: {module_type}")
+ValueError: Unsupported module type: BestOfN
+2025-02-25 12:34:52,932 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:346] - Pipeline execution failed: Unsupported module type: BestOfN
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 322, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 256, in run_pipeline_with_config
+    await process_queries(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/query_processor.py", line 66, in process_queries
+    handler: BaseHandler = get_handler_for_module(module)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/factories.py", line 56, in get_handler_for_module
+    raise ValueError(f"Unsupported module type: {module_type}")
+ValueError: Unsupported module type: BestOfN
+2025-02-25 12:34:53,025 - __main__ - CRITICAL - [main.py:94] - Pipeline execution failed: Unsupported module type: BestOfN
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 91, in <module>
+    asyncio.run(pipeline.run_pipeline(configs))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 322, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 256, in run_pipeline_with_config
+    await process_queries(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/query_processor.py", line 66, in process_queries
+    handler: BaseHandler = get_handler_for_module(module)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/factories.py", line 56, in get_handler_for_module
+    raise ValueError(f"Unsupported module type: {module_type}")
+ValueError: Unsupported module type: BestOfN
+2025-02-25 12:36:40,052 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:280] - Error in pipeline execution for enhancedquotation: 'OptimizerConfig' object has no attribute 'retrieval_k'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 258, in run_pipeline_with_config
+    retrieval_k=optimizer_config.retrieval_k,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'retrieval_k'
+2025-02-25 12:36:40,053 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:341] - Pipeline execution failed: 'OptimizerConfig' object has no attribute 'retrieval_k'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 317, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 258, in run_pipeline_with_config
+    retrieval_k=optimizer_config.retrieval_k,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'retrieval_k'
+2025-02-25 12:36:40,131 - __main__ - CRITICAL - [main.py:94] - Pipeline execution failed: 'OptimizerConfig' object has no attribute 'retrieval_k'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 91, in <module>
+    asyncio.run(pipeline.run_pipeline(configs))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 317, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 258, in run_pipeline_with_config
+    retrieval_k=optimizer_config.retrieval_k,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OptimizerConfig' object has no attribute 'retrieval_k'
+2025-02-25 12:37:56,233 - src.decorators - ERROR - [decorators.py:21] - Error in process_queries: process_queries() got an unexpected keyword argument 'processor_source_name'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/decorators.py", line 19, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: process_queries() got an unexpected keyword argument 'processor_source_name'
+2025-02-25 12:37:56,234 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:280] - Error in pipeline execution for enhancedquotation: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 252, in run_pipeline_with_config
+    await process_queries(
+TypeError: object dict can't be used in 'await' expression
+2025-02-25 12:37:56,234 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:341] - Pipeline execution failed: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 317, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 252, in run_pipeline_with_config
+    await process_queries(
+TypeError: object dict can't be used in 'await' expression
+2025-02-25 12:37:56,314 - __main__ - CRITICAL - [main.py:94] - Pipeline execution failed: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 91, in <module>
+    asyncio.run(pipeline.run_pipeline(configs))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 317, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 252, in run_pipeline_with_config
+    await process_queries(
+TypeError: object dict can't be used in 'await' expression
+2025-02-25 12:38:43,841 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:281] - Error in pipeline execution for enhancedquotation: Can't instantiate abstract class BestOfNHandler without an implementation for abstract method 'process_single_transcript'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 252, in run_pipeline_with_config
+    await process_queries(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/query_processor.py", line 66, in process_queries
+    handler: BaseHandler = get_handler_for_module(module)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/factories.py", line 38, in get_handler_for_module
+    return BestOfNHandler(module)
+           ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class BestOfNHandler without an implementation for abstract method 'process_single_transcript'
+2025-02-25 12:38:43,843 - pipeline.pipeline_runner - ERROR - [pipeline_runner.py:342] - Pipeline execution failed: Can't instantiate abstract class BestOfNHandler without an implementation for abstract method 'process_single_transcript'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 318, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 252, in run_pipeline_with_config
+    await process_queries(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/query_processor.py", line 66, in process_queries
+    handler: BaseHandler = get_handler_for_module(module)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/factories.py", line 38, in get_handler_for_module
+    return BestOfNHandler(module)
+           ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class BestOfNHandler without an implementation for abstract method 'process_single_transcript'
+2025-02-25 12:38:43,925 - __main__ - CRITICAL - [main.py:94] - Pipeline execution failed: Can't instantiate abstract class BestOfNHandler without an implementation for abstract method 'process_single_transcript'
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/main.py", line 91, in <module>
+    asyncio.run(pipeline.run_pipeline(configs))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.8/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 318, in run_pipeline
+    await self.run_pipeline_with_config(config, optimizer_config)
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/pipeline/pipeline_runner.py", line 252, in run_pipeline_with_config
+    await process_queries(
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/query_processor.py", line 66, in process_queries
+    handler: BaseHandler = get_handler_for_module(module)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/processing/factories.py", line 38, in get_handler_for_module
+    return BestOfNHandler(module)
+           ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class BestOfNHandler without an implementation for abstract method 'process_single_transcript'
+2025-02-25 12:40:42,815 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:40:42,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:40:42,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:40:42,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:40:42,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,709 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,709 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,710 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,711 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,710 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,710 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,711 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:32,710 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:39,240 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:39,502 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:40,479 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:40,699 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:41,076 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:44,411 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,694 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,694 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,695 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,695 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,695 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,696 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,696 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:50,696 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:56,337 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:56,344 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:56,453 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:56,480 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:41:57,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:335] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-02-25 12:42:29,982 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_grouping.jsonl': File does not exist.
+2025-02-25 12:42:30,078 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/queries_theme.json': File does not exist.
+2025-02-25 12:47:04,350 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_grouping.jsonl': File does not exist.
+2025-02-25 12:47:04,395 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/queries_theme.json': File does not exist.

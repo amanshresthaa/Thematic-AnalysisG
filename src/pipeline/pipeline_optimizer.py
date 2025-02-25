@@ -1,59 +1,92 @@
-# src/pipeline/pipeline_optimizer.py
-
 import logging
-import time
 import dspy
-from dspy.datasets import DataLoader
-from dspy.teleprompt import BootstrapFewShotWithRandomSearch
-from dspy.primitives.assertions import backtrack_handler
-from src.analysis.metrics import comprehensive_metric
-from src.processing.answer_generator import QuestionAnswerSignature
-from src.pipeline.pipeline_configs import OptimizerConfig, ModuleConfig
+from typing import Dict, Any, Type
+from src.core.contextual_vector_db import ContextualVectorDB
+from src.core.elasticsearch_bm25 import ElasticsearchBM25
+from src.pipeline.pipeline_configs import OptimizerConfig
 
 logger = logging.getLogger(__name__)
 
-async def initialize_optimizer(config: ModuleConfig, optimizer_config: OptimizerConfig, optimized_programs: dict):
+def initialize_optimizer(
+    module_class: Type[dspy.Module],
+    optimizer_config: OptimizerConfig,
+    db: ContextualVectorDB,
+    es_bm25: ElasticsearchBM25,
+) -> dspy.Module:
     """
-    Initializes and trains a teleprompt-based optimizer for the specified module.
+    Initialize the pipeline optimizer with the new BestOfN approach.
+    
+    Args:
+        module_class: The DSPy module class to optimize
+        optimizer_config: Configuration for optimization
+        db: Contextual vector database instance
+        es_bm25: Elasticsearch BM25 instance
+    
+    Returns:
+        Optimized DSPy module instance
     """
-    module_name = config.module_class.__name__.replace("Module", "").lower()
-    logger.info(f"Initializing {module_name} optimizer")
-    start_time = time.time()
-
     try:
-        dl = DataLoader()
-        train_dataset = dl.from_csv(
-            config.training_data,
-            fields=("input", "output"),
-            input_keys=("input",)
+        logger.info(f"Initializing optimizer for {module_class.__name__}")
+        
+        # Create base module instance
+        module_instance = module_class()
+        
+        # Create reward function based on module type
+        def reward_fn(input_kwargs: Dict[str, Any], prediction: Any) -> float:
+            """Generic reward function for the module."""
+            try:
+                if not prediction:
+                    return 0.0
+                
+                module_name = module_class.__name__.lower()
+                
+                # Module-specific validation logic
+                if "quotation" in module_name:
+                    research_objectives = input_kwargs.get("research_objectives", "")
+                    transcript_chunk = input_kwargs.get("transcript_chunk", "")
+                    quotations = getattr(prediction, "quotations", []) or []
+                    
+                    # Basic validation for quotation module
+                    if not quotations:
+                        return 0.0
+                        
+                    # Check alignment with research objectives
+                    if research_objectives and not any(obj.lower() in " ".join(quotations).lower() 
+                                                     for obj in research_objectives.split()):
+                        return 0.5  # Partial match
+                        
+                    return 1.0
+                    
+                elif "keyword" in module_name:
+                    keywords = getattr(prediction, "keywords", []) or []
+                    return 1.0 if keywords else 0.0
+                    
+                elif "theme" in module_name:
+                    themes = getattr(prediction, "themes", []) or []
+                    return 1.0 if themes else 0.0
+                
+                # Default success if we have any prediction
+                return 1.0
+                
+            except Exception as e:
+                logger.error(f"Error in reward function: {e}")
+                return 0.0
+        
+        # Access attributes directly instead of using .get()
+        max_retries = getattr(optimizer_config, "max_retries", 3)
+        threshold = getattr(optimizer_config, "threshold", 0.9)
+        
+        # Wrap with BestOfN
+        optimized_module = dspy.BestOfN(
+            module_instance,
+            N=max_retries,
+            reward_fn=reward_fn,
+            threshold=threshold
         )
-        logger.info(f"Loaded {len(train_dataset)} samples for {module_name} training data")
-
-        qa_module = dspy.ChainOfThought(QuestionAnswerSignature)
-        teleprompter = BootstrapFewShotWithRandomSearch(
-            metric=comprehensive_metric,
-            max_bootstrapped_demos=optimizer_config.max_bootstrapped_demos,
-            max_labeled_demos=optimizer_config.max_labeled_demos,
-            num_candidate_programs=optimizer_config.num_candidate_programs,
-            num_threads=optimizer_config.num_threads
-        )
-
-        compile_start = time.time()
-        optimized_program = teleprompter.compile(
-            student=qa_module,
-            teacher=qa_module,
-            trainset=train_dataset
-        )
-        compile_time = time.time() - compile_start
-        logger.info(f"Compiled optimized {module_name} program in {compile_time:.2f}s")
-
-        optimized_program.save(config.optimized_program_path)
-        logger.info(f"Saved optimized {module_name} program to {config.optimized_program_path}")
-
-        optimized_programs[module_name] = optimized_program
+        
+        logger.info(f"Successfully initialized optimizer for {module_class.__name__}")
+        return optimized_module
+        
     except Exception as e:
-        logger.error(f"Error initializing {module_name} optimizer: {e}", exc_info=True)
+        logger.error(f"Error initializing optimizer for {module_class.__name__}: {e}", exc_info=True)
         raise
-
-    total_time = time.time() - start_time
-    logger.info(f"{module_name.capitalize()} optimizer initialization completed in {total_time:.2f}s")

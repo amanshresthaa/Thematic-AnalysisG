@@ -13,7 +13,7 @@ class ThemedevelopmentAnalysisModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.ChainOfThought(ThemedevelopmentAnalysisSignature)  # Updated to use ChainOfThought
+        self.chain = dspy.ChainOfThought(ThemedevelopmentAnalysisSignature)
 
     def forward(self,
                 research_objectives: str,
@@ -59,5 +59,5 @@ class ThemedevelopmentAnalysisModule(dspy.Module):
             
             return response
         except Exception as e:
-            logger.error(f"Error during theme development analysis: {e}", exc_info=True)
+            logger.error(f"Error in ThemedevelopmentAnalysisModule.forward: {e}", exc_info=True)
             return {}

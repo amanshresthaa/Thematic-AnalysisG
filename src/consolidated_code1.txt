@@ -407,7 +407,7 @@ def factuality_metric(example: Dict[str, Any], pred: Dict[str, Any]) -> int:
 # Initialize the assessment modules
 try:
     # Use the unoptimized module directly without caching
-    comprehensive_assessment_module = dspy.TypedChainOfThought(ComprehensiveAssessment)
+    comprehensive_assessment_module = dspy.ChainOfThought(ComprehensiveAssessment)
     logger.info("Comprehensive Assessment DSPy module initialized successfully.")
 except Exception as e:
     logger.error(f"Error initializing Comprehensive Assessment DSPy module: {e}", exc_info=True)
@@ -1373,7 +1373,7 @@ try:
     logger.info("Optimized DSPy program loaded successfully.")
 except Exception as e:
     try:
-        qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+        qa_module = dspy.ChainOfThought(QuestionAnswerSignature)
         logger.info("Unoptimized DSPy module initialized successfully.")
     except Exception as inner_e:
         logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
@@ -1490,7 +1490,7 @@ class SelectQuotationModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(SelectQuotationSignature)
+        self.chain = dspy.ChainOfThought(SelectQuotationSignature)
 
     def forward(self, research_objectives: str, transcript_chunks: List[str]) -> Dict[str, Any]:
         try:
@@ -1674,7 +1674,7 @@ def multi_stage_retrieval(
     all_retrieved_chunks = {}
     current_query = query
     previous_query = ""
-    query_generator = dspy.TypedChainOfThought(QueryGeneratorSignature)
+    query_generator = dspy.ChainOfThought(QueryGeneratorSignature)
 
     for hop in range(max_hops):
         logger.info(f"Starting hop {hop+1} with query: '{current_query}'")
@@ -2542,7 +2542,7 @@ async def main():
             # If loading fails, use the unoptimized module
             logger.warning("Failed to load optimized program. Using unoptimized module.")
             try:
-                qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+                qa_module = dspy.ChainOfThought(QuestionAnswerSignature)
                 logger.info("Unoptimized DSPy module initialized successfully.")
             except Exception as inner_e:
                 logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
