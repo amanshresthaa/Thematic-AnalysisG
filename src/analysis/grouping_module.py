@@ -16,7 +16,7 @@ class GroupingAnalysisModule(dspy.Module):
 
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(GroupingAnalysisSignature)
+        self.chain = dspy.ChainOfThought(GroupingAnalysisSignature)
 
     def forward(
         self,
@@ -35,11 +35,7 @@ class GroupingAnalysisModule(dspy.Module):
                 theoretical_framework=theoretical_framework,
                 codes=codes
             )
-
-            if not response.get("groupings"):
-                logger.warning("No groupings were generated. Possible issue with inputs or prompt formulation.")
-
-            logger.info("Successfully completed grouping analysis.")
+            
             return response
         except Exception as e:
             logger.error(f"Error during grouping analysis: {e}", exc_info=True)

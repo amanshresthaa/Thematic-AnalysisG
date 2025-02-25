@@ -12,7 +12,7 @@ class CodingAnalysisModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(CodingAnalysisSignature)
+        self.chain = dspy.ChainOfThought(CodingAnalysisSignature)
 
     def forward(self, research_objectives: str, quotation: str,
                 keywords: List[str], contextualized_contents: List[str],
