@@ -14,7 +14,7 @@ class KeywordExtractionModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
+        self.chain = dspy.ChainOfThought(KeywordExtractionSignature)
 
     def forward(self, research_objectives: str, quotation: str,
                 contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
@@ -22,7 +22,7 @@ class KeywordExtractionModule(dspy.Module):
         Execute keyword extraction and analysis with the 6Rs framework.
         """
         try:
-            logger.debug("Running KeywordExtractionModule with integrated keyword assertions.")
+            logger.debug("Running KeywordExtractionModule.")
             response = self.chain(
                 research_objectives=research_objectives,
                 quotation=quotation,

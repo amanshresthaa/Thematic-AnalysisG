@@ -156,7 +156,7 @@ def multi_stage_retrieval(
     all_retrieved_chunks = {}
     current_query = query
     previous_query = ""
-    query_generator = dspy.TypedChainOfThought(QueryGeneratorSignature)
+    query_generator = dspy.ChainOfThought(QueryGeneratorSignature)
 
     for hop in range(max_hops):
         logger.info(f"Starting hop {hop+1} with query: '{current_query}'")

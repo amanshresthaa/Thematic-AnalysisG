@@ -75,12 +75,12 @@ print(f"Answer: {answer}, Answer Type: {type(answer)}")
 print(f"Confidence Score: {confidence_score}, Confidence Score Type: {type(confidence_score)}")
 ```
 
-## Typed Chain of Thoughts with `dspy.TypedChainOfThought`
+## Typed Chain of Thoughts with `dspy.ChainOfThought`
 
-Extending the analogous comparison of `TypedPredictor` to `dspy.Predict`, we create `TypedChainOfThought`, the typed counterpart of `dspy.ChainOfThought`:
+Extending the analogous comparison of `TypedPredictor` to `dspy.Predict`, we create `ChainOfThought`, the typed counterpart of `dspy.ChainOfThought`:
 
 ```python
-cot_predictor = dspy.TypedChainOfThought(QASignature)
+cot_predictor = dspy.ChainOfThought(QASignature)
 
 doc_query_pair = Input(
     context="The quick brown fox jumps over the lazy dog",
@@ -92,7 +92,7 @@ prediction = cot_predictor(input=doc_query_pair)
 
 ## Typed Predictors as Decorators
 
-While the `dspy.TypedPredictor` and `dspy.TypedChainOfThought` provide a convenient way to use typed predictors, you can also use them as decorators to enforce type constraints on the inputs and outputs of the function. This relies on the internal definitions of the Signature class and its function arguments, outputs, and docstrings.
+While the `dspy.TypedPredictor` and `dspy.ChainOfThought` provide a convenient way to use typed predictors, you can also use them as decorators to enforce type constraints on the inputs and outputs of the function. This relies on the internal definitions of the Signature class and its function arguments, outputs, and docstrings.
 
 ```python
 @dspy.predictor

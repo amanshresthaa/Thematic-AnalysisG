@@ -71,7 +71,7 @@ try:
     logger.info("Optimized DSPy program loaded successfully.")
 except Exception as e:
     try:
-        qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+        qa_module = dspy.ChainOfThought(QuestionAnswerSignature)
         logger.info("Unoptimized DSPy module initialized successfully.")
     except Exception as inner_e:
         logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)

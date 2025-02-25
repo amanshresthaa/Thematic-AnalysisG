@@ -57,7 +57,7 @@ class KeywordExtractionModule(dspy.Module):
         """Initialize the module with optional configuration."""
         super().__init__()
         self.config = config or KeywordExtractionConfig()
-        self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
+        self.chain = dspy.ChainOfThought(KeywordExtractionSignature)
         logger.info("Initialized KeywordExtractionModule with config: %s", self.config)
 
     def create_prompt(self, research_objectives: str, quotation: str,

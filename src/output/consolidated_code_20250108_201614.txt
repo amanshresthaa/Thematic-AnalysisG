@@ -559,7 +559,7 @@ class CodingAnalysisModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(CodingAnalysisSignature)
+        self.chain = dspy.ChainOfThought(CodingAnalysisSignature)
 
     def forward(self, research_objectives: str, quotation: str,
                 keywords: List[str], contextualized_contents: List[str],
@@ -662,7 +662,7 @@ class KeywordExtractionModule(dspy.Module):
         """Initialize the module with optional configuration."""
         super().__init__()
         self.config = config or KeywordExtractionConfig()
-        self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
+        self.chain = dspy.ChainOfThought(KeywordExtractionSignature)
         logger.info("Initialized KeywordExtractionModule with config: %s", self.config)
 
     def create_prompt(self, research_objectives: str, quotation: str,
@@ -862,7 +862,7 @@ class KeywordExtractionModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(KeywordExtractionSignature)
+        self.chain = dspy.ChainOfThought(KeywordExtractionSignature)
 
     def forward(self, research_objectives: str, quotation: str,
                 contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
@@ -1079,7 +1079,7 @@ class GroupingAnalysisModule(dspy.Module):
 
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(GroupingAnalysisSignature)
+        self.chain = dspy.ChainOfThought(GroupingAnalysisSignature)
 
     def forward(
         self,
@@ -1516,7 +1516,7 @@ def factuality_metric(example: Dict[str, Any], pred: Dict[str, Any]) -> int:
 # Initialize the assessment modules
 try:
     # Use the unoptimized module directly without caching
-    comprehensive_assessment_module = dspy.TypedChainOfThought(ComprehensiveAssessment)
+    comprehensive_assessment_module = dspy.ChainOfThought(ComprehensiveAssessment)
     logger.info("Comprehensive Assessment DSPy module initialized successfully.")
 except Exception as e:
     logger.error(f"Error initializing Comprehensive Assessment DSPy module: {e}", exc_info=True)
@@ -1907,7 +1907,7 @@ class EnhancedQuotationModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(EnhancedQuotationSignature)
+        self.chain = dspy.ChainOfThought(EnhancedQuotationSignature)
 
     def forward(self, research_objectives: str, transcript_chunk: str, 
                 contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:
@@ -5833,7 +5833,7 @@ try:
     logger.info("Optimized DSPy program loaded successfully.")
 except Exception as e:
     try:
-        qa_module = dspy.TypedChainOfThought(QuestionAnswerSignature)
+        qa_module = dspy.ChainOfThought(QuestionAnswerSignature)
         logger.info("Unoptimized DSPy module initialized successfully.")
     except Exception as inner_e:
         logger.error(f"Error initializing unoptimized DSPy module: {inner_e}", exc_info=True)
@@ -7135,7 +7135,7 @@ def multi_stage_retrieval(
     all_retrieved_chunks = {}
     current_query = query
     previous_query = ""
-    query_generator = dspy.TypedChainOfThought(QueryGeneratorSignature)
+    query_generator = dspy.ChainOfThought(QueryGeneratorSignature)
 
     for hop in range(max_hops):
         logger.info(f"Starting hop {hop+1} with query: '{current_query}'")

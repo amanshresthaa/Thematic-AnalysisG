@@ -3,13 +3,6 @@ from typing import Dict, Any, List
 import dspy
 
 from src.analysis.select_quotation import EnhancedQuotationModule
-from src.assertions import (
-    assert_pattern_representation,
-    assert_research_objective_alignment,
-    assert_selective_transcription,
-    assert_creswell_categorization,
-    assert_reader_engagement
-)
 
 logger = logging.getLogger(__name__)
 
@@ -33,16 +26,8 @@ class SelectQuotationModule(dspy.Module):
                 theoretical_framework=theoretical_framework
             )
             
-            quotations = response.get("quotations", [])
-            analysis = response.get("analysis", {})
-            patterns = analysis.get("patterns_identified", [])
-
-            assert_pattern_representation(quotations, patterns)
-            assert_research_objective_alignment(quotations, research_objectives)
-            assert_selective_transcription(quotations, transcript_chunk)
-            assert_creswell_categorization(quotations)
-            assert_reader_engagement(quotations)
-
+            # Return the response without assertions
+            # The validation will be handled by BestOfN in the pipeline runner
             return response
         except Exception as e:
             logger.error(f"Error in SelectQuotationModule.forward: {e}", exc_info=True)
