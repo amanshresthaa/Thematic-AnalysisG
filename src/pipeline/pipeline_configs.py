@@ -9,6 +9,7 @@ class OptimizerConfig:
     num_threads: int = 1
     temperature: float = 0.7
     max_tokens: int = 8192
+    retrieval_k: int = 20
 
 @dataclass
 class ModelConfig:

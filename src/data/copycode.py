@@ -23,7 +23,7 @@ class CodeFileHandler:
             extensions (Set[str]): Set of file extensions to include
         """
         self.project_root = project_root
-        self.src_dir = os.path.join(project_root, 'core')
+        self.src_dir = os.path.join(project_root, '')
         self.extensions = extensions or {'.py', '.yaml', '.yml'}
         self.ignored_dirs = {'.venv', 'venv', 'env', '.env', 'myenv', '__pycache__', '.git', 'node_modules'}
         self.output_dir = os.path.join(project_root, 'output')

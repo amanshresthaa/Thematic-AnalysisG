@@ -333,7 +333,7 @@ class EnhancedQuotationModule(dspy.Module):
     """
     def __init__(self):
         super().__init__()
-        self.chain = dspy.TypedChainOfThought(EnhancedQuotationSignature)
+        self.chain = dspy.ChainOfThought(EnhancedQuotationSignature)
 
     def forward(self, research_objectives: str, transcript_chunk: str, 
                 contextualized_contents: List[str], theoretical_framework: Dict[str, str]) -> Dict[str, Any]:

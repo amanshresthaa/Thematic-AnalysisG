@@ -454,10 +454,10 @@ evaluate(optimized_program, devset=devset[:])
 ```python
 from dspy.teleprompt.signature_opt_typed import optimize_signature
 from dspy.evaluate.metrics import answer_exact_match
-from dspy.functional import TypedChainOfThought
+from dspy.functional import ChainOfThought
 
 compiled_program = optimize_signature(
-    student=TypedChainOfThought("question -> answer"),
+    student=ChainOfThought("question -> answer"),
     evaluator=Evaluate(devset=devset, metric=answer_exact_match, num_threads=10, display_progress=True),
     n_iterations=50,
 ).program
