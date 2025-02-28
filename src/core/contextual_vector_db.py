@@ -1,4 +1,3 @@
-
 # File: contextual_vector_db.py
 # ------------------------------------------------------------------------------
 """
@@ -13,8 +12,7 @@ implementing robust error handling and detailed logging.
 import os
 import pickle
 import numpy as np
-import threading
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any, Tuple, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 from dotenv import load_dotenv
@@ -33,12 +31,6 @@ logger = logging.getLogger(__name__)
 def log_exception(logger_obj: logging.Logger, message: str, e: Exception, context: Dict[str, Any] = None) -> None:
     """
     Helper function for logging exceptions with additional context.
-    
-    Args:
-        logger_obj (logging.Logger): Logger instance.
-        message (str): Custom error message.
-        e (Exception): The caught exception.
-        context (Dict[str, Any], optional): Additional contextual information.
     """
     context_str = ", ".join(f"{k}={v}" for k, v in (context or {}).items())
     logger_obj.error(f"{message}. Context: {context_str}. Exception: {e}", exc_info=True)
@@ -99,22 +91,72 @@ class ContextualVectorDB:
             raise
 
         self.index = None  # FAISS index
+        self.situate_context_module = None
+
+    def _is_db_loaded_in_memory(self) -> bool:
+        return bool(self.embeddings and self.metadata and os.path.exists(self.faiss_index_path))
+
+    def _is_db_saved_on_disk(self) -> bool:
+        return os.path.exists(self.db_path) and os.path.exists(self.faiss_index_path)
+
+    def _load_from_disk(self) -> None:
+        self.load_db()
+        self.load_faiss_index()
+
+    def _generate_query_embedding(self, query: str) -> Optional[np.ndarray]:
+        try:
+            start_time = time.time()
+            logger.debug("Generating embedding for the query.")
+            response = self.client.create_embeddings(
+                model="text-embedding-3-small",
+                input=[query]
+            )
+            query_embedding = response['data'][0]['embedding']
+            elapsed_time = time.time() - start_time
+            logger.debug(f"Generated embedding for query in {elapsed_time:.2f} seconds.")
+            query_embedding_np = np.array([query_embedding]).astype('float32')
+            faiss.normalize_L2(query_embedding_np)
+            return query_embedding_np
+        except Exception as e:
+            log_exception(logger, "Error generating query embedding", e, {"query": query})
+            return None
+
+    def _extract_chunk_details(self, doc: Dict[str, Any], chunk: Any) -> Optional[Tuple[str, str, int]]:
+        """
+        Extracts and returns (chunk_id, content, original_index) for the given chunk.
+        """
+        if isinstance(chunk, dict):
+            chunk_id = chunk.get('chunk_id')
+            if not chunk_id:
+                chunk_index = chunk.get('index', 0)
+                chunk_id = f"{doc.get('doc_id', 'unknown_doc_id')}_{chunk_index}"
+                chunk['chunk_id'] = chunk_id
+            content = chunk.get('content', '')
+            original_index = chunk.get('original_index', chunk.get('index', 0))
+            return chunk_id, content, original_index
+        elif isinstance(chunk, str):
+            logger.warning("Chunk is a string. Expected a dict. Assigning default values.")
+            chunk_id = f"{doc.get('doc_id', 'unknown_doc_id')}_0"
+            return chunk_id, chunk, 0
+        else:
+            logger.error(f"Unsupported chunk type: {type(chunk)}. Skipping chunk.")
+            return None
 
     @log_execution_time(logger)
     def situate_context(self, doc: str, chunk: str) -> Tuple[str, Any]:
         logger.debug(f"Entering situate_context with doc length={len(doc)} and chunk length={len(chunk)}.")
         try:
-            if not hasattr(self, 'situate_context_module'):
+            if self.situate_context_module is None:
                 self.situate_context_module = SituateContext()
                 logger.debug("Initialized SituateContext module.")
 
             start_time = time.time()
             response = self.situate_context_module(doc=doc, chunk=chunk)
             elapsed_time = time.time() - start_time
-            logger.debug(f"Generated contextualized_content using DSPy in {elapsed_time:.2f} seconds.")
+            logger.debug(f"Generated contextualized content using DSPy in {elapsed_time:.2f} seconds.")
 
             contextualized_content = response.contextualized_content
-            usage_metrics = {}  # Actual usage metrics can be populated here if desired.
+            usage_metrics = {}  # Populate usage metrics if needed.
             return contextualized_content, usage_metrics
         except Exception as e:
             log_exception(
@@ -128,14 +170,13 @@ class ContextualVectorDB:
     @log_execution_time(logger)
     def load_data(self, dataset: List[Dict[str, Any]], parallel_threads: int = 8):
         logger.debug("Entering load_data method.")
-        if self.embeddings and self.metadata and os.path.exists(self.faiss_index_path):
-            logger.info("Vector database is already loaded. Skipping data loading.")
+        if self._is_db_loaded_in_memory():
+            logger.info("Vector database is already loaded in memory. Skipping data loading.")
             return
 
-        if os.path.exists(self.db_path) and os.path.exists(self.faiss_index_path):
+        if self._is_db_saved_on_disk():
             logger.info("Loading vector database and FAISS index from disk.")
-            self.load_db()
-            self.load_faiss_index()
+            self._load_from_disk()
             return
 
         texts_to_embed, metadata = self._process_dataset(dataset, parallel_threads)
@@ -155,15 +196,15 @@ class ContextualVectorDB:
         metadata = []
         total_chunks = sum(len(doc.get('chunks', [])) for doc in dataset)
         logger.info(f"Total chunks to process: {total_chunks}.")
-
         logger.info(f"Processing {total_chunks} chunks with {parallel_threads} threads.")
+
         try:
             with ThreadPoolExecutor(max_workers=parallel_threads) as executor:
-                futures = []
-                for doc in dataset:
-                    for chunk in doc.get('chunks', []):
-                        futures.append(executor.submit(self._generate_contextualized_content, doc, chunk))
-
+                futures = [
+                    executor.submit(self._generate_contextualized_content, doc, chunk)
+                    for doc in dataset
+                    for chunk in doc.get('chunks', [])
+                ]
                 for future in tqdm(as_completed(futures), total=total_chunks, desc="Processing chunks"):
                     result = future.result()
                     if result:
@@ -177,57 +218,36 @@ class ContextualVectorDB:
         return texts_to_embed, metadata
 
     @log_execution_time(logger)
-    def _generate_contextualized_content(self, doc: Dict[str, Any], chunk: Any) -> Dict[str, Any]:
+    def _generate_contextualized_content(self, doc: Dict[str, Any], chunk: Any) -> Optional[Dict[str, Any]]:
         """
         Generates contextualized content for a single doc-chunk pair.
         """
-        try:
-            if not isinstance(doc, dict):
-                logger.error(f"Document is not a dictionary: {doc}")
-                return None
-
-            if isinstance(chunk, dict):
-                chunk_id = chunk.get('chunk_id')
-                if not chunk_id:
-                    # Assign a unique chunk_id if missing
-                    chunk_index = chunk.get('index', 0)
-                    chunk_id = f"{doc.get('doc_id', 'unknown_doc_id')}_{chunk_index}"
-                    chunk['chunk_id'] = chunk_id
-                content = chunk.get('content', '')
-                original_index = chunk.get('original_index', chunk.get('index', 0))
-            elif isinstance(chunk, str):
-                # Handle case where chunk is a string
-                content = chunk
-                chunk_id = f"{doc.get('doc_id', 'unknown_doc_id')}_0"
-                original_index = 0
-                logger.warning("Chunk is a string. Expected a dict. Assigning default values.")
-            else:
-                logger.error(f"Unsupported chunk type: {type(chunk)}. Skipping chunk.")
-                return None
-
-            logger.debug(f"Processing chunk_id='{chunk_id}' in doc_id='{doc.get('doc_id', 'unknown_doc_id')}'.")
-            contextualized_text, usage = self.situate_context(doc.get('content', ''), content)
-            if not contextualized_text:
-                logger.warning(f"Contextualized content is empty for chunk_id='{chunk_id}'.")
-                return None
-
-            return {
-                'text_to_embed': f"{content}\n\n{contextualized_text}",
-                'metadata': {
-                    'doc_id': doc.get('doc_id', ''),
-                    'original_uuid': doc.get('original_uuid', ''),
-                    'chunk_id': chunk_id,
-                    'original_index': original_index,
-                    'original_content': content,
-                    'contextualized_content': contextualized_text
-                }
-            }
-        except Exception as e:
-            log_exception(logger, "Error generating contextualized content", e, {
-                "doc_id": doc.get('doc_id', 'unknown'), 
-                "chunk": chunk
-            })
+        if not isinstance(doc, dict):
+            logger.error(f"Document is not a dictionary: {doc}")
             return None
+
+        details = self._extract_chunk_details(doc, chunk)
+        if details is None:
+            return None
+        chunk_id, content, original_index = details
+
+        logger.debug(f"Processing chunk_id='{chunk_id}' in doc_id='{doc.get('doc_id', 'unknown_doc_id')}'.")
+        contextualized_text, usage = self.situate_context(doc.get('content', ''), content)
+        if not contextualized_text:
+            logger.warning(f"Contextualized content is empty for chunk_id='{chunk_id}'.")
+            return None
+
+        return {
+            'text_to_embed': f"{content}\n\n{contextualized_text}",
+            'metadata': {
+                'doc_id': doc.get('doc_id', ''),
+                'original_uuid': doc.get('original_uuid', ''),
+                'chunk_id': chunk_id,
+                'original_index': original_index,
+                'original_content': content,
+                'contextualized_content': contextualized_text
+            }
+        }
 
     @log_execution_time(logger)
     def _embed_and_store(self, texts: List[str], data: List[Dict[str, Any]], max_workers: int = 4):
@@ -249,11 +269,10 @@ class ContextualVectorDB:
                 return []
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = []
-            for i in range(0, len(texts), batch_size):
-                batch = texts[i: i + batch_size]
-                futures.append(executor.submit(embed_batch, batch))
-
+            futures = [
+                executor.submit(embed_batch, texts[i:i + batch_size])
+                for i in range(0, len(texts), batch_size)
+            ]
             for future in as_completed(futures):
                 try:
                     embeddings_batch = future.result()
@@ -289,21 +308,17 @@ class ContextualVectorDB:
     @log_execution_time(logger)
     def create_faiss_index(self):
         logger.debug("Entering create_faiss_index method.")
-        try:
-            if not self.embeddings:
-                logger.error("No embeddings available to create FAISS index.")
-                raise ValueError("Embeddings list is empty.")
+        if not self.embeddings:
+            logger.error("No embeddings available to create FAISS index.")
+            raise ValueError("Embeddings list is empty.")
 
-            embedding_dim = len(self.embeddings[0])
-            logger.info(f"Embedding dimension: {embedding_dim}.")
-            embeddings_np = np.array(self.embeddings).astype('float32')
-            faiss.normalize_L2(embeddings_np)
-            self.index = faiss.IndexFlatIP(embedding_dim)
-            self.index.add(embeddings_np)
-            logger.info(f"FAISS index created with {self.index.ntotal} vectors.")
-        except Exception as e:
-            log_exception(logger, "Error creating FAISS index", e)
-            raise
+        embedding_dim = len(self.embeddings[0])
+        logger.info(f"Embedding dimension: {embedding_dim}.")
+        embeddings_np = np.array(self.embeddings).astype('float32')
+        faiss.normalize_L2(embeddings_np)
+        self.index = faiss.IndexFlatIP(embedding_dim)
+        self.index.add(embeddings_np)
+        logger.info(f"FAISS index created with {self.index.ntotal} vectors.")
 
     @log_execution_time(logger)
     def save_faiss_index(self):
@@ -334,26 +349,13 @@ class ContextualVectorDB:
         if not self.embeddings or not self.metadata:
             logger.error("Embeddings or metadata are not loaded. Cannot perform search.")
             return []
-        if not hasattr(self, 'index') or self.index is None:
+        if self.index is None:
             logger.error("FAISS index is not loaded.")
             return []
 
-        try:
-            start_time = time.time()
-            logger.debug("Generating embedding for the query.")
-            response = self.client.create_embeddings(
-                model="text-embedding-3-small",
-                input=[query]
-            )
-            query_embedding = response['data'][0]['embedding']
-            elapsed_time = time.time() - start_time
-            logger.debug(f"Generated embedding for query in {elapsed_time:.2f} seconds.")
-        except Exception as e:
-            log_exception(logger, "Error generating embedding for query", e, {"query": query})
+        query_embedding_np = self._generate_query_embedding(query)
+        if query_embedding_np is None:
             return []
-
-        query_embedding_np = np.array([query_embedding]).astype('float32')
-        faiss.normalize_L2(query_embedding_np)
 
         logger.debug("Performing FAISS search.")
         try:

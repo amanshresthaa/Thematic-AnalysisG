@@ -1,0 +1,84 @@
+graph TD
+  A[**DSPy Thematic Analysis Pipeline**]
+  
+  %% Root-level modules
+  A --> B[Root]
+  B --> B1[__init__.py]
+  B --> B2[assertions.py & assertions_alt.py]
+  B --> B3[decorators.py]
+  B --> B4[copymd.py]
+  
+  %% Analysis modules
+  A --> C[Analysis]
+  C --> C1["coding_module.py
+(coding, base_analysis, coding, assertions_coding)"]
+  C --> C2["select_quotation_module.py
+(select_quotation, EnhancedQuotationSignature)"]
+  C --> C3["extract_keyword_module.py
+(extract_keyword)"]
+  C --> C4["grouping_module.py
+(grouping)"]
+  C --> C5["theme_development_module.py
+(theme_development)"]
+  
+  %% Core modules
+  A --> D[Core]
+  D --> D1[contextual_vector_db.py]
+  D --> D2[elasticsearch_bm25.py]
+  D --> D3[openai_client.py]
+  D --> D4[retrieval]
+  D4 --> D4a[query_generator.py]
+  D4 --> D4b[reranking.py]
+  D4 --> D4c[retrieval.py]
+  
+  %% Data modules
+  A --> E[Data]
+  E --> E1[data_loader.py]
+  E --> E2[copycode.py]
+  
+  %% Evaluation modules
+  A --> F[Evaluation]
+  F --> F1[evaluation.py]
+  F --> F2[evaluator.py]
+  
+  %% Pipeline modules
+  A --> G[Pipeline]
+  G --> G1[pipeline_configs.py]
+  G --> G2[pipeline_data.py]
+  G --> G3[pipeline_optimizer.py]
+  G --> G4[pipeline_runner.py]
+  
+  %% Processing modules
+  A --> H[Processing]
+  H --> H1[answer_generator.py]
+  H --> H2[base.py]
+  H --> H3[handlers.py]
+  H --> H4[validators.py]
+  H --> H5[query_processor.py]
+  H --> H6[factories.py]
+  H --> H7[config.py]
+  H --> H8[logger.py]  
+  H --> H9[history_utils.py]
+  
+  %% Utils modules
+  A --> I[Utils]
+  I --> I1[logger.py]
+  I --> I2[utils.py]
+  I --> I3[validation_functions.py]
+  
+  %% Config modules
+  A --> J[Config]
+  J --> J1[keyword_config.py]
+  J --> J2[model_config.py]
+  
+  %% Convert modules
+  A --> K[Convert]
+  K --> K1[convertcodingforgrouping.py]
+  K --> K2[convertcodingfortheme.py]
+  K --> K3[convertkeywordforcoding.py]
+  K --> K4[convertgroupingfortheme.py]
+  K --> K5[convertquotationforkeyword.py]
+  
+  %% Docs
+  A --> L[Docs]
+  L --> L1[mkdocs.yml]
