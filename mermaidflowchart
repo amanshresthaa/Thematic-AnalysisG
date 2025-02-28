@@ -1,0 +1,140 @@
+flowchart TD
+    %% Improved color scheme - professional and visually distinct
+    classDef configNodes fill:#a6cee3,stroke:#1f78b4,stroke-width:2px,color:#333
+    classDef dataNodes fill:#b2df8a,stroke:#33a02c,stroke-width:2px,color:#333
+    classDef queryNodes fill:#fb9a99,stroke:#e31a1c,stroke-width:2px,color:#333
+    classDef moduleNodes fill:#fdbf6f,stroke:#ff7f00,stroke-width:2px,color:#333
+    classDef evalNodes fill:#b3b3ff,stroke:#4b0082,stroke-width:2px,color:#333
+    classDef decisionNodes fill:#fc8d62,stroke:#8856a7,stroke-width:2px,color:white
+    classDef startEndNodes fill:#2c3e50,stroke:#2c3e50,stroke-width:2px,color:white,font-weight:bold
+    classDef featureNodes fill:#ffed6f,stroke:#b15928,stroke-width:2px,color:#333
+    classDef errorNodes fill:#fb6a4a,stroke:#a50f15,stroke-width:2px,color:white
+    classDef techNodes fill:#cab2d6,stroke:#6a3d9a,stroke-width:2px,color:#333
+
+    %% Main Pipeline Initialization
+    Start([Start Thematic Analysis Pipeline]):::startEndNodes --> LoadEnv[Load Environment Variables<br>dotenv & Setup Logging]:::configNodes
+    LoadEnv --> CreateDirs[Create Directory Structure<br>data/input, data/output, etc.]:::configNodes
+    CreateDirs --> InitDB[Initialize Contextual Vector DB]:::dataNodes
+    InitDB --> LoadConfigs[Load Pipeline Module Configs]:::configNodes
+    
+    %% Pipeline Execution Flow
+    LoadConfigs --> ModuleLoop{For Each Module Config}:::decisionNodes
+    
+    %% Module Configuration & Environment
+    ModuleLoop -->|Execute Module| SetupModel[Get Model Configuration<br>OpenAI/Google/DeepSeek]:::configNodes
+    SetupModel --> SetupEnv[Setup Environment Variables<br>Set API Keys]:::configNodes
+    SetupEnv --> ConfigureLM[Configure DSPy LM<br>Model Name, Tokens, Temperature]:::configNodes
+    ConfigureLM --> LoadChunks[Load Codebase Chunks]:::dataNodes
+    
+    %% Database Operations
+    LoadChunks --> LoadIntoVectorDB[Load Data Into ContextualVectorDB<br>Parallel Processing]:::dataNodes
+    LoadIntoVectorDB --> CreateElastic[Create Elasticsearch BM25 Index]:::dataNodes
+    CreateElastic --> IndexDocs[Index Documents<br>Metadata from Vector DB]:::dataNodes
+    
+    %% Module Processing
+    IndexDocs --> LoadQueries[Load Module-Specific Queries]:::queryNodes
+    LoadQueries --> InitOptimizer[Initialize DSPy Optimizer<br>BestOfN with Module Reward Function]:::moduleNodes
+    InitOptimizer --> CreateModule[Create Module Instance<br>e.g. CodingAnalysisModule]:::moduleNodes
+    
+    %% Query Processing
+    CreateModule --> ProcessQueries[Process Queries<br>Multi-threaded with Parallel]:::queryNodes
+    ProcessQueries --> GetValidator[Get Validator for Module<br>Validate Input Transcripts]:::queryNodes
+    GetValidator --> ValidCheck{Valid Transcripts?}:::decisionNodes
+    ValidCheck -->|No Valid Data| SkipModule[Skip Processing]:::errorNodes
+    ValidCheck -->|Yes| GetHandler[Get Handler for Module Type]:::queryNodes
+    
+    %% Query Retrieval Path
+    GetHandler --> RequiresRetrieval{Requires Retrieval?}:::decisionNodes
+    RequiresRetrieval -->|Yes| ExtractQuery[Extract Query<br>from Transcript Item]:::queryNodes
+    ExtractQuery --> ValidQuery{Valid Query?}:::decisionNodes
+    ValidQuery -->|No| SkipTranscript[Skip Transcript Item]:::errorNodes
+    ValidQuery -->|Yes| HybridRetrieval[Hybrid Retrieval<br>Semantic + BM25]:::queryNodes
+    RequiresRetrieval -->|No| SkipRetrieval[Empty Retrieved Docs]:::queryNodes
+    
+    %% Forward Pass Through Module
+    HybridRetrieval --> ForwardPass[Process Single Transcript Module Call]:::moduleNodes
+    SkipRetrieval --> ForwardPass
+    ForwardPass --> CheckResults{Valid Results?}:::decisionNodes
+    CheckResults -->|No| LogError[Log Error<br>Continue with Next]:::errorNodes
+    CheckResults -->|Yes| SaveResult[Collect Results]:::dataNodes
+    
+    %% Parallel Processing Components
+    SaveResult --> MoreQueries{More Transcripts?}:::decisionNodes
+    MoreQueries -->|Yes| ProcessNextQuery[Process Next Transcript Item]:::queryNodes
+    MoreQueries -->|No| SaveAllResults[Save All Results to Output File]:::dataNodes
+    ProcessNextQuery --> ExtractQuery
+    SaveAllResults --> Evaluate[Initialize Pipeline Evaluator]:::evalNodes
+    
+    %% Evaluation
+    Evaluate --> LoadEvalSet[Load Evaluation Set]:::evalNodes
+    LoadEvalSet --> EvaluatePipeline[Evaluate Pipeline Performance<br>Multiple k_values]:::evalNodes
+    EvaluatePipeline --> LogMetrics[Log Metrics<br>Pass@k, Hit Percentages]:::evalNodes
+    
+    %% Module Completion and Conversion
+    LogMetrics --> ModuleComplete[Module Processing Complete]:::moduleNodes
+    ModuleComplete --> NeedConversion{Needs Result Conversion?}:::decisionNodes
+    NeedConversion -->|Yes| ConvertResults[Convert Results<br>Prepare Input for Next Module]:::dataNodes
+    NeedConversion -->|No| CheckMoreModules{More Modules?}:::decisionNodes
+    ConvertResults --> CheckMoreModules
+    
+    %% Final Pipeline Steps
+    CheckMoreModules -->|Yes| ModuleLoop
+    CheckMoreModules -->|No| GenerateTheme[Generate Theme Input<br>From Previous Results]:::moduleNodes
+    GenerateTheme --> RunFinalModule[Run Final Theme Module]:::moduleNodes
+    RunFinalModule --> Complete([GC Collect & Pipeline Complete]):::startEndNodes
+    SkipModule --> CheckMoreModules
+    
+    %% Error Handling Paths
+    LogError --> CheckRetries{Available Retries?}:::decisionNodes
+    CheckRetries -->|Yes| RetryForward[Retry with Backoff]:::errorNodes
+    CheckRetries -->|No| MoreQueries
+    RetryForward --> ForwardPass
+    
+    %% External Dependencies
+    subgraph LMProviders ["Language Model Providers"]
+        OpenAI[OpenAI API]:::techNodes
+        GoogleAI[Google AI API]:::techNodes
+        DeepSeek[DeepSeek API]:::techNodes
+    end
+    
+    %% DSPy Framework Components
+    subgraph DSPyFramework ["DSPy Framework"]
+        DSPYConfig[DSPy Configuration<br>dspy.configure]:::techNodes
+        BestOfN[BestOfN Optimizer<br>Reward Function]:::techNodes
+        ChainOfThought[ChainOfThought<br>Prompt Structure]:::techNodes
+        ParallelExec[Parallel Execution<br>Multi-threaded API Calls]:::techNodes
+        Signatures[Module Signatures<br>Typed Input/Output]:::techNodes
+    end
+    
+    %% Retrieval System Architecture
+    subgraph RetrievalSystem ["Hybrid Retrieval System"]
+        VectorSearch[FAISS Vector Search<br>Embeddings]:::dataNodes
+        BM25Search[Elasticsearch BM25<br>Keyword Matching]:::dataNodes
+        RetrievalFusion[Reciprocal Rank Fusion<br>Score Combination]:::dataNodes
+        RerankerCohere[Cohere Reranking API]:::dataNodes
+        SentenceTransformers[Sentence Transformers<br>Alternative Reranking]:::dataNodes
+    end
+    
+    %% Module Chain
+    subgraph ModuleChain ["Thematic Analysis Module Chain"]
+        Quotation[Enhanced Quotation Module]:::moduleNodes --> Keyword[Keyword Extraction Module]:::moduleNodes
+        Keyword --> Coding[Coding Analysis Module]:::moduleNodes
+        Coding --> Grouping[Grouping Analysis Module]:::moduleNodes
+        Grouping --> Theme[Theme Development Module]:::moduleNodes
+    end
+    
+    %% Technical Features
+    subgraph TechnicalFeatures ["Key Technical Features"]
+        AsyncProcessing[Async Processing<br>asyncio.run]:::techNodes
+        RetryMechanisms[Retry Mechanisms<br>With Exponential Backoff]:::techNodes
+        ParallelProcessing[Parallel Processing<br>Multi-threaded Execution]:::techNodes
+        ErrorHandling[Exception Handling<br>Logging & Recovery]:::techNodes
+        Caching[Response Caching<br>Cache Toggle]:::techNodes
+    end
+
+    %% Connect subgraphs to main flow
+    ConfigureLM -.-> LMProviders
+    CreateModule -.-> DSPyFramework
+    HybridRetrieval -.-> RetrievalSystem
+    LoadQueries -.-> ModuleChain
+    Complete -.-> TechnicalFeatures
