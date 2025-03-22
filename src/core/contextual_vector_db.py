@@ -357,18 +357,28 @@ class ContextualVectorDB:
         if query_embedding_np is None:
             return []
 
+        distances, indices = self._perform_faiss_search(query_embedding_np, k)
+        if distances is None or indices is None:
+            return []
+
+        top_results = self._retrieve_top_results(indices, distances)
+        logger.info(f"FAISS search returned {len(top_results)} results for query: '{query}'.")
+        logger.debug(f"Chunks retrieved: {[res['chunk_id'] for res in top_results]}.")
+        return top_results
+
+    def _perform_faiss_search(self, query_embedding_np: np.ndarray, k: int) -> Tuple[np.ndarray, np.ndarray]:
         logger.debug("Performing FAISS search.")
         try:
             start_time = time.time()
             distances, indices = self.index.search(query_embedding_np, k)
             elapsed_time = time.time() - start_time
             logger.debug(f"FAISS search completed in {elapsed_time:.2f} seconds.")
-            indices = indices.flatten()
-            distances = distances.flatten()
+            return distances.flatten(), indices.flatten()
         except Exception as e:
-            log_exception(logger, "Error during FAISS search", e, {"query": query, "k": k})
-            return []
+            log_exception(logger, "Error during FAISS search", e, {"query_embedding_np": query_embedding_np, "k": k})
+            return None, None
 
+    def _retrieve_top_results(self, indices: np.ndarray, distances: np.ndarray) -> List[Dict[str, Any]]:
         top_results = []
         for idx, score in zip(indices, distances):
             if idx < len(self.metadata):
@@ -386,9 +396,6 @@ class ContextualVectorDB:
                 logger.debug(f"Retrieved chunk_id='{meta['chunk_id']}' with score={score:.4f}.")
             else:
                 logger.warning(f"Index {idx} out of bounds for metadata.")
-
-        logger.info(f"FAISS search returned {len(top_results)} results for query: '{query}'.")
-        logger.debug(f"Chunks retrieved: {[res['chunk_id'] for res in top_results]}.")
         return top_results
 
     @log_execution_time(logger)
