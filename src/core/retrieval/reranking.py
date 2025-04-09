@@ -3,7 +3,7 @@
 # File: retrieval/reranking.py
 # ------------------------------------------------------------------------------
 import logging
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional
 from sentence_transformers import SentenceTransformer, util
 import torch
 import time
@@ -100,20 +100,11 @@ class SentenceTransformerReRanker:
 
 class CohereReRanker:
     def __init__(self, api_key: Optional[str] = None):
-        """Initialize Cohere reranker with the provided API key."""
         self.api_key = api_key or os.getenv("COHERE_API_KEY")
-        
         if not self.api_key:
             raise ValueError("Cohere API key must be provided or set in COHERE_API_KEY environment variable")
-        
-        try:
-            # Test the API key with a minimal initialization
-            self.client = cohere.Client(self.api_key)
-            # Optional: could make a lightweight test call here if desired
-            logger.debug("Successfully initialized Cohere client")
-        except Exception as e:
-            logger.error(f"Failed to initialize Cohere client: {str(e)}")
-            raise ValueError(f"Invalid or expired Cohere API key: {str(e)}")
+        self.client = cohere.Client(self.api_key)
+        logger.info("CohereReRanker initialized successfully")
 
     @log_execution_time(logger)
     def rerank(self, query: str, documents: List[str], top_k: int = 20) -> List[Dict[str, Any]]:
@@ -126,48 +117,33 @@ class CohereReRanker:
             logger.info(f"Starting Cohere reranking for query: '{query[:100]}...' with {len(documents)} documents")
             
             logger.debug("Calling Cohere rerank API")
-            # Try to use the Cohere API
-            try:
-                response = self.client.rerank(
-                    model="rerank-english-v3.0",
-                    query=query,
-                    documents=documents,
-                    top_n=min(top_k, len(documents))
-                )
-                
-                re_ranked_docs = []
-                for result in response.results:
-                    re_ranked_docs.append({
-                        "document": documents[result.index],
-                        "score": result.relevance_score
-                    })
-                
-                elapsed_time = time.time() - start_time
-                if re_ranked_docs:
-                    logger.info(
-                        f"Cohere reranking completed in {elapsed_time:.2f}s. "
-                        f"Top score: {re_ranked_docs[0]['score']:.4f}, "
-                        f"Bottom score: {re_ranked_docs[-1]['score']:.4f}"
-                    )
-                else:
-                    logger.info(f"Cohere reranking completed in {elapsed_time:.2f}s with no documents returned.")
-                return re_ranked_docs
+            response = self.client.rerank(
+                model="rerank-english-v3.0",
+                query=query,
+                documents=documents,
+                top_n=min(top_k, len(documents))
+            )
             
-            except Exception as auth_error:
-                # Check if it's an authentication error
-                error_msg = str(auth_error)
-                if "invalid api token" in error_msg or "unauthorized" in error_msg.lower():
-                    # Log at debug level only - avoids showing in error logs
-                    logger.debug(f"Cohere API authentication issue: {error_msg}")
-                else:
-                    # For other types of errors, log more details but without the full traceback
-                    logger.debug(f"Cohere API error (non-authentication): {error_msg}")
-                # Return empty list (will fall back to other rerankers in combined mode)
-                return []
-                
+            re_ranked_docs = []
+            for result in response.results:
+                re_ranked_docs.append({
+                    "document": documents[result.index],
+                    "score": result.relevance_score
+                })
+            
+            elapsed_time = time.time() - start_time
+            if re_ranked_docs:
+                logger.info(
+                    f"Cohere reranking completed in {elapsed_time:.2f}s. "
+                    f"Top score: {re_ranked_docs[0]['score']:.4f}, "
+                    f"Bottom score: {re_ranked_docs[-1]['score']:.4f}"
+                )
+            else:
+                logger.info(f"Cohere reranking completed in {elapsed_time:.2f}s with no documents returned.")
+            return re_ranked_docs
+            
         except Exception as e:
-            # General exception handler for any other issues
-            logger.debug(f"Unexpected error in Cohere reranking: {str(e)}")
+            logger.error(f"Error during Cohere reranking: {e}", exc_info=True)
             return []
 
 class CombinedReRanker:
@@ -177,134 +153,79 @@ class CombinedReRanker:
                  cohere_api_key: Optional[str] = None,
                  st_weight: float = 0.5):
         self.st_reranker = SentenceTransformerReRanker(st_model_name, device)
+        self.cohere_reranker = CohereReRanker(cohere_api_key)
         self.st_weight = st_weight
-        
-        # Try to initialize Cohere reranker, but don't show errors if it fails
-        self.cohere_available = False
-        self.cohere_reranker = None
-        try:
-            if cohere_api_key:
-                self.cohere_reranker = CohereReRanker(cohere_api_key)
-                self.cohere_available = True
-                logger.info(f"CombinedReRanker initialized with both ST and Cohere, ST weight: {st_weight}")
-            else:
-                logger.info(f"CombinedReRanker initialized with ST only (no Cohere API key provided), ST weight: {st_weight}")
-        except Exception as e:
-            # Log at debug level only to avoid error messages
-            logger.debug(f"Could not initialize Cohere reranker: {str(e)}. Using SentenceTransformer only.")
-            logger.info(f"CombinedReRanker initialized with ST only, ST weight: {st_weight}")
+        logger.info(f"CombinedReRanker initialized with ST weight: {st_weight}")
 
     @log_execution_time(logger)
     def rerank(self, query: str, documents: List[str], top_k: int = 20) -> List[Dict[str, Any]]:
         try:
             start_time = time.time()
-            logger.info(f"Starting reranking for query: '{query[:100]}...' with {len(documents)} documents")
+            logger.info(f"Starting combined reranking for query: '{query[:100]}...' with {len(documents)} documents")
             
-            # Get SentenceTransformer rankings
             logger.debug("Getting ST rankings")
             st_results = self.st_reranker.rerank(query, documents, top_k=len(documents))
+            logger.debug("Getting Cohere rankings")
+            cohere_results = self.cohere_reranker.rerank(query, documents, top_k=len(documents))
+            
+            logger.debug("Creating score maps and combining results")
             st_scores = {doc['document']: doc['score'] for doc in st_results}
+            cohere_scores = {doc['document']: doc['score'] for doc in cohere_results}
             
-            # If Cohere is not available, just use SentenceTransformer
-            if not self.cohere_available or self.cohere_reranker is None:
-                logger.debug("Using ST rankings only (Cohere not available)")
-                sorted_docs = sorted(
-                    st_scores.items(),
-                    key=lambda x: x[1],
-                    reverse=True
-                )[:top_k]
-                final_results = [{"document": doc, "score": score} for doc, score in sorted_docs]
-            else:
-                # Try to get Cohere rankings and combine
-                try:
-                    logger.debug("Getting Cohere rankings")
-                    cohere_results = self.cohere_reranker.rerank(query, documents, top_k=len(documents))
-                    cohere_scores = {doc['document']: doc['score'] for doc in cohere_results}
-                    
-                    logger.debug("Creating score maps and combining results")
-                    combined_scores = {}
-                    for doc in documents:
-                        st_score = st_scores.get(doc, 0.0)
-                        cohere_score = cohere_scores.get(doc, 0.0)
-                        combined_score = (st_score * self.st_weight) + (cohere_score * (1 - self.st_weight))
-                        combined_scores[doc] = combined_score
-                        logger.debug(
-                            f"Document scores - ST: {st_score:.4f}, "
-                            f"Cohere: {cohere_score:.4f}, "
-                            f"Combined: {combined_score:.4f}"
-                        )
-                    
-                    sorted_docs = sorted(
-                        combined_scores.items(),
-                        key=lambda x: x[1],
-                        reverse=True
-                    )[:top_k]
-                    final_results = [{"document": doc, "score": score} for doc, score in sorted_docs]
-                    
-                except Exception as e:
-                    # If anything goes wrong with Cohere, silently fall back to ST
-                    logger.debug(f"Could not use Cohere rankings: {str(e)}. Using ST rankings only.")
-                    sorted_docs = sorted(
-                        st_scores.items(),
-                        key=lambda x: x[1],
-                        reverse=True
-                    )[:top_k]
-                    final_results = [{"document": doc, "score": score} for doc, score in sorted_docs]
+            combined_scores = {}
+            for doc in documents:
+                st_score = st_scores.get(doc, 0.0)
+                cohere_score = cohere_scores.get(doc, 0.0)
+                combined_score = (st_score * self.st_weight) + (cohere_score * (1 - self.st_weight))
+                combined_scores[doc] = combined_score
+                logger.debug(
+                    f"Document scores - ST: {st_score:.4f}, "
+                    f"Cohere: {cohere_score:.4f}, "
+                    f"Combined: {combined_score:.4f}"
+                )
             
-            # Log results
+            sorted_docs = sorted(
+                combined_scores.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )[:top_k]
+            final_results = [{"document": doc, "score": score} for doc, score in sorted_docs]
+            
             elapsed_time = time.time() - start_time
             if final_results:
                 logger.info(
-                    f"Reranking completed in {elapsed_time:.2f}s. "
+                    f"Combined reranking completed in {elapsed_time:.2f}s. "
                     f"Top score: {final_results[0]['score']:.4f}, "
                     f"Bottom score: {final_results[-1]['score']:.4f}"
                 )
             else:
-                logger.info(f"Reranking completed in {elapsed_time:.2f}s with no documents returned.")
+                logger.info(f"Combined reranking completed in {elapsed_time:.2f}s with no documents returned.")
             return final_results
             
         except Exception as e:
-            # Last resort fallback
-            logger.debug(f"Error in reranking: {str(e)}. Falling back to ST reranker.")
+            logger.error(f"Error in combined reranking: {e}", exc_info=True)
+            logger.debug("Falling back to ST reranker")
             return self.st_reranker.rerank(query, documents, top_k=top_k)
 
 class RerankerFactory:
     @staticmethod
     def create_reranker(config: RerankerConfig):
-        """Create a reranker based on the configuration with graceful fallback."""
-        try:
-            logger.debug(f"Creating reranker of type: {config.reranker_type}")
-            if config.reranker_type == RerankerType.SENTENCE_TRANSFORMER:
-                return SentenceTransformerReRanker(model_name=config.st_model_name, device=config.device)
-            elif config.reranker_type == RerankerType.COHERE:
-                # Try to initialize Cohere reranker with fallback to SentenceTransformer
-                try:
-                    return CohereReRanker(api_key=config.cohere_api_key)
-                except (ValueError, Exception) as e:
-                    logger.warning(f"Failed to initialize Cohere reranker: {str(e)}. Falling back to SentenceTransformer.")
-                    return SentenceTransformerReRanker(model_name=config.st_model_name, device=config.device)
-            elif config.reranker_type == RerankerType.COMBINED:
-                # For combined reranker, try using Cohere if available
-                try:
-                    # Test if Cohere API key is valid by initializing it
-                    cohere_reranker = CohereReRanker(api_key=config.cohere_api_key)
-                    # If we get here, Cohere key is valid, so use combined reranker
-                    return CombinedReRanker(
-                        st_model_name=config.st_model_name,
-                        device=config.device,
-                        cohere_api_key=config.cohere_api_key,
-                        st_weight=config.st_weight
-                    )
-                except (ValueError, Exception) as e:
-                    logger.warning(f"Cohere API key issue: {str(e)}. Using SentenceTransformer only.")
-                    return SentenceTransformerReRanker(model_name=config.st_model_name, device=config.device)
-            else:
-                error_msg = f"Unknown reranker type: {config.reranker_type}"
-                logger.error(error_msg)
-                raise ValueError(error_msg)
-        except Exception as e:
-            logger.error(f"Error creating reranker: {str(e)}. Using default SentenceTransformer.")
-            return SentenceTransformerReRanker()  # Use default sentence transformer as last resort
+        logger.debug(f"Creating reranker of type: {config.reranker_type}")
+        if config.reranker_type == RerankerType.SENTENCE_TRANSFORMER:
+            return SentenceTransformerReRanker(model_name=config.st_model_name, device=config.device)
+        elif config.reranker_type == RerankerType.COHERE:
+            return CohereReRanker(api_key=config.cohere_api_key)
+        elif config.reranker_type == RerankerType.COMBINED:
+            return CombinedReRanker(
+                st_model_name=config.st_model_name,
+                device=config.device,
+                cohere_api_key=config.cohere_api_key,
+                st_weight=config.st_weight
+            )
+        else:
+            error_msg = f"Unknown reranker type: {config.reranker_type}"
+            logger.error(error_msg)
+            raise ValueError(error_msg)
 
 @log_execution_time(logger)
 def retrieve_with_reranking(query: str,

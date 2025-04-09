@@ -1,9 +1,0 @@
-{
-  "timestamp": "20250409_031057",
-  "total_chunks": 32,
-  "chunk_size": 1024,
-  "chunk_overlap": 200,
-  "documents_processed": [
-    "interview_001"
-  ]
-}

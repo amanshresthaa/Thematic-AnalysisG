@@ -152,7 +152,7 @@ optimized_program = teleprompter.compile(YOUR_PROGRAM_HERE, trainset=YOUR_TRAINS
     === "Optimizing weights for Classification"
         This is a minimal but fully runnable example of setting up a `dspy.ChainOfThought` module that classifies
         short texts into one of 77 banking labels and then using `dspy.BootstrapFinetune` with 2000 text-label pairs
-        from the `Banking77` to finetune the weights of gpt-4o-mini for this task. We use the variant
+        from the `Banking77` to finetune the weights of GPT-4o-mini for this task. We use the variant
         `dspy.ChainOfThoughtWithHint`, which takes an optional `hint` at bootstrapping time, to maximize the utility of
         the training data. Naturally, hints are not available at test time.
 
@@ -200,7 +200,7 @@ optimized_program = teleprompter.compile(YOUR_PROGRAM_HERE, trainset=YOUR_TRAINS
         )
         ```
 
-        An informal run similar to this on DSPy 2.5.29 raises gpt-4o-mini's score 66% to 87%.
+        An informal run similar to this on DSPy 2.5.29 raises GPT-4o-mini's score 66% to 87%.
 
 
 ## Saving and loading optimizer output

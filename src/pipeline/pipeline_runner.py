@@ -250,14 +250,17 @@ class ThematicAnalysisPipeline:
             )
 
             logger.info(f"Starting evaluation for {module_name.capitalize()}")
-            retrieval_func = lambda query, db, es_bm25, k: retrieve_with_reranking(
-                query, db, es_bm25, k, RerankerConfig(
-                    reranker_type=RerankerType.COHERE,
-                    cohere_api_key=os.getenv("COHERE_API_KEY"),
-                    st_weight=0.5
+            evaluator = PipelineEvaluator(
+                db=self.contextual_db,
+                es_bm25=self.es_bm25,
+                retrieval_function=lambda query, db, es_bm25, k: retrieve_with_reranking(
+                    query, db, es_bm25, k, RerankerConfig(
+                        reranker_type=RerankerType.COHERE,
+                        cohere_api_key=os.getenv("COHERE_API_KEY"),
+                        st_weight=0.5
+                    )
                 )
             )
-            evaluator = PipelineEvaluator(self.contextual_db, self.es_bm25, retrieval_func)
             evaluation_set = load_queries(config.evaluation_set_file)
             evaluator.evaluate_complete_pipeline(k_values=[5, 10, 20], evaluation_set=evaluation_set)
 
