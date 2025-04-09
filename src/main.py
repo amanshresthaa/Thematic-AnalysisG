@@ -7,7 +7,10 @@ import os
 
 # Add the parent directory to the Python path to allow relative imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Also add the current directory to allow importing modules from src
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+from chunker import run_chunker  # Import the chunker module
 from pipeline.pipeline_configs import ModuleConfig
 from pipeline.pipeline_runner import ThematicAnalysisPipeline
 
@@ -25,7 +28,26 @@ from convert.convertgroupingfortheme import convert_query_results as convert_gro
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
-    logger.info("Launching Refactored Thematic Analysis Pipeline")
+    logger.info("Launching Thematic Analysis Pipeline with integrated chunker...")
+    
+    ###########################################################################
+    # 1) Run the chunker step
+    ###########################################################################
+    documents_folder = "documents"
+    pipeline_input_path = "data/input/queries_quotation.json"
+    
+    # Ensure the documents folder exists
+    os.makedirs(documents_folder, exist_ok=True)
+    
+    # Run the chunker to preprocess documents into chunks
+    original_chunks_path, pipeline_input = run_chunker(
+        documents_folder=documents_folder,
+        output_base_dir="data/chunker_output",
+        pipeline_input_path=pipeline_input_path,
+        chunk_size=800,
+        chunk_overlap=100,
+        research_objective="Extract meaningful quotations from these interview transcripts."
+    )
 
     configs = [
         ModuleConfig(

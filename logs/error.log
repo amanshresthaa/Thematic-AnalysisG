@@ -2576,3 +2576,751 @@ Traceback (most recent call last):
 httpx.ConnectTimeout: [Errno 60] Operation timed out
 2025-02-28 02:47:56,128 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_grouping.jsonl': File does not exist.
 2025-02-28 02:47:56,264 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/input/queries_theme.json': File does not exist.
+2025-04-09 12:32:03,975 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,975 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,975 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,976 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,977 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,977 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,978 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:03,978 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:32:04,602 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,624 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,634 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,639 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,659 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,660 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,762 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:32:04,813 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:58,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,816 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,817 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,818 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,821 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,819 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,820 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:58,819 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:34:59,720 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,742 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,743 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,785 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,824 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,839 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,869 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:34:59,869 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:09,757 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:10,289 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:10,642 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:11,202 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:15,919 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:16,356 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:19,947 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:20,638 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:22,473 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:23,039 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:24,012 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:24,017 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:24,190 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:24,583 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:24,595 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:24,753 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:25,957 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:26,440 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:35:26,538 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:35:27,055 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:23,769 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,769 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,769 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,769 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:23,770 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:24,307 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,318 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,325 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,325 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,325 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,331 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,355 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:24,356 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:35,809 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:36,256 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:37,944 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:38,394 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:38,864 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:39,318 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:41,117 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:41,551 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:44,532 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:44,722 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:36:44,981 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:36:45,178 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:06,839 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,839 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,840 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,840 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,840 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,841 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,844 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:06,844 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:07,352 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,360 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,371 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,372 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,373 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,375 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,385 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:07,389 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:12,044 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:12,488 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:12,918 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:13,303 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:13,364 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:13,404 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:13,747 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:13,839 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:14,393 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:14,776 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:14,815 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:14,834 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:15,215 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:15,252 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:15,731 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:16,179 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:20,132 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:20,570 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:22,285 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:22,738 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:23,919 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:24,354 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:24,916 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:25,365 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:25,775 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:26,223 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:27,724 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:27,857 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:28,163 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:28,288 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,374 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,374 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,375 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,376 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,376 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,377 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,377 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:35,806 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,830 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,865 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,872 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,963 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,978 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,978 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:35,990 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:41,285 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:41,307 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:41,727 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:41,828 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:42,795 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:43,114 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:43,219 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:43,448 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:43,542 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:43,874 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:45,539 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:46,085 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:47,066 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:47,098 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:47,105 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:47,196 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:47,481 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:47,529 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:47,606 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:47,634 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:51,571 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:52,124 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:37:52,570 - src.core.contextual_vector_db - ERROR - [contextual_vector_db.py:350] - Embeddings or metadata are not loaded. Cannot perform search.
+2025-04-09 12:37:53,003 - src.core.retrieval.reranking - ERROR - [reranking.py:146] - Error during Cohere reranking: status_code: 401, body: {'message': 'invalid api token'}
+Traceback (most recent call last):
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/src/core/retrieval/reranking.py", line 120, in rerank
+    response = self.client.rerank(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amankumarshrestha/Documents/GitHub/Thematic-AnalysisG/.venv/lib/python3.12/site-packages/cohere/base_client.py", line 2066, in rerank
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'message': 'invalid api token'}
+2025-04-09 12:38:36,080 - src.data.data_loader - ERROR - [data_loader.py:31] - Error loading JSON file 'data/evaluation/evaluation_set_grouping.jsonl': File does not exist.
