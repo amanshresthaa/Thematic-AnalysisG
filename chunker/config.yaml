@@ -1,7 +1,0 @@
-folder: "documents"
-output: "chunked_documents.json"
-chunk_sizes:
-  - 1024
-  - 512
-  - 256
-max_topic_distance: 1.0

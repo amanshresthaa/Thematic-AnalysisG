@@ -1,8 +1,0 @@
-{
-  "research_objectives": "To investigate and evaluate the effectiveness of AI-driven logistics routing optimization in the UK’s largest industry by identifying current inefficiencies, assessing traditional versus AI-based methods, and developing a robust, data-driven framework that enhances cost efficiency, service quality, and environmental sustainability.",
-  "theoretical_framework": {
-    "theory": "This research is grounded in computational optimization and systems theory, integrating traditional operations research methods (e.g., Dijkstra’s, A*, Bellman-Ford) with modern AI techniques such as genetic algorithms, reinforcement learning, and neural networks.",
-    "philosophical_approach": "The study adopts a positivist and empiricist approach, emphasizing objective measurement and quantitative analysis of performance metrics through data-driven validation, case studies, and empirical research.",
-    "rationale": "The rationale is to address the inherent limitations of traditional routing algorithms in dynamic, complex logistics environments. By leveraging AI-driven methodologies, the research aims to achieve measurable improvements in route efficiency, cost reduction, and emission control, thus providing a scientifically robust and practical foundation for future logistics optimization in the UK’s largest industry."
-  }
-}

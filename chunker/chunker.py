@@ -1,867 +1,321 @@
-import os
+#!/usr/bin/env python
+# chunker/chunker.py
+
 import json
-import uuid
-from typing import List, Dict, Optional, Tuple, Any
-import datetime
-import concurrent.futures
-import functools
-from pathlib import Path
+import os
+import re
 import logging
-from dataclasses import dataclass, field, asdict
+import tiktoken
+import datetime
+import shutil
+from pathlib import Path
 
-# Setup logging first
-def setup_logging(log_level=logging.INFO, log_file=None):
-    """Configure logging with customizable level and optional file output."""
-    handlers = [logging.StreamHandler()]
-    
-    if log_file:
-        os.makedirs(os.path.dirname(log_file), exist_ok=True)
-        handlers.append(logging.FileHandler(log_file, encoding='utf-8'))
-    
-    logging.basicConfig(
-        level=log_level,
-        format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
-        handlers=handlers
-    )
-
-setup_logging()
+# Set up logging
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Load required NLP libraries
-try:
-    import spacy
-    from sentence_transformers import SentenceTransformer
-    from sklearn.metrics.pairwise import cosine_similarity
-    import tiktoken
-    import numpy as np
-    logger.info("Successfully imported all required libraries")
-except ImportError as e:
-    logger.error(f"Failed to import required libraries: {e}")
-    raise
-
-def handle_exceptions(func):
-    """Decorator to handle exceptions gracefully and provide detailed error logs."""
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except Exception as e:
-            logger.error(f"Error in {func.__name__}: {e}", exc_info=True)
-            return {"error": f"Error in {func.__name__}: {str(e)}"}
-    return wrapper
-
-@dataclass
-class TheoreticalFramework:
-    """Data class for theoretical framework structure."""
-    theory: str = ""
-    philosophical_approach: str = ""
-    rationale: str = ""
-
-@dataclass
-class DocumentMetadata:
-    """Data class for document metadata."""
-    research_objectives: str = ""
-    theoretical_framework: TheoreticalFramework = field(default_factory=TheoreticalFramework)
-
-    @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> 'DocumentMetadata':
-        """Create a DocumentMetadata instance from a dictionary."""
-        if not data:
-            return cls()
-            
-        tf_data = data.get('theoretical_framework', {})
-        tf = TheoreticalFramework(
-            theory=tf_data.get('theory', ''),
-            philosophical_approach=tf_data.get('philosophical_approach', ''),
-            rationale=tf_data.get('rationale', '')
-        )
+class DocumentChunker:
+    def __init__(self, 
+                 documents_dir="documents/", 
+                 chunk_size=1024, 
+                 chunk_overlap=200,
+                 encoding_name="cl100k_base"):
+        """
+        Initialize the document chunker.
         
-        return cls(
-            research_objectives=data.get('research_objectives', ''),
-            theoretical_framework=tf
-        )
-
-@dataclass
-class ChunkConfig:
-    """Configuration parameters for chunking."""
-    chunk_size: int
-    min_chunk_size: int
-    max_topic_distance: float = 0.5
-    overlap_size: int = 1
-    delimiter: str = "\n---\n"
-
-@dataclass
-class Chunk:
-    """Data class for document chunks."""
-    chunk_id: str
-    content: str
-    original_index: int
-    document_id: str
-    chunk_tokens: int = 0
-    metadata: Optional[DocumentMetadata] = None
-
-@dataclass
-class ProcessedDocument:
-    """Data class for processed documents."""
-    doc_id: str
-    original_uuid: str
-    content: str
-    chunks: List[Chunk] = field(default_factory=list)
-
-# Initialize NLP components
-def initialize_nlp_components():
-    """Initialize and return NLP components with proper error handling."""
-    # Initialize spaCy
-    try:
-        nlp = spacy.load("en_core_web_sm")
-        logger.info("Loaded spaCy model: en_core_web_sm")
-    except OSError:
-        logger.info("Downloading spaCy model...")
-        spacy.cli.download("en_core_web_sm")
-        nlp = spacy.load("en_core_web_sm")
-        logger.info("Downloaded and loaded spaCy model: en_core_web_sm")
-
-    # Initialize SentenceTransformer
-    try:
-        embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-        logger.info("Loaded SentenceTransformer model: all-MiniLM-L6-v2")
-    except Exception as e:
-        logger.error(f"Error loading Sentence-BERT model: {e}")
-        raise
-
-    # Initialize tiktoken
-    try:
-        tokenizer = tiktoken.get_encoding("cl100k_base")
-        logger.info("Loaded tokenizer: cl100k_base")
-    except Exception as e:
-        logger.error(f"Error loading tokenizer: {e}")
-        raise
-
-    return nlp, embedding_model, tokenizer
-
-# Load NLP models (doing this at module level)
-try:
-    nlp, embedding_model, tokenizer = initialize_nlp_components()
-except Exception as e:
-    logger.error(f"Failed to initialize NLP components: {e}")
-    # We'll continue and fail later if these components are needed
-
-@handle_exceptions
-def load_metadata_for_document(doc_id: str, folder_path: str) -> Optional[DocumentMetadata]:
-    """
-    Attempt to load a JSON metadata file corresponding to the document.
-
-    Args:
-        doc_id: The document ID (filename without extension)
-        folder_path: The path to the folder containing the documents
-
-    Returns:
-        DocumentMetadata if available, else None
-    """
-    metadata_path = Path(folder_path) / f"{doc_id}.json"
-    logger.debug(f"Looking for metadata file: {metadata_path}")
+        Args:
+            documents_dir (str): Directory containing documents to process
+            chunk_size (int): Maximum number of tokens per chunk
+            chunk_overlap (int): Number of overlapping tokens between chunks
+            encoding_name (str): Tokenizer encoding to use
+        """
+        self.documents_dir = documents_dir
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
+        self.encoding = tiktoken.get_encoding(encoding_name)
+        self.output_timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Create output directories
+        self.output_dir = os.path.join("data", "chunker_output", self.output_timestamp)
+        os.makedirs(self.output_dir, exist_ok=True)
+        
+        # Ensure other required directories exist
+        os.makedirs(os.path.join("data", "codebase_chunks"), exist_ok=True)
+        os.makedirs(os.path.join("data", "input"), exist_ok=True)
     
-    if metadata_path.is_file():
-        try:
-            with open(metadata_path, 'r', encoding='utf-8') as f:
-                metadata_dict = json.load(f)
-            logger.info(f"Loaded metadata for document: {doc_id}")
-            return DocumentMetadata.from_dict(metadata_dict)
-        except json.JSONDecodeError as e:
-            logger.error(f"Invalid JSON in metadata file for {doc_id}: {e}")
-            return None
-        except Exception as e:
-            logger.error(f"Error loading metadata for {doc_id}: {e}")
-            return None
-    else:
-        logger.info(f"No metadata found for document: {doc_id}")
-        return None
-
-@handle_exceptions
-def load_documents_from_folder(folder_path: str) -> List[Dict]:
-    """
-    Load all .txt documents from the specified folder.
-
-    Args:
-        folder_path: Path to the folder containing documents
-
-    Returns:
-        List of documents with 'doc_id' and 'content'
-    """
-    documents = []
-    folder = Path(folder_path)
-    
-    if not folder.is_dir():
-        logger.error(f"Invalid directory: {folder_path}")
+    def load_documents(self):
+        """Load documents from the documents directory."""
+        documents = []
+        
+        if not os.path.exists(self.documents_dir):
+            logger.error(f"Documents directory {self.documents_dir} does not exist")
+            return documents
+        
+        for filename in os.listdir(self.documents_dir):
+            file_path = os.path.join(self.documents_dir, filename)
+            
+            # Skip directories and non-text/json files
+            if os.path.isdir(file_path):
+                continue
+                
+            if filename.endswith('.txt'):
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    # Create document object
+                    document = {
+                        "id": os.path.splitext(filename)[0],
+                        "content": content,
+                        "metadata": self.extract_metadata_from_text(content)
+                    }
+                    documents.append(document)
+                    logger.info(f"Loaded text document: {filename}")
+                except Exception as e:
+                    logger.error(f"Error loading document {filename}: {e}")
+            
+            elif filename.endswith('.json'):
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        document = json.load(f)
+                    
+                    # Ensure the document has required fields
+                    if "id" not in document:
+                        document["id"] = os.path.splitext(filename)[0]
+                    
+                    if "content" not in document and "text" in document:
+                        document["content"] = document["text"]
+                    
+                    if "metadata" not in document:
+                        document["metadata"] = self.extract_metadata_from_text(document.get("content", ""))
+                    
+                    documents.append(document)
+                    logger.info(f"Loaded JSON document: {filename}")
+                except Exception as e:
+                    logger.error(f"Error loading JSON document {filename}: {e}")
+        
         return documents
-
-    for file_path in folder.glob('*.txt'):
-        try:
-            content = file_path.read_text(encoding='utf-8')
-            doc_id = file_path.stem
-            documents.append({"doc_id": doc_id, "content": content})
-            logger.info(f"Loaded document: {doc_id} ({len(content)} characters)")
-        except Exception as e:
-            logger.error(f"Error reading {file_path.name}: {e}")
-
-    logger.info(f"Loaded {len(documents)} documents from {folder_path}")
-    return documents
-
-class SmartChunker:
-    """Advanced document chunking system with topic-based segmentation."""
     
-    def __init__(self, config: ChunkConfig):
+    def extract_metadata_from_text(self, text):
         """
-        Initialize the SmartChunker with configuration parameters.
-
-        Args:
-            config: ChunkConfig object with chunking parameters
-        """
-        self.config = config
-        self.delimiter_tokens = self._tokenize(config.delimiter)
-        self.max_block_tokens = int(config.chunk_size * 0.8)
-        self.max_chunk_tokens = config.chunk_size - self.delimiter_tokens
-
-    def _tokenize(self, text: str) -> int:
-        """Count tokens in text using tiktoken."""
-        tokens = tokenizer.encode(text)
-        return len(tokens)
-
-    def _get_token_count(self, text: str) -> int:
-        """Get token count for a text string."""
-        return self._tokenize(text)
-        
-    def preprocess_text(self, text: str) -> str:
-        """Clean and normalize text."""
-        # Remove excessive whitespace
-        text = ' '.join(text.split())
-        return text
-
-    def split_document_into_blocks(self, paragraphs: List[str]) -> List[str]:
-        """
-        Split document into semantic blocks that respect token limits.
+        Extract metadata from document text including research objectives and theoretical framework.
         
         Args:
-            paragraphs: List of paragraphs from the document
+            text (str): Document text content
             
         Returns:
-            List of text blocks
+            dict: Extracted metadata
         """
-        blocks = []
-        current_block = ''
-        current_tokens = 0
-
-        for paragraph in paragraphs:
-            paragraph = paragraph.strip()
-            if not paragraph:
-                continue
-
-            paragraph_tokens = self._tokenize(paragraph)
-            
-            # Handle paragraphs that exceed max block size
-            if paragraph_tokens > self.max_block_tokens:
-                logger.warning(f"Paragraph exceeds maximum block tokens ({paragraph_tokens} > {self.max_block_tokens}) and will be split")
-                
-                # First add current block if it exists
-                if current_block:
-                    blocks.append(current_block.strip())
-                    current_block = ''
-                    current_tokens = 0
-                
-                # Split large paragraph into sentences
-                doc = nlp(paragraph)
-                sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
-                
-                # Process each sentence
-                for sentence in sentences:
-                    sentence_tokens = self._tokenize(sentence)
-                    
-                    if sentence_tokens > self.max_block_tokens:
-                        logger.warning(f"Sentence exceeds maximum block tokens ({sentence_tokens} > {self.max_block_tokens}) and will be truncated")
-                        # Try to split by clauses or just add as is if we can't do better
-                        blocks.append(sentence)
-                        continue
-                        
-                    if current_tokens + sentence_tokens > self.max_block_tokens:
-                        if current_block:
-                            blocks.append(current_block.strip())
-                        current_block = sentence + ' '
-                        current_tokens = sentence_tokens
-                    else:
-                        current_block += sentence + ' '
-                        current_tokens += sentence_tokens
-            else:
-                # Handle normal-sized paragraphs
-                if current_tokens + paragraph_tokens > self.max_block_tokens:
-                    if current_block:
-                        blocks.append(current_block.strip())
-                    current_block = paragraph + ' '
-                    current_tokens = paragraph_tokens
-                else:
-                    current_block += paragraph + ' '
-                    current_tokens += paragraph_tokens
-
-        # Add any remaining content
-        if current_block:
-            blocks.append(current_block.strip())
-
-        logger.info(f"Split document into {len(blocks)} blocks")
-        return blocks
-
-    def detect_topic_shifts(self, sentences: List[str]) -> List[int]:
-        """
-        Detect topic shifts within a list of sentences based on semantic similarity.
-        
-        Args:
-            sentences: List of sentences to analyze
-            
-        Returns:
-            List of indices where topic shifts occur
-        """
-        if len(sentences) <= 1:
-            return [0, len(sentences)]
-            
-        # Generate embeddings for sentences
-        embeddings = embedding_model.encode(sentences)
-        
-        # Calculate similarities between adjacent sentences
-        similarities = []
-        for i in range(len(embeddings) - 1):
-            sim = cosine_similarity([embeddings[i]], [embeddings[i + 1]])[0][0]
-            similarities.append(sim)
-            
-        # Adaptive thresholding based on document characteristics
-        mean_similarity = np.mean(similarities) if similarities else 1.0
-        std_similarity = np.std(similarities) if len(similarities) > 1 else 0.2
-        
-        # Use a more adaptive threshold based on statistics
-        threshold = max(0.3, mean_similarity - (self.config.max_topic_distance * std_similarity))
-        
-        # Identify topic shift boundaries
-        boundaries = [0]
-        for i, sim in enumerate(similarities):
-            if sim < threshold:
-                boundaries.append(i + 1)
-                logger.debug(f"Topic shift detected at sentence {i+1} (similarity: {sim:.4f}, threshold: {threshold:.4f})")
-        
-        # Always include the end
-        if boundaries[-1] != len(sentences):
-            boundaries.append(len(sentences))
-            
-        return boundaries
-
-    def split_block_into_chunks(self, block: str, previous_sentences: List[str]) -> List[Tuple[str, int]]:
-        """
-        Split a block into chunks based on topic shifts and token limits.
-        
-        Args:
-            block: Text block to split
-            previous_sentences: Sentences from previous block for context
-            
-        Returns:
-            List of (chunk_text, token_count) tuples
-        """
-        # Get overlap sentences from previous block
-        overlap_sentences = previous_sentences[-self.config.overlap_size:] if previous_sentences else []
-        
-        # Extract sentences from current block
-        doc = nlp(block)
-        block_sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
-        
-        if not block_sentences:
-            return []
-            
-        # Combine overlap and current sentences
-        all_sentences = overlap_sentences + block_sentences
-        
-        # Detect topic boundaries
-        boundaries = self.detect_topic_shifts(all_sentences)
-        
-        # Adjust boundaries to account for overlap sentences
-        adjusted_boundaries = []
-        overlap_count = len(overlap_sentences)
-        for boundary in boundaries:
-            if boundary > overlap_count:
-                adjusted_boundaries.append(boundary - overlap_count)
-            elif boundary == overlap_count:
-                adjusted_boundaries.append(0)
-                
-        if not adjusted_boundaries:
-            adjusted_boundaries = [0, len(block_sentences)]
-            
-        # Ensure the last boundary includes all sentences
-        if adjusted_boundaries[-1] != len(block_sentences):
-            adjusted_boundaries.append(len(block_sentences))
-            
-        # Create chunks based on boundaries
-        chunks_with_tokens = []
-        for i in range(len(adjusted_boundaries) - 1):
-            start = adjusted_boundaries[i]
-            end = adjusted_boundaries[i + 1]
-            
-            # Skip empty ranges
-            if start == end:
-                continue
-                
-            chunk_sentences = block_sentences[start:end]
-            chunk_text = self.config.delimiter.join(chunk_sentences)
-            chunk_tokens = self._tokenize(chunk_text)
-            
-            # Handle chunks that exceed token limit
-            if chunk_tokens > self.max_chunk_tokens:
-                sub_chunks = self._split_chunk_by_token_budget(chunk_sentences)
-                chunks_with_tokens.extend(sub_chunks)
-            else:
-                chunks_with_tokens.append((chunk_text, chunk_tokens))
-                
-        # Apply post-processing to optimize chunk sizes
-        optimized_chunks = self._optimize_chunk_sizes(chunks_with_tokens)
-        
-        return optimized_chunks
-
-    def _split_chunk_by_token_budget(self, sentences: List[str]) -> List[Tuple[str, int]]:
-        """
-        Split sentences into chunks that fit within token budget.
-        
-        Args:
-            sentences: List of sentences to split
-            
-        Returns:
-            List of (chunk_text, token_count) tuples
-        """
-        chunks = []
-        current_chunk_sentences = []
-        current_tokens = 0
-        
-        for sentence in sentences:
-            sentence_tokens = self._tokenize(sentence)
-            delimiter_tokens = 0 if not current_chunk_sentences else self.delimiter_tokens
-            
-            # If adding this sentence would exceed the limit
-            if current_tokens + sentence_tokens + delimiter_tokens > self.max_chunk_tokens:
-                # Save current chunk if it exists
-                if current_chunk_sentences:
-                    chunk_text = self.config.delimiter.join(current_chunk_sentences)
-                    chunks.append((chunk_text, current_tokens))
-                    current_chunk_sentences = []
-                    current_tokens = 0
-                
-                # Handle sentences that are too long on their own
-                if sentence_tokens > self.max_chunk_tokens:
-                    logger.warning(f"Sentence exceeds max chunk tokens ({sentence_tokens} > {self.max_chunk_tokens})")
-                    # Try to truncate or split the sentence
-                    truncated = sentence[:int(len(sentence) * 0.9)]  # Simple truncation strategy
-                    truncated_tokens = self._tokenize(truncated)
-                    chunks.append((truncated, truncated_tokens))
-                else:
-                    current_chunk_sentences.append(sentence)
-                    current_tokens = sentence_tokens
-            else:
-                current_chunk_sentences.append(sentence)
-                current_tokens += sentence_tokens + delimiter_tokens
-                
-        # Add any remaining content
-        if current_chunk_sentences:
-            chunk_text = self.config.delimiter.join(current_chunk_sentences)
-            chunks.append((chunk_text, current_tokens))
-            
-        return chunks
-
-    def _optimize_chunk_sizes(self, chunks_with_tokens: List[Tuple[str, int]]) -> List[Tuple[str, int]]:
-        """
-        Optimize chunk sizes by merging small chunks or splitting large ones.
-        
-        Args:
-            chunks_with_tokens: List of (chunk_text, token_count) tuples
-            
-        Returns:
-            Optimized list of (chunk_text, token_count) tuples
-        """
-        if not chunks_with_tokens:
-            return []
-            
-        optimized_chunks = []
-        i = 0
-        
-        while i < len(chunks_with_tokens):
-            current_chunk, current_tokens = chunks_with_tokens[i]
-            
-            # Try to merge small chunks with next chunk
-            if (current_tokens < self.config.min_chunk_size and 
-                i < len(chunks_with_tokens) - 1):
-                
-                next_chunk, next_tokens = chunks_with_tokens[i + 1]
-                combined_text = current_chunk + self.config.delimiter + next_chunk
-                combined_tokens = self._tokenize(combined_text)
-                
-                if combined_tokens <= self.max_chunk_tokens:
-                    # Merge chunks
-                    optimized_chunks.append((combined_text, combined_tokens))
-                    i += 2  # Skip the next chunk since we merged it
-                else:
-                    # Can't merge, keep as is
-                    optimized_chunks.append((current_chunk, current_tokens))
-                    i += 1
-            else:
-                # Current chunk is good size or is the last chunk
-                optimized_chunks.append((current_chunk, current_tokens))
-                i += 1
-                
-        return optimized_chunks
-
-@dataclass
-class ProcessingConfig:
-    """Configuration for document processing."""
-    chunk_size: int
-    min_chunk_size: int
-    max_topic_distance: float = 0.5
-    delimiter: str = "\n---\n"
-    
-@handle_exceptions
-def process_document(
-    doc_id: str, 
-    content: str,
-    config: ProcessingConfig,
-    metadata: Optional[DocumentMetadata] = None
-) -> Dict:
-    """
-    Process a document into chunks using smart chunking.
-    
-    Args:
-        doc_id: Document identifier
-        content: Document content
-        config: Processing configuration
-        metadata: Optional document metadata
-        
-    Returns:
-        Dictionary with processed document information
-    """
-    logger.info(f"Processing document {doc_id} ({len(content)} chars)")
-    
-    # Split content into paragraphs
-    paragraphs = [p for p in content.strip().split('\n\n') if p.strip()]
-    
-    # Create chunking configuration
-    chunk_config = ChunkConfig(
-        chunk_size=config.chunk_size,
-        min_chunk_size=config.min_chunk_size,
-        max_topic_distance=config.max_topic_distance,
-        overlap_size=1,
-        delimiter=config.delimiter
-    )
-    
-    # Initialize chunker
-    chunker = SmartChunker(chunk_config)
-    
-    # Split document into blocks
-    blocks = chunker.split_document_into_blocks(paragraphs)
-    
-    # Process blocks into chunks
-    all_chunks = []
-    previous_sentences = []
-    chunk_contents = []
-    
-    for block in blocks:
-        chunks_with_tokens = chunker.split_block_into_chunks(block, previous_sentences)
-        
-        # Update context for next block
-        if block:
-            doc = nlp(block)
-            previous_sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
-        
-        # Add chunks with their token counts    
-        for chunk_text, token_count in chunks_with_tokens:
-            chunk_contents.append((chunk_text, token_count))
-    
-    # Create chunk objects
-    for idx, (chunk_text, token_count) in enumerate(chunk_contents):
-        chunk_id = f"{doc_id}_chunk_{idx}"
-        
-        chunk = Chunk(
-            chunk_id=chunk_id,
-            document_id=doc_id,
-            original_index=idx,
-            content=chunk_text,
-            chunk_tokens=token_count,
-            metadata=metadata
-        )
-        all_chunks.append(chunk)
-    
-    # Create original output format
-    original_output = ProcessedDocument(
-        doc_id=doc_id,
-        original_uuid=uuid.uuid4().hex,
-        content=content,
-        chunks=all_chunks
-    )
-    
-    # Create new output format
-    new_output = []
-    for chunk in all_chunks:
-        if metadata:
-            new_output.append({
-                "transcript_chunk": chunk.content,
-                "research_objectives": metadata.research_objectives,
-                "theoretical_framework": asdict(metadata.theoretical_framework)
-            })
-        else:
-            new_output.append({
-                "transcript_chunk": chunk.content,
-                "research_objectives": "",
-                "theoretical_framework": {
-                    "theory": "",
-                    "philosophical_approach": "",
-                    "rationale": ""
-                }
-            })
-    
-    logger.info(f"Document {doc_id} split into {len(all_chunks)} chunks")
-    
-    return {
-        "original_output": asdict(original_output),
-        "new_output": new_output
-    }
-
-@handle_exceptions
-def process_documents(
-    documents: List[Dict],
-    folder_path: str,
-    original_config: ProcessingConfig,
-    new_config: ProcessingConfig,
-    max_workers: int = None
-) -> Dict[str, List[Dict]]:
-    """
-    Process multiple documents with concurrent execution.
-    
-    Args:
-        documents: List of documents to process
-        folder_path: Path to the documents folder
-        original_config: Configuration for original output format
-        new_config: Configuration for new output format
-        max_workers: Maximum number of concurrent workers
-        
-    Returns:
-        Dictionary with both output formats
-    """
-    if not documents:
-        logger.warning("No documents to process")
-        return {"original_output": [], "new_output": []}
-    
-    original_processed_docs = []
-    new_processed_docs = []
-    
-    def process_single_document(doc):
-        doc_id = doc.get("doc_id", f"doc_{uuid.uuid4().hex[:8]}")
-        content = doc.get("content", "").strip()
-        
-        if not content:
-            logger.warning(f"Document '{doc_id}' is empty. Skipping.")
-            return None
-        
-        # Load metadata
-        metadata = load_metadata_for_document(doc_id, folder_path)
-        
-        # Process for original output
-        processed_original = process_document(
-            doc_id=doc_id,
-            content=content,
-            config=original_config,
-            metadata=metadata
-        )
-        
-        # Process for new output with different configuration
-        processed_new = process_document(
-            doc_id=doc_id,
-            content=content,
-            config=new_config,
-            metadata=metadata
-        )
-        
-        return (processed_original, processed_new)
-    
-    # Determine optimal number of workers based on CPU count
-    if max_workers is None:
-        max_workers = min(32, os.cpu_count() + 4)
-    
-    logger.info(f"Processing {len(documents)} documents with {max_workers} workers")
-    
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(process_single_document, doc) for doc in documents]
-        
-        # Process results as they complete
-        for i, future in enumerate(concurrent.futures.as_completed(futures)):
-            try:
-                result = future.result()
-                if result:
-                    processed_original, processed_new = result
-                    original_processed_docs.append(processed_original["original_output"])
-                    new_processed_docs.extend(processed_new["new_output"])
-                    
-                # Log progress
-                if (i + 1) % 10 == 0 or (i + 1) == len(documents):
-                    logger.info(f"Processed {i + 1}/{len(documents)} documents")
-                    
-            except Exception as e:
-                logger.error(f"Error processing document: {e}", exc_info=True)
-    
-    logger.info(f"Completed processing {len(documents)} documents")
-    logger.info(f"Generated {len(original_processed_docs)} documents in original format")
-    logger.info(f"Generated {len(new_processed_docs)} chunks in new format")
-    
-    return {
-        "original_output": original_processed_docs,
-        "new_output": new_processed_docs
-    }
-
-@handle_exceptions
-def save_json(data: Dict[str, List[Dict]], original_filename: str, new_filename: str):
-    """
-    Save the original and new output structures into separate JSON files.
-    
-    Args:
-        data: Dictionary containing both output structures
-        original_filename: Filename for the original output
-        new_filename: Filename for the new output
-    """
-    try:
-        # Ensure output directories exist
-        os.makedirs(os.path.dirname(original_filename), exist_ok=True)
-        os.makedirs(os.path.dirname(new_filename), exist_ok=True)
-        
-        # Save original output
-        original_stats = {
-            "documents": len(data["original_output"]),
-            "total_chunks": sum(len(doc.get("chunks", [])) for doc in data["original_output"])
+        metadata = {
+            "research_objectives": [],
+            "theoretical_framework": [],
+            "document_type": "interview"
         }
         
-        with open(original_filename, 'w', encoding='utf-8') as f:
-            json.dump(data["original_output"], f, indent=2, ensure_ascii=False)
-        logger.info(f"Saved original output to {original_filename}")
-        logger.info(f"Original output stats: {original_stats}")
+        # Extract research objectives (simplified - in a real implementation, this would be more sophisticated)
+        objective_pattern = re.compile(r'(?:objective|goal|aim|purpose)s?:?\s*(.*?)(?:\n\n|\n(?=[A-Z]))', re.IGNORECASE)
+        objective_matches = objective_pattern.findall(text)
+        if objective_matches:
+            metadata["research_objectives"] = [match.strip() for match in objective_matches if match.strip()]
         
-        # Save new output
-        with open(new_filename, 'w', encoding='utf-8') as f:
-            json.dump(data["new_output"], f, indent=2, ensure_ascii=False)
-        logger.info(f"Saved new output to {new_filename} ({len(data['new_output'])} chunks)")
+        # Extract theoretical framework mentions
+        framework_keywords = [
+            "grounded theory", "phenomenology", "ethnography", "case study", 
+            "narrative analysis", "discourse analysis", "content analysis",
+            "thematic analysis", "framework analysis"
+        ]
         
-    except Exception as e:
-        logger.error(f"Error saving output: {e}", exc_info=True)
-        raise
+        for framework in framework_keywords:
+            if re.search(r'\b' + re.escape(framework) + r'\b', text, re.IGNORECASE):
+                metadata["theoretical_framework"].append(framework)
+        
+        return metadata
+    
+    def tokenize_text(self, text):
+        """Convert text to tokens using the specified encoding."""
+        return self.encoding.encode(text)
+    
+    def chunk_document(self, document):
+        """
+        Split a document into overlapping chunks.
+        
+        Args:
+            document (dict): Document with content and metadata
+            
+        Returns:
+            list: List of chunk dictionaries
+        """
+        content = document.get("content", "")
+        if not content:
+            logger.warning(f"Document {document.get('id', 'unknown')} has no content to chunk")
+            return []
+        
+        tokens = self.tokenize_text(content)
+        chunks = []
+        
+        i = 0
+        chunk_id = 0
+        
+        while i < len(tokens):
+            # Get chunk tokens
+            chunk_end = min(i + self.chunk_size, len(tokens))
+            chunk_tokens = tokens[i:chunk_end]
+            
+            # Convert tokens back to text
+            chunk_text = self.encoding.decode(chunk_tokens)
+            
+            # Create chunk with metadata
+            chunk = {
+                "id": f"{document.get('id', 'doc')}_chunk_{chunk_id}",
+                "document_id": document.get('id', 'unknown'),
+                "text": chunk_text,
+                "metadata": document.get("metadata", {}),
+                "chunk_id": chunk_id,
+                "token_count": len(chunk_tokens)
+            }
+            
+            chunks.append(chunk)
+            
+            # Move to next chunk position, accounting for overlap
+            i += self.chunk_size - self.chunk_overlap
+            
+            # Ensure we make progress even with large overlaps
+            if i <= 0:
+                i = min(self.chunk_size, len(tokens))
+                
+            chunk_id += 1
+        
+        return chunks
+    
+    def process_all_documents(self):
+        """Process all documents and create chunks."""
+        documents = self.load_documents()
+        all_chunks = []
+        
+        for document in documents:
+            document_chunks = self.chunk_document(document)
+            all_chunks.extend(document_chunks)
+            logger.info(f"Created {len(document_chunks)} chunks for document {document.get('id', 'unknown')}")
+        
+        if not all_chunks:
+            logger.warning("No chunks were created from documents")
+            return None
+        
+        return all_chunks
+    
+    def save_chunks(self, chunks):
+        """
+        Save chunks to output files.
+        
+        Args:
+            chunks (list): List of document chunks
+            
+        Returns:
+            dict: Paths to saved files
+        """
+        if not chunks:
+            logger.error("No chunks to save")
+            return None
+        
+        # Create metadata about this chunking session
+        info = {
+            "timestamp": self.output_timestamp,
+            "total_chunks": len(chunks),
+            "chunk_size": self.chunk_size,
+            "chunk_overlap": self.chunk_overlap,
+            "documents_processed": list(set(chunk["document_id"] for chunk in chunks))
+        }
+        
+        # Flatten chunks for queries_quotation.json format
+        flattened_chunks = []
+        for chunk in chunks:
+            flattened_chunks.append({
+                "id": chunk["id"],
+                "query": chunk["text"],
+                "document_id": chunk["document_id"],
+                "metadata": chunk["metadata"]
+            })
+        
+        # Save original chunks to timestamped directory
+        original_chunks_path = os.path.join(self.output_dir, "chunks_original.json")
+        with open(original_chunks_path, 'w', encoding='utf-8') as f:
+            json.dump(chunks, f, indent=2)
+        
+        # Create info.json in the output directory
+        info_path = os.path.join(self.output_dir, "info.json")
+        with open(info_path, 'w', encoding='utf-8') as f:
+            json.dump(info, f, indent=2)
+        
+        # Copy to pipeline input locations
+        codebase_chunks_path = os.path.join("data", "codebase_chunks", "codebase_chunks.json")
+        with open(codebase_chunks_path, 'w', encoding='utf-8') as f:
+            json.dump(chunks, f, indent=2)
+        
+        queries_path = os.path.join("data", "input", "queries_quotation.json")
+        with open(queries_path, 'w', encoding='utf-8') as f:
+            json.dump(flattened_chunks, f, indent=2)
+        
+        # Update latest symlink
+        latest_path = os.path.join("data", "chunker_output", "latest")
+        if os.path.exists(latest_path) or os.path.islink(latest_path):
+            os.remove(latest_path)
+        
+        with open(latest_path, 'w') as f:
+            f.write(self.output_timestamp)
+        
+        logger.info(f"Chunks saved successfully to {self.output_dir}")
+        logger.info(f"Copied to pipeline locations: {codebase_chunks_path} and {queries_path}")
+        
+        return {
+            "original_chunks": original_chunks_path,
+            "info": info_path,
+            "codebase_chunks": codebase_chunks_path,
+            "queries": queries_path
+        }
 
-@dataclass
-class AppConfig:
-    """Application configuration."""
-    folder_path: str = "documents"
-    output_prefix_original: str = "chunks_for_CE_original"
-    output_prefix_new: str = "chunks_for_CE_new"
-    chunk_size_original: int = 2048
-    min_chunk_size_original: int = 1024
-    chunk_size_new: int = 1024
-    min_chunk_size_new: int = 512
-    max_topic_distance: float = 0.5
-    delimiter_original: str = "\n---\n"
-    delimiter_new: str = "\n***\n"
-    max_workers: int = None
-    log_level: str = "INFO"
-    log_file: Optional[str] = None
+def run_chunker(documents_dir="documents/", chunk_size=1024, chunk_overlap=200):
+    """
+    Run the document chunking process.
     
-    @classmethod
-    def from_file(cls, filename: str) -> 'AppConfig':
-        """Load configuration from a JSON file."""
-        try:
-            with open(filename, 'r', encoding='utf-8') as config_file:
-                config_dict = json.load(config_file)
-            logger.info(f"Loaded configuration from {filename}")
-            return cls(**config_dict)
-        except Exception as e:
-            logger.error(f"Error loading configuration file: {e}", exc_info=True)
-            return cls()  # Return default config on error
-
-@handle_exceptions
-def main():
-    """Main application entry point."""
-    # Load configuration
-    config_filename = 'chunker/config.json'
-    if not os.path.isfile(config_filename):
-        logger.error(f"Configuration file '{config_filename}' not found. Using defaults.")
-        config = AppConfig()
-    else:
-        config = AppConfig.from_file(config_filename)
+    Args:
+        documents_dir (str): Directory containing documents to process
+        chunk_size (int): Maximum tokens per chunk
+        chunk_overlap (int): Overlap between chunks
+        
+    Returns:
+        dict: Information about the chunking process results
+    """
+    logger.info(f"Starting document chunking process with chunk_size={chunk_size}, chunk_overlap={chunk_overlap}")
     
-    # Configure logging based on config
-    log_level = getattr(logging, config.log_level.upper(), logging.INFO)
-    setup_logging(log_level=log_level, log_file=config.log_file)
-    
-    # Generate timestamp for output files
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    
-    # Define output paths
-    output_folder_original = f"{config.output_prefix_original}_{timestamp}"
-    output_folder_new = f"{config.output_prefix_new}_{timestamp}"
-    output_filename_original = os.path.join(output_folder_original, f"{config.output_prefix_original}_{timestamp}.json")
-    output_filename_new = os.path.join(output_folder_new, f"{config.output_prefix_new}_{timestamp}.json")
-    
-    # Create processing configurations
-    original_config = ProcessingConfig(
-        chunk_size=config.chunk_size_original,
-        min_chunk_size=config.min_chunk_size_original,
-        max_topic_distance=config.max_topic_distance,
-        delimiter=config.delimiter_original
+    chunker = DocumentChunker(
+        documents_dir=documents_dir,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap
     )
     
-    new_config = ProcessingConfig(
-        chunk_size=config.chunk_size_new,
-        min_chunk_size=config.min_chunk_size_new,
-        max_topic_distance=config.max_topic_distance,
-        delimiter=config.delimiter_new
-    )
+    chunks = chunker.process_all_documents()
+    if not chunks:
+        logger.error("Document chunking failed - no chunks produced")
+        return {"success": False, "error": "No chunks produced"}
     
-    # Print configuration summary
-    logger.info("=== Configuration Summary ===")
-    logger.info(f"Documents folder: {config.folder_path}")
-    logger.info(f"Original output: chunk_size={config.chunk_size_original}, min_size={config.min_chunk_size_original}")
-    logger.info(f"New output: chunk_size={config.chunk_size_new}, min_size={config.min_chunk_size_new}")
-    logger.info(f"Max topic distance: {config.max_topic_distance}")
-    logger.info(f"Max workers: {config.max_workers or 'auto'}")
-    logger.info("===========================")
+    output_paths = chunker.save_chunks(chunks)
+    if not output_paths:
+        logger.error("Failed to save chunks")
+        return {"success": False, "error": "Failed to save chunks"}
     
-    # Load documents
-    documents = load_documents_from_folder(config.folder_path)
-    if not documents:
-        logger.error("No documents found. Exiting.")
-        return
-    
-    # Process documents
-    processed_docs = process_documents(
-        documents,
-        folder_path=config.folder_path,
-        original_config=original_config,
-        new_config=new_config,
-        max_workers=config.max_workers
-    )
-    
-    # Save results
-    save_json(processed_docs, output_filename_original, output_filename_new)
-    
-    logger.info("Processing complete!")
-    logger.info(f"Original output saved to: {output_filename_original}")
-    logger.info(f"New output saved to: {output_filename_new}")
-    
-    # Print basic stats about the outputs
-    try:
-        with open(output_filename_original, 'r', encoding='utf-8') as f:
-            original_data = json.load(f)
-            total_original_chunks = sum(len(doc.get("chunks", [])) for doc in original_data)
-            logger.info(f"Original output: {len(original_data)} documents with {total_original_chunks} total chunks")
-    except Exception as e:
-        logger.error(f"Error analyzing original output: {e}")
-
-    try:
-        with open(output_filename_new, 'r', encoding='utf-8') as f:
-            new_data = json.load(f)
-            logger.info(f"New output: {len(new_data)} total chunks")
-    except Exception as e:
-        logger.error(f"Error analyzing new output: {e}")
+    return {
+        "success": True, 
+        "timestamp": chunker.output_timestamp,
+        "paths": output_paths,
+        "chunk_count": len(chunks)
+    }
 
 if __name__ == "__main__":
-    main()
+    # Run the chunker with default settings
+    result = run_chunker()
+    if result["success"]:
+        print(f"Chunking completed successfully. Created {result['chunk_count']} chunks.")
+        print(f"Output saved to: {result['paths']['original_chunks']}")
+    else:
+        print(f"Chunking failed: {result.get('error', 'Unknown error')}")

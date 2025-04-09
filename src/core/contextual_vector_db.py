@@ -346,11 +346,35 @@ class ContextualVectorDB:
     @log_execution_time(logger)
     def search(self, query: str, k: int = 20) -> List[Dict[str, Any]]:
         logger.debug(f"Entering search method with query='{query}' and k={k}.")
+        
+        # First, check if database is loaded; if not, try to load it
         if not self.embeddings or not self.metadata:
-            logger.error("Embeddings or metadata are not loaded. Cannot perform search.")
-            return []
+            logger.warning("Embeddings or metadata are not loaded. Attempting to load database...")
+            if self._is_db_saved_on_disk():
+                try:
+                    logger.info(f"Found database files. Loading from {self.db_path}")
+                    self.load_db()
+                    logger.info("Database metadata loaded successfully")
+                except Exception as e:
+                    logger.error(f"Failed to load database: {str(e)}")
+                    return []
+            else:
+                logger.error(f"Vector database file not found at '{self.db_path}'. Cannot perform search.")
+                return []
+        
+        # Next, check if FAISS index is loaded; if not, try to load it
         if self.index is None:
-            logger.error("FAISS index is not loaded.")
+            logger.warning("FAISS index is not loaded. Attempting to load...")
+            try:
+                self.load_faiss_index()
+                logger.info("FAISS index loaded successfully")
+            except Exception as e:
+                logger.error(f"Failed to load FAISS index: {str(e)}")
+                return []
+        
+        # Verify that everything is loaded now
+        if not self.embeddings or not self.metadata or self.index is None:
+            logger.error("Still missing required components after load attempts. Cannot perform search.")
             return []
 
         query_embedding_np = self._generate_query_embedding(query)

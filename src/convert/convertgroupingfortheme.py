@@ -29,33 +29,50 @@ def convert_query_results(input_file: str, output_dir: str, output_file: str):
             logger.error(f"Input file {input_file} is empty.")
             return
 
-        first_result = grouping_results[0]
+        # Process each result from grouping analysis
+        queries_theme = []
+        
+        for result in grouping_results:
+            # Extract data from the grouping result
+            research_objectives = result.get("research_objectives", "")
+            
+            quotation = result.get("quotation", "") 
+            
+            codes = result.get("grouping_info", {}).get("codes", [])
+            
+            groupings = result.get("groupings", [])
+            
+            keywords = result.get("keywords", [])
+            
+            transcript_chunk = result.get("transcript_chunk", "") 
+            
+            theoretical_framework = result.get("theoretical_framework", {})
+            
+            
+            # If theoretical_framework is missing or incomplete, create a default structure
+            if not theoretical_framework:
+                theoretical_framework = {
+                    "theory": "Thematic analysis",
+                    "philosophical_approach": "Inductive approach",
+                    "rationale": "To identify patterns and themes in qualitative data"
+                }
 
-        # Assuming info.json has already been handled in main.py's generate_theme_input
-        # Here, we're just copying necessary fields
-        codes = first_result.get("grouping_info", {}).get("codes", [])
-        groupings = first_result.get("groupings", [])
-
-        # Placeholders; actual implementation should retrieve these from the pipeline
-        quotation = "Original quotation from previous step."
-        keywords = ["improvement", "reasoning", "innovation"]
-        transcript_chunk = "A relevant transcript chunk providing context."
-
-        queries_theme = [
-            {
+            # Create a properly formatted theme query item
+            theme_query = {
                 "quotation": quotation,
                 "keywords": keywords,
                 "codes": codes,
-                "research_objectives": "To develop advanced reasoning capabilities in AI models...",
-                "theoretical_framework": {
-                    "theory": "Scaling laws of deep learning suggest...",
-                    "philosophical_approach": "A pragmatic, engineering-driven approach...",
-                    "rationale": "Reasoning is identified as a crucial bottleneck..."
-                },
+                "research_objectives": research_objectives,
+                "theoretical_framework": theoretical_framework,
                 "transcript_chunk": transcript_chunk,
-                "groupings": groupings
+                "groupings": groupings,
+                "document_id": result.get("document_id", "unknown"),
+                "id": result.get("id", f"theme_{len(queries_theme)}")
             }
-        ]
+            
+            queries_theme.append(theme_query)
+        
+        logger.info(f"Processed {len(queries_theme)} grouping results into theme queries")
 
         os.makedirs(output_dir, exist_ok=True)
         output_path = os.path.join(output_dir, output_file)

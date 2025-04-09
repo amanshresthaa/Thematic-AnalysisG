@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Language Models
 
-The first step in any DSPy code is to set up your language model. For example, you can configure OpenAI's GPT-4o-mini as your default LM as follows.
+The first step in any DSPy code is to set up your language model. For example, you can configure OpenAI's gpt-4o-mini as your default LM as follows.
 
 ```python linenums="1"
 # Authenticate via `OPENAI_API_KEY` env: import os; os.environ['OPENAI_API_KEY'] = 'here'
@@ -132,7 +132,7 @@ You can change the default LM globally with `dspy.configure` or change it inside
 ```python linenums="1" 
 dspy.configure(lm=dspy.LM('openai/gpt-4o-mini'))
 response = qa(question="How many floors are in the castle David Gregory inherited?")
-print('GPT-4o-mini:', response.answer)
+print('gpt-4o-mini:', response.answer)
 
 with dspy.context(lm=dspy.LM('openai/gpt-3.5-turbo')):
     response = qa(question="How many floors are in the castle David Gregory inherited?")
